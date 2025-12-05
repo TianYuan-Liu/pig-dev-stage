@@ -1,0 +1,107 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cardiff_theme}[2025/12/05 Cardiff University Presentation Theme]
+
+% --- Packages ---
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{helvet}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+
+\graphicspath{{assets/}{../assets/}{./}}
+
+% --- Typography ---
+\renewcommand{\familydefault}{\sfdefault}
+\usefonttheme{structurebold}
+
+% --- Cardiff University Color Palette ---
+\definecolor{CardiffRed}{HTML}{D3374A}
+\definecolor{CardiffBlack}{HTML}{22211F}
+\definecolor{CardiffGrey}{HTML}{D3D3D2}
+\definecolor{CardiffDarkGrey}{HTML}{545351}
+\definecolor{CardiffWhite}{HTML}{FFFFFF}
+\definecolor{CardiffSuperLightGrey}{HTML}{F2F2F2}
+
+% --- Beamer Colors ---
+\setbeamercolor{background canvas}{bg=CardiffWhite}
+\setbeamercolor{normal text}{fg=CardiffBlack}
+\setbeamercolor{frametitle}{fg=CardiffBlack}
+\setbeamercolor{title}{fg=CardiffBlack}
+\setbeamercolor{subtitle}{fg=CardiffRed}
+\setbeamercolor{author}{fg=CardiffDarkGrey}
+\setbeamercolor{itemize item}{fg=CardiffRed}
+\setbeamercolor{itemize subitem}{fg=CardiffRed}
+\setbeamercolor{enumerate item}{fg=CardiffRed}
+
+% --- Layout Settings ---
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=1.2cm, text margin right=1.2cm}
+
+% --- Custom Macros ---
+
+% 1. Editorial Step (The "Magazine" layout for processes)
+\newcommand{\editorialstep}[4]{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=north west, inner sep=0, opacity=0.1, scale=1] 
+        at ([xshift=#2, yshift=-1.5cm]current page.north west) 
+        {\fontsize{100}{100}\selectfont \color{CardiffBlack} \textbf{0#1}};
+        
+        \node[anchor=north west, text width=4cm, align=left] 
+        at ([xshift=#2+0.5cm, yshift=-4cm]current page.north west) 
+        {
+            {\Large \color{CardiffRed} \textbf{#3}} \\[0.3em]
+            \textcolor{CardiffRed}{\rule{1cm}{1pt}} \\[0.5em]
+            {\small \color{CardiffDarkGrey} #4}
+        };
+    \end{tikzpicture}
+}
+
+% 2. Full Page Quote
+\newcommand{\fullpagequote}[2]{
+    \begin{frame}[plain]
+        \centering
+        \vspace*{2cm}
+        \begin{beamercolorbox}[wd=0.8\textwidth, center]{quote}
+            \usebeamerfont{quote}\fontsize{28}{36}\selectfont \itshape \color{CardiffBlack} ``#1''
+        \end{beamercolorbox}
+        \vspace{1cm}
+        {\large \color{CardiffRed} \textbf{--- #2}}
+    \end{frame}
+}
+
+% --- Title Page Template ---
+\setbeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[CardiffRed] (current page.north west) rectangle ++(0.6cm, -\paperheight);
+        \node[anchor=south east, inner sep=0.8cm] at (current page.south east) {
+            \includegraphics[height=1.2cm]{assets/cardiff_logo.jpg}
+        };
+    \end{tikzpicture}
+    \vspace{2.5cm} \hspace{0.5cm}
+    \begin{beamercolorbox}[wd=0.9\textwidth]{title}
+        \usebeamerfont{title}\fontsize{45}{50}\selectfont \textbf{\inserttitle}
+    \end{beamercolorbox}
+    \vspace{0.5cm} \hspace{0.5cm}
+    \begin{beamercolorbox}[wd=0.9\textwidth]{subtitle}
+        \usebeamerfont{subtitle}\Large \insertsubtitle
+    \end{beamercolorbox}
+    \vspace{2cm} \hspace{0.5cm}
+    \begin{beamercolorbox}[wd=0.9\textwidth]{author}
+         \insertauthor \quad \color{CardiffGrey} // \quad \insertdate
+    \end{beamercolorbox}
+}
+
+% --- Frame Title Template ---
+\setbeamertemplate{frametitle}{
+    \vspace{0.8cm}
+    \begin{beamercolorbox}[wd=\textwidth]{frametitle}
+        \usebeamerfont{frametitle}\fontsize{24}{28}\selectfont \textbf{\insertframetitle}
+    \end{beamercolorbox}
+}
+
+% --- Itemize Styles ---
+\setbeamertemplate{itemize item}{\raise0.5pt\hbox{\vrule height 0.8ex width 0.8ex}} % Square
+\setbeamertemplate{itemize subitem}{\raise0.5pt\hbox{\vrule height 0.6ex width 0.6ex}}

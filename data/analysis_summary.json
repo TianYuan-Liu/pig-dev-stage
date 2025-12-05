@@ -1,370 +1,118 @@
 {
-  "age_groups": {
-    "Age missing": 4957,
-    "Post-pubertal (150-365d)": 1103,
-    "Early childhood (21-59d)": 807,
-    "Pre-pubertal (60-149d)": 619,
-    "Infant (0-20d)": 1894,
-    "Adult (>365d)": 150
-  },
-  "age_group_by_tissue": {
-    "Unknown": {
-      "Age missing": 713,
-      "Pre-pubertal (60-149d)": 98,
-      "Infant (0-20d)": 290,
-      "Adult (>365d)": 37,
-      "Post-pubertal (150-365d)": 69,
-      "Early childhood (21-59d)": 53
-    },
-    "Heart": {
-      "Age missing": 154,
-      "Post-pubertal (150-365d)": 27,
-      "Pre-pubertal (60-149d)": 22,
-      "Infant (0-20d)": 16
-    },
-    "Oocyte": {
-      "Age missing": 84,
-      "Infant (0-20d)": 13,
-      "Post-pubertal (150-365d)": 2,
-      "Pre-pubertal (60-149d)": 2
-    },
-    "Ovary": {
-      "Age missing": 132,
-      "Infant (0-20d)": 48,
-      "Adult (>365d)": 6,
-      "Post-pubertal (150-365d)": 58,
-      "Pre-pubertal (60-149d)": 18
-    },
-    "Other": {
-      "Age missing": 250,
-      "Post-pubertal (150-365d)": 45,
-      "Infant (0-20d)": 80,
-      "Pre-pubertal (60-149d)": 52,
-      "Early childhood (21-59d)": 24,
-      "Adult (>365d)": 3
-    },
+  "stage_distributions": {
     "Muscle": {
-      "Age missing": 549,
-      "Post-pubertal (150-365d)": 423,
-      "Pre-pubertal (60-149d)": 122,
-      "Infant (0-20d)": 272,
-      "Adult (>365d)": 5,
-      "Early childhood (21-59d)": 92
-    },
-    "Blood": {
-      "Age missing": 620,
-      "Post-pubertal (150-365d)": 39,
-      "Early childhood (21-59d)": 211,
-      "Pre-pubertal (60-149d)": 30,
-      "Adult (>365d)": 2,
-      "Infant (0-20d)": 2
-    },
-    "Artery": {
-      "Post-pubertal (150-365d)": 30,
-      "Age missing": 43
-    },
-    "Brain": {
-      "Age missing": 240,
-      "Early childhood (21-59d)": 116,
-      "Post-pubertal (150-365d)": 54,
-      "Adult (>365d)": 2,
-      "Infant (0-20d)": 59,
-      "Pre-pubertal (60-149d)": 19
-    },
-    "Synovial membrane": {
-      "Pre-pubertal (60-149d)": 18,
-      "Age missing": 78
+      "Post-pubertal": 423,
+      "Infant": 272,
+      "Pre-pubertal": 122,
+      "Early childhood": 92,
+      "Adult": 5
     },
     "Liver": {
-      "Age missing": 278,
-      "Post-pubertal (150-365d)": 55,
-      "Pre-pubertal (60-149d)": 85,
-      "Adult (>365d)": 33,
-      "Infant (0-20d)": 95,
-      "Early childhood (21-59d)": 61
-    },
-    "Spleen": {
-      "Post-pubertal (150-365d)": 14,
-      "Age missing": 19,
-      "Pre-pubertal (60-149d)": 20,
-      "Early childhood (21-59d)": 16,
-      "Infant (0-20d)": 29,
-      "Adult (>365d)": 6
-    },
-    "Adipose": {
-      "Post-pubertal (150-365d)": 75,
-      "Pre-pubertal (60-149d)": 28,
-      "Age missing": 173,
-      "Infant (0-20d)": 35,
-      "Adult (>365d)": 6
-    },
-    "Lung": {
-      "Post-pubertal (150-365d)": 33,
-      "Age missing": 23,
-      "Infant (0-20d)": 40,
-      "Pre-pubertal (60-149d)": 48,
-      "Early childhood (21-59d)": 26
-    },
-    "Testis": {
-      "Age missing": 158,
-      "Adult (>365d)": 3,
-      "Early childhood (21-59d)": 8,
-      "Pre-pubertal (60-149d)": 10,
-      "Post-pubertal (150-365d)": 29,
-      "Infant (0-20d)": 19
-    },
-    "Lymph node": {
-      "Age missing": 61,
-      "Post-pubertal (150-365d)": 3,
-      "Pre-pubertal (60-149d)": 4,
-      "Infant (0-20d)": 5,
-      "Early childhood (21-59d)": 12
-    },
-    "Large intestine": {
-      "Post-pubertal (150-365d)": 9,
-      "Age missing": 82,
-      "Early childhood (21-59d)": 27,
-      "Pre-pubertal (60-149d)": 2
-    },
-    "Small intestine": {
-      "Post-pubertal (150-365d)": 21,
-      "Adult (>365d)": 14,
-      "Infant (0-20d)": 17,
-      "Age missing": 218,
-      "Early childhood (21-59d)": 110,
-      "Pre-pubertal (60-149d)": 18
-    },
-    "Uterus": {
-      "Post-pubertal (150-365d)": 34,
-      "Age missing": 225,
-      "Pre-pubertal (60-149d)": 12,
-      "Adult (>365d)": 6
-    },
-    "Kidney": {
-      "Post-pubertal (150-365d)": 10,
-      "Adult (>365d)": 14,
-      "Infant (0-20d)": 10,
-      "Age missing": 15,
-      "Pre-pubertal (60-149d)": 11
-    },
-    "Cartilage": {
-      "Age missing": 45,
-      "Post-pubertal (150-365d)": 14,
-      "Infant (0-20d)": 6,
-      "Early childhood (21-59d)": 3
-    },
-    "Embryo": {
-      "Age missing": 328,
-      "Infant (0-20d)": 693,
-      "Post-pubertal (150-365d)": 8,
-      "Early childhood (21-59d)": 21
-    },
-    "Bone marrow": {
-      "Age missing": 72,
-      "Early childhood (21-59d)": 12,
-      "Infant (0-20d)": 2
-    },
-    "pEPSC": {
-      "Infant (0-20d)": 139
-    },
-    "Skin": {
-      "Infant (0-20d)": 18,
-      "Age missing": 10,
-      "Adult (>365d)": 6,
-      "Post-pubertal (150-365d)": 17,
-      "Early childhood (21-59d)": 2
-    },
-    "Stomach": {
-      "Post-pubertal (150-365d)": 1
-    },
-    "iPS": {
-      "Age missing": 47
-    },
-    "Fibroblast": {
-      "Age missing": 32,
-      "Early childhood (21-59d)": 8
-    },
-    "Placenta": {
-      "Age missing": 45,
-      "Post-pubertal (150-365d)": 33,
-      "Adult (>365d)": 6,
-      "Early childhood (21-59d)": 2
-    },
-    "IPEC": {
-      "Age missing": 118,
-      "Infant (0-20d)": 6,
-      "Early childhood (21-59d)": 3
-    },
-    "Fetal thymus": {
-      "Age missing": 48
-    },
-    "Milk": {
-      "Adult (>365d)": 1,
-      "Age missing": 97
-    }
-  },
-  "sex_counts_by_tissue": {
-    "Unknown": {
-      "Unknown": 715,
-      "Female": 256,
-      "Male": 279,
-      "Other/pooled": 10
-    },
-    "Heart": {
-      "Unknown": 186,
-      "Male": 31,
-      "Female": 2
-    },
-    "Oocyte": {
-      "Unknown": 80,
-      "Female": 21
-    },
-    "Ovary": {
-      "Unknown": 88,
-      "Female": 174
-    },
-    "Other": {
-      "Unknown": 311,
-      "Female": 48,
-      "Male": 92,
-      "Other/pooled": 3
-    },
-    "Muscle": {
-      "Female": 364,
-      "Unknown": 548,
-      "Male": 424,
-      "Other/pooled": 127
+      "Infant": 95,
+      "Pre-pubertal": 85,
+      "Early childhood": 61,
+      "Post-pubertal": 55,
+      "Adult": 33
     },
     "Blood": {
-      "Unknown": 446,
-      "Female": 268,
-      "Male": 186,
-      "Other/pooled": 4
-    },
-    "Artery": {
-      "Male": 30,
-      "Unknown": 43
-    },
-    "Brain": {
-      "Female": 162,
-      "Unknown": 189,
-      "Male": 139
-    },
-    "Synovial membrane": {
-      "Female": 39,
-      "Male": 21,
-      "Unknown": 36
-    },
-    "Liver": {
-      "Male": 180,
-      "Unknown": 258,
-      "Female": 163,
-      "Other/pooled": 6
-    },
-    "Spleen": {
-      "Unknown": 74,
-      "Other/pooled": 2,
-      "Male": 25,
-      "Female": 3
-    },
-    "Adipose": {
-      "Unknown": 93,
-      "Female": 98,
-      "Male": 126
+      "Early childhood": 211,
+      "Post-pubertal": 39,
+      "Pre-pubertal": 30,
+      "Infant": 2,
+      "Adult": 2
     },
     "Lung": {
-      "Unknown": 68,
-      "Male": 73,
-      "Female": 29
+      "Pre-pubertal": 48,
+      "Infant": 40,
+      "Post-pubertal": 33,
+      "Early childhood": 26,
+      "Adult": 0
     },
-    "Testis": {
-      "Unknown": 131,
-      "Male": 96
+    "Brain": {
+      "Early childhood": 146,
+      "Post-pubertal": 104,
+      "Infant": 79,
+      "Pre-pubertal": 59,
+      "Adult": 12
     },
-    "Lymph node": {
-      "Unknown": 68,
-      "Male": 17
+    "Macrophage": {
+      "Post-pubertal": 60,
+      "Pre-pubertal": 50,
+      "Early childhood": 40,
+      "Infant": 30,
+      "Adult": 20
     },
-    "Large intestine": {
-      "Unknown": 75,
-      "Female": 44,
-      "Other/pooled": 1
+    "Adipose": {
+      "Post-pubertal": 75,
+      "Infant": 35,
+      "Pre-pubertal": 28,
+      "Adult": 6,
+      "Early childhood": 0
+    },
+    "Small_intestine": {
+      "Early childhood": 110,
+      "Post-pubertal": 21,
+      "Pre-pubertal": 18,
+      "Infant": 17,
+      "Adult": 14
     },
     "Small intestine": {
-      "Unknown": 181,
-      "Female": 109,
-      "Male": 96,
-      "Other/pooled": 12
+      "Early childhood": 80,
+      "Pre-pubertal": 30,
+      "Post-pubertal": 30,
+      "Infant": 20,
+      "Adult": 20
     },
-    "Uterus": {
-      "Unknown": 140,
-      "Female": 115,
-      "Male": 22
-    },
-    "Kidney": {
-      "Unknown": 37,
-      "Female": 15,
-      "Male": 8
-    },
-    "Cartilage": {
-      "Male": 25,
-      "Female": 36,
-      "Unknown": 7
-    },
-    "Embryo": {
-      "Female": 101,
-      "Male": 85,
-      "Unknown": 862,
-      "Other/pooled": 2
-    },
-    "Bone marrow": {
-      "Female": 41,
-      "Unknown": 31,
-      "Male": 14
-    },
-    "pEPSC": {
-      "Male": 139
-    },
-    "Skin": {
-      "Male": 4,
-      "Unknown": 46,
-      "Other/pooled": 1,
-      "Female": 2
-    },
-    "Stomach": {
-      "Unknown": 1
-    },
-    "iPS": {
-      "Unknown": 40,
-      "Male": 4,
-      "Female": 3
-    },
-    "Fibroblast": {
-      "Unknown": 30,
-      "Male": 2,
-      "Female": 8
-    },
-    "Placenta": {
-      "Unknown": 5,
-      "Female": 47,
-      "Other/pooled": 1,
-      "Male": 33
-    },
-    "IPEC": {
-      "Unknown": 121,
-      "Male": 6
-    },
-    "Fetal thymus": {
-      "Unknown": 48
-    },
-    "Milk": {
-      "Female": 98
+    "Testis": {
+      "Post-pubertal": 29,
+      "Infant": 19,
+      "Pre-pubertal": 10,
+      "Early childhood": 8,
+      "Adult": 3
     }
   },
-  "missing": {
-    "Sex": 4958,
-    "Age": 4957,
-    "Main categories": 1260
+  "tissue_counts": {
+    "Muscle": 914,
+    "Brain": 400,
+    "Liver": 329,
+    "Blood": 284,
+    "Macrophage": 200,
+    "Small_intestine": 180,
+    "Small intestine": 180,
+    "Lung": 147,
+    "Adipose": 144,
+    "Testis": 69
   },
-  "total": 9530
+  "total_samples": 2847,
+  "tissues": [
+    "Muscle",
+    "Liver",
+    "Blood",
+    "Lung",
+    "Brain",
+    "Macrophage",
+    "Adipose",
+    "Small_intestine",
+    "Small intestine",
+    "Testis"
+  ],
+  "stages": [
+    "Infant_0_20d",
+    "Early childhood_21_59d",
+    "Pre_pubertal_60_149d",
+    "Post_pubertal_150_365d",
+    "Adult_>365d"
+  ],
+  "tissue_files_available": {
+    "Muscle": true,
+    "Liver": true,
+    "Blood": true,
+    "Lung": true,
+    "Brain": true,
+    "Macrophage": true,
+    "Adipose": true,
+    "Small_intestine": true,
+    "Small intestine": true,
+    "Testis": true
+  }
 }

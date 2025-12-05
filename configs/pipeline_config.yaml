@@ -1,0 +1,181 @@
+# Configuration for pig developmental stage classification pipeline
+
+# Random seed for reproducibility
+seed: 42
+
+# Testing configuration
+# max_genes_for_testing: 2000  # Commented out for full run
+
+# Data configuration
+data:
+  data_dir: "data/pigGTEx"
+  metadata_path: "data/test_metadata.csv"  # Path to metadata file
+
+# Preprocessing configuration
+preprocessing:
+  expression_filtering:
+    min_tpm: 0.1
+    min_detection_rate: 0.1
+    protein_coding_only: true
+
+  transformation:
+    log_transform: true
+    standardize: true
+    min_variance_percentile: 20
+    remove_covariates: []  # Can add: ["Sex", "Batch"]
+    seed: 42
+
+# Stage granularity selection
+stage_selection:
+  min_samples_4class: 40
+  min_samples_3class: 30
+  min_samples_2class: 25
+  min_total_2class: 60
+
+# Cross-validation configuration
+cross_validation:
+  n_outer_folds: 3  # Reduced for faster testing
+  n_inner_folds: 2  # Reduced for faster testing
+  group_column: null  # Can be "Batch" or "Animal_ID" if available
+
+# Feature selection configuration
+feature_selection:
+  variance_threshold_percentile: 20
+  elastic_net_alpha: 0.5
+  elastic_net_l1_ratio: 0.5
+  stability_threshold: 0.6
+  max_features: null
+  seed: 42
+
+# Model configurations for different stage schemes
+models:
+  4_class:
+    model_type: "ordinal_lr"
+    alpha: 1.0
+    l1_ratio: 0.5
+    max_iter: 1000
+    class_weight: "balanced"
+    seed: 42
+
+  3_class:
+    model_type: "ordinal_lr"
+    alpha: 1.0
+    l1_ratio: 0.5
+    max_iter: 1000
+    class_weight: "balanced"
+    seed: 42
+
+  2_class:
+    model_type: "binary_lr"
+    C: 1.0
+    l1_ratio: 0.5
+    max_iter: 1000
+    class_weight: "balanced"
+    random_state: 42
+
+# Alternative LightGBM configurations (can be used by changing model_type)
+lightgbm:
+  4_class:
+    model_type: "ordinal_lgb"
+    num_leaves: 31
+    max_depth: 6
+    learning_rate: 0.05
+    n_estimators: 100
+    min_data_in_leaf: 20
+    feature_fraction: 0.9
+    bagging_fraction: 0.9
+    lambda_l1: 0.01
+    lambda_l2: 0.01
+    class_weight: "balanced"
+    monotone_constraints: true
+    seed: 42
+
+  3_class:
+    model_type: "ordinal_lgb"
+    num_leaves: 31
+    max_depth: 6
+    learning_rate: 0.05
+    n_estimators: 100
+    min_data_in_leaf: 20
+    feature_fraction: 0.9
+    bagging_fraction: 0.9
+    lambda_l1: 0.01
+    lambda_l2: 0.01
+    class_weight: "balanced"
+    monotone_constraints: true
+    seed: 42
+
+  2_class:
+    model_type: "binary_lr"
+    C: 1.0
+    l1_ratio: 0.5
+    max_iter: 1000
+    class_weight: "balanced"
+    random_state: 42
+
+# Calibration configuration
+calibration:
+  method: "isotonic"  # or "platt"
+  cv_folds: 3
+
+# Conformal prediction configuration
+conformal:
+  confidence_level: 0.9
+  calibration_fraction: 0.2
+
+# Evaluation metrics
+evaluation:
+  metrics:
+    - "balanced_accuracy"
+    - "f1_macro"
+    - "mae"  # Mean absolute error in stage units
+    - "cohen_kappa"  # Quadratic weighted
+    - "spearman_r"  # Correlation
+
+  near_miss_tolerance: true  # Calculate ±1 stage accuracy
+
+# Interpretation configuration
+interpretation:
+  shap:
+    enabled: true
+    max_display_features: 20
+
+  gene_set_enrichment:
+    enabled: true
+    databases:
+      - "GO"
+      - "Reactome"
+    fdr_threshold: 0.05
+    min_gene_set_size: 10
+    max_gene_set_size: 500
+
+# Visualization configuration
+visualization:
+  figure_format: "pdf"
+  dpi: 300
+  style: "seaborn-v0_8-whitegrid"
+
+  plots:
+    confusion_matrix: true
+    reliability_curve: true
+    feature_importance: true
+    gene_heatmap: true
+    enrichment_dotplot: true
+    conformal_coverage: true
+
+# Output configuration
+output:
+  results_dir: "artifacts/results"
+  figures_dir: "artifacts/figures"
+  models_dir: "artifacts/models"
+
+  save_models: true
+  save_predictions: true
+  save_features: true
+  save_interpretations: true
+
+# MLflow configuration (optional)
+mlflow:
+  tracking_uri: null  # Can be "file:./mlruns" or remote URI
+  experiment_name: "pig_developmental_stages"
+  run_name: null  # Will be auto-generated if not specified

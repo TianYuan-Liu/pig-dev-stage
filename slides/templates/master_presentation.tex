@@ -1,0 +1,122 @@
+\documentclass[aspectratio=169, 10pt, t]{beamer}
+
+% --- Import Cardiff Theme ---
+\usepackage{cardiff_theme}
+
+% --- Presentation Info ---
+\title{Project Proposal}
+\subtitle{Reimagining Data Visualization}
+\author{Tianyuan Liu}
+\date{\today}
+
+\begin{document}
+
+% 1. Cover
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+% 2. Agenda
+\begin{frame}{Agenda}
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item \textbf{High-Level Vision}: Defining the problem space.
+        \item \textbf{Core Methodology}: Our three-step process.
+        \item \textbf{Data Analysis}: Preliminary results.
+        \item \textbf{Future Work}: Roadmap for Q4.
+    \end{itemize}
+\end{frame}
+
+% 3. Standard Text Slide
+\begin{frame}{The Challenge}
+    \vspace{0.5cm}
+    Current tools fail to address the complexity of modern biological datasets.
+    
+    \vspace{1cm}
+    \textbf{Key Pain Points:}
+    \vspace{0.5em}
+    \begin{itemize}
+        \item \textbf{Snippet 01}: Visual clutter reduces cognitive load capacity.
+        \item \textbf{Snippet 02}: Inconsistent encoding creates ambiguity.
+        \item \textbf{Snippet 03}: "Default" settings lead to sub-optimal storytelling.
+    \end{itemize}
+\end{frame}
+
+% 4. Split Layout
+\begin{frame}{Proposed Solution}
+    \vspace{0.5cm}
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+            \textbf{\Large Clean Architecture}
+            \vspace{1em}
+            
+            We propose a modular system that separates content from form.
+            
+            \vspace{1em}
+            \begin{itemize}
+                \item Modular Components
+                \item Strict Type Checking
+                \item Automated Layouts
+            \end{itemize}
+
+        \column{0.45\textwidth}
+            % Placeholder for Image
+            \begin{tikzpicture}
+                \fill[CardiffSuperLightGrey] (0,0) rectangle (6,5);
+                \node at (3,2.5) {\color{CardiffDarkGrey} [ Image Placeholder ]};
+                \draw[CardiffRed, thick] (0,0) -- (6,0);
+            \end{tikzpicture}
+    \end{columns}
+\end{frame}
+
+% 5. Process Slide (Editorial Feature)
+\begin{frame}{Methodology}
+    \editorialstep{1}{1.2cm}{Discovery}{User research and data gathering.}
+    \editorialstep{2}{6.2cm}{Design}{Iterative prototyping phase.}
+    \editorialstep{3}{11.2cm}{Deploy}{Production rollout and testing.}
+    
+    \begin{tikzpicture}[remember picture, overlay]
+         \draw[CardiffRed, thick] ([yshift=1cm, xshift=1.2cm]current page.south west) -- ([yshift=1cm, xshift=-1.2cm]current page.south east);
+    \end{tikzpicture}
+\end{frame}
+
+% 6. Quote Slide
+\fullpagequote{Design is not just what it looks like and feels like. Design is how it works.}{Steve Jobs}
+
+% 7. Data Slide
+\begin{frame}{Quantitative Results}
+    \vspace{0.5cm}
+    Comparison of performance metrics across three trials.
+    
+    \vspace{1cm}
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{l c c r}
+        \toprule
+        \textbf{Metric} & \textbf{Baseline} & \textbf{Our Method} & \textbf{Improvement} \\
+        \midrule
+        Render Time & 450ms & \textbf{120ms} & \color{CardiffRed} + 275\% \\
+        User Accuracy & 68\% & \textbf{94\%} & \color{CardiffRed} + 38\% \\
+        Error Rate & 12\% & \textbf{2\%} & \color{CardiffRed} - 83\% \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
+
+% 8. Conclusion
+\begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=west] at ([xshift=1.5cm, yshift=2cm]current page.west) {
+            \fontsize{60}{70}\selectfont \textbf{Thank You.}
+        };
+        
+         \node[anchor=west] at ([xshift=1.6cm, yshift=0cm]current page.west) {
+            \fontsize{14}{16}\selectfont \color{CardiffDarkGrey} liut33@cardiff.ac.uk
+        };
+        
+         \node[anchor=south east, inner sep=1cm] at (current page.south east) {
+            \includegraphics[height=1.2cm]{assets/cardiff_logo.jpg}
+        };
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}

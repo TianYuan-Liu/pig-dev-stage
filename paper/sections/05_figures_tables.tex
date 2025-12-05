@@ -1,0 +1,63 @@
+% Main Figures and Tables
+
+% Table 1: Performance Metrics
+\begin{table}[htbp]
+  \centering
+  \caption{\textbf{Tissue-specific classification performance.} Balanced accuracy (BA) is reported with 95\% bootstrap confidence intervals. MAE is reported in stage units. A dash indicates that ordinal MAE is not defined for two-class models.}
+  \label{tab:performance}
+  \sisetup{round-mode = places, round-precision = 3}
+  \begin{tabular}{lllll}
+    \toprule
+    Tissue & Scheme & BA [95\% CI] & Macro F1 & MAE \\
+    \midrule
+    Muscle & 4-class & 0.887~[0.833, 0.934] & 0.888 & 0.095 \\
+    Brain & 4-class & 0.905~[0.846, 0.952] & 0.894 & 0.157 \\
+    Liver & 4-class & 0.924~[0.870, 0.969] & 0.919 & 0.081 \\
+    Blood & 3-class & 0.821~[0.699, 0.934] & 0.762 & 0.163 \\
+    Small intestine & 3-class & 0.858~[0.763, 0.939] & 0.806 & 0.291 \\
+    Lung & 3-class & 0.867~[0.746, 0.970] & 0.874 & 0.111 \\
+    Adipose & 2-class & 0.907~[0.808, 0.982] & 0.907 & -- \\
+    Testis & 2-class & 0.955~[0.850, 1.000] & 0.952 & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% Figure 1: Machine Learning Pipeline (Previously Supplementary Figure 1)
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{supplementary_figure1_ml_pipeline.pdf}
+  \caption{\textbf{Machine learning pipeline schematic.} End-to-end workflow from raw PigGTEx transcriptomes through preprocessing, adaptive stage granularity assignment, model training, calibration, and evaluation outputs.}
+  \label{fig:mlpipeline}
+\end{figure}
+
+% Figure 2: Study Overview (Previously Figure 1)
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure1_methodology.pdf}
+  \caption{\textbf{Overview of the developmental staging workflow.} (a) Age bins used to harmonise PigGTEx metadata into five developmental stages. (b) Tissue-level sample availability and resulting stage granularity assignments. Bottom panel: End-to-end machine learning pipeline from data ingestion through calibrated evaluation.}
+  \label{fig:methodology}
+\end{figure}
+
+% Figure 3: Performance (Previously Figure 2)
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure2_performance.pdf}
+  \caption{\textbf{Classifier performance diagnostics.} (a) Balanced accuracy, macro F1, mean absolute error, and Spearman correlations with 95\% bootstrap intervals. (b) Confusion matrices emphasising near-miss errors. (c) Correlation between predicted stage scores and chronological age across representative tissues.}
+  \label{fig:performance}
+\end{figure}
+
+% Figure 4: Molecular Signatures (Previously Figure 3)
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure3_molecular_signatures.pdf}
+  \caption{\textbf{Molecular signatures of porcine developmental staging.} (a) Tissue-specific UMAP embeddings coloured by developmental stage. (b) Feature overlap among the top 50 markers per tissue. (c) Exemplar marker trajectories across developmental stages for key tissue-specific genes.}
+  \label{fig:signatures}
+\end{figure}
+
+% Figure 5: Biological Validation (Previously Figure 4)
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure4_biological_validation.pdf}
+  \caption{\textbf{Functional validation of stage-informative genes.} (a) Tissue-resolved gene ontology enrichments for top biological process terms. (b) Network view of developmental pathway modules. (c) Expression tracking of canonical markers across stages, illustrating biological concordance with classifier predictions.}
+  \label{fig:biovalidation}
+\end{figure}

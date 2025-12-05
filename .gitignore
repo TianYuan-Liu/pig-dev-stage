@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+logs/
+
+# Data (too large for git)
+data/pigGTEx/*.gz
+data/pigGTEx/*.txt
+
+# Output files
+artifacts/results/*.json
+artifacts/figures/*.pdf
+artifacts/figures/*.png
+machine_learning/model_outputs/*.json
+machine_learning/model_outputs/*.pkl
+visualization/nature_figures/test_outputs/
+
+# R
+.Rhistory
+.RData
+.Rapp.history
+
+# Temporary
+*.tmp
+*.bak
+*~
+test_*.py
+test_*.R
+
+# Deprecated
+deprecated/
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.nav
+*.snm
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.out
+
+# Generated figures (regenerable from scripts)
+visualization/*.pdf
+visualization/*.png
+results/enrichment_analysis/figures/*.pdf
+results/enrichment_analysis/figures/*.png
+
+# Generated results (regenerable)
+results/enrichment_analysis/**/*.csv

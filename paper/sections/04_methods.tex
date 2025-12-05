@@ -1,0 +1,91 @@
+% Methods (Detailed version merged from Supplementary Information)
+\section{Methods}
+
+\subsection{Data acquisition}
+Bulk RNA-seq transcript-per-million (TPM) matrices and metadata were obtained from the PigGTEx resource. Ages recorded in days were harmonised to developmental stages: Infant (0--20d), Early childhood (21--59d), Pre-pubertal (60--149d), Post-pubertal (150--365d), and Adult (>365d). Genes were required to exceed 0.1~TPM in at least 10\% of samples per tissue.
+
+\subsection{Detailed Mathematical Framework}
+
+Let $x \in \mathbb{R}^G_{\ge 0}$ denote a per-sample gene-expression vector and let $y \in \{0,\dots,K-1\}$ be the ordered developmental-stage label. Chronological age $a \in \mathbb{R}_{\ge 0}$ (in days) is mapped to a canonical five-stage label via:
+
+\begin{equation}
+s(a) =
+\begin{cases}
+0 & \text{if } 0 \le a \le 20 \\
+1 & \text{if } 21 \le a \le 59 \\
+2 & \text{if } 60 \le a \le 149 \\
+3 & \text{if } 150 \le a \le 365 \\
+4 & \text{if } a > 365
+\end{cases}
+\label{eq:age2stage}
+\end{equation}
+
+\subsection{Adaptive stage granularity}
+
+For each tissue $t$, the adaptive stage granularity selects the most detailed scheme $K_t^\star \in \{2,3,4\}$ subject to minimum per-class sample counts:
+
+\begin{equation}
+K_t^\star = \max_{K \in \{2,3,4\}} \; K \;\; \text{s.t.} \;\; \min_c n_{t,c}(K) \ge m_K
+\label{eq:schema}
+\end{equation}
+
+where $m_4{=}40$, $m_3{=}30$, $m_2{=}25$, and for $K{=}2$: $N_t \ge 60$.
+
+\subsection{Pre-processing Pipeline}
+
+Pre-processing applies a log transform and standardisation:
+\begin{equation}
+x' = \log_2(x + 1)
+\label{eq:preprocess}
+\end{equation}
+
+followed by variance filtering (retain genes above the 20th percentile per tissue), yielding gene set $S_t$. Standardised features are:
+\begin{equation}
+z_g = \frac{x'_g - \mu_g}{\sigma_g}, \quad g \in S_t
+\label{eq:standardize}
+\end{equation}
+
+Features are ranked by mutual information and the top $d \le 2000$ are selected:
+\begin{equation}
+S_t = \operatorname{Top}_d \big\{ I(x'_g; y) \;:\; g \in S_t \big\}
+\label{eq:mi}
+\end{equation}
+
+\subsection{Model Specification}
+
+For ordinal problems ($K \ge 3$), we fit a cumulative link logistic model:
+\begin{equation}
+\Pr\!\left(y \ge k \mid z\right) = \sigma\!\left(\alpha_k + w^\top z\right)
+\label{eq:ordinal}
+\end{equation}
+
+where $k = 1,\dots,K-1$, $\alpha_1 < \cdots < \alpha_{K-1}$, and $\sigma(u) = 1/(1+e^{-u})$.
+
+Parameters are estimated by minimising:
+\begin{equation}
+\min_{w,\alpha} \; \mathcal{L}_{\mathrm{ord}}(w,\alpha;\mathcal{D}) \;+\; \lambda_1 \lVert w \rVert_1 \;+\; \frac{\lambda_2}{2} \lVert w \rVert_2^2
+\label{eq:objective}
+\end{equation}
+
+Binary problems used logistic regression with elastic net regularisation. Data were split 70:30 for training and evaluation with stratification where possible.
+
+\subsection{Performance Evaluation}
+
+Primary metrics include:
+\begin{equation}
+\mathrm{BA} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{\mathrm{TP}_c}{\mathrm{TP}_c + \mathrm{FN}_c}
+\label{eq:ba}
+\end{equation}
+
+\begin{equation}
+\mathrm{MacroF1} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{2\,\mathrm{Prec}_c\,\mathrm{Rec}_c}{\mathrm{Prec}_c+\mathrm{Rec}_c}
+\label{eq:macroF1}
+\end{equation}
+
+Mean absolute error was computed for ordinal predictions. Confidence intervals were computed via 1,000 bootstrap resamples.
+
+\subsection{Functional enrichment}
+Gene ontology enrichment of the top 50 stage-informative genes per tissue was performed using DAVID and Enrichr, with Benjamini-Hochberg correction for multiple testing. Fold enrichments and adjusted p-values were reported for biological process terms.
+
+\subsection{Code availability}
+All analysis pipelines are available in the project repository under \texttt{machine\_learning/} with documentation at \texttt{docs/}. The orchestrator script \texttt{run\_pipeline.py} manages tissue-specific execution with full reproducibility. All stochastic elements are seeded with 42 to ensure reproducibility.

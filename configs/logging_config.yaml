@@ -1,0 +1,159 @@
+# Logging Configuration for ML Pipeline
+# This file contains configuration settings for the enhanced logging system
+
+logging:
+  # Global logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: INFO
+
+  # Log output directory
+  log_dir: logs
+
+  # Console logging settings
+  console:
+    enabled: true
+    colored: true
+    level: INFO
+    format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+
+  # File logging settings
+  file:
+    enabled: true
+    level: DEBUG
+    max_bytes: 10485760  # 10 MB
+    backup_count: 5
+    format: '%(asctime)s - %(levelname)s - %(name)s - %(funcName)s:%(lineno)d - %(message)s'
+
+  # JSON structured logging
+  json:
+    enabled: true
+    level: DEBUG
+    max_bytes: 10485760  # 10 MB
+    backup_count: 5
+
+  # Module-specific log levels
+  modules:
+    data_loader: DEBUG
+    preprocessing: DEBUG
+    feature_selection: INFO
+    model_training: INFO
+    evaluation: DEBUG
+    cross_tissue: INFO
+
+# Performance monitoring settings
+performance:
+  # Track execution time for operations
+  track_timing: true
+
+  # Track memory usage
+  track_memory: true
+
+  # Log system information at startup
+  log_system_info: true
+
+  # Operations to track (use * for all)
+  tracked_operations:
+    - data_loading
+    - preprocessing
+    - feature_selection
+    - model_training
+    - evaluation
+    - cross_validation
+
+  # Memory usage checkpoints
+  memory_checkpoints:
+    - start
+    - after_loading
+    - after_preprocessing
+    - after_feature_selection
+    - after_training
+    - end
+
+# Data quality validation settings
+validation:
+  # Check for missing values
+  check_missing: true
+
+  # Check for constant features
+  check_constant: true
+
+  # Check for outliers
+  check_outliers: true
+  outlier_std_threshold: 3.0
+
+  # Check data dimensions
+  check_dimensions: true
+
+  # Log data statistics
+  log_statistics: true
+
+  # Validation failure behavior (warn, error, skip)
+  on_failure: warn
+
+# Pipeline-specific settings
+pipeline:
+  # Progress bars for long operations
+  show_progress: true
+
+  # Verbose output for debugging
+  verbose: false
+
+  # Save intermediate results
+  save_intermediate: false
+
+  # Checkpoint frequency (for recovery)
+  checkpoint_interval: 100
+
+  # Error handling
+  on_error: log_and_continue  # or 'log_and_stop'
+
+  # Warnings behavior
+  capture_warnings: true
+
+  # Summary reports
+  generate_summary: true
+  summary_format: both  # 'json', 'text', or 'both'
+
+# Notification settings (optional)
+notifications:
+  # Email notifications for errors
+  email:
+    enabled: false
+    smtp_server: smtp.example.com
+    smtp_port: 587
+    from_address: pipeline@example.com
+    to_addresses:
+      - admin@example.com
+    on_error: true
+    on_completion: false
+
+  # Slack notifications
+  slack:
+    enabled: false
+    webhook_url: https://hooks.slack.com/services/YOUR/WEBHOOK/URL
+    channel: '#ml-pipeline'
+    on_error: true
+    on_completion: true
+    on_warning: false
+
+# Advanced settings
+advanced:
+  # Buffer size for log messages
+  buffer_size: 1000
+
+  # Flush interval (seconds)
+  flush_interval: 5
+
+  # Compression for archived logs
+  compress_archives: true
+
+  # Log retention (days)
+  retention_days: 30
+
+  # Async logging for better performance
+  async_logging: false
+
+  # Custom fields to add to all log records
+  custom_fields:
+    environment: development
+    project: pig-dev-stage
+    version: "1.0.0"

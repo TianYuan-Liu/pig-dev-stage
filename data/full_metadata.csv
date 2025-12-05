@@ -1,0 +1,2848 @@
+Sample_ID,Tissue,Tissue_detail,Age,Stage,Sex
+SAMN00000001,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000002,Muscle,Muscle,7,Infant_0_20d,Male
+SAMN00000003,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000004,Muscle,Muscle,18,Infant_0_20d,Female
+SAMN00000005,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000006,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000007,Muscle,Muscle,11,Infant_0_20d,Male
+SAMN00000008,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000009,Muscle,Muscle,13,Infant_0_20d,Female
+SAMN00000010,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000011,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000012,Muscle,Muscle,11,Infant_0_20d,Male
+SAMN00000013,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000014,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000015,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000016,Muscle,Muscle,12,Infant_0_20d,Female
+SAMN00000017,Muscle,Muscle,7,Infant_0_20d,Male
+SAMN00000018,Muscle,Muscle,19,Infant_0_20d,Female
+SAMN00000019,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000020,Muscle,Muscle,2,Infant_0_20d,Female
+SAMN00000021,Muscle,Muscle,14,Infant_0_20d,Female
+SAMN00000022,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000023,Muscle,Muscle,12,Infant_0_20d,Female
+SAMN00000024,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000025,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000026,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000027,Muscle,Muscle,1,Infant_0_20d,Male
+SAMN00000028,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000029,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000030,Muscle,Muscle,11,Infant_0_20d,Male
+SAMN00000031,Muscle,Muscle,12,Infant_0_20d,Female
+SAMN00000032,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000033,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000034,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000035,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000036,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000037,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000038,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000039,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000040,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000041,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000042,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000043,Muscle,Muscle,15,Infant_0_20d,Male
+SAMN00000044,Muscle,Muscle,7,Infant_0_20d,Male
+SAMN00000045,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000046,Muscle,Muscle,15,Infant_0_20d,Male
+SAMN00000047,Muscle,Muscle,1,Infant_0_20d,Female
+SAMN00000048,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000049,Muscle,Muscle,15,Infant_0_20d,Male
+SAMN00000050,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000051,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000052,Muscle,Muscle,14,Infant_0_20d,Female
+SAMN00000053,Muscle,Muscle,16,Infant_0_20d,Female
+SAMN00000054,Muscle,Muscle,10,Infant_0_20d,Male
+SAMN00000055,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000056,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000057,Muscle,Muscle,11,Infant_0_20d,Male
+SAMN00000058,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000059,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000060,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000061,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000062,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000063,Muscle,Muscle,2,Infant_0_20d,Female
+SAMN00000064,Muscle,Muscle,12,Infant_0_20d,Female
+SAMN00000065,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000066,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000067,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000068,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000069,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000070,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000071,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000072,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000073,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000074,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000075,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000076,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000077,Muscle,Muscle,14,Infant_0_20d,Female
+SAMN00000078,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000079,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000080,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000081,Muscle,Muscle,11,Infant_0_20d,Male
+SAMN00000082,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000083,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000084,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000085,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000086,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000087,Muscle,Muscle,18,Infant_0_20d,Female
+SAMN00000088,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000089,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000090,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000091,Muscle,Muscle,13,Infant_0_20d,Female
+SAMN00000092,Muscle,Muscle,16,Infant_0_20d,Male
+SAMN00000093,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000094,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000095,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000096,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000097,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000098,Muscle,Muscle,2,Infant_0_20d,Female
+SAMN00000099,Muscle,Muscle,12,Infant_0_20d,Female
+SAMN00000100,Muscle,Muscle,13,Infant_0_20d,Female
+SAMN00000101,Muscle,Muscle,18,Infant_0_20d,Female
+SAMN00000102,Muscle,Muscle,16,Infant_0_20d,Male
+SAMN00000103,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000104,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000105,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000106,Muscle,Muscle,13,Infant_0_20d,Male
+SAMN00000107,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000108,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000109,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000110,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000111,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000112,Muscle,Muscle,16,Infant_0_20d,Female
+SAMN00000113,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000114,Muscle,Muscle,1,Infant_0_20d,Female
+SAMN00000115,Muscle,Muscle,13,Infant_0_20d,Male
+SAMN00000116,Muscle,Muscle,1,Infant_0_20d,Female
+SAMN00000117,Muscle,Muscle,10,Infant_0_20d,Male
+SAMN00000118,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000119,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000120,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000121,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000122,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000123,Muscle,Muscle,3,Infant_0_20d,Male
+SAMN00000124,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000125,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000126,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000127,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000128,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000129,Muscle,Muscle,16,Infant_0_20d,Female
+SAMN00000130,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000131,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000132,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000133,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000134,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000135,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000136,Muscle,Muscle,1,Infant_0_20d,Male
+SAMN00000137,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000138,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000139,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000140,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000141,Muscle,Muscle,13,Infant_0_20d,Female
+SAMN00000142,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000143,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000144,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000145,Muscle,Muscle,16,Infant_0_20d,Male
+SAMN00000146,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000147,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000148,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000149,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000150,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000151,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000152,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000153,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000154,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000155,Muscle,Muscle,16,Infant_0_20d,Female
+SAMN00000156,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000157,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000158,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000159,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000160,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000161,Muscle,Muscle,11,Infant_0_20d,Male
+SAMN00000162,Muscle,Muscle,14,Infant_0_20d,Female
+SAMN00000163,Muscle,Muscle,1,Infant_0_20d,Male
+SAMN00000164,Muscle,Muscle,7,Infant_0_20d,Male
+SAMN00000165,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000166,Muscle,Muscle,16,Infant_0_20d,Male
+SAMN00000167,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000168,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000169,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000170,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000171,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000172,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000173,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000174,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000175,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000176,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000177,Muscle,Muscle,1,Infant_0_20d,Male
+SAMN00000178,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000179,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000180,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000181,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000182,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000183,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000184,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000185,Muscle,Muscle,1,Infant_0_20d,Male
+SAMN00000186,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000187,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000188,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000189,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000190,Muscle,Muscle,1,Infant_0_20d,Male
+SAMN00000191,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000192,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000193,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000194,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000195,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000196,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000197,Muscle,Muscle,10,Infant_0_20d,Male
+SAMN00000198,Muscle,Muscle,13,Infant_0_20d,Male
+SAMN00000199,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000200,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000201,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000202,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000203,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000204,Muscle,Muscle,3,Infant_0_20d,Male
+SAMN00000205,Muscle,Muscle,19,Infant_0_20d,Female
+SAMN00000206,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000207,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000208,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000209,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000210,Muscle,Muscle,14,Infant_0_20d,Female
+SAMN00000211,Muscle,Muscle,13,Infant_0_20d,Female
+SAMN00000212,Muscle,Muscle,15,Infant_0_20d,Male
+SAMN00000213,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000214,Muscle,Muscle,10,Infant_0_20d,Female
+SAMN00000215,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000216,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000217,Muscle,Muscle,7,Infant_0_20d,Female
+SAMN00000218,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000219,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000220,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000221,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000222,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000223,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000224,Muscle,Muscle,15,Infant_0_20d,Male
+SAMN00000225,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000226,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000227,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000228,Muscle,Muscle,12,Infant_0_20d,Male
+SAMN00000229,Muscle,Muscle,10,Infant_0_20d,Male
+SAMN00000230,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000231,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000232,Muscle,Muscle,19,Infant_0_20d,Female
+SAMN00000233,Muscle,Muscle,7,Infant_0_20d,Female
+SAMN00000234,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000235,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000236,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000237,Muscle,Muscle,2,Infant_0_20d,Male
+SAMN00000238,Muscle,Muscle,4,Infant_0_20d,Male
+SAMN00000239,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000240,Muscle,Muscle,2,Infant_0_20d,Female
+SAMN00000241,Muscle,Muscle,3,Infant_0_20d,Female
+SAMN00000242,Muscle,Muscle,4,Infant_0_20d,Female
+SAMN00000243,Muscle,Muscle,1,Infant_0_20d,Female
+SAMN00000244,Muscle,Muscle,16,Infant_0_20d,Female
+SAMN00000245,Muscle,Muscle,2,Infant_0_20d,Female
+SAMN00000246,Muscle,Muscle,11,Infant_0_20d,Female
+SAMN00000247,Muscle,Muscle,14,Infant_0_20d,Female
+SAMN00000248,Muscle,Muscle,5,Infant_0_20d,Male
+SAMN00000249,Muscle,Muscle,6,Infant_0_20d,Male
+SAMN00000250,Muscle,Muscle,8,Infant_0_20d,Female
+SAMN00000251,Muscle,Muscle,12,Infant_0_20d,Female
+SAMN00000252,Muscle,Muscle,19,Infant_0_20d,Male
+SAMN00000253,Muscle,Muscle,14,Infant_0_20d,Male
+SAMN00000254,Muscle,Muscle,9,Infant_0_20d,Female
+SAMN00000255,Muscle,Muscle,17,Infant_0_20d,Female
+SAMN00000256,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000257,Muscle,Muscle,18,Infant_0_20d,Male
+SAMN00000258,Muscle,Muscle,2,Infant_0_20d,Female
+SAMN00000259,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000260,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000261,Muscle,Muscle,13,Infant_0_20d,Male
+SAMN00000262,Muscle,Muscle,5,Infant_0_20d,Female
+SAMN00000263,Muscle,Muscle,15,Infant_0_20d,Female
+SAMN00000264,Muscle,Muscle,13,Infant_0_20d,Female
+SAMN00000265,Muscle,Muscle,3,Infant_0_20d,Male
+SAMN00000266,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000267,Muscle,Muscle,6,Infant_0_20d,Female
+SAMN00000268,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000269,Muscle,Muscle,9,Infant_0_20d,Male
+SAMN00000270,Muscle,Muscle,17,Infant_0_20d,Male
+SAMN00000271,Muscle,Muscle,8,Infant_0_20d,Male
+SAMN00000272,Muscle,Muscle,3,Infant_0_20d,Male
+SAMN00000273,Muscle,Muscle,50,Early childhood_21_59d,Male
+SAMN00000274,Muscle,Muscle,30,Early childhood_21_59d,Female
+SAMN00000275,Muscle,Muscle,21,Early childhood_21_59d,Female
+SAMN00000276,Muscle,Muscle,28,Early childhood_21_59d,Female
+SAMN00000277,Muscle,Muscle,38,Early childhood_21_59d,Male
+SAMN00000278,Muscle,Muscle,42,Early childhood_21_59d,Male
+SAMN00000279,Muscle,Muscle,26,Early childhood_21_59d,Female
+SAMN00000280,Muscle,Muscle,50,Early childhood_21_59d,Female
+SAMN00000281,Muscle,Muscle,36,Early childhood_21_59d,Male
+SAMN00000282,Muscle,Muscle,58,Early childhood_21_59d,Female
+SAMN00000283,Muscle,Muscle,28,Early childhood_21_59d,Male
+SAMN00000284,Muscle,Muscle,27,Early childhood_21_59d,Male
+SAMN00000285,Muscle,Muscle,27,Early childhood_21_59d,Female
+SAMN00000286,Muscle,Muscle,58,Early childhood_21_59d,Male
+SAMN00000287,Muscle,Muscle,40,Early childhood_21_59d,Male
+SAMN00000288,Muscle,Muscle,38,Early childhood_21_59d,Male
+SAMN00000289,Muscle,Muscle,43,Early childhood_21_59d,Male
+SAMN00000290,Muscle,Muscle,38,Early childhood_21_59d,Female
+SAMN00000291,Muscle,Muscle,31,Early childhood_21_59d,Female
+SAMN00000292,Muscle,Muscle,31,Early childhood_21_59d,Male
+SAMN00000293,Muscle,Muscle,56,Early childhood_21_59d,Male
+SAMN00000294,Muscle,Muscle,23,Early childhood_21_59d,Female
+SAMN00000295,Muscle,Muscle,51,Early childhood_21_59d,Female
+SAMN00000296,Muscle,Muscle,22,Early childhood_21_59d,Male
+SAMN00000297,Muscle,Muscle,47,Early childhood_21_59d,Female
+SAMN00000298,Muscle,Muscle,40,Early childhood_21_59d,Male
+SAMN00000299,Muscle,Muscle,37,Early childhood_21_59d,Male
+SAMN00000300,Muscle,Muscle,29,Early childhood_21_59d,Female
+SAMN00000301,Muscle,Muscle,31,Early childhood_21_59d,Male
+SAMN00000302,Muscle,Muscle,53,Early childhood_21_59d,Female
+SAMN00000303,Muscle,Muscle,58,Early childhood_21_59d,Female
+SAMN00000304,Muscle,Muscle,37,Early childhood_21_59d,Male
+SAMN00000305,Muscle,Muscle,45,Early childhood_21_59d,Male
+SAMN00000306,Muscle,Muscle,51,Early childhood_21_59d,Male
+SAMN00000307,Muscle,Muscle,54,Early childhood_21_59d,Male
+SAMN00000308,Muscle,Muscle,21,Early childhood_21_59d,Male
+SAMN00000309,Muscle,Muscle,21,Early childhood_21_59d,Female
+SAMN00000310,Muscle,Muscle,38,Early childhood_21_59d,Male
+SAMN00000311,Muscle,Muscle,47,Early childhood_21_59d,Male
+SAMN00000312,Muscle,Muscle,49,Early childhood_21_59d,Male
+SAMN00000313,Muscle,Muscle,27,Early childhood_21_59d,Female
+SAMN00000314,Muscle,Muscle,36,Early childhood_21_59d,Female
+SAMN00000315,Muscle,Muscle,39,Early childhood_21_59d,Male
+SAMN00000316,Muscle,Muscle,23,Early childhood_21_59d,Male
+SAMN00000317,Muscle,Muscle,56,Early childhood_21_59d,Female
+SAMN00000318,Muscle,Muscle,29,Early childhood_21_59d,Female
+SAMN00000319,Muscle,Muscle,26,Early childhood_21_59d,Female
+SAMN00000320,Muscle,Muscle,56,Early childhood_21_59d,Male
+SAMN00000321,Muscle,Muscle,55,Early childhood_21_59d,Female
+SAMN00000322,Muscle,Muscle,22,Early childhood_21_59d,Female
+SAMN00000323,Muscle,Muscle,22,Early childhood_21_59d,Female
+SAMN00000324,Muscle,Muscle,39,Early childhood_21_59d,Male
+SAMN00000325,Muscle,Muscle,22,Early childhood_21_59d,Male
+SAMN00000326,Muscle,Muscle,26,Early childhood_21_59d,Male
+SAMN00000327,Muscle,Muscle,40,Early childhood_21_59d,Female
+SAMN00000328,Muscle,Muscle,49,Early childhood_21_59d,Female
+SAMN00000329,Muscle,Muscle,40,Early childhood_21_59d,Male
+SAMN00000330,Muscle,Muscle,46,Early childhood_21_59d,Female
+SAMN00000331,Muscle,Muscle,26,Early childhood_21_59d,Male
+SAMN00000332,Muscle,Muscle,24,Early childhood_21_59d,Male
+SAMN00000333,Muscle,Muscle,48,Early childhood_21_59d,Male
+SAMN00000334,Muscle,Muscle,45,Early childhood_21_59d,Male
+SAMN00000335,Muscle,Muscle,36,Early childhood_21_59d,Male
+SAMN00000336,Muscle,Muscle,43,Early childhood_21_59d,Female
+SAMN00000337,Muscle,Muscle,25,Early childhood_21_59d,Male
+SAMN00000338,Muscle,Muscle,42,Early childhood_21_59d,Female
+SAMN00000339,Muscle,Muscle,51,Early childhood_21_59d,Male
+SAMN00000340,Muscle,Muscle,45,Early childhood_21_59d,Female
+SAMN00000341,Muscle,Muscle,36,Early childhood_21_59d,Male
+SAMN00000342,Muscle,Muscle,50,Early childhood_21_59d,Male
+SAMN00000343,Muscle,Muscle,27,Early childhood_21_59d,Female
+SAMN00000344,Muscle,Muscle,39,Early childhood_21_59d,Male
+SAMN00000345,Muscle,Muscle,23,Early childhood_21_59d,Male
+SAMN00000346,Muscle,Muscle,29,Early childhood_21_59d,Female
+SAMN00000347,Muscle,Muscle,28,Early childhood_21_59d,Male
+SAMN00000348,Muscle,Muscle,27,Early childhood_21_59d,Female
+SAMN00000349,Muscle,Muscle,32,Early childhood_21_59d,Female
+SAMN00000350,Muscle,Muscle,36,Early childhood_21_59d,Male
+SAMN00000351,Muscle,Muscle,38,Early childhood_21_59d,Female
+SAMN00000352,Muscle,Muscle,43,Early childhood_21_59d,Male
+SAMN00000353,Muscle,Muscle,58,Early childhood_21_59d,Male
+SAMN00000354,Muscle,Muscle,35,Early childhood_21_59d,Female
+SAMN00000355,Muscle,Muscle,39,Early childhood_21_59d,Male
+SAMN00000356,Muscle,Muscle,33,Early childhood_21_59d,Male
+SAMN00000357,Muscle,Muscle,55,Early childhood_21_59d,Male
+SAMN00000358,Muscle,Muscle,29,Early childhood_21_59d,Female
+SAMN00000359,Muscle,Muscle,22,Early childhood_21_59d,Male
+SAMN00000360,Muscle,Muscle,28,Early childhood_21_59d,Male
+SAMN00000361,Muscle,Muscle,49,Early childhood_21_59d,Female
+SAMN00000362,Muscle,Muscle,41,Early childhood_21_59d,Male
+SAMN00000363,Muscle,Muscle,40,Early childhood_21_59d,Male
+SAMN00000364,Muscle,Muscle,29,Early childhood_21_59d,Male
+SAMN00000365,Muscle,Muscle,93,Pre_pubertal_60_149d,Female
+SAMN00000366,Muscle,Muscle,92,Pre_pubertal_60_149d,Female
+SAMN00000367,Muscle,Muscle,92,Pre_pubertal_60_149d,Male
+SAMN00000368,Muscle,Muscle,137,Pre_pubertal_60_149d,Male
+SAMN00000369,Muscle,Muscle,113,Pre_pubertal_60_149d,Male
+SAMN00000370,Muscle,Muscle,72,Pre_pubertal_60_149d,Male
+SAMN00000371,Muscle,Muscle,114,Pre_pubertal_60_149d,Female
+SAMN00000372,Muscle,Muscle,139,Pre_pubertal_60_149d,Female
+SAMN00000373,Muscle,Muscle,69,Pre_pubertal_60_149d,Female
+SAMN00000374,Muscle,Muscle,132,Pre_pubertal_60_149d,Female
+SAMN00000375,Muscle,Muscle,122,Pre_pubertal_60_149d,Female
+SAMN00000376,Muscle,Muscle,97,Pre_pubertal_60_149d,Female
+SAMN00000377,Muscle,Muscle,131,Pre_pubertal_60_149d,Female
+SAMN00000378,Muscle,Muscle,102,Pre_pubertal_60_149d,Male
+SAMN00000379,Muscle,Muscle,141,Pre_pubertal_60_149d,Male
+SAMN00000380,Muscle,Muscle,78,Pre_pubertal_60_149d,Female
+SAMN00000381,Muscle,Muscle,105,Pre_pubertal_60_149d,Male
+SAMN00000382,Muscle,Muscle,137,Pre_pubertal_60_149d,Male
+SAMN00000383,Muscle,Muscle,97,Pre_pubertal_60_149d,Male
+SAMN00000384,Muscle,Muscle,102,Pre_pubertal_60_149d,Female
+SAMN00000385,Muscle,Muscle,91,Pre_pubertal_60_149d,Male
+SAMN00000386,Muscle,Muscle,101,Pre_pubertal_60_149d,Female
+SAMN00000387,Muscle,Muscle,108,Pre_pubertal_60_149d,Male
+SAMN00000388,Muscle,Muscle,68,Pre_pubertal_60_149d,Female
+SAMN00000389,Muscle,Muscle,112,Pre_pubertal_60_149d,Female
+SAMN00000390,Muscle,Muscle,77,Pre_pubertal_60_149d,Female
+SAMN00000391,Muscle,Muscle,87,Pre_pubertal_60_149d,Female
+SAMN00000392,Muscle,Muscle,146,Pre_pubertal_60_149d,Male
+SAMN00000393,Muscle,Muscle,142,Pre_pubertal_60_149d,Male
+SAMN00000394,Muscle,Muscle,127,Pre_pubertal_60_149d,Male
+SAMN00000395,Muscle,Muscle,80,Pre_pubertal_60_149d,Male
+SAMN00000396,Muscle,Muscle,98,Pre_pubertal_60_149d,Male
+SAMN00000397,Muscle,Muscle,125,Pre_pubertal_60_149d,Male
+SAMN00000398,Muscle,Muscle,63,Pre_pubertal_60_149d,Male
+SAMN00000399,Muscle,Muscle,139,Pre_pubertal_60_149d,Male
+SAMN00000400,Muscle,Muscle,76,Pre_pubertal_60_149d,Female
+SAMN00000401,Muscle,Muscle,112,Pre_pubertal_60_149d,Female
+SAMN00000402,Muscle,Muscle,124,Pre_pubertal_60_149d,Male
+SAMN00000403,Muscle,Muscle,72,Pre_pubertal_60_149d,Male
+SAMN00000404,Muscle,Muscle,137,Pre_pubertal_60_149d,Female
+SAMN00000405,Muscle,Muscle,134,Pre_pubertal_60_149d,Female
+SAMN00000406,Muscle,Muscle,103,Pre_pubertal_60_149d,Male
+SAMN00000407,Muscle,Muscle,98,Pre_pubertal_60_149d,Female
+SAMN00000408,Muscle,Muscle,104,Pre_pubertal_60_149d,Female
+SAMN00000409,Muscle,Muscle,115,Pre_pubertal_60_149d,Female
+SAMN00000410,Muscle,Muscle,61,Pre_pubertal_60_149d,Female
+SAMN00000411,Muscle,Muscle,147,Pre_pubertal_60_149d,Male
+SAMN00000412,Muscle,Muscle,85,Pre_pubertal_60_149d,Female
+SAMN00000413,Muscle,Muscle,95,Pre_pubertal_60_149d,Female
+SAMN00000414,Muscle,Muscle,113,Pre_pubertal_60_149d,Male
+SAMN00000415,Muscle,Muscle,122,Pre_pubertal_60_149d,Female
+SAMN00000416,Muscle,Muscle,69,Pre_pubertal_60_149d,Female
+SAMN00000417,Muscle,Muscle,104,Pre_pubertal_60_149d,Male
+SAMN00000418,Muscle,Muscle,74,Pre_pubertal_60_149d,Female
+SAMN00000419,Muscle,Muscle,129,Pre_pubertal_60_149d,Male
+SAMN00000420,Muscle,Muscle,129,Pre_pubertal_60_149d,Female
+SAMN00000421,Muscle,Muscle,125,Pre_pubertal_60_149d,Female
+SAMN00000422,Muscle,Muscle,95,Pre_pubertal_60_149d,Female
+SAMN00000423,Muscle,Muscle,96,Pre_pubertal_60_149d,Male
+SAMN00000424,Muscle,Muscle,72,Pre_pubertal_60_149d,Female
+SAMN00000425,Muscle,Muscle,95,Pre_pubertal_60_149d,Female
+SAMN00000426,Muscle,Muscle,148,Pre_pubertal_60_149d,Male
+SAMN00000427,Muscle,Muscle,146,Pre_pubertal_60_149d,Male
+SAMN00000428,Muscle,Muscle,127,Pre_pubertal_60_149d,Female
+SAMN00000429,Muscle,Muscle,131,Pre_pubertal_60_149d,Female
+SAMN00000430,Muscle,Muscle,78,Pre_pubertal_60_149d,Male
+SAMN00000431,Muscle,Muscle,141,Pre_pubertal_60_149d,Male
+SAMN00000432,Muscle,Muscle,76,Pre_pubertal_60_149d,Male
+SAMN00000433,Muscle,Muscle,81,Pre_pubertal_60_149d,Male
+SAMN00000434,Muscle,Muscle,113,Pre_pubertal_60_149d,Female
+SAMN00000435,Muscle,Muscle,139,Pre_pubertal_60_149d,Male
+SAMN00000436,Muscle,Muscle,117,Pre_pubertal_60_149d,Female
+SAMN00000437,Muscle,Muscle,122,Pre_pubertal_60_149d,Female
+SAMN00000438,Muscle,Muscle,120,Pre_pubertal_60_149d,Male
+SAMN00000439,Muscle,Muscle,135,Pre_pubertal_60_149d,Male
+SAMN00000440,Muscle,Muscle,144,Pre_pubertal_60_149d,Female
+SAMN00000441,Muscle,Muscle,63,Pre_pubertal_60_149d,Male
+SAMN00000442,Muscle,Muscle,67,Pre_pubertal_60_149d,Female
+SAMN00000443,Muscle,Muscle,141,Pre_pubertal_60_149d,Male
+SAMN00000444,Muscle,Muscle,77,Pre_pubertal_60_149d,Male
+SAMN00000445,Muscle,Muscle,87,Pre_pubertal_60_149d,Female
+SAMN00000446,Muscle,Muscle,148,Pre_pubertal_60_149d,Female
+SAMN00000447,Muscle,Muscle,94,Pre_pubertal_60_149d,Female
+SAMN00000448,Muscle,Muscle,127,Pre_pubertal_60_149d,Female
+SAMN00000449,Muscle,Muscle,64,Pre_pubertal_60_149d,Female
+SAMN00000450,Muscle,Muscle,60,Pre_pubertal_60_149d,Male
+SAMN00000451,Muscle,Muscle,78,Pre_pubertal_60_149d,Female
+SAMN00000452,Muscle,Muscle,111,Pre_pubertal_60_149d,Female
+SAMN00000453,Muscle,Muscle,98,Pre_pubertal_60_149d,Male
+SAMN00000454,Muscle,Muscle,126,Pre_pubertal_60_149d,Male
+SAMN00000455,Muscle,Muscle,101,Pre_pubertal_60_149d,Female
+SAMN00000456,Muscle,Muscle,128,Pre_pubertal_60_149d,Male
+SAMN00000457,Muscle,Muscle,112,Pre_pubertal_60_149d,Male
+SAMN00000458,Muscle,Muscle,94,Pre_pubertal_60_149d,Female
+SAMN00000459,Muscle,Muscle,73,Pre_pubertal_60_149d,Male
+SAMN00000460,Muscle,Muscle,146,Pre_pubertal_60_149d,Female
+SAMN00000461,Muscle,Muscle,104,Pre_pubertal_60_149d,Male
+SAMN00000462,Muscle,Muscle,70,Pre_pubertal_60_149d,Male
+SAMN00000463,Muscle,Muscle,146,Pre_pubertal_60_149d,Male
+SAMN00000464,Muscle,Muscle,127,Pre_pubertal_60_149d,Female
+SAMN00000465,Muscle,Muscle,132,Pre_pubertal_60_149d,Male
+SAMN00000466,Muscle,Muscle,104,Pre_pubertal_60_149d,Male
+SAMN00000467,Muscle,Muscle,82,Pre_pubertal_60_149d,Female
+SAMN00000468,Muscle,Muscle,127,Pre_pubertal_60_149d,Male
+SAMN00000469,Muscle,Muscle,148,Pre_pubertal_60_149d,Female
+SAMN00000470,Muscle,Muscle,69,Pre_pubertal_60_149d,Female
+SAMN00000471,Muscle,Muscle,80,Pre_pubertal_60_149d,Female
+SAMN00000472,Muscle,Muscle,136,Pre_pubertal_60_149d,Female
+SAMN00000473,Muscle,Muscle,69,Pre_pubertal_60_149d,Female
+SAMN00000474,Muscle,Muscle,83,Pre_pubertal_60_149d,Male
+SAMN00000475,Muscle,Muscle,92,Pre_pubertal_60_149d,Female
+SAMN00000476,Muscle,Muscle,119,Pre_pubertal_60_149d,Male
+SAMN00000477,Muscle,Muscle,136,Pre_pubertal_60_149d,Female
+SAMN00000478,Muscle,Muscle,70,Pre_pubertal_60_149d,Male
+SAMN00000479,Muscle,Muscle,114,Pre_pubertal_60_149d,Male
+SAMN00000480,Muscle,Muscle,101,Pre_pubertal_60_149d,Male
+SAMN00000481,Muscle,Muscle,85,Pre_pubertal_60_149d,Male
+SAMN00000482,Muscle,Muscle,137,Pre_pubertal_60_149d,Male
+SAMN00000483,Muscle,Muscle,102,Pre_pubertal_60_149d,Female
+SAMN00000484,Muscle,Muscle,138,Pre_pubertal_60_149d,Female
+SAMN00000485,Muscle,Muscle,127,Pre_pubertal_60_149d,Male
+SAMN00000486,Muscle,Muscle,117,Pre_pubertal_60_149d,Male
+SAMN00000487,Muscle,Muscle,298,Post_pubertal_150_365d,Male
+SAMN00000488,Muscle,Muscle,305,Post_pubertal_150_365d,Female
+SAMN00000489,Muscle,Muscle,176,Post_pubertal_150_365d,Male
+SAMN00000490,Muscle,Muscle,266,Post_pubertal_150_365d,Male
+SAMN00000491,Muscle,Muscle,223,Post_pubertal_150_365d,Female
+SAMN00000492,Muscle,Muscle,195,Post_pubertal_150_365d,Female
+SAMN00000493,Muscle,Muscle,196,Post_pubertal_150_365d,Female
+SAMN00000494,Muscle,Muscle,180,Post_pubertal_150_365d,Male
+SAMN00000495,Muscle,Muscle,354,Post_pubertal_150_365d,Male
+SAMN00000496,Muscle,Muscle,156,Post_pubertal_150_365d,Female
+SAMN00000497,Muscle,Muscle,275,Post_pubertal_150_365d,Male
+SAMN00000498,Muscle,Muscle,359,Post_pubertal_150_365d,Female
+SAMN00000499,Muscle,Muscle,335,Post_pubertal_150_365d,Female
+SAMN00000500,Muscle,Muscle,347,Post_pubertal_150_365d,Female
+SAMN00000501,Muscle,Muscle,162,Post_pubertal_150_365d,Female
+SAMN00000502,Muscle,Muscle,317,Post_pubertal_150_365d,Female
+SAMN00000503,Muscle,Muscle,295,Post_pubertal_150_365d,Male
+SAMN00000504,Muscle,Muscle,286,Post_pubertal_150_365d,Female
+SAMN00000505,Muscle,Muscle,324,Post_pubertal_150_365d,Female
+SAMN00000506,Muscle,Muscle,252,Post_pubertal_150_365d,Male
+SAMN00000507,Muscle,Muscle,326,Post_pubertal_150_365d,Female
+SAMN00000508,Muscle,Muscle,337,Post_pubertal_150_365d,Male
+SAMN00000509,Muscle,Muscle,297,Post_pubertal_150_365d,Female
+SAMN00000510,Muscle,Muscle,164,Post_pubertal_150_365d,Female
+SAMN00000511,Muscle,Muscle,345,Post_pubertal_150_365d,Male
+SAMN00000512,Muscle,Muscle,229,Post_pubertal_150_365d,Male
+SAMN00000513,Muscle,Muscle,190,Post_pubertal_150_365d,Male
+SAMN00000514,Muscle,Muscle,295,Post_pubertal_150_365d,Male
+SAMN00000515,Muscle,Muscle,238,Post_pubertal_150_365d,Male
+SAMN00000516,Muscle,Muscle,271,Post_pubertal_150_365d,Female
+SAMN00000517,Muscle,Muscle,213,Post_pubertal_150_365d,Female
+SAMN00000518,Muscle,Muscle,215,Post_pubertal_150_365d,Female
+SAMN00000519,Muscle,Muscle,226,Post_pubertal_150_365d,Female
+SAMN00000520,Muscle,Muscle,277,Post_pubertal_150_365d,Female
+SAMN00000521,Muscle,Muscle,247,Post_pubertal_150_365d,Male
+SAMN00000522,Muscle,Muscle,311,Post_pubertal_150_365d,Male
+SAMN00000523,Muscle,Muscle,231,Post_pubertal_150_365d,Female
+SAMN00000524,Muscle,Muscle,274,Post_pubertal_150_365d,Female
+SAMN00000525,Muscle,Muscle,337,Post_pubertal_150_365d,Female
+SAMN00000526,Muscle,Muscle,317,Post_pubertal_150_365d,Female
+SAMN00000527,Muscle,Muscle,217,Post_pubertal_150_365d,Female
+SAMN00000528,Muscle,Muscle,199,Post_pubertal_150_365d,Male
+SAMN00000529,Muscle,Muscle,161,Post_pubertal_150_365d,Male
+SAMN00000530,Muscle,Muscle,234,Post_pubertal_150_365d,Male
+SAMN00000531,Muscle,Muscle,314,Post_pubertal_150_365d,Male
+SAMN00000532,Muscle,Muscle,162,Post_pubertal_150_365d,Female
+SAMN00000533,Muscle,Muscle,260,Post_pubertal_150_365d,Female
+SAMN00000534,Muscle,Muscle,253,Post_pubertal_150_365d,Female
+SAMN00000535,Muscle,Muscle,242,Post_pubertal_150_365d,Female
+SAMN00000536,Muscle,Muscle,331,Post_pubertal_150_365d,Male
+SAMN00000537,Muscle,Muscle,179,Post_pubertal_150_365d,Female
+SAMN00000538,Muscle,Muscle,264,Post_pubertal_150_365d,Female
+SAMN00000539,Muscle,Muscle,205,Post_pubertal_150_365d,Male
+SAMN00000540,Muscle,Muscle,197,Post_pubertal_150_365d,Female
+SAMN00000541,Muscle,Muscle,350,Post_pubertal_150_365d,Male
+SAMN00000542,Muscle,Muscle,213,Post_pubertal_150_365d,Male
+SAMN00000543,Muscle,Muscle,192,Post_pubertal_150_365d,Female
+SAMN00000544,Muscle,Muscle,273,Post_pubertal_150_365d,Male
+SAMN00000545,Muscle,Muscle,264,Post_pubertal_150_365d,Male
+SAMN00000546,Muscle,Muscle,222,Post_pubertal_150_365d,Female
+SAMN00000547,Muscle,Muscle,284,Post_pubertal_150_365d,Male
+SAMN00000548,Muscle,Muscle,257,Post_pubertal_150_365d,Male
+SAMN00000549,Muscle,Muscle,236,Post_pubertal_150_365d,Male
+SAMN00000550,Muscle,Muscle,180,Post_pubertal_150_365d,Female
+SAMN00000551,Muscle,Muscle,296,Post_pubertal_150_365d,Female
+SAMN00000552,Muscle,Muscle,177,Post_pubertal_150_365d,Female
+SAMN00000553,Muscle,Muscle,313,Post_pubertal_150_365d,Male
+SAMN00000554,Muscle,Muscle,233,Post_pubertal_150_365d,Female
+SAMN00000555,Muscle,Muscle,257,Post_pubertal_150_365d,Male
+SAMN00000556,Muscle,Muscle,221,Post_pubertal_150_365d,Female
+SAMN00000557,Muscle,Muscle,171,Post_pubertal_150_365d,Male
+SAMN00000558,Muscle,Muscle,327,Post_pubertal_150_365d,Male
+SAMN00000559,Muscle,Muscle,235,Post_pubertal_150_365d,Male
+SAMN00000560,Muscle,Muscle,306,Post_pubertal_150_365d,Male
+SAMN00000561,Muscle,Muscle,159,Post_pubertal_150_365d,Male
+SAMN00000562,Muscle,Muscle,214,Post_pubertal_150_365d,Male
+SAMN00000563,Muscle,Muscle,152,Post_pubertal_150_365d,Male
+SAMN00000564,Muscle,Muscle,326,Post_pubertal_150_365d,Female
+SAMN00000565,Muscle,Muscle,309,Post_pubertal_150_365d,Male
+SAMN00000566,Muscle,Muscle,164,Post_pubertal_150_365d,Male
+SAMN00000567,Muscle,Muscle,285,Post_pubertal_150_365d,Female
+SAMN00000568,Muscle,Muscle,235,Post_pubertal_150_365d,Female
+SAMN00000569,Muscle,Muscle,260,Post_pubertal_150_365d,Male
+SAMN00000570,Muscle,Muscle,180,Post_pubertal_150_365d,Female
+SAMN00000571,Muscle,Muscle,184,Post_pubertal_150_365d,Female
+SAMN00000572,Muscle,Muscle,207,Post_pubertal_150_365d,Female
+SAMN00000573,Muscle,Muscle,199,Post_pubertal_150_365d,Male
+SAMN00000574,Muscle,Muscle,237,Post_pubertal_150_365d,Female
+SAMN00000575,Muscle,Muscle,206,Post_pubertal_150_365d,Female
+SAMN00000576,Muscle,Muscle,348,Post_pubertal_150_365d,Male
+SAMN00000577,Muscle,Muscle,333,Post_pubertal_150_365d,Female
+SAMN00000578,Muscle,Muscle,252,Post_pubertal_150_365d,Female
+SAMN00000579,Muscle,Muscle,157,Post_pubertal_150_365d,Male
+SAMN00000580,Muscle,Muscle,295,Post_pubertal_150_365d,Female
+SAMN00000581,Muscle,Muscle,167,Post_pubertal_150_365d,Female
+SAMN00000582,Muscle,Muscle,312,Post_pubertal_150_365d,Male
+SAMN00000583,Muscle,Muscle,302,Post_pubertal_150_365d,Female
+SAMN00000584,Muscle,Muscle,211,Post_pubertal_150_365d,Male
+SAMN00000585,Muscle,Muscle,277,Post_pubertal_150_365d,Male
+SAMN00000586,Muscle,Muscle,305,Post_pubertal_150_365d,Female
+SAMN00000587,Muscle,Muscle,222,Post_pubertal_150_365d,Male
+SAMN00000588,Muscle,Muscle,253,Post_pubertal_150_365d,Female
+SAMN00000589,Muscle,Muscle,251,Post_pubertal_150_365d,Female
+SAMN00000590,Muscle,Muscle,334,Post_pubertal_150_365d,Female
+SAMN00000591,Muscle,Muscle,307,Post_pubertal_150_365d,Male
+SAMN00000592,Muscle,Muscle,250,Post_pubertal_150_365d,Male
+SAMN00000593,Muscle,Muscle,341,Post_pubertal_150_365d,Male
+SAMN00000594,Muscle,Muscle,156,Post_pubertal_150_365d,Male
+SAMN00000595,Muscle,Muscle,326,Post_pubertal_150_365d,Male
+SAMN00000596,Muscle,Muscle,308,Post_pubertal_150_365d,Male
+SAMN00000597,Muscle,Muscle,245,Post_pubertal_150_365d,Male
+SAMN00000598,Muscle,Muscle,304,Post_pubertal_150_365d,Male
+SAMN00000599,Muscle,Muscle,348,Post_pubertal_150_365d,Female
+SAMN00000600,Muscle,Muscle,309,Post_pubertal_150_365d,Male
+SAMN00000601,Muscle,Muscle,167,Post_pubertal_150_365d,Male
+SAMN00000602,Muscle,Muscle,154,Post_pubertal_150_365d,Female
+SAMN00000603,Muscle,Muscle,359,Post_pubertal_150_365d,Male
+SAMN00000604,Muscle,Muscle,261,Post_pubertal_150_365d,Female
+SAMN00000605,Muscle,Muscle,283,Post_pubertal_150_365d,Male
+SAMN00000606,Muscle,Muscle,289,Post_pubertal_150_365d,Male
+SAMN00000607,Muscle,Muscle,266,Post_pubertal_150_365d,Male
+SAMN00000608,Muscle,Muscle,343,Post_pubertal_150_365d,Male
+SAMN00000609,Muscle,Muscle,199,Post_pubertal_150_365d,Female
+SAMN00000610,Muscle,Muscle,327,Post_pubertal_150_365d,Male
+SAMN00000611,Muscle,Muscle,263,Post_pubertal_150_365d,Male
+SAMN00000612,Muscle,Muscle,338,Post_pubertal_150_365d,Female
+SAMN00000613,Muscle,Muscle,151,Post_pubertal_150_365d,Male
+SAMN00000614,Muscle,Muscle,193,Post_pubertal_150_365d,Female
+SAMN00000615,Muscle,Muscle,237,Post_pubertal_150_365d,Female
+SAMN00000616,Muscle,Muscle,204,Post_pubertal_150_365d,Female
+SAMN00000617,Muscle,Muscle,252,Post_pubertal_150_365d,Female
+SAMN00000618,Muscle,Muscle,251,Post_pubertal_150_365d,Female
+SAMN00000619,Muscle,Muscle,264,Post_pubertal_150_365d,Female
+SAMN00000620,Muscle,Muscle,305,Post_pubertal_150_365d,Male
+SAMN00000621,Muscle,Muscle,302,Post_pubertal_150_365d,Female
+SAMN00000622,Muscle,Muscle,173,Post_pubertal_150_365d,Female
+SAMN00000623,Muscle,Muscle,314,Post_pubertal_150_365d,Female
+SAMN00000624,Muscle,Muscle,171,Post_pubertal_150_365d,Female
+SAMN00000625,Muscle,Muscle,199,Post_pubertal_150_365d,Male
+SAMN00000626,Muscle,Muscle,161,Post_pubertal_150_365d,Female
+SAMN00000627,Muscle,Muscle,302,Post_pubertal_150_365d,Male
+SAMN00000628,Muscle,Muscle,314,Post_pubertal_150_365d,Female
+SAMN00000629,Muscle,Muscle,184,Post_pubertal_150_365d,Male
+SAMN00000630,Muscle,Muscle,253,Post_pubertal_150_365d,Female
+SAMN00000631,Muscle,Muscle,322,Post_pubertal_150_365d,Female
+SAMN00000632,Muscle,Muscle,318,Post_pubertal_150_365d,Female
+SAMN00000633,Muscle,Muscle,303,Post_pubertal_150_365d,Male
+SAMN00000634,Muscle,Muscle,211,Post_pubertal_150_365d,Female
+SAMN00000635,Muscle,Muscle,239,Post_pubertal_150_365d,Male
+SAMN00000636,Muscle,Muscle,272,Post_pubertal_150_365d,Male
+SAMN00000637,Muscle,Muscle,305,Post_pubertal_150_365d,Female
+SAMN00000638,Muscle,Muscle,321,Post_pubertal_150_365d,Male
+SAMN00000639,Muscle,Muscle,330,Post_pubertal_150_365d,Male
+SAMN00000640,Muscle,Muscle,193,Post_pubertal_150_365d,Male
+SAMN00000641,Muscle,Muscle,329,Post_pubertal_150_365d,Male
+SAMN00000642,Muscle,Muscle,358,Post_pubertal_150_365d,Female
+SAMN00000643,Muscle,Muscle,178,Post_pubertal_150_365d,Male
+SAMN00000644,Muscle,Muscle,295,Post_pubertal_150_365d,Female
+SAMN00000645,Muscle,Muscle,242,Post_pubertal_150_365d,Male
+SAMN00000646,Muscle,Muscle,332,Post_pubertal_150_365d,Male
+SAMN00000647,Muscle,Muscle,236,Post_pubertal_150_365d,Male
+SAMN00000648,Muscle,Muscle,183,Post_pubertal_150_365d,Female
+SAMN00000649,Muscle,Muscle,166,Post_pubertal_150_365d,Male
+SAMN00000650,Muscle,Muscle,289,Post_pubertal_150_365d,Female
+SAMN00000651,Muscle,Muscle,321,Post_pubertal_150_365d,Male
+SAMN00000652,Muscle,Muscle,170,Post_pubertal_150_365d,Male
+SAMN00000653,Muscle,Muscle,260,Post_pubertal_150_365d,Female
+SAMN00000654,Muscle,Muscle,336,Post_pubertal_150_365d,Female
+SAMN00000655,Muscle,Muscle,332,Post_pubertal_150_365d,Male
+SAMN00000656,Muscle,Muscle,241,Post_pubertal_150_365d,Male
+SAMN00000657,Muscle,Muscle,307,Post_pubertal_150_365d,Female
+SAMN00000658,Muscle,Muscle,233,Post_pubertal_150_365d,Female
+SAMN00000659,Muscle,Muscle,262,Post_pubertal_150_365d,Female
+SAMN00000660,Muscle,Muscle,281,Post_pubertal_150_365d,Female
+SAMN00000661,Muscle,Muscle,313,Post_pubertal_150_365d,Female
+SAMN00000662,Muscle,Muscle,349,Post_pubertal_150_365d,Male
+SAMN00000663,Muscle,Muscle,294,Post_pubertal_150_365d,Female
+SAMN00000664,Muscle,Muscle,316,Post_pubertal_150_365d,Female
+SAMN00000665,Muscle,Muscle,352,Post_pubertal_150_365d,Female
+SAMN00000666,Muscle,Muscle,155,Post_pubertal_150_365d,Male
+SAMN00000667,Muscle,Muscle,311,Post_pubertal_150_365d,Female
+SAMN00000668,Muscle,Muscle,277,Post_pubertal_150_365d,Female
+SAMN00000669,Muscle,Muscle,236,Post_pubertal_150_365d,Male
+SAMN00000670,Muscle,Muscle,151,Post_pubertal_150_365d,Female
+SAMN00000671,Muscle,Muscle,191,Post_pubertal_150_365d,Male
+SAMN00000672,Muscle,Muscle,222,Post_pubertal_150_365d,Male
+SAMN00000673,Muscle,Muscle,358,Post_pubertal_150_365d,Female
+SAMN00000674,Muscle,Muscle,229,Post_pubertal_150_365d,Female
+SAMN00000675,Muscle,Muscle,340,Post_pubertal_150_365d,Male
+SAMN00000676,Muscle,Muscle,364,Post_pubertal_150_365d,Male
+SAMN00000677,Muscle,Muscle,205,Post_pubertal_150_365d,Female
+SAMN00000678,Muscle,Muscle,348,Post_pubertal_150_365d,Female
+SAMN00000679,Muscle,Muscle,183,Post_pubertal_150_365d,Female
+SAMN00000680,Muscle,Muscle,322,Post_pubertal_150_365d,Male
+SAMN00000681,Muscle,Muscle,243,Post_pubertal_150_365d,Male
+SAMN00000682,Muscle,Muscle,247,Post_pubertal_150_365d,Male
+SAMN00000683,Muscle,Muscle,208,Post_pubertal_150_365d,Male
+SAMN00000684,Muscle,Muscle,294,Post_pubertal_150_365d,Female
+SAMN00000685,Muscle,Muscle,338,Post_pubertal_150_365d,Female
+SAMN00000686,Muscle,Muscle,313,Post_pubertal_150_365d,Male
+SAMN00000687,Muscle,Muscle,317,Post_pubertal_150_365d,Female
+SAMN00000688,Muscle,Muscle,151,Post_pubertal_150_365d,Female
+SAMN00000689,Muscle,Muscle,312,Post_pubertal_150_365d,Male
+SAMN00000690,Muscle,Muscle,177,Post_pubertal_150_365d,Male
+SAMN00000691,Muscle,Muscle,287,Post_pubertal_150_365d,Female
+SAMN00000692,Muscle,Muscle,322,Post_pubertal_150_365d,Male
+SAMN00000693,Muscle,Muscle,292,Post_pubertal_150_365d,Male
+SAMN00000694,Muscle,Muscle,348,Post_pubertal_150_365d,Male
+SAMN00000695,Muscle,Muscle,290,Post_pubertal_150_365d,Male
+SAMN00000696,Muscle,Muscle,265,Post_pubertal_150_365d,Male
+SAMN00000697,Muscle,Muscle,237,Post_pubertal_150_365d,Female
+SAMN00000698,Muscle,Muscle,251,Post_pubertal_150_365d,Male
+SAMN00000699,Muscle,Muscle,361,Post_pubertal_150_365d,Male
+SAMN00000700,Muscle,Muscle,152,Post_pubertal_150_365d,Female
+SAMN00000701,Muscle,Muscle,298,Post_pubertal_150_365d,Female
+SAMN00000702,Muscle,Muscle,183,Post_pubertal_150_365d,Male
+SAMN00000703,Muscle,Muscle,312,Post_pubertal_150_365d,Female
+SAMN00000704,Muscle,Muscle,264,Post_pubertal_150_365d,Male
+SAMN00000705,Muscle,Muscle,318,Post_pubertal_150_365d,Male
+SAMN00000706,Muscle,Muscle,181,Post_pubertal_150_365d,Male
+SAMN00000707,Muscle,Muscle,308,Post_pubertal_150_365d,Male
+SAMN00000708,Muscle,Muscle,297,Post_pubertal_150_365d,Female
+SAMN00000709,Muscle,Muscle,335,Post_pubertal_150_365d,Female
+SAMN00000710,Muscle,Muscle,194,Post_pubertal_150_365d,Female
+SAMN00000711,Muscle,Muscle,155,Post_pubertal_150_365d,Male
+SAMN00000712,Muscle,Muscle,333,Post_pubertal_150_365d,Female
+SAMN00000713,Muscle,Muscle,227,Post_pubertal_150_365d,Male
+SAMN00000714,Muscle,Muscle,328,Post_pubertal_150_365d,Female
+SAMN00000715,Muscle,Muscle,213,Post_pubertal_150_365d,Male
+SAMN00000716,Muscle,Muscle,325,Post_pubertal_150_365d,Female
+SAMN00000717,Muscle,Muscle,299,Post_pubertal_150_365d,Female
+SAMN00000718,Muscle,Muscle,275,Post_pubertal_150_365d,Male
+SAMN00000719,Muscle,Muscle,153,Post_pubertal_150_365d,Female
+SAMN00000720,Muscle,Muscle,271,Post_pubertal_150_365d,Female
+SAMN00000721,Muscle,Muscle,363,Post_pubertal_150_365d,Male
+SAMN00000722,Muscle,Muscle,264,Post_pubertal_150_365d,Female
+SAMN00000723,Muscle,Muscle,350,Post_pubertal_150_365d,Female
+SAMN00000724,Muscle,Muscle,350,Post_pubertal_150_365d,Male
+SAMN00000725,Muscle,Muscle,234,Post_pubertal_150_365d,Male
+SAMN00000726,Muscle,Muscle,203,Post_pubertal_150_365d,Female
+SAMN00000727,Muscle,Muscle,301,Post_pubertal_150_365d,Male
+SAMN00000728,Muscle,Muscle,301,Post_pubertal_150_365d,Female
+SAMN00000729,Muscle,Muscle,153,Post_pubertal_150_365d,Female
+SAMN00000730,Muscle,Muscle,266,Post_pubertal_150_365d,Male
+SAMN00000731,Muscle,Muscle,213,Post_pubertal_150_365d,Female
+SAMN00000732,Muscle,Muscle,275,Post_pubertal_150_365d,Female
+SAMN00000733,Muscle,Muscle,269,Post_pubertal_150_365d,Female
+SAMN00000734,Muscle,Muscle,299,Post_pubertal_150_365d,Male
+SAMN00000735,Muscle,Muscle,261,Post_pubertal_150_365d,Female
+SAMN00000736,Muscle,Muscle,300,Post_pubertal_150_365d,Male
+SAMN00000737,Muscle,Muscle,299,Post_pubertal_150_365d,Female
+SAMN00000738,Muscle,Muscle,165,Post_pubertal_150_365d,Male
+SAMN00000739,Muscle,Muscle,273,Post_pubertal_150_365d,Male
+SAMN00000740,Muscle,Muscle,363,Post_pubertal_150_365d,Male
+SAMN00000741,Muscle,Muscle,253,Post_pubertal_150_365d,Female
+SAMN00000742,Muscle,Muscle,243,Post_pubertal_150_365d,Male
+SAMN00000743,Muscle,Muscle,358,Post_pubertal_150_365d,Female
+SAMN00000744,Muscle,Muscle,261,Post_pubertal_150_365d,Female
+SAMN00000745,Muscle,Muscle,317,Post_pubertal_150_365d,Male
+SAMN00000746,Muscle,Muscle,202,Post_pubertal_150_365d,Female
+SAMN00000747,Muscle,Muscle,174,Post_pubertal_150_365d,Female
+SAMN00000748,Muscle,Muscle,180,Post_pubertal_150_365d,Male
+SAMN00000749,Muscle,Muscle,349,Post_pubertal_150_365d,Male
+SAMN00000750,Muscle,Muscle,349,Post_pubertal_150_365d,Male
+SAMN00000751,Muscle,Muscle,271,Post_pubertal_150_365d,Male
+SAMN00000752,Muscle,Muscle,288,Post_pubertal_150_365d,Male
+SAMN00000753,Muscle,Muscle,169,Post_pubertal_150_365d,Female
+SAMN00000754,Muscle,Muscle,204,Post_pubertal_150_365d,Female
+SAMN00000755,Muscle,Muscle,293,Post_pubertal_150_365d,Male
+SAMN00000756,Muscle,Muscle,328,Post_pubertal_150_365d,Male
+SAMN00000757,Muscle,Muscle,321,Post_pubertal_150_365d,Male
+SAMN00000758,Muscle,Muscle,181,Post_pubertal_150_365d,Female
+SAMN00000759,Muscle,Muscle,200,Post_pubertal_150_365d,Female
+SAMN00000760,Muscle,Muscle,178,Post_pubertal_150_365d,Male
+SAMN00000761,Muscle,Muscle,226,Post_pubertal_150_365d,Female
+SAMN00000762,Muscle,Muscle,173,Post_pubertal_150_365d,Female
+SAMN00000763,Muscle,Muscle,232,Post_pubertal_150_365d,Female
+SAMN00000764,Muscle,Muscle,352,Post_pubertal_150_365d,Male
+SAMN00000765,Muscle,Muscle,238,Post_pubertal_150_365d,Female
+SAMN00000766,Muscle,Muscle,180,Post_pubertal_150_365d,Female
+SAMN00000767,Muscle,Muscle,153,Post_pubertal_150_365d,Female
+SAMN00000768,Muscle,Muscle,229,Post_pubertal_150_365d,Male
+SAMN00000769,Muscle,Muscle,250,Post_pubertal_150_365d,Female
+SAMN00000770,Muscle,Muscle,302,Post_pubertal_150_365d,Female
+SAMN00000771,Muscle,Muscle,299,Post_pubertal_150_365d,Female
+SAMN00000772,Muscle,Muscle,346,Post_pubertal_150_365d,Male
+SAMN00000773,Muscle,Muscle,152,Post_pubertal_150_365d,Female
+SAMN00000774,Muscle,Muscle,363,Post_pubertal_150_365d,Female
+SAMN00000775,Muscle,Muscle,286,Post_pubertal_150_365d,Male
+SAMN00000776,Muscle,Muscle,283,Post_pubertal_150_365d,Male
+SAMN00000777,Muscle,Muscle,275,Post_pubertal_150_365d,Male
+SAMN00000778,Muscle,Muscle,235,Post_pubertal_150_365d,Male
+SAMN00000779,Muscle,Muscle,239,Post_pubertal_150_365d,Male
+SAMN00000780,Muscle,Muscle,305,Post_pubertal_150_365d,Female
+SAMN00000781,Muscle,Muscle,223,Post_pubertal_150_365d,Female
+SAMN00000782,Muscle,Muscle,294,Post_pubertal_150_365d,Female
+SAMN00000783,Muscle,Muscle,345,Post_pubertal_150_365d,Male
+SAMN00000784,Muscle,Muscle,212,Post_pubertal_150_365d,Male
+SAMN00000785,Muscle,Muscle,174,Post_pubertal_150_365d,Male
+SAMN00000786,Muscle,Muscle,158,Post_pubertal_150_365d,Male
+SAMN00000787,Muscle,Muscle,215,Post_pubertal_150_365d,Male
+SAMN00000788,Muscle,Muscle,228,Post_pubertal_150_365d,Male
+SAMN00000789,Muscle,Muscle,332,Post_pubertal_150_365d,Female
+SAMN00000790,Muscle,Muscle,150,Post_pubertal_150_365d,Male
+SAMN00000791,Muscle,Muscle,211,Post_pubertal_150_365d,Male
+SAMN00000792,Muscle,Muscle,231,Post_pubertal_150_365d,Male
+SAMN00000793,Muscle,Muscle,219,Post_pubertal_150_365d,Male
+SAMN00000794,Muscle,Muscle,225,Post_pubertal_150_365d,Female
+SAMN00000795,Muscle,Muscle,285,Post_pubertal_150_365d,Male
+SAMN00000796,Muscle,Muscle,321,Post_pubertal_150_365d,Female
+SAMN00000797,Muscle,Muscle,237,Post_pubertal_150_365d,Female
+SAMN00000798,Muscle,Muscle,348,Post_pubertal_150_365d,Female
+SAMN00000799,Muscle,Muscle,289,Post_pubertal_150_365d,Female
+SAMN00000800,Muscle,Muscle,333,Post_pubertal_150_365d,Female
+SAMN00000801,Muscle,Muscle,159,Post_pubertal_150_365d,Female
+SAMN00000802,Muscle,Muscle,183,Post_pubertal_150_365d,Male
+SAMN00000803,Muscle,Muscle,202,Post_pubertal_150_365d,Female
+SAMN00000804,Muscle,Muscle,234,Post_pubertal_150_365d,Male
+SAMN00000805,Muscle,Muscle,330,Post_pubertal_150_365d,Female
+SAMN00000806,Muscle,Muscle,240,Post_pubertal_150_365d,Male
+SAMN00000807,Muscle,Muscle,214,Post_pubertal_150_365d,Female
+SAMN00000808,Muscle,Muscle,265,Post_pubertal_150_365d,Female
+SAMN00000809,Muscle,Muscle,235,Post_pubertal_150_365d,Female
+SAMN00000810,Muscle,Muscle,350,Post_pubertal_150_365d,Female
+SAMN00000811,Muscle,Muscle,210,Post_pubertal_150_365d,Male
+SAMN00000812,Muscle,Muscle,332,Post_pubertal_150_365d,Female
+SAMN00000813,Muscle,Muscle,154,Post_pubertal_150_365d,Female
+SAMN00000814,Muscle,Muscle,194,Post_pubertal_150_365d,Male
+SAMN00000815,Muscle,Muscle,246,Post_pubertal_150_365d,Male
+SAMN00000816,Muscle,Muscle,210,Post_pubertal_150_365d,Male
+SAMN00000817,Muscle,Muscle,274,Post_pubertal_150_365d,Male
+SAMN00000818,Muscle,Muscle,323,Post_pubertal_150_365d,Female
+SAMN00000819,Muscle,Muscle,176,Post_pubertal_150_365d,Male
+SAMN00000820,Muscle,Muscle,173,Post_pubertal_150_365d,Female
+SAMN00000821,Muscle,Muscle,315,Post_pubertal_150_365d,Female
+SAMN00000822,Muscle,Muscle,153,Post_pubertal_150_365d,Male
+SAMN00000823,Muscle,Muscle,248,Post_pubertal_150_365d,Male
+SAMN00000824,Muscle,Muscle,360,Post_pubertal_150_365d,Male
+SAMN00000825,Muscle,Muscle,307,Post_pubertal_150_365d,Female
+SAMN00000826,Muscle,Muscle,337,Post_pubertal_150_365d,Female
+SAMN00000827,Muscle,Muscle,352,Post_pubertal_150_365d,Female
+SAMN00000828,Muscle,Muscle,183,Post_pubertal_150_365d,Female
+SAMN00000829,Muscle,Muscle,354,Post_pubertal_150_365d,Male
+SAMN00000830,Muscle,Muscle,300,Post_pubertal_150_365d,Female
+SAMN00000831,Muscle,Muscle,200,Post_pubertal_150_365d,Male
+SAMN00000832,Muscle,Muscle,348,Post_pubertal_150_365d,Female
+SAMN00000833,Muscle,Muscle,179,Post_pubertal_150_365d,Female
+SAMN00000834,Muscle,Muscle,265,Post_pubertal_150_365d,Female
+SAMN00000835,Muscle,Muscle,339,Post_pubertal_150_365d,Male
+SAMN00000836,Muscle,Muscle,343,Post_pubertal_150_365d,Female
+SAMN00000837,Muscle,Muscle,203,Post_pubertal_150_365d,Male
+SAMN00000838,Muscle,Muscle,170,Post_pubertal_150_365d,Female
+SAMN00000839,Muscle,Muscle,171,Post_pubertal_150_365d,Female
+SAMN00000840,Muscle,Muscle,163,Post_pubertal_150_365d,Female
+SAMN00000841,Muscle,Muscle,255,Post_pubertal_150_365d,Female
+SAMN00000842,Muscle,Muscle,189,Post_pubertal_150_365d,Female
+SAMN00000843,Muscle,Muscle,252,Post_pubertal_150_365d,Male
+SAMN00000844,Muscle,Muscle,231,Post_pubertal_150_365d,Female
+SAMN00000845,Muscle,Muscle,222,Post_pubertal_150_365d,Female
+SAMN00000846,Muscle,Muscle,308,Post_pubertal_150_365d,Female
+SAMN00000847,Muscle,Muscle,298,Post_pubertal_150_365d,Male
+SAMN00000848,Muscle,Muscle,225,Post_pubertal_150_365d,Female
+SAMN00000849,Muscle,Muscle,356,Post_pubertal_150_365d,Male
+SAMN00000850,Muscle,Muscle,201,Post_pubertal_150_365d,Female
+SAMN00000851,Muscle,Muscle,172,Post_pubertal_150_365d,Male
+SAMN00000852,Muscle,Muscle,164,Post_pubertal_150_365d,Male
+SAMN00000853,Muscle,Muscle,236,Post_pubertal_150_365d,Female
+SAMN00000854,Muscle,Muscle,207,Post_pubertal_150_365d,Female
+SAMN00000855,Muscle,Muscle,205,Post_pubertal_150_365d,Female
+SAMN00000856,Muscle,Muscle,283,Post_pubertal_150_365d,Male
+SAMN00000857,Muscle,Muscle,266,Post_pubertal_150_365d,Female
+SAMN00000858,Muscle,Muscle,302,Post_pubertal_150_365d,Female
+SAMN00000859,Muscle,Muscle,205,Post_pubertal_150_365d,Male
+SAMN00000860,Muscle,Muscle,347,Post_pubertal_150_365d,Male
+SAMN00000861,Muscle,Muscle,258,Post_pubertal_150_365d,Female
+SAMN00000862,Muscle,Muscle,295,Post_pubertal_150_365d,Female
+SAMN00000863,Muscle,Muscle,231,Post_pubertal_150_365d,Female
+SAMN00000864,Muscle,Muscle,209,Post_pubertal_150_365d,Female
+SAMN00000865,Muscle,Muscle,268,Post_pubertal_150_365d,Female
+SAMN00000866,Muscle,Muscle,306,Post_pubertal_150_365d,Male
+SAMN00000867,Muscle,Muscle,261,Post_pubertal_150_365d,Male
+SAMN00000868,Muscle,Muscle,296,Post_pubertal_150_365d,Male
+SAMN00000869,Muscle,Muscle,291,Post_pubertal_150_365d,Female
+SAMN00000870,Muscle,Muscle,249,Post_pubertal_150_365d,Female
+SAMN00000871,Muscle,Muscle,222,Post_pubertal_150_365d,Female
+SAMN00000872,Muscle,Muscle,227,Post_pubertal_150_365d,Female
+SAMN00000873,Muscle,Muscle,175,Post_pubertal_150_365d,Female
+SAMN00000874,Muscle,Muscle,277,Post_pubertal_150_365d,Male
+SAMN00000875,Muscle,Muscle,344,Post_pubertal_150_365d,Male
+SAMN00000876,Muscle,Muscle,174,Post_pubertal_150_365d,Female
+SAMN00000877,Muscle,Muscle,258,Post_pubertal_150_365d,Male
+SAMN00000878,Muscle,Muscle,318,Post_pubertal_150_365d,Male
+SAMN00000879,Muscle,Muscle,344,Post_pubertal_150_365d,Male
+SAMN00000880,Muscle,Muscle,218,Post_pubertal_150_365d,Female
+SAMN00000881,Muscle,Muscle,328,Post_pubertal_150_365d,Male
+SAMN00000882,Muscle,Muscle,338,Post_pubertal_150_365d,Male
+SAMN00000883,Muscle,Muscle,215,Post_pubertal_150_365d,Female
+SAMN00000884,Muscle,Muscle,182,Post_pubertal_150_365d,Male
+SAMN00000885,Muscle,Muscle,211,Post_pubertal_150_365d,Female
+SAMN00000886,Muscle,Muscle,316,Post_pubertal_150_365d,Female
+SAMN00000887,Muscle,Muscle,239,Post_pubertal_150_365d,Female
+SAMN00000888,Muscle,Muscle,267,Post_pubertal_150_365d,Female
+SAMN00000889,Muscle,Muscle,358,Post_pubertal_150_365d,Male
+SAMN00000890,Muscle,Muscle,171,Post_pubertal_150_365d,Male
+SAMN00000891,Muscle,Muscle,203,Post_pubertal_150_365d,Female
+SAMN00000892,Muscle,Muscle,184,Post_pubertal_150_365d,Male
+SAMN00000893,Muscle,Muscle,265,Post_pubertal_150_365d,Male
+SAMN00000894,Muscle,Muscle,207,Post_pubertal_150_365d,Female
+SAMN00000895,Muscle,Muscle,273,Post_pubertal_150_365d,Male
+SAMN00000896,Muscle,Muscle,188,Post_pubertal_150_365d,Female
+SAMN00000897,Muscle,Muscle,341,Post_pubertal_150_365d,Male
+SAMN00000898,Muscle,Muscle,347,Post_pubertal_150_365d,Male
+SAMN00000899,Muscle,Muscle,351,Post_pubertal_150_365d,Female
+SAMN00000900,Muscle,Muscle,341,Post_pubertal_150_365d,Male
+SAMN00000901,Muscle,Muscle,248,Post_pubertal_150_365d,Male
+SAMN00000902,Muscle,Muscle,357,Post_pubertal_150_365d,Female
+SAMN00000903,Muscle,Muscle,283,Post_pubertal_150_365d,Male
+SAMN00000904,Muscle,Muscle,215,Post_pubertal_150_365d,Female
+SAMN00000905,Muscle,Muscle,191,Post_pubertal_150_365d,Male
+SAMN00000906,Muscle,Muscle,359,Post_pubertal_150_365d,Female
+SAMN00000907,Muscle,Muscle,160,Post_pubertal_150_365d,Male
+SAMN00000908,Muscle,Muscle,151,Post_pubertal_150_365d,Male
+SAMN00000909,Muscle,Muscle,156,Post_pubertal_150_365d,Male
+SAMN00000910,Muscle,Muscle,495,Adult_>365d,Male
+SAMN00000911,Muscle,Muscle,400,Adult_>365d,Male
+SAMN00000912,Muscle,Muscle,608,Adult_>365d,Female
+SAMN00000913,Muscle,Muscle,438,Adult_>365d,Male
+SAMN00000914,Muscle,Muscle,406,Adult_>365d,Male
+SAMN00000915,Liver,Liver,9,Infant_0_20d,Male
+SAMN00000916,Liver,Liver,12,Infant_0_20d,Female
+SAMN00000917,Liver,Liver,17,Infant_0_20d,Male
+SAMN00000918,Liver,Liver,9,Infant_0_20d,Female
+SAMN00000919,Liver,Liver,11,Infant_0_20d,Female
+SAMN00000920,Liver,Liver,17,Infant_0_20d,Male
+SAMN00000921,Liver,Liver,10,Infant_0_20d,Female
+SAMN00000922,Liver,Liver,17,Infant_0_20d,Male
+SAMN00000923,Liver,Liver,6,Infant_0_20d,Male
+SAMN00000924,Liver,Liver,10,Infant_0_20d,Female
+SAMN00000925,Liver,Liver,18,Infant_0_20d,Female
+SAMN00000926,Liver,Liver,12,Infant_0_20d,Male
+SAMN00000927,Liver,Liver,8,Infant_0_20d,Female
+SAMN00000928,Liver,Liver,9,Infant_0_20d,Male
+SAMN00000929,Liver,Liver,1,Infant_0_20d,Male
+SAMN00000930,Liver,Liver,4,Infant_0_20d,Male
+SAMN00000931,Liver,Liver,8,Infant_0_20d,Male
+SAMN00000932,Liver,Liver,1,Infant_0_20d,Male
+SAMN00000933,Liver,Liver,8,Infant_0_20d,Male
+SAMN00000934,Liver,Liver,17,Infant_0_20d,Female
+SAMN00000935,Liver,Liver,9,Infant_0_20d,Female
+SAMN00000936,Liver,Liver,8,Infant_0_20d,Female
+SAMN00000937,Liver,Liver,8,Infant_0_20d,Female
+SAMN00000938,Liver,Liver,9,Infant_0_20d,Male
+SAMN00000939,Liver,Liver,7,Infant_0_20d,Male
+SAMN00000940,Liver,Liver,17,Infant_0_20d,Female
+SAMN00000941,Liver,Liver,18,Infant_0_20d,Female
+SAMN00000942,Liver,Liver,18,Infant_0_20d,Female
+SAMN00000943,Liver,Liver,6,Infant_0_20d,Male
+SAMN00000944,Liver,Liver,1,Infant_0_20d,Female
+SAMN00000945,Liver,Liver,17,Infant_0_20d,Male
+SAMN00000946,Liver,Liver,10,Infant_0_20d,Female
+SAMN00000947,Liver,Liver,9,Infant_0_20d,Male
+SAMN00000948,Liver,Liver,16,Infant_0_20d,Male
+SAMN00000949,Liver,Liver,17,Infant_0_20d,Female
+SAMN00000950,Liver,Liver,1,Infant_0_20d,Male
+SAMN00000951,Liver,Liver,8,Infant_0_20d,Female
+SAMN00000952,Liver,Liver,6,Infant_0_20d,Female
+SAMN00000953,Liver,Liver,18,Infant_0_20d,Male
+SAMN00000954,Liver,Liver,5,Infant_0_20d,Male
+SAMN00000955,Liver,Liver,18,Infant_0_20d,Male
+SAMN00000956,Liver,Liver,13,Infant_0_20d,Male
+SAMN00000957,Liver,Liver,5,Infant_0_20d,Female
+SAMN00000958,Liver,Liver,11,Infant_0_20d,Female
+SAMN00000959,Liver,Liver,13,Infant_0_20d,Male
+SAMN00000960,Liver,Liver,11,Infant_0_20d,Female
+SAMN00000961,Liver,Liver,1,Infant_0_20d,Female
+SAMN00000962,Liver,Liver,13,Infant_0_20d,Female
+SAMN00000963,Liver,Liver,11,Infant_0_20d,Female
+SAMN00000964,Liver,Liver,12,Infant_0_20d,Male
+SAMN00000965,Liver,Liver,10,Infant_0_20d,Female
+SAMN00000966,Liver,Liver,1,Infant_0_20d,Female
+SAMN00000967,Liver,Liver,4,Infant_0_20d,Male
+SAMN00000968,Liver,Liver,9,Infant_0_20d,Female
+SAMN00000969,Liver,Liver,3,Infant_0_20d,Female
+SAMN00000970,Liver,Liver,5,Infant_0_20d,Female
+SAMN00000971,Liver,Liver,8,Infant_0_20d,Female
+SAMN00000972,Liver,Liver,5,Infant_0_20d,Female
+SAMN00000973,Liver,Liver,7,Infant_0_20d,Male
+SAMN00000974,Liver,Liver,12,Infant_0_20d,Female
+SAMN00000975,Liver,Liver,4,Infant_0_20d,Male
+SAMN00000976,Liver,Liver,8,Infant_0_20d,Male
+SAMN00000977,Liver,Liver,1,Infant_0_20d,Male
+SAMN00000978,Liver,Liver,19,Infant_0_20d,Female
+SAMN00000979,Liver,Liver,18,Infant_0_20d,Male
+SAMN00000980,Liver,Liver,3,Infant_0_20d,Male
+SAMN00000981,Liver,Liver,6,Infant_0_20d,Female
+SAMN00000982,Liver,Liver,7,Infant_0_20d,Female
+SAMN00000983,Liver,Liver,19,Infant_0_20d,Male
+SAMN00000984,Liver,Liver,11,Infant_0_20d,Female
+SAMN00000985,Liver,Liver,16,Infant_0_20d,Male
+SAMN00000986,Liver,Liver,3,Infant_0_20d,Male
+SAMN00000987,Liver,Liver,18,Infant_0_20d,Female
+SAMN00000988,Liver,Liver,11,Infant_0_20d,Female
+SAMN00000989,Liver,Liver,15,Infant_0_20d,Male
+SAMN00000990,Liver,Liver,19,Infant_0_20d,Female
+SAMN00000991,Liver,Liver,10,Infant_0_20d,Male
+SAMN00000992,Liver,Liver,13,Infant_0_20d,Female
+SAMN00000993,Liver,Liver,19,Infant_0_20d,Female
+SAMN00000994,Liver,Liver,17,Infant_0_20d,Female
+SAMN00000995,Liver,Liver,15,Infant_0_20d,Female
+SAMN00000996,Liver,Liver,13,Infant_0_20d,Male
+SAMN00000997,Liver,Liver,7,Infant_0_20d,Female
+SAMN00000998,Liver,Liver,3,Infant_0_20d,Male
+SAMN00000999,Liver,Liver,4,Infant_0_20d,Male
+SAMN00001000,Liver,Liver,17,Infant_0_20d,Female
+SAMN00001001,Liver,Liver,5,Infant_0_20d,Male
+SAMN00001002,Liver,Liver,17,Infant_0_20d,Female
+SAMN00001003,Liver,Liver,9,Infant_0_20d,Female
+SAMN00001004,Liver,Liver,9,Infant_0_20d,Female
+SAMN00001005,Liver,Liver,18,Infant_0_20d,Male
+SAMN00001006,Liver,Liver,5,Infant_0_20d,Male
+SAMN00001007,Liver,Liver,14,Infant_0_20d,Female
+SAMN00001008,Liver,Liver,15,Infant_0_20d,Male
+SAMN00001009,Liver,Liver,2,Infant_0_20d,Male
+SAMN00001010,Liver,Liver,43,Early childhood_21_59d,Male
+SAMN00001011,Liver,Liver,36,Early childhood_21_59d,Female
+SAMN00001012,Liver,Liver,22,Early childhood_21_59d,Female
+SAMN00001013,Liver,Liver,22,Early childhood_21_59d,Male
+SAMN00001014,Liver,Liver,28,Early childhood_21_59d,Female
+SAMN00001015,Liver,Liver,38,Early childhood_21_59d,Female
+SAMN00001016,Liver,Liver,50,Early childhood_21_59d,Female
+SAMN00001017,Liver,Liver,41,Early childhood_21_59d,Female
+SAMN00001018,Liver,Liver,48,Early childhood_21_59d,Female
+SAMN00001019,Liver,Liver,28,Early childhood_21_59d,Female
+SAMN00001020,Liver,Liver,23,Early childhood_21_59d,Male
+SAMN00001021,Liver,Liver,28,Early childhood_21_59d,Male
+SAMN00001022,Liver,Liver,38,Early childhood_21_59d,Female
+SAMN00001023,Liver,Liver,28,Early childhood_21_59d,Female
+SAMN00001024,Liver,Liver,23,Early childhood_21_59d,Female
+SAMN00001025,Liver,Liver,51,Early childhood_21_59d,Female
+SAMN00001026,Liver,Liver,40,Early childhood_21_59d,Female
+SAMN00001027,Liver,Liver,54,Early childhood_21_59d,Female
+SAMN00001028,Liver,Liver,58,Early childhood_21_59d,Female
+SAMN00001029,Liver,Liver,48,Early childhood_21_59d,Female
+SAMN00001030,Liver,Liver,27,Early childhood_21_59d,Male
+SAMN00001031,Liver,Liver,44,Early childhood_21_59d,Female
+SAMN00001032,Liver,Liver,36,Early childhood_21_59d,Male
+SAMN00001033,Liver,Liver,27,Early childhood_21_59d,Male
+SAMN00001034,Liver,Liver,55,Early childhood_21_59d,Male
+SAMN00001035,Liver,Liver,28,Early childhood_21_59d,Female
+SAMN00001036,Liver,Liver,27,Early childhood_21_59d,Female
+SAMN00001037,Liver,Liver,58,Early childhood_21_59d,Female
+SAMN00001038,Liver,Liver,35,Early childhood_21_59d,Female
+SAMN00001039,Liver,Liver,51,Early childhood_21_59d,Female
+SAMN00001040,Liver,Liver,38,Early childhood_21_59d,Female
+SAMN00001041,Liver,Liver,26,Early childhood_21_59d,Male
+SAMN00001042,Liver,Liver,50,Early childhood_21_59d,Male
+SAMN00001043,Liver,Liver,56,Early childhood_21_59d,Male
+SAMN00001044,Liver,Liver,24,Early childhood_21_59d,Female
+SAMN00001045,Liver,Liver,22,Early childhood_21_59d,Female
+SAMN00001046,Liver,Liver,32,Early childhood_21_59d,Male
+SAMN00001047,Liver,Liver,29,Early childhood_21_59d,Male
+SAMN00001048,Liver,Liver,46,Early childhood_21_59d,Female
+SAMN00001049,Liver,Liver,21,Early childhood_21_59d,Male
+SAMN00001050,Liver,Liver,29,Early childhood_21_59d,Male
+SAMN00001051,Liver,Liver,24,Early childhood_21_59d,Male
+SAMN00001052,Liver,Liver,37,Early childhood_21_59d,Female
+SAMN00001053,Liver,Liver,54,Early childhood_21_59d,Female
+SAMN00001054,Liver,Liver,26,Early childhood_21_59d,Male
+SAMN00001055,Liver,Liver,57,Early childhood_21_59d,Female
+SAMN00001056,Liver,Liver,37,Early childhood_21_59d,Female
+SAMN00001057,Liver,Liver,23,Early childhood_21_59d,Female
+SAMN00001058,Liver,Liver,54,Early childhood_21_59d,Female
+SAMN00001059,Liver,Liver,22,Early childhood_21_59d,Male
+SAMN00001060,Liver,Liver,42,Early childhood_21_59d,Male
+SAMN00001061,Liver,Liver,48,Early childhood_21_59d,Male
+SAMN00001062,Liver,Liver,39,Early childhood_21_59d,Female
+SAMN00001063,Liver,Liver,50,Early childhood_21_59d,Female
+SAMN00001064,Liver,Liver,23,Early childhood_21_59d,Male
+SAMN00001065,Liver,Liver,21,Early childhood_21_59d,Male
+SAMN00001066,Liver,Liver,50,Early childhood_21_59d,Male
+SAMN00001067,Liver,Liver,48,Early childhood_21_59d,Female
+SAMN00001068,Liver,Liver,46,Early childhood_21_59d,Female
+SAMN00001069,Liver,Liver,48,Early childhood_21_59d,Male
+SAMN00001070,Liver,Liver,23,Early childhood_21_59d,Female
+SAMN00001071,Liver,Liver,81,Pre_pubertal_60_149d,Male
+SAMN00001072,Liver,Liver,92,Pre_pubertal_60_149d,Female
+SAMN00001073,Liver,Liver,67,Pre_pubertal_60_149d,Female
+SAMN00001074,Liver,Liver,111,Pre_pubertal_60_149d,Male
+SAMN00001075,Liver,Liver,114,Pre_pubertal_60_149d,Female
+SAMN00001076,Liver,Liver,111,Pre_pubertal_60_149d,Female
+SAMN00001077,Liver,Liver,80,Pre_pubertal_60_149d,Female
+SAMN00001078,Liver,Liver,142,Pre_pubertal_60_149d,Male
+SAMN00001079,Liver,Liver,90,Pre_pubertal_60_149d,Female
+SAMN00001080,Liver,Liver,93,Pre_pubertal_60_149d,Male
+SAMN00001081,Liver,Liver,94,Pre_pubertal_60_149d,Male
+SAMN00001082,Liver,Liver,124,Pre_pubertal_60_149d,Male
+SAMN00001083,Liver,Liver,145,Pre_pubertal_60_149d,Male
+SAMN00001084,Liver,Liver,132,Pre_pubertal_60_149d,Female
+SAMN00001085,Liver,Liver,100,Pre_pubertal_60_149d,Male
+SAMN00001086,Liver,Liver,85,Pre_pubertal_60_149d,Male
+SAMN00001087,Liver,Liver,100,Pre_pubertal_60_149d,Male
+SAMN00001088,Liver,Liver,128,Pre_pubertal_60_149d,Male
+SAMN00001089,Liver,Liver,64,Pre_pubertal_60_149d,Male
+SAMN00001090,Liver,Liver,92,Pre_pubertal_60_149d,Female
+SAMN00001091,Liver,Liver,130,Pre_pubertal_60_149d,Female
+SAMN00001092,Liver,Liver,146,Pre_pubertal_60_149d,Male
+SAMN00001093,Liver,Liver,82,Pre_pubertal_60_149d,Female
+SAMN00001094,Liver,Liver,132,Pre_pubertal_60_149d,Female
+SAMN00001095,Liver,Liver,110,Pre_pubertal_60_149d,Male
+SAMN00001096,Liver,Liver,72,Pre_pubertal_60_149d,Female
+SAMN00001097,Liver,Liver,72,Pre_pubertal_60_149d,Male
+SAMN00001098,Liver,Liver,79,Pre_pubertal_60_149d,Male
+SAMN00001099,Liver,Liver,116,Pre_pubertal_60_149d,Male
+SAMN00001100,Liver,Liver,117,Pre_pubertal_60_149d,Male
+SAMN00001101,Liver,Liver,135,Pre_pubertal_60_149d,Female
+SAMN00001102,Liver,Liver,87,Pre_pubertal_60_149d,Male
+SAMN00001103,Liver,Liver,77,Pre_pubertal_60_149d,Male
+SAMN00001104,Liver,Liver,98,Pre_pubertal_60_149d,Male
+SAMN00001105,Liver,Liver,64,Pre_pubertal_60_149d,Male
+SAMN00001106,Liver,Liver,126,Pre_pubertal_60_149d,Female
+SAMN00001107,Liver,Liver,114,Pre_pubertal_60_149d,Female
+SAMN00001108,Liver,Liver,136,Pre_pubertal_60_149d,Male
+SAMN00001109,Liver,Liver,139,Pre_pubertal_60_149d,Female
+SAMN00001110,Liver,Liver,63,Pre_pubertal_60_149d,Male
+SAMN00001111,Liver,Liver,120,Pre_pubertal_60_149d,Female
+SAMN00001112,Liver,Liver,135,Pre_pubertal_60_149d,Female
+SAMN00001113,Liver,Liver,146,Pre_pubertal_60_149d,Female
+SAMN00001114,Liver,Liver,90,Pre_pubertal_60_149d,Female
+SAMN00001115,Liver,Liver,63,Pre_pubertal_60_149d,Female
+SAMN00001116,Liver,Liver,86,Pre_pubertal_60_149d,Female
+SAMN00001117,Liver,Liver,126,Pre_pubertal_60_149d,Female
+SAMN00001118,Liver,Liver,99,Pre_pubertal_60_149d,Male
+SAMN00001119,Liver,Liver,88,Pre_pubertal_60_149d,Female
+SAMN00001120,Liver,Liver,77,Pre_pubertal_60_149d,Male
+SAMN00001121,Liver,Liver,120,Pre_pubertal_60_149d,Female
+SAMN00001122,Liver,Liver,125,Pre_pubertal_60_149d,Female
+SAMN00001123,Liver,Liver,117,Pre_pubertal_60_149d,Male
+SAMN00001124,Liver,Liver,72,Pre_pubertal_60_149d,Male
+SAMN00001125,Liver,Liver,119,Pre_pubertal_60_149d,Female
+SAMN00001126,Liver,Liver,61,Pre_pubertal_60_149d,Female
+SAMN00001127,Liver,Liver,143,Pre_pubertal_60_149d,Male
+SAMN00001128,Liver,Liver,132,Pre_pubertal_60_149d,Male
+SAMN00001129,Liver,Liver,142,Pre_pubertal_60_149d,Female
+SAMN00001130,Liver,Liver,98,Pre_pubertal_60_149d,Male
+SAMN00001131,Liver,Liver,66,Pre_pubertal_60_149d,Female
+SAMN00001132,Liver,Liver,88,Pre_pubertal_60_149d,Female
+SAMN00001133,Liver,Liver,124,Pre_pubertal_60_149d,Female
+SAMN00001134,Liver,Liver,106,Pre_pubertal_60_149d,Male
+SAMN00001135,Liver,Liver,139,Pre_pubertal_60_149d,Female
+SAMN00001136,Liver,Liver,121,Pre_pubertal_60_149d,Female
+SAMN00001137,Liver,Liver,118,Pre_pubertal_60_149d,Female
+SAMN00001138,Liver,Liver,147,Pre_pubertal_60_149d,Male
+SAMN00001139,Liver,Liver,121,Pre_pubertal_60_149d,Female
+SAMN00001140,Liver,Liver,64,Pre_pubertal_60_149d,Male
+SAMN00001141,Liver,Liver,66,Pre_pubertal_60_149d,Male
+SAMN00001142,Liver,Liver,97,Pre_pubertal_60_149d,Female
+SAMN00001143,Liver,Liver,111,Pre_pubertal_60_149d,Male
+SAMN00001144,Liver,Liver,77,Pre_pubertal_60_149d,Male
+SAMN00001145,Liver,Liver,91,Pre_pubertal_60_149d,Male
+SAMN00001146,Liver,Liver,137,Pre_pubertal_60_149d,Female
+SAMN00001147,Liver,Liver,132,Pre_pubertal_60_149d,Female
+SAMN00001148,Liver,Liver,116,Pre_pubertal_60_149d,Male
+SAMN00001149,Liver,Liver,139,Pre_pubertal_60_149d,Male
+SAMN00001150,Liver,Liver,104,Pre_pubertal_60_149d,Female
+SAMN00001151,Liver,Liver,95,Pre_pubertal_60_149d,Male
+SAMN00001152,Liver,Liver,144,Pre_pubertal_60_149d,Male
+SAMN00001153,Liver,Liver,97,Pre_pubertal_60_149d,Female
+SAMN00001154,Liver,Liver,101,Pre_pubertal_60_149d,Female
+SAMN00001155,Liver,Liver,90,Pre_pubertal_60_149d,Male
+SAMN00001156,Liver,Liver,358,Post_pubertal_150_365d,Male
+SAMN00001157,Liver,Liver,292,Post_pubertal_150_365d,Male
+SAMN00001158,Liver,Liver,293,Post_pubertal_150_365d,Male
+SAMN00001159,Liver,Liver,301,Post_pubertal_150_365d,Male
+SAMN00001160,Liver,Liver,208,Post_pubertal_150_365d,Male
+SAMN00001161,Liver,Liver,255,Post_pubertal_150_365d,Female
+SAMN00001162,Liver,Liver,268,Post_pubertal_150_365d,Female
+SAMN00001163,Liver,Liver,233,Post_pubertal_150_365d,Female
+SAMN00001164,Liver,Liver,348,Post_pubertal_150_365d,Female
+SAMN00001165,Liver,Liver,196,Post_pubertal_150_365d,Male
+SAMN00001166,Liver,Liver,188,Post_pubertal_150_365d,Female
+SAMN00001167,Liver,Liver,179,Post_pubertal_150_365d,Male
+SAMN00001168,Liver,Liver,207,Post_pubertal_150_365d,Male
+SAMN00001169,Liver,Liver,185,Post_pubertal_150_365d,Male
+SAMN00001170,Liver,Liver,283,Post_pubertal_150_365d,Female
+SAMN00001171,Liver,Liver,255,Post_pubertal_150_365d,Male
+SAMN00001172,Liver,Liver,290,Post_pubertal_150_365d,Female
+SAMN00001173,Liver,Liver,216,Post_pubertal_150_365d,Male
+SAMN00001174,Liver,Liver,206,Post_pubertal_150_365d,Female
+SAMN00001175,Liver,Liver,335,Post_pubertal_150_365d,Female
+SAMN00001176,Liver,Liver,328,Post_pubertal_150_365d,Male
+SAMN00001177,Liver,Liver,195,Post_pubertal_150_365d,Male
+SAMN00001178,Liver,Liver,183,Post_pubertal_150_365d,Male
+SAMN00001179,Liver,Liver,221,Post_pubertal_150_365d,Male
+SAMN00001180,Liver,Liver,315,Post_pubertal_150_365d,Male
+SAMN00001181,Liver,Liver,334,Post_pubertal_150_365d,Male
+SAMN00001182,Liver,Liver,231,Post_pubertal_150_365d,Male
+SAMN00001183,Liver,Liver,287,Post_pubertal_150_365d,Male
+SAMN00001184,Liver,Liver,332,Post_pubertal_150_365d,Female
+SAMN00001185,Liver,Liver,245,Post_pubertal_150_365d,Female
+SAMN00001186,Liver,Liver,191,Post_pubertal_150_365d,Female
+SAMN00001187,Liver,Liver,298,Post_pubertal_150_365d,Male
+SAMN00001188,Liver,Liver,233,Post_pubertal_150_365d,Male
+SAMN00001189,Liver,Liver,165,Post_pubertal_150_365d,Male
+SAMN00001190,Liver,Liver,176,Post_pubertal_150_365d,Female
+SAMN00001191,Liver,Liver,228,Post_pubertal_150_365d,Male
+SAMN00001192,Liver,Liver,271,Post_pubertal_150_365d,Male
+SAMN00001193,Liver,Liver,322,Post_pubertal_150_365d,Male
+SAMN00001194,Liver,Liver,287,Post_pubertal_150_365d,Male
+SAMN00001195,Liver,Liver,185,Post_pubertal_150_365d,Male
+SAMN00001196,Liver,Liver,271,Post_pubertal_150_365d,Male
+SAMN00001197,Liver,Liver,233,Post_pubertal_150_365d,Female
+SAMN00001198,Liver,Liver,345,Post_pubertal_150_365d,Male
+SAMN00001199,Liver,Liver,326,Post_pubertal_150_365d,Female
+SAMN00001200,Liver,Liver,251,Post_pubertal_150_365d,Male
+SAMN00001201,Liver,Liver,208,Post_pubertal_150_365d,Female
+SAMN00001202,Liver,Liver,241,Post_pubertal_150_365d,Male
+SAMN00001203,Liver,Liver,210,Post_pubertal_150_365d,Male
+SAMN00001204,Liver,Liver,177,Post_pubertal_150_365d,Female
+SAMN00001205,Liver,Liver,324,Post_pubertal_150_365d,Male
+SAMN00001206,Liver,Liver,276,Post_pubertal_150_365d,Male
+SAMN00001207,Liver,Liver,285,Post_pubertal_150_365d,Male
+SAMN00001208,Liver,Liver,329,Post_pubertal_150_365d,Male
+SAMN00001209,Liver,Liver,211,Post_pubertal_150_365d,Female
+SAMN00001210,Liver,Liver,191,Post_pubertal_150_365d,Male
+SAMN00001211,Liver,Liver,686,Adult_>365d,Female
+SAMN00001212,Liver,Liver,701,Adult_>365d,Male
+SAMN00001213,Liver,Liver,687,Adult_>365d,Male
+SAMN00001214,Liver,Liver,423,Adult_>365d,Male
+SAMN00001215,Liver,Liver,398,Adult_>365d,Female
+SAMN00001216,Liver,Liver,447,Adult_>365d,Female
+SAMN00001217,Liver,Liver,643,Adult_>365d,Male
+SAMN00001218,Liver,Liver,698,Adult_>365d,Male
+SAMN00001219,Liver,Liver,440,Adult_>365d,Male
+SAMN00001220,Liver,Liver,481,Adult_>365d,Male
+SAMN00001221,Liver,Liver,424,Adult_>365d,Female
+SAMN00001222,Liver,Liver,641,Adult_>365d,Female
+SAMN00001223,Liver,Liver,629,Adult_>365d,Male
+SAMN00001224,Liver,Liver,626,Adult_>365d,Female
+SAMN00001225,Liver,Liver,592,Adult_>365d,Female
+SAMN00001226,Liver,Liver,459,Adult_>365d,Female
+SAMN00001227,Liver,Liver,389,Adult_>365d,Male
+SAMN00001228,Liver,Liver,456,Adult_>365d,Female
+SAMN00001229,Liver,Liver,665,Adult_>365d,Female
+SAMN00001230,Liver,Liver,503,Adult_>365d,Male
+SAMN00001231,Liver,Liver,593,Adult_>365d,Female
+SAMN00001232,Liver,Liver,431,Adult_>365d,Female
+SAMN00001233,Liver,Liver,642,Adult_>365d,Female
+SAMN00001234,Liver,Liver,485,Adult_>365d,Female
+SAMN00001235,Liver,Liver,502,Adult_>365d,Female
+SAMN00001236,Liver,Liver,405,Adult_>365d,Male
+SAMN00001237,Liver,Liver,412,Adult_>365d,Male
+SAMN00001238,Liver,Liver,478,Adult_>365d,Male
+SAMN00001239,Liver,Liver,517,Adult_>365d,Female
+SAMN00001240,Liver,Liver,388,Adult_>365d,Male
+SAMN00001241,Liver,Liver,539,Adult_>365d,Female
+SAMN00001242,Liver,Liver,608,Adult_>365d,Male
+SAMN00001243,Liver,Liver,674,Adult_>365d,Male
+SAMN00001244,Blood,Blood,6,Infant_0_20d,Female
+SAMN00001245,Blood,Blood,17,Infant_0_20d,Female
+SAMN00001246,Blood,Blood,39,Early childhood_21_59d,Female
+SAMN00001247,Blood,Blood,44,Early childhood_21_59d,Male
+SAMN00001248,Blood,Blood,31,Early childhood_21_59d,Female
+SAMN00001249,Blood,Blood,27,Early childhood_21_59d,Male
+SAMN00001250,Blood,Blood,46,Early childhood_21_59d,Female
+SAMN00001251,Blood,Blood,23,Early childhood_21_59d,Female
+SAMN00001252,Blood,Blood,51,Early childhood_21_59d,Female
+SAMN00001253,Blood,Blood,44,Early childhood_21_59d,Male
+SAMN00001254,Blood,Blood,37,Early childhood_21_59d,Male
+SAMN00001255,Blood,Blood,39,Early childhood_21_59d,Male
+SAMN00001256,Blood,Blood,43,Early childhood_21_59d,Male
+SAMN00001257,Blood,Blood,36,Early childhood_21_59d,Male
+SAMN00001258,Blood,Blood,28,Early childhood_21_59d,Female
+SAMN00001259,Blood,Blood,35,Early childhood_21_59d,Female
+SAMN00001260,Blood,Blood,22,Early childhood_21_59d,Female
+SAMN00001261,Blood,Blood,44,Early childhood_21_59d,Male
+SAMN00001262,Blood,Blood,42,Early childhood_21_59d,Male
+SAMN00001263,Blood,Blood,57,Early childhood_21_59d,Male
+SAMN00001264,Blood,Blood,56,Early childhood_21_59d,Male
+SAMN00001265,Blood,Blood,40,Early childhood_21_59d,Male
+SAMN00001266,Blood,Blood,57,Early childhood_21_59d,Male
+SAMN00001267,Blood,Blood,37,Early childhood_21_59d,Male
+SAMN00001268,Blood,Blood,43,Early childhood_21_59d,Male
+SAMN00001269,Blood,Blood,21,Early childhood_21_59d,Male
+SAMN00001270,Blood,Blood,46,Early childhood_21_59d,Female
+SAMN00001271,Blood,Blood,52,Early childhood_21_59d,Female
+SAMN00001272,Blood,Blood,53,Early childhood_21_59d,Female
+SAMN00001273,Blood,Blood,35,Early childhood_21_59d,Male
+SAMN00001274,Blood,Blood,26,Early childhood_21_59d,Male
+SAMN00001275,Blood,Blood,27,Early childhood_21_59d,Female
+SAMN00001276,Blood,Blood,41,Early childhood_21_59d,Female
+SAMN00001277,Blood,Blood,33,Early childhood_21_59d,Female
+SAMN00001278,Blood,Blood,48,Early childhood_21_59d,Female
+SAMN00001279,Blood,Blood,45,Early childhood_21_59d,Male
+SAMN00001280,Blood,Blood,52,Early childhood_21_59d,Male
+SAMN00001281,Blood,Blood,43,Early childhood_21_59d,Male
+SAMN00001282,Blood,Blood,28,Early childhood_21_59d,Female
+SAMN00001283,Blood,Blood,37,Early childhood_21_59d,Male
+SAMN00001284,Blood,Blood,23,Early childhood_21_59d,Male
+SAMN00001285,Blood,Blood,53,Early childhood_21_59d,Male
+SAMN00001286,Blood,Blood,54,Early childhood_21_59d,Male
+SAMN00001287,Blood,Blood,27,Early childhood_21_59d,Female
+SAMN00001288,Blood,Blood,52,Early childhood_21_59d,Female
+SAMN00001289,Blood,Blood,55,Early childhood_21_59d,Male
+SAMN00001290,Blood,Blood,49,Early childhood_21_59d,Female
+SAMN00001291,Blood,Blood,58,Early childhood_21_59d,Male
+SAMN00001292,Blood,Blood,48,Early childhood_21_59d,Male
+SAMN00001293,Blood,Blood,35,Early childhood_21_59d,Female
+SAMN00001294,Blood,Blood,50,Early childhood_21_59d,Female
+SAMN00001295,Blood,Blood,25,Early childhood_21_59d,Male
+SAMN00001296,Blood,Blood,47,Early childhood_21_59d,Male
+SAMN00001297,Blood,Blood,34,Early childhood_21_59d,Female
+SAMN00001298,Blood,Blood,25,Early childhood_21_59d,Female
+SAMN00001299,Blood,Blood,34,Early childhood_21_59d,Male
+SAMN00001300,Blood,Blood,44,Early childhood_21_59d,Male
+SAMN00001301,Blood,Blood,39,Early childhood_21_59d,Female
+SAMN00001302,Blood,Blood,54,Early childhood_21_59d,Male
+SAMN00001303,Blood,Blood,32,Early childhood_21_59d,Female
+SAMN00001304,Blood,Blood,58,Early childhood_21_59d,Female
+SAMN00001305,Blood,Blood,31,Early childhood_21_59d,Male
+SAMN00001306,Blood,Blood,43,Early childhood_21_59d,Male
+SAMN00001307,Blood,Blood,23,Early childhood_21_59d,Male
+SAMN00001308,Blood,Blood,55,Early childhood_21_59d,Female
+SAMN00001309,Blood,Blood,40,Early childhood_21_59d,Female
+SAMN00001310,Blood,Blood,47,Early childhood_21_59d,Male
+SAMN00001311,Blood,Blood,28,Early childhood_21_59d,Male
+SAMN00001312,Blood,Blood,31,Early childhood_21_59d,Male
+SAMN00001313,Blood,Blood,49,Early childhood_21_59d,Male
+SAMN00001314,Blood,Blood,58,Early childhood_21_59d,Female
+SAMN00001315,Blood,Blood,25,Early childhood_21_59d,Male
+SAMN00001316,Blood,Blood,57,Early childhood_21_59d,Female
+SAMN00001317,Blood,Blood,34,Early childhood_21_59d,Male
+SAMN00001318,Blood,Blood,36,Early childhood_21_59d,Male
+SAMN00001319,Blood,Blood,24,Early childhood_21_59d,Male
+SAMN00001320,Blood,Blood,57,Early childhood_21_59d,Male
+SAMN00001321,Blood,Blood,42,Early childhood_21_59d,Male
+SAMN00001322,Blood,Blood,28,Early childhood_21_59d,Female
+SAMN00001323,Blood,Blood,33,Early childhood_21_59d,Female
+SAMN00001324,Blood,Blood,36,Early childhood_21_59d,Male
+SAMN00001325,Blood,Blood,57,Early childhood_21_59d,Female
+SAMN00001326,Blood,Blood,28,Early childhood_21_59d,Female
+SAMN00001327,Blood,Blood,54,Early childhood_21_59d,Male
+SAMN00001328,Blood,Blood,39,Early childhood_21_59d,Male
+SAMN00001329,Blood,Blood,29,Early childhood_21_59d,Female
+SAMN00001330,Blood,Blood,31,Early childhood_21_59d,Female
+SAMN00001331,Blood,Blood,35,Early childhood_21_59d,Male
+SAMN00001332,Blood,Blood,55,Early childhood_21_59d,Male
+SAMN00001333,Blood,Blood,29,Early childhood_21_59d,Male
+SAMN00001334,Blood,Blood,27,Early childhood_21_59d,Female
+SAMN00001335,Blood,Blood,51,Early childhood_21_59d,Male
+SAMN00001336,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001337,Blood,Blood,35,Early childhood_21_59d,Female
+SAMN00001338,Blood,Blood,52,Early childhood_21_59d,Female
+SAMN00001339,Blood,Blood,21,Early childhood_21_59d,Female
+SAMN00001340,Blood,Blood,44,Early childhood_21_59d,Female
+SAMN00001341,Blood,Blood,34,Early childhood_21_59d,Female
+SAMN00001342,Blood,Blood,54,Early childhood_21_59d,Female
+SAMN00001343,Blood,Blood,57,Early childhood_21_59d,Female
+SAMN00001344,Blood,Blood,54,Early childhood_21_59d,Male
+SAMN00001345,Blood,Blood,52,Early childhood_21_59d,Male
+SAMN00001346,Blood,Blood,33,Early childhood_21_59d,Male
+SAMN00001347,Blood,Blood,49,Early childhood_21_59d,Female
+SAMN00001348,Blood,Blood,22,Early childhood_21_59d,Female
+SAMN00001349,Blood,Blood,38,Early childhood_21_59d,Male
+SAMN00001350,Blood,Blood,58,Early childhood_21_59d,Female
+SAMN00001351,Blood,Blood,47,Early childhood_21_59d,Male
+SAMN00001352,Blood,Blood,46,Early childhood_21_59d,Female
+SAMN00001353,Blood,Blood,50,Early childhood_21_59d,Female
+SAMN00001354,Blood,Blood,32,Early childhood_21_59d,Female
+SAMN00001355,Blood,Blood,43,Early childhood_21_59d,Male
+SAMN00001356,Blood,Blood,52,Early childhood_21_59d,Female
+SAMN00001357,Blood,Blood,43,Early childhood_21_59d,Female
+SAMN00001358,Blood,Blood,56,Early childhood_21_59d,Male
+SAMN00001359,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001360,Blood,Blood,53,Early childhood_21_59d,Female
+SAMN00001361,Blood,Blood,46,Early childhood_21_59d,Female
+SAMN00001362,Blood,Blood,29,Early childhood_21_59d,Male
+SAMN00001363,Blood,Blood,53,Early childhood_21_59d,Female
+SAMN00001364,Blood,Blood,47,Early childhood_21_59d,Male
+SAMN00001365,Blood,Blood,51,Early childhood_21_59d,Male
+SAMN00001366,Blood,Blood,51,Early childhood_21_59d,Female
+SAMN00001367,Blood,Blood,29,Early childhood_21_59d,Female
+SAMN00001368,Blood,Blood,43,Early childhood_21_59d,Female
+SAMN00001369,Blood,Blood,44,Early childhood_21_59d,Male
+SAMN00001370,Blood,Blood,32,Early childhood_21_59d,Male
+SAMN00001371,Blood,Blood,57,Early childhood_21_59d,Male
+SAMN00001372,Blood,Blood,42,Early childhood_21_59d,Male
+SAMN00001373,Blood,Blood,38,Early childhood_21_59d,Female
+SAMN00001374,Blood,Blood,36,Early childhood_21_59d,Female
+SAMN00001375,Blood,Blood,49,Early childhood_21_59d,Male
+SAMN00001376,Blood,Blood,41,Early childhood_21_59d,Female
+SAMN00001377,Blood,Blood,53,Early childhood_21_59d,Male
+SAMN00001378,Blood,Blood,50,Early childhood_21_59d,Female
+SAMN00001379,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001380,Blood,Blood,50,Early childhood_21_59d,Male
+SAMN00001381,Blood,Blood,56,Early childhood_21_59d,Male
+SAMN00001382,Blood,Blood,28,Early childhood_21_59d,Female
+SAMN00001383,Blood,Blood,30,Early childhood_21_59d,Female
+SAMN00001384,Blood,Blood,24,Early childhood_21_59d,Male
+SAMN00001385,Blood,Blood,38,Early childhood_21_59d,Male
+SAMN00001386,Blood,Blood,27,Early childhood_21_59d,Female
+SAMN00001387,Blood,Blood,21,Early childhood_21_59d,Male
+SAMN00001388,Blood,Blood,32,Early childhood_21_59d,Female
+SAMN00001389,Blood,Blood,23,Early childhood_21_59d,Female
+SAMN00001390,Blood,Blood,35,Early childhood_21_59d,Female
+SAMN00001391,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001392,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001393,Blood,Blood,21,Early childhood_21_59d,Male
+SAMN00001394,Blood,Blood,45,Early childhood_21_59d,Male
+SAMN00001395,Blood,Blood,27,Early childhood_21_59d,Female
+SAMN00001396,Blood,Blood,39,Early childhood_21_59d,Female
+SAMN00001397,Blood,Blood,49,Early childhood_21_59d,Male
+SAMN00001398,Blood,Blood,33,Early childhood_21_59d,Female
+SAMN00001399,Blood,Blood,32,Early childhood_21_59d,Female
+SAMN00001400,Blood,Blood,31,Early childhood_21_59d,Female
+SAMN00001401,Blood,Blood,36,Early childhood_21_59d,Female
+SAMN00001402,Blood,Blood,38,Early childhood_21_59d,Male
+SAMN00001403,Blood,Blood,39,Early childhood_21_59d,Female
+SAMN00001404,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001405,Blood,Blood,33,Early childhood_21_59d,Female
+SAMN00001406,Blood,Blood,27,Early childhood_21_59d,Female
+SAMN00001407,Blood,Blood,57,Early childhood_21_59d,Male
+SAMN00001408,Blood,Blood,31,Early childhood_21_59d,Male
+SAMN00001409,Blood,Blood,33,Early childhood_21_59d,Female
+SAMN00001410,Blood,Blood,58,Early childhood_21_59d,Male
+SAMN00001411,Blood,Blood,34,Early childhood_21_59d,Male
+SAMN00001412,Blood,Blood,32,Early childhood_21_59d,Male
+SAMN00001413,Blood,Blood,39,Early childhood_21_59d,Female
+SAMN00001414,Blood,Blood,45,Early childhood_21_59d,Male
+SAMN00001415,Blood,Blood,48,Early childhood_21_59d,Male
+SAMN00001416,Blood,Blood,56,Early childhood_21_59d,Female
+SAMN00001417,Blood,Blood,53,Early childhood_21_59d,Female
+SAMN00001418,Blood,Blood,36,Early childhood_21_59d,Male
+SAMN00001419,Blood,Blood,53,Early childhood_21_59d,Female
+SAMN00001420,Blood,Blood,41,Early childhood_21_59d,Male
+SAMN00001421,Blood,Blood,33,Early childhood_21_59d,Male
+SAMN00001422,Blood,Blood,48,Early childhood_21_59d,Female
+SAMN00001423,Blood,Blood,28,Early childhood_21_59d,Female
+SAMN00001424,Blood,Blood,58,Early childhood_21_59d,Male
+SAMN00001425,Blood,Blood,30,Early childhood_21_59d,Female
+SAMN00001426,Blood,Blood,52,Early childhood_21_59d,Male
+SAMN00001427,Blood,Blood,25,Early childhood_21_59d,Male
+SAMN00001428,Blood,Blood,47,Early childhood_21_59d,Male
+SAMN00001429,Blood,Blood,34,Early childhood_21_59d,Male
+SAMN00001430,Blood,Blood,54,Early childhood_21_59d,Female
+SAMN00001431,Blood,Blood,50,Early childhood_21_59d,Female
+SAMN00001432,Blood,Blood,27,Early childhood_21_59d,Male
+SAMN00001433,Blood,Blood,33,Early childhood_21_59d,Male
+SAMN00001434,Blood,Blood,23,Early childhood_21_59d,Female
+SAMN00001435,Blood,Blood,26,Early childhood_21_59d,Female
+SAMN00001436,Blood,Blood,50,Early childhood_21_59d,Female
+SAMN00001437,Blood,Blood,21,Early childhood_21_59d,Female
+SAMN00001438,Blood,Blood,53,Early childhood_21_59d,Female
+SAMN00001439,Blood,Blood,50,Early childhood_21_59d,Female
+SAMN00001440,Blood,Blood,46,Early childhood_21_59d,Male
+SAMN00001441,Blood,Blood,51,Early childhood_21_59d,Female
+SAMN00001442,Blood,Blood,38,Early childhood_21_59d,Female
+SAMN00001443,Blood,Blood,25,Early childhood_21_59d,Female
+SAMN00001444,Blood,Blood,43,Early childhood_21_59d,Female
+SAMN00001445,Blood,Blood,56,Early childhood_21_59d,Female
+SAMN00001446,Blood,Blood,47,Early childhood_21_59d,Female
+SAMN00001447,Blood,Blood,25,Early childhood_21_59d,Male
+SAMN00001448,Blood,Blood,21,Early childhood_21_59d,Male
+SAMN00001449,Blood,Blood,40,Early childhood_21_59d,Male
+SAMN00001450,Blood,Blood,44,Early childhood_21_59d,Female
+SAMN00001451,Blood,Blood,55,Early childhood_21_59d,Female
+SAMN00001452,Blood,Blood,42,Early childhood_21_59d,Female
+SAMN00001453,Blood,Blood,26,Early childhood_21_59d,Female
+SAMN00001454,Blood,Blood,21,Early childhood_21_59d,Female
+SAMN00001455,Blood,Blood,48,Early childhood_21_59d,Female
+SAMN00001456,Blood,Blood,21,Early childhood_21_59d,Female
+SAMN00001457,Blood,Blood,123,Pre_pubertal_60_149d,Male
+SAMN00001458,Blood,Blood,128,Pre_pubertal_60_149d,Male
+SAMN00001459,Blood,Blood,97,Pre_pubertal_60_149d,Female
+SAMN00001460,Blood,Blood,88,Pre_pubertal_60_149d,Male
+SAMN00001461,Blood,Blood,83,Pre_pubertal_60_149d,Male
+SAMN00001462,Blood,Blood,146,Pre_pubertal_60_149d,Female
+SAMN00001463,Blood,Blood,146,Pre_pubertal_60_149d,Female
+SAMN00001464,Blood,Blood,81,Pre_pubertal_60_149d,Male
+SAMN00001465,Blood,Blood,138,Pre_pubertal_60_149d,Female
+SAMN00001466,Blood,Blood,83,Pre_pubertal_60_149d,Female
+SAMN00001467,Blood,Blood,83,Pre_pubertal_60_149d,Female
+SAMN00001468,Blood,Blood,76,Pre_pubertal_60_149d,Female
+SAMN00001469,Blood,Blood,126,Pre_pubertal_60_149d,Male
+SAMN00001470,Blood,Blood,92,Pre_pubertal_60_149d,Female
+SAMN00001471,Blood,Blood,63,Pre_pubertal_60_149d,Female
+SAMN00001472,Blood,Blood,110,Pre_pubertal_60_149d,Female
+SAMN00001473,Blood,Blood,107,Pre_pubertal_60_149d,Male
+SAMN00001474,Blood,Blood,85,Pre_pubertal_60_149d,Male
+SAMN00001475,Blood,Blood,89,Pre_pubertal_60_149d,Male
+SAMN00001476,Blood,Blood,113,Pre_pubertal_60_149d,Male
+SAMN00001477,Blood,Blood,62,Pre_pubertal_60_149d,Male
+SAMN00001478,Blood,Blood,67,Pre_pubertal_60_149d,Female
+SAMN00001479,Blood,Blood,79,Pre_pubertal_60_149d,Female
+SAMN00001480,Blood,Blood,67,Pre_pubertal_60_149d,Female
+SAMN00001481,Blood,Blood,63,Pre_pubertal_60_149d,Female
+SAMN00001482,Blood,Blood,132,Pre_pubertal_60_149d,Male
+SAMN00001483,Blood,Blood,146,Pre_pubertal_60_149d,Male
+SAMN00001484,Blood,Blood,97,Pre_pubertal_60_149d,Male
+SAMN00001485,Blood,Blood,139,Pre_pubertal_60_149d,Male
+SAMN00001486,Blood,Blood,75,Pre_pubertal_60_149d,Male
+SAMN00001487,Blood,Blood,247,Post_pubertal_150_365d,Male
+SAMN00001488,Blood,Blood,262,Post_pubertal_150_365d,Male
+SAMN00001489,Blood,Blood,334,Post_pubertal_150_365d,Male
+SAMN00001490,Blood,Blood,229,Post_pubertal_150_365d,Male
+SAMN00001491,Blood,Blood,312,Post_pubertal_150_365d,Female
+SAMN00001492,Blood,Blood,320,Post_pubertal_150_365d,Female
+SAMN00001493,Blood,Blood,199,Post_pubertal_150_365d,Female
+SAMN00001494,Blood,Blood,283,Post_pubertal_150_365d,Male
+SAMN00001495,Blood,Blood,353,Post_pubertal_150_365d,Female
+SAMN00001496,Blood,Blood,286,Post_pubertal_150_365d,Female
+SAMN00001497,Blood,Blood,242,Post_pubertal_150_365d,Male
+SAMN00001498,Blood,Blood,173,Post_pubertal_150_365d,Male
+SAMN00001499,Blood,Blood,234,Post_pubertal_150_365d,Male
+SAMN00001500,Blood,Blood,189,Post_pubertal_150_365d,Male
+SAMN00001501,Blood,Blood,350,Post_pubertal_150_365d,Male
+SAMN00001502,Blood,Blood,197,Post_pubertal_150_365d,Male
+SAMN00001503,Blood,Blood,311,Post_pubertal_150_365d,Female
+SAMN00001504,Blood,Blood,297,Post_pubertal_150_365d,Female
+SAMN00001505,Blood,Blood,232,Post_pubertal_150_365d,Male
+SAMN00001506,Blood,Blood,186,Post_pubertal_150_365d,Male
+SAMN00001507,Blood,Blood,152,Post_pubertal_150_365d,Male
+SAMN00001508,Blood,Blood,261,Post_pubertal_150_365d,Female
+SAMN00001509,Blood,Blood,211,Post_pubertal_150_365d,Female
+SAMN00001510,Blood,Blood,337,Post_pubertal_150_365d,Male
+SAMN00001511,Blood,Blood,264,Post_pubertal_150_365d,Male
+SAMN00001512,Blood,Blood,200,Post_pubertal_150_365d,Female
+SAMN00001513,Blood,Blood,271,Post_pubertal_150_365d,Male
+SAMN00001514,Blood,Blood,287,Post_pubertal_150_365d,Female
+SAMN00001515,Blood,Blood,363,Post_pubertal_150_365d,Male
+SAMN00001516,Blood,Blood,214,Post_pubertal_150_365d,Male
+SAMN00001517,Blood,Blood,213,Post_pubertal_150_365d,Male
+SAMN00001518,Blood,Blood,334,Post_pubertal_150_365d,Female
+SAMN00001519,Blood,Blood,246,Post_pubertal_150_365d,Female
+SAMN00001520,Blood,Blood,321,Post_pubertal_150_365d,Male
+SAMN00001521,Blood,Blood,152,Post_pubertal_150_365d,Male
+SAMN00001522,Blood,Blood,273,Post_pubertal_150_365d,Male
+SAMN00001523,Blood,Blood,291,Post_pubertal_150_365d,Female
+SAMN00001524,Blood,Blood,244,Post_pubertal_150_365d,Male
+SAMN00001525,Blood,Blood,213,Post_pubertal_150_365d,Male
+SAMN00001526,Blood,Blood,727,Adult_>365d,Female
+SAMN00001527,Blood,Blood,366,Adult_>365d,Female
+SAMN00001528,Lung,Lung,17,Infant_0_20d,Male
+SAMN00001529,Lung,Lung,17,Infant_0_20d,Male
+SAMN00001530,Lung,Lung,7,Infant_0_20d,Female
+SAMN00001531,Lung,Lung,8,Infant_0_20d,Male
+SAMN00001532,Lung,Lung,15,Infant_0_20d,Female
+SAMN00001533,Lung,Lung,12,Infant_0_20d,Female
+SAMN00001534,Lung,Lung,9,Infant_0_20d,Male
+SAMN00001535,Lung,Lung,11,Infant_0_20d,Male
+SAMN00001536,Lung,Lung,4,Infant_0_20d,Male
+SAMN00001537,Lung,Lung,11,Infant_0_20d,Female
+SAMN00001538,Lung,Lung,8,Infant_0_20d,Female
+SAMN00001539,Lung,Lung,11,Infant_0_20d,Male
+SAMN00001540,Lung,Lung,13,Infant_0_20d,Female
+SAMN00001541,Lung,Lung,9,Infant_0_20d,Male
+SAMN00001542,Lung,Lung,15,Infant_0_20d,Female
+SAMN00001543,Lung,Lung,11,Infant_0_20d,Male
+SAMN00001544,Lung,Lung,12,Infant_0_20d,Female
+SAMN00001545,Lung,Lung,14,Infant_0_20d,Female
+SAMN00001546,Lung,Lung,9,Infant_0_20d,Female
+SAMN00001547,Lung,Lung,11,Infant_0_20d,Male
+SAMN00001548,Lung,Lung,18,Infant_0_20d,Male
+SAMN00001549,Lung,Lung,1,Infant_0_20d,Male
+SAMN00001550,Lung,Lung,16,Infant_0_20d,Female
+SAMN00001551,Lung,Lung,4,Infant_0_20d,Male
+SAMN00001552,Lung,Lung,7,Infant_0_20d,Male
+SAMN00001553,Lung,Lung,13,Infant_0_20d,Male
+SAMN00001554,Lung,Lung,16,Infant_0_20d,Male
+SAMN00001555,Lung,Lung,8,Infant_0_20d,Female
+SAMN00001556,Lung,Lung,6,Infant_0_20d,Female
+SAMN00001557,Lung,Lung,7,Infant_0_20d,Male
+SAMN00001558,Lung,Lung,3,Infant_0_20d,Female
+SAMN00001559,Lung,Lung,2,Infant_0_20d,Female
+SAMN00001560,Lung,Lung,3,Infant_0_20d,Female
+SAMN00001561,Lung,Lung,7,Infant_0_20d,Male
+SAMN00001562,Lung,Lung,15,Infant_0_20d,Female
+SAMN00001563,Lung,Lung,5,Infant_0_20d,Female
+SAMN00001564,Lung,Lung,17,Infant_0_20d,Male
+SAMN00001565,Lung,Lung,18,Infant_0_20d,Female
+SAMN00001566,Lung,Lung,16,Infant_0_20d,Male
+SAMN00001567,Lung,Lung,18,Infant_0_20d,Male
+SAMN00001568,Lung,Lung,27,Early childhood_21_59d,Female
+SAMN00001569,Lung,Lung,23,Early childhood_21_59d,Male
+SAMN00001570,Lung,Lung,40,Early childhood_21_59d,Female
+SAMN00001571,Lung,Lung,54,Early childhood_21_59d,Male
+SAMN00001572,Lung,Lung,23,Early childhood_21_59d,Male
+SAMN00001573,Lung,Lung,39,Early childhood_21_59d,Female
+SAMN00001574,Lung,Lung,47,Early childhood_21_59d,Female
+SAMN00001575,Lung,Lung,42,Early childhood_21_59d,Female
+SAMN00001576,Lung,Lung,23,Early childhood_21_59d,Female
+SAMN00001577,Lung,Lung,29,Early childhood_21_59d,Male
+SAMN00001578,Lung,Lung,57,Early childhood_21_59d,Female
+SAMN00001579,Lung,Lung,25,Early childhood_21_59d,Male
+SAMN00001580,Lung,Lung,31,Early childhood_21_59d,Female
+SAMN00001581,Lung,Lung,55,Early childhood_21_59d,Male
+SAMN00001582,Lung,Lung,28,Early childhood_21_59d,Male
+SAMN00001583,Lung,Lung,27,Early childhood_21_59d,Male
+SAMN00001584,Lung,Lung,28,Early childhood_21_59d,Female
+SAMN00001585,Lung,Lung,29,Early childhood_21_59d,Female
+SAMN00001586,Lung,Lung,34,Early childhood_21_59d,Female
+SAMN00001587,Lung,Lung,51,Early childhood_21_59d,Female
+SAMN00001588,Lung,Lung,32,Early childhood_21_59d,Female
+SAMN00001589,Lung,Lung,21,Early childhood_21_59d,Male
+SAMN00001590,Lung,Lung,58,Early childhood_21_59d,Female
+SAMN00001591,Lung,Lung,24,Early childhood_21_59d,Male
+SAMN00001592,Lung,Lung,31,Early childhood_21_59d,Male
+SAMN00001593,Lung,Lung,32,Early childhood_21_59d,Female
+SAMN00001594,Lung,Lung,145,Pre_pubertal_60_149d,Male
+SAMN00001595,Lung,Lung,60,Pre_pubertal_60_149d,Female
+SAMN00001596,Lung,Lung,138,Pre_pubertal_60_149d,Female
+SAMN00001597,Lung,Lung,144,Pre_pubertal_60_149d,Male
+SAMN00001598,Lung,Lung,66,Pre_pubertal_60_149d,Female
+SAMN00001599,Lung,Lung,90,Pre_pubertal_60_149d,Male
+SAMN00001600,Lung,Lung,133,Pre_pubertal_60_149d,Female
+SAMN00001601,Lung,Lung,115,Pre_pubertal_60_149d,Male
+SAMN00001602,Lung,Lung,82,Pre_pubertal_60_149d,Female
+SAMN00001603,Lung,Lung,140,Pre_pubertal_60_149d,Male
+SAMN00001604,Lung,Lung,120,Pre_pubertal_60_149d,Male
+SAMN00001605,Lung,Lung,128,Pre_pubertal_60_149d,Male
+SAMN00001606,Lung,Lung,68,Pre_pubertal_60_149d,Female
+SAMN00001607,Lung,Lung,74,Pre_pubertal_60_149d,Male
+SAMN00001608,Lung,Lung,109,Pre_pubertal_60_149d,Female
+SAMN00001609,Lung,Lung,120,Pre_pubertal_60_149d,Female
+SAMN00001610,Lung,Lung,69,Pre_pubertal_60_149d,Female
+SAMN00001611,Lung,Lung,77,Pre_pubertal_60_149d,Male
+SAMN00001612,Lung,Lung,75,Pre_pubertal_60_149d,Male
+SAMN00001613,Lung,Lung,76,Pre_pubertal_60_149d,Female
+SAMN00001614,Lung,Lung,100,Pre_pubertal_60_149d,Male
+SAMN00001615,Lung,Lung,132,Pre_pubertal_60_149d,Female
+SAMN00001616,Lung,Lung,113,Pre_pubertal_60_149d,Male
+SAMN00001617,Lung,Lung,99,Pre_pubertal_60_149d,Female
+SAMN00001618,Lung,Lung,62,Pre_pubertal_60_149d,Female
+SAMN00001619,Lung,Lung,60,Pre_pubertal_60_149d,Male
+SAMN00001620,Lung,Lung,81,Pre_pubertal_60_149d,Male
+SAMN00001621,Lung,Lung,69,Pre_pubertal_60_149d,Male
+SAMN00001622,Lung,Lung,61,Pre_pubertal_60_149d,Male
+SAMN00001623,Lung,Lung,136,Pre_pubertal_60_149d,Female
+SAMN00001624,Lung,Lung,89,Pre_pubertal_60_149d,Male
+SAMN00001625,Lung,Lung,95,Pre_pubertal_60_149d,Male
+SAMN00001626,Lung,Lung,105,Pre_pubertal_60_149d,Male
+SAMN00001627,Lung,Lung,64,Pre_pubertal_60_149d,Female
+SAMN00001628,Lung,Lung,64,Pre_pubertal_60_149d,Female
+SAMN00001629,Lung,Lung,111,Pre_pubertal_60_149d,Male
+SAMN00001630,Lung,Lung,85,Pre_pubertal_60_149d,Male
+SAMN00001631,Lung,Lung,95,Pre_pubertal_60_149d,Male
+SAMN00001632,Lung,Lung,134,Pre_pubertal_60_149d,Male
+SAMN00001633,Lung,Lung,126,Pre_pubertal_60_149d,Female
+SAMN00001634,Lung,Lung,125,Pre_pubertal_60_149d,Male
+SAMN00001635,Lung,Lung,115,Pre_pubertal_60_149d,Male
+SAMN00001636,Lung,Lung,64,Pre_pubertal_60_149d,Female
+SAMN00001637,Lung,Lung,92,Pre_pubertal_60_149d,Male
+SAMN00001638,Lung,Lung,67,Pre_pubertal_60_149d,Female
+SAMN00001639,Lung,Lung,120,Pre_pubertal_60_149d,Male
+SAMN00001640,Lung,Lung,119,Pre_pubertal_60_149d,Male
+SAMN00001641,Lung,Lung,110,Pre_pubertal_60_149d,Male
+SAMN00001642,Lung,Lung,353,Post_pubertal_150_365d,Female
+SAMN00001643,Lung,Lung,277,Post_pubertal_150_365d,Female
+SAMN00001644,Lung,Lung,330,Post_pubertal_150_365d,Male
+SAMN00001645,Lung,Lung,166,Post_pubertal_150_365d,Male
+SAMN00001646,Lung,Lung,320,Post_pubertal_150_365d,Female
+SAMN00001647,Lung,Lung,155,Post_pubertal_150_365d,Female
+SAMN00001648,Lung,Lung,168,Post_pubertal_150_365d,Female
+SAMN00001649,Lung,Lung,302,Post_pubertal_150_365d,Male
+SAMN00001650,Lung,Lung,207,Post_pubertal_150_365d,Male
+SAMN00001651,Lung,Lung,186,Post_pubertal_150_365d,Female
+SAMN00001652,Lung,Lung,359,Post_pubertal_150_365d,Male
+SAMN00001653,Lung,Lung,255,Post_pubertal_150_365d,Female
+SAMN00001654,Lung,Lung,344,Post_pubertal_150_365d,Female
+SAMN00001655,Lung,Lung,175,Post_pubertal_150_365d,Female
+SAMN00001656,Lung,Lung,175,Post_pubertal_150_365d,Female
+SAMN00001657,Lung,Lung,272,Post_pubertal_150_365d,Female
+SAMN00001658,Lung,Lung,173,Post_pubertal_150_365d,Male
+SAMN00001659,Lung,Lung,361,Post_pubertal_150_365d,Male
+SAMN00001660,Lung,Lung,349,Post_pubertal_150_365d,Male
+SAMN00001661,Lung,Lung,195,Post_pubertal_150_365d,Male
+SAMN00001662,Lung,Lung,187,Post_pubertal_150_365d,Male
+SAMN00001663,Lung,Lung,202,Post_pubertal_150_365d,Female
+SAMN00001664,Lung,Lung,290,Post_pubertal_150_365d,Male
+SAMN00001665,Lung,Lung,231,Post_pubertal_150_365d,Female
+SAMN00001666,Lung,Lung,151,Post_pubertal_150_365d,Female
+SAMN00001667,Lung,Lung,225,Post_pubertal_150_365d,Male
+SAMN00001668,Lung,Lung,174,Post_pubertal_150_365d,Male
+SAMN00001669,Lung,Lung,332,Post_pubertal_150_365d,Male
+SAMN00001670,Lung,Lung,151,Post_pubertal_150_365d,Male
+SAMN00001671,Lung,Lung,201,Post_pubertal_150_365d,Male
+SAMN00001672,Lung,Lung,275,Post_pubertal_150_365d,Female
+SAMN00001673,Lung,Lung,363,Post_pubertal_150_365d,Male
+SAMN00001674,Lung,Lung,234,Post_pubertal_150_365d,Male
+SAMN00001675,Brain,Brain,2,Infant_0_20d,Male
+SAMN00001676,Brain,Brain,2,Infant_0_20d,Male
+SAMN00001677,Brain,Brain,14,Infant_0_20d,Male
+SAMN00001678,Brain,Brain,15,Infant_0_20d,Female
+SAMN00001679,Brain,Brain,2,Infant_0_20d,Male
+SAMN00001680,Brain,Brain,10,Infant_0_20d,Male
+SAMN00001681,Brain,Brain,9,Infant_0_20d,Female
+SAMN00001682,Brain,Brain,6,Infant_0_20d,Female
+SAMN00001683,Brain,Brain,13,Infant_0_20d,Female
+SAMN00001684,Brain,Brain,11,Infant_0_20d,Female
+SAMN00001685,Brain,Brain,10,Infant_0_20d,Female
+SAMN00001686,Brain,Brain,9,Infant_0_20d,Female
+SAMN00001687,Brain,Brain,18,Infant_0_20d,Male
+SAMN00001688,Brain,Brain,1,Infant_0_20d,Male
+SAMN00001689,Brain,Brain,8,Infant_0_20d,Female
+SAMN00001690,Brain,Brain,16,Infant_0_20d,Female
+SAMN00001691,Brain,Brain,1,Infant_0_20d,Male
+SAMN00001692,Brain,Brain,1,Infant_0_20d,Female
+SAMN00001693,Brain,Brain,14,Infant_0_20d,Female
+SAMN00001694,Brain,Brain,10,Infant_0_20d,Female
+SAMN00001695,Brain,Brain,9,Infant_0_20d,Male
+SAMN00001696,Brain,Brain,1,Infant_0_20d,Female
+SAMN00001697,Brain,Brain,15,Infant_0_20d,Female
+SAMN00001698,Brain,Brain,6,Infant_0_20d,Female
+SAMN00001699,Brain,Brain,2,Infant_0_20d,Female
+SAMN00001700,Brain,Brain,11,Infant_0_20d,Male
+SAMN00001701,Brain,Brain,13,Infant_0_20d,Male
+SAMN00001702,Brain,Brain,11,Infant_0_20d,Male
+SAMN00001703,Brain,Brain,4,Infant_0_20d,Female
+SAMN00001704,Brain,Brain,13,Infant_0_20d,Female
+SAMN00001705,Brain,Brain,8,Infant_0_20d,Female
+SAMN00001706,Brain,Brain,3,Infant_0_20d,Female
+SAMN00001707,Brain,Brain,5,Infant_0_20d,Female
+SAMN00001708,Brain,Brain,16,Infant_0_20d,Male
+SAMN00001709,Brain,Brain,12,Infant_0_20d,Male
+SAMN00001710,Brain,Brain,18,Infant_0_20d,Female
+SAMN00001711,Brain,Brain,13,Infant_0_20d,Male
+SAMN00001712,Brain,Brain,6,Infant_0_20d,Male
+SAMN00001713,Brain,Brain,19,Infant_0_20d,Female
+SAMN00001714,Brain,Brain,16,Infant_0_20d,Female
+SAMN00001715,Brain,Brain,7,Infant_0_20d,Male
+SAMN00001716,Brain,Brain,14,Infant_0_20d,Female
+SAMN00001717,Brain,Brain,14,Infant_0_20d,Female
+SAMN00001718,Brain,Brain,10,Infant_0_20d,Male
+SAMN00001719,Brain,Brain,1,Infant_0_20d,Male
+SAMN00001720,Brain,Brain,7,Infant_0_20d,Female
+SAMN00001721,Brain,Brain,11,Infant_0_20d,Male
+SAMN00001722,Brain,Brain,18,Infant_0_20d,Female
+SAMN00001723,Brain,Brain,12,Infant_0_20d,Female
+SAMN00001724,Brain,Brain,12,Infant_0_20d,Female
+SAMN00001725,Brain,Brain,17,Infant_0_20d,Female
+SAMN00001726,Brain,Brain,4,Infant_0_20d,Female
+SAMN00001727,Brain,Brain,4,Infant_0_20d,Male
+SAMN00001728,Brain,Brain,5,Infant_0_20d,Male
+SAMN00001729,Brain,Brain,8,Infant_0_20d,Male
+SAMN00001730,Brain,Brain,17,Infant_0_20d,Female
+SAMN00001731,Brain,Brain,19,Infant_0_20d,Female
+SAMN00001732,Brain,Brain,9,Infant_0_20d,Female
+SAMN00001733,Brain,Brain,19,Infant_0_20d,Female
+SAMN00001734,Brain,Brain,42,Early childhood_21_59d,Female
+SAMN00001735,Brain,Brain,55,Early childhood_21_59d,Female
+SAMN00001736,Brain,Brain,23,Early childhood_21_59d,Female
+SAMN00001737,Brain,Brain,30,Early childhood_21_59d,Male
+SAMN00001738,Brain,Brain,37,Early childhood_21_59d,Male
+SAMN00001739,Brain,Brain,37,Early childhood_21_59d,Female
+SAMN00001740,Brain,Brain,48,Early childhood_21_59d,Female
+SAMN00001741,Brain,Brain,43,Early childhood_21_59d,Female
+SAMN00001742,Brain,Brain,55,Early childhood_21_59d,Male
+SAMN00001743,Brain,Brain,51,Early childhood_21_59d,Male
+SAMN00001744,Brain,Brain,26,Early childhood_21_59d,Female
+SAMN00001745,Brain,Brain,22,Early childhood_21_59d,Female
+SAMN00001746,Brain,Brain,40,Early childhood_21_59d,Female
+SAMN00001747,Brain,Brain,38,Early childhood_21_59d,Male
+SAMN00001748,Brain,Brain,52,Early childhood_21_59d,Female
+SAMN00001749,Brain,Brain,23,Early childhood_21_59d,Female
+SAMN00001750,Brain,Brain,41,Early childhood_21_59d,Female
+SAMN00001751,Brain,Brain,26,Early childhood_21_59d,Male
+SAMN00001752,Brain,Brain,33,Early childhood_21_59d,Female
+SAMN00001753,Brain,Brain,54,Early childhood_21_59d,Male
+SAMN00001754,Brain,Brain,51,Early childhood_21_59d,Female
+SAMN00001755,Brain,Brain,30,Early childhood_21_59d,Female
+SAMN00001756,Brain,Brain,30,Early childhood_21_59d,Male
+SAMN00001757,Brain,Brain,28,Early childhood_21_59d,Female
+SAMN00001758,Brain,Brain,38,Early childhood_21_59d,Male
+SAMN00001759,Brain,Brain,58,Early childhood_21_59d,Female
+SAMN00001760,Brain,Brain,30,Early childhood_21_59d,Male
+SAMN00001761,Brain,Brain,30,Early childhood_21_59d,Male
+SAMN00001762,Brain,Brain,40,Early childhood_21_59d,Female
+SAMN00001763,Brain,Brain,50,Early childhood_21_59d,Female
+SAMN00001764,Brain,Brain,50,Early childhood_21_59d,Female
+SAMN00001765,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001766,Brain,Brain,47,Early childhood_21_59d,Male
+SAMN00001767,Brain,Brain,23,Early childhood_21_59d,Female
+SAMN00001768,Brain,Brain,54,Early childhood_21_59d,Female
+SAMN00001769,Brain,Brain,29,Early childhood_21_59d,Male
+SAMN00001770,Brain,Brain,26,Early childhood_21_59d,Female
+SAMN00001771,Brain,Brain,51,Early childhood_21_59d,Female
+SAMN00001772,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001773,Brain,Brain,56,Early childhood_21_59d,Male
+SAMN00001774,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001775,Brain,Brain,54,Early childhood_21_59d,Female
+SAMN00001776,Brain,Brain,50,Early childhood_21_59d,Female
+SAMN00001777,Brain,Brain,35,Early childhood_21_59d,Male
+SAMN00001778,Brain,Brain,51,Early childhood_21_59d,Female
+SAMN00001779,Brain,Brain,21,Early childhood_21_59d,Male
+SAMN00001780,Brain,Brain,34,Early childhood_21_59d,Male
+SAMN00001781,Brain,Brain,45,Early childhood_21_59d,Male
+SAMN00001782,Brain,Brain,23,Early childhood_21_59d,Male
+SAMN00001783,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001784,Brain,Brain,56,Early childhood_21_59d,Male
+SAMN00001785,Brain,Brain,50,Early childhood_21_59d,Female
+SAMN00001786,Brain,Brain,28,Early childhood_21_59d,Female
+SAMN00001787,Brain,Brain,28,Early childhood_21_59d,Female
+SAMN00001788,Brain,Brain,30,Early childhood_21_59d,Female
+SAMN00001789,Brain,Brain,32,Early childhood_21_59d,Female
+SAMN00001790,Brain,Brain,45,Early childhood_21_59d,Female
+SAMN00001791,Brain,Brain,48,Early childhood_21_59d,Female
+SAMN00001792,Brain,Brain,57,Early childhood_21_59d,Male
+SAMN00001793,Brain,Brain,48,Early childhood_21_59d,Female
+SAMN00001794,Brain,Brain,32,Early childhood_21_59d,Female
+SAMN00001795,Brain,Brain,47,Early childhood_21_59d,Male
+SAMN00001796,Brain,Brain,37,Early childhood_21_59d,Female
+SAMN00001797,Brain,Brain,37,Early childhood_21_59d,Female
+SAMN00001798,Brain,Brain,37,Early childhood_21_59d,Male
+SAMN00001799,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001800,Brain,Brain,55,Early childhood_21_59d,Male
+SAMN00001801,Brain,Brain,48,Early childhood_21_59d,Male
+SAMN00001802,Brain,Brain,44,Early childhood_21_59d,Male
+SAMN00001803,Brain,Brain,49,Early childhood_21_59d,Female
+SAMN00001804,Brain,Brain,22,Early childhood_21_59d,Male
+SAMN00001805,Brain,Brain,47,Early childhood_21_59d,Female
+SAMN00001806,Brain,Brain,57,Early childhood_21_59d,Female
+SAMN00001807,Brain,Brain,58,Early childhood_21_59d,Female
+SAMN00001808,Brain,Brain,43,Early childhood_21_59d,Female
+SAMN00001809,Brain,Brain,27,Early childhood_21_59d,Male
+SAMN00001810,Brain,Brain,25,Early childhood_21_59d,Female
+SAMN00001811,Brain,Brain,37,Early childhood_21_59d,Female
+SAMN00001812,Brain,Brain,32,Early childhood_21_59d,Female
+SAMN00001813,Brain,Brain,28,Early childhood_21_59d,Male
+SAMN00001814,Brain,Brain,21,Early childhood_21_59d,Female
+SAMN00001815,Brain,Brain,43,Early childhood_21_59d,Male
+SAMN00001816,Brain,Brain,51,Early childhood_21_59d,Male
+SAMN00001817,Brain,Brain,50,Early childhood_21_59d,Female
+SAMN00001818,Brain,Brain,33,Early childhood_21_59d,Male
+SAMN00001819,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001820,Brain,Brain,27,Early childhood_21_59d,Male
+SAMN00001821,Brain,Brain,21,Early childhood_21_59d,Female
+SAMN00001822,Brain,Brain,55,Early childhood_21_59d,Female
+SAMN00001823,Brain,Brain,46,Early childhood_21_59d,Male
+SAMN00001824,Brain,Brain,55,Early childhood_21_59d,Female
+SAMN00001825,Brain,Brain,58,Early childhood_21_59d,Female
+SAMN00001826,Brain,Brain,51,Early childhood_21_59d,Male
+SAMN00001827,Brain,Brain,44,Early childhood_21_59d,Female
+SAMN00001828,Brain,Brain,33,Early childhood_21_59d,Female
+SAMN00001829,Brain,Brain,44,Early childhood_21_59d,Male
+SAMN00001830,Brain,Brain,44,Early childhood_21_59d,Female
+SAMN00001831,Brain,Brain,29,Early childhood_21_59d,Female
+SAMN00001832,Brain,Brain,41,Early childhood_21_59d,Female
+SAMN00001833,Brain,Brain,43,Early childhood_21_59d,Male
+SAMN00001834,Brain,Brain,31,Early childhood_21_59d,Male
+SAMN00001835,Brain,Brain,47,Early childhood_21_59d,Female
+SAMN00001836,Brain,Brain,47,Early childhood_21_59d,Female
+SAMN00001837,Brain,Brain,43,Early childhood_21_59d,Female
+SAMN00001838,Brain,Brain,41,Early childhood_21_59d,Female
+SAMN00001839,Brain,Brain,38,Early childhood_21_59d,Male
+SAMN00001840,Brain,Brain,56,Early childhood_21_59d,Female
+SAMN00001841,Brain,Brain,50,Early childhood_21_59d,Female
+SAMN00001842,Brain,Brain,51,Early childhood_21_59d,Male
+SAMN00001843,Brain,Brain,52,Early childhood_21_59d,Female
+SAMN00001844,Brain,Brain,34,Early childhood_21_59d,Female
+SAMN00001845,Brain,Brain,41,Early childhood_21_59d,Male
+SAMN00001846,Brain,Brain,39,Early childhood_21_59d,Male
+SAMN00001847,Brain,Brain,21,Early childhood_21_59d,Male
+SAMN00001848,Brain,Brain,55,Early childhood_21_59d,Male
+SAMN00001849,Brain,Brain,21,Early childhood_21_59d,Male
+SAMN00001850,Brain,Brain,137,Pre_pubertal_60_149d,Female
+SAMN00001851,Brain,Brain,103,Pre_pubertal_60_149d,Male
+SAMN00001852,Brain,Brain,89,Pre_pubertal_60_149d,Male
+SAMN00001853,Brain,Brain,92,Pre_pubertal_60_149d,Male
+SAMN00001854,Brain,Brain,86,Pre_pubertal_60_149d,Male
+SAMN00001855,Brain,Brain,133,Pre_pubertal_60_149d,Male
+SAMN00001856,Brain,Brain,79,Pre_pubertal_60_149d,Male
+SAMN00001857,Brain,Brain,117,Pre_pubertal_60_149d,Male
+SAMN00001858,Brain,Brain,127,Pre_pubertal_60_149d,Female
+SAMN00001859,Brain,Brain,114,Pre_pubertal_60_149d,Male
+SAMN00001860,Brain,Brain,121,Pre_pubertal_60_149d,Female
+SAMN00001861,Brain,Brain,90,Pre_pubertal_60_149d,Male
+SAMN00001862,Brain,Brain,99,Pre_pubertal_60_149d,Female
+SAMN00001863,Brain,Brain,121,Pre_pubertal_60_149d,Female
+SAMN00001864,Brain,Brain,62,Pre_pubertal_60_149d,Male
+SAMN00001865,Brain,Brain,91,Pre_pubertal_60_149d,Female
+SAMN00001866,Brain,Brain,125,Pre_pubertal_60_149d,Female
+SAMN00001867,Brain,Brain,141,Pre_pubertal_60_149d,Female
+SAMN00001868,Brain,Brain,137,Pre_pubertal_60_149d,Male
+SAMN00001869,Brain,Brain,338,Post_pubertal_150_365d,Male
+SAMN00001870,Brain,Brain,266,Post_pubertal_150_365d,Male
+SAMN00001871,Brain,Brain,313,Post_pubertal_150_365d,Male
+SAMN00001872,Brain,Brain,298,Post_pubertal_150_365d,Male
+SAMN00001873,Brain,Brain,298,Post_pubertal_150_365d,Female
+SAMN00001874,Brain,Brain,170,Post_pubertal_150_365d,Male
+SAMN00001875,Brain,Brain,194,Post_pubertal_150_365d,Female
+SAMN00001876,Brain,Brain,285,Post_pubertal_150_365d,Male
+SAMN00001877,Brain,Brain,346,Post_pubertal_150_365d,Male
+SAMN00001878,Brain,Brain,317,Post_pubertal_150_365d,Male
+SAMN00001879,Brain,Brain,333,Post_pubertal_150_365d,Male
+SAMN00001880,Brain,Brain,362,Post_pubertal_150_365d,Female
+SAMN00001881,Brain,Brain,312,Post_pubertal_150_365d,Female
+SAMN00001882,Brain,Brain,234,Post_pubertal_150_365d,Male
+SAMN00001883,Brain,Brain,266,Post_pubertal_150_365d,Female
+SAMN00001884,Brain,Brain,354,Post_pubertal_150_365d,Male
+SAMN00001885,Brain,Brain,270,Post_pubertal_150_365d,Female
+SAMN00001886,Brain,Brain,187,Post_pubertal_150_365d,Female
+SAMN00001887,Brain,Brain,209,Post_pubertal_150_365d,Male
+SAMN00001888,Brain,Brain,285,Post_pubertal_150_365d,Female
+SAMN00001889,Brain,Brain,334,Post_pubertal_150_365d,Female
+SAMN00001890,Brain,Brain,312,Post_pubertal_150_365d,Male
+SAMN00001891,Brain,Brain,258,Post_pubertal_150_365d,Female
+SAMN00001892,Brain,Brain,253,Post_pubertal_150_365d,Female
+SAMN00001893,Brain,Brain,241,Post_pubertal_150_365d,Male
+SAMN00001894,Brain,Brain,259,Post_pubertal_150_365d,Female
+SAMN00001895,Brain,Brain,330,Post_pubertal_150_365d,Male
+SAMN00001896,Brain,Brain,298,Post_pubertal_150_365d,Male
+SAMN00001897,Brain,Brain,345,Post_pubertal_150_365d,Male
+SAMN00001898,Brain,Brain,218,Post_pubertal_150_365d,Female
+SAMN00001899,Brain,Brain,166,Post_pubertal_150_365d,Male
+SAMN00001900,Brain,Brain,282,Post_pubertal_150_365d,Male
+SAMN00001901,Brain,Brain,259,Post_pubertal_150_365d,Female
+SAMN00001902,Brain,Brain,192,Post_pubertal_150_365d,Female
+SAMN00001903,Brain,Brain,255,Post_pubertal_150_365d,Male
+SAMN00001904,Brain,Brain,167,Post_pubertal_150_365d,Female
+SAMN00001905,Brain,Brain,311,Post_pubertal_150_365d,Female
+SAMN00001906,Brain,Brain,276,Post_pubertal_150_365d,Female
+SAMN00001907,Brain,Brain,353,Post_pubertal_150_365d,Male
+SAMN00001908,Brain,Brain,360,Post_pubertal_150_365d,Female
+SAMN00001909,Brain,Brain,164,Post_pubertal_150_365d,Female
+SAMN00001910,Brain,Brain,225,Post_pubertal_150_365d,Female
+SAMN00001911,Brain,Brain,183,Post_pubertal_150_365d,Male
+SAMN00001912,Brain,Brain,313,Post_pubertal_150_365d,Female
+SAMN00001913,Brain,Brain,335,Post_pubertal_150_365d,Female
+SAMN00001914,Brain,Brain,273,Post_pubertal_150_365d,Male
+SAMN00001915,Brain,Brain,226,Post_pubertal_150_365d,Male
+SAMN00001916,Brain,Brain,164,Post_pubertal_150_365d,Male
+SAMN00001917,Brain,Brain,236,Post_pubertal_150_365d,Male
+SAMN00001918,Brain,Brain,207,Post_pubertal_150_365d,Female
+SAMN00001919,Brain,Brain,289,Post_pubertal_150_365d,Female
+SAMN00001920,Brain,Brain,178,Post_pubertal_150_365d,Female
+SAMN00001921,Brain,Brain,167,Post_pubertal_150_365d,Female
+SAMN00001922,Brain,Brain,307,Post_pubertal_150_365d,Male
+SAMN00001923,Brain,Brain,450,Adult_>365d,Male
+SAMN00001924,Brain,Brain,452,Adult_>365d,Male
+SAMN00001925,Macrophage,Macrophage,19,Infant_0_20d,Female
+SAMN00001926,Macrophage,Macrophage,14,Infant_0_20d,Female
+SAMN00001927,Macrophage,Macrophage,8,Infant_0_20d,Male
+SAMN00001928,Macrophage,Macrophage,14,Infant_0_20d,Female
+SAMN00001929,Macrophage,Macrophage,12,Infant_0_20d,Male
+SAMN00001930,Macrophage,Macrophage,17,Infant_0_20d,Male
+SAMN00001931,Macrophage,Macrophage,2,Infant_0_20d,Female
+SAMN00001932,Macrophage,Macrophage,14,Infant_0_20d,Female
+SAMN00001933,Macrophage,Macrophage,18,Infant_0_20d,Male
+SAMN00001934,Macrophage,Macrophage,12,Infant_0_20d,Male
+SAMN00001935,Macrophage,Macrophage,11,Infant_0_20d,Male
+SAMN00001936,Macrophage,Macrophage,15,Infant_0_20d,Female
+SAMN00001937,Macrophage,Macrophage,1,Infant_0_20d,Female
+SAMN00001938,Macrophage,Macrophage,18,Infant_0_20d,Female
+SAMN00001939,Macrophage,Macrophage,13,Infant_0_20d,Male
+SAMN00001940,Macrophage,Macrophage,13,Infant_0_20d,Male
+SAMN00001941,Macrophage,Macrophage,14,Infant_0_20d,Male
+SAMN00001942,Macrophage,Macrophage,12,Infant_0_20d,Female
+SAMN00001943,Macrophage,Macrophage,7,Infant_0_20d,Male
+SAMN00001944,Macrophage,Macrophage,4,Infant_0_20d,Female
+SAMN00001945,Macrophage,Macrophage,6,Infant_0_20d,Male
+SAMN00001946,Macrophage,Macrophage,16,Infant_0_20d,Female
+SAMN00001947,Macrophage,Macrophage,16,Infant_0_20d,Female
+SAMN00001948,Macrophage,Macrophage,11,Infant_0_20d,Male
+SAMN00001949,Macrophage,Macrophage,5,Infant_0_20d,Female
+SAMN00001950,Macrophage,Macrophage,13,Infant_0_20d,Female
+SAMN00001951,Macrophage,Macrophage,15,Infant_0_20d,Female
+SAMN00001952,Macrophage,Macrophage,17,Infant_0_20d,Male
+SAMN00001953,Macrophage,Macrophage,19,Infant_0_20d,Female
+SAMN00001954,Macrophage,Macrophage,17,Infant_0_20d,Male
+SAMN00001955,Macrophage,Macrophage,28,Early childhood_21_59d,Male
+SAMN00001956,Macrophage,Macrophage,35,Early childhood_21_59d,Male
+SAMN00001957,Macrophage,Macrophage,30,Early childhood_21_59d,Female
+SAMN00001958,Macrophage,Macrophage,34,Early childhood_21_59d,Male
+SAMN00001959,Macrophage,Macrophage,52,Early childhood_21_59d,Female
+SAMN00001960,Macrophage,Macrophage,49,Early childhood_21_59d,Female
+SAMN00001961,Macrophage,Macrophage,30,Early childhood_21_59d,Female
+SAMN00001962,Macrophage,Macrophage,47,Early childhood_21_59d,Male
+SAMN00001963,Macrophage,Macrophage,32,Early childhood_21_59d,Male
+SAMN00001964,Macrophage,Macrophage,40,Early childhood_21_59d,Female
+SAMN00001965,Macrophage,Macrophage,31,Early childhood_21_59d,Male
+SAMN00001966,Macrophage,Macrophage,30,Early childhood_21_59d,Female
+SAMN00001967,Macrophage,Macrophage,51,Early childhood_21_59d,Male
+SAMN00001968,Macrophage,Macrophage,52,Early childhood_21_59d,Female
+SAMN00001969,Macrophage,Macrophage,53,Early childhood_21_59d,Female
+SAMN00001970,Macrophage,Macrophage,53,Early childhood_21_59d,Male
+SAMN00001971,Macrophage,Macrophage,28,Early childhood_21_59d,Female
+SAMN00001972,Macrophage,Macrophage,36,Early childhood_21_59d,Female
+SAMN00001973,Macrophage,Macrophage,48,Early childhood_21_59d,Female
+SAMN00001974,Macrophage,Macrophage,58,Early childhood_21_59d,Male
+SAMN00001975,Macrophage,Macrophage,30,Early childhood_21_59d,Male
+SAMN00001976,Macrophage,Macrophage,29,Early childhood_21_59d,Male
+SAMN00001977,Macrophage,Macrophage,42,Early childhood_21_59d,Male
+SAMN00001978,Macrophage,Macrophage,55,Early childhood_21_59d,Male
+SAMN00001979,Macrophage,Macrophage,43,Early childhood_21_59d,Female
+SAMN00001980,Macrophage,Macrophage,58,Early childhood_21_59d,Male
+SAMN00001981,Macrophage,Macrophage,31,Early childhood_21_59d,Male
+SAMN00001982,Macrophage,Macrophage,44,Early childhood_21_59d,Male
+SAMN00001983,Macrophage,Macrophage,56,Early childhood_21_59d,Male
+SAMN00001984,Macrophage,Macrophage,42,Early childhood_21_59d,Male
+SAMN00001985,Macrophage,Macrophage,43,Early childhood_21_59d,Female
+SAMN00001986,Macrophage,Macrophage,54,Early childhood_21_59d,Male
+SAMN00001987,Macrophage,Macrophage,58,Early childhood_21_59d,Male
+SAMN00001988,Macrophage,Macrophage,27,Early childhood_21_59d,Female
+SAMN00001989,Macrophage,Macrophage,26,Early childhood_21_59d,Male
+SAMN00001990,Macrophage,Macrophage,26,Early childhood_21_59d,Female
+SAMN00001991,Macrophage,Macrophage,36,Early childhood_21_59d,Male
+SAMN00001992,Macrophage,Macrophage,53,Early childhood_21_59d,Female
+SAMN00001993,Macrophage,Macrophage,55,Early childhood_21_59d,Male
+SAMN00001994,Macrophage,Macrophage,49,Early childhood_21_59d,Male
+SAMN00001995,Macrophage,Macrophage,86,Pre_pubertal_60_149d,Female
+SAMN00001996,Macrophage,Macrophage,74,Pre_pubertal_60_149d,Male
+SAMN00001997,Macrophage,Macrophage,79,Pre_pubertal_60_149d,Female
+SAMN00001998,Macrophage,Macrophage,102,Pre_pubertal_60_149d,Female
+SAMN00001999,Macrophage,Macrophage,92,Pre_pubertal_60_149d,Male
+SAMN00002000,Macrophage,Macrophage,84,Pre_pubertal_60_149d,Male
+SAMN00002001,Macrophage,Macrophage,64,Pre_pubertal_60_149d,Female
+SAMN00002002,Macrophage,Macrophage,62,Pre_pubertal_60_149d,Female
+SAMN00002003,Macrophage,Macrophage,97,Pre_pubertal_60_149d,Male
+SAMN00002004,Macrophage,Macrophage,111,Pre_pubertal_60_149d,Female
+SAMN00002005,Macrophage,Macrophage,109,Pre_pubertal_60_149d,Female
+SAMN00002006,Macrophage,Macrophage,127,Pre_pubertal_60_149d,Female
+SAMN00002007,Macrophage,Macrophage,77,Pre_pubertal_60_149d,Female
+SAMN00002008,Macrophage,Macrophage,113,Pre_pubertal_60_149d,Male
+SAMN00002009,Macrophage,Macrophage,117,Pre_pubertal_60_149d,Male
+SAMN00002010,Macrophage,Macrophage,105,Pre_pubertal_60_149d,Female
+SAMN00002011,Macrophage,Macrophage,94,Pre_pubertal_60_149d,Male
+SAMN00002012,Macrophage,Macrophage,130,Pre_pubertal_60_149d,Male
+SAMN00002013,Macrophage,Macrophage,106,Pre_pubertal_60_149d,Male
+SAMN00002014,Macrophage,Macrophage,68,Pre_pubertal_60_149d,Female
+SAMN00002015,Macrophage,Macrophage,86,Pre_pubertal_60_149d,Female
+SAMN00002016,Macrophage,Macrophage,101,Pre_pubertal_60_149d,Male
+SAMN00002017,Macrophage,Macrophage,140,Pre_pubertal_60_149d,Male
+SAMN00002018,Macrophage,Macrophage,63,Pre_pubertal_60_149d,Male
+SAMN00002019,Macrophage,Macrophage,63,Pre_pubertal_60_149d,Female
+SAMN00002020,Macrophage,Macrophage,72,Pre_pubertal_60_149d,Female
+SAMN00002021,Macrophage,Macrophage,79,Pre_pubertal_60_149d,Female
+SAMN00002022,Macrophage,Macrophage,61,Pre_pubertal_60_149d,Female
+SAMN00002023,Macrophage,Macrophage,114,Pre_pubertal_60_149d,Male
+SAMN00002024,Macrophage,Macrophage,105,Pre_pubertal_60_149d,Male
+SAMN00002025,Macrophage,Macrophage,129,Pre_pubertal_60_149d,Male
+SAMN00002026,Macrophage,Macrophage,85,Pre_pubertal_60_149d,Female
+SAMN00002027,Macrophage,Macrophage,118,Pre_pubertal_60_149d,Male
+SAMN00002028,Macrophage,Macrophage,118,Pre_pubertal_60_149d,Female
+SAMN00002029,Macrophage,Macrophage,105,Pre_pubertal_60_149d,Female
+SAMN00002030,Macrophage,Macrophage,136,Pre_pubertal_60_149d,Female
+SAMN00002031,Macrophage,Macrophage,115,Pre_pubertal_60_149d,Female
+SAMN00002032,Macrophage,Macrophage,77,Pre_pubertal_60_149d,Female
+SAMN00002033,Macrophage,Macrophage,86,Pre_pubertal_60_149d,Female
+SAMN00002034,Macrophage,Macrophage,129,Pre_pubertal_60_149d,Male
+SAMN00002035,Macrophage,Macrophage,72,Pre_pubertal_60_149d,Male
+SAMN00002036,Macrophage,Macrophage,127,Pre_pubertal_60_149d,Male
+SAMN00002037,Macrophage,Macrophage,146,Pre_pubertal_60_149d,Male
+SAMN00002038,Macrophage,Macrophage,92,Pre_pubertal_60_149d,Male
+SAMN00002039,Macrophage,Macrophage,78,Pre_pubertal_60_149d,Male
+SAMN00002040,Macrophage,Macrophage,131,Pre_pubertal_60_149d,Male
+SAMN00002041,Macrophage,Macrophage,92,Pre_pubertal_60_149d,Male
+SAMN00002042,Macrophage,Macrophage,97,Pre_pubertal_60_149d,Female
+SAMN00002043,Macrophage,Macrophage,73,Pre_pubertal_60_149d,Female
+SAMN00002044,Macrophage,Macrophage,126,Pre_pubertal_60_149d,Female
+SAMN00002045,Macrophage,Macrophage,167,Post_pubertal_150_365d,Female
+SAMN00002046,Macrophage,Macrophage,283,Post_pubertal_150_365d,Male
+SAMN00002047,Macrophage,Macrophage,274,Post_pubertal_150_365d,Female
+SAMN00002048,Macrophage,Macrophage,216,Post_pubertal_150_365d,Male
+SAMN00002049,Macrophage,Macrophage,343,Post_pubertal_150_365d,Female
+SAMN00002050,Macrophage,Macrophage,252,Post_pubertal_150_365d,Male
+SAMN00002051,Macrophage,Macrophage,181,Post_pubertal_150_365d,Male
+SAMN00002052,Macrophage,Macrophage,174,Post_pubertal_150_365d,Male
+SAMN00002053,Macrophage,Macrophage,171,Post_pubertal_150_365d,Male
+SAMN00002054,Macrophage,Macrophage,267,Post_pubertal_150_365d,Male
+SAMN00002055,Macrophage,Macrophage,199,Post_pubertal_150_365d,Female
+SAMN00002056,Macrophage,Macrophage,211,Post_pubertal_150_365d,Male
+SAMN00002057,Macrophage,Macrophage,172,Post_pubertal_150_365d,Male
+SAMN00002058,Macrophage,Macrophage,203,Post_pubertal_150_365d,Male
+SAMN00002059,Macrophage,Macrophage,249,Post_pubertal_150_365d,Female
+SAMN00002060,Macrophage,Macrophage,227,Post_pubertal_150_365d,Male
+SAMN00002061,Macrophage,Macrophage,352,Post_pubertal_150_365d,Male
+SAMN00002062,Macrophage,Macrophage,184,Post_pubertal_150_365d,Female
+SAMN00002063,Macrophage,Macrophage,211,Post_pubertal_150_365d,Female
+SAMN00002064,Macrophage,Macrophage,276,Post_pubertal_150_365d,Female
+SAMN00002065,Macrophage,Macrophage,250,Post_pubertal_150_365d,Female
+SAMN00002066,Macrophage,Macrophage,210,Post_pubertal_150_365d,Male
+SAMN00002067,Macrophage,Macrophage,357,Post_pubertal_150_365d,Male
+SAMN00002068,Macrophage,Macrophage,175,Post_pubertal_150_365d,Male
+SAMN00002069,Macrophage,Macrophage,340,Post_pubertal_150_365d,Female
+SAMN00002070,Macrophage,Macrophage,309,Post_pubertal_150_365d,Female
+SAMN00002071,Macrophage,Macrophage,224,Post_pubertal_150_365d,Female
+SAMN00002072,Macrophage,Macrophage,187,Post_pubertal_150_365d,Male
+SAMN00002073,Macrophage,Macrophage,342,Post_pubertal_150_365d,Female
+SAMN00002074,Macrophage,Macrophage,320,Post_pubertal_150_365d,Male
+SAMN00002075,Macrophage,Macrophage,222,Post_pubertal_150_365d,Female
+SAMN00002076,Macrophage,Macrophage,236,Post_pubertal_150_365d,Male
+SAMN00002077,Macrophage,Macrophage,269,Post_pubertal_150_365d,Male
+SAMN00002078,Macrophage,Macrophage,214,Post_pubertal_150_365d,Female
+SAMN00002079,Macrophage,Macrophage,234,Post_pubertal_150_365d,Female
+SAMN00002080,Macrophage,Macrophage,174,Post_pubertal_150_365d,Female
+SAMN00002081,Macrophage,Macrophage,264,Post_pubertal_150_365d,Male
+SAMN00002082,Macrophage,Macrophage,181,Post_pubertal_150_365d,Male
+SAMN00002083,Macrophage,Macrophage,299,Post_pubertal_150_365d,Female
+SAMN00002084,Macrophage,Macrophage,350,Post_pubertal_150_365d,Female
+SAMN00002085,Macrophage,Macrophage,259,Post_pubertal_150_365d,Female
+SAMN00002086,Macrophage,Macrophage,221,Post_pubertal_150_365d,Female
+SAMN00002087,Macrophage,Macrophage,174,Post_pubertal_150_365d,Female
+SAMN00002088,Macrophage,Macrophage,176,Post_pubertal_150_365d,Male
+SAMN00002089,Macrophage,Macrophage,200,Post_pubertal_150_365d,Male
+SAMN00002090,Macrophage,Macrophage,314,Post_pubertal_150_365d,Male
+SAMN00002091,Macrophage,Macrophage,172,Post_pubertal_150_365d,Male
+SAMN00002092,Macrophage,Macrophage,329,Post_pubertal_150_365d,Female
+SAMN00002093,Macrophage,Macrophage,153,Post_pubertal_150_365d,Male
+SAMN00002094,Macrophage,Macrophage,167,Post_pubertal_150_365d,Female
+SAMN00002095,Macrophage,Macrophage,220,Post_pubertal_150_365d,Female
+SAMN00002096,Macrophage,Macrophage,180,Post_pubertal_150_365d,Male
+SAMN00002097,Macrophage,Macrophage,290,Post_pubertal_150_365d,Male
+SAMN00002098,Macrophage,Macrophage,214,Post_pubertal_150_365d,Female
+SAMN00002099,Macrophage,Macrophage,270,Post_pubertal_150_365d,Female
+SAMN00002100,Macrophage,Macrophage,355,Post_pubertal_150_365d,Male
+SAMN00002101,Macrophage,Macrophage,326,Post_pubertal_150_365d,Female
+SAMN00002102,Macrophage,Macrophage,353,Post_pubertal_150_365d,Male
+SAMN00002103,Macrophage,Macrophage,292,Post_pubertal_150_365d,Female
+SAMN00002104,Macrophage,Macrophage,256,Post_pubertal_150_365d,Female
+SAMN00002105,Macrophage,Macrophage,666,Adult_>365d,Female
+SAMN00002106,Macrophage,Macrophage,377,Adult_>365d,Male
+SAMN00002107,Macrophage,Macrophage,415,Adult_>365d,Female
+SAMN00002108,Macrophage,Macrophage,456,Adult_>365d,Male
+SAMN00002109,Macrophage,Macrophage,549,Adult_>365d,Male
+SAMN00002110,Macrophage,Macrophage,462,Adult_>365d,Male
+SAMN00002111,Macrophage,Macrophage,422,Adult_>365d,Female
+SAMN00002112,Macrophage,Macrophage,646,Adult_>365d,Male
+SAMN00002113,Macrophage,Macrophage,416,Adult_>365d,Male
+SAMN00002114,Macrophage,Macrophage,445,Adult_>365d,Female
+SAMN00002115,Macrophage,Macrophage,708,Adult_>365d,Female
+SAMN00002116,Macrophage,Macrophage,449,Adult_>365d,Female
+SAMN00002117,Macrophage,Macrophage,478,Adult_>365d,Female
+SAMN00002118,Macrophage,Macrophage,397,Adult_>365d,Female
+SAMN00002119,Macrophage,Macrophage,505,Adult_>365d,Female
+SAMN00002120,Macrophage,Macrophage,417,Adult_>365d,Female
+SAMN00002121,Macrophage,Macrophage,610,Adult_>365d,Female
+SAMN00002122,Macrophage,Macrophage,547,Adult_>365d,Female
+SAMN00002123,Macrophage,Macrophage,373,Adult_>365d,Female
+SAMN00002124,Macrophage,Macrophage,403,Adult_>365d,Female
+SAMN00002125,Adipose,Adipose,3,Infant_0_20d,Male
+SAMN00002126,Adipose,Adipose,7,Infant_0_20d,Male
+SAMN00002127,Adipose,Adipose,7,Infant_0_20d,Female
+SAMN00002128,Adipose,Adipose,1,Infant_0_20d,Female
+SAMN00002129,Adipose,Adipose,1,Infant_0_20d,Male
+SAMN00002130,Adipose,Adipose,4,Infant_0_20d,Male
+SAMN00002131,Adipose,Adipose,18,Infant_0_20d,Male
+SAMN00002132,Adipose,Adipose,10,Infant_0_20d,Male
+SAMN00002133,Adipose,Adipose,9,Infant_0_20d,Female
+SAMN00002134,Adipose,Adipose,19,Infant_0_20d,Female
+SAMN00002135,Adipose,Adipose,17,Infant_0_20d,Male
+SAMN00002136,Adipose,Adipose,10,Infant_0_20d,Female
+SAMN00002137,Adipose,Adipose,17,Infant_0_20d,Male
+SAMN00002138,Adipose,Adipose,11,Infant_0_20d,Male
+SAMN00002139,Adipose,Adipose,19,Infant_0_20d,Female
+SAMN00002140,Adipose,Adipose,15,Infant_0_20d,Female
+SAMN00002141,Adipose,Adipose,8,Infant_0_20d,Male
+SAMN00002142,Adipose,Adipose,11,Infant_0_20d,Female
+SAMN00002143,Adipose,Adipose,16,Infant_0_20d,Female
+SAMN00002144,Adipose,Adipose,5,Infant_0_20d,Female
+SAMN00002145,Adipose,Adipose,19,Infant_0_20d,Male
+SAMN00002146,Adipose,Adipose,8,Infant_0_20d,Female
+SAMN00002147,Adipose,Adipose,4,Infant_0_20d,Male
+SAMN00002148,Adipose,Adipose,9,Infant_0_20d,Female
+SAMN00002149,Adipose,Adipose,14,Infant_0_20d,Male
+SAMN00002150,Adipose,Adipose,16,Infant_0_20d,Male
+SAMN00002151,Adipose,Adipose,12,Infant_0_20d,Male
+SAMN00002152,Adipose,Adipose,6,Infant_0_20d,Female
+SAMN00002153,Adipose,Adipose,16,Infant_0_20d,Female
+SAMN00002154,Adipose,Adipose,16,Infant_0_20d,Male
+SAMN00002155,Adipose,Adipose,17,Infant_0_20d,Female
+SAMN00002156,Adipose,Adipose,10,Infant_0_20d,Male
+SAMN00002157,Adipose,Adipose,16,Infant_0_20d,Female
+SAMN00002158,Adipose,Adipose,16,Infant_0_20d,Male
+SAMN00002159,Adipose,Adipose,2,Infant_0_20d,Female
+SAMN00002160,Adipose,Adipose,114,Pre_pubertal_60_149d,Male
+SAMN00002161,Adipose,Adipose,78,Pre_pubertal_60_149d,Female
+SAMN00002162,Adipose,Adipose,98,Pre_pubertal_60_149d,Male
+SAMN00002163,Adipose,Adipose,124,Pre_pubertal_60_149d,Female
+SAMN00002164,Adipose,Adipose,135,Pre_pubertal_60_149d,Female
+SAMN00002165,Adipose,Adipose,77,Pre_pubertal_60_149d,Female
+SAMN00002166,Adipose,Adipose,93,Pre_pubertal_60_149d,Female
+SAMN00002167,Adipose,Adipose,74,Pre_pubertal_60_149d,Male
+SAMN00002168,Adipose,Adipose,140,Pre_pubertal_60_149d,Male
+SAMN00002169,Adipose,Adipose,107,Pre_pubertal_60_149d,Female
+SAMN00002170,Adipose,Adipose,143,Pre_pubertal_60_149d,Male
+SAMN00002171,Adipose,Adipose,145,Pre_pubertal_60_149d,Male
+SAMN00002172,Adipose,Adipose,92,Pre_pubertal_60_149d,Male
+SAMN00002173,Adipose,Adipose,90,Pre_pubertal_60_149d,Female
+SAMN00002174,Adipose,Adipose,67,Pre_pubertal_60_149d,Female
+SAMN00002175,Adipose,Adipose,105,Pre_pubertal_60_149d,Female
+SAMN00002176,Adipose,Adipose,65,Pre_pubertal_60_149d,Male
+SAMN00002177,Adipose,Adipose,84,Pre_pubertal_60_149d,Male
+SAMN00002178,Adipose,Adipose,114,Pre_pubertal_60_149d,Female
+SAMN00002179,Adipose,Adipose,76,Pre_pubertal_60_149d,Female
+SAMN00002180,Adipose,Adipose,78,Pre_pubertal_60_149d,Female
+SAMN00002181,Adipose,Adipose,146,Pre_pubertal_60_149d,Female
+SAMN00002182,Adipose,Adipose,96,Pre_pubertal_60_149d,Male
+SAMN00002183,Adipose,Adipose,65,Pre_pubertal_60_149d,Female
+SAMN00002184,Adipose,Adipose,112,Pre_pubertal_60_149d,Male
+SAMN00002185,Adipose,Adipose,86,Pre_pubertal_60_149d,Female
+SAMN00002186,Adipose,Adipose,71,Pre_pubertal_60_149d,Female
+SAMN00002187,Adipose,Adipose,86,Pre_pubertal_60_149d,Male
+SAMN00002188,Adipose,Adipose,201,Post_pubertal_150_365d,Female
+SAMN00002189,Adipose,Adipose,345,Post_pubertal_150_365d,Female
+SAMN00002190,Adipose,Adipose,277,Post_pubertal_150_365d,Female
+SAMN00002191,Adipose,Adipose,241,Post_pubertal_150_365d,Female
+SAMN00002192,Adipose,Adipose,278,Post_pubertal_150_365d,Female
+SAMN00002193,Adipose,Adipose,360,Post_pubertal_150_365d,Female
+SAMN00002194,Adipose,Adipose,188,Post_pubertal_150_365d,Male
+SAMN00002195,Adipose,Adipose,316,Post_pubertal_150_365d,Female
+SAMN00002196,Adipose,Adipose,201,Post_pubertal_150_365d,Male
+SAMN00002197,Adipose,Adipose,157,Post_pubertal_150_365d,Female
+SAMN00002198,Adipose,Adipose,189,Post_pubertal_150_365d,Female
+SAMN00002199,Adipose,Adipose,215,Post_pubertal_150_365d,Female
+SAMN00002200,Adipose,Adipose,236,Post_pubertal_150_365d,Male
+SAMN00002201,Adipose,Adipose,341,Post_pubertal_150_365d,Female
+SAMN00002202,Adipose,Adipose,295,Post_pubertal_150_365d,Male
+SAMN00002203,Adipose,Adipose,325,Post_pubertal_150_365d,Female
+SAMN00002204,Adipose,Adipose,286,Post_pubertal_150_365d,Female
+SAMN00002205,Adipose,Adipose,192,Post_pubertal_150_365d,Female
+SAMN00002206,Adipose,Adipose,344,Post_pubertal_150_365d,Male
+SAMN00002207,Adipose,Adipose,315,Post_pubertal_150_365d,Female
+SAMN00002208,Adipose,Adipose,278,Post_pubertal_150_365d,Male
+SAMN00002209,Adipose,Adipose,217,Post_pubertal_150_365d,Male
+SAMN00002210,Adipose,Adipose,213,Post_pubertal_150_365d,Male
+SAMN00002211,Adipose,Adipose,176,Post_pubertal_150_365d,Male
+SAMN00002212,Adipose,Adipose,195,Post_pubertal_150_365d,Female
+SAMN00002213,Adipose,Adipose,301,Post_pubertal_150_365d,Male
+SAMN00002214,Adipose,Adipose,210,Post_pubertal_150_365d,Male
+SAMN00002215,Adipose,Adipose,248,Post_pubertal_150_365d,Female
+SAMN00002216,Adipose,Adipose,305,Post_pubertal_150_365d,Female
+SAMN00002217,Adipose,Adipose,298,Post_pubertal_150_365d,Female
+SAMN00002218,Adipose,Adipose,326,Post_pubertal_150_365d,Female
+SAMN00002219,Adipose,Adipose,177,Post_pubertal_150_365d,Male
+SAMN00002220,Adipose,Adipose,204,Post_pubertal_150_365d,Male
+SAMN00002221,Adipose,Adipose,235,Post_pubertal_150_365d,Male
+SAMN00002222,Adipose,Adipose,151,Post_pubertal_150_365d,Male
+SAMN00002223,Adipose,Adipose,225,Post_pubertal_150_365d,Male
+SAMN00002224,Adipose,Adipose,250,Post_pubertal_150_365d,Male
+SAMN00002225,Adipose,Adipose,232,Post_pubertal_150_365d,Female
+SAMN00002226,Adipose,Adipose,362,Post_pubertal_150_365d,Female
+SAMN00002227,Adipose,Adipose,282,Post_pubertal_150_365d,Female
+SAMN00002228,Adipose,Adipose,326,Post_pubertal_150_365d,Female
+SAMN00002229,Adipose,Adipose,171,Post_pubertal_150_365d,Female
+SAMN00002230,Adipose,Adipose,362,Post_pubertal_150_365d,Female
+SAMN00002231,Adipose,Adipose,276,Post_pubertal_150_365d,Female
+SAMN00002232,Adipose,Adipose,340,Post_pubertal_150_365d,Male
+SAMN00002233,Adipose,Adipose,217,Post_pubertal_150_365d,Female
+SAMN00002234,Adipose,Adipose,241,Post_pubertal_150_365d,Female
+SAMN00002235,Adipose,Adipose,311,Post_pubertal_150_365d,Female
+SAMN00002236,Adipose,Adipose,198,Post_pubertal_150_365d,Female
+SAMN00002237,Adipose,Adipose,270,Post_pubertal_150_365d,Female
+SAMN00002238,Adipose,Adipose,288,Post_pubertal_150_365d,Female
+SAMN00002239,Adipose,Adipose,198,Post_pubertal_150_365d,Female
+SAMN00002240,Adipose,Adipose,202,Post_pubertal_150_365d,Male
+SAMN00002241,Adipose,Adipose,341,Post_pubertal_150_365d,Female
+SAMN00002242,Adipose,Adipose,249,Post_pubertal_150_365d,Female
+SAMN00002243,Adipose,Adipose,233,Post_pubertal_150_365d,Male
+SAMN00002244,Adipose,Adipose,294,Post_pubertal_150_365d,Male
+SAMN00002245,Adipose,Adipose,255,Post_pubertal_150_365d,Male
+SAMN00002246,Adipose,Adipose,229,Post_pubertal_150_365d,Female
+SAMN00002247,Adipose,Adipose,356,Post_pubertal_150_365d,Male
+SAMN00002248,Adipose,Adipose,176,Post_pubertal_150_365d,Male
+SAMN00002249,Adipose,Adipose,360,Post_pubertal_150_365d,Female
+SAMN00002250,Adipose,Adipose,176,Post_pubertal_150_365d,Male
+SAMN00002251,Adipose,Adipose,264,Post_pubertal_150_365d,Male
+SAMN00002252,Adipose,Adipose,182,Post_pubertal_150_365d,Female
+SAMN00002253,Adipose,Adipose,355,Post_pubertal_150_365d,Male
+SAMN00002254,Adipose,Adipose,266,Post_pubertal_150_365d,Female
+SAMN00002255,Adipose,Adipose,162,Post_pubertal_150_365d,Male
+SAMN00002256,Adipose,Adipose,324,Post_pubertal_150_365d,Female
+SAMN00002257,Adipose,Adipose,175,Post_pubertal_150_365d,Female
+SAMN00002258,Adipose,Adipose,357,Post_pubertal_150_365d,Female
+SAMN00002259,Adipose,Adipose,212,Post_pubertal_150_365d,Female
+SAMN00002260,Adipose,Adipose,296,Post_pubertal_150_365d,Male
+SAMN00002261,Adipose,Adipose,183,Post_pubertal_150_365d,Male
+SAMN00002262,Adipose,Adipose,185,Post_pubertal_150_365d,Female
+SAMN00002263,Adipose,Adipose,716,Adult_>365d,Male
+SAMN00002264,Adipose,Adipose,483,Adult_>365d,Female
+SAMN00002265,Adipose,Adipose,557,Adult_>365d,Male
+SAMN00002266,Adipose,Adipose,437,Adult_>365d,Male
+SAMN00002267,Adipose,Adipose,432,Adult_>365d,Male
+SAMN00002268,Adipose,Adipose,617,Adult_>365d,Female
+SAMN00002269,Small_intestine,Small_intestine,14,Infant_0_20d,Female
+SAMN00002270,Small_intestine,Small_intestine,5,Infant_0_20d,Male
+SAMN00002271,Small_intestine,Small_intestine,13,Infant_0_20d,Female
+SAMN00002272,Small_intestine,Small_intestine,17,Infant_0_20d,Male
+SAMN00002273,Small_intestine,Small_intestine,4,Infant_0_20d,Female
+SAMN00002274,Small_intestine,Small_intestine,10,Infant_0_20d,Female
+SAMN00002275,Small_intestine,Small_intestine,5,Infant_0_20d,Female
+SAMN00002276,Small_intestine,Small_intestine,19,Infant_0_20d,Female
+SAMN00002277,Small_intestine,Small_intestine,11,Infant_0_20d,Female
+SAMN00002278,Small_intestine,Small_intestine,16,Infant_0_20d,Female
+SAMN00002279,Small_intestine,Small_intestine,16,Infant_0_20d,Male
+SAMN00002280,Small_intestine,Small_intestine,15,Infant_0_20d,Female
+SAMN00002281,Small_intestine,Small_intestine,4,Infant_0_20d,Female
+SAMN00002282,Small_intestine,Small_intestine,10,Infant_0_20d,Male
+SAMN00002283,Small_intestine,Small_intestine,5,Infant_0_20d,Female
+SAMN00002284,Small_intestine,Small_intestine,16,Infant_0_20d,Male
+SAMN00002285,Small_intestine,Small_intestine,10,Infant_0_20d,Male
+SAMN00002286,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002287,Small_intestine,Small_intestine,52,Early childhood_21_59d,Male
+SAMN00002288,Small_intestine,Small_intestine,31,Early childhood_21_59d,Female
+SAMN00002289,Small_intestine,Small_intestine,41,Early childhood_21_59d,Female
+SAMN00002290,Small_intestine,Small_intestine,51,Early childhood_21_59d,Male
+SAMN00002291,Small_intestine,Small_intestine,31,Early childhood_21_59d,Female
+SAMN00002292,Small_intestine,Small_intestine,42,Early childhood_21_59d,Female
+SAMN00002293,Small_intestine,Small_intestine,42,Early childhood_21_59d,Male
+SAMN00002294,Small_intestine,Small_intestine,42,Early childhood_21_59d,Male
+SAMN00002295,Small_intestine,Small_intestine,46,Early childhood_21_59d,Male
+SAMN00002296,Small_intestine,Small_intestine,23,Early childhood_21_59d,Female
+SAMN00002297,Small_intestine,Small_intestine,41,Early childhood_21_59d,Female
+SAMN00002298,Small_intestine,Small_intestine,57,Early childhood_21_59d,Male
+SAMN00002299,Small_intestine,Small_intestine,53,Early childhood_21_59d,Male
+SAMN00002300,Small_intestine,Small_intestine,52,Early childhood_21_59d,Male
+SAMN00002301,Small_intestine,Small_intestine,47,Early childhood_21_59d,Male
+SAMN00002302,Small_intestine,Small_intestine,33,Early childhood_21_59d,Male
+SAMN00002303,Small_intestine,Small_intestine,24,Early childhood_21_59d,Male
+SAMN00002304,Small_intestine,Small_intestine,47,Early childhood_21_59d,Female
+SAMN00002305,Small_intestine,Small_intestine,46,Early childhood_21_59d,Female
+SAMN00002306,Small_intestine,Small_intestine,57,Early childhood_21_59d,Male
+SAMN00002307,Small_intestine,Small_intestine,41,Early childhood_21_59d,Female
+SAMN00002308,Small_intestine,Small_intestine,56,Early childhood_21_59d,Male
+SAMN00002309,Small_intestine,Small_intestine,26,Early childhood_21_59d,Male
+SAMN00002310,Small_intestine,Small_intestine,30,Early childhood_21_59d,Female
+SAMN00002311,Small_intestine,Small_intestine,39,Early childhood_21_59d,Female
+SAMN00002312,Small_intestine,Small_intestine,44,Early childhood_21_59d,Female
+SAMN00002313,Small_intestine,Small_intestine,48,Early childhood_21_59d,Male
+SAMN00002314,Small_intestine,Small_intestine,32,Early childhood_21_59d,Female
+SAMN00002315,Small_intestine,Small_intestine,38,Early childhood_21_59d,Male
+SAMN00002316,Small_intestine,Small_intestine,56,Early childhood_21_59d,Female
+SAMN00002317,Small_intestine,Small_intestine,32,Early childhood_21_59d,Female
+SAMN00002318,Small_intestine,Small_intestine,42,Early childhood_21_59d,Female
+SAMN00002319,Small_intestine,Small_intestine,44,Early childhood_21_59d,Male
+SAMN00002320,Small_intestine,Small_intestine,53,Early childhood_21_59d,Male
+SAMN00002321,Small_intestine,Small_intestine,57,Early childhood_21_59d,Male
+SAMN00002322,Small_intestine,Small_intestine,32,Early childhood_21_59d,Male
+SAMN00002323,Small_intestine,Small_intestine,26,Early childhood_21_59d,Female
+SAMN00002324,Small_intestine,Small_intestine,25,Early childhood_21_59d,Female
+SAMN00002325,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002326,Small_intestine,Small_intestine,36,Early childhood_21_59d,Female
+SAMN00002327,Small_intestine,Small_intestine,35,Early childhood_21_59d,Male
+SAMN00002328,Small_intestine,Small_intestine,27,Early childhood_21_59d,Female
+SAMN00002329,Small_intestine,Small_intestine,50,Early childhood_21_59d,Male
+SAMN00002330,Small_intestine,Small_intestine,35,Early childhood_21_59d,Female
+SAMN00002331,Small_intestine,Small_intestine,36,Early childhood_21_59d,Male
+SAMN00002332,Small_intestine,Small_intestine,37,Early childhood_21_59d,Female
+SAMN00002333,Small_intestine,Small_intestine,21,Early childhood_21_59d,Male
+SAMN00002334,Small_intestine,Small_intestine,22,Early childhood_21_59d,Female
+SAMN00002335,Small_intestine,Small_intestine,43,Early childhood_21_59d,Male
+SAMN00002336,Small_intestine,Small_intestine,32,Early childhood_21_59d,Female
+SAMN00002337,Small_intestine,Small_intestine,49,Early childhood_21_59d,Female
+SAMN00002338,Small_intestine,Small_intestine,42,Early childhood_21_59d,Male
+SAMN00002339,Small_intestine,Small_intestine,46,Early childhood_21_59d,Female
+SAMN00002340,Small_intestine,Small_intestine,22,Early childhood_21_59d,Female
+SAMN00002341,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002342,Small_intestine,Small_intestine,31,Early childhood_21_59d,Male
+SAMN00002343,Small_intestine,Small_intestine,26,Early childhood_21_59d,Female
+SAMN00002344,Small_intestine,Small_intestine,58,Early childhood_21_59d,Male
+SAMN00002345,Small_intestine,Small_intestine,56,Early childhood_21_59d,Male
+SAMN00002346,Small_intestine,Small_intestine,39,Early childhood_21_59d,Male
+SAMN00002347,Small_intestine,Small_intestine,26,Early childhood_21_59d,Male
+SAMN00002348,Small_intestine,Small_intestine,24,Early childhood_21_59d,Male
+SAMN00002349,Small_intestine,Small_intestine,48,Early childhood_21_59d,Female
+SAMN00002350,Small_intestine,Small_intestine,49,Early childhood_21_59d,Male
+SAMN00002351,Small_intestine,Small_intestine,54,Early childhood_21_59d,Male
+SAMN00002352,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002353,Small_intestine,Small_intestine,24,Early childhood_21_59d,Female
+SAMN00002354,Small_intestine,Small_intestine,38,Early childhood_21_59d,Male
+SAMN00002355,Small_intestine,Small_intestine,37,Early childhood_21_59d,Female
+SAMN00002356,Small_intestine,Small_intestine,35,Early childhood_21_59d,Female
+SAMN00002357,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002358,Small_intestine,Small_intestine,52,Early childhood_21_59d,Male
+SAMN00002359,Small_intestine,Small_intestine,52,Early childhood_21_59d,Female
+SAMN00002360,Small_intestine,Small_intestine,26,Early childhood_21_59d,Female
+SAMN00002361,Small_intestine,Small_intestine,35,Early childhood_21_59d,Female
+SAMN00002362,Small_intestine,Small_intestine,42,Early childhood_21_59d,Female
+SAMN00002363,Small_intestine,Small_intestine,24,Early childhood_21_59d,Male
+SAMN00002364,Small_intestine,Small_intestine,23,Early childhood_21_59d,Female
+SAMN00002365,Small_intestine,Small_intestine,52,Early childhood_21_59d,Male
+SAMN00002366,Small_intestine,Small_intestine,31,Early childhood_21_59d,Female
+SAMN00002367,Small_intestine,Small_intestine,47,Early childhood_21_59d,Male
+SAMN00002368,Small_intestine,Small_intestine,58,Early childhood_21_59d,Female
+SAMN00002369,Small_intestine,Small_intestine,48,Early childhood_21_59d,Female
+SAMN00002370,Small_intestine,Small_intestine,27,Early childhood_21_59d,Male
+SAMN00002371,Small_intestine,Small_intestine,47,Early childhood_21_59d,Male
+SAMN00002372,Small_intestine,Small_intestine,37,Early childhood_21_59d,Male
+SAMN00002373,Small_intestine,Small_intestine,21,Early childhood_21_59d,Male
+SAMN00002374,Small_intestine,Small_intestine,46,Early childhood_21_59d,Female
+SAMN00002375,Small_intestine,Small_intestine,50,Early childhood_21_59d,Male
+SAMN00002376,Small_intestine,Small_intestine,22,Early childhood_21_59d,Male
+SAMN00002377,Small_intestine,Small_intestine,32,Early childhood_21_59d,Female
+SAMN00002378,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002379,Small_intestine,Small_intestine,24,Early childhood_21_59d,Male
+SAMN00002380,Small_intestine,Small_intestine,56,Early childhood_21_59d,Male
+SAMN00002381,Small_intestine,Small_intestine,37,Early childhood_21_59d,Female
+SAMN00002382,Small_intestine,Small_intestine,53,Early childhood_21_59d,Female
+SAMN00002383,Small_intestine,Small_intestine,26,Early childhood_21_59d,Male
+SAMN00002384,Small_intestine,Small_intestine,55,Early childhood_21_59d,Male
+SAMN00002385,Small_intestine,Small_intestine,53,Early childhood_21_59d,Female
+SAMN00002386,Small_intestine,Small_intestine,51,Early childhood_21_59d,Male
+SAMN00002387,Small_intestine,Small_intestine,43,Early childhood_21_59d,Female
+SAMN00002388,Small_intestine,Small_intestine,51,Early childhood_21_59d,Male
+SAMN00002389,Small_intestine,Small_intestine,34,Early childhood_21_59d,Male
+SAMN00002390,Small_intestine,Small_intestine,21,Early childhood_21_59d,Female
+SAMN00002391,Small_intestine,Small_intestine,50,Early childhood_21_59d,Male
+SAMN00002392,Small_intestine,Small_intestine,58,Early childhood_21_59d,Female
+SAMN00002393,Small_intestine,Small_intestine,36,Early childhood_21_59d,Male
+SAMN00002394,Small_intestine,Small_intestine,38,Early childhood_21_59d,Female
+SAMN00002395,Small_intestine,Small_intestine,57,Early childhood_21_59d,Female
+SAMN00002396,Small_intestine,Small_intestine,117,Pre_pubertal_60_149d,Female
+SAMN00002397,Small_intestine,Small_intestine,140,Pre_pubertal_60_149d,Female
+SAMN00002398,Small_intestine,Small_intestine,121,Pre_pubertal_60_149d,Female
+SAMN00002399,Small_intestine,Small_intestine,80,Pre_pubertal_60_149d,Male
+SAMN00002400,Small_intestine,Small_intestine,130,Pre_pubertal_60_149d,Male
+SAMN00002401,Small_intestine,Small_intestine,109,Pre_pubertal_60_149d,Male
+SAMN00002402,Small_intestine,Small_intestine,110,Pre_pubertal_60_149d,Female
+SAMN00002403,Small_intestine,Small_intestine,135,Pre_pubertal_60_149d,Female
+SAMN00002404,Small_intestine,Small_intestine,142,Pre_pubertal_60_149d,Male
+SAMN00002405,Small_intestine,Small_intestine,82,Pre_pubertal_60_149d,Male
+SAMN00002406,Small_intestine,Small_intestine,127,Pre_pubertal_60_149d,Female
+SAMN00002407,Small_intestine,Small_intestine,118,Pre_pubertal_60_149d,Male
+SAMN00002408,Small_intestine,Small_intestine,113,Pre_pubertal_60_149d,Female
+SAMN00002409,Small_intestine,Small_intestine,123,Pre_pubertal_60_149d,Male
+SAMN00002410,Small_intestine,Small_intestine,143,Pre_pubertal_60_149d,Male
+SAMN00002411,Small_intestine,Small_intestine,103,Pre_pubertal_60_149d,Male
+SAMN00002412,Small_intestine,Small_intestine,100,Pre_pubertal_60_149d,Female
+SAMN00002413,Small_intestine,Small_intestine,108,Pre_pubertal_60_149d,Female
+SAMN00002414,Small_intestine,Small_intestine,282,Post_pubertal_150_365d,Female
+SAMN00002415,Small_intestine,Small_intestine,155,Post_pubertal_150_365d,Female
+SAMN00002416,Small_intestine,Small_intestine,293,Post_pubertal_150_365d,Male
+SAMN00002417,Small_intestine,Small_intestine,214,Post_pubertal_150_365d,Male
+SAMN00002418,Small_intestine,Small_intestine,254,Post_pubertal_150_365d,Female
+SAMN00002419,Small_intestine,Small_intestine,235,Post_pubertal_150_365d,Male
+SAMN00002420,Small_intestine,Small_intestine,259,Post_pubertal_150_365d,Male
+SAMN00002421,Small_intestine,Small_intestine,270,Post_pubertal_150_365d,Male
+SAMN00002422,Small_intestine,Small_intestine,323,Post_pubertal_150_365d,Male
+SAMN00002423,Small_intestine,Small_intestine,278,Post_pubertal_150_365d,Male
+SAMN00002424,Small_intestine,Small_intestine,159,Post_pubertal_150_365d,Male
+SAMN00002425,Small_intestine,Small_intestine,306,Post_pubertal_150_365d,Female
+SAMN00002426,Small_intestine,Small_intestine,154,Post_pubertal_150_365d,Male
+SAMN00002427,Small_intestine,Small_intestine,324,Post_pubertal_150_365d,Male
+SAMN00002428,Small_intestine,Small_intestine,191,Post_pubertal_150_365d,Female
+SAMN00002429,Small_intestine,Small_intestine,212,Post_pubertal_150_365d,Female
+SAMN00002430,Small_intestine,Small_intestine,305,Post_pubertal_150_365d,Male
+SAMN00002431,Small_intestine,Small_intestine,307,Post_pubertal_150_365d,Male
+SAMN00002432,Small_intestine,Small_intestine,219,Post_pubertal_150_365d,Female
+SAMN00002433,Small_intestine,Small_intestine,198,Post_pubertal_150_365d,Female
+SAMN00002434,Small_intestine,Small_intestine,236,Post_pubertal_150_365d,Female
+SAMN00002435,Small_intestine,Small_intestine,597,Adult_>365d,Male
+SAMN00002436,Small_intestine,Small_intestine,463,Adult_>365d,Male
+SAMN00002437,Small_intestine,Small_intestine,424,Adult_>365d,Female
+SAMN00002438,Small_intestine,Small_intestine,657,Adult_>365d,Male
+SAMN00002439,Small_intestine,Small_intestine,577,Adult_>365d,Female
+SAMN00002440,Small_intestine,Small_intestine,468,Adult_>365d,Male
+SAMN00002441,Small_intestine,Small_intestine,434,Adult_>365d,Male
+SAMN00002442,Small_intestine,Small_intestine,718,Adult_>365d,Male
+SAMN00002443,Small_intestine,Small_intestine,367,Adult_>365d,Male
+SAMN00002444,Small_intestine,Small_intestine,603,Adult_>365d,Male
+SAMN00002445,Small_intestine,Small_intestine,601,Adult_>365d,Male
+SAMN00002446,Small_intestine,Small_intestine,481,Adult_>365d,Female
+SAMN00002447,Small_intestine,Small_intestine,502,Adult_>365d,Male
+SAMN00002448,Small_intestine,Small_intestine,375,Adult_>365d,Male
+SAMN00002449,Small intestine,Ileum,11,Infant_0_20d,Male
+SAMN00002450,Small intestine,Ileum,13,Infant_0_20d,Female
+SAMN00002451,Small intestine,Ileum,16,Infant_0_20d,Male
+SAMN00002452,Small intestine,Ileum,15,Infant_0_20d,Male
+SAMN00002453,Small intestine,Ileum,19,Infant_0_20d,Female
+SAMN00002454,Small intestine,Ileum,19,Infant_0_20d,Female
+SAMN00002455,Small intestine,Ileum,16,Infant_0_20d,Female
+SAMN00002456,Small intestine,Ileum,2,Infant_0_20d,Female
+SAMN00002457,Small intestine,Ileum,3,Infant_0_20d,Male
+SAMN00002458,Small intestine,Ileum,15,Infant_0_20d,Male
+SAMN00002459,Small intestine,Ileum,33,Early childhood_21_59d,Female
+SAMN00002460,Small intestine,Ileum,56,Early childhood_21_59d,Male
+SAMN00002461,Small intestine,Ileum,32,Early childhood_21_59d,Female
+SAMN00002462,Small intestine,Ileum,49,Early childhood_21_59d,Female
+SAMN00002463,Small intestine,Ileum,52,Early childhood_21_59d,Female
+SAMN00002464,Small intestine,Ileum,21,Early childhood_21_59d,Male
+SAMN00002465,Small intestine,Ileum,26,Early childhood_21_59d,Female
+SAMN00002466,Small intestine,Ileum,40,Early childhood_21_59d,Male
+SAMN00002467,Small intestine,Ileum,35,Early childhood_21_59d,Female
+SAMN00002468,Small intestine,Ileum,23,Early childhood_21_59d,Male
+SAMN00002469,Small intestine,Ileum,56,Early childhood_21_59d,Male
+SAMN00002470,Small intestine,Ileum,49,Early childhood_21_59d,Male
+SAMN00002471,Small intestine,Ileum,30,Early childhood_21_59d,Male
+SAMN00002472,Small intestine,Ileum,41,Early childhood_21_59d,Female
+SAMN00002473,Small intestine,Ileum,55,Early childhood_21_59d,Female
+SAMN00002474,Small intestine,Ileum,37,Early childhood_21_59d,Male
+SAMN00002475,Small intestine,Ileum,43,Early childhood_21_59d,Female
+SAMN00002476,Small intestine,Ileum,37,Early childhood_21_59d,Female
+SAMN00002477,Small intestine,Ileum,37,Early childhood_21_59d,Female
+SAMN00002478,Small intestine,Ileum,36,Early childhood_21_59d,Male
+SAMN00002479,Small intestine,Ileum,57,Early childhood_21_59d,Female
+SAMN00002480,Small intestine,Ileum,23,Early childhood_21_59d,Female
+SAMN00002481,Small intestine,Ileum,31,Early childhood_21_59d,Male
+SAMN00002482,Small intestine,Ileum,41,Early childhood_21_59d,Male
+SAMN00002483,Small intestine,Ileum,49,Early childhood_21_59d,Female
+SAMN00002484,Small intestine,Ileum,33,Early childhood_21_59d,Female
+SAMN00002485,Small intestine,Ileum,34,Early childhood_21_59d,Male
+SAMN00002486,Small intestine,Ileum,39,Early childhood_21_59d,Female
+SAMN00002487,Small intestine,Ileum,26,Early childhood_21_59d,Female
+SAMN00002488,Small intestine,Ileum,58,Early childhood_21_59d,Male
+SAMN00002489,Small intestine,Ileum,55,Early childhood_21_59d,Female
+SAMN00002490,Small intestine,Ileum,48,Early childhood_21_59d,Male
+SAMN00002491,Small intestine,Ileum,24,Early childhood_21_59d,Male
+SAMN00002492,Small intestine,Ileum,51,Early childhood_21_59d,Male
+SAMN00002493,Small intestine,Ileum,53,Early childhood_21_59d,Female
+SAMN00002494,Small intestine,Ileum,44,Early childhood_21_59d,Female
+SAMN00002495,Small intestine,Ileum,52,Early childhood_21_59d,Male
+SAMN00002496,Small intestine,Ileum,27,Early childhood_21_59d,Female
+SAMN00002497,Small intestine,Ileum,54,Early childhood_21_59d,Female
+SAMN00002498,Small intestine,Ileum,43,Early childhood_21_59d,Male
+SAMN00002499,Small intestine,Ileum,106,Pre_pubertal_60_149d,Male
+SAMN00002500,Small intestine,Ileum,110,Pre_pubertal_60_149d,Female
+SAMN00002501,Small intestine,Ileum,89,Pre_pubertal_60_149d,Female
+SAMN00002502,Small intestine,Ileum,75,Pre_pubertal_60_149d,Male
+SAMN00002503,Small intestine,Ileum,109,Pre_pubertal_60_149d,Female
+SAMN00002504,Small intestine,Ileum,126,Pre_pubertal_60_149d,Female
+SAMN00002505,Small intestine,Ileum,123,Pre_pubertal_60_149d,Male
+SAMN00002506,Small intestine,Ileum,92,Pre_pubertal_60_149d,Female
+SAMN00002507,Small intestine,Ileum,85,Pre_pubertal_60_149d,Female
+SAMN00002508,Small intestine,Ileum,126,Pre_pubertal_60_149d,Male
+SAMN00002509,Small intestine,Ileum,73,Pre_pubertal_60_149d,Female
+SAMN00002510,Small intestine,Ileum,74,Pre_pubertal_60_149d,Male
+SAMN00002511,Small intestine,Ileum,121,Pre_pubertal_60_149d,Female
+SAMN00002512,Small intestine,Ileum,142,Pre_pubertal_60_149d,Female
+SAMN00002513,Small intestine,Ileum,133,Pre_pubertal_60_149d,Female
+SAMN00002514,Small intestine,Ileum,300,Post_pubertal_150_365d,Female
+SAMN00002515,Small intestine,Ileum,266,Post_pubertal_150_365d,Female
+SAMN00002516,Small intestine,Ileum,319,Post_pubertal_150_365d,Male
+SAMN00002517,Small intestine,Ileum,171,Post_pubertal_150_365d,Female
+SAMN00002518,Small intestine,Ileum,284,Post_pubertal_150_365d,Female
+SAMN00002519,Small intestine,Ileum,348,Post_pubertal_150_365d,Female
+SAMN00002520,Small intestine,Ileum,338,Post_pubertal_150_365d,Female
+SAMN00002521,Small intestine,Ileum,217,Post_pubertal_150_365d,Female
+SAMN00002522,Small intestine,Ileum,342,Post_pubertal_150_365d,Male
+SAMN00002523,Small intestine,Ileum,177,Post_pubertal_150_365d,Male
+SAMN00002524,Small intestine,Ileum,152,Post_pubertal_150_365d,Male
+SAMN00002525,Small intestine,Ileum,283,Post_pubertal_150_365d,Female
+SAMN00002526,Small intestine,Ileum,245,Post_pubertal_150_365d,Male
+SAMN00002527,Small intestine,Ileum,362,Post_pubertal_150_365d,Female
+SAMN00002528,Small intestine,Ileum,224,Post_pubertal_150_365d,Female
+SAMN00002529,Small intestine,Ileum,437,Adult_>365d,Female
+SAMN00002530,Small intestine,Ileum,371,Adult_>365d,Female
+SAMN00002531,Small intestine,Ileum,403,Adult_>365d,Female
+SAMN00002532,Small intestine,Ileum,583,Adult_>365d,Male
+SAMN00002533,Small intestine,Ileum,595,Adult_>365d,Male
+SAMN00002534,Small intestine,Ileum,692,Adult_>365d,Male
+SAMN00002535,Small intestine,Ileum,368,Adult_>365d,Female
+SAMN00002536,Small intestine,Ileum,534,Adult_>365d,Female
+SAMN00002537,Small intestine,Ileum,542,Adult_>365d,Male
+SAMN00002538,Small intestine,Ileum,436,Adult_>365d,Female
+SAMN00002539,Small intestine,Duodenum,15,Infant_0_20d,Female
+SAMN00002540,Small intestine,Duodenum,3,Infant_0_20d,Male
+SAMN00002541,Small intestine,Duodenum,12,Infant_0_20d,Male
+SAMN00002542,Small intestine,Duodenum,16,Infant_0_20d,Male
+SAMN00002543,Small intestine,Duodenum,8,Infant_0_20d,Female
+SAMN00002544,Small intestine,Duodenum,8,Infant_0_20d,Female
+SAMN00002545,Small intestine,Duodenum,19,Infant_0_20d,Male
+SAMN00002546,Small intestine,Duodenum,6,Infant_0_20d,Female
+SAMN00002547,Small intestine,Duodenum,18,Infant_0_20d,Female
+SAMN00002548,Small intestine,Duodenum,19,Infant_0_20d,Male
+SAMN00002549,Small intestine,Duodenum,36,Early childhood_21_59d,Female
+SAMN00002550,Small intestine,Duodenum,35,Early childhood_21_59d,Female
+SAMN00002551,Small intestine,Duodenum,30,Early childhood_21_59d,Male
+SAMN00002552,Small intestine,Duodenum,55,Early childhood_21_59d,Male
+SAMN00002553,Small intestine,Duodenum,38,Early childhood_21_59d,Male
+SAMN00002554,Small intestine,Duodenum,50,Early childhood_21_59d,Male
+SAMN00002555,Small intestine,Duodenum,26,Early childhood_21_59d,Female
+SAMN00002556,Small intestine,Duodenum,53,Early childhood_21_59d,Male
+SAMN00002557,Small intestine,Duodenum,34,Early childhood_21_59d,Female
+SAMN00002558,Small intestine,Duodenum,33,Early childhood_21_59d,Male
+SAMN00002559,Small intestine,Duodenum,22,Early childhood_21_59d,Male
+SAMN00002560,Small intestine,Duodenum,28,Early childhood_21_59d,Male
+SAMN00002561,Small intestine,Duodenum,53,Early childhood_21_59d,Female
+SAMN00002562,Small intestine,Duodenum,35,Early childhood_21_59d,Male
+SAMN00002563,Small intestine,Duodenum,48,Early childhood_21_59d,Male
+SAMN00002564,Small intestine,Duodenum,33,Early childhood_21_59d,Male
+SAMN00002565,Small intestine,Duodenum,47,Early childhood_21_59d,Female
+SAMN00002566,Small intestine,Duodenum,58,Early childhood_21_59d,Female
+SAMN00002567,Small intestine,Duodenum,39,Early childhood_21_59d,Female
+SAMN00002568,Small intestine,Duodenum,48,Early childhood_21_59d,Female
+SAMN00002569,Small intestine,Duodenum,51,Early childhood_21_59d,Female
+SAMN00002570,Small intestine,Duodenum,58,Early childhood_21_59d,Male
+SAMN00002571,Small intestine,Duodenum,51,Early childhood_21_59d,Female
+SAMN00002572,Small intestine,Duodenum,46,Early childhood_21_59d,Female
+SAMN00002573,Small intestine,Duodenum,28,Early childhood_21_59d,Female
+SAMN00002574,Small intestine,Duodenum,49,Early childhood_21_59d,Male
+SAMN00002575,Small intestine,Duodenum,37,Early childhood_21_59d,Female
+SAMN00002576,Small intestine,Duodenum,24,Early childhood_21_59d,Female
+SAMN00002577,Small intestine,Duodenum,34,Early childhood_21_59d,Female
+SAMN00002578,Small intestine,Duodenum,33,Early childhood_21_59d,Male
+SAMN00002579,Small intestine,Duodenum,49,Early childhood_21_59d,Male
+SAMN00002580,Small intestine,Duodenum,23,Early childhood_21_59d,Female
+SAMN00002581,Small intestine,Duodenum,41,Early childhood_21_59d,Female
+SAMN00002582,Small intestine,Duodenum,40,Early childhood_21_59d,Male
+SAMN00002583,Small intestine,Duodenum,48,Early childhood_21_59d,Female
+SAMN00002584,Small intestine,Duodenum,32,Early childhood_21_59d,Male
+SAMN00002585,Small intestine,Duodenum,45,Early childhood_21_59d,Female
+SAMN00002586,Small intestine,Duodenum,31,Early childhood_21_59d,Male
+SAMN00002587,Small intestine,Duodenum,29,Early childhood_21_59d,Male
+SAMN00002588,Small intestine,Duodenum,36,Early childhood_21_59d,Female
+SAMN00002589,Small intestine,Duodenum,122,Pre_pubertal_60_149d,Male
+SAMN00002590,Small intestine,Duodenum,121,Pre_pubertal_60_149d,Male
+SAMN00002591,Small intestine,Duodenum,136,Pre_pubertal_60_149d,Female
+SAMN00002592,Small intestine,Duodenum,128,Pre_pubertal_60_149d,Female
+SAMN00002593,Small intestine,Duodenum,124,Pre_pubertal_60_149d,Female
+SAMN00002594,Small intestine,Duodenum,85,Pre_pubertal_60_149d,Male
+SAMN00002595,Small intestine,Duodenum,107,Pre_pubertal_60_149d,Male
+SAMN00002596,Small intestine,Duodenum,69,Pre_pubertal_60_149d,Female
+SAMN00002597,Small intestine,Duodenum,76,Pre_pubertal_60_149d,Male
+SAMN00002598,Small intestine,Duodenum,112,Pre_pubertal_60_149d,Male
+SAMN00002599,Small intestine,Duodenum,125,Pre_pubertal_60_149d,Female
+SAMN00002600,Small intestine,Duodenum,98,Pre_pubertal_60_149d,Female
+SAMN00002601,Small intestine,Duodenum,76,Pre_pubertal_60_149d,Male
+SAMN00002602,Small intestine,Duodenum,109,Pre_pubertal_60_149d,Male
+SAMN00002603,Small intestine,Duodenum,71,Pre_pubertal_60_149d,Female
+SAMN00002604,Small intestine,Duodenum,192,Post_pubertal_150_365d,Male
+SAMN00002605,Small intestine,Duodenum,259,Post_pubertal_150_365d,Female
+SAMN00002606,Small intestine,Duodenum,161,Post_pubertal_150_365d,Male
+SAMN00002607,Small intestine,Duodenum,346,Post_pubertal_150_365d,Female
+SAMN00002608,Small intestine,Duodenum,314,Post_pubertal_150_365d,Female
+SAMN00002609,Small intestine,Duodenum,296,Post_pubertal_150_365d,Male
+SAMN00002610,Small intestine,Duodenum,296,Post_pubertal_150_365d,Male
+SAMN00002611,Small intestine,Duodenum,244,Post_pubertal_150_365d,Male
+SAMN00002612,Small intestine,Duodenum,184,Post_pubertal_150_365d,Female
+SAMN00002613,Small intestine,Duodenum,270,Post_pubertal_150_365d,Female
+SAMN00002614,Small intestine,Duodenum,159,Post_pubertal_150_365d,Male
+SAMN00002615,Small intestine,Duodenum,202,Post_pubertal_150_365d,Female
+SAMN00002616,Small intestine,Duodenum,277,Post_pubertal_150_365d,Male
+SAMN00002617,Small intestine,Duodenum,219,Post_pubertal_150_365d,Male
+SAMN00002618,Small intestine,Duodenum,362,Post_pubertal_150_365d,Female
+SAMN00002619,Small intestine,Duodenum,448,Adult_>365d,Male
+SAMN00002620,Small intestine,Duodenum,426,Adult_>365d,Female
+SAMN00002621,Small intestine,Duodenum,490,Adult_>365d,Male
+SAMN00002622,Small intestine,Duodenum,661,Adult_>365d,Male
+SAMN00002623,Small intestine,Duodenum,586,Adult_>365d,Female
+SAMN00002624,Small intestine,Duodenum,650,Adult_>365d,Male
+SAMN00002625,Small intestine,Duodenum,573,Adult_>365d,Female
+SAMN00002626,Small intestine,Duodenum,607,Adult_>365d,Male
+SAMN00002627,Small intestine,Duodenum,428,Adult_>365d,Male
+SAMN00002628,Small intestine,Duodenum,379,Adult_>365d,Female
+SAMN00002629,Testis,Testis,7,Infant_0_20d,Female
+SAMN00002630,Testis,Testis,10,Infant_0_20d,Male
+SAMN00002631,Testis,Testis,17,Infant_0_20d,Male
+SAMN00002632,Testis,Testis,15,Infant_0_20d,Male
+SAMN00002633,Testis,Testis,11,Infant_0_20d,Female
+SAMN00002634,Testis,Testis,6,Infant_0_20d,Female
+SAMN00002635,Testis,Testis,18,Infant_0_20d,Female
+SAMN00002636,Testis,Testis,13,Infant_0_20d,Female
+SAMN00002637,Testis,Testis,15,Infant_0_20d,Female
+SAMN00002638,Testis,Testis,10,Infant_0_20d,Male
+SAMN00002639,Testis,Testis,8,Infant_0_20d,Male
+SAMN00002640,Testis,Testis,19,Infant_0_20d,Female
+SAMN00002641,Testis,Testis,9,Infant_0_20d,Male
+SAMN00002642,Testis,Testis,14,Infant_0_20d,Female
+SAMN00002643,Testis,Testis,11,Infant_0_20d,Male
+SAMN00002644,Testis,Testis,4,Infant_0_20d,Male
+SAMN00002645,Testis,Testis,5,Infant_0_20d,Female
+SAMN00002646,Testis,Testis,7,Infant_0_20d,Male
+SAMN00002647,Testis,Testis,16,Infant_0_20d,Female
+SAMN00002648,Testis,Testis,35,Early childhood_21_59d,Female
+SAMN00002649,Testis,Testis,33,Early childhood_21_59d,Male
+SAMN00002650,Testis,Testis,34,Early childhood_21_59d,Male
+SAMN00002651,Testis,Testis,47,Early childhood_21_59d,Female
+SAMN00002652,Testis,Testis,22,Early childhood_21_59d,Female
+SAMN00002653,Testis,Testis,39,Early childhood_21_59d,Male
+SAMN00002654,Testis,Testis,45,Early childhood_21_59d,Female
+SAMN00002655,Testis,Testis,52,Early childhood_21_59d,Male
+SAMN00002656,Testis,Testis,143,Pre_pubertal_60_149d,Male
+SAMN00002657,Testis,Testis,99,Pre_pubertal_60_149d,Female
+SAMN00002658,Testis,Testis,124,Pre_pubertal_60_149d,Female
+SAMN00002659,Testis,Testis,121,Pre_pubertal_60_149d,Female
+SAMN00002660,Testis,Testis,66,Pre_pubertal_60_149d,Male
+SAMN00002661,Testis,Testis,87,Pre_pubertal_60_149d,Female
+SAMN00002662,Testis,Testis,119,Pre_pubertal_60_149d,Male
+SAMN00002663,Testis,Testis,100,Pre_pubertal_60_149d,Male
+SAMN00002664,Testis,Testis,144,Pre_pubertal_60_149d,Male
+SAMN00002665,Testis,Testis,81,Pre_pubertal_60_149d,Male
+SAMN00002666,Testis,Testis,307,Post_pubertal_150_365d,Female
+SAMN00002667,Testis,Testis,210,Post_pubertal_150_365d,Female
+SAMN00002668,Testis,Testis,170,Post_pubertal_150_365d,Female
+SAMN00002669,Testis,Testis,243,Post_pubertal_150_365d,Male
+SAMN00002670,Testis,Testis,255,Post_pubertal_150_365d,Male
+SAMN00002671,Testis,Testis,221,Post_pubertal_150_365d,Male
+SAMN00002672,Testis,Testis,290,Post_pubertal_150_365d,Female
+SAMN00002673,Testis,Testis,340,Post_pubertal_150_365d,Female
+SAMN00002674,Testis,Testis,294,Post_pubertal_150_365d,Female
+SAMN00002675,Testis,Testis,167,Post_pubertal_150_365d,Male
+SAMN00002676,Testis,Testis,236,Post_pubertal_150_365d,Male
+SAMN00002677,Testis,Testis,174,Post_pubertal_150_365d,Female
+SAMN00002678,Testis,Testis,217,Post_pubertal_150_365d,Male
+SAMN00002679,Testis,Testis,158,Post_pubertal_150_365d,Female
+SAMN00002680,Testis,Testis,232,Post_pubertal_150_365d,Male
+SAMN00002681,Testis,Testis,320,Post_pubertal_150_365d,Male
+SAMN00002682,Testis,Testis,300,Post_pubertal_150_365d,Male
+SAMN00002683,Testis,Testis,303,Post_pubertal_150_365d,Female
+SAMN00002684,Testis,Testis,340,Post_pubertal_150_365d,Male
+SAMN00002685,Testis,Testis,342,Post_pubertal_150_365d,Male
+SAMN00002686,Testis,Testis,306,Post_pubertal_150_365d,Female
+SAMN00002687,Testis,Testis,350,Post_pubertal_150_365d,Male
+SAMN00002688,Testis,Testis,343,Post_pubertal_150_365d,Male
+SAMN00002689,Testis,Testis,164,Post_pubertal_150_365d,Female
+SAMN00002690,Testis,Testis,337,Post_pubertal_150_365d,Female
+SAMN00002691,Testis,Testis,315,Post_pubertal_150_365d,Male
+SAMN00002692,Testis,Testis,153,Post_pubertal_150_365d,Female
+SAMN00002693,Testis,Testis,197,Post_pubertal_150_365d,Male
+SAMN00002694,Testis,Testis,151,Post_pubertal_150_365d,Female
+SAMN00002695,Testis,Testis,623,Adult_>365d,Male
+SAMN00002696,Testis,Testis,503,Adult_>365d,Male
+SAMN00002697,Testis,Testis,635,Adult_>365d,Male
+SAMN00002698,Brain,Pituitary,2,Infant_0_20d,Male
+SAMN00002699,Brain,Pituitary,2,Infant_0_20d,Male
+SAMN00002700,Brain,Pituitary,4,Infant_0_20d,Male
+SAMN00002701,Brain,Pituitary,10,Infant_0_20d,Female
+SAMN00002702,Brain,Pituitary,10,Infant_0_20d,Male
+SAMN00002703,Brain,Pituitary,19,Infant_0_20d,Female
+SAMN00002704,Brain,Pituitary,6,Infant_0_20d,Male
+SAMN00002705,Brain,Pituitary,12,Infant_0_20d,Male
+SAMN00002706,Brain,Pituitary,14,Infant_0_20d,Female
+SAMN00002707,Brain,Pituitary,16,Infant_0_20d,Female
+SAMN00002708,Brain,Pituitary,3,Infant_0_20d,Female
+SAMN00002709,Brain,Pituitary,7,Infant_0_20d,Male
+SAMN00002710,Brain,Pituitary,15,Infant_0_20d,Male
+SAMN00002711,Brain,Pituitary,10,Infant_0_20d,Female
+SAMN00002712,Brain,Pituitary,2,Infant_0_20d,Female
+SAMN00002713,Brain,Pituitary,16,Infant_0_20d,Male
+SAMN00002714,Brain,Pituitary,2,Infant_0_20d,Female
+SAMN00002715,Brain,Pituitary,19,Infant_0_20d,Female
+SAMN00002716,Brain,Pituitary,14,Infant_0_20d,Male
+SAMN00002717,Brain,Pituitary,8,Infant_0_20d,Female
+SAMN00002718,Brain,Pituitary,25,Early childhood_21_59d,Female
+SAMN00002719,Brain,Pituitary,44,Early childhood_21_59d,Female
+SAMN00002720,Brain,Pituitary,30,Early childhood_21_59d,Female
+SAMN00002721,Brain,Pituitary,30,Early childhood_21_59d,Female
+SAMN00002722,Brain,Pituitary,30,Early childhood_21_59d,Male
+SAMN00002723,Brain,Pituitary,48,Early childhood_21_59d,Female
+SAMN00002724,Brain,Pituitary,34,Early childhood_21_59d,Male
+SAMN00002725,Brain,Pituitary,26,Early childhood_21_59d,Male
+SAMN00002726,Brain,Pituitary,52,Early childhood_21_59d,Female
+SAMN00002727,Brain,Pituitary,29,Early childhood_21_59d,Female
+SAMN00002728,Brain,Pituitary,45,Early childhood_21_59d,Female
+SAMN00002729,Brain,Pituitary,43,Early childhood_21_59d,Male
+SAMN00002730,Brain,Pituitary,42,Early childhood_21_59d,Female
+SAMN00002731,Brain,Pituitary,37,Early childhood_21_59d,Female
+SAMN00002732,Brain,Pituitary,34,Early childhood_21_59d,Male
+SAMN00002733,Brain,Pituitary,41,Early childhood_21_59d,Female
+SAMN00002734,Brain,Pituitary,23,Early childhood_21_59d,Male
+SAMN00002735,Brain,Pituitary,24,Early childhood_21_59d,Male
+SAMN00002736,Brain,Pituitary,25,Early childhood_21_59d,Male
+SAMN00002737,Brain,Pituitary,31,Early childhood_21_59d,Female
+SAMN00002738,Brain,Pituitary,56,Early childhood_21_59d,Male
+SAMN00002739,Brain,Pituitary,54,Early childhood_21_59d,Female
+SAMN00002740,Brain,Pituitary,45,Early childhood_21_59d,Female
+SAMN00002741,Brain,Pituitary,24,Early childhood_21_59d,Male
+SAMN00002742,Brain,Pituitary,34,Early childhood_21_59d,Female
+SAMN00002743,Brain,Pituitary,22,Early childhood_21_59d,Female
+SAMN00002744,Brain,Pituitary,38,Early childhood_21_59d,Female
+SAMN00002745,Brain,Pituitary,42,Early childhood_21_59d,Male
+SAMN00002746,Brain,Pituitary,23,Early childhood_21_59d,Female
+SAMN00002747,Brain,Pituitary,37,Early childhood_21_59d,Male
+SAMN00002748,Brain,Pituitary,63,Pre_pubertal_60_149d,Male
+SAMN00002749,Brain,Pituitary,79,Pre_pubertal_60_149d,Female
+SAMN00002750,Brain,Pituitary,122,Pre_pubertal_60_149d,Female
+SAMN00002751,Brain,Pituitary,130,Pre_pubertal_60_149d,Male
+SAMN00002752,Brain,Pituitary,124,Pre_pubertal_60_149d,Female
+SAMN00002753,Brain,Pituitary,68,Pre_pubertal_60_149d,Female
+SAMN00002754,Brain,Pituitary,93,Pre_pubertal_60_149d,Female
+SAMN00002755,Brain,Pituitary,141,Pre_pubertal_60_149d,Female
+SAMN00002756,Brain,Pituitary,122,Pre_pubertal_60_149d,Female
+SAMN00002757,Brain,Pituitary,113,Pre_pubertal_60_149d,Male
+SAMN00002758,Brain,Pituitary,114,Pre_pubertal_60_149d,Male
+SAMN00002759,Brain,Pituitary,83,Pre_pubertal_60_149d,Male
+SAMN00002760,Brain,Pituitary,95,Pre_pubertal_60_149d,Female
+SAMN00002761,Brain,Pituitary,146,Pre_pubertal_60_149d,Female
+SAMN00002762,Brain,Pituitary,77,Pre_pubertal_60_149d,Male
+SAMN00002763,Brain,Pituitary,73,Pre_pubertal_60_149d,Female
+SAMN00002764,Brain,Pituitary,66,Pre_pubertal_60_149d,Female
+SAMN00002765,Brain,Pituitary,121,Pre_pubertal_60_149d,Female
+SAMN00002766,Brain,Pituitary,65,Pre_pubertal_60_149d,Male
+SAMN00002767,Brain,Pituitary,66,Pre_pubertal_60_149d,Male
+SAMN00002768,Brain,Pituitary,101,Pre_pubertal_60_149d,Male
+SAMN00002769,Brain,Pituitary,108,Pre_pubertal_60_149d,Male
+SAMN00002770,Brain,Pituitary,69,Pre_pubertal_60_149d,Male
+SAMN00002771,Brain,Pituitary,116,Pre_pubertal_60_149d,Male
+SAMN00002772,Brain,Pituitary,67,Pre_pubertal_60_149d,Female
+SAMN00002773,Brain,Pituitary,91,Pre_pubertal_60_149d,Female
+SAMN00002774,Brain,Pituitary,87,Pre_pubertal_60_149d,Male
+SAMN00002775,Brain,Pituitary,68,Pre_pubertal_60_149d,Female
+SAMN00002776,Brain,Pituitary,88,Pre_pubertal_60_149d,Male
+SAMN00002777,Brain,Pituitary,84,Pre_pubertal_60_149d,Male
+SAMN00002778,Brain,Pituitary,121,Pre_pubertal_60_149d,Male
+SAMN00002779,Brain,Pituitary,118,Pre_pubertal_60_149d,Male
+SAMN00002780,Brain,Pituitary,76,Pre_pubertal_60_149d,Male
+SAMN00002781,Brain,Pituitary,91,Pre_pubertal_60_149d,Female
+SAMN00002782,Brain,Pituitary,109,Pre_pubertal_60_149d,Female
+SAMN00002783,Brain,Pituitary,108,Pre_pubertal_60_149d,Female
+SAMN00002784,Brain,Pituitary,115,Pre_pubertal_60_149d,Female
+SAMN00002785,Brain,Pituitary,116,Pre_pubertal_60_149d,Male
+SAMN00002786,Brain,Pituitary,144,Pre_pubertal_60_149d,Female
+SAMN00002787,Brain,Pituitary,144,Pre_pubertal_60_149d,Male
+SAMN00002788,Brain,Pituitary,310,Post_pubertal_150_365d,Female
+SAMN00002789,Brain,Pituitary,319,Post_pubertal_150_365d,Male
+SAMN00002790,Brain,Pituitary,346,Post_pubertal_150_365d,Female
+SAMN00002791,Brain,Pituitary,205,Post_pubertal_150_365d,Male
+SAMN00002792,Brain,Pituitary,199,Post_pubertal_150_365d,Female
+SAMN00002793,Brain,Pituitary,287,Post_pubertal_150_365d,Male
+SAMN00002794,Brain,Pituitary,331,Post_pubertal_150_365d,Female
+SAMN00002795,Brain,Pituitary,219,Post_pubertal_150_365d,Male
+SAMN00002796,Brain,Pituitary,267,Post_pubertal_150_365d,Female
+SAMN00002797,Brain,Pituitary,303,Post_pubertal_150_365d,Female
+SAMN00002798,Brain,Pituitary,199,Post_pubertal_150_365d,Male
+SAMN00002799,Brain,Pituitary,317,Post_pubertal_150_365d,Female
+SAMN00002800,Brain,Pituitary,227,Post_pubertal_150_365d,Female
+SAMN00002801,Brain,Pituitary,165,Post_pubertal_150_365d,Male
+SAMN00002802,Brain,Pituitary,339,Post_pubertal_150_365d,Male
+SAMN00002803,Brain,Pituitary,323,Post_pubertal_150_365d,Male
+SAMN00002804,Brain,Pituitary,171,Post_pubertal_150_365d,Female
+SAMN00002805,Brain,Pituitary,340,Post_pubertal_150_365d,Male
+SAMN00002806,Brain,Pituitary,150,Post_pubertal_150_365d,Female
+SAMN00002807,Brain,Pituitary,295,Post_pubertal_150_365d,Male
+SAMN00002808,Brain,Pituitary,357,Post_pubertal_150_365d,Male
+SAMN00002809,Brain,Pituitary,274,Post_pubertal_150_365d,Male
+SAMN00002810,Brain,Pituitary,286,Post_pubertal_150_365d,Female
+SAMN00002811,Brain,Pituitary,247,Post_pubertal_150_365d,Male
+SAMN00002812,Brain,Pituitary,351,Post_pubertal_150_365d,Male
+SAMN00002813,Brain,Pituitary,304,Post_pubertal_150_365d,Female
+SAMN00002814,Brain,Pituitary,353,Post_pubertal_150_365d,Male
+SAMN00002815,Brain,Pituitary,240,Post_pubertal_150_365d,Female
+SAMN00002816,Brain,Pituitary,350,Post_pubertal_150_365d,Male
+SAMN00002817,Brain,Pituitary,222,Post_pubertal_150_365d,Male
+SAMN00002818,Brain,Pituitary,254,Post_pubertal_150_365d,Female
+SAMN00002819,Brain,Pituitary,345,Post_pubertal_150_365d,Female
+SAMN00002820,Brain,Pituitary,265,Post_pubertal_150_365d,Female
+SAMN00002821,Brain,Pituitary,155,Post_pubertal_150_365d,Male
+SAMN00002822,Brain,Pituitary,320,Post_pubertal_150_365d,Male
+SAMN00002823,Brain,Pituitary,312,Post_pubertal_150_365d,Female
+SAMN00002824,Brain,Pituitary,323,Post_pubertal_150_365d,Female
+SAMN00002825,Brain,Pituitary,273,Post_pubertal_150_365d,Male
+SAMN00002826,Brain,Pituitary,300,Post_pubertal_150_365d,Female
+SAMN00002827,Brain,Pituitary,315,Post_pubertal_150_365d,Male
+SAMN00002828,Brain,Pituitary,256,Post_pubertal_150_365d,Female
+SAMN00002829,Brain,Pituitary,364,Post_pubertal_150_365d,Female
+SAMN00002830,Brain,Pituitary,317,Post_pubertal_150_365d,Male
+SAMN00002831,Brain,Pituitary,349,Post_pubertal_150_365d,Male
+SAMN00002832,Brain,Pituitary,173,Post_pubertal_150_365d,Male
+SAMN00002833,Brain,Pituitary,194,Post_pubertal_150_365d,Female
+SAMN00002834,Brain,Pituitary,261,Post_pubertal_150_365d,Male
+SAMN00002835,Brain,Pituitary,332,Post_pubertal_150_365d,Female
+SAMN00002836,Brain,Pituitary,335,Post_pubertal_150_365d,Female
+SAMN00002837,Brain,Pituitary,189,Post_pubertal_150_365d,Female
+SAMN00002838,Brain,Pituitary,587,Adult_>365d,Female
+SAMN00002839,Brain,Pituitary,664,Adult_>365d,Male
+SAMN00002840,Brain,Pituitary,448,Adult_>365d,Male
+SAMN00002841,Brain,Pituitary,491,Adult_>365d,Female
+SAMN00002842,Brain,Pituitary,533,Adult_>365d,Female
+SAMN00002843,Brain,Pituitary,624,Adult_>365d,Male
+SAMN00002844,Brain,Pituitary,728,Adult_>365d,Female
+SAMN00002845,Brain,Pituitary,647,Adult_>365d,Male
+SAMN00002846,Brain,Pituitary,405,Adult_>365d,Male
+SAMN00002847,Brain,Pituitary,645,Adult_>365d,Male

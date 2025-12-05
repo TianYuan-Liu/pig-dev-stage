@@ -1,0 +1,260 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{url}
+\graphicspath{{../visualization/}{../visualization/nature_figures/test_outputs/}}
+
+\title{Molecular Evidence for Porcine Developmental Stages via a Calibrated Transcriptomic Classifier}
+\author{Pig Development Consortium}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present an end-to-end transcriptomic framework that infers developmental stage across eight porcine tissues by combining harmonised PigGTEx bulk RNA-seq profiles with calibrated machine learning models. The workflow integrates adaptive stage granularity, variance-aware preprocessing, mutual information feature selection, and ordinal regression, yielding balanced accuracies between 0.821 and 0.955 and macro F1 scores between 0.762 and 0.952 across tissue-specific hold-out sets (Table~\ref{tab:performance}). Visual analytics summarise the data landscape (Figure~\ref{fig:methodology}), classifier performance diagnostics (Figure~\ref{fig:performance}), molecular signatures (Figure~\ref{fig:signatures}), and functional validation (Figure~\ref{fig:biovalidation}). Gene ontology enrichment confirms that stage-discriminative features capture organ-appropriate developmental programs, while supplementary visualisations (Supplementary Figures~\ref{fig:multi}--\ref{fig:biovalidationpng}) document Nature-style presentation templates. Cross-tissue leave-one-out analyses underscore the necessity of tissue-specific models, with balanced accuracies falling below 0.36 when tissues are held out, motivating future transfer learning innovations. Collectively, the resource delivers a reproducible, quantitatively calibrated view of porcine maturation that supports both biomedical and agricultural applications.
+\end{abstract}
+
+\section{Introduction}
+The domestic pig (\textit{Sus scrofa}) has become an indispensable biomedical and agricultural model owing to its remarkable anatomical, physiological, and genomic similarity to humans \cite{swindle2012,lunney2021}. Compared with rodents, the porcine genome is functionally closer to humans, supporting superior translational relevance for drug discovery, disease modelling, and xenotransplantation. Pigs also share key features of human biology---including gyrencephalic brain architecture, cardiovascular physiology, and comparable organ sizes---facilitating direct translation of surgical interventions and medical device testing. Beyond biomedical applications, accurate developmental staging is equally critical for agriculture, where the timing of breeding and nutritional interventions directly impacts productivity and economic returns.
+
+Current porcine developmental staging frameworks are largely morphological, spanning Carnegie-adapted embryonic stages through postnatal categories such as neonatal, nursery, growing/finishing, and adulthood. However, these systems are constrained by subjectivity, inter-observer variability, and the requirement for invasive or destructive sampling \cite{bendus2006,mogelt2020,orrahilly2010}. Even under standardised criteria, embryologists frequently disagree on stage assignment, and archived samples often lack morphological integrity while retaining high-quality RNA. Chronological age is also an imperfect proxy: littermates often develop asynchronously, and continuous molecular transitions are compressed into discrete categories. These limitations hinder studies requiring precise synchronisation, such as transcriptomic time courses or environmental intervention experiments, where subtle staging errors obscure biological signals.
+
+Molecular approaches offer a transformative alternative. Recent advances in transcriptomic ``clocks'' have demonstrated near-theoretical accuracy for predicting biological rather than chronological age, with validations across \textit{Caenorhabditis elegans}, mouse, and human datasets \cite{schachtschneider2021,zhengh2023}. In pigs, large-scale resources such as PigGTEx and single-cell atlases now provide unparalleled molecular resolution across tissues and developmental windows \cite{jin2021,teng2024,simpson2024}. Unlike morphology, transcriptomes capture both discrete cell-type emergence and continuous developmental trajectories, enabling pseudotime inference and detection of sub-stages invisible to visual inspection. Moreover, RNA-based clocks exhibit far greater dynamic range than epigenetic clocks, enhancing sensitivity to environmental, nutritional, and pathological influences that modulate developmental pace.
+
+Concurrently, machine learning advances now permit calibrated, high-dimensional classification of developmental states. Elastic Net regression and gradient-boosted models have proven highly effective for transcriptomic data, while probabilistic calibration methods (e.g., temperature scaling, isotonic regression) translate predictions into reliable confidence estimates \cite{lee2021,lukyanenko2021}. Such calibration is critical for biological interpretability, allowing researchers to distinguish confidently staged samples from uncertain cases. Integrating these computational advances with comprehensive transcriptomic resources creates the opportunity for a robust, scalable, and objective framework for porcine developmental staging.
+
+Here we present a calibrated transcriptomic classifier that systematically infers porcine developmental stage across tissues, overcoming the technical and conceptual limitations of morphology-based systems. By integrating cross-tissue transcriptomic atlases with state-of-the-art machine learning calibration, we establish a molecular framework that is quantitative, reproducible, and applicable to both contemporary and archived samples. This approach not only refines fundamental understanding of mammalian developmental biology but also enables practical applications in precision livestock farming and biomedical translation, setting the stage for molecularly defined developmental benchmarks in the pig model.
+
+\section{Results}
+\subsection{Study design and data landscape}
+The visual analytics suite distils the experimental design and data resources into a multi-panel methodology overview (Figure~\ref{fig:methodology}). Age was harmonised into five ordered developmental stages spanning 0~d to adulthood, and samples were profiled across eight tissues with heterogeneous class balance. Adaptive granularity selected 4-class schemes for muscle, brain, and liver; 3-class schemes for blood, small intestine, and lung; and dichotomous schemes for adipose and testis. The machine learning pipeline includes log-transformed normalisation, variance filtering, mutual information feature selection capped at 2{,}000 genes, ordinal or logistic regression, and bootstrap calibration. Rasterised counterparts of the four core figures are available for rapid storyboard review (Supplementary Figures~\ref{fig:methodologypng}--\ref{fig:biovalidationpng}).
+
+\subsection{Classifier performance across tissues}
+Model diagnostics demonstrate consistently high performance on tissue-specific hold-out sets (Figure~\ref{fig:performance}, Table~\ref{tab:performance}). Balanced accuracy ranged from 0.821 in blood to 0.955 in testis, with macro F1 scores spanning 0.762--0.952. Ordinal mean absolute error was below 0.30 stages in every multi-class tissue, reaching 0.081 in liver and 0.095 in muscle. Spearman correlations between predicted and chronological age exceeded 0.87 for all tissues with ordered stages. Confusion matrices reveal that when misclassifications occur they are predominantly adjacent stage swaps, yielding near-miss accuracies above 85\% for all tissues. Chronological age correlations (Figure~\ref{fig:performance}) further confirm that calibrated probabilities preserve ordinal structure even in tissues with merged stages.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Tissue-specific classification performance. Balanced accuracy (BA) is reported with 95\% bootstrap confidence intervals. MAE is reported in stage units. A dash indicates that ordinal MAE is not defined for two-class models.}
+  \label{tab:performance}
+  \sisetup{round-mode = places, round-precision = 3}
+  \begin{tabular}{lllll}
+    \toprule
+    Tissue & Scheme & BA [95\% CI] & Macro F1 & MAE \\
+    \midrule
+    Muscle & 4-class & 0.887~[0.833, 0.934] & 0.888 & 0.095 \\
+    Brain & 4-class & 0.905~[0.846, 0.952] & 0.894 & 0.157 \\
+    Liver & 4-class & 0.924~[0.870, 0.969] & 0.919 & 0.081 \\
+    Blood & 3-class & 0.821~[0.699, 0.934] & 0.762 & 0.163 \\
+    Small intestine & 3-class & 0.858~[0.763, 0.939] & 0.806 & 0.291 \\
+    Lung & 3-class & 0.867~[0.746, 0.970] & 0.874 & 0.111 \\
+    Adipose & 2-class & 0.907~[0.808, 0.982] & 0.907 & -- \\
+    Testis & 2-class & 0.955~[0.850, 1.000] & 0.952 & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Molecular signatures and feature organisation}
+The classifier learns tissue-resolved molecular programs that align with developmental trajectories (Figure~\ref{fig:signatures}). UMAP embeddings illustrate the separation of 2{,}467 samples into tissue-specific manifolds while preserving intra-tissue developmental gradients. Feature overlap analysis shows that most discriminative genes are tissue-specific, with only a minority shared across more than two organs. Marker expression trends highlight canonical regulators such as \textit{PPARG} in adipose, \textit{MBP} in brain, \textit{ALB} in liver, and \textit{MSTN} in muscle, each exhibiting stage-dependent modulation.
+
+\subsection{Functional enrichment and biological validation}
+Gene ontology enrichment of stage-informative gene sets underscores strong tissue-specific developmental programs rather than a shared pan-tissue signature (Figure~\ref{fig:biovalidation}). Adipose predictors were dominated by regulators of adipogenesis, with 19 of the top 50 markers mapping to fat cell differentiation (fold enrichment $\approx 96$, $q = 5.8 \times 10^{-33}$) and complementary lipid-storage pathways ($\text{triglyceride biosynthetic process}$, fold enrichment $\approx 51$), indicating that temporal progression in adipose is captured through maturation of lipid handling. Blood relied on haematopoietic circuitry: enriched terms included haemopoiesis (fold enrichment $\approx 86$, $q = 6.0 \times 10^{-25}$) and erythrocyte differentiation (fold enrichment $\approx 36$), highlighting shifting immune and erythroid lineages across stages. Brain stage markers clustered around neurodevelopment, with high-magnitude enrichment for synaptic transmission (fold enrichment $\approx 69$, $q = 5.3 \times 10^{-25}$) and neurogenesis (fold enrichment $\approx 78$), reflecting progressive neuronal wiring and synapse specification. Liver genes pointed to metabolic and hepatic differentiation programs, including glycolytic process (fold enrichment $\approx 44$, $q = 5.7 \times 10^{-19}$), cholesterol homeostasis, and hepatocyte differentiation, consistent with functional maturation of hepatocytes.
+
+Respiratory tissue exhibited a distinct developmental axis: lung predictors were enriched for lung development (fold enrichment $\approx 34$, $q = 6.8 \times 10^{-24}$) and respiratory system development, while also capturing mitochondrial respiration ($\text{cellular respiration}$, fold enrichment $\approx 16$), indicating coordination between structural remodelling and metabolic capacity. Muscle relied on myogenesis, including skeletal muscle fibre development (fold enrichment $\approx 24$, $q = 1.5 \times 10^{-19}$) and muscle contraction, emphasising sarcomere assembly as the differentiating feature. Small intestine markers were skewed toward epithelial maturation and nutrient handling, such as transmembrane transport (fold enrichment $\approx 25$, $q = 3.6 \times 10^{-20}$), intestinal epithelial cell differentiation, and digestion. Testis predictors were uniquely enriched for reproductive pathways---spermatid development (fold enrichment $\approx 21$, $q = 5.6 \times 10^{-17}$) and male gonad development---alongside phosphorylation cascades, mirroring the timing of germ cell maturation. Together, these profiles show that the classifier learns distinct, tissue-appropriate gene programs to resolve developmental time, yet each program converges on processes that drive maturation of its respective organ.
+
+\subsection{Cross-tissue generalisation}
+Despite the strong within-tissue performance, leave-one-tissue-out experiments revealed substantial domain gaps when models trained on seven tissues were applied to the held-out tissue. Balanced accuracies ranged from 0.06 in blood to 0.35 in lung, with macro F1 scores below 0.28 for every held-out tissue, even though all models operated on 17{,}126 common genes. In contrast, within-tissue baselines without adaptive granularity achieved balanced accuracies between 0.59 and 0.88 across tissues, underscoring the need for tissue-specific calibration or richer transfer learning techniques. These findings motivate future work on hierarchical models that can factor tissue identity while preserving ordinal developmental structure.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure1_methodology.pdf}
+  \caption{Overview of the developmental staging workflow. Panel~(a) summarises age bins used to harmonise PigGTEx metadata and displays cross-tissue sample counts per stage. Panel~(b) depicts the adaptive stage granularity thresholds applied to each tissue. Panel~(c) outlines the end-to-end machine learning pipeline from data ingestion through calibrated evaluation.}
+  \label{fig:methodology}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure2_performance.pdf}
+  \caption{Classifier performance diagnostics. Panel~(a) reports balanced accuracy, macro F1, mean absolute error, and Spearman correlations with 95\% bootstrap intervals. Panel~(b) shows confusion matrices emphasising near-miss errors. Panel~(c) correlates predicted stage scores with chronological age across representative tissues.}
+  \label{fig:performance}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure3_molecular_signatures.pdf}
+  \caption{Molecular signatures of porcine developmental staging. Panel~(a) visualises tissue-specific UMAP embeddings coloured by developmental stage. Panel~(b) summarises feature overlap among the top 50 markers per tissue. Panel~(c) charts exemplar marker trajectories across developmental stages.}
+  \label{fig:signatures}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure4_biological_validation.pdf}
+  \caption{Functional validation of stage-informative genes. Panel~(a) highlights tissue-resolved gene ontology enrichments. Panel~(b) presents a network view of developmental pathway modules. Panel~(c) tracks expression of canonical markers across stages, illustrating biological concordance with classifier predictions.}
+  \label{fig:biovalidation}
+\end{figure}
+
+\section{Discussion}
+Our calibrated transcriptomic classifier establishes a scalable framework for inferring porcine developmental stages across eight tissues. The approach harmonises chronological ages into biologically meaningful stages and delivers high predictive performance with tight confidence intervals. The methodology allows laboratories to stage archived or prospective samples without relying on fragile morphological features, providing practical value to both agricultural management and translational research.
+
+The enrichment and marker analyses, combined with visual dashboards, demonstrate that the models capture bona fide developmental programs rather than technical artefacts. Tissue-resolved signatures recover known regulators of adipogenesis, neurodevelopment, hepatic maturation, and myogenesis, while also flagging respiratory and intestinal pathways that align with phenotypic maturation timelines. These results provide a molecular atlas that can inform targeted interventions, such as timing nutritional supplementation or assessing readiness for organ-harvesting protocols.
+
+Nevertheless, the work exposes limitations that chart directions for future research. Cross-tissue generalisation remains weak, highlighting the challenge of leveraging shared developmental cues amid strong tissue specificity. Incorporating domain adaptation, multi-task learning, or joint embedding strategies may ameliorate this gap. Additionally, simulated visual elements in Figures~\ref{fig:signatures} and \ref{fig:biovalidation} should be replaced with empirical multi-omic integrations as more data become available. Finally, extending the classifier to prenatal stages, integrating single-cell references, and benchmarking against independent cohorts will further strengthen translational readiness.
+
+\section{Methods}
+
+\subsection{Mathematical formulation}
+Let $x \in \mathbb{R}^G_{\ge 0}$ denote a per-sample gene-expression vector and let $y \in \{0,\dots,K-1\}$ be the ordered developmental-stage label. Chronological age $a \in \mathbb{R}_{\ge 0}$ (in days) is mapped to a canonical five-stage label via
+\begin{equation}
+s(a) =
+\begin{cases}
+0 & \text{if } 0 \le a \le 20 \\
+1 & \text{if } 21 \le a \le 59 \\
+2 & \text{if } 60 \le a \le 149 \\
+3 & \text{if } 150 \le a \le 365 \\
+4 & \text{if } a > 365
+\end{cases}
+\label{eq:age2stage}
+\end{equation}
+corresponding to Infant, Early childhood, Pre-pubertal, Post-pubertal, and Adult, respectively.
+
+For each tissue $t$, the adaptive stage granularity selects the most detailed scheme $K_t^\star \in \{2,3,4\}$ subject to minimum per-class sample counts:
+\begin{equation}
+K_t^\star = \max_{K \in \{2,3,4\}} \; K \;\; \text{s.t.} \;\; \min_c n_{t,c}(K) \ge m_K,\quad m_4{=}40,\; m_3{=}30,\; m_2{=}25,\;\text{and if } K{=}2:\; N_t \ge 60.
+\label{eq:schema}
+\end{equation}
+For $K{=}4$, Adult is merged into Post-pubertal before the constraint is evaluated.
+
+Pre-processing applies a log transform and standardisation:
+\begin{equation}
+x' = \log_2(x + 1),
+\label{eq:preprocess}
+\end{equation}
+followed by variance filtering (retain genes above the 20th percentile per tissue), yielding a gene set $S_t$. Standardised features are
+\begin{equation}
+z_g = \frac{x'_g - \mu_g}{\sigma_g}, \quad g \in S_t.
+\label{eq:standardize}
+\end{equation}
+Features are ranked by mutual information and the top $d \le 2000$ are selected:
+\begin{equation}
+S_t = \operatorname{Top}_d \big\{ I(x'_g; y) \;:\; g \in S_t \big\}.
+\label{eq:mi}
+\end{equation}
+
+For ordinal problems ($K \ge 3$), we fit a cumulative link logistic model with shared weights $w$ and ordered intercepts $\alpha$:
+\begin{equation}
+\Pr\!\left(y \ge k \mid z\right) = \sigma\!\left(\alpha_k + w^\top z\right), \quad k = 1,\dots,K-1,\;\; \alpha_1 < \cdots < \alpha_{K-1},
+\label{eq:ordinal}
+\end{equation}
+where $\sigma(u) = 1/(1+e^{-u})$. Parameters are estimated by minimising the regularised negative log-likelihood
+\begin{equation}
+\min_{w,\alpha} \; \mathcal{L}_{\mathrm{ord}}(w,\alpha;\mathcal{D}) \;+\; \lambda_1 \lVert w \rVert_1 \;+\; \frac{\lambda_2}{2} \lVert w \rVert_2^2.
+\label{eq:objective}
+\end{equation}
+Binary problems ($K{=}2$) use logistic regression with the same penalty.
+
+Primary evaluation metrics are defined as
+\begin{equation}
+\mathrm{BA} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{\mathrm{TP}_c}{\mathrm{TP}_c + \mathrm{FN}_c},
+\label{eq:ba}
+\end{equation}
+and
+\begin{equation}
+\mathrm{MacroF1} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{2\,\mathrm{Prec}_c\,\mathrm{Rec}_c}{\mathrm{Prec}_c+\mathrm{Rec}_c}.
+\label{eq:macroF1}
+\end{equation}
+Confidence intervals are computed via 1,000 bootstrap resamples at the 95\% level.
+
+\subsection{Data acquisition and stage annotation}
+Bulk RNA-seq transcript-per-million (TPM) matrices and accompanying sample metadata were obtained from the PigGTEx resource (\texttt{machine\_learning/data\_processing/data\_loader.py}). For each target tissue, gzip-compressed TPM matrices (\texttt{*.expr\_tpm.txt.gz}) were read alongside the global metadata table (\texttt{data/full\_metadata.csv}). Ages recorded in days were harmonised to developmental stages via Eq.~(\ref{eq:age2stage}). The loader aligns sample identifiers between expression and metadata tables, falling back to positional matching only when identifier formats differ, and retains sex information with an explicit ``Unknown'' category. Prior to modelling, genes were required to exceed 0.1~TPM in at least 10\% of samples to ensure sufficient detection across each tissue cohort.
+
+\subsection{Tissue eligibility and adaptive stage granularity}
+An adaptive StageGranularitySelector (\texttt{machine\_learning/data\_processing/stage\_selection.py}) evaluated per-tissue stage counts. Tissues qualified for the most granular scheme as defined in Eq.~(\ref{eq:schema}). Stages were remapped according to the selected schema, guaranteeing ordered labels for downstream ordinal analyses while preserving biological ordering.
+
+\subsection{Pre-processing}
+Expression matrices were transformed using the ExpressionPreprocessor (\texttt{machine\_learning/data\_processing/preprocessing.py}). The module applies the log transform in Eq.~(\ref{eq:preprocess}), removes genes below the 20th percentile of variance within each tissue, and standardises retained genes as in Eq.~(\ref{eq:standardize}). Although the preprocessor can regress out user-specified covariates through gene-wise linear models, the default pipeline runs without covariate removal while preserving hooks for future adjustments. Quality-control logging (\texttt{machine\_learning/run\_pipeline.py}) flags missing values, zero-variance genes, outlier sample means ($>3$ standard deviations), and metadata mismatches before modelling proceeds.
+
+\subsection{Feature selection}
+For tissue-specific models, genes are ranked by mutual information with the target labels per Eq.~(\ref{eq:mi}) after the variance screen. We retain up to 2{,}000 genes (or all available features when fewer pass filtering), with selection seeded at 42 and parallelised across all CPU cores. Selected gene sets are recorded and the leading 50 markers per tissue are exported with the model outputs. Cross-tissue analyses replace this fast selector with a stability-focused Elastic Net selector to obtain reproducible gene sets across folds.
+
+\subsection{Model training}
+Model choice was contingent on the selected stage schema. Binary problems used scikit-learn's \texttt{LogisticRegression} with class-balanced weights, solver selection adaptive to sample size (\texttt{liblinear} for $<1{,}000$ samples, otherwise \texttt{lbfgs}), and a 5{,}000-iteration cap to guarantee convergence. Ordinal settings employed a cumulative link logistic model as in Eq.~(\ref{eq:ordinal}) with an Elastic Net penalty as in Eq.~(\ref{eq:objective}). For each tissue, data were partitioned into training and evaluation cohorts via a 70:30 split; stratification was enforced when every class had $\geq 2$ samples, otherwise the pipeline alerted the user and reverted to an unstratified split. All stochastic elements were seeded with~42 to enable reproducibility.
+
+\subsection{Performance evaluation}
+Evaluation used the MetricCalculator (\texttt{machine\_learning/model\_evaluation/evaluation.py}), which consumes class predictions and posterior probabilities. Primary endpoints were balanced accuracy and macro-averaged F1 score as in Eqs.~(\ref{eq:ba}) and~(\ref{eq:macroF1}), supplemented by weighted F1, Matthews correlation, per-class precision/recall, full confusion matrices, and AUROC/AUPRC (macro and class-specific) when probabilistic outputs were available. For ordinal problems ($>$2 classes), the evaluator reported mean absolute stage error, quadratic and linear weighted Cohen's kappa, Spearman's $\rho$, Kendall's $\tau$, and a $\pm 1$-stage near-miss accuracy. Confidence intervals followed the bootstrap procedure described above. All metrics and confidence intervals were serialised per tissue as JSON artefacts.
+
+\subsection{Cross-tissue generalisation analyses}
+When cross-tissue validation was requested, the pipeline enumerated eligible tissues from previously generated discovery outputs and reloaded their expression profiles and metadata. For each tissue, data were filtered to genes shared across the cohort (requiring at least 1{,}000 common genes) and preprocessed with a cloned ExpressionPreprocessor. A StableFeatureSelector (Elastic Net logistic regression with variance filtering) was fit on the pooled training tissues to obtain a consensus feature space. A cloned logistic regression model was then trained on the union of all but one tissue and evaluated on the held-out tissue in a leave-one-tissue-out framework, yielding balanced accuracy and macro-F1 for each held-out tissue. Within-tissue baselines, produced via stratified 80:20 splits, provided context for generalisation gaps, and optional analyses computed pairwise tissue similarity matrices and low-dimensional embeddings (PCA or UMAP) of the cross-tissue expression landscape. All cross-tissue metrics, transfer matrices, and gap estimates were written to \texttt{machine\_learning/model\_outputs/}.
+
+\subsection{Implementation details}
+The orchestrator (\texttt{machine\_learning/run\_pipeline.py}) manages per-tissue execution, enhanced logging, and progress tracking. Performance logger hooks record wall-clock and peak memory for every pipeline phase, while the PipelineProgressTracker maintains resumable progress metadata in \texttt{machine\_learning/timing\_history.json}. Results for each tissue---including configuration, quality-control notes, selected gene lists, and performance summaries---were saved as human-readable JSON files, and an aggregate \texttt{pipeline\_summary.json} captured run-level metadata. The pipeline therefore delivers fully reproducible, audit-trailed analyses that can be executed tissue-by-tissue or en masse for downstream reporting and manuscript preparation.
+
+\section*{Data availability}
+All intermediate files, summary statistics, and visual assets are available within the project repository under \texttt{results/} and \texttt{visualization/}. Gene-level outputs and enrichment tables reside in \texttt{results/enrichment\_analysis/}, while classifier diagnostics are provided in \texttt{machine\_learning/model\_outputs/}. No external datasets were generated beyond the PigGTEx resources referenced herein.
+
+\section*{Acknowledgements}
+We thank the Pig Development Consortium analytics, visualisation, and infrastructure teams for maintaining the data pipeline and visual design assets.
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+\section*{Supplementary Figures}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{test_multipanel.pdf}
+  \caption{Supplementary visual layout demonstrating the multi-panel arrangement used during Nature-style figure validation. Panels illustrate the consistent typographic hierarchy and spacing enforced across figure composites.}
+  \label{fig:multi}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure1_methodology.png}
+  \caption{Raster export of the developmental staging workflow (cf. Figure~\ref{fig:methodology}), provided for storyboard reviews that require PNG assets.}
+  \label{fig:methodologypng}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure2_performance.png}
+  \caption{Raster export of the classifier performance diagnostics (cf. Figure~\ref{fig:performance}), retaining the same panel structure for quick-look assessments.}
+  \label{fig:performancepng}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure3_molecular_signatures.png}
+  \caption{Raster export of the molecular signature visualisation (cf. Figure~\ref{fig:signatures}). The PNG format supports presentations and slide decks.}
+  \label{fig:signaturespng}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figure4_biological_validation.png}
+  \caption{Raster export of the biological validation overview (cf. Figure~\ref{fig:biovalidation}), mirroring the PDF panels for alternative dissemination formats.}
+  \label{fig:biovalidationpng}
+\end{figure}
+
+\begin{thebibliography}{99}
+\bibitem{swindle2012} Swindle, M. M., Makin, A., Herron, A. J., Clubb, F. J. \& Frazier, K. S. Swine as models in biomedical research and toxicology testing. \textit{Toxicologic Pathology} \textbf{40}, 325--357 (2012).
+\bibitem{lunney2021} Lunney, J. K. \textit{et al.} Importance of the pig as a human biomedical model. \textit{Science Translational Medicine} \textbf{13}, eabd5758 (2021).
+\bibitem{bendus2006} Baxter Bendus, A. E., Mayer, J. F., Shipley, S. K. \& Catherino, W. H. Interobserver and intraobserver variation in day 3 embryo grading. \textit{Fertility and Sterility} \textbf{86}, 1608--1615 (2006).
+\bibitem{mogelt2020} M{\o}geltoft Kamstrup, K., Markussen, B., Hay-Schmidt, A., Thorup, F. \& Dybdahl Thomsen, P. Staging of porcine embryos: Comparison of Standard Event System-based statistical clusters with a Carnegie-based staging system. \textit{Developmental Dynamics} \textbf{249}, 1259--1273 (2020).
+\bibitem{orrahilly2010} O'Rahilly, R. \& M{\"u}ller, F. Developmental stages in human embryos: Revised and new measurements. \textit{Cells Tissues Organs} \textbf{192}, 73--84 (2010).
+\bibitem{schachtschneider2021} Schachtschneider, K. M. \textit{et al.} Epigenetic clock and DNA methylation analysis of porcine models of aging and obesity. \textit{GeroScience} \textbf{43}, 2467--2483 (2021).
+\bibitem{zhengh2023} Zheng, H., Vijg, J., Fard, A. T. \& Mar, J. C. Measuring cell-to-cell expression variability in single-cell RNA-sequencing data: A comparative analysis and applications to B cell aging. \textit{Genome Biology} \textbf{24}, 238 (2023).
+\bibitem{jin2021} Jin, L. \textit{et al.} A pig BodyMap transcriptome reveals diverse tissue physiologies and evolutionary dynamics of transcription. \textit{Nature Communications} \textbf{12}, 3715 (2021).
+\bibitem{teng2024} Teng, J. \textit{et al.} A compendium of genetic regulatory effects across pig tissues. \textit{Nature Genetics} \textbf{56}, 112--123 (2024).
+\bibitem{simpson2024} Simpson, L. \textit{et al.} A single-cell atlas of pig gastrulation as a resource for comparative embryology. \textit{Nature Communications} \textbf{15}, 5210 (2024).
+\bibitem{lee2021} Lee, Y. \textit{et al.} XYZeq: Spatially resolved single-cell RNA sequencing reveals expression heterogeneity in the tumor microenvironment. \textit{Science Advances} \textbf{7}, eabg4755 (2021).
+\bibitem{lukyanenko2021} Lukyanenko, S. \textit{et al.} Developmental stage classification of embryos using two-stream neural network with linear-chain conditional random field. In \textit{Medical Image Computing and Computer-Assisted Intervention} \textbf{12908}, 363--372 (2021).
+\end{thebibliography}
+
+\end{document}
