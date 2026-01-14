@@ -10,16 +10,29 @@ library(ggalluvial)
 library(scales)
 
 # Set publication theme
-source("theme_configs/nature_theme.R")
+args <- commandArgs(trailingOnly = FALSE)
+file_arg <- sub("^--file=", "", args[grep("^--file=", args)])
+script_dir <- if (length(file_arg) > 0) dirname(normalizePath(file_arg)) else getwd()
+base_dir <- dirname(script_dir)
+source(file.path(script_dir, "theme_configs", "nature_theme.R"))
+source(file.path(script_dir, "utils", "metadata_utils.R"))
 
 # Output directory
 output_dir <- "."
 dir.create(output_dir, showWarnings = FALSE)
 
 # Load data
-metadata <- read_csv("../data/full_metadata.csv")
-summary_data <- fromJSON("../data/analysis_summary.json")
-pipeline_summary <- fromJSON("../machine_learning/model_outputs/pipeline_summary.json")
+metadata <- load_pig_metadata() %>%
+  filter(!is.na(Stage), !is.na(Tissue), Tissue != "Unknown")
+summary_data <- fromJSON(file.path(base_dir, "data", "analysis_summary.json"))
+pipeline_summary <- fromJSON(file.path(base_dir, "machine_learning", "model_outputs", "pipeline_summary.json"))
+
+results_files <- list.files(
+  file.path(base_dir, "machine_learning", "model_outputs"),
+  pattern = "_results\\.json$",
+  full.names = TRUE
+)
+results_list <- map(results_files, fromJSON)
 
 # Define stage colors
 stage_colors <- c(
@@ -109,15 +122,26 @@ create_panel_a <- function() {
 
 # Panel B: Tissue classification summary
 create_panel_b <- function() {
-  # Define classification schemes
-  classification_data <- data.frame(
-    Tissue = c("Muscle", "Brain", "Liver", "Blood", "Small intestine",
-               "Lung", "Adipose", "Testis"),
-    Scheme = c("4-class", "4-class", "4-class", "3-class", "3-class",
-               "3-class", "2-class", "2-class"),
-    n_samples = c(914, 400, 329, 284, 180, 147, 144, 69),
-    min_per_class = c(92, 79, 33, 30, 30, 26, 69, 29)
-  )
+  classification_data <- map_dfr(results_list, function(res) {
+    class_dist <- res$metrics$class_distribution
+    min_per_class <- if (is.null(class_dist)) {
+      NA_integer_
+    } else {
+      min(as.integer(unlist(class_dist)))
+    }
+
+    tibble(
+      Tissue = res$tissue,
+      Scheme = res$scheme,
+      n_samples = res$n_samples,
+      min_per_class = min_per_class
+    )
+  }) %>%
+    filter(!is.na(Tissue))
+
+  if (nrow(classification_data) == 0) {
+    stop("No model result files found for classification summary.")
+  }
 
   classification_data$Scheme <- factor(classification_data$Scheme,
                                        levels = c("4-class", "3-class", "2-class"))

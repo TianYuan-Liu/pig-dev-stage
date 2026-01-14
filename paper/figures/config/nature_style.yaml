@@ -1,0 +1,148 @@
+# ==============================================================================
+# Nature Publication Style Configuration
+# Paper: Pig Developmental Stage Classification
+# ==============================================================================
+
+# Font settings (Nature requires sans-serif, typically Arial/Helvetica)
+fonts:
+  family: "Arial"
+  sizes:
+    axis_text: 6        # Axis tick labels
+    axis_title: 7       # Axis titles
+    plot_title: 8       # Panel titles
+    plot_subtitle: 6    # Panel subtitles
+    panel_label: 8      # A, B, C labels (bold)
+    legend_text: 6      # Legend labels
+    legend_title: 7     # Legend titles
+    strip_text: 7       # Facet strip text
+
+# Figure dimensions (Nature standards)
+dimensions:
+  # Width options (mm)
+  single_column: 89     # Single column
+  one_half_column: 120  # 1.5 column
+  double_column: 183    # Full page width (most common for multi-panel)
+  
+  # Height constraints
+  max_height: 247       # Maximum page height
+  
+  # Default figure sizes (width x height in mm)
+  fig1: [183, 160]      # Study design
+  fig2: [183, 180]      # Model performance
+  fig3: [183, 140]      # Functional enrichment
+  fig4: [183, 200]      # Cross-species comparison
+  
+  # Resolution
+  dpi: 300
+
+# Color palettes (colorblind-safe)
+colors:
+  # Tissue-specific colors (consistent across all figures)
+  tissues:
+    Muscle: "#E64B35"
+    Brain: "#4DBBD5"
+    Liver: "#00A087"
+    Blood: "#3C5488"
+    Lung: "#F39B7F"
+    Adipose: "#FFD700"
+    Small_intestine: "#FFA500"
+    Testis: "#9370DB"
+  
+  # Developmental stage colors (light to dark progression)
+  stages:
+    Infant_0_20d: "#f5fbff"
+    Early_childhood_21_59d: "#b3d9f7"
+    Pre_pubertal_60_149d: "#6bb3ef"
+    Post_pubertal_150_365d: "#2d8be0"
+    Adult_gt365d: "#1565c0"
+  
+  # Stage labels for display
+  stage_labels:
+    Infant_0_20d: "Infant"
+    Early_childhood_21_59d: "Early"
+    Pre_pubertal_60_149d: "Pre-pub"
+    Post_pubertal_150_365d: "Post-pub"
+    Adult_gt365d: "Adult"
+  
+  # Classification scheme colors
+  schemes:
+    "4-class": "#2166AC"
+    "3-class": "#67A9CF"
+    "2-class": "#D1E5F0"
+  
+  # General-purpose colorblind-safe palette (Wong palette)
+  primary:
+    - "#0072B2"  # Blue
+    - "#D55E00"  # Vermillion
+    - "#009E73"  # Bluish green
+    - "#CC79A7"  # Reddish purple
+    - "#F0E442"  # Yellow
+    - "#56B4E9"  # Sky blue
+    - "#E69F00"  # Orange
+    - "#000000"  # Black
+  
+  # Sequential palette for heatmaps
+  sequential:
+    low: "#FFFFFF"
+    mid: "#FEE090"
+    high: "#1A9850"
+  
+  # Diverging palette for comparisons
+  diverging:
+    low: "#D73027"
+    mid: "#FFFFBF"
+    high: "#1A9850"
+  
+  # Performance metrics heatmap
+  performance:
+    low: "#D73027"
+    mid: "#FEE090"
+    high: "#1A9850"
+
+# Line and element specifications
+elements:
+  axis_line_width: 0.5
+  tick_length: 1.5       # mm
+  border_width: 0.5
+  point_size: 2
+  line_width: 0.75
+
+# Output settings
+output:
+  formats:
+    - pdf
+    - png
+  pdf_device: "cairo_pdf"  # Best for cross-platform compatibility
+  png_type: "cairo"
+
+# Data paths (relative to project root)
+paths:
+  project_root: "/Users/tianyuan/Desktop/github_dev/pig-dev-stage"
+  metadata: "data/PigGTEx_v0.MetaTable.xlsx"
+  expression_dir: "data/pigGTEx"
+  ml_results: "machine_learning/model_outputs"
+  human_data: "data/human_muscle"
+  go_enrichment: "results/enrichment_analysis/all_tissues_go_enrichment.csv"
+
+# Stage definitions
+stages:
+  order:
+    - "Infant_0_20d"
+    - "Early childhood_21_59d"
+    - "Pre_pubertal_60_149d"
+    - "Post_pubertal_150_365d"
+    - "Adult_>365d"
+  
+  boundaries:
+    infant_max: 20
+    early_max: 59
+    prepubertal_max: 149
+    postpubertal_max: 365
+
+# Tissues with trained models
+tissues_with_models:
+  - Muscle
+  - Brain
+  - Liver
+  - Blood
+  - Lung

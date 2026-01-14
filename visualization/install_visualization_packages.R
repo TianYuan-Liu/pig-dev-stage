@@ -3,6 +3,7 @@
 
 cran_packages <- c(
   "tidyverse",
+  "data.table",
   "patchwork",
   "viridis",
   "jsonlite",
@@ -14,7 +15,9 @@ cran_packages <- c(
   "circlize",
   "RColorBrewer",
   "ggraph",
-  "igraph"
+  "igraph",
+  "readxl",
+  "ggrepel"
 )
 
 bioc_packages <- c(

@@ -1,0 +1,27 @@
+
+FIGURE 3: FUNCTIONAL ENRICHMENT
+===============================
+Generated: %Y-%m-%d %H:%M
+
+PANEL A: GO ENRICHMENT
+----------------------
+Terms per tissue (p < 0.05):
+# A tibble: 8 × 3
+  Tissue source n_terms
+  <chr>  <chr>    <int>
+1 Blood  GO:BP       20
+2 Brain  GO:MF       16
+3 Liver  GO:MF       20
+4 Lung   GO:BP        4
+5 Lung   GO:MF        5
+6 Muscle GO:BP        8
+7 Muscle GO:CC        1
+8 Muscle GO:MF       11
+
+PANEL B: ENRICHMENT NETWORK
+---------------------------
+Tissues analyzed: Muscle, Brain, Liver, Blood, Lung
+Network construction: Jaccard similarity > 0.25
+
+Figure dimensions: 183mm × 140mm
+

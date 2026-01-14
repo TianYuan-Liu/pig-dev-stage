@@ -15,6 +15,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import umap
 
+from machine_learning.data_processing.stage_selection import StageGranularitySelector
+
 logger = logging.getLogger(__name__)
 
 
@@ -25,9 +27,10 @@ class CrossTissueValidator:
         self,
         model,
         preprocessor,
-        feature_selector=None,
         min_common_genes: int = 1000,
-        seed: int = 42
+        seed: int = 42,
+        stage_selector: Optional[StageGranularitySelector] = None,
+        common_scheme: str = 'auto'
     ):
         """
         Initialize cross-tissue validator.
@@ -35,24 +38,59 @@ class CrossTissueValidator:
         Args:
             model: Base model for classification
             preprocessor: Data preprocessor
-            feature_selector: Optional feature selector
             min_common_genes: Minimum common genes required
             seed: Random seed
+            stage_selector: StageGranularitySelector for label harmonization
+            common_scheme: Stage scheme for cross-tissue validation.
+                          'auto' = determine lowest common denominator
+                          '2-class', '3-class', '4-class' = use specific scheme
         """
         self.model = model
         self.preprocessor = preprocessor
-        self.feature_selector = feature_selector
         self.min_common_genes = min_common_genes
         self.seed = seed
+        self.stage_selector = stage_selector or StageGranularitySelector()
+        self.common_scheme = common_scheme
 
         self.results = {}
         self.common_genes = None
         self.tissue_models = {}
 
+    def _harmonize_labels(self, stages: pd.Series, scheme: str) -> pd.Series:
+        """
+        Map raw stage labels to common scheme.
+
+        Args:
+            stages: Series with raw stage labels (e.g., 'Infant', 'Pre-pubertal')
+            scheme: Target scheme ('2-class', '3-class', '4-class')
+
+        Returns:
+            Series with harmonized labels
+        """
+        return self.stage_selector.prepare_labels(stages, scheme)
+
+    def _determine_common_scheme(
+        self,
+        tissue_data: Dict[str, Tuple[pd.DataFrame, pd.DataFrame]]
+    ) -> Tuple[str, List[str], List[str]]:
+        """
+        Auto-determine common scheme from tissue data.
+
+        Args:
+            tissue_data: Dict of tissue_name -> (expression_df, metadata_df)
+
+        Returns:
+            (common_scheme, eligible_tissues, excluded_tissues)
+        """
+        # Extract metadata for each tissue
+        tissue_metadata = {name: meta for name, (_, meta) in tissue_data.items()}
+        return self.stage_selector.determine_common_scheme(tissue_metadata)
+
     def leave_one_tissue_out(
         self,
         tissue_data: Dict[str, Tuple[pd.DataFrame, pd.DataFrame]],
-        target_tissue: str
+        target_tissue: str,
+        common_scheme: Optional[str] = None
     ) -> Dict:
         """
         Train on all tissues except one, test on held-out tissue.
@@ -60,11 +98,26 @@ class CrossTissueValidator:
         Args:
             tissue_data: Dictionary of tissue -> (expression, metadata) tuples
             target_tissue: Tissue to hold out for testing
+            common_scheme: Override common scheme (None uses self.common_scheme)
 
         Returns:
             Dictionary of performance metrics
         """
         logger.info(f"LOTO validation: Testing on {target_tissue}")
+
+        # === Determine common scheme ===
+        effective_scheme = common_scheme or self.common_scheme
+        excluded_tissues = []
+
+        if effective_scheme == 'auto':
+            effective_scheme, eligible, excluded_tissues = self._determine_common_scheme(tissue_data)
+            if effective_scheme is None:
+                raise ValueError("No common scheme available for any tissues")
+            logger.info(f"Auto-selected common scheme: {effective_scheme}")
+            if excluded_tissues:
+                logger.warning(f"Excluding {len(excluded_tissues)} tissues: {excluded_tissues}")
+                # Remove excluded tissues from data
+                tissue_data = {k: v for k, v in tissue_data.items() if k not in excluded_tissues}
 
         # Separate training and test tissues
         train_tissues = {k: v for k, v in tissue_data.items() if k != target_tissue}
@@ -73,10 +126,8 @@ class CrossTissueValidator:
         if not train_tissues:
             raise ValueError("No training tissues available")
 
-        # Find common genes across all tissues
-        common_genes = self._find_common_genes(
-            list(train_tissues.values()) + [test_data]
-        )
+        # Find common genes across training tissues only (fix data leakage)
+        common_genes = self._find_common_genes(list(train_tissues.values()))
 
         if len(common_genes) < self.min_common_genes:
             logger.warning(f"Only {len(common_genes)} common genes found")
@@ -99,7 +150,10 @@ class CrossTissueValidator:
 
             # Transpose to samples x genes
             X_tissue = expr_valid.T
-            y_tissue = metadata_valid['Stage']
+
+            # === Harmonize labels to common scheme ===
+            y_tissue_raw = metadata_valid['Stage']
+            y_tissue = self._harmonize_labels(y_tissue_raw, effective_scheme)
 
             X_train_combined.append(X_tissue)
             y_train_combined.extend(y_tissue.tolist())
@@ -115,7 +169,10 @@ class CrossTissueValidator:
         valid_test = test_metadata['Stage'].notna()
         valid_test_array = valid_test.values
         X_test = X_test_expr.iloc[:, valid_test_array].T
-        y_test = test_metadata[valid_test_array]['Stage']
+
+        # === Harmonize test labels to common scheme ===
+        y_test_raw = test_metadata[valid_test_array]['Stage']
+        y_test = self._harmonize_labels(y_test_raw, effective_scheme)
 
         # Align gene order
         common_genes_ordered = X_train.columns.intersection(X_test.columns)
@@ -141,10 +198,12 @@ class CrossTissueValidator:
         # Calculate metrics
         metrics = {
             'target_tissue': target_tissue,
+            'common_scheme': effective_scheme,
             'n_train_tissues': len(train_tissues),
             'n_train_samples': len(y_train),
             'n_test_samples': len(y_test),
             'n_common_genes': len(common_genes_ordered),
+            'excluded_tissues': excluded_tissues,
             'balanced_accuracy': balanced_accuracy_score(y_test, y_pred),
             'f1_macro': f1_score(y_test, y_pred, average='macro', zero_division=0)
         }
@@ -160,21 +219,35 @@ class CrossTissueValidator:
         source_data: Tuple[pd.DataFrame, pd.DataFrame],
         target_data: Tuple[pd.DataFrame, pd.DataFrame],
         source_name: str = "source",
-        target_name: str = "target"
+        target_name: str = "target",
+        common_scheme: Optional[str] = None
     ) -> Dict:
         """
-        Train on one tissue, test on another.
+        Train on one tissue, test on another with harmonized labels.
 
         Args:
             source_data: (expression, metadata) for source tissue
             target_data: (expression, metadata) for target tissue
             source_name: Name of source tissue
             target_name: Name of target tissue
+            common_scheme: Override common scheme (None uses self.common_scheme)
 
         Returns:
             Performance metrics
         """
         logger.info(f"Transfer: {source_name} -> {target_name}")
+
+        # === Determine common scheme if auto ===
+        effective_scheme = common_scheme or self.common_scheme
+        if effective_scheme == 'auto':
+            tissue_metadata = {
+                source_name: source_data[1],
+                target_name: target_data[1]
+            }
+            effective_scheme, eligible, excluded = self.stage_selector.determine_common_scheme(tissue_metadata)
+            if effective_scheme is None:
+                raise ValueError(f"No common scheme for {source_name} and {target_name}")
+            logger.info(f"Using common scheme: {effective_scheme}")
 
         # Find common genes
         source_expr, source_meta = source_data
@@ -190,14 +263,20 @@ class CrossTissueValidator:
         valid_source = source_meta['Stage'].notna()
         valid_source_array = valid_source.values
         X_source = source_expr_filtered.iloc[:, valid_source_array].T
-        y_source = source_meta[valid_source_array]['Stage']
+
+        # === Harmonize source labels ===
+        y_source_raw = source_meta[valid_source_array]['Stage']
+        y_source = self._harmonize_labels(y_source_raw, effective_scheme)
 
         # Prepare target data
         target_expr_filtered = target_expr.loc[common_genes]
         valid_target = target_meta['Stage'].notna()
         valid_target_array = valid_target.values
         X_target = target_expr_filtered.iloc[:, valid_target_array].T
-        y_target = target_meta[valid_target_array]['Stage']
+
+        # === Harmonize target labels ===
+        y_target_raw = target_meta[valid_target_array]['Stage']
+        y_target = self._harmonize_labels(y_target_raw, effective_scheme)
 
         # Preprocess
         if self.preprocessor:
@@ -219,6 +298,7 @@ class CrossTissueValidator:
         metrics = {
             'source': source_name,
             'target': target_name,
+            'common_scheme': effective_scheme,
             'n_source_samples': len(y_source),
             'n_target_samples': len(y_target),
             'n_common_genes': len(common_genes),

@@ -3,6 +3,7 @@
 # Shows that pig biomarkers follow similar developmental trends as in humans
 
 library(tidyverse)
+library(data.table)
 library(patchwork)
 library(viridis)
 library(ComplexHeatmap)
@@ -11,21 +12,169 @@ library(RColorBrewer)
 library(ggrepel)
 
 # Set publication theme
-source("theme_configs/nature_theme.R")
+args <- commandArgs(trailingOnly = FALSE)
+file_arg <- sub("^--file=", "", args[grep("^--file=", args)])
+script_dir <- if (length(file_arg) > 0) dirname(normalizePath(file_arg)) else getwd()
+base_dir <- dirname(script_dir)
+source(file.path(script_dir, "theme_configs", "nature_theme.R"))
+source(file.path(script_dir, "utils", "metadata_utils.R"))
 
 # Output directory
 output_dir <- "."
 dir.create(output_dir, showWarnings = FALSE)
 
-# Load biomarker analysis results
-results_dir <- "../results/biomarker_analysis"
-stage_stats <- read_csv(file.path(results_dir, "biomarker_stage_statistics.csv"))
-validation_summary <- read_csv(file.path(results_dir, "biomarker_validation_summary.csv"))
-expression_data <- read_csv(file.path(results_dir, "biomarker_expression_data.csv"))
+# Load metadata and marker expression data directly from source files
+metadata <- load_pig_metadata() %>%
+  filter(!is.na(Stage))
 
-# Define stage order and labels
+markers <- tibble(
+  Biomarker = c("ALB", "DMRT1", "HBB", "LGR5", "MBP", "MSTN", "PPARG", "SFTPC"),
+  Gene_Name = c("ALB", "DMRT1", "HBB", "LGR5", "MBP", "MSTN", "PPARG", "SFTPC"),
+  Tissue = c("Liver", "Testis", "Blood", "Small intestine", "Brain", "Muscle", "Adipose", "Lung"),
+  Function = c(
+    "Major plasma protein, hepatocyte differentiation marker",
+    "Male gonadal development transcription factor",
+    "Adult hemoglobin component",
+    "Intestinal stem cell marker",
+    "CNS myelination marker",
+    "Negative regulator of muscle growth",
+    "Master regulator of adipogenesis",
+    "Alveolar type II cell marker"
+  ),
+  Ensembl_ID = c(
+    "ENSSSCG00000005095",
+    "ENSSSCG00000013313",
+    "ENSSSCG00000014727",
+    "ENSSSCG00000004244",
+    "ENSSSCG00000008574",
+    "ENSSSCG00000039058",
+    "ENSSSCG00000004130",
+    "ENSSSCG00000007979"
+  ),
+  Expected_Trend = c(
+    "increase",
+    "increase",
+    "increase",
+    "stable_high",
+    "increase",
+    "complex",
+    "increase",
+    "increase"
+  )
+)
+
+tissue_file_map <- c(
+  "Adipose" = "Adipose.expr_tpm.txt.gz",
+  "Brain" = "Brain.expr_tpm.txt.gz",
+  "Liver" = "Liver.expr_tpm.txt.gz",
+  "Muscle" = "Muscle.expr_tpm.txt.gz",
+  "Blood" = "Blood.expr_tpm.txt.gz",
+  "Lung" = "Lung.expr_tpm.txt.gz",
+  "Small intestine" = "Small_intestine.expr_tpm.txt.gz",
+  "Testis" = "Testis.expr_tpm.txt.gz"
+)
+
 stage_order <- c("Infant_0_20d", "Early childhood_21_59d", "Pre_pubertal_60_149d",
                  "Post_pubertal_150_365d", "Adult_>365d")
+
+metadata <- metadata %>%
+  mutate(
+    stage_numeric = match(Stage, stage_order) - 1
+  )
+
+expression_long <- map_dfr(unique(markers$Tissue), function(tissue) {
+  file_name <- tissue_file_map[tissue]
+  file_path <- file.path(base_dir, "data", "pigGTEx", file_name)
+  if (!file.exists(file_path)) {
+    warning("Expression file missing for tissue: ", tissue)
+    return(tibble())
+  }
+
+  tissue_markers <- markers %>%
+    filter(Tissue == tissue)
+
+  expr <- data.table::fread(file_path)
+  gene_col <- colnames(expr)[1]
+  expr_filtered <- expr[get(gene_col) %in% tissue_markers$Ensembl_ID]
+
+  if (nrow(expr_filtered) == 0) {
+    expr$gene_prefix <- sub("\\..*", "", expr[[gene_col]])
+    marker_prefix <- sub("\\..*", "", tissue_markers$Ensembl_ID)
+    expr_filtered <- expr[gene_prefix %in% marker_prefix]
+    expr$gene_prefix <- NULL
+  }
+
+  if (nrow(expr_filtered) == 0) {
+    warning("No marker genes found in expression file for tissue: ", tissue)
+    return(tibble())
+  }
+
+  as.data.frame(expr_filtered) %>%
+    mutate(Ensembl_ID = .data[[gene_col]]) %>%
+    select(-all_of(gene_col)) %>%
+    pivot_longer(cols = -Ensembl_ID, names_to = "Sample_ID", values_to = "Expression") %>%
+    left_join(tissue_markers, by = "Ensembl_ID") %>%
+    select(Sample_ID, Biomarker, Gene_Name, Tissue, Function, Expected_Trend, Expression)
+})
+
+expression_long <- expression_long %>%
+  left_join(metadata %>% select(Sample_ID, Stage, stage_numeric), by = "Sample_ID") %>%
+  filter(!is.na(Stage), !is.na(stage_numeric)) %>%
+  mutate(Log_Expression = log2(Expression + 1))
+
+if (nrow(expression_long) == 0) {
+  stop("No marker expression data available for biomarker validation.")
+}
+
+stage_stats <- expression_long %>%
+  group_by(Biomarker, Gene_Name, Tissue, Expected_Trend, Stage, stage_numeric) %>%
+  summarise(
+    mean_expr = mean(Log_Expression, na.rm = TRUE),
+    sem_expr = sd(Log_Expression, na.rm = TRUE) / sqrt(n()),
+    n_samples = n(),
+    .groups = "drop"
+  ) %>%
+  mutate(sem_expr = ifelse(is.na(sem_expr), 0, sem_expr))
+
+validation_summary <- expression_long %>%
+  group_by(Biomarker, Gene_Name, Tissue, Function, Expected_Trend) %>%
+  summarise(
+    Correlation = cor(stage_numeric, Log_Expression, method = "spearman"),
+    P_Value = suppressWarnings(cor.test(stage_numeric, Log_Expression, method = "spearman")$p.value),
+    Mean_Expression = mean(Log_Expression, na.rm = TRUE),
+    ANOVA_P = if (length(unique(stage_numeric)) > 1) {
+      suppressWarnings(summary(aov(Log_Expression ~ as.factor(stage_numeric)))$`Pr(>F)`[1])
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  )
+
+if (!"ANOVA_P" %in% names(validation_summary)) {
+  validation_summary$ANOVA_P <- NA_real_
+}
+
+validation_summary <- validation_summary %>%
+  mutate(
+    Observed_Trend = case_when(
+      Correlation > 0.3 ~ "increase",
+      Correlation < -0.3 ~ "decrease",
+      TRUE ~ "stable"
+    ),
+    Trend_Valid = case_when(
+      Expected_Trend == "increase" ~ Correlation > 0.3 & P_Value < 0.05,
+      Expected_Trend == "decrease" ~ Correlation < -0.3 & P_Value < 0.05,
+      Expected_Trend == "stable_high" ~ abs(Correlation) < 0.3 & Mean_Expression > 1,
+      Expected_Trend == "complex" ~ !is.na(ANOVA_P) & ANOVA_P < 0.05,
+      TRUE ~ FALSE
+    ),
+    Validation_Pass = Trend_Valid
+  )
+
+stage_stats <- stage_stats %>%
+  left_join(validation_summary %>% select(Biomarker, Trend_Valid), by = "Biomarker")
+
+# Define stage order and labels
 stage_labels <- c("Infant\n(0-20d)", "Early\n(21-59d)", "Pre-pub\n(60-149d)",
                   "Post-pub\n(150-365d)", "Adult\n(>365d)")
 
@@ -35,7 +184,11 @@ create_panel_a <- function() {
   heatmap_data <- stage_stats %>%
     select(Biomarker, Gene_Name, Tissue, Stage, mean_expr) %>%
     mutate(Stage = factor(Stage, levels = stage_order)) %>%
-    pivot_wider(names_from = Stage, values_from = mean_expr)
+    pivot_wider(names_from = Stage, values_from = mean_expr) %>%
+    left_join(
+      validation_summary %>% select(Biomarker, Validation_Pass),
+      by = "Biomarker"
+    )
 
   # Create expression matrix
   expr_matrix <- as.matrix(heatmap_data[, stage_order])
@@ -67,7 +220,7 @@ create_panel_a <- function() {
   # Create trend validation annotation
   validation_colors <- c("TRUE" = "#2ECC71", "FALSE" = "#E74C3C")
   validation_anno <- HeatmapAnnotation(
-    Validated = validation_summary$Validation_Pass,
+    Validated = heatmap_data$Validation_Pass,
     col = list(Validated = validation_colors),
     show_legend = TRUE,
     annotation_name_side = "left"
@@ -90,7 +243,7 @@ create_panel_a <- function() {
     left_annotation = rowAnnotation(
       df = data.frame(
         Tissue = heatmap_data$Tissue,
-        Validated = validation_summary$Validation_Pass
+        Validated = heatmap_data$Validation_Pass
       ),
       col = list(
         Tissue = tissue_colors,

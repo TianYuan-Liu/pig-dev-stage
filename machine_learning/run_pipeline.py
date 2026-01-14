@@ -35,15 +35,10 @@ from machine_learning.utils.progress_tracker import (
 from machine_learning.data_processing.data_loader import DataLoader
 from machine_learning.data_processing.preprocessing import ExpressionPreprocessor
 from machine_learning.data_processing.stage_selection import StageGranularitySelector
-from machine_learning.feature_engineering.feature_selection import StableFeatureSelector
-from machine_learning.feature_engineering.fast_feature_selection import FastFeatureSelector, HybridFeatureSelector
-from machine_learning.model_training.models import (
-    OrdinalLogisticRegression,
-    StageClassifier
-)
-from sklearn.linear_model import LogisticRegression as BinaryLogisticRegression
+from machine_learning.model_training.models import OrdinalLightGBM
 from machine_learning.model_evaluation.evaluation import MetricCalculator
 from machine_learning.cross_tissue_analysis.cross_tissue_validation import CrossTissueValidator
+from machine_learning.utils.config_loader import get_config
 
 # Setup main logger (will be reconfigured based on args)
 logger = logging.getLogger(__name__)
@@ -123,6 +118,36 @@ def validate_data_quality(data: pd.DataFrame, metadata: pd.DataFrame, tissue: st
     return issues
 
 
+def get_lightgbm_params() -> dict:
+    """
+    Get LightGBM hyperparameters from configuration file.
+
+    Returns:
+        Dictionary of LightGBM parameters
+    """
+    config = get_config()
+    return config.lightgbm_params.copy()
+
+
+def create_lightgbm_model(seed: int = None) -> OrdinalLightGBM:
+    """
+    Create an OrdinalLightGBM model with parameters from config.
+
+    Args:
+        seed: Random seed for reproducibility. If None, uses config value.
+
+    Returns:
+        Configured OrdinalLightGBM model
+    """
+    config = get_config()
+    params = get_lightgbm_params()
+
+    if seed is None:
+        seed = config.get("splitting", "seed", default=42)
+
+    return OrdinalLightGBM(**params, seed=seed)
+
+
 @log_execution_time(logger)
 def run_single_tissue_pipeline(
     tissue_name: str,
@@ -163,19 +188,30 @@ def run_single_tissue_pipeline(
                 if perf_logger:
                     perf_logger.start_timer(f"{tissue_name}_loading")
 
+                # Get paths from configuration
+                pipeline_config = get_config()
+                data_dir = PROJECT_ROOT / pipeline_config.paths.get("data_dir", "data/pigGTEx")
+                metadata_file = PROJECT_ROOT / pipeline_config.paths.get("metadata_file", "data/PigGTEx_v0.MetaTable.xlsx")
+
                 data_loader = DataLoader(
-                    data_dir=PROJECT_ROOT / "data/pigGTEx",
-                    metadata_path=PROJECT_ROOT / "data/full_metadata.csv"
+                    data_dir=data_dir,
+                    metadata_path=metadata_file
                 )
                 data_loader.load_metadata()
 
                 tissue_logger.debug(f"Loaded metadata with {len(data_loader.metadata)} entries")
 
                 # Check if tissue data exists (handle spaces in tissue names)
-                tissue_file = PROJECT_ROOT / f"data/pigGTEx/{tissue_name}.expr_tpm.txt.gz"
+                expr_pattern = pipeline_config.paths.get(
+                    "expression_pattern",
+                    "data/pigGTEx/{tissue_name}.expr_tpm.txt.gz"
+                )
+                tissue_file = PROJECT_ROOT / expr_pattern.format(tissue_name=tissue_name)
                 if not tissue_file.exists():
                     # Try with underscores instead of spaces
-                    tissue_file_alt = PROJECT_ROOT / f"data/pigGTEx/{tissue_name.replace(' ', '_')}.expr_tpm.txt.gz"
+                    tissue_file_alt = PROJECT_ROOT / expr_pattern.format(
+                        tissue_name=tissue_name.replace(' ', '_')
+                    )
                     if tissue_file_alt.exists():
                         tissue_file = tissue_file_alt
                         tissue_logger.info(f"Using file with underscores: {tissue_file_alt.name}")
@@ -262,9 +298,28 @@ def run_single_tissue_pipeline(
                     label_to_int = {label: i for i, label in enumerate(unique_labels)}
                     y = np.array([label_to_int.get(label, -1) for label in y])
 
+                    # Filter out samples with unknown labels (-1)
+                    valid_mask = y != -1
+                    if not valid_mask.all():
+                        n_unknown = (~valid_mask).sum()
+                        tissue_logger.warning(
+                            f"Removing {n_unknown} samples with stage labels that don't match "
+                            f"the selected scheme. These would have been assigned unknown class (-1)."
+                        )
+                        X = X.loc[:, valid_mask]
+                        y = y[valid_mask]
+                        sample_ids = sample_ids[valid_mask]
+                        metadata = metadata.loc[valid_mask]
+                    else:
+                        tissue_logger.info("All stage labels match selected scheme - no unknown samples")
+
                     tissue_logger.info(
                         f"Remapped stages: {pd.Series(y_original).value_counts().to_dict()} -> "
                         f"{pd.Series(y_mapped).value_counts().to_dict()}"
+                    )
+                    tissue_logger.info(
+                        f"Final sample count after filtering: {y.shape[0]} samples with "
+                        f"distribution: {pd.Series(y).value_counts().sort_index().to_dict()}"
                     )
 
                 if perf_logger:
@@ -272,158 +327,36 @@ def run_single_tissue_pipeline(
                 if tracker:
                     tracker.end_phase(phase_name)
 
-            # ===== 3. PREPROCESSING PHASE =====
-            phase_name = "Preprocessing"
+            # ===== 3. TRAIN/TEST SPLIT (BEFORE PREPROCESSING TO AVOID DATA LEAKAGE) =====
+            phase_name = "Train/Test Split"
             with LogContext(tissue_logger, phase_name):
                 if tracker:
                     tracker.start_phase(phase_name)
-                if perf_logger:
-                    perf_logger.start_timer(f"{tissue_name}_preprocessing")
 
-                preprocessor = ExpressionPreprocessor()
-
-                # Log preprocessing parameters (check if attribute exists)
-                variance_threshold = getattr(preprocessor, 'variance_threshold', 'default')
-                tissue_logger.debug(f"Preprocessing with variance_threshold={variance_threshold}")
-
-                X_processed = preprocessor.fit_transform(X)
-
-                # Ensure we keep gene names aligned with the processed matrix
-                if isinstance(X_processed, pd.DataFrame):
-                    X_processed_df = X_processed.T.copy()
-                    X_processed_df.index = sample_ids
-                else:
-                    X_processed_array = np.asarray(X_processed)
-                    if X_processed_array.shape[0] == gene_names.shape[0]:
-                        X_processed_array = X_processed_array.T
-
-                    processed_gene_names = (
-                        np.asarray(getattr(preprocessor, 'feature_names_', None))
-                        if getattr(preprocessor, 'feature_names_', None)
-                        else np.asarray(gene_names)
-                    )
-
-                    X_processed_df = pd.DataFrame(
-                        X_processed_array,
-                        index=sample_ids,
-                        columns=processed_gene_names
-                    )
-
-                if X_processed_df.shape[0] != len(y):
-                    raise ValueError(
-                        "Preprocessed expression row count does not match target labels"
-                    )
-
-                # Log preprocessing results
-                tissue_logger.info(
-                    f"Preprocessing complete: {X.shape} -> {X_processed_df.shape} "
-                    f"({X.shape[0] - X_processed_df.shape[1]} genes removed)"
-                )
-
-                if perf_logger:
-                    perf_logger.end_timer(f"{tissue_name}_preprocessing")
-                    perf_logger.log_memory_usage(f"{tissue_name}_after_preprocessing")
-                if tracker:
-                    tracker.end_phase(phase_name)
-
-            # ===== 4. FEATURE SELECTION PHASE =====
-            phase_name = "Feature Selection"
-            with LogContext(tissue_logger, phase_name):
-                if tracker:
-                    tracker.start_phase(phase_name)
-                if perf_logger:
-                    perf_logger.start_timer(f"{tissue_name}_feature_selection")
-
-                max_features = min(config.get('max_features', 2000), X_processed_df.shape[1])
-
-                # Use fast feature selector for much better performance
-                feature_selector = FastFeatureSelector(
-                    method='mutual_info',  # Use mutual information for fast feature ranking
-                    max_features=max_features,
-                    variance_threshold_percentile=20,
-                    n_jobs=-1,  # Use all cores for parallel processing
-                    seed=config.get('seed', 42)
-                )
-
-                tissue_logger.debug(
-                    f"Feature selection parameters: max_features={max_features}, "
-                    f"method=mutual_info (fast univariate selection)"
-                )
-
-                # Convert y to pandas Series for feature selector
-                y_series = pd.Series(y, index=X_processed_df.index)
-                X_selected_df = feature_selector.fit_transform(X_processed_df, y_series)
-
-                if not isinstance(X_selected_df, pd.DataFrame):
-                    X_selected_df = pd.DataFrame(
-                        X_selected_df,
-                        index=X_processed_df.index,
-                        columns=feature_selector.selected_features_
-                    )
-
-                selected_genes = X_selected_df.columns.to_numpy()
-                X_selected = X_selected_df.to_numpy()
-
-                if X_selected.shape[1] != len(selected_genes):
-                    raise ValueError(
-                        "Selected feature matrix column count does not match "
-                        "selected gene names length"
-                    )
-
-                tissue_logger.info(
-                    f"Selected {len(selected_genes)}/{X_processed_df.shape[1]} features, "
-                    f"Top 10 genes: {selected_genes[:10].tolist()}"
-                )
-
-                if perf_logger:
-                    perf_logger.end_timer(f"{tissue_name}_feature_selection")
-                if tracker:
-                    tracker.end_phase(phase_name)
-
-            # ===== 5. MODEL TRAINING PHASE =====
-            phase_name = "Model Training"
-            with LogContext(tissue_logger, phase_name):
-                if tracker:
-                    tracker.start_phase(phase_name)
-                if perf_logger:
-                    perf_logger.start_timer(f"{tissue_name}_training")
-
-                # Select model based on scheme
-                if '2-class' in scheme_name:
-                    model = BinaryLogisticRegression(
-                        max_iter=config.get('max_iter', 5000),  # Increased for convergence
-                        random_state=config.get('seed', 42),
-                        class_weight='balanced',  # Fix: Add class weight balancing
-                        solver='liblinear' if X_selected.shape[0] < 1000 else 'lbfgs'  # Adaptive solver
-                    )
-                    tissue_logger.debug("Using binary logistic regression with balanced class weights")
-                else:
-                    model = OrdinalLogisticRegression(
-                        max_iter=config.get('max_iter', 5000),  # Increased for convergence
-                        seed=config.get('seed', 42)
-                    )
-                    tissue_logger.debug("Using ordinal logistic regression")
-
-                # Train/test split with stratification
                 from sklearn.model_selection import train_test_split
                 split_ratio = config.get('train_ratio', 0.7)
                 random_state = config.get('seed', 42)
-
-                # Use stratified split if we have enough samples per class
                 min_samples_per_class = pd.Series(y).value_counts().min()
+
+                # Split raw data BEFORE any preprocessing
+                # X is (genes x samples), need to transpose for split then transpose back
+                X_T = X.T  # samples x genes
                 if min_samples_per_class >= 2:
-                    X_train, X_test, y_train, y_test = train_test_split(
-                        X_selected, y, test_size=1-split_ratio,
+                    X_train_raw_T, X_test_raw_T, y_train, y_test, train_ids, test_ids = train_test_split(
+                        X_T, y, sample_ids, test_size=1 - split_ratio,
                         stratify=y, random_state=random_state
                     )
-                    tissue_logger.info(f"Using stratified train/test split")
+                    tissue_logger.info("Using stratified train/test split")
                 else:
-                    # Fall back to random split without stratification
-                    X_train, X_test, y_train, y_test = train_test_split(
-                        X_selected, y, test_size=1-split_ratio,
+                    X_train_raw_T, X_test_raw_T, y_train, y_test, train_ids, test_ids = train_test_split(
+                        X_T, y, sample_ids, test_size=1 - split_ratio,
                         random_state=random_state
                     )
-                    tissue_logger.warning(f"Not enough samples for stratification, using random split")
+                    tissue_logger.warning("Not enough samples for stratification, using random split")
+
+                # Transpose back to genes x samples format
+                X_train_raw = X_train_raw_T.T
+                X_test_raw = X_test_raw_T.T
 
                 tissue_logger.info(
                     f"Train/test split: {len(y_train)}/{len(y_test)} samples "
@@ -436,7 +369,126 @@ def run_single_tissue_pipeline(
                     f"Test label distribution: {pd.Series(y_test).value_counts().to_dict()}"
                 )
 
-                # Fit model with warning capture
+                if tracker:
+                    tracker.end_phase(phase_name)
+
+            # ===== 4. PREPROCESSING (FIT ON TRAIN ONLY) =====
+            phase_name = "Preprocessing"
+            with LogContext(tissue_logger, phase_name):
+                if tracker:
+                    tracker.start_phase(phase_name)
+                if perf_logger:
+                    perf_logger.start_timer(f"{tissue_name}_preprocessing")
+
+                preprocessor = ExpressionPreprocessor()
+
+                # Log preprocessing parameters
+                variance_threshold = getattr(preprocessor, 'variance_threshold', 'default')
+                tissue_logger.debug(f"Preprocessing with variance_threshold={variance_threshold}")
+
+                # FIT on training data ONLY, then transform both train and test
+                X_train_processed = preprocessor.fit_transform(X_train_raw)
+                X_test_processed = preprocessor.transform(X_test_raw)
+
+                tissue_logger.info(
+                    f"Preprocessor fitted on training data only ({X_train_raw.shape[1]} samples)"
+                )
+
+                # Helper function to convert processed data to DataFrame
+                def to_samples_x_genes_df(X_proc, sample_ids_subset, preprocessor_obj, fallback_genes):
+                    if isinstance(X_proc, pd.DataFrame):
+                        result = X_proc.T.copy()
+                        result.index = sample_ids_subset
+                    else:
+                        X_array = np.asarray(X_proc)
+                        if X_array.shape[0] == len(fallback_genes) or X_array.shape[0] != len(sample_ids_subset):
+                            X_array = X_array.T
+                        proc_genes = (
+                            np.asarray(getattr(preprocessor_obj, 'feature_names_', None))
+                            if getattr(preprocessor_obj, 'feature_names_', None)
+                            else np.asarray(fallback_genes)
+                        )
+                        result = pd.DataFrame(X_array, index=sample_ids_subset, columns=proc_genes)
+                    return result
+
+                X_train_full = to_samples_x_genes_df(X_train_processed, train_ids, preprocessor, gene_names)
+                X_test_full = to_samples_x_genes_df(X_test_processed, test_ids, preprocessor, gene_names)
+
+                if X_train_full.shape[0] != len(y_train):
+                    raise ValueError(
+                        f"Preprocessed train row count {X_train_full.shape[0]} does not match labels {len(y_train)}"
+                    )
+                if X_test_full.shape[0] != len(y_test):
+                    raise ValueError(
+                        f"Preprocessed test row count {X_test_full.shape[0]} does not match labels {len(y_test)}"
+                    )
+
+                tissue_logger.info(
+                    f"Preprocessing complete: train {X_train_raw.shape} -> {X_train_full.shape}, "
+                    f"test {X_test_raw.shape} -> {X_test_full.shape} "
+                    f"({X_train_raw.shape[0] - X_train_full.shape[1]} genes removed)"
+                )
+
+                if perf_logger:
+                    perf_logger.end_timer(f"{tissue_name}_preprocessing")
+                    perf_logger.log_memory_usage(f"{tissue_name}_after_preprocessing")
+                if tracker:
+                    tracker.end_phase(phase_name)
+
+            # ===== 5. FEATURE SELECTION =====
+            phase_name = "Feature Selection"
+            with LogContext(tissue_logger, phase_name):
+                if tracker:
+                    tracker.start_phase(phase_name)
+                if perf_logger:
+                    perf_logger.start_timer(f"{tissue_name}_feature_selection")
+
+                # Fit LightGBM on training set to derive feature importance
+                max_features = min(config.get('max_features', 2000), X_train_full.shape[1])
+                importance_model = create_lightgbm_model(seed=random_state)
+
+                tissue_logger.debug(
+                    f"LightGBM importance run: max_features={max_features}, "
+                    f"n_estimators={importance_model.n_estimators}"
+                )
+
+                with warnings.catch_warnings(record=True) as w:
+                    warnings.simplefilter("always")
+                    importance_model.fit(X_train_full, y_train)
+                    if w:
+                        for warning in w:
+                            tissue_logger.warning(f"Importance model warning: {warning.message}")
+
+                importance = importance_model.get_feature_importance()
+                selected_genes = importance.head(max_features).index.to_numpy()
+
+                if len(selected_genes) == 0:
+                    raise ValueError("No features selected from LightGBM importance")
+
+                X_train = X_train_full[selected_genes]
+                X_test = X_test_full[selected_genes]
+
+                tissue_logger.info(
+                    f"Selected {len(selected_genes)}/{X_train_full.shape[1]} features via LightGBM importance, "
+                    f"Top 10 genes: {selected_genes[:10].tolist()}"
+                )
+
+                if perf_logger:
+                    perf_logger.end_timer(f"{tissue_name}_feature_selection")
+                if tracker:
+                    tracker.end_phase(phase_name)
+
+            # ===== 6. MODEL TRAINING PHASE =====
+            phase_name = "Model Training"
+            with LogContext(tissue_logger, phase_name):
+                if tracker:
+                    tracker.start_phase(phase_name)
+                if perf_logger:
+                    perf_logger.start_timer(f"{tissue_name}_training")
+
+                model = create_lightgbm_model(seed=config.get('seed', 42))
+                tissue_logger.debug("Using OrdinalLightGBM for classification with selected features")
+
                 with warnings.catch_warnings(record=True) as w:
                     warnings.simplefilter("always")
                     model.fit(X_train, y_train)
@@ -460,7 +512,7 @@ def run_single_tissue_pipeline(
                 if tracker:
                     tracker.end_phase(phase_name)
 
-            # ===== 6. EVALUATION PHASE =====
+            # ===== 7. EVALUATION PHASE =====
             phase_name = "Evaluation"
             with LogContext(tissue_logger, "Model Evaluation"):
                 if tracker:
@@ -506,10 +558,11 @@ def run_single_tissue_pipeline(
                     'scheme': scheme_name,
                     'n_samples': len(y),
                     'n_genes_initial': X.shape[0],
-                    'n_genes_preprocessed': X_processed_df.shape[1],
+                    'n_genes_preprocessed': X_train_full.shape[1],
                     'n_features_selected': len(selected_genes),
                     'metrics': metrics,
-                    'top_genes': selected_genes[:50].tolist()
+                    'top_genes': selected_genes[:1000].tolist(),
+                    'feature_importance': importance.head(max_features).to_dict()
                 }
 
                 # Add performance metrics if available
@@ -622,24 +675,34 @@ def run_cross_tissue_validation(
             # Initialize components
             data_loader = DataLoader(
                 data_dir=PROJECT_ROOT / "data/pigGTEx",
-                metadata_path=PROJECT_ROOT / "data/full_metadata.csv"
+                metadata_path=PROJECT_ROOT / "data/PigGTEx_v0.MetaTable.xlsx"
             )
             data_loader.load_metadata()
 
-            model = BinaryLogisticRegression(
-                max_iter=config.get('max_iter', 1000),
-                random_state=config.get('seed', 42)
+            model = OrdinalLightGBM(
+                num_leaves=31,
+                max_depth=6,
+                learning_rate=0.05,
+                n_estimators=200,
+                min_data_in_leaf=10,
+                feature_fraction=0.8,
+                bagging_fraction=0.8,
+                lambda_l1=0.1,
+                lambda_l2=0.1,
+                class_weight='balanced',
+                seed=config.get('seed', 42)
             )
             preprocessor = ExpressionPreprocessor()
-            feature_selector = StableFeatureSelector(
-                max_features=config.get('max_features', 2000)
-            )
 
-            # Initialize validator
+            # Initialize stage selector for label harmonization
+            stage_selector = StageGranularitySelector()
+
+            # Initialize validator with label harmonization
             validator = CrossTissueValidator(
                 model=model,
                 preprocessor=preprocessor,
-                feature_selector=feature_selector
+                stage_selector=stage_selector,
+                common_scheme='auto'  # Auto-select lowest common denominator
             )
 
             # Load data for each tissue with progress bar

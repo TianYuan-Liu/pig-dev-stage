@@ -10,7 +10,12 @@ library(reshape2)
 library(scales)
 
 # Set publication theme
-source("theme_configs/nature_theme.R")
+args <- commandArgs(trailingOnly = FALSE)
+file_arg <- sub("^--file=", "", args[grep("^--file=", args)])
+script_dir <- if (length(file_arg) > 0) dirname(normalizePath(file_arg)) else getwd()
+base_dir <- dirname(script_dir)
+source(file.path(script_dir, "theme_configs", "nature_theme.R"))
+source(file.path(script_dir, "utils", "metadata_utils.R"))
 
 # Output directory
 output_dir <- "."
@@ -22,14 +27,15 @@ tissues <- c("Muscle", "Brain", "Liver", "Blood", "Small intestine",
 
 results_list <- list()
 for (tissue in tissues) {
-  file_path <- paste0("../machine_learning/model_outputs/", tissue, "_results.json")
+  file_path <- file.path(base_dir, "machine_learning", "model_outputs", paste0(tissue, "_results.json"))
   if (file.exists(file_path)) {
     results_list[[tissue]] <- fromJSON(file_path)
   }
 }
 
 # Load metadata for age correlation
-metadata <- read_csv("../data/full_metadata.csv")
+metadata <- load_pig_metadata() %>%
+  filter(!is.na(Stage), !is.na(Age_days), Tissue != "Unknown")
 
 # Panel A: Performance metrics heatmap with confidence intervals
 create_panel_a <- function() {
@@ -177,8 +183,13 @@ create_panel_b <- function() {
     }
   }
 
+  confusion_plots <- purrr::compact(confusion_plots)
+  if (length(confusion_plots) == 0) {
+    stop("No confusion matrices available to plot.")
+  }
+
   # Combine confusion matrices in 2x4 grid
-  wrap_plots(confusion_plots, ncol = 4)
+  wrap_plots(confusion_plots, ncol = min(4, length(confusion_plots)))
 }
 
 # Panel C: Correlation with chronological age
@@ -204,7 +215,7 @@ create_panel_c <- function() {
         filter(Tissue == tissue) %>%
         mutate(
           Stage_Numeric = stage_to_numeric(Stage),
-          Age_log = log10(Age + 1)
+          Age_log = log10(Age_days + 1)
         ) %>%
         filter(!is.na(Stage_Numeric))
 
@@ -225,7 +236,7 @@ create_panel_c <- function() {
     filter(!is.na(Stage_Numeric))
 
   # Create scatter plots
-  ggplot(correlation_data, aes(x = Age, y = Stage_Numeric)) +
+  ggplot(correlation_data, aes(x = Age_days, y = Stage_Numeric)) +
     geom_jitter(alpha = 0.5, width = 0, height = 0.1, size = 1) +
     geom_smooth(method = "loess", se = TRUE, color = "#809BCE") +
     geom_text(aes(label = Correlation), x = Inf, y = -Inf,

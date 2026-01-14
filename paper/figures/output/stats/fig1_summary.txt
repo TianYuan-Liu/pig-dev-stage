@@ -1,0 +1,40 @@
+
+FIGURE 1: STUDY DESIGN AND METHODOLOGY
+======================================
+Generated: %Y-%m-%d %H:%M
+
+SAMPLE STATISTICS
+-----------------
+Total samples (modeled tissues): 1924
+Tissues with models: Muscle, Brain, Liver, Blood, Lung
+
+Samples per tissue:
+# A tibble: 5 × 2
+  Tissue     n
+  <chr>  <int>
+1 Muscle   914
+2 Liver    329
+3 Blood    284
+4 Brain    250
+5 Lung     147
+
+Samples per stage:
+# A tibble: 5 × 2
+  Stage                      n
+  <fct>                  <int>
+1 Infant_0_20d             468
+2 Early childhood_21_59d   506
+3 Pre_pubertal_60_149d     304
+4 Post_pubertal_150_365d   604
+5 Adult_>365d               42
+
+CLASSIFICATION SCHEMES
+----------------------
+  Muscle: 4-class (761 samples)
+  Brain: 2-class (43 samples)
+  Liver: 4-class (309 samples)
+  Blood: 2-class (78 samples)
+  Lung: 2-class (129 samples)
+
+Figure dimensions: 183mm × 160mm
+

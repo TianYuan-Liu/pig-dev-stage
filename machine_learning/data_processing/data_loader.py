@@ -6,6 +6,7 @@ Handles loading TPM matrices and metadata from pigGTEx resources.
 import gzip
 import json
 import logging
+import re
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Union
 
@@ -15,10 +16,9 @@ import pandas as pd
 logger = logging.getLogger(__name__)
 
 
-class DataLoader:
-    """Load and process pigGTEx RNA-seq data with metadata."""
-
-    STAGE_MAPPING = {
+def _get_default_stage_mapping():
+    """Get default stage mapping (used when config unavailable)."""
+    return {
         'Infant': (0, 20),
         'Early childhood': (21, 59),
         'Pre-pubertal': (60, 149),
@@ -26,7 +26,57 @@ class DataLoader:
         'Adult': (366, float('inf'))
     }
 
+
+def _get_default_age_conversion():
+    """Get default age unit conversion factors (used when config unavailable)."""
+    return {
+        'days': 1,
+        'weeks': 7,
+        'months': 30,
+        'years': 365
+    }
+
+
+def _load_stage_mapping_from_config():
+    """Load stage mapping from config file."""
+    try:
+        from machine_learning.utils.config_loader import get_config
+        config = get_config()
+        stage_config = config.stage_mapping
+
+        # Convert config format to tuple format
+        mapping = {}
+        for stage, bounds in stage_config.items():
+            # Stage names in config now use proper formatting directly
+            stage_name = stage
+            min_days = bounds.get('min_days', 0)
+            max_days = bounds.get('max_days')
+            if max_days is None:
+                max_days = float('inf')
+            mapping[stage_name] = (min_days, max_days)
+
+        return mapping
+    except (ImportError, Exception):
+        return _get_default_stage_mapping()
+
+
+def _load_age_conversion_from_config():
+    """Load age conversion factors from config file."""
+    try:
+        from machine_learning.utils.config_loader import get_config
+        config = get_config()
+        return config.get('age_conversion', default=_get_default_age_conversion())
+    except (ImportError, Exception):
+        return _get_default_age_conversion()
+
+
+class DataLoader:
+    """Load and process pigGTEx RNA-seq data with metadata."""
+
+    # Class-level defaults (can be overridden by config)
+    STAGE_MAPPING = _get_default_stage_mapping()
     STAGE_ORDER = ['Infant', 'Early childhood', 'Pre-pubertal', 'Post-pubertal', 'Adult']
+    AGE_CONVERSION = _get_default_age_conversion()
 
     def __init__(self, data_dir: Union[str, Path], metadata_path: Optional[Union[str, Path]] = None):
         """
@@ -40,6 +90,10 @@ class DataLoader:
         self.metadata_path = Path(metadata_path) if metadata_path else None
         self.metadata = None
         self.expression_data = {}
+
+        # Load stage mapping and age conversion from config
+        self.stage_mapping = _load_stage_mapping_from_config()
+        self.age_conversion = _load_age_conversion_from_config()
 
         if not self.data_dir.exists():
             raise ValueError(f"Data directory {self.data_dir} does not exist")
@@ -57,11 +111,48 @@ class DataLoader:
         if pd.isna(age_days):
             return None
 
-        for stage, (min_age, max_age) in self.STAGE_MAPPING.items():
+        for stage, (min_age, max_age) in self.stage_mapping.items():
             if min_age <= age_days <= max_age:
                 return stage
 
-        return 'Adult'  # Default for ages > 365
+        return 'Adult'  # Default for ages beyond defined ranges
+
+    def parse_age_string(self, age_str: str) -> Optional[float]:
+        """
+        Parse age string to days.
+
+        Handles formats: "0 day", "6 months", "1 year", "4 weeks", etc.
+        Conversion factors are loaded from config.yaml.
+
+        Args:
+            age_str: Age string from metadata
+
+        Returns:
+            Age in days, or None if unparseable
+        """
+        if pd.isna(age_str) or str(age_str).strip().lower() == 'unknown':
+            return None
+
+        age_str = str(age_str).lower().strip()
+
+        match = re.match(r'(\d+(?:\.\d+)?)\s*(day|days|week|weeks|month|months|year|years)', age_str)
+        if not match:
+            return None
+
+        value = float(match.group(1))
+        unit = match.group(2)
+
+        # Use config-based conversion factors
+        if 'day' in unit:
+            return value * self.age_conversion.get('days', 1)
+        elif 'week' in unit:
+            return value * self.age_conversion.get('weeks', 7)
+        elif 'month' in unit:
+            return value * self.age_conversion.get('months', 30)
+        elif 'year' in unit:
+            return value * self.age_conversion.get('years', 365)
+
+        return None
 
     def load_metadata(self, metadata_file: Optional[Union[str, Path]] = None) -> pd.DataFrame:
         """
@@ -95,16 +186,38 @@ class DataLoader:
         else:
             raise ValueError(f"Unsupported metadata file format: {suffix}")
 
-        # Standardize column names
+        # Standardize column names (replace spaces with underscores)
         self.metadata.columns = [col.strip().replace(' ', '_') for col in self.metadata.columns]
+
+        # Map columns from new PigGTEx format to expected format
+        column_mapping = {
+            'BioSample': 'Sample_ID',
+            'Tissue_class': 'Tissue',
+            'Main_categories': 'Tissue_Main',
+        }
+
+        for old_col, new_col in column_mapping.items():
+            if old_col in self.metadata.columns and new_col not in self.metadata.columns:
+                self.metadata[new_col] = self.metadata[old_col]
+                logger.debug(f"Mapped column {old_col} -> {new_col}")
 
         # Set Sample_ID as index if present
         if 'Sample_ID' in self.metadata.columns:
             self.metadata = self.metadata.set_index('Sample_ID')
 
-        # Add stage column if age is present
+        # Parse age strings to days and create Stage column
         if 'Age' in self.metadata.columns:
-            self.metadata['Stage'] = self.metadata['Age'].apply(self.age_to_stage)
+            # Check if Age column contains strings (new format) or numbers (old format)
+            sample_age = self.metadata['Age'].dropna().iloc[0] if len(self.metadata['Age'].dropna()) > 0 else None
+            if sample_age is not None and isinstance(sample_age, str):
+                # New format: parse age strings like "0 day", "6 months"
+                self.metadata['Age_Days'] = self.metadata['Age'].apply(self.parse_age_string)
+                self.metadata['Stage'] = self.metadata['Age_Days'].apply(self.age_to_stage)
+                logger.info(f"Parsed age strings to days for {self.metadata['Age_Days'].notna().sum()} samples")
+            else:
+                # Old format: Age is already numeric days
+                self.metadata['Stage'] = self.metadata['Age'].apply(self.age_to_stage)
+
             self.metadata['Stage'] = pd.Categorical(
                 self.metadata['Stage'],
                 categories=self.STAGE_ORDER,
@@ -187,23 +300,15 @@ class DataLoader:
                 common_samples = [s for s in expr_df.columns if s in tissue_metadata.index]
 
                 if len(common_samples) == 0:
-                    # If no exact matches, try to match by position if counts are the same
-                    logger.info(f"Sample ID formats differ between expression and metadata for {tissue}")
-                    logger.info(f"Expression IDs example: {list(expr_df.columns[:3])}")
-                    logger.info(f"Metadata IDs example: {list(tissue_metadata.index[:3])}")
-
-                    if len(tissue_metadata) == len(expr_df.columns):
-                        logger.info(f"Sample counts match ({len(tissue_metadata)}), using positional alignment")
-                        tissue_metadata.index = expr_df.columns
-                        common_samples = expr_df.columns.tolist()
-                    else:
-                        # Use min of both as a fallback
-                        n_samples = min(len(tissue_metadata), len(expr_df.columns))
-                        logger.info(f"Sample count mismatch: {len(expr_df.columns)} expression vs {len(tissue_metadata)} metadata")
-                        logger.info(f"Using first {n_samples} samples from both datasets via positional alignment")
-                        tissue_metadata = tissue_metadata.iloc[:n_samples]
-                        tissue_metadata.index = expr_df.columns[:n_samples]
-                        common_samples = expr_df.columns[:n_samples].tolist()
+                    # No matching sample IDs - this is a data integrity error
+                    logger.error(f"No matching sample IDs between expression and metadata for {tissue}")
+                    logger.error(f"Expression IDs example: {list(expr_df.columns[:3])}")
+                    logger.error(f"Metadata IDs example: {list(tissue_metadata.index[:3])}")
+                    raise ValueError(
+                        f"No matching sample IDs between expression data and metadata for {tissue}. "
+                        f"Expression has {len(expr_df.columns)} samples, metadata has {len(tissue_metadata)} samples. "
+                        f"Please ensure sample IDs match between datasets."
+                    )
 
                 # Filter both to common samples
                 expr_df = expr_df[common_samples]
@@ -276,88 +381,3 @@ class DataLoader:
         counts['Age_Missing'] = tissue_totals - tissue_with_age.reindex(tissue_totals.index, fill_value=0)
 
         return counts.sort_values('Total', ascending=False)
-
-    def get_eligible_tissues(
-        self,
-        min_samples_4class: int = 40,
-        min_samples_3class: int = 30,
-        min_samples_2class: int = 25,
-        min_total_2class: int = 60
-    ) -> Dict[str, Dict]:
-        """
-        Determine eligible tissues and their stage schemes based on sample counts.
-
-        Args:
-            min_samples_4class: Minimum samples per class for 4-class
-            min_samples_3class: Minimum samples per class for 3-class
-            min_samples_2class: Minimum samples per class for 2-class
-            min_total_2class: Minimum total samples for 2-class
-
-        Returns:
-            Dictionary with tissue eligibility information
-        """
-        counts = self.get_tissue_stage_counts()
-        eligible = {}
-
-        for tissue in counts.index:
-            tissue_counts = counts.loc[tissue, self.STAGE_ORDER].values
-            total_with_age = tissue_counts.sum()
-
-            tissue_info = {
-                'total_samples': int(counts.loc[tissue, 'Total']),
-                'samples_with_age': int(total_with_age),
-                'age_missing': int(counts.loc[tissue, 'Age_Missing']),
-                'stage_counts': dict(zip(self.STAGE_ORDER, tissue_counts.astype(int))),
-                'eligible': False,
-                'stage_scheme': None,
-                'n_classes': 0
-            }
-
-            # Check 4-class eligibility (merge Adult into Post-pubertal)
-            merged_4class = tissue_counts.copy()
-            merged_4class[3] += merged_4class[4]  # Merge Adult into Post-pubertal
-            merged_4class = merged_4class[:4]
-
-            if all(merged_4class >= min_samples_4class):
-                tissue_info['eligible'] = True
-                tissue_info['stage_scheme'] = '4-class'
-                tissue_info['n_classes'] = 4
-                tissue_info['class_mapping'] = {
-                    'Infant': 'Infant',
-                    'Early childhood': 'Early childhood',
-                    'Pre-pubertal': 'Pre-pubertal',
-                    'Post-pubertal': 'Post-pubertal/Adult',
-                    'Adult': 'Post-pubertal/Adult'
-                }
-            # Check 3-class eligibility
-            elif tissue_counts[0] + tissue_counts[1] >= min_samples_3class and \
-                 tissue_counts[2] >= min_samples_3class and \
-                 tissue_counts[3] + tissue_counts[4] >= min_samples_3class:
-                tissue_info['eligible'] = True
-                tissue_info['stage_scheme'] = '3-class'
-                tissue_info['n_classes'] = 3
-                tissue_info['class_mapping'] = {
-                    'Infant': 'Early (0-59d)',
-                    'Early childhood': 'Early (0-59d)',
-                    'Pre-pubertal': 'Pre-pubertal (60-149d)',
-                    'Post-pubertal': 'Late (150+d)',
-                    'Adult': 'Late (150+d)'
-                }
-            # Check 2-class eligibility
-            elif tissue_counts[:3].sum() >= min_samples_2class and \
-                 tissue_counts[3:].sum() >= min_samples_2class and \
-                 total_with_age >= min_total_2class:
-                tissue_info['eligible'] = True
-                tissue_info['stage_scheme'] = '2-class'
-                tissue_info['n_classes'] = 2
-                tissue_info['class_mapping'] = {
-                    'Infant': 'Pre-pubertal (<150d)',
-                    'Early childhood': 'Pre-pubertal (<150d)',
-                    'Pre-pubertal': 'Pre-pubertal (<150d)',
-                    'Post-pubertal': 'Post-pubertal (≥150d)',
-                    'Adult': 'Post-pubertal (≥150d)'
-                }
-
-            eligible[tissue] = tissue_info
-
-        return eligible

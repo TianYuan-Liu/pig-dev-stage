@@ -1,0 +1,6 @@
+Tissue,Pct Significant,Pct Monotonic,Mean |r|,Strong (>0.5),Interpretation
+Muscle,88.0%,50.0%,0.535,30,STRONG SIGNAL
+Liver,60.0%,34.0%,0.347,12,MODERATE SIGNAL
+Brain,80.0%,100.0%,0.488,28,STRONG SIGNAL
+Blood,66.0%,100.0%,0.452,25,MODERATE SIGNAL
+Lung,74.0%,100.0%,0.382,8,MODERATE SIGNAL

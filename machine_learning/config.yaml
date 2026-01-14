@@ -1,0 +1,206 @@
+# Machine Learning Pipeline Configuration
+# ========================================
+# This configuration file centralizes all parameters for reproducibility and transparency.
+
+# ============================================================================
+# DATA PATHS
+# ============================================================================
+paths:
+  # Base data directory (relative to project root)
+  data_dir: "data/pigGTEx"
+
+  # Metadata file
+  metadata_file: "data/PigGTEx_v0.MetaTable.xlsx"
+
+  # Expression file pattern (use {tissue_name} as placeholder)
+  expression_pattern: "data/pigGTEx/{tissue_name}.expr_tpm.txt.gz"
+
+  # Eligible tissues list (fallback paths in order of preference)
+  eligible_tissues_paths:
+    - "eligible_tissues.json"
+    - "machine_learning/eligible_tissues.json"
+    - "data/eligible_tissues.json"
+
+  # Timing history file
+  timing_history: "machine_learning/timing_history.json"
+
+# ============================================================================
+# MODEL HYPERPARAMETERS
+# ============================================================================
+model:
+  # LightGBM parameters for ordinal classification
+  lightgbm:
+    # Tree structure
+    num_leaves: 31
+    max_depth: 6
+    min_data_in_leaf: 10
+
+    # Learning parameters
+    learning_rate: 0.05
+    n_estimators: 200
+
+    # Regularization
+    feature_fraction: 0.8
+    bagging_fraction: 0.8
+    lambda_l1: 0.1
+    lambda_l2: 0.1
+
+    # Class balancing
+    class_weight: "balanced"
+
+  # Early stopping configuration
+  early_stopping:
+    patience: 10
+    validation_split: 0.8  # Fraction of training data used for training (rest for validation)
+
+# ============================================================================
+# PREPROCESSING PARAMETERS
+# ============================================================================
+preprocessing:
+  # Log transformation
+  log_transform: true
+  log_base: 2
+  pseudocount: 1  # log2(TPM + pseudocount)
+
+  # Variance filtering
+  # Genes below this percentile of variance are removed
+  # Justification: Low-variance genes have limited discriminative power
+  min_variance_percentile: 20
+
+  # Standardization (z-score normalization)
+  standardize: true
+
+# ============================================================================
+# TRAIN/TEST SPLIT
+# ============================================================================
+splitting:
+  # Train ratio (test_ratio = 1 - train_ratio)
+  train_ratio: 0.7
+
+  # Random seed for reproducibility
+  seed: 42
+
+  # Minimum samples per class required for stratified splitting
+  min_samples_for_stratification: 2
+
+# ============================================================================
+# FEATURE SELECTION
+# ============================================================================
+feature_selection:
+  # Maximum number of features to select via LightGBM importance
+  max_features: 2000
+
+  # Stability threshold for stable feature selection
+  # Features must appear in at least this fraction of bootstrap samples
+  stability_threshold: 0.6
+
+# ============================================================================
+# STAGE CLASSIFICATION THRESHOLDS
+# ============================================================================
+# These thresholds determine which classification scheme (2/3/4-class) a tissue qualifies for.
+# Scientific justification: Minimum samples per class ensures reliable training.
+stage_selection:
+  # Minimum samples per class for each scheme
+  min_samples_4class: 40
+  min_samples_3class: 30
+  min_samples_2class: 15
+
+  # Minimum total samples for 2-class scheme
+  min_total_2class: 40
+
+# ============================================================================
+# DEVELOPMENTAL STAGE DEFINITIONS
+# ============================================================================
+# Age boundaries (in days) for developmental stages.
+# Based on porcine developmental biology:
+# - Infant: 0-20 days (neonatal period)
+# - Early childhood: 21-59 days (weaning transition)
+# - Pre-pubertal: 60-149 days (juvenile growth)
+# - Post-pubertal: 150-365 days (sexual maturation)
+# - Adult: >365 days (mature)
+stage_mapping:
+  Infant:
+    min_days: 0
+    max_days: 20
+  "Early childhood":
+    min_days: 21
+    max_days: 59
+  Pre-pubertal:
+    min_days: 60
+    max_days: 149
+  Post-pubertal:
+    min_days: 150
+    max_days: 365
+  Adult:
+    min_days: 366
+    max_days: null  # infinity
+
+# Age unit conversion factors (to days)
+age_conversion:
+  days: 1
+  weeks: 7
+  months: 30
+  years: 365
+
+# ============================================================================
+# CROSS-TISSUE VALIDATION
+# ============================================================================
+# Settings for cross-tissue validation and label harmonization
+cross_tissue_validation:
+  # Common scheme for harmonizing labels across tissues
+  # 'auto' = automatically determine lowest common denominator
+  # '2-class', '3-class', '4-class' = use specific scheme
+  common_scheme: 'auto'
+  
+  # Minimum number of tissues required for cross-tissue validation
+  min_tissues: 3
+
+# ============================================================================
+# CROSS-VALIDATION
+# ============================================================================
+cross_validation:
+  n_folds: 5
+  shuffle: true
+
+# ============================================================================
+# VISUALIZATION / UMAP
+# ============================================================================
+visualization:
+  umap:
+    n_neighbors: 15
+    min_dist: 0.1
+    n_components: 2
+    metric: "euclidean"
+
+  # Maximum samples per tissue for UMAP (subsampling for speed)
+  max_samples_per_tissue: 500
+
+# ============================================================================
+# STATISTICAL TESTING
+# ============================================================================
+statistical_tests:
+  # Significance level for hypothesis tests
+  alpha: 0.05
+
+  # Number of permutations for permutation tests
+  n_permutations: 1000
+
+  # Number of bootstrap samples for confidence intervals
+  n_bootstrap: 1000
+
+# ============================================================================
+# CORRELATION ANALYSIS
+# ============================================================================
+correlation:
+  # Minimum correlation threshold for "moderate" correlation
+  moderate_threshold: 0.3
+
+  # Minimum correlation threshold for "strong" correlation
+  strong_threshold: 0.5
+
+# ============================================================================
+# LOGGING
+# ============================================================================
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

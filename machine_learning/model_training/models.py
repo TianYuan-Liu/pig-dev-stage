@@ -1,158 +1,20 @@
 """
 Machine learning models for developmental stage classification.
-Includes ordinal and binary classifiers with class balancing.
+LightGBM-based ordinal classifier with class balancing.
 """
 
 import logging
 import warnings
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Optional, Union
 
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
 from sklearn.preprocessing import LabelEncoder
-from sklearn.utils.class_weight import compute_class_weight
 import lightgbm as lgb
 
 logger = logging.getLogger(__name__)
 warnings.filterwarnings('ignore', category=UserWarning)
-
-
-class OrdinalLogisticRegression(BaseEstimator, ClassifierMixin):
-    """Cumulative link ordinal logistic regression with Elastic Net penalty."""
-
-    def __init__(
-        self,
-        alpha: float = 1.0,
-        l1_ratio: float = 0.5,
-        max_iter: int = 1000,
-        class_weight: Union[str, Dict] = 'balanced',
-        seed: int = 42
-    ):
-        """
-        Initialize ordinal logistic regression.
-
-        Args:
-            alpha: Regularization strength (inverse of C)
-            l1_ratio: L1 ratio for Elastic Net
-            max_iter: Maximum iterations
-            class_weight: Class weight strategy
-            seed: Random seed
-        """
-        self.alpha = alpha
-        self.l1_ratio = l1_ratio
-        self.max_iter = max_iter
-        self.class_weight = class_weight
-        self.seed = seed
-
-        self.models_ = []
-        self.classes_ = None
-        self.n_classes_ = 0
-        self.label_encoder_ = None
-
-    def fit(self, X: np.ndarray, y: np.ndarray):
-        """
-        Fit ordinal regression using cumulative link approach.
-
-        Args:
-            X: Feature matrix
-            y: Ordinal target variable
-
-        Returns:
-            self
-        """
-        # Encode labels to ensure ordinal structure
-        self.label_encoder_ = LabelEncoder()
-        y_encoded = self.label_encoder_.fit_transform(y)
-        self.classes_ = self.label_encoder_.classes_
-        self.n_classes_ = len(self.classes_)
-
-        # Compute class weights
-        if self.class_weight == 'balanced':
-            class_weights = compute_class_weight(
-                'balanced', classes=np.unique(y_encoded), y=y_encoded
-            )
-            class_weight_dict = dict(zip(np.unique(y_encoded), class_weights))
-        else:
-            class_weight_dict = self.class_weight
-
-        # Fit binary classifiers for each threshold
-        self.models_ = []
-        for k in range(self.n_classes_ - 1):
-            # Create binary labels: 0 if y <= k, 1 if y > k
-            y_binary = (y_encoded > k).astype(int)
-
-            # Compute sample weights for this binary problem
-            sample_weights = np.ones(len(y_binary))
-            if class_weight_dict:
-                for class_idx, weight in class_weight_dict.items():
-                    if class_idx <= k:
-                        sample_weights[y_encoded == class_idx] = weight
-                    else:
-                        sample_weights[y_encoded == class_idx] = weight
-
-            # Fit binary classifier
-            model = LogisticRegression(
-                penalty='elasticnet' if self.l1_ratio < 1.0 else 'l1',
-                solver='saga',
-                C=1.0 / self.alpha,
-                l1_ratio=self.l1_ratio,
-                max_iter=self.max_iter,
-                random_state=self.seed + k
-            )
-
-            model.fit(X, y_binary, sample_weight=sample_weights)
-            self.models_.append(model)
-
-        return self
-
-    def predict_proba(self, X: np.ndarray) -> np.ndarray:
-        """
-        Predict class probabilities.
-
-        Args:
-            X: Feature matrix
-
-        Returns:
-            Probability matrix (n_samples, n_classes)
-        """
-        n_samples = X.shape[0]
-        cumulative_probs = np.zeros((n_samples, self.n_classes_))
-
-        # Get cumulative probabilities
-        for k in range(self.n_classes_ - 1):
-            # Probability of being in class > k
-            prob_greater = self.models_[k].predict_proba(X)[:, 1]
-            cumulative_probs[:, k + 1] = prob_greater
-
-        # Convert cumulative to class probabilities
-        class_probs = np.zeros((n_samples, self.n_classes_))
-        class_probs[:, 0] = 1 - cumulative_probs[:, 1]
-        for k in range(1, self.n_classes_ - 1):
-            class_probs[:, k] = cumulative_probs[:, k] - cumulative_probs[:, k + 1]
-        class_probs[:, -1] = cumulative_probs[:, -1]
-
-        # Ensure probabilities are valid
-        class_probs = np.clip(class_probs, 0, 1)
-        class_probs = class_probs / class_probs.sum(axis=1, keepdims=True)
-
-        return class_probs
-
-    def predict(self, X: np.ndarray) -> np.ndarray:
-        """
-        Predict ordinal classes.
-
-        Args:
-            X: Feature matrix
-
-        Returns:
-            Predicted class labels
-        """
-        probs = self.predict_proba(X)
-        y_pred_encoded = np.argmax(probs, axis=1)
-        return self.label_encoder_.inverse_transform(y_pred_encoded)
 
 
 class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
@@ -207,6 +69,7 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
         self.classes_ = None
         self.n_classes_ = 0
         self.label_encoder_ = None
+        self.feature_names_: Optional[List[str]] = None
 
     def fit(self, X: np.ndarray, y: np.ndarray):
         """
@@ -230,6 +93,7 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
             X_df = X
         else:
             X_df = pd.DataFrame(X)
+        self.feature_names_ = X_df.columns.tolist()
 
         # Fit binary models for each threshold
         self.models_ = []
@@ -237,10 +101,11 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
             # Create binary labels
             y_binary = (y_encoded > k).astype(int)
 
-            # Compute class weights
+            # Compute class weights (correct formula: neg_count / pos_count)
             if self.class_weight == 'balanced':
-                pos_weight = len(y_binary) / (2 * np.sum(y_binary))
-                scale_pos_weight = pos_weight
+                n_pos = np.sum(y_binary)
+                n_neg = len(y_binary) - n_pos
+                scale_pos_weight = n_neg / n_pos if n_pos > 0 else 1.0
             else:
                 scale_pos_weight = 1.0
 
@@ -262,12 +127,23 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
                 'verbosity': -1
             }
 
-            # Train model
-            train_data = lgb.Dataset(X_df, label=y_binary)
+            # Split data for early stopping validation (80/20 split)
+            n_train = int(0.8 * len(y_binary))
+            indices = np.random.RandomState(self.seed + k).permutation(len(y_binary))
+            train_idx, val_idx = indices[:n_train], indices[n_train:]
+
+            X_train_k = X_df.iloc[train_idx] if isinstance(X_df, pd.DataFrame) else X_df[train_idx]
+            X_val_k = X_df.iloc[val_idx] if isinstance(X_df, pd.DataFrame) else X_df[val_idx]
+            y_train_k, y_val_k = y_binary[train_idx], y_binary[val_idx]
+
+            # Train model with validation set for early stopping
+            train_data = lgb.Dataset(X_train_k, label=y_train_k)
+            val_data = lgb.Dataset(X_val_k, label=y_val_k, reference=train_data)
             model = lgb.train(
                 params,
                 train_data,
                 num_boost_round=self.n_estimators,
+                valid_sets=[val_data],
                 callbacks=[lgb.early_stopping(10), lgb.log_evaluation(0)]
             )
 
@@ -330,6 +206,29 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
         y_pred_encoded = np.argmax(probs, axis=1)
         return self.label_encoder_.inverse_transform(y_pred_encoded)
 
+    def get_feature_importance(self, importance_type: str = "gain") -> pd.Series:
+        """
+        Aggregate feature importance across binary LightGBM models.
+
+        Args:
+            importance_type: LightGBM importance type (e.g., 'gain', 'split')
+
+        Returns:
+            Series of mean importance scores indexed by feature name.
+        """
+        if not self.models_:
+            raise ValueError("Model not fitted")
+
+        importance_frames = []
+        for model in self.models_:
+            scores = model.feature_importance(importance_type=importance_type)
+            names = model.feature_name()
+            importance_frames.append(pd.Series(scores, index=names))
+
+        importance = pd.concat(importance_frames, axis=1).mean(axis=1)
+        importance = importance.sort_values(ascending=False)
+        return importance
+
     def _apply_monotonic_constraints(self, probs: np.ndarray) -> np.ndarray:
         """
         Apply monotonic constraints to ensure ordinal consistency.
@@ -356,98 +255,3 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
                     probs[i, j] = probs[i, j - 1]
 
         return probs
-
-
-class StageClassifier:
-    """Wrapper class for stage classification with automatic model selection."""
-
-    def __init__(
-        self,
-        n_classes: int,
-        model_type: str = 'auto',
-        **model_params
-    ):
-        """
-        Initialize stage classifier.
-
-        Args:
-            n_classes: Number of developmental stages
-            model_type: Model type ('ordinal_lr', 'ordinal_lgb', 'binary_lr', 'auto')
-            **model_params: Parameters passed to the model
-        """
-        self.n_classes = n_classes
-        self.model_type = model_type
-        self.model_params = model_params
-        self.model_ = None
-
-    def fit(self, X: np.ndarray, y: np.ndarray):
-        """
-        Fit the appropriate model.
-
-        Args:
-            X: Feature matrix
-            y: Target labels
-
-        Returns:
-            self
-        """
-        # Auto-select model type based on number of classes
-        if self.model_type == 'auto':
-            if self.n_classes == 2:
-                self.model_type = 'binary_lr'
-            elif self.n_classes >= 3:
-                self.model_type = 'ordinal_lr'
-
-        # Initialize model
-        if self.model_type == 'ordinal_lr':
-            self.model_ = OrdinalLogisticRegression(**self.model_params)
-        elif self.model_type == 'ordinal_lgb':
-            self.model_ = OrdinalLightGBM(**self.model_params)
-        elif self.model_type == 'binary_lr':
-            # Set default l1_ratio if not provided for elasticnet
-            lr_params = self.model_params.copy()
-            if 'penalty' not in lr_params or lr_params.get('penalty') == 'elasticnet':
-                if 'l1_ratio' not in lr_params:
-                    lr_params['l1_ratio'] = 0.5
-            self.model_ = LogisticRegression(
-                penalty='elasticnet',
-                solver='saga',
-                **lr_params
-            )
-        elif self.model_type == 'svm':
-            self.model_ = SVC(
-                probability=True,
-                kernel='rbf',
-                **self.model_params
-            )
-        else:
-            raise ValueError(f"Unknown model type: {self.model_type}")
-
-        # Fit model
-        self.model_.fit(X, y)
-        logger.info(f"Fitted {self.model_type} for {self.n_classes}-class classification")
-
-        return self
-
-    def predict(self, X: np.ndarray) -> np.ndarray:
-        """Predict classes."""
-        return self.model_.predict(X)
-
-    def predict_proba(self, X: np.ndarray) -> np.ndarray:
-        """Predict class probabilities."""
-        return self.model_.predict_proba(X)
-
-    def get_params(self, deep: bool = True) -> Dict:
-        """Get model parameters."""
-        params = {'n_classes': self.n_classes, 'model_type': self.model_type}
-        params.update(self.model_params)
-        return params
-
-    def set_params(self, **params) -> 'StageClassifier':
-        """Set model parameters."""
-        for key, value in params.items():
-            if key in ['n_classes', 'model_type']:
-                setattr(self, key, value)
-            else:
-                self.model_params[key] = value
-        return self

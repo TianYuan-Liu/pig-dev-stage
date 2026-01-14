@@ -1,0 +1,231 @@
+\ProvidesPackage{beamerthemeConesaGroup}[2025/05/22 Conesa Group Academic Beamer Theme]
+
+% Required packages
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{calc}
+\RequirePackage{ifthen}
+
+% Define Cardiff-inspired palette (replaces original Conesa colors)
+\definecolor{conesaTeal}{HTML}{D3374A}       % primary accent (Cardiff red)
+\definecolor{conesaOrange}{HTML}{4A4F58}     % secondary dark grey
+\definecolor{conesaYellow}{HTML}{E6E8EB}     % light grey accent
+\definecolor{conesaGray}{HTML}{1E1F22}       % near-black text
+\definecolor{conesaLightGray}{HTML}{F6F7F9}  % super light background
+\newcommand{\conesaLogoFile}{conesa_logo.png}
+
+% Aspect ratio is set in the documentclass; avoid geometry here
+% Establish generous, consistent text margins (aligns with frametitle x-shift)
+\setbeamersize{text margin left=1.22cm, text margin right=1.22cm}
+% Use document fonts as-is (pairs well with lmodern/microtype in main.tex)
+\usefonttheme{professionalfonts}
+
+% Set global colors
+\setbeamercolor{normal text}{fg=conesaGray, bg=white}
+\setbeamercolor{structure}{fg=conesaTeal}
+\setbeamercolor{alerted text}{fg=conesaOrange}
+\setbeamercolor{example text}{fg=conesaTeal}
+\setbeamercolor{title}{fg=conesaGray}
+\setbeamercolor{subtitle}{fg=conesaGray!70}
+\setbeamercolor{section title}{fg=conesaGray}
+\setbeamercolor{frametitle}{fg=conesaGray}
+\setbeamercolor{block title}{fg=conesaTeal, bg=white}
+\setbeamercolor{block body}{fg=conesaGray, bg=white}
+% Harmonize alerted block colors with minimal style
+\setbeamercolor{block title alerted}{fg=conesaOrange, bg=white}
+\setbeamercolor{block body alerted}{fg=conesaGray, bg=white}
+\setbeamercolor{caption}{fg=conesaGray}
+\setbeamercolor{bibliography entry author}{fg=conesaGray}
+\setbeamercolor{bibliography entry title}{fg=conesaTeal}
+\setbeamercolor{bibliography entry location}{fg=conesaGray}
+\setbeamercolor{bibliography entry note}{fg=conesaGray}
+
+% Set fonts
+\setbeamerfont{title}{size=\LARGE, series=\bfseries}
+\setbeamerfont{subtitle}{size=\small}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamerfont{date}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize, series=\bfseries}
+\setbeamerfont{section in toc}{size=\large}
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamerfont{bibliography entry author}{size=\normalsize}
+\setbeamerfont{bibliography entry title}{size=\normalsize}
+\setbeamerfont{bibliography entry location}{size=\small}
+\setbeamerfont{bibliography entry note}{size=\small}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Define header and footer
+\setbeamertemplate{headline}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \IfFileExists{\conesaLogoFile}{%
+      \node[anchor=north east, xshift=-0.5cm, yshift=-0.5cm] at (current page.north east) {
+        \includegraphics[height=1cm]{\conesaLogoFile}
+      };
+    }{}
+  \end{tikzpicture}
+}
+
+% --------------------------------------------------
+% Modern minimalist footline with progress bar (overrides earlier definition)
+% --------------------------------------------------
+% A subtle light-gray full-width bar is drawn at the very bottom of the slide.
+% A teal progress segment grows with the slide number to give the audience a 
+% sense of progression.  Current slide / total slides is shown on the right.
+
+\setbeamertemplate{footline}{%
+  \pgfmathsetmacro{\progressratio}{\insertframenumber/\inserttotalframenumber}
+  \pgfmathsetmacro{\barwidth}{\paperwidth*\progressratio}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[conesaLightGray] (current page.south west)
+      rectangle ([yshift=0.2cm]current page.south east);
+    \fill[conesaTeal] (current page.south west)
+      rectangle ([xshift=\barwidth pt,yshift=0.2cm]current page.south west);
+    \node[anchor=south east, xshift=-0.3cm, yshift=0.05cm,
+          text=conesaGray, font=\scriptsize] at (current page.south east)
+      {\insertframenumber/\inserttotalframenumber};
+  \end{tikzpicture}%
+}
+
+% Title page – aligned content in a fixed-width left column
+\setbeamertemplate{title page}{
+  % Canvas + left accent bar
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[white] (current page.south west) rectangle (current page.north east);
+    \fill[conesaTeal] ([xshift=0.8cm]current page.north west)
+      rectangle ([xshift=1.0cm]current page.south west);
+    % Content container anchored to the normal text margin
+    \node[anchor=north west, xshift=1.22cm, yshift=-2.2cm]
+         at (current page.north west) {
+      \begin{minipage}[t]{0.72\paperwidth}
+        {\usebeamerfont{title}\color{conesaTeal}\inserttitle\par}
+        \vspace{0.6em}
+        {\usebeamerfont{subtitle}\color{conesaGray}\insertsubtitle\par}
+        \vspace{0.75em}
+        \tikz{\fill[conesaLightGray] (0,0) rectangle (8.5,0.03);} % thin rule
+        \vspace{0.9em}
+        {\parbox{\linewidth}{\raggedright\usebeamerfont{author}\color{conesaGray}\insertauthor}\par}
+        \vspace{0.2em}
+        {\usebeamerfont{institute}\color{conesaGray}\insertinstitute\par}
+        \vspace{0.2em}
+        {\usebeamerfont{date}\color{conesaGray}\insertdate}
+      \end{minipage}
+    };
+  \end{tikzpicture}
+  % Logo at bottom-right
+  \begin{tikzpicture}[remember picture,overlay]
+    \IfFileExists{\conesaLogoFile}{%
+      \node[anchor=south east,xshift=-1cm,yshift=0.55cm] at (current page.south east) {
+        \includegraphics[height=1.5cm]{\conesaLogoFile}
+      };
+    }{}
+  \end{tikzpicture}
+}
+
+% Frame title - Positioned via TikZ, aligned with main text area
+\setbeamertemplate{frametitle}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west, xshift=1.22cm, yshift=-0.85cm, inner sep=0pt]
+      at (current page.north west) { 
+      \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle
+    };
+  \end{tikzpicture}
+  \usebeamertemplate{framesubtitle}
+  % Thin rule below (sub)title
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[conesaLightGray] ([yshift=-1.60cm]current page.north west)
+      rectangle ([yshift=-1.58cm]current page.north east);
+  \end{tikzpicture}
+  % Ensure content starts comfortably below the rule
+  \vspace*{0.8cm}
+}
+
+\setbeamertemplate{framesubtitle}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west, xshift=1.22cm, yshift=-1.35cm] at (current page.north west) {%
+      \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertframesubtitle
+    };
+  \end{tikzpicture}
+}
+
+% ----------------------------------------
+% Clean section page (no accent bars or progress visuals)
+% ----------------------------------------
+\setbeamertemplate{section page}{%
+  {%
+    \setbeamertemplate{footline}{}% hide progress bar on section slides
+    \begin{frame}[plain,c]
+      \begin{tikzpicture}[remember picture, overlay]
+        \fill[white] (current page.south west) rectangle (current page.north east);
+        \node[text opacity=0.05, font=\fontsize{110}{110}\bfseries, text=conesaGray] at (current page.center) {\insertsectionnumber};
+      \end{tikzpicture}
+      \vspace*{2.5cm}
+      \begin{center}
+        {\usebeamerfont{section title}\color{conesaGray}\insertsection}\par
+      \end{center}
+    \end{frame}
+  }%
+}
+
+% Table of contents
+\setbeamertemplate{section in toc}{
+  \hspace*{1em}\inserttocsectionnumber.~\inserttocsection\par
+}
+
+% Blocks
+% Minimal, modern block: structured with title box + underline + body box
+\setbeamertemplate{block begin}{%
+  \par\vspace{0.2em}%
+  \begin{beamercolorbox}[vmode, sep=0pt, wd=\linewidth]{block title}
+    {\usebeamerfont{block title}\usebeamercolor[fg]{block title}\insertblocktitle}
+  \end{beamercolorbox}%
+  \vspace{0.15em}%
+  {\color{conesaTeal}\hrule height 0.6pt}\vspace{0.3em}%
+  \begin{beamercolorbox}[vmode, sep=0pt, wd=\linewidth]{block body}
+    \usebeamerfont{block body}% ensure correct font
+}
+\setbeamertemplate{block end}{\end{beamercolorbox}\vspace{0.2em}}
+
+% Matching alerted block with orange accent
+\setbeamertemplate{alerted block begin}{%
+  \par\vspace{0.2em}%
+  \begin{beamercolorbox}[vmode, sep=0pt, wd=\linewidth]{block title alerted}
+    {\usebeamerfont{block title}\color{conesaOrange}\insertblocktitle}
+  \end{beamercolorbox}%
+  \vspace{0.15em}%
+  {\color{conesaOrange}\hrule height 0.6pt}\vspace{0.3em}%
+  \begin{beamercolorbox}[vmode, sep=0pt, wd=\linewidth]{block body alerted}
+    \usebeamerfont{block body}%
+}
+\setbeamertemplate{alerted block end}{\end{beamercolorbox}\vspace{0.2em}}
+
+% Itemize and enumerate (refined, minimal bullets)
+\setbeamertemplate{itemize item}{\tikz\fill[conesaTeal] (0,0) circle (1.2pt);}
+\setbeamertemplate{itemize subitem}{\tikz\draw[conesaTeal, line width=0.4pt] (0,0) circle (1.0pt);}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+
+% Caption
+\setbeamertemplate{caption}{\insertcaption}
+
+% Bibliography
+% \setbeamertemplate{bibliography item}[text] % Commenting out the old template
+% \setbeamertemplate{bibliography item}{%
+%   \usebeamerfont{bibliography item}%
+%   \usebeamercolor[fg]{bibliography item}%
+%   \insertbibmacro{begentry}
+%   \printnames{author}, \newblock
+%   \printfield{title}, \newblock
+%   \printfield{year}
+%   \insertbibmacro{endentry}
+% } % Removing the custom bibitem template
+
+% Define a command for citations
+\newcommand{\citationexample}[1]{{\footnotesize\usebeamercolor[fg]{bibliography entry note}#1}}
+
+% Enlarge section title font for section pages
+\setbeamerfont{section title}{size=\huge, series=\bfseries}

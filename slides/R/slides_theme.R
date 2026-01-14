@@ -44,55 +44,63 @@ tissue_colors <- c(
   "Testis" = "#999999"
 )
 
-# Slides theme function - larger fonts for presentation visibility
-slides_theme <- function(base_size = 14, base_family = "sans") {
+# Slides theme function - minimalist and clean
+# Reduced base_size from 14 to 12 for better density on slides
+slides_theme <- function(base_size = 12, base_family = "sans") {
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
-      # Titles - bold and visible
+      # Titles - clean and bold
       plot.title = element_text(
-        size = base_size + 6,
+        size = base_size + 4,
         face = "bold",
         color = cardiff_colors$black,
-        margin = margin(b = 10)
+        margin = margin(b = 8)
       ),
       plot.subtitle = element_text(
-        size = base_size + 2,
+        size = base_size - 1,
         color = cardiff_colors$dark_grey,
-        margin = margin(b = 15)
+        margin = margin(b = 12)
       ),
 
-      # Axis text - readable from distance
+      # Axis text - minimalist
       axis.text = element_text(
-        size = base_size,
-        color = cardiff_colors$black
+        size = base_size - 1,
+        color = cardiff_colors$dark_grey
       ),
       axis.title = element_text(
-        size = base_size + 2,
+        size = base_size,
         color = cardiff_colors$black,
-        face = "bold"
+        face = "bold",
+        margin = margin(t = 10, r = 10)
       ),
-      axis.line = element_line(color = cardiff_colors$dark_grey, linewidth = 0.5),
-      axis.ticks = element_line(color = cardiff_colors$dark_grey),
+      axis.line.x = element_line(color = cardiff_colors$black, linewidth = 0.5),
+      axis.line.y = element_blank(),
+      axis.ticks.x = element_line(color = cardiff_colors$black),
+      axis.ticks.y = element_blank(),
 
-      # Legend - clear and readable
-      legend.text = element_text(size = base_size - 1, color = cardiff_colors$black),
-      legend.title = element_text(size = base_size, face = "bold", color = cardiff_colors$black),
-      legend.key.size = unit(1.2, "lines"),
-      legend.background = element_rect(fill = "white", color = NA),
+      # Legend - clean placement
+      legend.position = "top",
+      legend.justification = "left",
+      legend.text = element_text(size = base_size - 1, color = cardiff_colors$dark_grey),
+      legend.title = element_text(size = base_size - 1, face = "bold", color = cardiff_colors$black),
+      legend.key.size = unit(0.8, "lines"),
+      legend.background = element_blank(),
       legend.key = element_blank(),
 
-      # Panel - clean white background
+      # Panel - very subtle grid
       panel.background = element_rect(fill = "white", color = NA),
-      panel.grid.major = element_line(color = cardiff_colors$light_grey, linewidth = 0.3),
+      panel.grid.major.y = element_line(color = cardiff_colors$light_grey, linewidth = 0.3),
+      panel.grid.major.x = element_blank(),
       panel.grid.minor = element_blank(),
       panel.border = element_blank(),
 
-      # Strip (for facets) - bold and visible
-      strip.background = element_rect(fill = cardiff_colors$light_grey, color = NA),
+      # Strip (for facets) - clean
+      strip.background = element_blank(),
       strip.text = element_text(
         size = base_size,
         face = "bold",
-        color = cardiff_colors$black
+        color = cardiff_colors$black,
+        hjust = 0
       ),
 
       # Plot background - white
@@ -104,7 +112,8 @@ slides_theme <- function(base_size = 14, base_family = "sans") {
 }
 
 # Save function for slide figures
-save_slide_figure <- function(plot, filename, width = 10, height = 6, dpi = 150) {
+# Increased default DPI from 150 to 200 for sharper text
+save_slide_figure <- function(plot, filename, width = 10, height = 6, dpi = 200) {
   ggsave(
     filename,
     plot = plot,

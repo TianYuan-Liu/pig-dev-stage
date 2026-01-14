@@ -2,13 +2,13 @@
 
 # Configuration
 PROJECT = presentation
-SOURCE_DIR = templates
+SOURCE_DIR = .
 THEME_DIR = theme
 BUILD_DIR = build
 OUTPUT_DIR = .
 
 # Main File to Compile (change this to your specific presentation)
-MAIN_FILE = master_presentation
+MAIN_FILE = presentation
 SOURCE = $(SOURCE_DIR)/$(MAIN_FILE).tex
 
 # Tools

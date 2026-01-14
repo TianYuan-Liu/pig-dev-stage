@@ -145,6 +145,26 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
 
         return X_processed
 
+    def fit_transform(
+        self,
+        X: pd.DataFrame,
+        y=None,
+        sample_metadata: Optional[pd.DataFrame] = None
+    ) -> pd.DataFrame:
+        """
+        Fit and transform expression data in one step.
+
+        Args:
+            X: Expression matrix (genes x samples)
+            y: Target variable (unused)
+            sample_metadata: Sample metadata for covariate regression
+
+        Returns:
+            Preprocessed expression matrix
+        """
+        self.fit(X, y, sample_metadata)
+        return self.transform(X, sample_metadata)
+
     def _fit_covariate_regression(
         self,
         X: pd.DataFrame,

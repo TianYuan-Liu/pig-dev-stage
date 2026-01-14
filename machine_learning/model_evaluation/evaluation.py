@@ -195,7 +195,8 @@ def calculate_all_metrics(
             for i, label in enumerate(labels if labels is not None else np.unique(y_true)):
                 try:
                     metrics['per_class_auroc'][label] = roc_auc_score(y_true_bin[:, i], y_prob[:, i])
-                except:
+                except (ValueError, IndexError) as e:
+                    logger.warning(f"Could not compute AUROC for class {label}: {e}")
                     metrics['per_class_auroc'][label] = np.nan
 
     # Ordinal metrics

@@ -12,15 +12,25 @@ import pandas as pd
 logger = logging.getLogger(__name__)
 
 
+def _get_stage_selection_defaults():
+    """Get default stage selection thresholds (used when config unavailable)."""
+    return {
+        "min_samples_4class": 40,
+        "min_samples_3class": 30,
+        "min_samples_2class": 15,
+        "min_total_2class": 40,
+    }
+
+
 class StageGranularitySelector:
     """Select optimal stage classification granularity based on sample counts."""
 
     def __init__(
         self,
-        min_samples_4class: int = 40,
-        min_samples_3class: int = 30,
-        min_samples_2class: int = 25,
-        min_total_2class: int = 60
+        min_samples_4class: int = None,
+        min_samples_3class: int = None,
+        min_samples_2class: int = None,
+        min_total_2class: int = None
     ):
         """
         Initialize stage selector.
@@ -30,11 +40,22 @@ class StageGranularitySelector:
             min_samples_3class: Minimum samples per class for 3-class scheme
             min_samples_2class: Minimum samples per class for 2-class scheme
             min_total_2class: Minimum total samples for 2-class scheme
+
+        If any parameter is None, values are loaded from config.yaml.
         """
-        self.min_samples_4class = min_samples_4class
-        self.min_samples_3class = min_samples_3class
-        self.min_samples_2class = min_samples_2class
-        self.min_total_2class = min_total_2class
+        # Try to load from config, fall back to defaults
+        try:
+            from machine_learning.utils.config_loader import get_config
+            config = get_config()
+            stage_config = config.stage_selection
+        except (ImportError, Exception):
+            stage_config = _get_stage_selection_defaults()
+
+        defaults = _get_stage_selection_defaults()
+        self.min_samples_4class = min_samples_4class if min_samples_4class is not None else stage_config.get("min_samples_4class", defaults["min_samples_4class"])
+        self.min_samples_3class = min_samples_3class if min_samples_3class is not None else stage_config.get("min_samples_3class", defaults["min_samples_3class"])
+        self.min_samples_2class = min_samples_2class if min_samples_2class is not None else stage_config.get("min_samples_2class", defaults["min_samples_2class"])
+        self.min_total_2class = min_total_2class if min_total_2class is not None else stage_config.get("min_total_2class", defaults["min_total_2class"])
 
         self.stage_order = ['Infant', 'Early childhood', 'Pre-pubertal', 'Post-pubertal', 'Adult']
 
@@ -317,3 +338,72 @@ class StageGranularitySelector:
         summary = summary.drop('_scheme_order', axis=1)
 
         return summary
+
+    def determine_common_scheme(
+        self,
+        tissue_metadata: Dict[str, pd.DataFrame]
+    ) -> Tuple[str, List[str], List[str]]:
+        """
+        Determine lowest common denominator scheme for cross-tissue validation.
+
+        This method analyzes the stage distribution across multiple tissues and
+        determines the most granular classification scheme that all tissues can
+        support. Tissues that cannot support even 2-class are excluded.
+
+        Args:
+            tissue_metadata: Dict mapping tissue name -> metadata DataFrame.
+                            Each DataFrame must have a 'Stage' column with raw
+                            stage labels (e.g., 'Infant', 'Pre-pubertal', 'Adult').
+
+        Returns:
+            Tuple of (scheme_name, eligible_tissues, excluded_tissues):
+                - scheme_name: The common scheme ('2-class', '3-class', '4-class')
+                              or None if no common scheme possible
+                - eligible_tissues: List of tissues that support the common scheme
+                - excluded_tissues: List of tissues excluded (can't support any scheme)
+
+        Example:
+            >>> selector = StageGranularitySelector()
+            >>> metadata = {
+            ...     'Liver': liver_df,   # Has all 5 stages -> 4-class eligible
+            ...     'Brain': brain_df,   # Has 2 stages -> 2-class eligible
+            ... }
+            >>> scheme, eligible, excluded = selector.determine_common_scheme(metadata)
+            >>> print(scheme)  # '2-class' (lowest common denominator)
+        """
+        tissue_schemes = {}
+
+        for tissue_name, metadata in tissue_metadata.items():
+            # Count samples per stage from raw labels
+            if 'Stage' not in metadata.columns:
+                logger.warning(f"{tissue_name}: No 'Stage' column found")
+                tissue_schemes[tissue_name] = None
+                continue
+
+            stage_counts = metadata['Stage'].value_counts()
+            scheme_name, _ = self.select_scheme(stage_counts, tissue_name)
+            tissue_schemes[tissue_name] = scheme_name
+
+        # Find tissues that can't support any scheme
+        excluded = [t for t, s in tissue_schemes.items() if s is None]
+        eligible_schemes = {t: s for t, s in tissue_schemes.items() if s is not None}
+
+        if not eligible_schemes:
+            logger.warning("No tissues eligible for any classification scheme")
+            return None, [], list(tissue_metadata.keys())
+
+        # Determine common scheme (lowest common denominator)
+        # Priority: 2-class < 3-class < 4-class (lower number = more inclusive)
+        scheme_priority = {'2-class': 0, '3-class': 1, '4-class': 2}
+        min_scheme = min(eligible_schemes.values(), key=lambda s: scheme_priority.get(s, 0))
+
+        # All tissues with a scheme can support the minimum scheme
+        # (4-class tissues can be mapped to 2-class, etc.)
+        eligible = list(eligible_schemes.keys())
+
+        logger.info(
+            f"Common scheme: {min_scheme} "
+            f"({len(eligible)} tissues eligible, {len(excluded)} excluded)"
+        )
+
+        return min_scheme, eligible, excluded

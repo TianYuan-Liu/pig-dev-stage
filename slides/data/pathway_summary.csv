@@ -1,0 +1,6 @@
+tissue,n_pathways,n_kegg,n_reactome,n_shared,n_tissue_specific
+Blood,704,25,61,523,181
+Brain,1204,44,91,735,469
+Liver,1151,48,186,728,423
+Lung,1037,92,90,701,336
+Muscle,1158,63,134,784,374

@@ -1,0 +1,39 @@
+
+FIGURE 2: MODEL PERFORMANCE
+===========================
+Generated: %Y-%m-%d %H:%M
+
+PERFORMANCE METRICS
+-------------------
+# A tibble: 5 × 11
+  Tissue Scheme  N_samples Balanced_Accuracy BA_CI_lower BA_CI_upper F1_macro
+  <chr>  <chr>       <int>             <dbl>       <dbl>       <dbl>    <dbl>
+1 Muscle 4-class       761             0.844       0.780       0.908    0.842
+2 Brain  2-class        43             0.638       0.389       0.9      0.639
+3 Liver  4-class       309             0.920       0.865       0.969    0.910
+4 Blood  2-class        78             0.864       0.708       1        0.869
+5 Lung   2-class       129             0.859       0.667       1        0.876
+# ℹ 4 more variables: F1_CI_lower <dbl>, F1_CI_upper <dbl>, MAE <dbl>,
+#   Spearman_r <dbl>
+
+Mean Balanced Accuracy: 0.825
+Best: Liver (0.920)
+Worst: Brain (0.637)
+
+ADJACENT ERROR RATES
+--------------------
+  Muscle: 23.8%
+  Brain: 100.0%
+  Liver: 0.0%
+  Blood: 100.0%
+  Lung: 100.0%
+
+AGE-STAGE CORRELATIONS
+----------------------
+  Muscle: ρ = 0.937
+  Brain: ρ = 0.942
+  Liver: ρ = 0.979
+  Blood: ρ = 0.773
+
+Figure dimensions: 183mm × 180mm
+
