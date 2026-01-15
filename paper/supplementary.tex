@@ -38,26 +38,19 @@
 \usepackage{enumitem}
 
 % Define Nature blue color
-\definecolor{NatureBlue}{RGB}{0, 51, 102}
+% Removed custom colors.
 
 % Line spacing - 1.5 for readability (Nature allows this for supplementary)
 \onehalfspacing
 
 % Header and footer styling
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textcolor{gray}{Supplementary Information}}
-\fancyhead[R]{\small\textcolor{gray}{Liu et al.}}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0pt}
+\pagestyle{plain} % Simple page numbers only, no headers
 
-% Caption formatting - Nature style with bold title
-\DeclareCaptionLabelSeparator{bar}{ $|$ }
+% Caption formatting - Standard style
 \captionsetup{
   font={sf,small},
   labelfont={bf},
-  labelsep=bar,
+  labelsep=colon,
   justification=justified,
   singlelinecheck=false,
   format=plain,
@@ -66,15 +59,26 @@
 
 % Section formatting
 \titleformat{\section}
-  {\Large\bfseries\sffamily\color{NatureBlue}}
+  {\Large\bfseries\sffamily}
   {\thesection}{1em}{}
 \titlespacing*{\section}{0pt}{20pt}{10pt}
 
 % ToC formatting
+\usepackage{tocloft}
 \renewcommand{\cftsecfont}{\sffamily\bfseries}
 \renewcommand{\cftsecpagefont}{\sffamily}
 \renewcommand{\cftdotsep}{1}
-\setlength{\cftbeforesecskip}{8pt}
+\setlength{\cftbeforesecskip}{3pt} % Compact spacing
+\setlength{\cftparskip}{0pt}
+
+% Customize list titles to be smaller and closer
+\renewcommand{\contentsname}{\sffamily\large\bfseries Contents}
+\setlength{\cftbeforetoctitleskip}{10pt}
+\setlength{\cftaftertoctitleskip}{5pt}
+\setlength{\cftbeforeloftitleskip}{10pt}
+\setlength{\cftafterloftitleskip}{5pt}
+\setlength{\cftbeforelottitleskip}{10pt}
+\setlength{\cftafterlottitleskip}{5pt}
 
 % Figure placement
 \renewcommand{\floatpagefraction}{0.7}
@@ -92,12 +96,15 @@
 % Hyperref setup
 \hypersetup{
   colorlinks=true,
-  linkcolor=NatureBlue,
-  citecolor=NatureBlue,
-  urlcolor=NatureBlue,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
   pdftitle={Supplementary Information: A Calibrated Transcriptomic Atlas of Porcine Development},
   pdfauthor={Tianyuan Liu et al.}
 }
+
+% Rename figures for supplementary
+\renewcommand{\figurename}{Supplementary Figure}
 
 % ==============================================================================
 \begin{document}
@@ -105,41 +112,28 @@
 % Title and Table of Contents on a single page
 \thispagestyle{empty}
 \begin{center}
-  \vspace*{1cm}
+  \vspace*{0.5cm} % Reduced top spacing
   
-  {\Large\textcolor{NatureBlue}{\textbf{SUPPLEMENTARY INFORMATION}}}
+  {\huge\textbf{Supplementary Information}}
   
-  \vspace{1cm}
+  \vspace{0.8cm}
   
-  {\LARGE\bfseries A Calibrated Transcriptomic Atlas of\\[0.3em]
-   Porcine Development Reveals Conserved\\[0.3em]
-   Molecular Programs with Humans}
+  {\Large\textbf{A Calibrated Transcriptomic Atlas of Porcine Development\\[0.2em]
+   Reveals Conserved Molecular Programs with Humans}}
   
-  \vspace{1cm}
+  \vspace{0.8cm}
   
   {\large Tianyuan Liu, Rujing Lei, Ilyas M. Khan, Peter Theobald}
   
-  \vspace{1.5cm}
-  
-  \rule{0.6\textwidth}{0.5pt}
-  
-  \vspace{0.5cm}
-  
-  {\small This file contains:}
-  
-  \vspace{0.3cm}
-  
-  \begin{itemize}[leftmargin=3cm, itemsep=0.2cm]
-    \item[\textbullet] Supplementary Figures S1--S3
-    \item[\textbullet] Supplementary Tables S1--S3
-  \end{itemize}
+  \vspace{1.0cm} % Reduced spacing before TOC
   
 \end{center}
 
-\vspace{1cm}
-
-% Table of contents
-\tableofcontents
+% Table of contents and lists - All on one page if possible
+{
+  \setlength{\parskip}{0pt}
+  \tableofcontents
+}
 \clearpage
 
 % Reset page numbering
@@ -148,10 +142,7 @@
 % ==============================================================================
 % SUPPLEMENTARY FIGURES
 % ==============================================================================
-% Nature-style formatting:
-% - Bold brief title for each figure/table
-% - Concise descriptions (≤100 words per figure)
-% - Panel labels in lowercase (a, b, c)
+% Standard formatting
 % ==============================================================================
 
 \section*{Supplementary Figures}
@@ -165,7 +156,7 @@
   \includegraphics[width=\textwidth]{figures/output/pdf/figS1_cross_species_sensitivity.pdf}
   \caption{\textbf{Cross-species sensitivity analysis of conserved developmental markers.}
   \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across significance thresholds ranging from $p < 0.01$ to $p < 0.20$. Shaded region indicates the range (minimum--maximum) across different gene set sizes ($n = 15$--$50$ genes).
-  \textbf{b}, Bootstrap distribution of correlation coefficients from 1,000 resampling iterations for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.62$); dashed lines denote the 95\% bootstrap confidence interval boundaries.}
+  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.603$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.404--0.776).}
   \label{fig:S1}
 \end{figure}
 
@@ -178,9 +169,9 @@
   \centering
   \includegraphics[width=\textwidth]{figures/output/pdf/figS2_tissue_specificity_stability.pdf}
   \caption{\textbf{Tissue specificity and feature selection stability analysis.}
-  \textbf{a}, Uniform manifold approximation and projection (UMAP) of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, top 500 variable genes).
-  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across five independent random seeds. Error bars represent standard deviation; higher values indicate more reproducible feature selection.
-  \textbf{c}, Mean absolute Spearman correlation of top-ranked features with developmental stage. Error bars represent standard deviation across selected features within each tissue.}
+  \textbf{a}, Uniform manifold approximation and projection (UMAP) of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes).
+  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across five independent random seeds (brain, blood, lung; stability analysis not performed for muscle and liver). Error bars represent standard deviation; higher values indicate more reproducible feature selection.
+  \textbf{c}, Mean absolute Spearman correlation between top-ranked features and developmental stage for each tissue.}
   \label{fig:S2}
 \end{figure}
 

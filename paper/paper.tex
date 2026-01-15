@@ -42,9 +42,15 @@
 \usepackage{lineno}  % Line numbering for peer review
 
 % ==============================================================================
+% BIBLIOGRAPHY SETUP - Nature style superscript citations
+% ==============================================================================
+\usepackage[super,sort&compress,comma]{natbib}
+\setlength{\bibsep}{0pt plus 0.3ex}
+
+% ==============================================================================
 % COLOR DEFINITIONS
 % ==============================================================================
-\definecolor{NatureBlue}{RGB}{0, 51, 102}
+% Removed custom colors to follow standard academic formatting.
 
 % ==============================================================================
 % HYPERREF SETUP - Must be loaded late
@@ -52,9 +58,9 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   colorlinks=true,
-  linkcolor=NatureBlue,
-  citecolor=NatureBlue,
-  urlcolor=NatureBlue,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black,
   pdftitle={A Calibrated Transcriptomic Atlas of Porcine Development},
   pdfauthor={Tianyuan Liu et al.}
 }
@@ -70,11 +76,10 @@
 % ==============================================================================
 % CAPTION FORMATTING - Nature style
 % ==============================================================================
-\DeclareCaptionLabelSeparator{bar}{ $|$ }
 \captionsetup{
   font={sf,small},
   labelfont={bf},
-  labelsep=bar,
+  labelsep=colon,
   justification=justified,
   singlelinecheck=false,
   format=plain,
@@ -112,14 +117,15 @@
 % ==============================================================================
 \title{\textbf{A Calibrated Transcriptomic Atlas of Porcine Development Reveals Conserved Molecular Programs with Humans}}
 
-\author[1,2]{Tianyuan Liu}
+\author[1,2,3]{Tianyuan Liu}
 \author[1]{Rujing Lei}
-\author[3]{Ilyas M. Khan}
+\author[4]{Ilyas M. Khan}
 \author[1,$\ast$]{Peter Theobald}
 
 \affil[1]{Cardiff School of Engineering, Cardiff University, The Parade, Cardiff, CF24 3AA, UK}
-\affil[2]{Institute for Integrative Systems Biology, Spanish National Research Council, Paterna, Valencia, Spain}
-\affil[3]{Faculty of Medicine, Health \& Life Science, Swansea University Medical School, UK}
+\affil[2]{Institute for Integrative Systems Biology (I2SysBio), Spanish National Research Council (CSIC), Paterna 46980, Spain}
+\affil[3]{Department of Computer Science, University of Valencia, Spain}
+\affil[4]{Faculty of Medicine, Health \& Life Science, Swansea University Medical School, UK}
 \affil[$\ast$]{Corresponding author: TheobaldP@cardiff.ac.uk}
 
 \date{}
@@ -147,9 +153,9 @@ Reproducibility in pig research is hampered by the lack of a standardised, molec
 % ==============================================================================
 \section{Introduction}
 
-The domestic pig (\textit{Sus scrofa}) is central to modern animal science, serving as both a major agricultural species and an increasingly important model organism\textsuperscript{1,2}. However, a critical gap undermines reproducibility across pig research: the lack of a standardised, molecular definition of developmental stage. Current staging relies on morphological criteria or chronological age, which are poor proxies for biological maturity. Littermates frequently develop asynchronously, and distinct organs mature at different rates, effectively decoupling whole-body age from tissue-specific functional competence. This imprecision confounds experimental reproducibility in nutrition, growth physiology, and disease studies, where developmental stage is a critical variable\textsuperscript{3,4}.
+The domestic pig (\textit{Sus scrofa}) is central to modern animal science, serving as both a major agricultural species and an increasingly important model organism\cite{swindle_swine_2012,lunney_importance_2021,groenen_analyses_2012}. However, a critical gap undermines reproducibility across pig research: the lack of a standardised, molecular definition of developmental stage. Current staging relies on morphological criteria or chronological age, which are poor proxies for biological maturity\cite{boeyer_evidence_2020}. Littermates frequently develop asynchronously, and distinct organs mature at different rates, effectively decoupling whole-body age from tissue-specific functional competence. This imprecision confounds experimental reproducibility in nutrition, growth physiology, and disease studies, where developmental stage is a critical variable\cite{pluske_gastrointestinal_2018}.
 
-Molecular approaches offer a solution to this challenge. Transcriptomic profiles provide a quantitative readout of cellular state, enabling precise biological staging that transcends morphological variation\textsuperscript{5,6}. While such molecular clocks are established in humans and mice, a comprehensive, tissue-resolved developmental atlas has been missing for the pig, limiting the standardisation of experimental protocols across research groups.
+Molecular approaches offer a solution to this challenge. Epigenetic clocks, which leverage DNA methylation patterns to predict biological age, have emerged as powerful tools for quantifying organismal maturation\cite{horvath_dna_2013,duan_epigenetic_2022,teschendorff_epigenetic_2025,schachtschneider_epigenetic_2021}. Similarly, transcriptomic profiles provide a quantitative readout of cellular state, enabling precise biological staging that transcends morphological variation\cite{sun_spatial_2025,muralidharan_human_2025}. While such molecular clocks are established in humans and mice\cite{bi_ageing_clock_team_multi-tissue_2017,coorens_human_2025}, a comprehensive, tissue-resolved developmental atlas has been missing for the pig, limiting the standardisation of experimental protocols across research groups.
 
 Here, we present the first calibrated transcriptomic atlas of porcine development, integrating data across five major tissues (brain, liver, muscle, lung, and blood) with sufficient sample sizes for machine learning analysis. Unlike previous descriptive studies, we build a quantitative, predictive framework that infers developmental stage with high accuracy directly from gene expression profiles. To validate the biological relevance of our atlas, we performed cross-species comparison with human skeletal muscle, revealing striking conservation of developmental trajectories (Pearson $r = 0.62$) and identifying shared regulatory modules that orchestrate postnatal maturation in both species. We note that cross-species validation is currently limited to muscle tissue due to availability of matched human developmental data. This work establishes a rigorous molecular standard for staging in pig research, enabling precise synchronisation of experimental cohorts and improving reproducibility across studies in swine nutrition, production, and biomedical applications.
 
@@ -160,7 +166,7 @@ Here, we present the first calibrated transcriptomic atlas of porcine developmen
 
 \subsection{A comprehensive transcriptomic atlas of porcine development}
 
-To define a molecular standard for porcine development, we constructed a large-scale reference atlas using RNA-seq profiles from the PigGTEx consortium (\figref{fig:methodology}a). The dataset comprises 1,924 samples spanning five major tissues (brain, liver, muscle, lung, and blood) and covering the entire postnatal lifespan. These five tissues were selected for machine learning analysis based on sample availability and developmental stage representation.
+To define a molecular standard for porcine development, we constructed a large-scale reference atlas using RNA-seq profiles from the PigGTEx consortium\cite{the_gtex_consortium_gtex_2020,teng_compendium_2024,chen_construction_2025,long_comprehensive_2024} (\figref{fig:methodology}a). The dataset comprises 1,924 samples spanning five major tissues (brain, liver, muscle, lung, and blood) and covering the entire postnatal lifespan. These five tissues were selected for machine learning analysis based on sample availability and developmental stage representation.
 
 We addressed the limitations of chronological age by defining five calibrated life stages based on physiological milestones: Infant (0--20\,d), Early childhood (21--59\,d), Pre-pubertal (60--149\,d), Post-pubertal (150--365\,d), and Adult ($>$365\,d) (\figref{fig:methodology}c). These stages correspond to distinct physiological transitions: weaning completion ($\sim$20\,d), early growth phase ($\sim$60\,d), puberty onset ($\sim$150\,d), and reproductive maturity ($\sim$365\,d). This provided a ground truth framework for training, allowing us to decouple ``biological time'' from simple chronological time. The resulting dataset serves as the most comprehensive transcriptomic resource for porcine development to date.
 
@@ -168,7 +174,7 @@ We addressed the limitations of chronological age by defining five calibrated li
 
 We implemented a calibrated machine learning framework to infer the biological developmental stage directly from tissue-specific transcriptomes (\figref{fig:methodology}b). Models were trained on 70\% of samples with a stratified hold-out test set (30\%) to ensure unbiased evaluation. Test set performance demonstrated robust generalisation across tissues, with a mean balanced accuracy of 82.5\% (95\% confidence interval [CI]: 79.2--85.8\%) across all tissues (\figref{fig:performance}a; see Supplementary Table~S1 for detailed metrics).
 
-Performance varied according to tissue complexity and sample availability. The liver, a highly homogeneous metabolic organ with balanced class representation, achieved the highest balanced accuracy (92.0\%, 95\% CI: 88.5--95.5\%), whereas the brain, with its extreme cellular heterogeneity and limited sample size ($n = 43$), showed lower predictability (63.8\%, 95\% CI: 49.2--78.4\%). Notably, tissues with severe class imbalance required reduced classification schemes (4-class for muscle and liver, 2-class for brain, blood, and lung) to ensure robust model training (Supplementary Table~S1).
+Performance varied according to tissue complexity and sample availability. The liver, a highly homogeneous metabolic organ with balanced class representation, achieved the highest balanced accuracy (92.0\%, 95\% CI: 88.5--95.5\%), whereas the brain, with its extreme cellular heterogeneity and limited sample size ($n = 43$), showed lower predictability (63.8\%, 95\% CI: 49.2--78.4\%). Notably, tissues with severe class imbalance required reduced classification schemes (4-class for muscle and liver, 2-class for brain, blood, and lung; \figref{fig:methodology}d) to ensure robust model training (Supplementary Table~S1).
 
 Crucially, the system achieved near-perfect ordinal consistency in well-sampled tissues like liver ($\rho = 0.98$) and muscle ($\rho = 0.94$) (\figref{fig:performance}c). The confusion matrices (\figref{fig:performance}b) reveal that ``errors'' largely occurred between adjacent stages (e.g., Early vs. Pre-pubertal), reflecting the continuous nature of biological development rather than random misclassification. Unlike static morphological grading, our probabilistic calibration captures these transitional states.
 
@@ -178,17 +184,17 @@ These tissue-specific performance differences prompted us to ask: what biologica
 
 Beyond prediction, our model uncovers the biological logic driving maturation. We performed functional enrichment analysis on the top informative genes for each stage, mapping the global landscape of developmental regulation (\figref{fig:biovalidation}).
 
-The resulting functional network reveals that each tissue follows a distinct regulatory framework. In the brain, development is driven by synaptic refinement and metabolic support, highlighted by enrichment of \textit{sarcosine metabolism} (linked to NMDA receptor coagonist availability) and \textit{beta-tubulin binding} (critical for axonal transport). In contrast, the liver prioritises metabolic autonomy and homeostasis, evidenced by the upregulation of \textit{autophagosome-membrane adaptors}. Muscle development centres on contractile machinery assembly and neuromuscular signalling (e.g., \textit{acetylcholinesterase activity}), while the lung focuses on immune system establishment (\textit{IL-6 signalling regulation}) and RNA metabolic remodelling (\textit{m6A reader activity}). This systems-level view moves beyond simple marker genes to capture the coordinated, tissue-specific logic of physiological maturation.
+The resulting functional network reveals that each tissue follows a distinct regulatory framework. In the brain, development is driven by synaptic refinement and metabolic support\cite{kang_spatio-temporal_2011,abramov_brain-neurodevelopment_2022}, highlighted by enrichment of \textit{sarcosine metabolism} (linked to NMDA receptor coagonist availability) and \textit{beta-tubulin binding} (critical for axonal transport). In contrast, the liver prioritises metabolic autonomy and homeostasis, evidenced by the upregulation of \textit{autophagosome-membrane adaptors}. Muscle development centres on contractile machinery assembly and neuromuscular signalling (e.g., \textit{acetylcholinesterase activity}), while the lung focuses on immune system establishment (\textit{IL-6 signalling regulation}) and RNA metabolic remodelling (\textit{m6A reader activity}). This systems-level view moves beyond simple marker genes to capture the coordinated, tissue-specific logic of physiological maturation.
 
-Notably, feature selection showed moderate stability across random seeds (mean Jaccard similarity: 0.16--0.43 across tissues; Supplementary Fig.~S2b), with 10--60\% of top features appearing in $\geq$80\% of runs. This variability reflects biological gene redundancy rather than model instability. Critically, cross-tissue feature overlap was extremely low (0.3\% Jaccard similarity vs. 55\% expected by chance)---180-fold lower than random expectation. This profound tissue-specificity confirms that each tissue uses unique molecular programs for developmental progression.
+Notably, feature selection showed moderate stability across random seeds (mean Jaccard similarity: 0.16--0.43 across tissues; Supplementary Fig.~S2b), with 10--60\% of top features appearing in $\geq$80\% of runs. This variability reflects biological gene redundancy rather than model instability. The selected features showed strong correlations with developmental stage (mean absolute $\rho = 0.4$--$0.7$; Supplementary Fig.~S2c). Critically, cross-tissue feature overlap was extremely low (0.3\% Jaccard similarity vs. 55\% expected by chance)---180-fold lower than random expectation. This profound tissue-specificity confirms that each tissue uses unique molecular programs for developmental progression.
 
 \subsection{Evolutionary conservation with human development}
 
-A central question for the pig model is whether its developmental timing biologically mirrors that of humans. We addressed this by performing a direct, quantitative comparison with human skeletal muscle transcriptomes from infant to adult stages\textsuperscript{7} (\figref{fig:crossspecies}). \textbf{We note that this cross-species validation is limited to muscle tissue} due to availability of matched human developmental data.
+A central question for the pig model is whether its developmental timing biologically mirrors that of humans. We addressed this by performing a direct, quantitative comparison with human skeletal muscle transcriptomes from infant to adult stages\cite{schaiter_molecular_2024,cardoso-moreira_gene_2019} (\figref{fig:crossspecies}). We note that this cross-species validation is limited to muscle tissue due to availability of matched human developmental data.
 
-We found a striking conservation of developmental trajectories in muscle tissue. Using an adaptive thresholding approach to optimise signal-to-noise ratio, we identified 36 genes meeting significance criteria ($p < 0.10$) in both species. There was a highly significant positive correlation in fold-changes between species (Pearson $r = 0.62$, $p = 5.86 \times 10^{-5}$, 95\% bootstrap CI: 0.36--0.79; Supplementary Fig.~S1), with 89\% (32/36) of shared developmental markers changing in the same direction (\figref{fig:crossspecies}a). Bootstrap analysis (1,000 iterations) confirmed robustness of this correlation (mean $r = 0.60$, 95\% CI: 0.40--0.78; Supplementary Fig.~S1b), and sensitivity analysis across $p$-value thresholds (0.05--0.20) showed consistent positive correlations ($r > 0.55$) when 15--50 genes were included (Supplementary Fig.~S1a).
+We found a striking conservation of developmental trajectories in muscle tissue. Using an adaptive thresholding approach to optimise signal-to-noise ratio, we identified 36 genes meeting significance criteria ($p < 0.10$) in both species. There was a highly significant positive correlation in fold-changes between species (Pearson $r = 0.62$, $p = 5.86 \times 10^{-5}$; Supplementary Fig.~S1), with 89\% (32/36) of shared developmental markers changing in the same direction (\figref{fig:crossspecies}a). Bootstrap analysis (1,000 iterations) confirmed the robustness of this correlation (95\% CI: 0.36--0.81; Supplementary Fig.~S1b), and sensitivity analysis across $p$-value thresholds (0.05--0.20) showed consistent positive correlations ($r > 0.55$) when 15--50 genes were included (Supplementary Fig.~S1a).
 
-We identified three conserved functional modules driving this maturation. The first module, reflecting neuromuscular maturation, showed synchronised upregulation of \textit{SORCS2} (pig FC = 1.84, human FC = 0.95), a regulator of motor neuron innervation, and \textit{KREMEN1}, a modulator of Wnt/$\beta$-catenin signalling critical for neuromuscular junction development. The second module, associated with structural refinement, was marked by coordinated changes in \textit{FGFRL1} (pig FC = 1.68, human FC = 2.10), which is implicated in muscle fibre development, and \textit{IGSF1}, a regulator of growth factor signalling. The third module, representing metabolic transition, was evident in the consistent downregulation of \textit{MSS51} and \textit{PDLIM3} in both species. The suppression of \textit{MSS51}, a negative regulator of mitochondrial oxidative metabolism, suggests a conserved mechanism to release the brake on oxidative capacity during postnatal muscle maturation.
+We identified three conserved functional modules driving this maturation (\figref{fig:crossspecies}b,c; Supplementary Table~S3). The first module, reflecting neuromuscular maturation, showed synchronised upregulation of \textit{SORCS2} (pig FC = 1.84, human FC = 0.95), a regulator of motor neuron innervation\cite{thomasen_sorcs2_2023}, \textit{ACHE} (pig FC = 1.81, human FC = 0.53), a structural adhesion molecule, and \textit{KREMEN1} (pig FC = 1.25, human FC = 1.43), a critical negative regulator of Wnt/$\beta$-catenin signalling\cite{osada_wnt_2006,qin_canonical_2024}. The second module, associated with structural refinement, was marked by coordinated changes in \textit{FGFRL1} (pig FC = 1.68, human FC = 2.10), a decoy receptor dampening excessive growth factor signalling\cite{amann_fgfrl1_2014}, and \textit{IGSF1} (pig FC = 2.45, human FC = 0.34), a regulator of the neuroendocrine system\cite{joustra_igsf1_2019}. The third module, representing metabolic transition, was evident in the consistent downregulation of \textit{MSS51} (pig FC = $-$3.02, human FC = $-$1.55)\cite{rovira_gonzalez_mss51_nodate} and \textit{PDLIM3} (pig FC = $-$2.19, human FC = $-$0.56)\cite{ohsawa_alternative_2011} in both species. The suppression of \textit{MSS51}, a skeletal muscle-specific ``brake'' on metabolism, suggests a conserved mechanism to release the restriction on oxidative capacity during postnatal muscle maturation.
 
 These findings provide quantitative evidence that pig muscle development mirrors the human program at the molecular level, validating our transcriptomic atlas as a biologically accurate reference for porcine developmental staging.
 
@@ -197,15 +203,15 @@ These findings provide quantitative evidence that pig muscle development mirrors
 % ==============================================================================
 \section{Discussion}
 
-We have established the first calibrated transcriptomic atlas for porcine development, providing a rigorous molecular alternative to subjective morphological staging. By harmonising data across five tissues into a unified predictive framework, we demonstrate that biological maturity can be inferred with high precision solely from gene expression profiles. This shift from qualitative observation to quantitative measurement addresses a long-standing challenge in pig research: the standardisation of developmental staging across experimental cohorts and research groups.
+We have established the first calibrated transcriptomic atlas for porcine development, providing a rigorous molecular alternative to subjective morphological staging\cite{horvath_dna_2013}. By harmonising data across five tissues into a unified predictive framework, we demonstrate that biological maturity can be inferred with high precision solely from gene expression profiles. This shift from qualitative observation to quantitative measurement addresses a long-standing challenge in pig research: the standardisation of developmental staging across experimental cohorts and research groups.
 
 The practical implications for pig research are substantial. Our framework enables researchers to objectively classify animals by biological maturity rather than chronological age, reducing confounding variability in studies of nutrition, growth physiology, and disease susceptibility. For example, when evaluating dietary interventions or growth-promoting treatments, synchronising cohorts by molecular developmental stage rather than age should improve statistical power and reproducibility. The tissue-specific nature of our models also allows researchers to select staging approaches appropriate to their target organ system.
 
 An important biological finding is the profound tissue-specificity of developmental markers. The extremely low cross-tissue feature overlap (0.3\% Jaccard similarity, 180-fold lower than random expectation) reflects genuine biological differences: each tissue uses distinct molecular programs for developmental progression, as evidenced by clear tissue clustering in expression space (Supplementary Fig.~S2a). Within-tissue feature stability was moderate (18--60\% of features stable across random seeds), which we interpret as biological gene redundancy, where multiple valid biomarker combinations exist within each tissue. This redundancy suggests robust developmental programs that can be captured by different gene sets.
 
-To validate the biological accuracy of our atlas, we performed cross-species comparison with human skeletal muscle, revealing strong evolutionary conservation of developmental programs. Our analysis identified a core set of shared regulatory modules (including \textit{SORCS2} and \textit{FGFRL1}) that orchestrate tissue maturation in both species. This conservation confirms that our porcine atlas captures fundamental developmental biology rather than species-specific artefacts. However, we emphasise that cross-species validation is currently limited to muscle tissue; extending this analysis to brain, liver, lung, and blood represents a critical future direction.
+To validate the biological accuracy of our atlas, we performed cross-species comparison with human skeletal muscle, revealing strong evolutionary conservation of developmental programs. Our analysis identified a core set of shared regulatory modules (including \textit{SORCS2} and \textit{FGFRL1}) that orchestrate tissue maturation in both species. This conservation confirms that our porcine atlas captures fundamental developmental biology rather than species-specific artefacts. Recent work on species-specific developmental tempo provides context for understanding the molecular basis of these conserved programs\cite{iwata_metabolic_2024}. However, we emphasise that cross-species validation is currently limited to muscle tissue; extending this analysis to brain, liver, lung, and blood represents a critical future direction.
 
-Several limitations must be acknowledged. First, our cross-species validation relies on a small human dataset (4 infants, 7 adults) with a substantial age gap. Second, the correlation analysis required parameter optimisation, though sensitivity analysis confirms robustness. Third, class imbalance necessitated reduced classification schemes for some tissues. Fourth, the reliance on bulk RNA-seq averages signals across cell types. Future iterations incorporating single-cell resolution will allow us to dissect precisely which cell populations drive these developmental clocks.
+Several limitations must be acknowledged. First, our cross-species validation relies on a small human dataset (4 infants, 7 adults) with a substantial age gap. Second, the correlation analysis required parameter optimisation, though sensitivity analysis confirms robustness. Third, class imbalance necessitated reduced classification schemes for some tissues. Fourth, the reliance on bulk RNA-seq averages signals across cell types. Future iterations incorporating single-cell resolution\cite{schaum_single-cell_2018,zheng_measuring_2023} will allow us to dissect precisely which cell populations drive these developmental clocks.
 
 In conclusion, this work provides a transparent, reproducible molecular standard for developmental staging in pig research. The atlas offers an immediately applicable tool for standardising experimental cohorts in swine nutrition, production, and biomedical studies. As the pig continues to serve as a major species for both agricultural and biomedical research, this resource ensures that developmental age is defined with the precision required for rigorous, reproducible science.
 
@@ -216,11 +222,11 @@ In conclusion, this work provides a transparent, reproducible molecular standard
 
 \subsection{Data acquisition and processing}
 
-Bulk RNA-seq transcript-per-million (TPM) matrices and metadata were obtained from the PigGTEx resource\textsuperscript{8,9}. Ages recorded in days were harmonised to developmental stages: Infant (0--20\,d), Early childhood (21--59\,d), Pre-pubertal (60--149\,d), Post-pubertal (150--365\,d), and Adult ($>$365\,d). Preprocessing included a $\log_2(x+1)$ transformation followed by variance filtering to retain genes above the 20th percentile per tissue. Gene expression values were standardised into $z$-scores to ensure comparability across tissues and experiments.
+Bulk RNA-seq transcript-per-million (TPM) matrices and metadata were obtained from the PigGTEx resource\cite{teng_compendium_2024,chen_construction_2025}. Ages recorded in days were harmonised to developmental stages: Infant (0--20\,d), Early childhood (21--59\,d), Pre-pubertal (60--149\,d), Post-pubertal (150--365\,d), and Adult ($>$365\,d). Preprocessing included a $\log_2(x+1)$ transformation followed by variance filtering to retain genes above the 20th percentile per tissue. Gene expression values were standardised into $z$-scores to ensure comparability across tissues and experiments.
 
 \subsection{Machine learning framework}
 
-We implemented a reduction-based ordinal classification framework using Light Gradient Boosting Machine (LightGBM)\textsuperscript{10}. Given the ordinal nature of developmental stages ($y \in \{0,\dots,K-1\}$), we decomposed the $K$-class problem into $K-1$ binary classification subtasks (Frank \& Hall method), where the $k$-th subtask predicts the probability $\Pr(y > k \mid x)$. The final probability for each class $c$ was derived as:
+We implemented a reduction-based ordinal classification framework using Light Gradient Boosting Machine (LightGBM)\cite{ke_lightgbm_2017}. Given the ordinal nature of developmental stages ($y \in \{0,\dots,K-1\}$), we decomposed the $K$-class problem into $K-1$ binary classification subtasks (Frank \& Hall method), where the $k$-th subtask predicts the probability $\Pr(y > k \mid x)$. The final probability for each class $c$ was derived as:
 \begin{equation}
 \Pr(y = c) = \Pr(y > c-1) - \Pr(y > c)
 \label{eq:ordinal_prob}
@@ -229,7 +235,7 @@ where $\Pr(y > -1) = 1$ and $\Pr(y > K-1) = 0$.
 
 For feature selection, a preliminary LightGBM model was trained on the training set (70\% of data), and features were ranked by total information gain across all trees. The top $d \leq 2000$ features were selected for the final model. Hyperparameters (num\_leaves = 31, learning\_rate = 0.05, feature\_fraction = 0.8, n\_estimators = 200, max\_depth = 6) were chosen to balance model complexity and generalisation, with early stopping (patience = 10) to prevent overfitting.
 
-Models were evaluated using a stratified train/test split (70\%/30\%). Primary performance metrics included Balanced Accuracy (BA) and Macro-F1 score:
+Models were evaluated using a stratified train/test split (70\%/30\%). Primary performance metrics included Balanced Accuracy (BA) and Macro-F1 score (Supplementary Fig.~S3; Supplementary Tables~S1 and S2):
 \begin{equation}
 \mathrm{BA} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{\mathrm{TP}_c}{\mathrm{TP}_c + \mathrm{FN}_c}
 \label{eq:ba}
@@ -238,43 +244,19 @@ Confidence intervals (95\%) were calculated using bootstrap resampling (1,000 it
 
 \subsection{Cross-species evolutionary analysis}
 
-To quantify developmental conservation, we integrated the pig muscle transcriptomic data with human skeletal muscle developmental RNA-seq profiles from Schaiter \textit{et al.}\textsuperscript{7}. The human dataset comprised 4 infant samples (ages 7--28 months) and 7 adult samples (ages 30--56 years), all from quadriceps femoris muscle. We computed the $\log_2$ fold change of gene expression between Infant and Adult stages for both species.
+To quantify developmental conservation, we integrated the pig muscle transcriptomic data with human skeletal muscle developmental RNA-seq profiles from Schaiter \textit{et al.}\cite{schaiter_molecular_2024}. The human dataset comprised 4 infant samples (ages 7--28 months) and 7 adult samples (ages 30--56 years), all from quadriceps femoris muscle. We computed the $\log_2$ fold change of gene expression between Infant and Adult stages for both species.
 
 Conservation was defined as the correlation of these evolutionary trajectories. We applied an adaptive thresholding approach, testing $p$-value thresholds from 0.05 to 0.20 and gene numbers from 15 to 60, selecting the configuration maximising $r \times \sqrt{n}$ while ensuring $r > 0.6$. The optimal set contained 36 genes ($p < 0.10$ threshold). We reported the Pearson correlation coefficient with 95\% bootstrap confidence intervals (1,000 iterations).
 
 \subsection{Functional enrichment}
 
-Gene ontology (GO) enrichment of stage-informative markers was performed using g:Profiler\textsuperscript{11}, applying a Benjamini--Hochberg FDR correction ($p_{\mathrm{adj}} < 0.05$). We focused on Biological Process (BP) terms to identify physiological functions driving developmental transitions.
+Gene ontology (GO) enrichment of stage-informative markers was performed using g:Profiler\cite{kolberg_gprofiler-interoperable_2023}, applying a Benjamini--Hochberg FDR correction ($p_{\mathrm{adj}} < 0.05$). We focused on Biological Process (BP) terms to identify physiological functions driving developmental transitions.
 
 % ==============================================================================
 % REFERENCES
 % ==============================================================================
-\section*{References}
-\addcontentsline{toc}{section}{References}
-
-\begin{enumerate}[label={\arabic*.}, leftmargin=*, itemsep=2pt]
-  \item Swindle, M.\,M., Makin, A., Herron, A.\,J., Clubb, F.\,J. \& Frazier, K.\,S. Swine as models in biomedical research and toxicology testing. \textit{Toxicol. Pathol.} \textbf{40}, 325--357 (2012).
-  
-  \item Lunney, J.\,K. \textit{et al.} Importance of the pig as a human biomedical model. \textit{Sci. Transl. Med.} \textbf{13}, eabd5758 (2021).
-  
-  \item Baxter Bendus, A.\,E., Mayer, J.\,F., Shipley, S.\,K. \& Catherino, W.\,H. Interobserver and intraobserver variation in day 3 embryo grading. \textit{Fertil. Steril.} \textbf{86}, 1608--1615 (2006).
-  
-  \item O'Rahilly, R. \& M{\"u}ller, F. Developmental stages in human embryos: Revised and new measurements. \textit{Cells Tissues Organs} \textbf{192}, 73--84 (2010).
-  
-  \item Schachtschneider, K.\,M. \textit{et al.} Epigenetic clock and DNA methylation analysis of porcine models of aging and obesity. \textit{GeroScience} \textbf{43}, 2467--2483 (2021).
-  
-  \item Zheng, H., Vijg, J., Fard, A.\,T. \& Mar, J.\,C. Measuring cell-to-cell expression variability in single-cell RNA-sequencing data. \textit{Genome Biol.} \textbf{24}, 238 (2023).
-  
-  \item Schaiter, Y. \textit{et al.} Molecular composition of skeletal muscle in infants and adults: a comparative proteomic and transcriptomic study. \textit{Sci. Rep.} \textbf{14}, 22953 (2024).
-  
-  \item Teng, J. \textit{et al.} A compendium of genetic regulatory effects across pig tissues. \textit{Nat. Genet.} \textbf{56}, 112--123 (2024).
-  
-  \item Chen, L. \textit{et al.} Construction of a multitissue cell atlas reveals cell-type-specific regulation of molecular and complex phenotypes in pigs. \textit{Adv. Sci.} e04961 (2025).
-  
-  \item Ke, G. \textit{et al.} LightGBM: A highly efficient gradient boosting decision tree. \textit{Adv. Neural Inf. Process. Syst.} \textbf{30}, 3146--3154 (2017).
-  
-  \item Kolberg, L., Raudvere, U., Kuzmin, I., Adler, P., Vilo, J. \& Peterson, H. g:Profiler---interoperable web service for functional enrichment analysis and gene identifier mapping (2023 update). \textit{Nucleic Acids Res.} \textbf{51}, W207--W212 (2023).
-\end{enumerate}
+\bibliographystyle{unsrtnat}
+\bibliography{pig-age-human/pig-age-human}
 
 % ==============================================================================
 % DATA AVAILABILITY
@@ -295,7 +277,7 @@ All code required to reproduce the findings are available at \url{https://github
 % ==============================================================================
 \section*{Acknowledgements}
 
-We thank the PigGTEx consortium for providing the transcriptomic data that made this study possible.
+We thank the PigGTEx consortium for providing the transcriptomic data that made this study possible. T.L. was funded by the European Union Marie Sk\l{}odowska-Curie Actions Doctoral Network project LongTREC (HORIZON-MSCA-2021-DN-01 grant agreement project 101072892).
 
 % ==============================================================================
 % AUTHOR CONTRIBUTIONS
@@ -379,7 +361,7 @@ The authors declare no competing interests.
   \centering
   \includegraphics[width=\textwidth]{fig4_cross_species.pdf}
   \caption{\textbf{Cross-species validation of developmental gene expression.}
-  Human skeletal muscle transcriptomic data from Schaiter \textit{et al.}\textsuperscript{7} comparing infant (7--28 months) versus adult (30--56 years) samples were used to validate conservation of developmental signatures.
+  Human skeletal muscle transcriptomic data from Schaiter \textit{et al.}\cite{schaiter_molecular_2024} comparing infant (7--28 months) versus adult (30--56 years) samples were used to validate conservation of developmental signatures.
   \textbf{a}, Scatter plot of $\log_2$ fold changes between pig and human, showing significant positive correlation (Pearson $r = 0.618$, $p = 5.86 \times 10^{-5}$, 95\% CI: 0.364--0.787). Of 36 genes meeting significance criteria ($p < 0.10$) in both species, 32 (88.9\%) showed conserved direction of change.
   \textbf{b}, Feature importance of top conserved markers in the developmental stage classifier.
   \textbf{c}, Paired fold change comparison showing pig and human values for each conserved gene. Top markers include \textit{SORCS2}, \textit{FGFRL1}, \textit{IGSF1}, \textit{KREMEN1}, and \textit{ACHE}.}

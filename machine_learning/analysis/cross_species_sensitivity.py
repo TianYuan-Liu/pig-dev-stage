@@ -130,25 +130,44 @@ def threshold_sensitivity_analysis(df, p_thresholds=[0.05, 0.10, 0.15, 0.20],
     return pd.DataFrame(results)
 
 def find_optimal_parameters(df):
-    """Find optimal p-threshold and n for correlation."""
-    sensitivity = threshold_sensitivity_analysis(df)
+    """
+    Find optimal p-threshold and n for correlation.
     
-    if len(sensitivity) == 0:
-        return {'p_threshold': 0.10, 'n_genes': 36, 'correlation': 0.0}
+    IMPORTANT: To ensure consistency with Figure 4, we use FIXED parameters
+    that match the R script (fig4_cross_species.R): p < 0.10, n = 36 genes.
     
-    # Prioritize configurations with R > 0.6, then maximize score
-    high_r = sensitivity[sensitivity['correlation'] > 0.6]
+    The sensitivity analysis is still run for Figure S1a, but the bootstrap
+    uses the fixed parameters for consistency.
+    """
+    # Fixed parameters to match Figure 4 (from fig4_summary.txt)
+    # This ensures Figure S1b bootstrap CI matches the main figure
+    FIXED_P_THRESHOLD = 0.10
+    FIXED_N_GENES = 36
     
-    if len(high_r) > 0:
-        best = high_r.loc[high_r['score'].idxmax()]
+    # Calculate correlation for the fixed configuration
+    df_clean = df[
+        df['log2fc_pig'].notna() & 
+        df['log2fc_human'].notna() &
+        df['gene_symbol'].notna() &
+        (df['gene_symbol'] != '') &
+        (df['p_pig'] < FIXED_P_THRESHOLD) &
+        (df['p_human'] < FIXED_P_THRESHOLD)
+    ].copy()
+    
+    df_subset = df_clean.nlargest(FIXED_N_GENES, 'importance')
+    
+    if len(df_subset) >= 15:
+        x = df_subset['log2fc_pig'].values
+        y = df_subset['log2fc_human'].values
+        r, p_val = pearsonr(x, y)
     else:
-        best = sensitivity.loc[sensitivity['score'].idxmax()]
+        r, p_val = 0.0, 1.0
     
     return {
-        'p_threshold': best['p_threshold'],
-        'n_genes': int(best['n_genes']),
-        'correlation': best['correlation'],
-        'p_value': best['p_value']
+        'p_threshold': FIXED_P_THRESHOLD,
+        'n_genes': FIXED_N_GENES,
+        'correlation': r,
+        'p_value': p_val
     }
 
 def main():
