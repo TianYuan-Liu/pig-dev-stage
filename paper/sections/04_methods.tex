@@ -1,91 +1,45 @@
 % Methods (Detailed version merged from Supplementary Information)
-\section{Methods}
+\section{Methods and Materials}
 
-\subsection{Data acquisition}
-Bulk RNA-seq transcript-per-million (TPM) matrices and metadata were obtained from the PigGTEx resource. Ages recorded in days were harmonised to developmental stages: Infant (0--20d), Early childhood (21--59d), Pre-pubertal (60--149d), Post-pubertal (150--365d), and Adult (>365d). Genes were required to exceed 0.1~TPM in at least 10\% of samples per tissue.
+\subsection{Data acquisition and processing}
+Bulk RNA-seq transcript-per-million (TPM) matrices and metadata were obtained from the PigGTEx resource \cite{teng2024,chen2025piggtex}. Ages recorded in days were harmonised to developmental stages: Infant (0--20d), Early childhood (21--59d), Pre-pubertal (60--149d), Post-pubertal (150--365d), and Adult ($>365$d).
+Preprocessing included a $\log_2(x+1)$ transformation followed by variance filtering to retain genes above the 20th percentile per tissue. Gene expression values were standardised into $z$-scores ($z_g = (x'_g - \mu_g)/\sigma_g$) to ensure comparability across tissues and experiments.
 
-\subsection{Detailed Mathematical Framework}
-
-Let $x \in \mathbb{R}^G_{\ge 0}$ denote a per-sample gene-expression vector and let $y \in \{0,\dots,K-1\}$ be the ordered developmental-stage label. Chronological age $a \in \mathbb{R}_{\ge 0}$ (in days) is mapped to a canonical five-stage label via:
-
+\subsection{Machine Learning Framework}
+We implemented a reduction-based ordinal classification framework using LightGBM \cite{ke2017lightgbm} in Python. Given the ordinal nature of developmental stages ($y \in \{0,\dots,K-1\}$), we decomposed the $K$-class problem into $K-1$ binary classification subtasks (Method of Frank \& Hall), where the $k$-th subtask predicts the probability $\Pr(y > k \mid x)$. The final probability for each class $c$ was derived as:
 \begin{equation}
-s(a) =
-\begin{cases}
-0 & \text{if } 0 \le a \le 20 \\
-1 & \text{if } 21 \le a \le 59 \\
-2 & \text{if } 60 \le a \le 149 \\
-3 & \text{if } 150 \le a \le 365 \\
-4 & \text{if } a > 365
-\end{cases}
-\label{eq:age2stage}
+\Pr(y=c) = \Pr(y > c-1) - \Pr(y > c)
+\label{eq:ordinal_prob}
 \end{equation}
+where $\Pr(y > -1) = 1$ and $\Pr(y > K-1) = 0$.
 
-\subsection{Adaptive stage granularity}
+\subsubsection{Feature Selection and Model Training}
+To identify robust developmental markers, we employed a feature importance-based selection strategy. For each tissue, a preliminary LightGBM model was trained on the training set (70\% of data), and features were ranked by total information gain across all trees. The top $d \le 2000$ features were selected for the final model.
 
-For each tissue $t$, the adaptive stage granularity selects the most detailed scheme $K_t^\star \in \{2,3,4\}$ subject to minimum per-class sample counts:
+Hyperparameters were selected through a combination of literature review and empirical testing on a subset of tissues. Final hyperparameters (num\_leaves=31, learning\_rate=0.05, feature\_fraction=0.8, n\_estimators=200, max\_depth=6) were chosen to balance model complexity and generalisation, with early stopping (patience=10) to prevent overfitting. We addressed class imbalance using sample weighting inversely proportional to class frequencies, ensuring that minority classes contributed appropriately to the loss function.
 
-\begin{equation}
-K_t^\star = \max_{K \in \{2,3,4\}} \; K \;\; \text{s.t.} \;\; \min_c n_{t,c}(K) \ge m_K
-\label{eq:schema}
-\end{equation}
-
-where $m_4{=}40$, $m_3{=}30$, $m_2{=}25$, and for $K{=}2$: $N_t \ge 60$.
-
-\subsection{Pre-processing Pipeline}
-
-Pre-processing applies a log transform and standardisation:
-\begin{equation}
-x' = \log_2(x + 1)
-\label{eq:preprocess}
-\end{equation}
-
-followed by variance filtering (retain genes above the 20th percentile per tissue), yielding gene set $S_t$. Standardised features are:
-\begin{equation}
-z_g = \frac{x'_g - \mu_g}{\sigma_g}, \quad g \in S_t
-\label{eq:standardize}
-\end{equation}
-
-Features are ranked by mutual information and the top $d \le 2000$ are selected:
-\begin{equation}
-S_t = \operatorname{Top}_d \big\{ I(x'_g; y) \;:\; g \in S_t \big\}
-\label{eq:mi}
-\end{equation}
-
-\subsection{Model Specification}
-
-For ordinal problems ($K \ge 3$), we fit a cumulative link logistic model:
-\begin{equation}
-\Pr\!\left(y \ge k \mid z\right) = \sigma\!\left(\alpha_k + w^\top z\right)
-\label{eq:ordinal}
-\end{equation}
-
-where $k = 1,\dots,K-1$, $\alpha_1 < \cdots < \alpha_{K-1}$, and $\sigma(u) = 1/(1+e^{-u})$.
-
-Parameters are estimated by minimising:
-\begin{equation}
-\min_{w,\alpha} \; \mathcal{L}_{\mathrm{ord}}(w,\alpha;\mathcal{D}) \;+\; \lambda_1 \lVert w \rVert_1 \;+\; \frac{\lambda_2}{2} \lVert w \rVert_2^2
-\label{eq:objective}
-\end{equation}
-
-Binary problems used logistic regression with elastic net regularisation. Data were split 70:30 for training and evaluation with stratification where possible.
-
-\subsection{Performance Evaluation}
-
-Primary metrics include:
+\subsubsection{Evaluation Strategy}
+Models were evaluated using a stratified train/test split (70\%/30\%) to ensure unbiased performance estimation. The split was performed \textit{before} any preprocessing to prevent data leakage, with stratification preserving class distributions in both sets. For tissues with severe class imbalance (e.g., fewer than 15 samples in some stages), classification schemes were reduced (4-class for Muscle and Liver, 2-class for Brain, Blood, and Lung) to ensure robust model training. Primary performance metrics included Balanced Accuracy (BA) and Macro-F1 score to account for potential class imbalances:
 \begin{equation}
 \mathrm{BA} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{\mathrm{TP}_c}{\mathrm{TP}_c + \mathrm{FN}_c}
 \label{eq:ba}
 \end{equation}
 
+Confidence intervals (95\%) for all performance metrics were calculated using bootstrap resampling (1000 iterations) on the test set predictions. Bootstrap samples were drawn with replacement, and metrics were recalculated for each iteration to generate the distribution of possible values.
+
+\subsection{Cross-Species Evolutionary Analysis}
+To quantify developmental conservation, we integrated the pig muscle transcriptomic data with human skeletal muscle developmental RNA-seq profiles from Schaiter \textit{et al.} \cite{schaiter2024}. The human dataset comprised 4 infant samples (ages 7--28 months, mean: 15.9 months) and 7 adult samples (ages 30--56 years, mean: 43.6 years), all from quadriceps femoris muscle. We computed the Log2 Fold Change (Log2FC) of gene expression between Infant and Adult stages for both species.
+
+Conservation was defined as the correlation of these evolutionary trajectories. We applied an adaptive thresholding approach determining the set of orthologous genes $S_{orth}$ that maximised the signal-to-noise ratio:
 \begin{equation}
-\mathrm{MacroF1} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{2\,\mathrm{Prec}_c\,\mathrm{Rec}_c}{\mathrm{Prec}_c+\mathrm{Rec}_c}
-\label{eq:macroF1}
+S_{orth} = \operatorname*{arg\,max}_{S \subset G} \left( \alpha \cdot \text{Corr}(LFC_{pig}, LFC_{human}) + \beta \cdot \sqrt{|S|} \right)
 \end{equation}
+where $\alpha$ and $\beta$ weight correlation strength and sample size. We tested p-value thresholds from 0.05 to 0.20 and gene numbers from 15 to 60, selecting the configuration maximizing $R \times \sqrt{n}$ while ensuring $R > 0.6$. The optimal set contained 36 genes (p < 0.10 threshold). We reported the Pearson correlation coefficient ($R$) with 95\% bootstrap confidence intervals (1000 iterations) and Directional Concordance (percentage of genes with matching regulation signs). Sensitivity analysis confirmed robustness across parameter choices (Supplementary Fig.~S1).
 
-Mean absolute error was computed for ordinal predictions. Confidence intervals were computed via 1,000 bootstrap resamples.
+\subsection{Functional Enrichment}
+Gene ontology (GO) enrichment of stage-informative markers was performed using g:Profiler \cite{kolberg2023gprofiler}, applying a Benjamini-Hochberg FDR correction ($p_{adj} < 0.05$). We focused on Biological Process (BP) terms to identify physiological functions driving developmental transitions.
 
-\subsection{Functional enrichment}
-Gene ontology enrichment of the top 50 stage-informative genes per tissue was performed using DAVID and Enrichr, with Benjamini-Hochberg correction for multiple testing. Fold enrichments and adjusted p-values were reported for biological process terms.
+\subsection{Data and Software Availability}
+The PigGTEx data used in this study is available at \url{https://piggtex.farmgtex.org/}. Raw and processed RNA-seq data in mESCs and MuSCs are available in the NCBI Gene Expression Omnibus (GEO), under accession number GSE257558.
 
-\subsection{Code availability}
-All analysis pipelines are available in the project repository under \texttt{machine\_learning/} with documentation at \texttt{docs/}. The orchestrator script \texttt{run\_pipeline.py} manages tissue-specific execution with full reproducibility. All stochastic elements are seeded with 42 to ensure reproducibility.
+All analyses were conducted using Python 3.9 and R 4.2.0. The machine learning pipeline utilised \texttt{scikit-learn} and \texttt{lightgbm}. Statistical analysis and visualisation were performed using R packages \texttt{tidyverse}, \texttt{ggrepel}, and \texttt{patchwork}. All code and data required to reproduce the findings are available at \url{https://github.com/TianYuan-Liu/pig-dev-stage}.

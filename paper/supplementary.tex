@@ -1,0 +1,140 @@
+% ==============================================================================
+% Supplementary Materials Content
+% Paper: A Calibrated Transcriptomic Atlas of Porcine Development
+% ==============================================================================
+% Nature-style formatting:
+% - Bold brief title for each figure/table
+% - Concise descriptions (≤100 words per figure)
+% - Panel labels in lowercase (a, b, c)
+% ==============================================================================
+
+\section*{Supplementary Figures}
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 1: Cross-species sensitivity analysis
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/output/pdf/figS1_cross_species_sensitivity.pdf}
+  \caption{\textbf{Cross-species sensitivity analysis.}
+  \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across different p-value thresholds. Error bars show min--max range across different numbers of genes tested.
+  \textbf{b}, Bootstrap distribution of correlation coefficient (1,000 iterations) for the optimal parameter set ($p < 0.10$, $n = 36$ genes). Dashed line indicates mean correlation; dotted lines show 95\% confidence interval.}
+  \label{fig:S1}
+\end{figure}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 2: Tissue specificity and feature stability
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/output/pdf/figS2_tissue_specificity_stability.pdf}
+  \caption{\textbf{Tissue specificity and feature stability.}
+  \textbf{a}, UMAP visualization of expression profiles across five tissues, demonstrating clear tissue-specific clustering.
+  \textbf{b}, Within-tissue feature stability measured as mean Jaccard similarity of top 50 features across 5 random seeds. Higher values indicate more stable feature selection.
+  \textbf{c}, Mean absolute correlation of top features with developmental stage within each tissue, validating biological relevance of selected markers.}
+  \label{fig:S2}
+\end{figure}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 3: Extended performance metrics
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figures/output/pdf/figS3_extended_performance.pdf}
+  \caption{\textbf{Extended performance metrics.}
+  \textbf{a}, Per-class precision, recall, and F1 scores for each developmental stage across all tissues.
+  \textbf{b}, Overall balanced accuracy and F1-macro scores on test set for each tissue.}
+  \label{fig:S3}
+\end{figure}
+
+\clearpage
+
+% ==============================================================================
+\section*{Supplementary Tables}
+% ==============================================================================
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 1: Train vs Test Performance
+% ------------------------------------------------------------------------------
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Train versus test performance comparison.} Test set performance (30\% held out) is reported for all tissues. Train set metrics are not shown as models were evaluated only on held-out data to prevent overfitting.}
+  \label{tab:S1}
+  \small
+  \begin{tabular}{lcccccc}
+    \toprule
+    Tissue & Scheme & $n$ & Balanced Acc. & F1-macro & F1-weighted & MAE \\
+    \midrule
+    Muscle & 4-class & 761 & 0.844 & 0.842 & 0.908 & 0.10 \\
+    Brain & 2-class & 43 & 0.637 & 0.639 & 0.671 & -- \\
+    Liver & 4-class & 309 & 0.920 & 0.910 & 0.913 & 0.09 \\
+    Blood & 2-class & 78 & 0.864 & 0.869 & 0.874 & -- \\
+    Lung & 2-class & 129 & 0.859 & 0.876 & 0.921 & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\vspace{2cm}
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 2: Per-class performance
+% ------------------------------------------------------------------------------
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue. $n$ indicates the number of test samples per class.}
+  \label{tab:S2}
+  \small
+  \begin{tabular}{llcccc}
+    \toprule
+    Tissue & Stage & $n$ & Precision & Recall & F1 \\
+    \midrule
+    Muscle & Infant & 58 & 0.912 & 0.897 & 0.904 \\
+    Muscle & Early childhood & 23 & 0.714 & 0.652 & 0.682 \\
+    Muscle & Pre-pubertal & 27 & 0.767 & 0.852 & 0.807 \\
+    Muscle & Post-pubertal & 121 & 0.975 & 0.975 & 0.975 \\
+    \midrule
+    Brain & Infant & 8 & 0.700 & 0.875 & 0.778 \\
+    Brain & Early childhood & 5 & 0.667 & 0.400 & 0.500 \\
+    \midrule
+    Liver & Infant & 26 & 1.000 & 0.962 & 0.980 \\
+    Liver & Early childhood & 18 & 0.783 & 1.000 & 0.878 \\
+    Liver & Pre-pubertal & 25 & 0.950 & 0.760 & 0.844 \\
+    Liver & Post-pubertal & 24 & 0.920 & 0.958 & 0.939 \\
+    \midrule
+    Blood & Infant & 14 & 0.867 & 0.929 & 0.897 \\
+    Blood & Early childhood & 10 & 0.889 & 0.800 & 0.842 \\
+    \midrule
+    Lung & Infant & 31 & 0.938 & 0.968 & 0.952 \\
+    Lung & Early childhood & 8 & 0.857 & 0.750 & 0.800 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 3: Functional annotations
+% ------------------------------------------------------------------------------
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue.}
+  \label{tab:S3}
+  \small
+  \begin{tabular}{llp{6.5cm}}
+    \toprule
+    Gene & Function & Developmental Role \\
+    \midrule
+    \textit{SORCS2} & VPS10 receptor & Regulates motor neuron innervation and synaptic maturation during postnatal development \\
+    \textit{FGFRL1} & FGF receptor-like 1 & Muscle development and differentiation; may influence fibre-type balance \\
+    \textit{KREMEN1} & Transmembrane protein 1 & Modulates Wnt/$\beta$-catenin signalling in neuromuscular development \\
+    \textit{ACHE} & Acetylcholinesterase & Neuromuscular junction function; marker of synaptic maturity \\
+    \textit{MSS51} & Translational activator & Negative regulator of oxidative metabolism; downregulated during growth \\
+    \textit{IGSF1} & Ig superfamily member 1 & Pituitary glycoprotein involved in hormone regulation \\
+    \textit{PDLIM3} & PDZ/LIM domain 3 & Muscle cytoskeletal protein at Z-discs; expression decreases postnatally \\
+    \bottomrule
+  \end{tabular}
+\end{table}

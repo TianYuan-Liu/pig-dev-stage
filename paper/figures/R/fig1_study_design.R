@@ -52,7 +52,7 @@ cat(sprintf("  ML results: %d tissues\n", length(results_list)))
 # ==============================================================================
 create_panel_a <- function() {
   cat("Creating Panel A: Timeline...\n")
-  
+
   timeline_data <- tibble(
     stage = STAGE_ORDER,
     display = c("Infant", "Early\nchildhood", "Pre-\npubertal", "Post-\npubertal", "Adult"),
@@ -60,24 +60,28 @@ create_panel_a <- function() {
     end = c(20, 59, 149, 365, 500),
     y = 1
   )
-  
+
   ggplot(timeline_data) +
     geom_rect(
       aes(xmin = start, xmax = end, ymin = 0.8, ymax = 1.2, fill = stage),
       color = "white", linewidth = 0.5
     ) +
     geom_text(
-      aes(x = (start + end) / 2, y = 1.5, label = display),
+      aes(x = (start + end) / 2, y = 1.7, label = display),
       size = 2.5, fontface = "bold", color = "black"
     ) +
     geom_text(
-      aes(x = (start + end) / 2, y = 0.5,
-          label = paste0(start, "-", ifelse(end == 500, ">365", end), "d")),
+      aes(
+        x = (start + end) / 2, y = 0.5,
+        label = paste0(start, "-", ifelse(end == 500, ">365", end), "d")
+      ),
       size = 2, color = "gray40"
     ) +
     scale_x_continuous(
       breaks = c(0, 60, 150, 365, 500),
-      labels = c("Birth", "2 mo", "5 mo", "1 yr", ">1 yr")
+      labels = c("Birth", "2 mo", "5 mo", "1 yr", ">1 yr"),
+      expand = c(0, 0),
+      limits = c(0, 500)
     ) +
     scale_fill_manual(values = STAGE_COLORS) +
     coord_cartesian(ylim = c(0, 2.5), clip = "off") +
@@ -88,18 +92,33 @@ create_panel_a <- function() {
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank(),
       axis.line.y = element_blank(),
-      plot.margin = margin(8, 4, 4, 4, "mm")
+      axis.text.x = element_text(margin = margin(t = 0)),
+      axis.line.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      plot.margin = margin(2, 0, 1, 0, "mm")
     )
 }
 
 # ==============================================================================
-# 4. PANEL B: SAMPLE DISTRIBUTION HEATMAP
+# 4. PANEL B: EMPTY PLACEHOLDER
 # ==============================================================================
-create_panel_b <- function(metadata, results_list) {
-  cat("Creating Panel B: Heatmap...\n")
-  
+create_panel_b <- function() {
+  cat("Creating Panel B: Empty placeholder...\n")
+
+  # Create an empty plot
+  ggplot() +
+    theme_void() +
+    theme(plot.margin = margin(2, 2, 2, 2, "mm"))
+}
+
+# ==============================================================================
+# 5. PANEL C: SAMPLE DISTRIBUTION HEATMAP (formerly Panel B)
+# ==============================================================================
+create_panel_c <- function(metadata, results_list) {
+  cat("Creating Panel C: Heatmap...\n")
+
   tissues_to_show <- names(results_list)
-  
+
   stage_counts <- metadata %>%
     filter(Tissue %in% tissues_to_show) %>%
     group_by(Tissue, Stage) %>%
@@ -109,16 +128,16 @@ create_panel_b <- function(metadata, results_list) {
       Tissue = factor(Tissue, levels = tissues_to_show)
     ) %>%
     complete(Tissue, Stage, fill = list(n = 0))
-  
+
   # Order tissues by total count
   tissue_order <- stage_counts %>%
     group_by(Tissue) %>%
     summarise(total = sum(n)) %>%
     arrange(desc(total)) %>%
     pull(Tissue)
-  
+
   stage_counts$Tissue <- factor(stage_counts$Tissue, levels = tissue_order)
-  
+
   ggplot(stage_counts, aes(x = Stage, y = Tissue, fill = n)) +
     geom_tile(color = "white", linewidth = 0.5) +
     geom_text(
@@ -138,11 +157,11 @@ create_panel_b <- function(metadata, results_list) {
 }
 
 # ==============================================================================
-# 5. PANEL C: CLASSIFICATION SCHEMES
+# 6. PANEL D: CLASSIFICATION SCHEMES (formerly Panel C)
 # ==============================================================================
-create_panel_c <- function(results_list) {
-  cat("Creating Panel C: Classification schemes...\n")
-  
+create_panel_d <- function(results_list) {
+  cat("Creating Panel D: Classification schemes...\n")
+
   classification_data <- map_dfr(names(results_list), function(tissue) {
     res <- results_list[[tissue]]
     tibble(
@@ -152,12 +171,12 @@ create_panel_c <- function(results_list) {
     )
   }) %>%
     filter(!is.na(Tissue))
-  
+
   classification_data$Scheme <- factor(
     classification_data$Scheme,
     levels = c("4-class", "3-class", "2-class")
   )
-  
+
   ggplot(classification_data, aes(x = reorder(Tissue, -n_samples), y = n_samples, fill = Scheme)) +
     geom_col(width = 0.7) +
     geom_text(aes(label = n_samples), vjust = -0.5, size = 2.5, fontface = "bold") +
@@ -171,71 +190,6 @@ create_panel_c <- function(results_list) {
     )
 }
 
-# ==============================================================================
-# 6. PANEL D: ML WORKFLOW DIAGRAM
-# ==============================================================================
-create_panel_d <- function() {
-  cat("Creating Panel D: ML Workflow...\n")
-  
-  nodes <- tibble(
-    id = 1:6,
-    x = 0,
-    y = c(6, 5, 4, 3, 2, 1),
-    label = c(
-      "PigGTEx Data\n(Expression + Metadata)",
-      "Stage Harmonization\n(Adaptive Granularity)",
-      "Train/Test Split\n(70%/30% Stratified)",
-      "Preprocessing\n(Log2, Filter, Z-score)",
-      "Model Training\n(LightGBM + Feature Sel.)",
-      "Evaluation\n(Test Set Metrics)"
-    ),
-    type = c("Data", "Process", "Process", "Process", "Model", "Output")
-  )
-  
-  arrows <- tibble(
-    x = 0, xend = 0,
-    y = c(5.6, 4.6, 3.6, 2.6, 1.6),
-    yend = c(5.4, 4.4, 3.4, 2.4, 1.4)
-  )
-  
-  type_colors <- c(
-    "Data" = "#1565C0",
-    "Process" = "#2E7D32",
-    "Model" = "#EF6C00",
-    "Output" = "#6A1B9A"
-  )
-  
-  ggplot() +
-    geom_segment(
-      data = arrows,
-      aes(x = x, xend = xend, y = y, yend = yend),
-      arrow = arrow(length = unit(0.15, "cm"), type = "closed"),
-      color = "gray50", linewidth = 0.5
-    ) +
-    geom_point(
-      data = nodes,
-      aes(x = -0.35, y = y, shape = type, color = type),
-      size = 3, stroke = 1
-    ) +
-    geom_text(
-      data = nodes,
-      aes(x = -0.28, y = y, label = label),
-      size = 2.2, fontface = "bold", color = "black", hjust = 0
-    ) +
-    scale_shape_manual(values = c(
-      "Data" = 16, "Process" = 15, "Model" = 17, "Output" = 18
-    ), guide = "none") +
-    scale_color_manual(values = type_colors, guide = "none") +
-    scale_x_continuous(limits = c(-0.5, 0.5)) +
-    scale_y_continuous(limits = c(0.5, 6.5)) +
-    labs(x = NULL, y = NULL) +
-    nature_theme() +
-    theme(
-      axis.text = element_blank(),
-      axis.ticks = element_blank(),
-      axis.line = element_blank()
-    )
-}
 
 # ==============================================================================
 # 7. FIGURE ASSEMBLY
@@ -243,16 +197,19 @@ create_panel_d <- function() {
 cat("\nAssembling figure...\n")
 
 panel_a <- create_panel_a()
-panel_b <- create_panel_b(metadata, results_list)
-panel_c <- create_panel_c(results_list)
-panel_d <- create_panel_d()
+panel_b <- create_panel_b()
+panel_c <- create_panel_c(metadata, results_list)
+panel_d <- create_panel_d(results_list)
 
-# Layout: A on top, B below A, C and D side by side at bottom
+# Layout: A (timeline), B (SVG workflow), C (heatmap), D (schemes)
+# C and D should be on the same line
+# Give B more space so text is legible
 design <- "
   AAAA
   BBBB
   BBBB
   BBBB
+  CCDD
   CCDD
   CCDD
 "
@@ -265,7 +222,7 @@ fig1 <- wrap_plots(
   design = design
 ) +
   plot_annotation(
-    tag_levels = "A",
+    tag_levels = list(c("a", "b", "c", "d")),
     theme = theme(
       plot.background = element_rect(fill = "white", color = NA),
       plot.tag = element_text(size = 8, face = "bold")
@@ -285,7 +242,8 @@ cat("\nWriting summary...\n")
 
 metadata_filtered <- metadata %>% filter(Tissue %in% names(results_list))
 
-summary_text <- sprintf("
+summary_text <- sprintf(
+  "
 FIGURE 1: STUDY DESIGN AND METHODOLOGY
 ======================================
 Generated: %s
@@ -314,7 +272,7 @@ Figure dimensions: 183mm × 160mm
     metadata_filtered %>% count(Tissue, sort = TRUE) %>% print(n = Inf)
   ), collapse = "\n"),
   paste(capture.output(
-    metadata_filtered %>% 
+    metadata_filtered %>%
       mutate(Stage = factor(Stage, levels = STAGE_ORDER)) %>%
       count(Stage) %>% print(n = Inf)
   ), collapse = "\n"),

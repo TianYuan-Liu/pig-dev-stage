@@ -5,61 +5,58 @@ Generated: %Y-%m-%d %H:%M
 
 DATA SELECTION
 --------------
-P-value threshold: < 0.010
-Number of genes: 39
-Selection criteria: Significant in both species, same direction
+P-value threshold: < 0.100
+Number of genes: 36
+Selection criteria: Significant in both species
 
 CORRELATION ANALYSIS
 --------------------
-Pearson R: 0.709
-P-value: 4.42e-07
-95% CI: [0.507, 0.837]
+Pearson R: 0.618
+P-value: 5.86e-05
+95% CI: [0.364, 0.787]
 
 DIRECTIONAL CONSERVATION
 ------------------------
-Genes with conserved direction: 39 / 39 (100.0%)
+Genes with conserved direction: 32 / 36 (88.9%)
 
 TOP CONSERVED MARKERS
 ---------------------
+  SORCS2: Pig=1.84, Human=0.95, Imp=451.3
   FGFRL1: Pig=1.68, Human=2.10, Imp=433.8
+  IGSF1: Pig=2.45, Human=0.34, Imp=244.2
   KREMEN1: Pig=1.25, Human=1.43, Imp=127.2
   ACHE: Pig=1.81, Human=0.53, Imp=85.0
+  XCR1: Pig=-2.03, Human=0.11, Imp=30.9
+  TRDN: Pig=-1.46, Human=-0.37, Imp=26.7
+  BOK: Pig=0.81, Human=0.99, Imp=25.0
+  PDLIM3: Pig=-2.19, Human=-0.56, Imp=24.6
+  HTATIP2: Pig=-1.18, Human=-0.81, Imp=16.7
+  MSS51: Pig=-3.02, Human=-1.55, Imp=16.5
+  SREBF2: Pig=1.29, Human=0.46, Imp=15.1
+  FSCN1: Pig=1.85, Human=1.95, Imp=13.7
+  KY: Pig=-0.60, Human=2.26, Imp=12.3
+  SLC25A6: Pig=1.47, Human=0.50, Imp=11.4
+  CLIP1: Pig=-1.34, Human=-0.55, Imp=10.5
+  ADAMTSL1: Pig=1.47, Human=0.56, Imp=9.4
+  ASB14: Pig=-3.82, Human=-0.55, Imp=8.6
   DLK1: Pig=1.37, Human=2.88, Imp=5.4
   PMP22: Pig=0.61, Human=1.33, Imp=5.1
+  FAM13A: Pig=0.99, Human=0.62, Imp=4.5
+  MAPK8IP1: Pig=2.46, Human=1.53, Imp=4.4
   YIPF3: Pig=0.66, Human=0.25, Imp=3.6
+  BIN1: Pig=-1.57, Human=-0.63, Imp=3.5
+  TSPAN9: Pig=2.11, Human=0.64, Imp=3.5
+  PIGO: Pig=1.52, Human=0.54, Imp=3.4
+  EML4: Pig=2.18, Human=0.72, Imp=3.2
   DVL1: Pig=-1.16, Human=-0.37, Imp=3.1
   CYP7B1: Pig=2.63, Human=0.34, Imp=2.4
   ZNRF3: Pig=1.11, Human=1.00, Imp=2.4
-  CHSY1: Pig=2.48, Human=1.22, Imp=1.5
-  SPON1: Pig=1.69, Human=1.04, Imp=0.9
-  ADGRB2: Pig=2.20, Human=2.60, Imp=0.5
-  MYL4: Pig=2.25, Human=2.79, Imp=0.5
-  TCAF1: Pig=2.44, Human=1.02, Imp=0.4
-  SCAF8: Pig=0.92, Human=0.58, Imp=0.4
-  BICC1: Pig=2.17, Human=0.62, Imp=0.4
-  RAP1GDS1: Pig=0.50, Human=0.66, Imp=0.4
-  ETV5: Pig=1.71, Human=2.24, Imp=0.3
-  ACSM5: Pig=-2.03, Human=-1.59, Imp=0.2
-  EVL: Pig=1.12, Human=0.62, Imp=0.2
-  GPR153: Pig=1.45, Human=1.53, Imp=0.2
-  GLI3: Pig=2.09, Human=0.72, Imp=0.2
-  PEG10: Pig=2.37, Human=2.44, Imp=0.1
-  CYP26B1: Pig=2.63, Human=1.43, Imp=0.1
-  CUL7: Pig=2.30, Human=0.69, Imp=0.1
-  GADD45B: Pig=0.35, Human=1.72, Imp=0.1
-  KDM4C: Pig=1.11, Human=0.49, Imp=0.1
-  ASB2: Pig=-3.81, Human=-0.81, Imp=0.1
-  VPS33B: Pig=1.18, Human=0.56, Imp=0.1
-  IGF2BP2: Pig=1.98, Human=2.03, Imp=0.1
-  TUBA1B: Pig=2.23, Human=1.13, Imp=0.0
-  PLAGL1: Pig=2.15, Human=1.50, Imp=0.0
-  GPX7: Pig=1.82, Human=1.04, Imp=0.0
-  SLC44A1: Pig=0.25, Human=0.54, Imp=0.0
-  SLC2A5: Pig=1.02, Human=1.08, Imp=0.0
-  MAOB: Pig=-0.79, Human=-0.80, Imp=0.0
-  NET1: Pig=2.19, Human=1.02, Imp=0.0
-  MYH3: Pig=2.86, Human=2.14, Imp=0.0
-  FHOD1: Pig=-2.06, Human=-0.93, Imp=0.0
+  SEC14L1: Pig=0.84, Human=0.36, Imp=2.4
+  CACNG1: Pig=-1.58, Human=0.84, Imp=2.3
+  ALDH18A1: Pig=2.80, Human=0.78, Imp=2.2
+  FBLIM1: Pig=-0.15, Human=0.88, Imp=2.2
+  ME1: Pig=-1.71, Human=-0.64, Imp=2.2
+  ABHD11: Pig=1.25, Human=0.80, Imp=1.8
 
 Figure dimensions: 183mm × 200mm
 

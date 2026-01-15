@@ -246,8 +246,13 @@ load_expression <- function(tissue, log_transform = FALSE) {
     stop("Expression file not found: ", expr_path)
   }
   
-  # Read compressed file
-  expr <- data.table::fread(cmd = paste("zcat", expr_path), header = TRUE)
+  # Read compressed file (.gz format)
+  # Use gunzip -c or zcat with proper handling for .gz files
+  if (grepl("\\.gz$", expr_path)) {
+    expr <- data.table::fread(cmd = paste("gunzip -c", expr_path), header = TRUE)
+  } else {
+    expr <- data.table::fread(cmd = paste("zcat", expr_path), header = TRUE)
+  }
   expr <- as.data.frame(expr)
   rownames(expr) <- expr[[1]]
   expr <- expr[, -1, drop = FALSE]

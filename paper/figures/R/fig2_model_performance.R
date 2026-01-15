@@ -14,6 +14,7 @@
 suppressPackageStartupMessages({
   library(tidyverse)
   library(patchwork)
+  library(cowplot)
 })
 
 # Load shared modules
@@ -49,16 +50,16 @@ cat(sprintf("  ML results: %d tissues\n", length(results_list)))
 # ==============================================================================
 create_panel_a <- function(results_list) {
   cat("Creating Panel A: Performance metrics...\n")
-  
+
   # Extract metrics with confidence intervals
   performance_data <- extract_performance_metrics(results_list) %>%
     arrange(Scheme, desc(Balanced_Accuracy))
-  
+
   performance_data$Tissue <- factor(
     performance_data$Tissue,
     levels = performance_data$Tissue
   )
-  
+
   # Reshape for heatmap
   heatmap_data <- performance_data %>%
     select(Tissue, Balanced_Accuracy, F1_macro, MAE, Spearman_r) %>%
@@ -69,16 +70,18 @@ create_panel_a <- function(results_list) {
       `Spearman\nρ` = Spearman_r
     ) %>%
     pivot_longer(cols = -Tissue, names_to = "Metric", values_to = "Value")
-  
+
   # Create labels with CI
   ci_labels <- performance_data %>%
     mutate(
-      BA_label = sprintf("%.2f\n(%.2f-%.2f)",
+      BA_label = sprintf(
+        "%.2f\n(%.2f-%.2f)",
         Balanced_Accuracy,
         coalesce(BA_CI_lower, Balanced_Accuracy),
         coalesce(BA_CI_upper, Balanced_Accuracy)
       ),
-      F1_label = sprintf("%.2f\n(%.2f-%.2f)",
+      F1_label = sprintf(
+        "%.2f\n(%.2f-%.2f)",
         F1_macro,
         coalesce(F1_CI_lower, F1_macro),
         coalesce(F1_CI_upper, F1_macro)
@@ -88,33 +91,34 @@ create_panel_a <- function(results_list) {
     ) %>%
     select(Tissue, BA_label, F1_label, MAE_label, Spearman_label) %>%
     pivot_longer(cols = -Tissue, names_to = "Metric", values_to = "Label")
-  
+
   ci_labels$Metric <- factor(
     ci_labels$Metric,
     levels = c("BA_label", "F1_label", "MAE_label", "Spearman_label"),
     labels = c("Balanced\nAccuracy", "F1-macro", "MAE", "Spearman\nρ")
   )
-  
+
   heatmap_data$Metric <- factor(
     heatmap_data$Metric,
     levels = c("Balanced\nAccuracy", "F1-macro", "MAE", "Spearman\nρ")
   )
-  
+
   ggplot(heatmap_data, aes(x = Metric, y = Tissue, fill = Value)) +
     geom_tile(color = "white", linewidth = 0.5) +
     geom_text(
       data = ci_labels,
       aes(x = Metric, y = Tissue, label = Label),
       inherit.aes = FALSE,
-      size = 1.8, color = "black", lineheight = 0.85
+      size = 2.0, color = "black", lineheight = 0.85
     ) +
     scale_fill_performance(na.value = "gray90") +
     labs(x = NULL, y = NULL) +
     nature_theme() +
     theme(
-      axis.text.x = element_text(angle = 0, hjust = 0.5, size = 6),
-      legend.position = "right",
-      legend.key.height = unit(10, "mm")
+      axis.text.x = element_text(angle = 0, hjust = 0.5, size = 5),
+      legend.position = "bottom",
+      legend.key.width = unit(10, "mm"),
+      legend.key.height = unit(2.5, "mm")
     )
 }
 
@@ -123,18 +127,18 @@ create_panel_a <- function(results_list) {
 # ==============================================================================
 create_panel_b <- function(results_list) {
   cat("Creating Panel B: Confusion matrices...\n")
-  
+
   confusion_plots <- list()
-  
+
   for (tissue in names(results_list)) {
     res <- results_list[[tissue]]
     cm <- res$metrics$confusion_matrix
     n_classes <- nrow(cm)
-    
+
     # Normalize by row
     cm_pct <- normalize_confusion_matrix(cm)
     adjacent_pct <- calc_adjacent_error_rate(cm)
-    
+
     # Stage labels based on number of classes
     stage_labels <- if (n_classes == 4) {
       c("Inf", "EC", "Pre", "Post")
@@ -143,14 +147,14 @@ create_panel_b <- function(results_list) {
     } else {
       c("Young", "Mature")
     }
-    
+
     # Create dataframe
     cm_df <- as.data.frame(as.table(cm_pct))
     colnames(cm_df) <- c("True", "Predicted", "Percentage")
     cm_df$Percentage <- as.numeric(cm_df$Percentage)
     cm_df$True <- factor(cm_df$True, labels = stage_labels)
     cm_df$Predicted <- factor(cm_df$Predicted, labels = stage_labels)
-    
+
     p <- ggplot(cm_df, aes(x = Predicted, y = True, fill = Percentage)) +
       geom_tile(color = "white", linewidth = 0.5) +
       geom_text(
@@ -164,22 +168,26 @@ create_panel_b <- function(results_list) {
       labs(
         title = tissue,
         subtitle = sprintf("Adj: %.0f%%", adjacent_pct),
-        x = "Predicted", y = "True"
+        x = NULL, y = NULL
       ) +
       nature_theme() +
       theme(
         legend.position = "none",
-        plot.title = element_text(size = 7, face = "bold"),
-        plot.subtitle = element_text(size = 5, color = "gray40"),
+        plot.title = element_text(size = 8, face = "bold"),
+        plot.subtitle = element_text(size = 6, color = "gray40"),
         axis.text = element_text(size = 5),
-        axis.title = element_text(size = 6),
-        plot.margin = margin(2, 2, 2, 2, "mm")
+        plot.margin = margin(1.5, 1.5, 1.5, 1.5, "mm")
       )
-    
+
     confusion_plots[[tissue]] <- p
   }
-  
-  wrap_plots(confusion_plots, ncol = 3)
+
+  plot_grid(
+    plotlist = confusion_plots,
+    nrow = 2,
+    ncol = 3,
+    align = "hv"
+  )
 }
 
 # ==============================================================================
@@ -187,10 +195,10 @@ create_panel_b <- function(results_list) {
 # ==============================================================================
 create_panel_c <- function(metadata, results_list) {
   cat("Creating Panel C: Age-stage correlation...\n")
-  
-  # Select 4 representative tissues
-  tissues_to_plot <- names(results_list)[1:min(4, length(results_list))]
-  
+
+  # Include all available tissues
+  tissues_to_plot <- names(results_list)
+
   correlation_data <- map_dfr(tissues_to_plot, function(tissue) {
     tissue_data <- metadata %>%
       filter(Tissue == tissue) %>%
@@ -199,18 +207,18 @@ create_panel_c <- function(metadata, results_list) {
         Age_log = log10(Age_days + 1)
       ) %>%
       filter(!is.na(Stage_Numeric), !is.na(Age_log))
-    
+
     if (nrow(tissue_data) > 0) {
       cor_val <- cor(tissue_data$Age_log, tissue_data$Stage_Numeric,
         method = "spearman", use = "complete.obs"
       )
-      
+
       # Subsample for visualization
       if (nrow(tissue_data) > 100) {
         set.seed(42)
         tissue_data <- tissue_data %>% sample_n(100)
       }
-      
+
       tissue_data %>%
         mutate(
           Tissue = tissue,
@@ -221,11 +229,13 @@ create_panel_c <- function(metadata, results_list) {
     }
   }) %>%
     filter(!is.na(Stage_Numeric))
-  
+
   if (nrow(correlation_data) == 0) {
-    return(ggplot() + theme_void() + labs(title = "No data"))
+    return(ggplot() +
+      theme_void() +
+      labs(title = "No data"))
   }
-  
+
   ggplot(correlation_data, aes(x = Age_days, y = Stage_Numeric)) +
     geom_jitter(alpha = 0.5, width = 0, height = 0.1, size = 1, color = PRIMARY_COLORS[1]) +
     geom_smooth(method = "loess", se = TRUE, color = PRIMARY_COLORS[2], fill = PRIMARY_COLORS[2], alpha = 0.2, linewidth = 0.5) +
@@ -243,7 +253,7 @@ create_panel_c <- function(metadata, results_list) {
       breaks = 1:5,
       labels = c("Infant", "Early", "Pre-pub", "Post-pub", "Adult")
     ) +
-    facet_wrap(~Tissue, ncol = 2, scales = "free_x") +
+    facet_wrap(~Tissue, ncol = 3, scales = "free_x") +
     labs(
       x = "Chronological Age (log scale)",
       y = "Developmental Stage"
@@ -263,24 +273,39 @@ panel_a <- create_panel_a(results_list)
 panel_b <- create_panel_b(results_list)
 panel_c <- create_panel_c(metadata, results_list)
 
-# Wrap panel_b for single tag
-panel_b_wrapped <- wrap_elements(panel_b)
+top_row <- plot_grid(
+  panel_a,
+  panel_b,
+  nrow = 1,
+  rel_widths = c(1.8, 2.2),
+  labels = c("a", "b"),
+  label_size = 6,
+  label_fontface = "bold",
+  label_x = c(0, 0),
+  label_y = c(1, 1),
+  hjust = 0,
+  vjust = 1
+)
 
-fig2 <- (panel_a | panel_b_wrapped) / panel_c +
-  plot_layout(heights = c(1.2, 1)) +
-  plot_annotation(
-    tag_levels = "A",
-    theme = theme(
-      plot.background = element_rect(fill = "white", color = NA),
-      plot.tag = element_text(size = 8, face = "bold")
-    )
-  )
+fig2 <- plot_grid(
+  top_row,
+  panel_c,
+  ncol = 1,
+  rel_heights = c(1.1, 1.2),
+  labels = c("", "c"),
+  label_size = 6,
+  label_fontface = "bold",
+  label_x = c(0, 0),
+  label_y = c(1, 1),
+  hjust = 0,
+  vjust = 1
+)
 
 # ==============================================================================
 # 7. SAVE FIGURE
 # ==============================================================================
 cat("\nSaving figure...\n")
-save_figure(fig2, "fig2_model_performance", width = 183, height = 180)
+save_figure(fig2, "fig2_model_performance", width = 183, height = 170)
 
 # ==============================================================================
 # 8. SUMMARY STATISTICS
@@ -289,7 +314,8 @@ cat("\nWriting summary...\n")
 
 metrics_df <- extract_performance_metrics(results_list)
 
-summary_text <- sprintf("
+summary_text <- sprintf(
+  "
 FIGURE 2: MODEL PERFORMANCE
 ===========================
 Generated: %s
@@ -329,7 +355,8 @@ Figure dimensions: 183mm × 180mm
       mutate(Stage_Numeric = stage_to_numeric(Stage))
     if (nrow(tissue_data) > 0) {
       r <- cor(log10(tissue_data$Age_days + 1), tissue_data$Stage_Numeric,
-               method = "spearman", use = "complete.obs")
+        method = "spearman", use = "complete.obs"
+      )
       sprintf("  %s: ρ = %.3f", t, r)
     } else {
       sprintf("  %s: N/A", t)
