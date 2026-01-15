@@ -95,7 +95,7 @@ We implemented a **reduction-based ordinal classification** framework using Ligh
 
 ### Cross-Species Validation
 
-Developmental conservation was validated by comparing pig muscle transcriptomes with human skeletal muscle data from [Schaiter et al. (2024)](https://doi.org/10.1038/s41598-024-73893-5). We identified 36 genes with conserved developmental trajectories (p < 0.10 in both species).
+Developmental conservation was validated by comparing pig muscle transcriptomes with human skeletal muscle data from [Schaiter et al. (2024)](https://doi.org/10.1038/s41598-024-74913-4). We identified 36 genes with conserved developmental trajectories (p < 0.10 in both species).
 
 ## Requirements
 
