@@ -1,6 +1,152 @@
 % ==============================================================================
-% Supplementary Materials Content
+% Supplementary Materials - Nature Publication Standard
 % Paper: A Calibrated Transcriptomic Atlas of Porcine Development
+% ==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+% Page layout - Nature-compliant margins
+\usepackage[
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+]{geometry}
+
+% Typography - Sans-serif (Helvetica) as required by Nature
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{microtype}  % Improved typography
+
+% Essential packages
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{enumitem}
+
+% Define Nature blue color
+\definecolor{NatureBlue}{RGB}{0, 51, 102}
+
+% Line spacing - 1.5 for readability (Nature allows this for supplementary)
+\onehalfspacing
+
+% Header and footer styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{gray}{Supplementary Information}}
+\fancyhead[R]{\small\textcolor{gray}{Liu et al.}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Caption formatting - Nature style with bold title
+\DeclareCaptionLabelSeparator{bar}{ $|$ }
+\captionsetup{
+  font={sf,small},
+  labelfont={bf},
+  labelsep=bar,
+  justification=justified,
+  singlelinecheck=false,
+  format=plain,
+  skip=10pt
+}
+
+% Section formatting
+\titleformat{\section}
+  {\Large\bfseries\sffamily\color{NatureBlue}}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{20pt}{10pt}
+
+% ToC formatting
+\renewcommand{\cftsecfont}{\sffamily\bfseries}
+\renewcommand{\cftsecpagefont}{\sffamily}
+\renewcommand{\cftdotsep}{1}
+\setlength{\cftbeforesecskip}{8pt}
+
+% Figure placement
+\renewcommand{\floatpagefraction}{0.7}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+
+% Set graphics path
+\graphicspath{{figures/output/pdf/}{figures/main/}{figures/supplementary/}}
+
+% Custom commands
+\newcommand{\figref}[1]{Supplementary Figure~\ref{#1}}
+\newcommand{\tabref}[1]{Supplementary Table~\ref{#1}}
+
+% Hyperref setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=NatureBlue,
+  citecolor=NatureBlue,
+  urlcolor=NatureBlue,
+  pdftitle={Supplementary Information: A Calibrated Transcriptomic Atlas of Porcine Development},
+  pdfauthor={Tianyuan Liu et al.}
+}
+
+% ==============================================================================
+\begin{document}
+
+% Title and Table of Contents on a single page
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{1cm}
+  
+  {\Large\textcolor{NatureBlue}{\textbf{SUPPLEMENTARY INFORMATION}}}
+  
+  \vspace{1cm}
+  
+  {\LARGE\bfseries A Calibrated Transcriptomic Atlas of\\[0.3em]
+   Porcine Development Reveals Conserved\\[0.3em]
+   Molecular Programs with Humans}
+  
+  \vspace{1cm}
+  
+  {\large Tianyuan Liu, Rujing Lei, Ilyas M. Khan, Peter Theobald}
+  
+  \vspace{1.5cm}
+  
+  \rule{0.6\textwidth}{0.5pt}
+  
+  \vspace{0.5cm}
+  
+  {\small This file contains:}
+  
+  \vspace{0.3cm}
+  
+  \begin{itemize}[leftmargin=3cm, itemsep=0.2cm]
+    \item[\textbullet] Supplementary Figures S1--S3
+    \item[\textbullet] Supplementary Tables S1--S3
+  \end{itemize}
+  
+\end{center}
+
+\vspace{1cm}
+
+% Table of contents
+\tableofcontents
+\clearpage
+
+% Reset page numbering
+\setcounter{page}{1}
+
+% ==============================================================================
+% SUPPLEMENTARY FIGURES
 % ==============================================================================
 % Nature-style formatting:
 % - Bold brief title for each figure/table
@@ -9,6 +155,7 @@
 % ==============================================================================
 
 \section*{Supplementary Figures}
+\addcontentsline{toc}{section}{Supplementary Figures}
 
 % ------------------------------------------------------------------------------
 % Supplementary Figure 1: Cross-species sensitivity analysis
@@ -16,9 +163,9 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/output/pdf/figS1_cross_species_sensitivity.pdf}
-  \caption{\textbf{Cross-species sensitivity analysis.}
-  \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across different p-value thresholds. Error bars show min--max range across different numbers of genes tested.
-  \textbf{b}, Bootstrap distribution of correlation coefficient (1,000 iterations) for the optimal parameter set ($p < 0.10$, $n = 36$ genes). Dashed line indicates mean correlation; dotted lines show 95\% confidence interval.}
+  \caption{\textbf{Cross-species sensitivity analysis of conserved developmental markers.}
+  \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across significance thresholds ranging from $p < 0.01$ to $p < 0.20$. Shaded region indicates the range (minimum--maximum) across different gene set sizes ($n = 15$--$50$ genes).
+  \textbf{b}, Bootstrap distribution of correlation coefficients from 1,000 resampling iterations for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.62$); dashed lines denote the 95\% bootstrap confidence interval boundaries.}
   \label{fig:S1}
 \end{figure}
 
@@ -30,10 +177,10 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/output/pdf/figS2_tissue_specificity_stability.pdf}
-  \caption{\textbf{Tissue specificity and feature stability.}
-  \textbf{a}, UMAP visualization of expression profiles across five tissues, demonstrating clear tissue-specific clustering.
-  \textbf{b}, Within-tissue feature stability measured as mean Jaccard similarity of top 50 features across 5 random seeds. Higher values indicate more stable feature selection.
-  \textbf{c}, Mean absolute correlation of top features with developmental stage within each tissue, validating biological relevance of selected markers.}
+  \caption{\textbf{Tissue specificity and feature selection stability analysis.}
+  \textbf{a}, Uniform manifold approximation and projection (UMAP) of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, top 500 variable genes).
+  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across five independent random seeds. Error bars represent standard deviation; higher values indicate more reproducible feature selection.
+  \textbf{c}, Mean absolute Spearman correlation of top-ranked features with developmental stage. Error bars represent standard deviation across selected features within each tissue.}
   \label{fig:S2}
 \end{figure}
 
@@ -45,17 +192,19 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{figures/output/pdf/figS3_extended_performance.pdf}
-  \caption{\textbf{Extended performance metrics.}
-  \textbf{a}, Per-class precision, recall, and F1 scores for each developmental stage across all tissues.
-  \textbf{b}, Overall balanced accuracy and F1-macro scores on test set for each tissue.}
+  \caption{\textbf{Extended classification performance metrics across tissues and developmental stages.}
+  \textbf{a}, Heatmap of per-class precision, recall, and F1 scores for each developmental stage across all five tissues. Colour scale ranges from 0.4 (red, poor performance) to 1.0 (green, excellent performance). Missing values indicate developmental stages not present in that tissue's classification scheme.
+  \textbf{b}, Overall performance summary showing balanced accuracy and macro-averaged F1 scores evaluated on the held-out test set (30\% of samples) for each tissue. Error bars indicate 95\% bootstrap confidence intervals from 1,000 resampling iterations.}
   \label{fig:S3}
 \end{figure}
 
 \clearpage
 
 % ==============================================================================
-\section*{Supplementary Tables}
+% SUPPLEMENTARY TABLES
 % ==============================================================================
+\section*{Supplementary Tables}
+\addcontentsline{toc}{section}{Supplementary Tables}
 
 % ------------------------------------------------------------------------------
 % Supplementary Table 1: Train vs Test Performance
@@ -121,20 +270,28 @@
 % ------------------------------------------------------------------------------
 \begin{table}[H]
   \centering
-  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue.}
+  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (infant vs.\ adult). Pig FC derived from pig GTEx data (GEO: GSE257558); Human FC from Schaiter \textit{et al.} \textit{Sci.~Rep.}\ \textbf{14}, 22953 (2024).}
   \label{tab:S3}
-  \small
-  \begin{tabular}{llp{6.5cm}}
+  \footnotesize
+  \begin{tabular}{lp{6.0cm}cc}
     \toprule
-    Gene & Function & Developmental Role \\
+    Gene & Developmental Function & Pig FC & Human FC \\
     \midrule
-    \textit{SORCS2} & VPS10 receptor & Regulates motor neuron innervation and synaptic maturation during postnatal development \\
-    \textit{FGFRL1} & FGF receptor-like 1 & Muscle development and differentiation; may influence fibre-type balance \\
-    \textit{KREMEN1} & Transmembrane protein 1 & Modulates Wnt/$\beta$-catenin signalling in neuromuscular development \\
-    \textit{ACHE} & Acetylcholinesterase & Neuromuscular junction function; marker of synaptic maturity \\
-    \textit{MSS51} & Translational activator & Negative regulator of oxidative metabolism; downregulated during growth \\
-    \textit{IGSF1} & Ig superfamily member 1 & Pituitary glycoprotein involved in hormone regulation \\
-    \textit{PDLIM3} & PDZ/LIM domain 3 & Muscle cytoskeletal protein at Z-discs; expression decreases postnatally \\
+    \textit{SORCS2} & Serves as a molecular switch directing trafficking of key signalling receptors to regulate the balance between neuronal growth and pruning, ensuring precise wiring of the developing nervous system. & 1.84 & 0.95 \\
+    \addlinespace
+    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive growth factor signalling to ensure proper formation of critical structures including the diaphragm, kidneys, and skeleton. & 1.68 & 2.10 \\
+    \addlinespace
+    \textit{KREMEN1} & Functions as a critical negative regulator of Wnt signalling, partnering with Dkk1 to control cell survival and ensure proper patterning of organs including thymus, teeth, and neural tissues. & 1.25 & 1.43 \\
+    \addlinespace
+    \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring. & 1.81 & 0.53 \\
+    \addlinespace
+    \textit{MSS51} & Acts as a skeletal muscle-specific ``brake'' on metabolism, regulating mitochondrial respiration and energy expenditure as muscle fibres differentiate and mature. & $-$3.02 & $-$1.55 \\
+    \addlinespace
+    \textit{IGSF1} & Regulates the neuroendocrine system by modulating signal transduction in the pituitary gland, enabling maturation of the thyroid axis and coordination of testicular development. & 2.45 & 0.34 \\
+    \addlinespace
+    \textit{PDLIM3} & Acts as a cytoskeletal scaffolding protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of the heart. & $-$2.19 & $-$0.56 \\
     \bottomrule
   \end{tabular}
 \end{table}
+
+\end{document}

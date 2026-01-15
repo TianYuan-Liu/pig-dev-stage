@@ -16,21 +16,21 @@ fonts:
     legend_title: 7     # Legend titles
     strip_text: 7       # Facet strip text
 
-# Figure dimensions (Nature standards)
+# Figure dimensions (Scientific Reports standards)
 dimensions:
   # Width options (mm)
   single_column: 89     # Single column
   one_half_column: 120  # 1.5 column
-  double_column: 183    # Full page width (most common for multi-panel)
-  
+  double_column: 180    # Full page width (max 18cm for SR)
+
   # Height constraints
-  max_height: 247       # Maximum page height
+  max_height: 240       # Maximum page height (max 24cm for SR)
   
   # Default figure sizes (width x height in mm)
-  fig1: [183, 160]      # Study design
-  fig2: [183, 180]      # Model performance
-  fig3: [183, 140]      # Functional enrichment
-  fig4: [183, 200]      # Cross-species comparison
+  fig1: [180, 160]      # Study design
+  fig2: [180, 170]      # Model performance
+  fig3: [180, 120]      # Functional enrichment
+  fig4: [180, 170]      # Cross-species comparison
   
   # Resolution
   dpi: 300

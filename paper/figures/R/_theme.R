@@ -11,6 +11,7 @@ suppressPackageStartupMessages({
   library(ggplot2)
   library(yaml)
   library(scales)
+  library(patchwork)
 })
 
 # ==============================================================================
@@ -129,16 +130,18 @@ PRIMARY_COLORS <- c(
 #' Nature-compliant ggplot2 theme
 #'
 #' Creates a clean, publication-ready theme following Nature guidelines:
-#' - Sans-serif font (Arial)
-#' - Minimal gridlines
+#' - Sans-serif font (Arial/Helvetica)
+#' - Minimal gridlines (none by default)
 #' - White background
-#' - Appropriate font sizes
+#' - Font sizes: 5-8pt range
+#' - Line weights: minimum 0.5pt
 #'
 #' @param base_size Base font size (default: 7)
 #' @param base_family Font family (default: "Arial")
+#' @param show_grid Show light grid lines (default: FALSE)
 #' @return A ggplot2 theme object
 #' @export
-nature_theme <- function(base_size = 7, base_family = "Arial") {
+nature_theme <- function(base_size = 7, base_family = "Arial", show_grid = FALSE) {
   
   # Get sizes from config or use defaults
   sizes <- CONFIG$fonts$sizes
@@ -147,16 +150,17 @@ nature_theme <- function(base_size = 7, base_family = "Arial") {
                   legend_text = 6, legend_title = 7, strip_text = 7)
   }
   
+  # Grid settings
+  grid_major <- if (show_grid) {
+    element_line(color = "gray92", linewidth = 0.3)
+  } else {
+    element_blank()
+  }
+  
   theme_classic(base_size = base_size, base_family = base_family) +
     theme(
-      # Text elements
-      plot.title = element_text(
-        size = sizes$plot_title %||% 8,
-        face = "bold",
-        color = "black",
-        hjust = 0,
-        margin = margin(b = 4)
-      ),
+      # Text elements - NO title as panel labels are handled by patchwork
+      plot.title = element_blank(),
       plot.subtitle = element_text(
         size = sizes$plot_subtitle %||% 6,
         color = "gray30",
@@ -164,7 +168,7 @@ nature_theme <- function(base_size = 7, base_family = "Arial") {
         margin = margin(b = 4)
       ),
       
-      # Axis text
+      # Axis text (5-7pt per Nature)
       axis.text = element_text(
         size = sizes$axis_text %||% 6,
         color = "black"
@@ -176,31 +180,31 @@ nature_theme <- function(base_size = 7, base_family = "Arial") {
         margin = margin(r = 2)
       ),
       
-      # Axis titles
+      # Axis titles (7-8pt per Nature)
       axis.title = element_text(
         size = sizes$axis_title %||% 7,
         color = "black",
         face = "plain"
       ),
       axis.title.x = element_text(
-        margin = margin(t = 4)
+        margin = margin(t = 6)
       ),
       axis.title.y = element_text(
-        margin = margin(r = 4)
+        margin = margin(r = 6)
       ),
       
-      # Axis lines and ticks
+      # Axis lines and ticks (minimum 0.5pt per Nature)
       axis.line = element_line(
         color = "black",
-        linewidth = CONFIG$elements$axis_line_width %||% 0.5
+        linewidth = 0.5
       ),
       axis.ticks = element_line(
         color = "black",
-        linewidth = CONFIG$elements$axis_line_width %||% 0.5
+        linewidth = 0.5
       ),
       axis.ticks.length = unit(1.5, "mm"),
       
-      # Legend
+      # Legend (compact, inside figure)
       legend.text = element_text(
         size = sizes$legend_text %||% 6
       ),
@@ -208,29 +212,47 @@ nature_theme <- function(base_size = 7, base_family = "Arial") {
         size = sizes$legend_title %||% 7,
         face = "bold"
       ),
-      legend.key.size = unit(3, "mm"),
-      legend.background = element_blank(),
+      legend.key.size = unit(3.5, "mm"),
+      legend.key.height = unit(3.5, "mm"),
+      legend.key.width = unit(3.5, "mm"),
+      legend.background = element_rect(fill = "white", color = NA),
       legend.key = element_blank(),
       legend.box.background = element_blank(),
-      legend.margin = margin(0, 0, 0, 0),
+      legend.margin = margin(2, 2, 2, 2),
+      legend.spacing = unit(1, "mm"),
       
       # Panel
       panel.background = element_rect(fill = "white", color = NA),
       plot.background = element_rect(fill = "white", color = NA),
-      panel.grid.major = element_blank(),
+      panel.grid.major = grid_major,
       panel.grid.minor = element_blank(),
       panel.border = element_blank(),
       
-      # Facets
-      strip.background = element_blank(),
+      # Facets (consistent styling)
+      strip.background = element_rect(fill = "gray95", color = NA),
       strip.text = element_text(
         size = sizes$strip_text %||% 7,
         face = "bold",
-        color = "black"
+        color = "black",
+        margin = margin(3, 3, 3, 3)
       ),
       
-      # Margins
-      plot.margin = margin(4, 4, 4, 4, "mm")
+      # Margins (consistent spacing)
+      plot.margin = margin(5, 5, 5, 5, "mm")
+    )
+}
+
+#' Nature theme variant for subpanels
+#'
+#' Slightly more compact margins for multi-panel figures
+#' @param ... Arguments passed to nature_theme
+#' @return A ggplot2 theme object
+#' @export
+nature_theme_panel <- function(...) {
+  nature_theme(...) +
+    theme(
+      plot.margin = margin(3, 3, 3, 3, "mm"),
+      legend.position = "none"
     )
 }
 
@@ -352,17 +374,60 @@ save_figure <- function(plot, filename, width = 183, height = 160, dpi = 300,
 }
 
 # ==============================================================================
-# PANEL LABEL HELPER
+# PANEL LABEL HELPER (Nature Standard)
 # ==============================================================================
 
-#' Add panel labels (A, B, C) to plots
-#' Uses patchwork annotation
-#' @param ... Plots to combine
+#' Nature-compliant panel annotation theme
+#' 
+#' Nature requires lowercase bold panel labels (a, b, c) positioned
+#' consistently at top-left, outside the plot area.
+#'
+#' @return A patchwork plot_annotation object
 #' @export
-add_panel_labels <- function(...) {
-  # This is handled by patchwork::plot_annotation(tag_levels = "A")
-  # Just a reminder function
-  message("Use: plot_annotation(tag_levels = 'A') with patchwork")
+nature_panel_annotation <- function() {
+  patchwork::plot_annotation(
+    tag_levels = "a",
+    theme = theme(
+      plot.tag = element_text(
+        size = 10,
+        face = "bold",
+        family = "Arial",
+        color = "black",
+        hjust = 0,
+        vjust = 1
+      ),
+      plot.tag.position = c(0, 1)
+    )
+  )
+}
+
+#' Add Nature-style panel labels to combined plots
+#' 
+#' Wraps patchwork plot with proper Nature panel labels
+#' @param combined_plot A patchwork plot object
+#' @return Plot with panel annotations
+#' @export
+add_nature_labels <- function(combined_plot) {
+  combined_plot + nature_panel_annotation()
+}
+
+#' Create individual panel label element
+#' 
+#' For manually adding labels when patchwork auto-labeling doesn't work
+#' @param label Character label (e.g., "a", "b")
+#' @return ggplot annotation layer
+#' @export
+panel_label <- function(label) {
+  annotate(
+    "text",
+    x = -Inf, y = Inf,
+    label = label,
+    fontface = "bold",
+    family = "Arial",
+    size = 10 / .pt,  # Convert to ggplot units
+    hjust = -0.5,
+    vjust = 1.5
+  )
 }
 
 # ==============================================================================
