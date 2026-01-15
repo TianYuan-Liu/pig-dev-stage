@@ -1,16 +1,45 @@
-# pigGTEx metadata profile
+# PigGTEx Data
 
-## Dataset snapshot
-- 9,530 RNA-seq samples described in `PigGTEx_v0.MetaTable.xlsx`
-- Key fields used here: Main categories (tissue), Sex, Age, sequencing/QC metrics
-- Age cohort definitions (converted to days): Infant (0-20), Early childhood (21-59), Pre-pubertal (60-149), Post-pubertal (150-365), Adult (>365)
+Data resources for the porcine developmental stage classification pipeline.
 
-### Overall distributions
-- Age cohorts: Infant 1,894; Early childhood 807; Pre-pubertal 619; Post-pubertal 1,103; Adult 150; Age missing 4,957 (52.0%)
-- Sex labels: Female 2,246; Male 2,157; Other/pooled 169; Sex missing 4,958 (52.0%)
-- Tissue labels: 32 main categories; 1,260 samples have an unknown category (13.2%)
+## Data Source
 
-## Tissue-level age distribution
+- **PigGTEx Portal**: https://piggtex.farmgtex.org/
+- **NCBI GEO**: [GSE257558](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE257558)
+- **Publications**: [Teng et al. (2024)](https://doi.org/10.1038/s41467-024-47539-8), [Chen et al. (2025)](https://doi.org/)
+
+## Dataset Overview
+
+- **Total samples**: 9,530 RNA-seq samples in PigGTEx v0 MetaTable
+- **Samples used for ML**: 1,924 (5 tissues with sufficient developmental stage representation)
+- **Key fields**: Tissue, Sex, Age, sequencing/QC metrics
+
+## Developmental Stage Definitions
+
+| Stage | Age Range | Physiological Milestone |
+|-------|-----------|------------------------|
+| Infant | 0–20 days | Before weaning |
+| Early childhood | 21–59 days | Post-weaning growth |
+| Pre-pubertal | 60–149 days | Rapid growth phase |
+| Post-pubertal | 150–365 days | Sexual maturity |
+| Adult | >365 days | Reproductive maturity |
+
+## Tissues Selected for ML Analysis
+
+The following 5 tissues were selected based on sample availability and developmental stage representation:
+
+| Tissue | Total Samples | Samples with Age | Used in ML |
+|--------|---------------|------------------|------------|
+| Muscle | 1,463 | 914 | ✓ |
+| Liver | 607 | 329 | ✓ |
+| Brain | 490 | 250 | ✓ |
+| Blood | 904 | 284 | ✓ |
+| Lung | 170 | 147 | ✓ |
+
+## Complete Tissue Distribution
+
+### Age Distribution by Tissue
+
 |Tissue|Total|Infant (0-20d)|Early childhood (21-59d)|Pre-pubertal (60-149d)|Post-pubertal (150-365d)|Adult (>365d)|Age missing|
 |---|---|---|---|---|---|---|---|
 |Muscle|1463|272|92|122|423|5|549|
@@ -46,7 +75,8 @@
 |Fibroblast|40|0|8|0|0|0|32|
 |Stomach|1|0|0|0|1|0|0|
 
-## Tissue-level sex distribution
+### Sex Distribution by Tissue
+
 |Tissue|Total|Female|Male|Other/pooled|Unknown|
 |---|---|---|---|---|---|
 |Muscle|1463|364|424|127|548|
@@ -81,3 +111,10 @@
 |iPS|47|3|4|0|40|
 |Fibroblast|40|8|2|0|30|
 |Stomach|1|0|0|0|1|
+
+## Cross-Species Validation Data
+
+Human skeletal muscle data for cross-species comparison:
+- **Source**: Schaiter et al. (2024) *Scientific Reports*
+- **Location**: `data/human_muscle/`
+- **Samples**: 4 infants (7–28 months), 7 adults (30–56 years)

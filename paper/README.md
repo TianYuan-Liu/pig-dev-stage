@@ -1,94 +1,85 @@
-# Paper Organization
+# Paper Materials
 
-## 📁 Folder Structure
+LaTeX manuscript for "A Calibrated Transcriptomic Atlas of Porcine Development Reveals Conserved Molecular Programs with Humans".
+
+## Structure
 
 ```
 paper/
-├── 📄 pig_age_stage.tex      - Original manuscript (full version)
-├── 📄 pig_age_stage.pdf      - Original compiled PDF (18 pages)
-├── 📄 main_modular.tex       - Modular Nature/Cell version
-├── 📄 main_modular.pdf       - Nature/Cell compiled PDF (9 pages)
-├── 📄 pig_age_stage.bib      - Bibliography file
+├── paper.tex              # Main manuscript (Nature format)
+├── supplementary.tex      # Supplementary materials
+├── paper.bbl              # Compiled bibliography
 │
-├── sections/                 - Modular LaTeX sections
-│   ├── 00_abstract.tex      - Concise abstract (150 words)
-│   ├── 01_introduction.tex  - Introduction section
-│   ├── 02_results.tex       - Results sections
-│   ├── 03_discussion.tex    - Discussion section
-│   ├── 04_methods.tex       - Methods (concise version)
-│   ├── 05_figures_tables.tex - All figures and tables
-│   └── 06_references.tex    - References
+├── figures/               # Figure files
+│   ├── output/pdf/       # Generated PDFs (main figures)
+│   ├── R/                # R scripts for figure generation
+│   └── README.md         # Figure documentation
 │
-├── supplementary/           - Supplementary materials
-│   └── supplementary_information.tex
-│
-├── figures/                 - Figure organization
-│   ├── main/               - Main manuscript figures
-│   └── supplementary/      - Supplementary figures
-│
-├── tables/                  - Table organization
-│   ├── main/               - Main manuscript tables
-│   └── supplementary/      - Supplementary tables
-│
-├── archive/                 - Archived files
-│   ├── *.txt               - Original text drafts
-│   ├── *.rtf               - RTF versions
-│   └── *_backup.tex        - Backup files
-│
-└── docs/                    - Documentation
-    ├── REORGANIZATION_PLAN.md
-    ├── REORGANIZATION_COMPLETE.md
-    └── COMPILATION_SUCCESS.md
+└── pig-age-human/        # Bibliography and reference files
+    └── pig-age-human.bib # BibTeX references
 ```
 
-## 🚀 Quick Commands
+## Compilation
 
-### Compile Original Version:
+### Main Paper
+
 ```bash
-pdflatex pig_age_stage.tex
-pdflatex pig_age_stage.tex  # Run twice for references
+cd paper
+pdflatex paper.tex
+bibtex paper
+pdflatex paper.tex
+pdflatex paper.tex
 ```
 
-### Compile Modular Version:
+Or using latexmk:
 ```bash
-pdflatex main_modular.tex
-pdflatex main_modular.tex  # Run twice for references
+latexmk -pdf paper.tex
 ```
 
-### Compile Supplementary:
+### Supplementary Materials
+
 ```bash
-cd supplementary
-pdflatex supplementary_information.tex
-cd ..
+pdflatex supplementary.tex
 ```
 
-### Clean Build Files:
+### Clean Build Files
+
 ```bash
-rm -f *.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz
+latexmk -c
+# or manually:
+rm -f *.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz *.bbl *.blg
 ```
 
-## 📝 Key Files
+## Main Manuscript Contents
 
-- **For submission**: Use `main_modular.tex` (Nature/Cell format)
-- **For review**: Use `pig_age_stage.tex` (comprehensive version)
-- **Supplementary**: Located in `supplementary/` folder
+1. **Abstract** - 150 words summarizing the calibrated transcriptomic atlas
+2. **Introduction** - Motivation for molecular staging in pig research
+3. **Results**
+   - Comprehensive transcriptomic atlas (1,924 samples, 5 tissues)
+   - ML framework for stage inference (LightGBM ordinal classification)
+   - Functional landscape of development
+   - Cross-species conservation with human muscle
+4. **Discussion** - Implications and limitations
+5. **Methods** - Technical details
+6. **Figures** - 4 main figures
 
-## 🎯 Journal Formats
+## Supplementary Contents
 
-### Nature (3000 words)
-- Use `main_modular.tex`
-- 4 figures/tables max
-- Methods at end
+- **Supplementary Figure S1**: Cross-species sensitivity analysis
+- **Supplementary Figure S2**: Tissue specificity and feature stability
+- **Supplementary Figure S3**: Extended classification performance
+- **Supplementary Table S1**: Train vs test performance
+- **Supplementary Table S2**: Per-class performance metrics
+- **Supplementary Table S3**: Functional annotations of key markers
 
-### Cell (5000 words)
-- Use `main_modular.tex`
-- 7 figures/tables max
-- STAR Methods in supplementary
+## Requirements
 
-### Nature Communications
-- Use `pig_age_stage.tex`
-- No strict limits
-- Flexible format
+- LaTeX distribution (TeX Live or MiKTeX)
+- Packages: geometry, helvet, graphicx, booktabs, natbib, hyperref, etc.
 
----
-*Organized and ready for submission*
+## Formatting Notes
+
+- **Target journal**: Nature (adaptable to other journals)
+- **Font**: Helvetica (sans-serif)
+- **Line numbering**: Enabled for peer review
+- **Citation style**: Superscript numerical (Nature style)
