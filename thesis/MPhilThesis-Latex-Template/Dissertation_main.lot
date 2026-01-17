@@ -1,0 +1,12 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces LightGBM hyperparameter configuration.}}{57}{table.caption.5}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces \textbf {Model performance metrics across tissues.} Performance evaluated on held-out test sets (30\% of samples). 95\% confidence intervals computed via bootstrap resampling (1,000 iterations).}}{72}{table.caption.7}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces \textbf {Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue.}}{76}{table.caption.9}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces \textbf {Functional annotations of key conserved developmental markers.}}}{88}{table.caption.12}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,187 @@
+\chapter{General Introduction}\label{chapter:intro}
+\markboth{\textit{CHAPTER 1. General Introduction}}{}
+
+\clearpage
+\FloatBarrier
+
+\section{The Domestic Pig as a Research Model}\label{sec:intro:pig_model}
+
+The domestic pig (\textit{Sus scrofa domesticus}) occupies a unique position at the intersection of agricultural science and biomedical research, serving as both a major food production species and an increasingly important model organism for human biology and disease \parencite{swindle_swine_2012, lunney_importance_2021, meurens_pig_2012}. This dual role has driven substantial investment in understanding porcine biology at the molecular level, yet fundamental challenges remain in standardising the characterisation of developmental state across research studies.
+
+\subsection{Historical Importance in Biomedical Research}
+
+The use of pigs in biomedical research has a long and distinguished history, dating back to the pioneering surgical studies of the nineteenth century. Early investigators recognised that the pig's anatomical and physiological similarities to humans made it an invaluable platform for developing surgical techniques and testing therapeutic interventions \parencite{swindle_swine_2012}. Throughout the twentieth century, pigs became established models for cardiovascular research, with the porcine heart serving as a testing ground for prosthetic valves, coronary artery bypass procedures, and cardiac catheterisation techniques that would later be translated to human medicine.
+
+The completion of the pig genome sequence in 2012 marked a watershed moment in porcine research, providing unprecedented molecular resources for comparative studies with humans \parencite{groenen_analyses_2012}. This genomic foundation has enabled researchers to move beyond purely anatomical comparisons to interrogate the molecular basis of organ development, disease susceptibility, and drug metabolism. The subsequent development of transcriptomic atlases, including the PigGTEx resource \parencite{teng_compendium_2024, chen_construction_2025}, has further expanded the scope of molecular investigations in this species.
+
+Today, pigs are employed across a remarkable breadth of research applications. In regenerative medicine, porcine organs are being developed for xenotransplantation, with recent clinical trials demonstrating the feasibility of pig-to-human heart transplantation \parencite{lunney_importance_2021}. In pharmaceutical development, minipigs serve as non-rodent species for toxicological testing, providing safety data that complements rodent studies. In nutritional science, pigs are used to model human dietary interventions and gastrointestinal function \parencite{pluske_gastrointestinal_2018}. Across all these applications, the ability to accurately characterise the developmental state of experimental animals is essential for ensuring reproducibility and enabling meaningful comparisons across studies.
+
+\subsection{Anatomical and Physiological Similarities to Humans}
+
+The pig's value as a biomedical model derives fundamentally from its remarkable anatomical and physiological similarities to humans. These similarities extend across multiple organ systems and developmental processes, making the pig a more representative model for human biology than traditional rodent species in many contexts.
+
+The cardiovascular system exemplifies this similarity. The porcine heart is comparable to the human heart in size, structure, and coronary artery anatomy, making it an ideal model for studying cardiac development, ischaemic heart disease, and interventional cardiology \parencite{swindle_swine_2012}. The pig's haemodynamic parameters, including blood pressure, heart rate, and cardiac output, fall within ranges similar to those of humans, facilitating the translation of cardiovascular interventions.
+
+The gastrointestinal tract represents another area of strong correspondence. Pigs and humans share similar digestive physiology, gut microbiome composition, and nutrient absorption mechanisms \parencite{pluske_gastrointestinal_2018}. This makes the pig particularly valuable for nutritional studies and research into gastrointestinal diseases. The porcine immune system also shares important features with humans, including similar organisation of secondary lymphoid tissues and comparable responses to pathogens.
+
+From a developmental perspective, pigs share several important features with humans. Both species are polytocous (giving birth to multiple offspring), experience relatively prolonged postnatal development compared to rodents, and undergo sexual maturation at comparable biological ages relative to lifespan. These developmental parallels make the pig an appropriate model for studying growth, maturation, and the transitions between life stages.
+
+\subsection{Advantages Over Rodent Models}
+
+While rodents remain the workhorses of biomedical research due to their small size, short generation time, and well-characterised genetics, pigs offer distinct advantages for certain research questions that justify their higher maintenance costs and longer experimental timelines.
+
+Size is perhaps the most obvious advantage. Adult pigs can reach body masses of 100--300 kg, similar to adult humans, while even minipig breeds typically weigh 20--40 kg. This size similarity enables the testing of medical devices, surgical procedures, and drug delivery systems at scales directly relevant to human application. Organ dimensions, tissue volumes, and blood flow rates in pigs more closely approximate human values than those of mice or rats.
+
+Lifespan represents another important consideration. Pigs can live for 15--20 years under optimal conditions, with domestic production animals typically reaching market weight at 5--6 months. This intermediate lifespan, combined with a developmental timeline that spans months rather than weeks, allows researchers to study postnatal development and maturation processes at temporal resolutions impossible to achieve in short-lived rodent models.
+
+Metabolically, pigs share important features with humans that differ from rodents. Drug metabolism pathways, particularly those involving cytochrome P450 enzymes, show greater similarity between pigs and humans than between rodents and humans \parencite{swindle_swine_2012}. This metabolic correspondence improves the predictive validity of pharmacokinetic and toxicological studies conducted in pigs.
+
+The pig genome, at approximately 2.8 billion base pairs distributed across 18 autosomes plus sex chromosomes, is similar in size and organisation to the human genome. Comparative analyses have revealed extensive synteny (conservation of gene order) between pig and human chromosomes, facilitating the translation of genetic findings between species \parencite{groenen_analyses_2012}. This genomic similarity extends to the transcriptomic level, where gene expression patterns in porcine tissues often parallel those observed in corresponding human tissues.
+
+\subsection{Agricultural Significance and Research Infrastructure}
+
+Beyond its biomedical applications, the pig's economic importance as a food animal has driven substantial investment in research infrastructure that benefits basic science investigations. The global pork industry produces over 100 million tonnes of meat annually, creating powerful incentives to understand and optimise porcine growth, development, and health.
+
+This agricultural context has generated extensive resources for pig research. Large-scale breeding programmes have produced well-characterised genetic lines with defined pedigrees extending back many generations. Consortium efforts such as PigGTEx have assembled transcriptomic datasets spanning dozens of tissues and hundreds of individuals \parencite{teng_compendium_2024}. Industry investments in genomic selection have produced dense genotyping arrays and imputation reference panels that enable genome-wide association studies at scale.
+
+The dual agricultural and biomedical utility of pig research creates synergies that benefit both communities. Fundamental discoveries about porcine biology often have direct applications for improving production efficiency, while the economic resources generated by the pork industry support research infrastructure that advances biomedical applications. This mutually beneficial relationship has accelerated progress in understanding porcine molecular biology over the past two decades.
+
+
+\section{The Challenge of Developmental Staging}\label{sec:intro:challenge}
+
+Despite the extensive molecular resources now available for pig research, a critical gap undermines reproducibility across studies: the lack of a standardised, molecular definition of developmental stage. This deficiency compromises experimental design, limits cross-study comparisons, and introduces confounding variability that reduces statistical power and interpretive clarity.
+
+\subsection{Current Methods: Chronological Age Versus Biological Maturity}
+
+Contemporary pig research typically defines developmental state using one of two approaches: chronological age or morphological staging criteria. Neither approach adequately captures the biological complexity of postnatal development, and both introduce sources of variability that compromise experimental reproducibility.
+
+Chronological age, measured in days from birth, represents the simplest and most commonly used staging criterion. Researchers specify the age of experimental animals at the time of sampling or intervention, enabling straightforward comparisons across studies. However, chronological age is a poor proxy for biological maturity because it fails to account for the substantial variation in developmental trajectories among individuals \parencite{boeyer_evidence_2020}.
+
+The limitations of chronological staging become apparent when considering the diversity of factors that influence developmental rate. Genetic background, nutrition, environmental conditions, and health status all affect the pace of maturation, leading to situations where animals of identical chronological age may differ substantially in their biological state. A piglet from a large litter with limited access to maternal nutrition may develop more slowly than a singleton from a well-nourished sow, yet both animals would be assigned the same developmental stage based solely on age.
+
+Morphological staging offers an alternative approach that attempts to capture biological state more directly. Researchers may classify animals based on physical characteristics such as body weight, tooth eruption, testicular descent, or secondary sexual characteristics. These morphological markers provide some information about developmental progress, but they suffer from subjective assessment, inter-observer variability, and limited precision \parencite{boeyer_evidence_2020}.
+
+Moreover, morphological staging typically captures only whole-organism development, whereas different organ systems may mature at different rates. This asynchrony creates situations where an animal might appear developmentally advanced by one criterion but immature by another. For studies targeting specific tissues or physiological processes, morphological staging of the whole organism may provide limited information about the developmental state of the tissues of interest.
+
+\subsection{Limitations of Morphological Staging Criteria}
+
+The historical reliance on morphological staging in developmental biology reflects the practical constraints faced by researchers before molecular tools became widely available. Visual assessment of physical characteristics required no specialised equipment and could be performed rapidly on large numbers of animals. However, the advent of high-throughput molecular profiling has revealed the inadequacy of these traditional approaches.
+
+Morphological development proceeds in a non-linear fashion characterised by periods of rapid change interspersed with plateaus of relative stability. This non-linearity makes morphological markers unreliable indicators of developmental state during transitional periods. An animal undergoing rapid morphological change may be difficult to classify unambiguously, while two animals at slightly different developmental stages may appear morphologically identical during a plateau phase.
+
+The subjectivity inherent in morphological assessment introduces additional variability. Different observers may apply staging criteria differently, even when following standardised protocols. This inter-observer variability reduces the reproducibility of morphological staging and limits the precision of cross-study comparisons. Training and calibration can reduce but not eliminate these subjective elements.
+
+Perhaps most fundamentally, morphological staging assumes that external physical characteristics accurately reflect internal physiological state. This assumption breaks down when considering the development of organs such as the brain, liver, or immune system, where functional maturation may proceed independently of external morphological changes. A piglet that appears physically mature may harbour immature neural circuits or an underdeveloped immune repertoire, with profound implications for studies targeting these systems.
+
+\subsection{Inter-Individual Variability and Asynchronous Organ Development}
+
+One of the most significant challenges in developmental staging arises from the recognition that different organs and tissues mature at different rates within the same individual. This asynchrony means that no single staging criterion can accurately capture the developmental state of all tissues simultaneously.
+
+Evidence for asynchronous development comes from multiple sources. Longitudinal studies of skeletal maturation in humans have demonstrated that bone age can deviate substantially from chronological age, with some individuals showing accelerated maturation while others are delayed \parencite{boeyer_evidence_2020}. Similar variability has been documented in the development of the immune system, central nervous system, and reproductive organs.
+
+In pigs, asynchronous development creates particular challenges for studies of growth physiology. The gastrointestinal tract undergoes rapid maturation during the weaning transition, with changes in enzyme expression, absorptive capacity, and barrier function occurring over days to weeks \parencite{pluske_gastrointestinal_2018}. However, muscle tissue continues to develop and remodel for months after weaning, while the brain may not reach full maturity until well into adulthood. A staging system based on gastrointestinal markers would provide limited information about muscle or brain development in the same animals.
+
+Littermate studies have revealed the extent of developmental variability even among genetically related individuals reared under identical conditions. Piglets from the same litter may differ substantially in birth weight, growth rate, and developmental trajectory, reflecting stochastic elements of development as well as intra-uterine positioning and access to maternal resources. These littermate differences demonstrate that controlling for genetics and environment is insufficient to standardise developmental state.
+
+\subsection{Impact on Experimental Reproducibility}
+
+The consequences of inadequate developmental staging extend throughout the research process, from experimental design to data interpretation and cross-study comparison. Variability introduced by developmental differences inflates experimental noise, reduces statistical power, and can lead to both false-positive and false-negative findings.
+
+Consider a hypothetical study investigating the effects of a dietary intervention on muscle gene expression in growing pigs. If experimental animals vary in developmental stage at the time of sampling, this variation will contribute to the variance in gene expression measurements, potentially obscuring treatment effects. The study may require larger sample sizes to achieve adequate statistical power, increasing costs and animal usage. Alternatively, if the study is conducted with inadequate sample sizes, genuine treatment effects may go undetected.
+
+The problem is compounded when attempting to compare results across studies conducted at different institutions using different staging criteria. One research group may define ``weaning'' as the point when piglets are separated from the sow, while another may use a weight threshold or a specific chronological age. These operational differences make it difficult to determine whether discrepant findings reflect genuine biological variation or merely differences in the developmental composition of experimental groups.
+
+For pig research to achieve its potential as a translational platform, standardisation of developmental staging is essential. Researchers must be able to specify the developmental state of their experimental animals with precision and reproducibility, enabling meaningful comparisons across studies and the accumulation of knowledge over time.
+
+
+\section{Molecular Approaches to Biological Age}\label{sec:intro:molecular}
+
+The limitations of morphological and chronological staging have motivated the development of molecular approaches that estimate biological age directly from tissue measurements. These molecular clocks leverage the systematic changes in epigenetic marks, gene expression patterns, or other molecular features that accompany the ageing process, providing quantitative estimates of biological state that can complement or replace traditional staging methods.
+
+\subsection{Epigenetic Clocks}
+
+The discovery that DNA methylation patterns change systematically with age has enabled the development of ``epigenetic clocks'' that predict chronological age with remarkable accuracy \parencite{horvath_dna_2013, bi_ageing_clock_team_multi-tissue_2017, duan_epigenetic_2022}. These clocks are constructed by training machine learning models on methylation data from individuals of known age, identifying the CpG sites whose methylation levels are most strongly associated with chronological age, and combining these sites into a predictive score.
+
+The seminal epigenetic clock developed by Horvath demonstrated that chronological age could be predicted with a median absolute error of approximately 3.6 years across diverse tissue types and individuals ranging from prenatal development to advanced age \parencite{horvath_dna_2013}. Subsequent refinements have improved accuracy and revealed that the deviation between epigenetic age and chronological age---termed ``age acceleration''---predicts mortality risk and disease outcomes independently of chronological age.
+
+Epigenetic clocks have been developed for multiple species, including pigs \parencite{schachtschneider_epigenetic_2021}. These porcine epigenetic clocks have demonstrated that DNA methylation-based age prediction is feasible in this species and have been used to investigate the effects of diet, obesity, and other factors on biological ageing in pig models. However, the requirement for DNA methylation profiling, typically using array-based or sequencing-based methods, limits the practical application of epigenetic clocks in settings where transcriptomic data are more readily available.
+
+Recent methodological advances have expanded the repertoire of epigenetic clocks, with new versions designed to predict specific outcomes such as mortality risk, functional capacity, or the pace of ageing \parencite{teschendorff_epigenetic_2025}. Furthermore, the field is moving towards higher resolution with the development of spatial and cell-type-specific aging clocks \parencite{sun_spatial_2025, muralidharan_human_2025}, which disentangle the contributions of distinct cell populations to the overall tissue aging signal. These second- and third-generation clocks demonstrate that molecular age estimation can capture aspects of biological state beyond simple chronological age, opening possibilities for more nuanced characterisation of developmental and ageing processes.
+
+\subsection{Transcriptomic Signatures and Gene Expression Clocks}
+
+While epigenetic clocks have received substantial attention, gene expression patterns offer an alternative molecular window into developmental state. Transcriptomic profiles capture the functional state of tissues at a given moment, reflecting the integrated output of regulatory networks that control cellular identity, function, and response to environmental stimuli.
+
+The Genotype-Tissue Expression (GTEx) project established a foundational resource for understanding transcriptomic variation across human tissues \parencite{the_gtex_consortium_gtex_2020}. By profiling gene expression in dozens of tissues from hundreds of individuals, GTEx has enabled the identification of tissue-specific expression patterns, the characterisation of genetic influences on gene expression, and the development of reference atlases for human tissue states. More recently, the developmental GTEx (dGTEx) project has extended this approach to capture transcriptomic changes across postnatal development in humans and non-human primates \parencite{coorens_human_2025}.
+
+Transcriptomic approaches to biological age estimation exploit the systematic changes in gene expression that accompany development and ageing. During postnatal development, tissues undergo characteristic transcriptional programs that reflect cellular differentiation, functional maturation, and adaptation to postnatal challenges. By identifying the genes whose expression changes most consistently with age, researchers can construct transcriptomic clocks analogous to epigenetic clocks.
+
+The advantages of transcriptomic approaches include the wide availability of RNA-seq data, the functional interpretability of gene expression changes, and the potential to capture tissue-specific developmental trajectories. Unlike DNA methylation, which provides an integrated record of epigenetic state, gene expression captures the immediate functional state of cells, potentially providing more sensitive detection of transitional states and environmental influences.
+
+\subsection{Multi-Tissue Versus Single-Tissue Approaches}
+
+A critical consideration in developing molecular staging systems is whether to target a single tissue or attempt to capture development across multiple tissues simultaneously. Both approaches have advantages and limitations that must be weighed against the specific requirements of particular research applications.
+
+Single-tissue approaches focus on one tissue type, developing markers that capture the developmental trajectory of that specific tissue. This approach can achieve high accuracy for the targeted tissue but provides no information about the development of other organs. For research questions focused on a single organ system, such as studies of muscle development or liver metabolism, single-tissue staging may be appropriate and efficient.
+
+Multi-tissue approaches attempt to identify molecular markers that track development across diverse tissue types. The appeal of this approach is the potential to capture whole-organism developmental state with a single measurement. However, the asynchrony of development across tissues complicates this goal, as markers that are informative in one tissue may be uninformative or even misleading in another.
+
+A middle ground involves developing tissue-specific markers within a unified framework that allows comparison across tissues. This approach acknowledges that different tissues follow distinct developmental trajectories while enabling researchers to characterise the developmental state of multiple tissues within the same experimental animals. The resulting tissue-resolved staging system provides more complete information about organismal development than any single-tissue approach.
+
+\subsection{Current State of Molecular Staging in Pigs}
+
+Despite the development of epigenetic clocks for pigs and the accumulation of extensive transcriptomic resources through projects like PigGTEx, a comprehensive molecular staging system for porcine development has been lacking. Existing porcine epigenetic clocks focus primarily on ageing rather than developmental staging, and no transcriptomic framework has been established for inferring developmental stage from gene expression data.
+
+The PigGTEx resource provides an unprecedented foundation for developing such a framework \parencite{teng_compendium_2024, chen_construction_2025}. This consortium has assembled RNA-seq profiles from dozens of tissues across hundreds of pigs spanning the postnatal lifespan, creating a comprehensive reference for porcine gene expression across tissues and ages. However, translating this resource into a practical staging system requires analytical approaches that can identify developmental markers, train predictive models, and validate the biological relevance of the resulting staging framework.
+
+The gap between available molecular resources and practical staging tools motivates the present thesis. By developing and validating a transcriptomic framework for porcine developmental staging, this work aims to provide the pig research community with a rigorous, reproducible alternative to traditional staging methods.
+
+
+\section{Research Gap and Objectives}\label{sec:intro:gap}
+
+\subsection{Identification of the Research Gap}
+
+The preceding sections have established the importance of the pig as a biomedical and agricultural model, highlighted the limitations of current developmental staging approaches, and reviewed molecular methods that offer potential solutions. From this foundation, a clear research gap emerges: the absence of a validated, tissue-resolved transcriptomic framework for inferring developmental stage in pigs.
+
+This gap has concrete consequences for the pig research community. Without standardised molecular staging, researchers cannot precisely specify the developmental state of experimental animals, limiting reproducibility and cross-study comparison. The asynchronous development of different tissues means that whole-organism staging methods fail to capture the complexity of postnatal development, potentially introducing uncontrolled variability into studies targeting specific organ systems.
+
+Furthermore, the relationship between porcine and human development at the molecular level remains incompletely characterised. While anatomical and physiological similarities between species are well documented, the conservation of developmental gene expression programs has not been systematically investigated. Understanding this conservation is essential for establishing the pig's validity as a translational model for human developmental biology.
+
+\subsection{Research Aims and Objectives}
+
+This thesis addresses the identified research gap through four interconnected objectives:
+
+\textbf{Objective 1:} To construct a comprehensive transcriptomic atlas of porcine development across major tissue types, integrating publicly available RNA-seq data from the PigGTEx consortium with calibrated developmental stage annotations.
+
+\textbf{Objective 2:} To develop and validate a machine learning framework capable of inferring developmental stage directly from tissue-specific gene expression profiles, providing probabilistic estimates that capture transitional states and quantify classification uncertainty.
+
+\textbf{Objective 3:} To characterise the molecular signatures underlying developmental staging in each tissue, identifying the genes and pathways that drive developmental transitions and comparing these signatures across tissues to assess the tissue-specificity of developmental programs.
+
+\textbf{Objective 4:} To validate the biological accuracy of the porcine developmental atlas through cross-species comparison with human transcriptomic data, testing whether conserved molecular programs underlie postnatal development in both species.
+
+Together, these objectives provide a systematic approach to developing and validating molecular staging tools for pig research. The resulting framework will enable researchers to characterise the developmental state of experimental animals with unprecedented precision, supporting improved experimental design and enhanced reproducibility across the field.
+
+\subsection{Scope and Limitations}
+
+The scope of this thesis is defined by the available data resources and the practical requirements of a functional staging system. The analysis focuses on five major tissues (brain, liver, muscle, lung, and blood) selected for their biological importance and the availability of sufficient sample sizes for machine learning analysis. Other tissues profiled in the PigGTEx resource but lacking adequate developmental stage representation are excluded from the primary analysis.
+
+The cross-species validation is limited to skeletal muscle tissue due to the availability of matched developmental transcriptomic data in humans. While this limitation constrains the generalisability of cross-species findings, muscle tissue represents an important target for developmental research and provides a rigorous test of the conservation hypothesis.
+
+The machine learning framework developed in this thesis is designed for research applications where tissue samples can be processed for RNA-seq analysis. The approach is not intended for field applications requiring rapid, point-of-care staging decisions. Future work may extend the framework to more accessible assay platforms, but such extensions are beyond the scope of the present thesis.
+
+
+\section{Thesis Structure}\label{sec:intro:structure}
+
+This thesis is organised into six chapters, proceeding from background and methods through results and interpretation to conclusions and future directions.
+
+\textbf{\chapref{chapter:intro}: General Introduction} (the present chapter) has established the context for this research, reviewing the pig's role as a biomedical model, the challenges of developmental staging, and molecular approaches to biological age estimation. The chapter concludes with the identification of the research gap and the statement of research objectives.
+
+\textbf{\chapref{chapter:literature}: Literature Review} provides a comprehensive review of the scientific literature relevant to this thesis. Topics include developmental biology and classical staging systems, transcriptomic technologies and their application to developmental research, machine learning methods for biological classification, and cross-species comparative approaches. The chapter synthesises this literature to identify the methodological approaches most appropriate for addressing the research objectives.
+
+\textbf{\chapref{chapter:methods}: Materials and Methods} describes the data sources, analytical methods, and computational approaches employed in this thesis. The chapter provides detailed documentation of the machine learning framework, including data preprocessing, model architecture, hyperparameter selection, and evaluation metrics. Sufficient detail is provided to enable reproduction of the analyses.
+
+\textbf{\chapref{chapter:results}: Results} presents the findings of the thesis in four main sections: (1) characterisation of the transcriptomic atlas and sample distribution; (2) evaluation of model performance across tissues; (3) analysis of developmental gene signatures and their tissue-specificity; and (4) cross-species validation with human skeletal muscle. Results are presented with appropriate statistical analyses and visualisations.
+
+\textbf{\chapref{chapter:discussion}: Discussion} interprets the results in the context of the broader literature, addressing the biological implications of the findings, the methodological contributions of the work, and the practical applications for pig research. The chapter provides a critical evaluation of limitations and identifies directions for future research.
+
+\textbf{\chapref{chapter:conclusions}: Conclusions} summarises the key contributions of the thesis, highlights the implications for the field, and provides closing remarks on the significance of molecular staging for improving reproducibility in pig research.

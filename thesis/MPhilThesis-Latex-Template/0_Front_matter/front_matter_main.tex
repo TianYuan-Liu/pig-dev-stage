@@ -1,0 +1,38 @@
+\input{./0_Front_matter/1_title_page} % Title page inside of the book
+\begin{onehalfspacing}
+
+% Declaration (Required to be before Abstract/Summary)
+\input{./0_Front_matter/3_Declaration}
+\newpage
+
+\pagestyle{plain} % Set the page style to 'plain' for subsequent pages
+
+% Thesis Summary
+\input{./0_Front_matter/2_Thesis summary}
+\newpage
+
+% Acknowledgements
+\input{./0_Front_matter/4_ack}
+\newpage
+
+% Contributors
+\input{./0_Front_matter/5_Contributors}
+\newpage
+
+% Publications
+\input{./0_Front_matter/6_Publications arising from this thesis}
+\newpage
+
+% Produce table of contents
+\tableofcontents
+\newpage
+
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\newpage
+
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\newpage
+
+\end{onehalfspacing}

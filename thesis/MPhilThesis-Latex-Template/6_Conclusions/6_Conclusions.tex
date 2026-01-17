@@ -1,0 +1,99 @@
+\chapter{Conclusions}\label{chapter:conclusions}
+\markboth{\textit{CHAPTER 6. Conclusions}}{}
+
+\clearpage
+\FloatBarrier
+
+This final chapter summarises the key contributions of the thesis, highlights the implications for the field of pig research, and provides closing remarks on the significance of molecular staging for improving reproducibility in biomedical and agricultural science.
+
+
+\section{Thesis Summary}\label{sec:conclusions:summary}
+
+This thesis set out to address a fundamental challenge in pig research: the lack of a standardised, molecular definition of developmental stage. Through the integration of large-scale transcriptomic data with machine learning methods, a calibrated staging framework has been developed that enables objective characterisation of developmental state across five major tissues.
+
+\textbf{\chapref{chapter:intro}: General Introduction} established the context for this research, reviewing the pig's dual importance as an agricultural species and biomedical model. The limitations of current staging approaches---chronological age and morphological criteria---were outlined, and the potential of molecular methods to address these limitations was discussed. The chapter concluded with the identification of a clear research gap and the statement of four research objectives.
+
+\textbf{\chapref{chapter:literature}: Literature Review} provided a comprehensive synthesis of the scientific literature relevant to developmental staging. The review spanned developmental biology, transcriptomic technologies, machine learning methods, and cross-species comparative approaches. Key methodological choices, including the selection of ordinal classification and LightGBM, were justified based on this literature.
+
+\textbf{\chapref{chapter:methods}: Materials and Methods} documented the data sources, analytical methods, and computational approaches employed. The PigGTEx dataset (1,924 samples across five tissues) and the human skeletal muscle dataset for cross-species validation were described. The machine learning framework, including data preprocessing, ordinal LightGBM classification, and evaluation metrics, was detailed with sufficient precision to enable reproduction.
+
+\textbf{\chapref{chapter:results}: Results} presented the findings in four sections. The data landscape characterisation revealed substantial variation in sample availability across tissues and developmental stages, motivating the adaptive classification scheme selection. Model performance assessment demonstrated balanced accuracy ranging from 64\% (brain) to 92\% (liver), with strong ordinal consistency across tissues. Feature analysis revealed profound tissue-specificity in developmental markers, with cross-tissue overlap 180-fold lower than random expectation. Cross-species validation with human skeletal muscle demonstrated 89\% directional concordance and significant correlation ($r = 0.62$) in developmental trajectories.
+
+\textbf{\chapref{chapter:discussion}: Discussion} interpreted these findings in the context of the broader literature. The biological implications of tissue-specific developmental programs and conserved pig-human modules were discussed. Methodological contributions, including ordinal classification for staging and adaptive threshold optimisation for cross-species comparison, were highlighted. Practical applications for standardising pig research were outlined, and limitations including sample size constraints and bulk RNA-seq resolution were acknowledged. Future directions, including single-cell approaches and extension to additional tissues, were identified.
+
+
+\section{Key Contributions}\label{sec:conclusions:contributions}
+
+This thesis makes four key contributions to the fields of porcine biology and developmental transcriptomics:
+
+\subsection{First Calibrated Transcriptomic Atlas for Porcine Development}
+
+Prior to this work, no transcriptomic framework existed for inferring developmental stage in pigs. While epigenetic clocks had been developed for this species, these focused on ageing rather than developmental staging and did not provide tissue-specific resolution.
+
+The atlas developed in this thesis provides a comprehensive reference for porcine postnatal development across five major tissues. By integrating data from the PigGTEx consortium with biologically meaningful stage definitions, the atlas bridges the gap between large-scale transcriptomic resources and practical staging applications.
+
+The atlas is immediately applicable for characterising developmental state in new samples. Researchers can submit gene expression profiles to the trained models and receive probabilistic stage assignments with associated confidence measures. This capability addresses the long-standing need for objective staging criteria in pig research.
+
+\subsection{Robust Machine Learning Framework for Ordinal Classification}
+
+The machine learning framework developed in this thesis demonstrates the effectiveness of ordinal classification methods for developmental staging. By respecting the ordered nature of developmental stages, the framework provides more appropriate handling of transitional states than standard classification approaches.
+
+Key features of the framework include:
+
+Key features of the framework include the use of the Frank and Hall binary reduction method, which enables the use of any binary classifier, and a LightGBM implementation that achieves high accuracy with efficient computation. Furthermore, the model provides probabilistic outputs capturing uncertainty in stage assignments. An adaptive scheme selection algorithm maximises information extraction from available data, and the framework is comprehensively evaluated using both classification and ordinal metrics.
+
+The framework achieves balanced accuracy of 64--92\% across tissues, comparable to or exceeding performance reported for similar biological classification tasks. The strong ordinal consistency (Spearman $\rho$ up to 0.98) indicates that the models correctly capture the continuous nature of development.
+
+\subsection{Demonstration of Profound Tissue-Specificity in Developmental Programs}
+
+The finding that cross-tissue feature overlap is 180-fold lower than random expectation provides quantitative evidence for the tissue-specificity of postnatal developmental programs. This tissue-specificity has not been previously quantified and has important implications for both developmental biology and staging applications.
+
+From a biological perspective, the results indicate that each tissue follows a largely independent developmental trajectory, regulated by distinct sets of genes. This modular organisation may enable the independent optimisation of tissue-specific functions during evolution.
+
+From a practical perspective, the tissue-specificity means that accurate staging requires tissue-specific marker panels. A universal staging system based on a single gene set cannot capture development across all tissues. The tissue-resolved approach adopted in this thesis is therefore not merely convenient but biologically necessary.
+
+\subsection{Cross-Species Validation Revealing Conserved Pig-Human Developmental Modules}
+
+The cross-species validation provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle at the transcriptomic level. The finding of 89\% directional concordance and significant correlation ($r = 0.62$) supports the pig's validity as a translational model for human developmental biology.
+
+Three conserved functional modules were identified:
+
+Three conserved functional modules were identified: a neuromuscular maturation module involving \textbf{SORCS2}, \textbf{ACHE}, and \textbf{KREMEN1}; a structural refinement module characterised by \textbf{FGFRL1} and \textbf{IGSF1}; and a metabolic transition module defined by \textbf{MSS51} and \textbf{PDLIM3}.
+
+These modules provide molecular targets for understanding postnatal muscle development in both species. The conservation of these modules across 80 million years of mammalian evolution suggests they represent fundamental developmental programs.
+
+
+\section{Implications for the Field}\label{sec:conclusions:implications}
+
+\subsection{Impact on Pig Research Reproducibility}
+
+The primary impact of this work is the provision of objective staging criteria for pig research. Reproducibility has been identified as a major challenge across biomedical science, and the lack of standardised developmental staging has contributed to this problem in pig research.
+
+By enabling researchers to specify developmental state using molecular criteria, this work provides a foundation for improved reproducibility. Studies using the staging framework can be compared with confidence that developmental state has been controlled. This comparability will facilitate the accumulation of knowledge and the identification of robust findings that replicate across studies.
+
+\subsection{Validation of the Pig as a Translational Model}
+
+The cross-species validation supports the pig's validity as a model for human development. While the anatomical and physiological similarities between pigs and humans have long been recognised, the molecular conservation of developmental programs provides additional validation at the transcriptomic level.
+
+This validation is particularly important for translational research, where findings in pig models are intended to inform human biology and medicine. The demonstration that pig muscle development mirrors human muscle development at the molecular level strengthens the justification for using pigs in developmental research with translational aims.
+
+\subsection{Foundation for Future Research}
+
+This thesis provides a foundation for multiple directions of future research:
+
+This thesis provides a foundation for multiple directions of future research. Single-cell transcriptomic studies can build on the tissue-resolved staging framework to investigate cell-type-specific developmental trajectories, while extension to additional tissues can expand the scope of the staging framework as new data become available. Integration with epigenetic clocks can provide complementary information about biological age, and the development of simplified staging panels can enable practical application using more accessible technologies. Finally, cross-species validation in additional tissues can establish the generality of conservation findings.
+
+The open-source code and comprehensive documentation provided with this thesis will facilitate these extensions by the broader research community.
+
+
+\section{Closing Remarks}\label{sec:conclusions:closing}
+
+The domestic pig stands at a unique intersection of agricultural and biomedical research. Its importance as a food animal has driven substantial investment in understanding porcine biology, while its similarities to humans have made it an increasingly valuable model organism. Yet the full realisation of the pig's potential as a research platform has been hampered by the lack of standardised approaches for characterising basic biological variables such as developmental stage.
+
+This thesis addresses this gap by providing the first calibrated transcriptomic framework for porcine developmental staging. The framework demonstrates that biological maturity can be inferred with high precision directly from gene expression profiles, providing an objective alternative to subjective morphological staging. The tissue-specific nature of the models acknowledges the biological reality that different organs follow distinct developmental trajectories.
+
+The validation of conserved developmental programs between pig and human provides confidence that the staging framework captures genuine biology rather than species-specific artefacts. The identified developmental modules offer molecular insights into postnatal maturation that may translate across species.
+
+As the pig continues to serve as a major species for both agricultural and biomedical research, the need for rigorous, reproducible characterisation of developmental state will only grow. This thesis provides tools to meet that need, enabling precise synchronisation of experimental cohorts and meaningful comparison across studies. The shift from qualitative morphological observation to quantitative molecular measurement represents a maturation of the field itself---one that promises to improve both the rigour and reproducibility of pig research for years to come.
+
+The code, data, and methods developed for this thesis are freely available to the research community. It is hoped that these resources will find wide application and will contribute to the standardisation and advancement of pig research across its diverse applications in nutrition, growth physiology, disease modelling, and biomedical translation.

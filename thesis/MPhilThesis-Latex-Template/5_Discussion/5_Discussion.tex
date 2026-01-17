@@ -1,0 +1,267 @@
+\chapter{Discussion}\label{chapter:discussion}
+\markboth{\textit{CHAPTER 5. Discussion}}{}
+
+\clearpage
+\FloatBarrier
+
+This chapter interprets the results presented in \chapref{chapter:results} in the context of the broader literature. The discussion addresses the biological implications of the findings, the methodological contributions of the work, and the practical applications for pig research. A critical evaluation of limitations and identification of future research directions conclude the chapter.
+
+
+\section{Summary of Key Findings}\label{sec:discussion:summary}
+
+\subsection{Achievement of Research Objectives}
+
+This thesis set out to address four interconnected research objectives, as stated in \chapref{chapter:intro}. The extent to which each objective has been achieved is summarised below.
+
+\textbf{Objective 1: Construction of a transcriptomic atlas.} A comprehensive atlas was successfully constructed, integrating 1,924 RNA-seq profiles from five major tissues (brain, liver, muscle, lung, and blood) with calibrated developmental stage annotations. The atlas provides the most extensive tissue-resolved resource for porcine postnatal development currently available.
+
+\textbf{Objective 2: Development of a machine learning framework.} An ordinal classification framework based on LightGBM was successfully developed and validated. The framework achieves balanced accuracy of 64--92\% across tissues, with probabilistic outputs that capture transitional developmental states.
+
+\textbf{Objective 3: Characterisation of molecular signatures.} The genes and pathways driving developmental transitions were identified for each tissue, revealing profound tissue-specificity in developmental programs. Functional enrichment analysis linked these signatures to relevant biological processes.
+
+\textbf{Objective 4: Cross-species validation.} Conservation of developmental gene expression programs was demonstrated between pig and human skeletal muscle, with 89\% directional concordance and significant correlation ($r = 0.62$) in developmental trajectories.
+
+\subsection{Novel Contributions to the Field}
+
+This thesis makes several novel contributions to the fields of porcine biology and developmental transcriptomics:
+
+First, it presents the first calibrated transcriptomic staging system for pigs, filling a critical gap by providing a complementary approach to existing epigenetic clocks. Second, it demonstrates that cross-tissue feature overlap is 180-fold lower than random expectation, providing quantitative evidence for the tissue-specificity of postnatal development. Third, the cross-species analysis provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle, supporting the pig's validity as a translational model. Finally, the analytical framework developed for this thesis is open-source, enabling other researchers to apply and extend the approach.
+
+\subsection{Integration with Existing Literature}
+
+The findings of this thesis align with and extend previous work on developmental transcriptomics and molecular age estimation.
+
+The high performance achieved by the machine learning framework (mean balanced accuracy 82.5\%) is comparable to that reported for epigenetic clocks in predicting chronological age \parencite{horvath_dna_2013}. However, direct comparison is complicated by differences in the target variable (categorical stages vs. continuous age) and the modalities (transcriptomics vs. DNA methylation).
+
+The tissue-specific developmental markers identified in this thesis overlap substantially with genes previously implicated in tissue development. For example, the identification of MEF2A and TRDN as muscle markers aligns with the known roles of these genes in myogenesis and calcium handling. Similarly, the liver markers NPAS2 and BHLHE41 are established circadian regulators with roles in hepatic metabolism.
+
+The cross-species conservation analysis extends previous work showing conservation of developmental gene expression across mammals \parencite{cardoso-moreira_gene_2019}. The finding of 89\% directional concordance between pig and human muscle is consistent with the general pattern of developmental conservation, while providing the first specific comparison for postnatal muscle development.
+
+
+\section{Biological Implications}\label{sec:discussion:biology}
+
+\subsection{Tissue-Specificity of Developmental Programs}
+
+One of the most striking findings of this thesis is the profound tissue-specificity of developmental gene expression programs. The cross-tissue feature overlap of only 0.3\%---180-fold lower than the 55\% expected by chance---indicates that each tissue follows a largely independent developmental trajectory.
+
+This tissue-specificity has several important biological implications:
+
+\textbf{Modular developmental regulation.} The results suggest that postnatal development is organised into tissue-specific modules, each regulated by distinct sets of genes. This modular organisation may enable the independent optimisation of each tissue's developmental program, allowing adaptation to tissue-specific functional requirements.
+
+\textbf{Asynchronous tissue maturation.} The distinct gene sets underlying development in different tissues provide a molecular basis for the asynchronous maturation observed at the physiological level. Different tissues can proceed through their developmental programs at different rates because these programs involve different genes.
+
+\textbf{Implications for staging.} The tissue-specificity of developmental markers means that no single universal marker can capture development across all tissues. Accurate staging requires tissue-specific approaches, as implemented in this thesis. A staging system designed for liver will not accurately stage brain development, and vice versa.
+
+The biological basis for tissue-specific developmental programs likely involves tissue-specific transcription factor networks that activate distinct downstream targets in each tissue. These networks have been shaped by evolution to control the maturation of tissue-specific functions, leading to divergent developmental gene sets.
+
+\subsection{Conserved Pig-Human Developmental Modules}
+
+The identification of conserved developmental modules between pig and human muscle has implications for both understanding mammalian development and for using pigs as translational models.
+
+\subsubsection{Neuromuscular Maturation Module}
+
+The conserved upregulation of SORCS2, ACHE, and KREMEN1 during development points to the importance of neuromuscular junction maturation as a conserved developmental process. SORCS2 is a neurotrophin receptor that regulates the trafficking of signalling receptors, influencing the balance between neuronal growth and pruning \parencite{thomasen_sorcs2_2023}. Its upregulation during development may reflect the refinement of motor neuron innervation patterns.
+
+ACHE (acetylcholinesterase) is essential for terminating synaptic transmission at the neuromuscular junction. Its developmental upregulation in both species suggests that the establishment of efficient neuromuscular transmission is a conserved aspect of postnatal muscle development.
+
+KREMEN1 is a negative regulator of Wnt signalling that partners with DKK1 to control cell survival and tissue patterning \parencite{osada_wnt_2006}. Its developmental upregulation may reflect the dampening of growth-promoting pathways as tissues mature.
+
+\subsubsection{Structural Refinement Module}
+
+The upregulation of FGFRL1 in both species is particularly noteworthy given its role as a decoy receptor that attenuates FGF signalling. The dampening of growth factor signalling during development may be a conserved mechanism for transitioning from proliferative growth to tissue homeostasis \parencite{amann_fgfrl1_2014}.
+
+\subsubsection{Metabolic Transition Module}
+
+The downregulation of MSS51 during development in both species is consistent with its role as a skeletal muscle-specific ``brake'' on metabolism \parencite{rovira_gonzalez_mss51_nodate}. MSS51 restricts mitochondrial respiration, and its downregulation releases this restriction, enabling the establishment of mature oxidative capacity. This metabolic transition appears to be a conserved feature of postnatal muscle development.
+
+\subsection{Identified Developmental Markers and Their Functions}
+
+The developmental markers identified through feature importance analysis provide insight into the molecular programs driving postnatal maturation. Several patterns emerge from examination of these markers:
+
+\textbf{Circadian regulation in liver.} The prominence of circadian clock genes (NPAS2, BHLHE41) among liver markers suggests that the establishment of circadian metabolic rhythms is a key aspect of hepatic development. This aligns with the known importance of circadian regulation for hepatic function in adult animals.
+
+\textbf{Epigenetic regulation in brain.} The identification of DNMT3L and HDAC6 as brain markers points to the role of epigenetic mechanisms in neural development. DNA methylation and histone modification are known to be dynamically regulated during brain development, establishing stable patterns of gene expression that underlie neural function.
+
+\textbf{Immune development in lung and blood.} The prominence of immune-related genes (GFI1, IL-6 pathway components) among lung and blood markers reflects the establishment of immune competence during postnatal life. The lung, in particular, must develop robust immune defences as it is exposed to environmental antigens from birth.
+
+\textbf{Contractile and metabolic function in muscle.} Muscle markers reflect both the structural (TRDN, PDLIM3) and metabolic (MSS51) aspects of muscle development, capturing the establishment of mature contractile and oxidative function.
+
+
+\section{Methodological Contributions}\label{sec:discussion:methods}
+
+\subsection{Ordinal Classification for Developmental Staging}
+
+The application of ordinal classification to developmental staging represents a methodological advance over standard classification approaches. By respecting the ordered nature of developmental stages, ordinal methods enable more appropriate handling of transitional states and provide more informative error distributions.
+
+The Frank and Hall binary reduction method \parencite{frank_simple_2001} proved effective for this application, achieving performance comparable to or exceeding that reported for similar biological classification tasks. The decomposition into binary classifiers has the practical advantage of enabling the use of any binary classifier, including the highly effective LightGBM algorithm.
+
+An important feature of the ordinal framework is the probabilistic output. Rather than providing a single stage assignment, the model produces a probability distribution over stages. This enables downstream applications to incorporate uncertainty into their analyses. For example, a sample with high probability of being Pre-pubertal but non-negligible probability of being Early childhood can be flagged for additional review.
+
+\subsection{Adaptive Stage Scheme Selection}
+
+The adaptive scheme selection algorithm addresses a common challenge in developmental biology: uneven sample availability across developmental stages. By automatically selecting the most granular classification scheme supported by the data, the algorithm enables analysis of tissues with limited stage representation while taking full advantage of well-sampled tissues.
+
+The scheme selection approach embodies a principled trade-off between classification granularity and statistical reliability. More granular schemes provide more detailed developmental characterisation but require larger sample sizes to train reliably. The minimum sample thresholds (40 per class for 4-class, 15 per class for 2-class) were chosen to ensure reliable model training while maximising information extraction from the available data.
+
+\subsection{Cross-Species Validation Framework}
+
+The adaptive thresholding approach for cross-species analysis represents a practical solution to the challenge of comparing noisy transcriptomic data across species. By optimising the $p$-value threshold and gene number to balance correlation strength and gene coverage, the approach identifies a robust set of conserved markers without arbitrary parameter choices.
+
+The sensitivity analysis demonstrating consistent positive correlations across parameter settings provides confidence that the conservation signal is robust and not an artefact of specific analytical choices.
+
+\subsection{Feature Stability Analysis}
+
+The assessment of feature selection stability across random seeds provides insight into the reproducibility of the identified markers. The finding of moderate stability (Jaccard similarity 0.16--0.43) is interpretable as reflecting biological gene redundancy rather than analytical instability.
+
+This interpretation is supported by the high classification performance achieved despite the variable feature selection. Multiple gene sets achieve similar performance because they capture the same underlying developmental signal through different combinations of correlated genes. This redundancy is a feature of the biology, not a bug of the analysis.
+
+
+\section{Practical Applications}\label{sec:discussion:applications}
+
+\subsection{Standardisation of Pig Research}
+
+The primary practical application of this work is the standardisation of developmental staging in pig research. By providing an objective, molecular definition of developmental stage, the framework enables researchers to specify the developmental state of their experimental animals with precision.
+
+This standardisation has several benefits:
+
+\textbf{Improved experimental design.} Researchers can select animals at specific developmental stages for their experiments, reducing confounding variability. For studies where developmental stage is a critical variable, molecular staging provides more precise control than chronological age.
+
+\textbf{Enhanced reproducibility.} Standardised staging enables meaningful comparison across studies conducted at different institutions using different pig breeds and husbandry conditions. If two studies use the same molecular staging criteria, their results can be compared with confidence that developmental state has been controlled.
+
+\textbf{Reduced animal usage.} More precise staging may enable smaller sample sizes by reducing unexplained variability. This aligns with the 3Rs principles (Replacement, Reduction, Refinement) for ethical animal research.
+
+\subsection{Synchronisation of Experimental Cohorts}
+
+A specific application of molecular staging is the synchronisation of experimental cohorts. In longitudinal studies or studies comparing treated and control groups, ensuring that all animals are at the same developmental stage is critical for valid inference.
+
+Traditional approaches to synchronisation rely on chronological age or body weight, which fail to account for inter-individual variability in developmental rate. Molecular staging provides a more accurate synchronisation criterion, ensuring that comparison groups are truly developmentally matched.
+
+\subsection{Applications in Nutrition Research}
+
+Nutrition research represents a major application area for pig research, as pigs are widely used to model human dietary responses. Developmental stage is a critical variable in nutrition studies because nutrient requirements, digestive capacity, and metabolic responses all change during postnatal development.
+
+The framework developed in this thesis enables nutrition researchers to:
+
+The framework developed in this thesis enables nutrition researchers to stage experimental animals at the time of dietary intervention and control for developmental state when analysing nutritional responses. Furthermore, it facilitates the identification of developmental stage-specific effects of dietary treatments and allows for the comparison of results across studies using standardised staging criteria.
+
+\subsection{Applications in Disease Modelling}
+
+Pigs are increasingly used as disease models, including models for cardiovascular disease, diabetes, cancer, and infectious disease. Many diseases have developmental components, with susceptibility or progression varying with developmental stage.
+
+Molecular staging enables:
+
+Molecular staging enables precise characterisation of developmental stage in disease models and the identification of developmental windows of disease susceptibility. It also supports the standardisation of disease model protocols across research groups and the translation of findings to human developmental contexts.
+
+\subsection{Implications for Agricultural Science}
+
+Beyond biomedical applications, the staging framework has implications for agricultural research on pig production. Growth rate, feed efficiency, and carcass composition all vary with developmental stage. Molecular staging could enable:
+
+Molecular staging could enable the optimisation of feeding programs based on developmental stage and the identification of molecular markers for production traits. Additionally, it could facilitate genetic selection for favourable developmental trajectories and support precision management of pig production systems.
+
+
+\section{Limitations and Caveats}\label{sec:discussion:limitations}
+
+While this thesis makes significant contributions to the field, several limitations must be acknowledged. These limitations inform the interpretation of results and identify priorities for future research.
+
+\subsection{Data Limitations}
+
+\subsubsection{Sample Size Constraints}
+
+The sample sizes available for some tissues, particularly brain ($n = 43$), limited the complexity of classification schemes that could be reliably trained. The 2-class schemes used for brain, blood, and lung provide less developmental resolution than the 4-class schemes used for muscle and liver.
+
+Larger datasets would enable more granular staging for all tissues and would improve the precision of performance estimates. The wide confidence intervals for brain performance (balanced accuracy 95\% CI: 49.2--78.4\%) reflect the uncertainty arising from limited sample size.
+
+\subsubsection{Class Imbalance}
+
+Uneven representation of developmental stages in the available data required the use of class weighting and adaptive scheme selection. While these approaches mitigate the effects of imbalance, they cannot fully compensate for the limited information available about underrepresented stages.
+
+Future data collection efforts should prioritise balanced sampling across developmental stages to enable more robust model training.
+
+\subsubsection{Human Validation Dataset Size}
+
+The cross-species validation relied on a small human dataset (11 samples), limiting the precision of correlation estimates and preventing characterisation of intermediate developmental stages. The substantial age gap between infant and adult groups may affect the comparison with pig data, where developmental stages are more evenly represented.
+
+Larger human developmental datasets, such as those being generated by the dGTEx project \parencite{coorens_human_2025}, will enable more comprehensive cross-species validation in the future.
+
+\subsection{Methodological Limitations}
+
+\subsubsection{Bulk RNA-Seq Resolution}
+
+The use of bulk RNA-seq means that expression measurements represent averages across all cells in a tissue sample. This averaging obscures cellular heterogeneity, potentially masking cell-type-specific developmental changes.
+
+During development, the cellular composition of tissues may change, with some cell types becoming more or less abundant. Changes in bulk expression may reflect these compositional changes rather than changes in gene expression within specific cell types. Deconvolution methods or single-cell approaches would be needed to disentangle these effects.
+
+\subsubsection{Parameter Optimisation in Cross-Species Analysis}
+
+The adaptive thresholding approach for cross-species analysis involves parameter optimisation that could be seen as selective reporting. While the sensitivity analysis demonstrates robustness across parameter settings, the optimised parameters were selected to maximise a specific criterion.
+
+Alternative approaches, such as preregistering analysis parameters or using validation datasets, could provide additional assurance that the conservation signal is robust.
+
+\subsubsection{Feature Selection Variability}
+
+The moderate stability of feature selection across random seeds (Jaccard similarity 0.16--0.43) means that the specific genes identified as top markers may vary between runs. While this variability reflects biological gene redundancy, it complicates the interpretation of individual marker genes.
+
+Stable feature selection methods or consensus approaches that aggregate across multiple runs could provide more reproducible marker sets.
+
+\subsection{Generalisability Considerations}
+
+\subsubsection{Breeds and Genetic Backgrounds}
+
+The PigGTEx data represent a limited range of pig breeds and genetic backgrounds. The performance and markers identified in this thesis may not generalise fully to breeds not represented in the training data.
+
+Validation on independent datasets from diverse genetic backgrounds would be needed to establish the generalisability of the staging framework.
+
+\subsubsection{Environmental Factors}
+
+The pigs contributing to the PigGTEx resource were raised under specific husbandry conditions that may differ from conditions in other research or production settings. Environmental factors such as diet, housing, health status, and season may affect gene expression and potentially influence staging accuracy.
+
+The staging framework may need calibration or adaptation for application in settings substantially different from those represented in the training data.
+
+\subsubsection{Single-Species Validation}
+
+The cross-species validation was limited to muscle tissue and human comparison. The conservation of developmental programs in other tissues remains to be established, as does conservation with other species.
+
+Extension of the validation to additional tissues and species would strengthen confidence in the biological accuracy of the staging framework.
+
+
+\section{Future Directions}\label{sec:discussion:future}
+
+The findings and limitations of this thesis suggest several directions for future research.
+
+\subsection{Single-Cell Resolution Analysis}
+
+Perhaps the most promising extension of this work would be the application of single-cell transcriptomics to developmental staging. Single-cell RNA-seq would enable:
+
+Single-cell RNA-seq would enable the identification of cell-type-specific developmental markers and the characterisation of changes in cellular composition during development. This would allow for more precise staging that accounts for cellular heterogeneity and facilitates integration with cell type annotation and trajectory inference methods.
+
+Recent advances in single-cell technologies have made large-scale profiling increasingly feasible \parencite{schaum_single-cell_2018}, and developmental single-cell atlases are being constructed for multiple species. Integration of such data with the bulk staging framework developed here could provide complementary insights.
+
+\subsection{Extension to Additional Tissues}
+
+The current framework includes five tissues selected based on sample availability. Extension to additional tissues profiled in the PigGTEx resource (e.g., heart, kidney, adipose, intestine) would expand the utility of the staging framework.
+
+Such extension would require additional data collection to ensure adequate representation of developmental stages in each tissue. Alternatively, transfer learning approaches could potentially leverage information from well-sampled tissues to improve staging in tissues with limited data.
+
+\subsection{Temporal Validation Studies}
+
+Validation of the staging framework in longitudinal studies would provide additional confidence in its accuracy. By profiling the same animals at multiple time points, researchers could verify that the staging predictions track with actual developmental progression.
+
+Such studies would also enable assessment of inter-individual variability in developmental rate, testing whether animals predicted to be developmentally advanced or delayed based on molecular staging show corresponding differences in physiological measures.
+
+\subsection{Integration with Epigenetic Clocks}
+
+Integration of transcriptomic staging with epigenetic clocks could provide complementary information about biological age. Epigenetic and transcriptomic measures capture different aspects of cellular state, and their combination may provide more accurate or more informative staging than either modality alone.
+
+Existing porcine epigenetic clocks \parencite{schachtschneider_epigenetic_2021} provide a foundation for such integration. Joint models that leverage both DNA methylation and gene expression could potentially achieve higher accuracy and reveal novel insights into the relationship between epigenetic and transcriptional ageing.
+
+\subsection{Cross-Species Extension to Other Organs}
+
+Extension of the cross-species validation to tissues beyond muscle is a priority for future work. As human developmental transcriptomic data become available for additional tissues through projects like dGTEx, systematic comparison with the porcine atlas will become feasible.
+
+Such comparisons would reveal which aspects of development are most conserved between species and which show species-specific divergence. This information would be valuable for selecting appropriate pig models for specific research questions.
+
+\subsection{Development of Simplified Staging Panels}
+
+The current framework requires whole-transcriptome profiling, which may not be practical in all research settings. Development of simplified staging panels comprising a limited number of marker genes could enable staging using more accessible technologies such as qPCR or NanoString.
+
+Identification of robust, tissue-specific marker sets that maintain staging accuracy with minimal gene numbers would be required. The feature importance analysis in this thesis provides a starting point for such panel development.

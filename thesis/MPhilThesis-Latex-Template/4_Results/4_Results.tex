@@ -1,0 +1,381 @@
+\chapter{Results}\label{chapter:results}
+\markboth{\textit{CHAPTER 4. Results}}{}
+
+\clearpage
+\FloatBarrier
+
+This chapter presents the findings of the thesis in four main sections: (1) characterisation of the transcriptomic atlas and sample distribution; (2) evaluation of model performance across tissues; (3) analysis of developmental gene signatures and their functional annotation; and (4) cross-species validation with human skeletal muscle.
+
+
+\section{Data Landscape and Sample Characterisation}\label{sec:results:data}
+
+\subsection{Sample Distribution Across Tissues and Developmental Stages}
+
+The final dataset comprised 1,924 samples spanning five tissues and up to five developmental stages. The distribution of samples across tissues and stages is presented in \figref{fig:sample_distribution}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig1_study_design.pdf}
+\caption{\textbf{Study design and data landscape.}
+\textbf{(a)} Developmental stage definitions mapping chronological age to five ordered stages: Infant (0--20 days), Early childhood (21--59 days), Pre-pubertal (60--149 days), Post-pubertal (150--365 days), and Adult (>365 days).
+\textbf{(b)} Machine learning workflow diagram illustrating the pipeline from data preprocessing to model calibration and evaluation.
+\textbf{(c)} Sample distribution heatmap showing tissue-by-stage availability across 1,924 samples from five tissues.
+\textbf{(d)} Classification scheme assignments based on per-class sample availability.}
+\label{fig:sample_distribution}
+\end{figure}
+
+Muscle tissue contributed the largest number of samples ($n = 761$), followed by liver ($n = 309$), lung ($n = 129$), blood ($n = 78$), and brain ($n = 43$). This uneven distribution reflects the relative availability of these tissues in the PigGTEx resource and the differential representation of developmental stages across tissues.
+
+\subsection{Class Distribution and Imbalance Analysis}
+
+The distribution of samples across developmental stages varied substantially between tissues. Muscle and liver showed relatively balanced representation across four stages (Infant, Early childhood, Pre-pubertal, and Post-pubertal/Adult combined). In contrast, brain, blood, and lung samples were concentrated in younger developmental stages, with limited representation of adult animals.
+
+The quantitative distribution was as follows:
+
+\textbf{Muscle} (761 samples):
+\textbf{Muscle} (761 samples) was predominantly composed of Post-pubertal/Adult samples (402, 52.8\%), followed by Infant (192, 25.2\%), Pre-pubertal (91, 12.0\%), and Early childhood (76, 10.0\%) stages.
+\textbf{Liver} (309 samples) showed a more even distribution, with Infant (86, 27.8\%), Pre-pubertal (82, 26.5\%), and Post-pubertal/Adult (81, 26.2\%) stages similarly represented, while Early childhood (60, 19.4\%) was slightly less common.
+\textbf{Brain} (43 samples) was heavily skewed towards young animals, with 27 samples (62.8\%) in the Infant/Early childhood stages and only 16 samples (37.2\%) in the mature stages.
+\textbf{Blood} (78 samples) and \textbf{Lung} (129 samples) distinctively favored younger stages, with 60.3\% and 79.8\% of samples classified as young, respectively. This contrasted with the mature populations comprising 39.7\% and 20.2\% of the cohorts.
+
+\subsection{Classification Scheme Selection}
+
+Based on the sample distribution, the adaptive scheme selection algorithm assigned classification schemes as follows:
+
+Specifically, muscle and liver were assigned 4-class schemes (Infant, Early childhood, Pre-pubertal, Post-pubertal/Adult), enabling finer-grained staging. Conversely, brain, blood, and lung were assigned 2-class schemes (Young vs. Mature), ensuring robust classification despite smaller sample sizes.
+
+The 4-class schemes for muscle and liver enable finer-grained developmental staging, while the 2-class schemes for brain, blood, and lung provide robust binary classification despite limited sample sizes.
+
+
+\section{Model Performance Assessment}\label{sec:results:performance}
+
+\subsection{Overall Performance Summary}
+
+The machine learning framework achieved robust performance across all five tissues, with mean balanced accuracy of 82.5\% (95\% confidence interval [CI]: 79.2--85.8\%). Performance varied according to tissue complexity, sample size, and classification scheme granularity.
+
+The performance metrics for each tissue are summarised in \tabref{tab:performance} and visualised in \figref{fig:performance}.
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Model performance metrics across tissues.} Performance evaluated on held-out test sets (30\% of samples). 95\% confidence intervals computed via bootstrap resampling (1,000 iterations).}
+\label{tab:performance}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Tissue} & \textbf{Scheme} & \textbf{$n$} & \textbf{Balanced Acc.} & \textbf{F1-macro} & \textbf{Spearman $\rho$} \\
+\midrule
+Liver & 4-class & 309 & 0.920 (0.885--0.955) & 0.910 & 0.979 \\
+Blood & 2-class & 78 & 0.864 (0.782--0.946) & 0.869 & 0.773 \\
+Lung & 2-class & 129 & 0.859 (0.788--0.930) & 0.876 & -- \\
+Muscle & 4-class & 761 & 0.844 (0.796--0.892) & 0.842 & 0.937 \\
+Brain & 2-class & 43 & 0.638 (0.492--0.784) & 0.639 & 0.942 \\
+\midrule
+\textbf{Mean} & -- & -- & \textbf{0.825} & \textbf{0.827} & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig2_model_performance.pdf}
+\caption{\textbf{Classifier performance diagnostics.}
+\textbf{(a)} Performance metrics heatmap showing balanced accuracy, macro F1, mean absolute error, and Spearman correlations with 95\% bootstrap confidence intervals across tissues.
+\textbf{(b)} Confusion matrices for each tissue showing classification accuracy and error patterns.
+\textbf{(c)} Scatter plots of predicted developmental stage versus chronological age, demonstrating strong age--stage correlations.}
+\label{fig:performance}
+\end{figure}
+
+\subsection{Tissue-Specific Performance}
+
+\subsubsection{Liver: Highest Performance}
+
+The liver achieved the highest balanced accuracy (92.0\%, 95\% CI: 88.5--95.5\%), reflecting its relatively homogeneous cellular composition and balanced class representation. The macro F1-score of 0.910 indicates consistently high precision and recall across all four developmental stages.
+
+The strong Spearman correlation ($\rho = 0.979$) between predicted stage and chronological age demonstrates excellent ordinal consistency. The model correctly ordered the vast majority of samples by developmental stage, with errors primarily occurring at stage boundaries.
+
+\subsubsection{Blood and Lung: Strong Binary Classification}
+
+Blood and lung tissues achieved balanced accuracies of 86.4\% and 85.9\%, respectively, using the 2-class (Young vs. Mature) scheme. These results demonstrate that even with limited sample sizes and reduced classification granularity, the framework can distinguish developmental states with high accuracy.
+
+For blood, the balanced accuracy of 86.4\% (95\% CI: 78.2--94.6\%) reflects robust discrimination between young and mature animals. The relatively wide confidence interval reflects the smaller test set size ($n = 78$ total, approximately 23 in test set).
+
+For lung, the balanced accuracy of 85.9\% (95\% CI: 78.8--93.0\%) was achieved despite pronounced class imbalance (79.8\% young samples). The use of class weighting during training enabled the model to learn from the minority class effectively.
+
+\subsubsection{Muscle: Robust 4-Class Classification}
+
+Muscle achieved a balanced accuracy of 84.4\% (95\% CI: 79.6--89.2\%) for 4-class classification, demonstrating that the framework can discriminate multiple developmental stages in this metabolically active tissue. The Spearman correlation of 0.937 indicates excellent ordinal consistency.
+
+The large sample size for muscle ($n = 761$) provides statistical power that enables precise confidence interval estimation and reliable identification of developmental markers.
+
+\subsubsection{Brain: Lowest Performance}
+
+The brain showed the lowest balanced accuracy (63.8\%, 95\% CI: 49.2--78.4\%), reflecting the challenges of this tissue. The limited sample size ($n = 43$) constrained the model's ability to learn robust developmental signatures. Additionally, the brain's extreme cellular heterogeneity, comprising diverse neuronal and glial populations, may obscure developmental signals in bulk RNA-seq data.
+
+Despite the lower overall accuracy, the Spearman correlation of 0.942 indicates that the model correctly orders samples by developmental stage, even when exact classification is incorrect.
+
+\subsection{Per-Class Performance Analysis}
+
+Per-class metrics reveal the stages that are easiest and hardest to classify. The per-class precision, recall, and F1-scores are presented in \tabref{tab:perclass}.
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue.}
+\label{tab:perclass}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Tissue} & \textbf{Stage} & \textbf{$n$ (test)} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+\midrule
+Muscle & Infant & 58 & 0.912 & 0.897 & 0.904 \\
+Muscle & Early childhood & 23 & 0.714 & 0.652 & 0.682 \\
+Muscle & Pre-pubertal & 27 & 0.767 & 0.852 & 0.807 \\
+Muscle & Post-pubertal/Adult & 121 & 0.975 & 0.975 & 0.975 \\
+\midrule
+Liver & Infant & 26 & 1.000 & 0.962 & 0.980 \\
+Liver & Early childhood & 18 & 0.783 & 1.000 & 0.878 \\
+Liver & Pre-pubertal & 25 & 0.950 & 0.760 & 0.844 \\
+Liver & Post-pubertal/Adult & 24 & 0.920 & 0.958 & 0.939 \\
+\midrule
+Brain & Young & 8 & 0.700 & 0.875 & 0.778 \\
+Brain & Mature & 5 & 0.667 & 0.400 & 0.500 \\
+\midrule
+Blood & Young & 14 & 0.867 & 0.929 & 0.897 \\
+Blood & Mature & 10 & 0.889 & 0.800 & 0.842 \\
+\midrule
+Lung & Young & 31 & 0.938 & 0.968 & 0.952 \\
+Lung & Mature & 8 & 0.857 & 0.750 & 0.800 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Several patterns emerge from the per-class analysis:
+
+Several patterns emerged from the per-class analysis. First, extreme stages (Infant and Post-pubertal/Adult) consistently showed higher F1-scores than intermediate stages, reflecting the greater transcriptomic distinctiveness of developmental extremes. Second, Early childhood proved to be the most challenging stage to classify in both muscle (F1 = 0.682) and liver (F1 = 0.878), likely due to the transitional nature of the weaning period. Finally, minority classes in brain and lung showed lower recall, illustrating the difficulty of learning from limited examples.
+
+\subsection{Ordinal Consistency Analysis}
+
+The ordinal nature of developmental staging means that not all errors are equally severe. Misclassifying an Infant as Early childhood is a smaller error than misclassifying an Infant as Adult. The confusion matrices in \figref{fig:performance}b reveal the pattern of errors.
+
+For liver, the confusion matrix shows that errors are concentrated on the diagonal and adjacent cells. Only one sample (out of 93 test samples) was misclassified by more than one stage. This near-perfect ordinal consistency reflects the model's ability to capture the continuous nature of development.
+
+For muscle, a similar pattern emerges. The majority of errors involve adjacent stages, with very few distant misclassifications. The Early childhood $\leftrightarrow$ Pre-pubertal boundary shows the highest error rate, consistent with the biological similarity of these transitional stages.
+
+For the 2-class tissues (brain, blood, lung), ordinal analysis is less informative, as there is only one possible misclassification type. However, the binary classification still reflects the model's ability to distinguish young from mature animals.
+
+\subsection{Relationship Between Predicted Stage and Chronological Age}
+
+The scatter plots in \figref{fig:performance}c demonstrate the relationship between model-predicted developmental stage and chronological age. For tissues with continuous age data (liver, muscle, brain, blood), strong positive correlations were observed:
+
+For tissues with continuous age data, strong positive correlations were observed: liver ($\rho = 0.979$), muscle ($\rho = 0.937$), brain ($\rho = 0.942$), and blood ($\rho = 0.773$).
+
+These correlations confirm that the model's predictions align with chronological age, as expected given the age-based stage definitions. However, the imperfect correlation reflects inter-individual variability in developmental rate and the limitations of using chronological age as ground truth.
+
+
+\section{Feature Analysis and Biological Interpretation}\label{sec:results:features}
+
+\subsection{Top Developmental Markers Per Tissue}
+
+Feature importance analysis identified the genes most informative for developmental stage classification in each tissue. The top markers reflect tissue-specific developmental programs.
+
+\subsubsection{Muscle Developmental Markers}
+
+The top developmental markers for muscle include genes involved in contractile function, neuromuscular signalling, and metabolic adaptation:
+
+Key genes included \textbf{FGFRL1} (Fibroblast growth factor receptor-like 1), a decoy receptor modulating FGF signalling, and \textbf{SORCS2} (Sortilin-related VPS10 domain-containing receptor 2), which is involved in neurotrophin signalling. Other significant markers were \textbf{ACHE} (Acetylcholinesterase) for neuromuscular junction function, \textbf{MEF2A} (Myocyte enhancer factor 2A) regulating differentiation, and \textbf{TRDN} (Triadin), a component of the calcium release complex.
+
+\subsubsection{Liver Developmental Markers}
+
+Liver markers reflect metabolic maturation and circadian regulation:
+
+Identified markers included \textbf{NPAS2} (Neuronal PAS domain protein 2) and \textbf{BHLHE41} (Basic helix-loop-helix family member e41), both circadian clock genes regulating metabolism. \textbf{ALDH18A1} (Aldehyde dehydrogenase 18 family member A1), involved in proline biosynthesis, was also a top feature.
+
+\subsubsection{Brain Developmental Markers}
+
+Brain markers reflect neuronal maturation and epigenetic regulation:
+
+Key markers were \textbf{DNMT3L} (DNA methyltransferase 3L), a regulator of de novo methylation, \textbf{HDAC6} (Histone deacetylase 6), involved in chromatin remodelling, and \textbf{KLK6} (Kallikrein-related peptidase 6), which is implicated in myelination.
+
+\subsubsection{Lung Developmental Markers}
+
+Lung markers reflect immune development and RNA metabolism:
+
+The top features included \textbf{IGF2BP2/3} (Insulin-like growth factor 2 mRNA-binding proteins), regulators of mRNA stability; \textbf{GFI1} (Growth factor independent 1), a transcription factor essential for haematopoiesis; and \textbf{NFIB} (Nuclear factor I B), known for its role in lung development.
+
+\subsubsection{Blood Developmental Markers}
+
+Blood markers reflect haematopoietic development:
+
+Markers included \textbf{GFI1}, essential for lymphocyte development, alongside other immune-related genes involved in lymphocyte differentiation and activation.
+
+\subsection{Feature Selection Stability Analysis}
+
+The stability of feature selection across random seeds was assessed to determine whether the same genes are consistently identified as important. Stability was quantified using the Jaccard similarity index between feature sets selected with different random seeds.
+
+Mean Jaccard similarity ranged from 0.16 to 0.43 across tissues:
+
+Mean Jaccard similarity ranged from 0.16 to 0.43 across tissues, with Brain (0.43) showing the highest stability, followed by Blood (0.26), Lung (0.21), Muscle (0.18), and Liver (0.16).
+
+The moderate stability values reflect biological gene redundancy rather than model instability. Multiple gene sets can achieve similar classification performance because developmental changes involve coordinated regulation of many genes. Different random seeds may select different but functionally equivalent gene combinations.
+
+Importantly, 10--60\% of top features appeared in $\geq$80\% of runs, indicating a core set of consistently selected markers surrounded by a variable periphery. This pattern is consistent with the presence of both essential developmental markers and redundant alternative markers.
+
+\subsection{Expression-Stage Correlations}
+
+The selected features were validated by assessing their correlation with developmental stage. For each tissue, the mean absolute Spearman correlation between top features and stage labels was computed.
+
+Mean correlations ranged from 0.40 to 0.70 across tissues, indicating that the selected features show substantial developmental regulation. Approximately 73.6\% of top genes showed statistically significant correlation with developmental stage ($p < 0.05$), confirming that feature selection captures genuinely developmental rather than spurious associations.
+
+\subsection{Cross-Tissue Feature Overlap}
+
+A striking finding was the minimal overlap of developmental markers across tissues. The pairwise Jaccard similarity between tissue-specific feature sets was only 0.3\%, compared to 55\% expected by chance---a 180-fold lower overlap than random expectation.
+
+This profound tissue-specificity indicates that each tissue uses distinct molecular programs for developmental progression. The genes that mark liver development are different from those that mark muscle or brain development, reflecting the tissue-specific nature of postnatal maturation.
+
+The low cross-tissue overlap has important implications for staging applications. A single universal marker set cannot capture development across all tissues; instead, tissue-specific marker panels are required for accurate staging.
+
+
+\section{Functional Enrichment Analysis}\label{sec:results:enrichment}
+
+\subsection{Tissue-Specific Functional Programs}
+
+Functional enrichment analysis of stage-informative genes revealed distinct developmental programs in each tissue. The results are summarised in \figref{fig:enrichment} and described below.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig3_functional_enrichment.pdf}
+\caption{\textbf{Functional enrichment analysis of stage-informative genes.}
+Functional network showing interconnected enrichment modules, with nodes representing enriched terms coloured by tissue and edges connecting terms sharing >25\% of genes (Jaccard similarity). Hubs and cluster representatives are labelled with biological process or pathway names.}
+\label{fig:enrichment}
+\end{figure}
+
+\subsubsection{Brain: Synaptic Refinement and Metabolic Support}
+
+Brain developmental markers were enriched for processes related to synaptic function and neuronal metabolism:
+
+Specifically, enrichment for sarcosine-related processes reflects the role of this glycine derivative as a co-agonist at NMDA receptors, which is critical for synaptic plasticity. Furthermore, the enrichment of beta-tubulin binding reflects the importance of microtubule dynamics for axonal transport and neuronal morphology.
+
+These findings align with the known prolonged development of neural circuits during postnatal life, including ongoing synaptogenesis, synaptic pruning, and myelination.
+
+\subsubsection{Liver: Metabolic Autonomy and Homeostasis}
+
+Liver markers were enriched for metabolic processes:
+
+Specifically, enrichment for autophagosome-membrane adaptors reflects the role of autophagy in hepatic homeostasis and the response to nutritional changes associated with weaning. There was also a general enrichment for metabolic enzyme expression, reflecting the liver's central role in nutrient processing.
+
+The functional profile reflects the liver's adaptation to postnatal metabolic demands, including the switch from maternal nutrition to independent feeding.
+
+\subsubsection{Muscle: Contractile Machinery and Neuromuscular Signalling}
+
+Muscle markers were enriched for:
+
+Enrichment for acetylcholinesterase activity reflects the maturation of neuromuscular junctions and the establishment of efficient synaptic transmission. Additionally, the enrichment for sarcomere organisation captures the development of the mature contractile apparatus.
+
+These findings capture the establishment of adult muscle function, including the transition from neonatal to adult fibre types and the refinement of neuromuscular connectivity.
+
+\subsubsection{Lung: Immune Establishment and RNA Metabolism}
+
+Lung markers were enriched for:
+
+Enrichment for IL-6 signalling regulation reflects the establishment of pulmonary immune function and inflammatory responses. Concurrently, enrichment for m6A reader activity suggests a role for post-transcriptional regulation in lung development.
+
+The lung's exposure to environmental antigens drives rapid immune maturation during postnatal life, as captured by these functional enrichments.
+
+\subsection{Integration Across Tissues}
+
+The functional network in \figref{fig:enrichment} reveals both tissue-specific and shared developmental processes. While the majority of enriched terms are specific to individual tissues, some processes are shared across tissues, such as cell proliferation and growth regulation (muscle, liver, lung), immune function (blood, lung), and metabolic adaptation (liver, muscle). These shared processes reflect the common challenges of postnatal development, including the need for growth, immune protection, and metabolic adaptation across all tissues.
+
+
+\section{Cross-Species Validation}\label{sec:results:crossspecies}
+
+\subsection{Conservation of Developmental Trajectories}
+
+Cross-species analysis with human skeletal muscle transcriptomes revealed striking conservation of developmental gene expression programs. The results are summarised in \figref{fig:crossspecies}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig4_cross_species.pdf}
+\caption{\textbf{Cross-species validation of developmental gene expression.}
+Human skeletal muscle transcriptomic data comparing infant (7--28 months) versus adult (30--56 years) samples were used to validate conservation of developmental signatures.
+\textbf{(a)} Scatter plot of log$_2$ fold changes between pig and human, showing significant positive correlation.
+\textbf{(b)} Feature importance of top conserved markers in the developmental stage classifier.
+\textbf{(c)} Paired fold change comparison showing pig and human values for each conserved gene.}
+\label{fig:crossspecies}
+\end{figure}
+
+\subsubsection{Correlation Between Species}
+
+Using adaptive thresholding to optimise the gene selection, 36 genes meeting significance criteria ($p < 0.10$ in both species) were identified. The Pearson correlation between pig and human fold changes was $r = 0.618$ ($p = 5.86 \times 10^{-5}$), indicating a strong positive relationship between developmental trajectories in the two species.
+
+Bootstrap analysis confirmed the robustness of this correlation. The 95\% bootstrap confidence interval was 0.364--0.787 (based on 1,000 iterations), excluding zero and confirming the statistical significance of the conservation signal.
+
+\subsubsection{Directional Concordance}
+
+Of the 36 genes meeting significance criteria, 32 (88.9\%) showed the same direction of change in both species. This high directional concordance indicates that genes upregulated during pig muscle development tend also to be upregulated during human muscle development, and vice versa.
+
+The 4 genes showing discordant directions (11.1\%) may reflect species-specific differences or sampling variability. Given the small human sample size, some discordance is expected due to noise.
+
+\subsection{Sensitivity Analysis}
+
+The robustness of the cross-species correlation was assessed across a range of parameter settings. Correlation remained positive ($r > 0.55$) across all tested $p$-value thresholds (0.05--0.20) when at least 15 genes were included. This consistency demonstrates that the conservation signal is not an artefact of the specific parameter choices.
+
+The sensitivity analysis results are presented in Supplementary Figure S1, showing the correlation coefficient and confidence interval as a function of $p$-value threshold and minimum gene number.
+
+\subsection{Conserved Functional Modules}
+
+Three functional modules of conserved developmental genes were identified:
+
+\subsubsection{Module 1: Neuromuscular Maturation}
+
+This module includes genes involved in the establishment of mature neuromuscular function:
+
+This module includes \textbf{SORCS2}, a neurotrophin receptor involved in motor neuron development; \textbf{ACHE}, essential for synaptic transmission; and \textbf{KREMEN1}, a negative regulator of Wnt signalling. All three genes were upregulated during development in both species (pig FC: 1.25--1.84; human FC: 0.95--1.43).
+
+\subsubsection{Module 2: Structural Refinement}
+
+This module includes genes involved in tissue structural organisation:
+
+The module is characterised by the upregulation of \textbf{FGFRL1} (pig FC = 1.68, human FC = 2.10), a decoy FGF receptor, and \textbf{IGSF1} (pig FC = 2.45, human FC = 0.34), an immunoglobulin superfamily member involved in neuroendocrine function.
+
+\subsubsection{Module 3: Metabolic Transition}
+
+This module includes genes involved in metabolic adaptation:
+
+This module features genes downregulated during development, notably \textbf{MSS51} (pig FC = $-$3.02, human FC = $-$1.55), a regulator of mitochondrial respiration, and \textbf{PDLIM3} (pig FC = $-$2.19, human FC = $-$0.56), a cytoskeletal scaffold protein. The downregulation of these genes is consistent with the metabolic maturation of muscle tissue.
+
+\subsection{Biological Significance of Conservation}
+
+The conservation of developmental trajectories between pig and human muscle has important implications for the use of pigs as translational models. The shared expression changes indicate that:
+
+First, the porcine developmental staging framework captures evolutionarily conserved processes rather than species-specific artefacts. Second, insights from pig developmental biology are likely to translate to human biology, enhancing the pig's value as a biomedical model. Finally, the identifed developmental markers likely represent fundamental regulators maintained across 80 million years of mammalian evolution.
+
+\subsection{Functional Annotations of Key Markers}
+
+The biological functions of key conserved markers provide insight into the molecular basis of postnatal muscle development. Selected annotations are provided in \tabref{tab:annotations}.
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Functional annotations of key conserved developmental markers.}}
+\label{tab:annotations}
+\small
+\begin{tabular}{lp{8cm}cc}
+\toprule
+\textbf{Gene} & \textbf{Developmental Function} & \textbf{Pig FC} & \textbf{Human FC} \\
+\midrule
+\textit{SORCS2} & Regulates trafficking of signalling receptors, balancing neuronal growth and pruning for precise circuit development. & 1.84 & 0.95 \\
+\addlinespace
+\textit{FGFRL1} & Acts as a decoy receptor dampening excessive growth factor signalling during tissue formation. & 1.68 & 2.10 \\
+\addlinespace
+\textit{KREMEN1} & Negative regulator of Wnt signalling, controlling cell survival and tissue patterning. & 1.25 & 1.43 \\
+\addlinespace
+\textit{MSS51} & Skeletal muscle-specific brake on metabolism, regulating mitochondrial respiration during fibre maturation. & $-$3.02 & $-$1.55 \\
+\addlinespace
+\textit{PDLIM3} & Cytoskeletal scaffold stabilising actin filaments at the muscle Z-disc. & $-$2.19 & $-$0.56 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Limitations of Cross-Species Analysis}
+
+Several limitations of the cross-species analysis must be acknowledged:
+
+First, the human dataset was small ($n = 11$), limiting statistical power. Second, the substantial age gap between human infant and adult groups prevented characterisation of intermediate stages. Third, validation was limited to muscle tissue due to data availability. Finally, while adaptive thresholding was robust, it relies on parameter optimisation.
+
+Despite these limitations, the conservation analysis provides important validation of the biological accuracy of the porcine developmental staging framework.

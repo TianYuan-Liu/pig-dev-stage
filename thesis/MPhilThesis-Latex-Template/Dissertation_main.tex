@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cardiff University MPhil Thesis
+% A Calibrated Transcriptomic Atlas of Porcine Development
+% Tianyuan Liu, 2026
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Font size should be no less than 12 point
+\documentclass[12pt,oneside]{book}
+
+% Margins
+\usepackage[left=1.5in, right=1.0in, top=0.6in, bottom=0.8in, headheight=20pt, headsep=0.25in, footskip=0.4in]{geometry}
+
+% Typography consistency
+\usepackage{microtype}         % Improves spacing and justification
+\usepackage[table,dvipsnames]{xcolor} % Advanced colors for links and tables
+
+% Line Spacing
+\usepackage{setspace}
+\doublespacing % For double line spacing
+
+% Paragraph Settings
+\usepackage{parskip} % Import parskip package for paragraph formatting
+\setlength{\parskip}{\baselineskip} % Set the space between paragraphs to be equal to one line height
+\setlength{\parindent}{0pt} % Set paragraph indentation to zero
+
+% Captions and Footnotes Font Size
+\usepackage[font={small}, labelfont={bf}]{caption} % Small font, bold label (e.g., Figure 1)
+\captionsetup{
+    format=plain,           % Set caption format to plain (default: hanging)
+    singlelinecheck=false,  % Force alignment to justify, even for single line captions
+}
+
+% Page Header and Footer Settings
+\usepackage{fancyhdr}      % Import fancyhdr package to customize headers and footers
+\fancyhf{}                 % Clear all header and footer fields
+\fancyhead[R]{\leftmark}   % Set right header to display the current chapter/section name
+\fancyfoot[C]{\thepage}    % Set center footer to display the current page number
+\renewcommand{\headrulewidth}{0.4pt} % Set the header rule width to 0.4pt
+
+% Adjustbox Package
+\usepackage{adjustbox} % Import adjustbox for flexible resizing and alignment of boxes
+
+% Bigints Package for Large Integral Signs
+\usepackage{bigints} % Import bigints for displaying large integral signs
+
+% Placeins Package for Float Barriers
+\usepackage{placeins} % Import placeins for controlling float placement
+% \FloatBarrier command can be used to ensure all floats (figures/tables) are processed before continuing
+
+\usepackage{tocloft} % Import tocloft for customizing the Table of Contents, List of Figures, etc.
+% Define how figures are listed in the List of Figures (LoF)
+\renewcommand{\cftfigpresnum}{\figurename~} % Prefix figure name (e.g., "Figure") before the number in LoF
+\renewcommand{\cftfigaftersnum}{:} % Add colon after the figure number in LoF
+\newlength{\mylen} % Create a new length variable
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum} % Measure the width of the prefix and colon
+\addtolength{\cftfignumwidth}{\mylen} % Adjust the width for figure number in LoF to accommodate prefix and colon
+
+% Babel Package for Multilingual Support
+\usepackage[english]{babel} % Import babel with English language for multilingual support and hyphenation
+
+% Graphics
+\usepackage{tikz} % Import tikz for creating complex diagrams and graphical elements
+\usepackage{graphicx} % Import graphicx to provide the \includegraphics command for adding images to the document
+\graphicspath{{figures/}{./figures/}} % Set graphics path
+
+\usepackage{stackengine} % Import stackengine for vertically stacking objects such as symbols or images
+
+% Helvet Package for Arial Font
+\usepackage{helvet} % Import helvet package to use Arial font
+
+% AMSMath Package for Enhanced Math Features
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Float Package for Improved Float Handling
+\usepackage{float}
+
+% Tables
+\usepackage{threeparttable}  % Import threeparttable for tables with a structured note section below the table
+\usepackage{threeparttablex} % Import threeparttablex for extending threeparttable functionalities to long tables created with longtable package
+\usepackage{multicol}        % Import multicol for using multiple columns in the document layout
+\usepackage{multirow}        % Import multirow for creating table cells spanning multiple rows
+\usepackage{longtable}       % Multi-page tables
+\usepackage{booktabs}        % Import booktabs for creating professional-quality tables with enhanced layout and design
+\renewcommand{\arraystretch}{1.2} % Increase table row spacing for better readability
+
+% SIUnitx Package for SI Units
+\usepackage{siunitx} % Import siunitx for proper typesetting of SI units, aligning numbers in tables, and other numeric data features
+
+% Font Encoding Packages
+\usepackage[T1]{fontenc} % Import fontenc with T1 encoding for better font rendering and support for European characters
+\usepackage[utf8]{inputenc} % Import inputenc with UTF-8 encoding for supporting a wide range of input characters
+
+% CSQuotes for Context-Sensitive Quotation Marks
+\usepackage{csquotes}
+% Hyperref allows to create links.
+\usepackage[colorlinks=true, allcolors=MidnightBlue, breaklinks=true]{hyperref}
+
+% Algorithm and Code Packages
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% Subcaption for subfigures
+\usepackage{subcaption}
+
+% BibLaTeX for Bibliography Management
+\usepackage[backend=biber, style=apa]{biblatex} % Import biblatex with Biber backend and APA style for advanced bibliography management
+\addbibresource{references.bib}
+
+\DefineBibliographyStrings{english}{%
+  bibliography = {References},
+}
+
+% Custom commands for cross-references
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\chapref}[1]{Chapter~\ref{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\setlength{\parskip}{0pt}
+\pagenumbering{roman}
+\input{0_Front_matter/front_matter_main}
+\setlength{\parskip}{\baselineskip}
+\pagestyle{fancy}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\mainmatter
+\FloatBarrier
+
+\include{1_Introduction/1_Introduction}
+\include{2_Literature_Review/2_Literature_Review}
+\include{3_Methodology/3_Methodology}
+\include{4_Results/4_Results}
+\include{5_Discussion/5_Discussion}
+\include{6_Conclusions/6_Conclusions}
+
+\printbibliography[heading=bibintoc]
+\end{document}

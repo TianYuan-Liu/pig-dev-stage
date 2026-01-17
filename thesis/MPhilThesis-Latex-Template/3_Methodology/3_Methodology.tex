@@ -1,0 +1,422 @@
+\chapter{Materials and Methods}\label{chapter:methods}
+\markboth{\textit{CHAPTER 3. Materials and Methods}}{}
+
+\clearpage
+\FloatBarrier
+
+This chapter provides a comprehensive description of the data sources, analytical methods, and computational approaches employed in this thesis. The methods are documented with sufficient detail to enable reproduction of the analyses by independent researchers.
+
+
+\section{Data Sources and Acquisition}\label{sec:methods:data}
+
+\subsection{PigGTEx Consortium Data}
+
+The primary data for this study were obtained from the PigGTEx (Pig Genotype-Tissue Expression) consortium, a large-scale resource for porcine transcriptomic research \parencite{teng_compendium_2024, chen_construction_2025}. PigGTEx has assembled RNA-seq profiles from multiple tissues across hundreds of pigs, providing the most comprehensive transcriptomic resource currently available for this species.
+
+\subsubsection{Data Provenance and Quality Control}
+
+The PigGTEx data were generated using standardised protocols to minimise technical variability across samples. RNA was extracted from tissue samples using commercial kits, and sequencing libraries were prepared using strand-specific protocols. Sequencing was performed on Illumina platforms, generating paired-end reads that were subsequently aligned to the pig reference genome (Sscrofa11.1) using standard bioinformatics pipelines.
+
+Quality control measures included filtering of low-quality reads, removal of duplicate sequences, and exclusion of samples failing technical quality thresholds. The resulting data represent high-quality transcriptomic profiles suitable for downstream analysis.
+
+\subsubsection{Expression Matrices and Normalisation}
+
+Gene expression values were provided as Transcripts Per Million (TPM), a normalisation method that accounts for both sequencing depth and gene length. TPM values enable meaningful comparison of expression levels across genes and samples, with the sum of TPM values within each sample normalised to one million.
+
+The TPM normalisation formula is:
+
+\begin{equation}
+    \text{TPM}_i = \frac{c_i / l_i}{\sum_j (c_j / l_j)} \times 10^6
+    \label{eq:tpm}
+\end{equation}
+
+where $c_i$ is the read count for gene $i$ and $l_i$ is the effective length of gene $i$.
+
+Expression matrices were provided as gzipped text files, with genes in rows and samples in columns. Each tissue was provided as a separate file, enabling tissue-specific analyses.
+
+\subsubsection{Sample Size and Tissue Coverage}
+
+The complete dataset comprises 1,924 samples across five tissues selected for analysis based on sample availability and developmental stage representation. Muscle tissue was the most abundant, contributing 761 samples (39.5\% of total), followed by Liver with 309 samples (16.1\%), Lung with 129 samples (6.7\%), Blood with 78 samples (4.1\%), and Brain with 43 samples (2.2\%).
+
+These five tissues were selected from the larger PigGTEx resource based on having sufficient samples with developmental stage annotations to enable machine learning analysis. Other tissues in the PigGTEx resource lacked adequate developmental stage coverage and were excluded from the present analysis.
+
+\subsection{Sample Metadata Extraction and Harmonisation}
+
+Sample metadata, including age and sex information, were extracted from the PigGTEx metadata tables. Ages were recorded in various units (days, weeks, months, years) and required harmonisation to a common scale.
+
+Age values were converted to days using standard conversion factors: 1 for days, 7 for weeks, 30 for months, and 365 for years.
+
+Samples with missing or ambiguous age information were excluded from the analysis. Sex was encoded as a categorical variable (male, female, or unknown) for use as a potential covariate.
+
+\subsection{Human Skeletal Muscle Data}
+
+For cross-species validation, human skeletal muscle transcriptomic data were obtained from the study by Schaiter and colleagues \parencite{schaiter_molecular_2024}. This dataset is publicly available through the NCBI Gene Expression Omnibus under accession number GSE257558.
+
+\subsubsection{Sample Composition}
+
+The human dataset comprises 11 samples from quadriceps femoris muscle, divided into two distinct groups: four Infants (ages 7--28 months, mean 15.9 months) and seven Adults (ages 30--56 years, mean 43.6 years).
+
+All samples were from healthy individuals without neuromuscular disease. The substantial age gap between infant and adult groups facilitates the detection of developmental changes but limits the characterisation of intermediate developmental stages.
+
+\subsubsection{Expression Data Format}
+
+Expression data were provided as read counts, which were subsequently normalised and transformed to enable comparison with the pig TPM data. Log$_2$ fold changes between infant and adult groups were computed to characterise developmental trajectories.
+
+\subsection{Ethical Considerations and Data Access}
+
+All data used in this study were obtained from publicly available resources. The PigGTEx data were generated under appropriate institutional animal care and use protocols. The human data from Schaiter et al. were collected with informed consent and ethical approval as described in the original publication.
+
+
+\section{Developmental Stage Definitions}\label{sec:methods:stages}
+
+\subsection{Biological Rationale for Stage Boundaries}
+
+Developmental stages were defined based on established milestones in porcine postnatal development, as reviewed in \chapref{chapter:literature}. The stage definitions align with major physiological transitions that mark distinct phases of postnatal life.
+
+Five developmental stages were defined. The \textbf{Infant} stage (0--20 days) covers the neonatal period, characterised by dependence on maternal nutrition and immature physiological systems. The \textbf{Early childhood} stage (21--59 days) spans the weaning transition period, during which the gastrointestinal tract adapts to solid food and the immune system begins to mature. The \textbf{Pre-pubertal} stage (60--149 days) represents the juvenile growth phase, characterised by rapid tissue deposition and organ maturation. The \textbf{Post-pubertal} stage (150--365 days) encompasses sexual maturation and the approach to adult physiological function. finally, the \textbf{Adult} stage (>365 days) represents the mature state with fully developed organ systems.
+
+These stage boundaries were chosen to reflect physiological milestones rather than arbitrary chronological divisions. The weaning boundary at approximately 21 days corresponds to the typical weaning age in commercial production systems. The pre-pubertal boundary at 60 days marks the completion of the weaning transition. The post-pubertal boundary at 150 days corresponds to the typical onset of puberty in gilts. The adult boundary at 365 days marks the completion of major growth and reproductive maturation.
+
+\subsection{Adaptive Classification Scheme Selection}
+
+The full 5-class staging system was not applicable to all tissues due to uneven sample distribution across developmental stages. An adaptive scheme selection algorithm was implemented to identify the most granular classification scheme supported by the data for each tissue.
+
+The selection algorithm evaluates classification schemes in order of decreasing granularity (5-class, 4-class, 3-class, 2-class), selecting the most granular scheme that meets minimum sample requirements. The 5-class scheme was not used due to insufficient samples in at least one class for all tissues. A 4-class scheme required a minimum of 40 samples per class, while a 3-class scheme required 30. A 2-class scheme required 15 samples per class and a minimum of 40 total samples.
+
+For reduced classification schemes, adjacent stages were merged. In the 4-class scheme, Post-pubertal and Adult stages were merged. In the 3-class scheme, Infant and Early childhood were merged, as were Post-pubertal and Adult. In the 2-class scheme, Infant and Early childhood were combined as ``young'', while Pre-pubertal, Post-pubertal, and Adult were combined as ``mature''.
+
+Based on these criteria, Muscle and Liver were assigned to the 4-class scheme, while Brain, Blood, and Lung were assigned to the 2-class scheme.
+
+
+\section{Data Preprocessing Pipeline}\label{sec:methods:preprocessing}
+
+The preprocessing pipeline transforms raw TPM values into a format suitable for machine learning, including log transformation, variance filtering, and standardisation. Critically, preprocessing parameters were fit on training data only and applied to test data, preventing information leakage.
+
+\subsection{Log Transformation}
+
+Gene expression values typically follow a heavy-tailed distribution, with a small number of highly expressed genes and many genes with low expression. Log transformation reduces the skewness of this distribution, making it more suitable for downstream analysis.
+
+The transformation applied was:
+
+\begin{equation}
+    x' = \log_2(x + 1)
+    \label{eq:log_transform}
+\end{equation}
+
+where $x$ is the TPM value and $x' $ is the transformed value. The pseudocount of 1 ensures that zero values remain finite after transformation.
+
+\subsection{Variance Filtering}
+
+Genes with low variance across samples provide limited discriminative power for classification. A variance filter was applied to remove genes below the 20th percentile of variance within each tissue.
+
+The rationale for variance filtering is twofold. First, low-variance genes are unlikely to distinguish between developmental stages and contribute primarily noise to the analysis. Second, removing low-variance genes reduces the dimensionality of the data, improving computational efficiency and reducing the risk of overfitting.
+
+The variance threshold was computed on the training data and applied to both training and test data, ensuring that the same set of genes was used for model training and evaluation.
+
+\subsection{Z-Score Standardisation}
+
+Following variance filtering, gene expression values were standardised to zero mean and unit variance:
+
+\begin{equation}
+    z = \frac{x' - \mu}{\sigma}
+    \label{eq:zscore}
+\end{equation}
+
+where $\mu$ and $\sigma$ are the mean and standard deviation of gene expression across training samples.
+
+Standardisation ensures that all genes contribute equally to the model, regardless of their baseline expression level. The mean and standard deviation were computed on training data and applied to both training and test data, preventing information leakage.
+
+\subsection{Train-Test Splitting Strategy}
+
+Data were split into training (70\%) and test (30\%) sets using stratified sampling to ensure that the class distribution in the test set matched that of the full dataset. Stratification is particularly important for imbalanced datasets, ensuring that minority classes are represented in both training and test sets.
+
+The split was performed with a fixed random seed (42) to ensure reproducibility. All preprocessing steps (variance filtering, standardisation) were fit on the training data only, with the resulting parameters applied to the test data. This prevents the test data from influencing the preprocessing and ensures unbiased performance estimates.
+
+
+\section{Machine Learning Framework}\label{sec:methods:ml}
+
+\subsection{Ordinal LightGBM Architecture}
+
+The machine learning framework employs ordinal classification using the binary reduction method \parencite{frank_simple_2001}. This method decomposes the ordinal classification problem into a series of binary classification problems, enabling the use of any binary classifier while respecting the ordinal structure of the target variable.
+
+\subsubsection{Binary Reduction Method}
+
+Given $K$ ordered classes (developmental stages), the binary reduction method trains $K-1$ binary classifiers. The $k$th classifier learns to predict $P(y > k \mid \mathbf{x})$, the probability that the true class is greater than $k$.
+
+For a $K$-class problem with classes $\{0, 1, \ldots, K-1\}$, the binary targets are defined such that Classifier 1 ($y_1$) distinguishes class 0 from all subsequent classes, Classifier 2 ($y_2$) distinguishes classes 0 and 1 from the rest, and so on, until Classifier $K-1$, which distinguishes all prior classes from the final class $K-1$.
+
+where $\mathbf{1}[\cdot]$ is the indicator function.
+
+\subsubsection{Probability Derivation}
+
+Class probabilities are derived from the cumulative probabilities predicted by the binary classifiers:
+
+\begin{equation}
+    P(y = c) = P(y > c-1) - P(y > c)
+    \label{eq:ordinal_probs}
+\end{equation}
+
+with the boundary conditions $P(y > -1) = 1$ and $P(y > K-1) = 0$.
+
+This formulation ensures that the class probabilities sum to 1 and respect the ordinal structure. Errors in adjacent stages receive partial credit through the overlapping binary targets.
+
+\subsection{LightGBM Configuration}
+
+Each binary classifier was implemented using Light Gradient Boosting Machine (LightGBM), a gradient boosting framework optimised for efficiency and accuracy \parencite{ke_lightgbm_2017}.
+
+\subsubsection{Hyperparameter Settings}
+
+The following hyperparameters were used for all binary classifiers:
+
+\begin{table}[H]
+\centering
+\caption{LightGBM hyperparameter configuration.}
+\label{tab:hyperparameters}
+\begin{tabular}{lcp{7cm}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Description} \\
+\midrule
+\texttt{num\_leaves} & 31 & Maximum number of leaves per tree \\
+\texttt{max\_depth} & 6 & Maximum tree depth \\
+\texttt{learning\_rate} & 0.05 & Step size for gradient descent \\
+\texttt{n\_estimators} & 200 & Maximum number of boosting rounds \\
+\texttt{min\_data\_in\_leaf} & 10 & Minimum samples in a leaf node \\
+\texttt{feature\_fraction} & 0.8 & Fraction of features used per tree \\
+\texttt{bagging\_fraction} & 0.8 & Fraction of samples used per tree \\
+\texttt{lambda\_l1} & 0.1 & L1 regularisation coefficient \\
+\texttt{lambda\_l2} & 0.1 & L2 regularisation coefficient \\
+\texttt{class\_weight} & balanced & Automatic class weight balancing \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These hyperparameters were chosen to balance model complexity and generalisation. The moderate number of leaves (31) and limited depth (6) constrain tree complexity. The regularisation parameters ($\lambda_{L1} = 0.1$, $\lambda_{L2} = 0.1$) discourage overfitting. Feature and bagging fractions of 0.8 introduce randomness that improves robustness.
+
+\subsubsection{Class Balancing Strategy}
+
+Class imbalance was addressed using the \texttt{scale\_pos\_weight} parameter, which adjusts the loss function to give greater weight to the minority class. For each binary classifier, the weight was computed as:
+
+\begin{equation}
+    \texttt{scale\_pos\_weight} = \frac{n_{\text{negative}}}{n_{\text{positive}}}
+    \label{eq:class_weight}
+\end{equation}
+
+This weighting ensures that the classifier does not simply predict the majority class and instead learns to distinguish between classes even when one class is much more common.
+
+\subsubsection{Early Stopping and Validation}
+
+To prevent overfitting, early stopping was employed with a patience of 10 rounds. During training, 20\% of the training data was held out as a validation set. If the validation loss did not improve for 10 consecutive boosting rounds, training was terminated early.
+
+The early stopping mechanism ensures that the model does not overfit to the training data by continuing to add trees after the validation loss has plateaued or begun to increase.
+
+\subsection{Feature Selection via Information Gain}
+
+Feature selection was performed using the built-in feature importance measures from LightGBM. After training, the total information gain contributed by each feature across all trees was computed. Features were ranked by importance, and the top 2,000 features were retained for the final model.
+
+The information gain measures the reduction in training loss attributable to splits on each feature. Features with high information gain are those that most effectively separate samples into their correct classes.
+
+Limiting the feature set to 2,000 genes reduces computational cost and may improve generalisation by excluding uninformative features. The threshold of 2,000 was chosen to balance retention of informative features with dimensionality reduction.
+
+\subsection{Monotonic Constraint Post-Processing}
+
+The binary reduction method does not inherently guarantee that the cumulative probabilities are monotonically decreasing. Small violations can occur due to noise in the binary predictions. A post-processing step was applied to enforce monotonicity:
+
+\begin{equation}
+    P(y > k)' = \min(P(y > k), P(y > k-1)')
+    \label{eq:monotonic}
+\end{equation}
+
+This isotonic regression-like correction ensures that the cumulative probabilities decrease monotonically, which is required for the class probabilities to be non-negative.
+
+
+\section{Model Evaluation Framework}\label{sec:methods:evaluation}
+
+\subsection{Classification Metrics}
+
+Model performance was evaluated using multiple metrics that capture different aspects of classification accuracy.
+
+\subsubsection{Balanced Accuracy}
+
+Balanced accuracy is the average of recall across classes:
+
+\begin{equation}
+    \text{BA} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{TP_c}{TP_c + FN_c}
+    \label{eq:balanced_accuracy}
+\end{equation}
+
+where $TP_c$ is the number of true positives for class $c$ and $FN_c$ is the number of false negatives. Balanced accuracy gives equal weight to each class, regardless of class frequency, making it appropriate for imbalanced datasets.
+
+\subsubsection{Macro F1-Score}
+
+The macro F1-score is the unweighted average of per-class F1-scores:
+
+\begin{equation}
+    \text{F1}_{\text{macro}} = \frac{1}{K} \sum_{c=0}^{K-1} \frac{2 \cdot P_c \cdot R_c}{P_c + R_c}
+    \label{eq:macro_f1}
+\end{equation}
+
+where $P_c$ is precision and $R_c$ is recall for class $c$. The macro F1-score provides a balanced view of precision and recall across classes.
+
+\subsubsection{Weighted F1-Score}
+
+The weighted F1-score averages per-class F1-scores weighted by class frequency:
+
+\begin{equation}
+    \text{F1}_{\text{weighted}} = \sum_{c=0}^{K-1} w_c \cdot \frac{2 \cdot P_c \cdot R_c}{P_c + R_c}
+    \label{eq:weighted_f1}
+\end{equation}
+
+where $w_c$ is the proportion of samples in class $c$. The weighted F1-score gives more weight to more common classes.
+
+\subsection{Ordinal Metrics}
+
+In addition to standard classification metrics, ordinal-specific metrics were computed to assess the model's ability to respect the ordering of developmental stages.
+
+\subsubsection{Mean Absolute Error}
+
+Mean Absolute Error (MAE) measures the average distance between predicted and true class indices:
+
+\begin{equation}
+    \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+    \label{eq:mae}
+\end{equation}
+
+where $y_i$ and $\hat{y}_i$ are the true and predicted class indices. MAE penalises predictions that are far from the true class more heavily than adjacent misclassifications.
+
+\subsubsection{Spearman Correlation}
+
+Spearman's rank correlation coefficient measures the monotonic relationship between predicted and true classes:
+
+\begin{equation}
+    \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}
+    \label{eq:spearman}
+\end{equation}
+
+where $d_i$ is the difference in ranks between predicted and true values. A high Spearman correlation indicates that the model correctly orders samples by developmental stage.
+
+\subsubsection{Quadratic-Weighted Kappa}
+
+Cohen's Kappa with quadratic weighting provides an agreement measure that accounts for ordinal structure:
+
+\begin{equation}
+    \kappa = 1 - \frac{\sum_{i,j} w_{ij} O_{ij}}{\sum_{i,j} w_{ij} E_{ij}}
+    \label{eq:kappa}
+\end{equation}
+
+where $O_{ij}$ is the observed frequency, $E_{ij}$ is the expected frequency under chance, and $w_{ij} = (i-j)^2$ is the quadratic weight. Quadratic Kappa penalises distant misclassifications more heavily than adjacent ones.
+
+\subsection{Bootstrap Confidence Intervals}
+
+Confidence intervals for all metrics were computed using bootstrap resampling. The procedure involved resampling the test set with replacement to create a bootstrap sample of the same size, computing the metric on this sample, and repeating the process for 1,000 iterations. The 2.5th and 97.5th percentiles of the resulting distribution were then taken to obtain the 95\% confidence intervals.
+
+Bootstrap confidence intervals provide a measure of uncertainty in the performance estimates that accounts for sampling variability in the test set.
+
+\subsection{Per-Class Performance Assessment}
+
+To understand performance on individual developmental stages, per-class precision, recall, and F1-scores were computed:
+
+\begin{align}
+    \text{Precision}_c &= \frac{TP_c}{TP_c + FP_c} \label{eq:precision} \\
+    \text{Recall}_c &= \frac{TP_c}{TP_c + FN_c} \label{eq:recall} \\
+    \text{F1}_c &= \frac{2 \cdot \text{Precision}_c \cdot \text{Recall}_c}{\text{Precision}_c + \text{Recall}_c} \label{eq:f1}
+\end{align}
+
+Per-class metrics reveal which developmental stages are easiest and hardest to classify, informing interpretation of the model's behaviour.
+
+
+\section{Cross-Species Analysis}\label{sec:methods:crossspecies}
+
+\subsection{Gene Symbol Mapping}
+
+Comparison of gene expression between pig and human required mapping between species-specific gene symbols. Ortholog mapping was performed using the Ensembl Compara database, which provides curated ortholog annotations based on sequence similarity and synteny.
+
+For each pig gene, the corresponding human ortholog was identified. Genes without clear one-to-one ortholog relationships (e.g., genes with multiple paralogs or lineage-specific genes) were excluded from cross-species analysis.
+
+\subsection{Fold-Change Calculation}
+
+Developmental trajectories were characterised using log$_2$ fold changes between developmental stages. For each gene, the fold change was computed as:
+
+\begin{equation}
+    \text{FC} = \log_2\left(\frac{\bar{x}_{\text{mature}} + 1}{\bar{x}_{\text{young}} + 1}\right)
+    \label{eq:fold_change}
+\end{equation}
+
+where $\bar{x}_{\text{mature}}$ and $\bar{x}_{\text{young}}$ are the mean expression levels in mature and young stages, respectively. The pseudocount of 1 prevents division by zero and log of zero.
+
+For pig data, the comparison was between Post-pubertal/Adult (combined) and Infant stages. For human data, the comparison was between Adult and Infant groups.
+
+\subsection{Adaptive Thresholding Approach}
+
+To identify genes with conserved developmental trajectories, an adaptive thresholding approach was employed. The goal was to select a gene set that shows significant developmental changes in both species and exhibits strong cross-species correlation.
+
+The procedure tested multiple parameter combinations, including $p$-value thresholds of 0.05, 0.10, 0.15, and 0.20, and minimum gene numbers ranging from 15 to 50 in increments of 5.
+
+For each combination, genes meeting the $p$-value threshold in both species were selected. The correlation between pig and human fold changes was computed. The optimal parameters were selected to maximise $r \times \sqrt{n}$, where $r$ is the Pearson correlation and $n$ is the number of genes, subject to the constraint $r > 0.6$.
+
+This optimisation criterion balances correlation strength with the number of genes included. The constraint $r > 0.6$ ensures that only parameter combinations yielding strong correlation are considered.
+
+\subsection{Correlation Analysis}
+
+The primary measure of developmental conservation was the Pearson correlation between pig and human fold changes:
+
+\begin{equation}
+    r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}
+    \label{eq:pearson}
+\end{equation}
+
+where $x_i$ and $y_i$ are the pig and human fold changes for gene $i$.
+
+Statistical significance was assessed using a two-tailed $t$-test on the correlation coefficient. The null hypothesis was that the true correlation is zero.
+
+\subsection{Directional Concordance Assessment}
+
+Beyond correlation, the directional concordance of developmental changes was assessed. For each gene, the direction of change (upregulated or downregulated during development) was determined in both species. The concordance rate was computed as the fraction of genes showing the same direction of change in both species.
+
+Directional concordance provides a more conservative measure of conservation than correlation, as it requires only that genes change in the same direction, not that the magnitudes of change are proportional.
+
+\subsection{Bootstrap Validation}
+
+The robustness of the cross-species correlation was assessed using bootstrap resampling. For each of 1,000 bootstrap iterations, the gene set was resampled with replacement, and the Pearson correlation was computed on the bootstrap sample.
+
+The 95\% confidence interval was computed from the 2.5th and 97.5th percentiles of the bootstrap distribution.
+
+
+\section{Functional Enrichment Analysis}\label{sec:methods:enrichment}
+
+\subsection{Gene Ontology Enrichment}
+
+Functional enrichment analysis was performed to characterise the biological processes associated with developmental stage transitions. Gene Ontology (GO) enrichment was conducted using g:Profiler \parencite{kolberg_gprofiler-interoperable_2023}, a web-based tool for functional enrichment analysis.
+
+For each tissue, the top developmental markers (genes with highest feature importance) were submitted to g:Profiler for enrichment analysis. The analysis was restricted to Biological Process (BP) terms to focus on physiological functions relevant to developmental transitions.
+
+\subsection{Multiple Testing Correction}
+
+The Benjamini-Hochberg procedure was applied to control the false discovery rate (FDR) at 5\%. This procedure orders $p$-values from smallest to largest and rejects hypotheses for which:
+
+\begin{equation}
+    p_{(k)} \leq \frac{k}{m} \cdot q
+    \label{eq:bh}
+\end{equation}
+
+where $p_{(k)}$ is the $k$th smallest $p$-value, $m$ is the total number of tests, and $q = 0.05$ is the target FDR.
+
+Terms with adjusted $p$-values (FDR) below 0.05 were considered significantly enriched.
+
+
+\section{Computational Implementation}\label{sec:methods:implementation}
+
+\subsection{Software Environment}
+
+All analyses were conducted using Python 3.9. Key libraries included NumPy (v1.21) for numerical computing, Pandas (v1.3) for data manipulation, Scikit-learn (v1.0) for machine learning utilities, LightGBM (v3.3) for the gradient boosting framework, and SciPy (v1.7) for statistical functions.
+
+Figures were generated using R 4.2.0 with ggplot2 for publication-quality visualisation.
+
+\subsection{Reproducibility Measures}
+
+To ensure reproducibility, the following measures were implemented. First, a fixed random seed (42) was used for all random operations to ensure deterministic behaviour. Second, all code was version-controlled using Git. Third, all parameters were stored in a YAML configuration file to enable complete specification of the analysis pipeline. Finally, detailed logs were generated for all analyses, recording parameter values and intermediate results.
+
+\subsection{Code Availability}
+
+All code required to reproduce the analyses is available at: \url{https://github.com/TianYuan-Liu/pig-dev-stage}
+
+The repository includes scripts for data preprocessing, model training and evaluation, cross-species analysis, and figure generation, as well as configuration files specifying all parameters.
