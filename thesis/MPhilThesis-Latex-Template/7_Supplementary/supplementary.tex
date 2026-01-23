@@ -23,7 +23,7 @@
   \centering
   \includegraphics[width=\textwidth]{../../paper/figures/output/pdf/figS2_tissue_specificity_stability.pdf}
   \caption{\textbf{Tissue specificity and feature selection stability analysis.}
-  \textbf{a}, Uniform manifold approximation and projection (UMAP) of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes).
+  \textbf{a}, Uniform manifold approximation and projection (UMAP) \parencite{mcinnes_umap_2018} of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes).
   \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across five independent random seeds (brain, blood, lung; stability analysis not performed for muscle and liver). Error bars represent standard deviation; higher values indicate more reproducible feature selection.
   \textbf{c}, Mean absolute Spearman correlation between top-ranked features and developmental stage for each tissue.}
   \label{fig:S2}
@@ -113,19 +113,19 @@
     \toprule
     Gene & Developmental Function & Pig FC & Human FC \\
     \midrule
-    \textit{SORCS2} & Serves as a molecular switch directing trafficking of key signalling receptors to regulate the balance between neuronal growth and pruning, ensuring precise wiring of the developing nervous system. & 1.84 & 0.95 \\
+    \textit{SORCS2} & Serves as a molecular switch directing trafficking of key signalling receptors to regulate the balance between neuronal growth and pruning, ensuring precise wiring of the developing nervous system \parencite{thomasen_sorcs2_2023}. & 1.84 & 0.95 \\
     \addlinespace
-    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive growth factor signalling to ensure proper formation of critical structures including the diaphragm, kidneys, and skeleton. & 1.68 & 2.10 \\
+    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive growth factor signalling to ensure proper formation of critical structures including the diaphragm, kidneys, and skeleton \parencite{amann_fgfrl1_2014}. & 1.68 & 2.10 \\
     \addlinespace
-    \textit{KREMEN1} & Functions as a critical negative regulator of Wnt signalling, partnering with Dkk1 to control cell survival and ensure proper patterning of organs including thymus, teeth, and neural tissues. & 1.25 & 1.43 \\
+    \textit{KREMEN1} & Functions as a critical negative regulator of Wnt signalling, partnering with Dkk1 to control cell survival and ensure proper patterning of organs including thymus, teeth, and neural tissues \parencite{osada_wnt_2006}. & 1.25 & 1.43 \\
     \addlinespace
-    \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring. & 1.81 & 0.53 \\
+    \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring \parencite{rotundo_expression_2003}. & 1.81 & 0.53 \\
     \addlinespace
-    \textit{MSS51} & Acts as a skeletal muscle-specific ``brake'' on metabolism, regulating mitochondrial respiration and energy expenditure as muscle fibres differentiate and mature. & $-$3.02 & $-$1.55 \\
+    \textit{MSS51} & Acts as a skeletal muscle-specific ``brake'' on metabolism, regulating mitochondrial respiration and energy expenditure as muscle fibres differentiate and mature \parencite{rovira_gonzalez_mss51_nodate}. & $-$3.02 & $-$1.55 \\
     \addlinespace
-    \textit{IGSF1} & Regulates the neuroendocrine system by modulating signal transduction in the pituitary gland, enabling maturation of the thyroid axis and coordination of testicular development. & 2.45 & 0.34 \\
+    \textit{IGSF1} & Regulates the neuroendocrine system by modulating signal transduction in the pituitary gland, enabling maturation of the thyroid axis and coordination of testicular development \parencite{joustra_igsf1_2019}. & 2.45 & 0.34 \\
     \addlinespace
-    \textit{PDLIM3} & Acts as a cytoskeletal scaffolding protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of the heart. & $-$2.19 & $-$0.56 \\
+    \textit{PDLIM3} & Acts as a cytoskeletal scaffolding protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of the heart \parencite{ohsawa_alternative_2011}. & $-$2.19 & $-$0.56 \\
     \bottomrule
   \end{tabularx}
 \end{table}

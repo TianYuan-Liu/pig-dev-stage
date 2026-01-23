@@ -116,9 +116,9 @@ A critical technical consideration in transcriptomic analysis is the choice of n
 
 Raw read counts represent the most direct measure of gene expression from RNA-seq data but are affected by both library size (total sequencing depth) and gene length. Genes with more reads will appear more highly expressed, as will longer genes that produce more fragments. Comparisons across samples or genes require normalisation to account for these factors.
 
-Fragments Per Kilobase of transcript per Million mapped reads (FPKM) normalises for both library size and gene length, producing values that can be compared across genes within a sample and across samples. However, FPKM values can be distorted by highly expressed genes that consume a large fraction of sequencing reads, and the length normalisation may not be appropriate for all applications.
+Fragments Per Kilobase of transcript per Million mapped reads (FPKM) normalises for both library size and gene length \parencite{mortazavi_mapping_2008}, producing values that can be compared across genes within a sample and across samples. However, FPKM values can be distorted by highly expressed genes that consume a large fraction of sequencing reads, and the length normalisation may not be appropriate for all applications.
 
-Transcripts Per Million (TPM) provides an alternative normalisation that addresses some limitations of FPKM. TPM first normalises for gene length, then normalises for library size, ensuring that the sum of TPM values within a sample is constant. This makes TPM values more comparable across samples than FPKM values.
+Transcripts Per Million (TPM) provides an alternative normalisation that addresses some limitations of FPKM \parencite{zhao_tpm_2021}. TPM first normalises for gene length, then normalises for library size, ensuring that the sum of TPM values within a sample is constant. This makes TPM values more comparable across samples than FPKM values.
 
 For the analyses in this thesis, TPM values are used as provided by the PigGTEx resource. TPM normalisation is appropriate for developmental staging applications because it enables meaningful comparison of expression levels across samples from different individuals and developmental stages.
 
@@ -141,7 +141,7 @@ Machine learning has emerged as an essential tool for analysing the high-dimensi
 
 \subsection{Overview of Machine Learning in Biology}
 
-Machine learning encompasses a diverse set of computational methods that learn patterns from data and use these patterns to make predictions or decisions. In biomedical research, machine learning has found applications in disease diagnosis, drug discovery, image analysis, and many other domains.
+Machine learning encompasses a diverse set of computational methods that learn patterns from data and use these patterns to make predictions or decisions \parencite{greener_guide_2022}. In biomedical research, machine learning has found applications in disease diagnosis, drug discovery, image analysis, and many other domains.
 
 Supervised learning, the paradigm most relevant to developmental staging, involves training a model on labelled examples to predict labels for new, unlabelled data. In the context of this thesis, the training data consist of gene expression profiles from samples of known developmental stage, and the goal is to predict developmental stage for new samples.
 

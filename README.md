@@ -24,35 +24,41 @@ Current developmental staging in pig research relies on chronological age or sub
 
 ```
 pig-dev-stage/
-├── machine_learning/           # Python ML Pipeline
-│   ├── data_processing/       # Data loading & preprocessing
-│   ├── feature_engineering/   # Feature selection (variance, MI)
-│   ├── model_training/        # LightGBM ordinal classification
-│   ├── model_evaluation/      # Metrics & bootstrap CI
-│   ├── cross_tissue_analysis/ # Cross-tissue validation
-│   ├── analysis/              # Additional analyses
-│   ├── config.yaml            # Pipeline configuration
-│   └── run_pipeline.py        # Main entry point
+├── machine_learning/           # Python Machine Learning Pipeline
+│   ├── data_processing/       # Data loading, cleaning & preprocessing
+│   ├── feature_engineering/   # Feature selection (variance, LightGBM importance)
+│   ├── model_training/        # LightGBM ordinal classification implementation
+│   ├── model_evaluation/      # Metrics, performance assessments & bootstrap CI
+│   ├── cross_tissue_analysis/ # Cross-tissue validation scripts
+│   ├── analysis/              # Downstream statistical analyses
+│   ├── utils/                 # Shared helper functions
+│   ├── visualization/         # Performance and exploration plots
+│   ├── model_outputs/         # Saved models and predictions
+│   ├── config.yaml            # Pipeline hyperparameters and settings
+│   └── run_pipeline.py        # Main execution script
 │
-├── paper/                      # LaTeX Manuscript
-│   ├── paper.tex              # Main manuscript (Nature format)
-│   ├── supplementary.tex      # Supplementary materials
-│   └── figures/               # Publication figures
+├── paper/                      # Research Manuscript Materials
+│   ├── paper.tex              # Main manuscript source (LaTeX)
+│   ├── supplementary.tex      # Supplementary information
+│   ├── figures/               # Publication-quality figures (R/Python)
+│   │   ├── R/                 # Figure generation scripts in R
+│   │   └── output/            # Generated figure panels
+│   └── pig-age-human/         # Cross-species analysis (pig vs. human)
 │
-├── visualization/              # R Publication Figures
-│   ├── theme_configs/         # Nature journal themes
-│   └── nature_figures/        # Figure generation scripts
+├── thesis/                     # MPhil Thesis Resources
+│   └── MPhilThesis-Latex-Template/ # LaTeX source and structure for the thesis
 │
-├── slides/                     # Presentation Materials
-│   ├── R/                     # Slide figure generation
-│   └── Figures/               # Generated panels
+├── data/                       # Datasets
+│   ├── pigGTEx/               # Porcine transcriptomic expression files (TPM)
+│   ├── human_muscle/          # Human validation data (Schaiter et al. 2024)
+│   └── PigGTEx_v0.MetaTable.xlsx # Master metadata for samples
 │
-├── data/                       # Data Files
-│   ├── pigGTEx/               # Expression files
-│   └── human_muscle/          # Human validation data
+├── configs/                    # Global Configuration
+│   ├── pipeline_config.yaml   # Pipeline execution parameters
+│   └── logging_config.yaml    # Logger configuration
 │
-├── scripts/                    # Utility Scripts
-└── results/                    # Analysis Outputs
+├── logs/                       # System and execution logs
+└── requirements.txt           # Python dependency list
 ```
 
 ## Quick Start
