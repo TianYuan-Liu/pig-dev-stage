@@ -82,6 +82,7 @@
 \usepackage{multirow}        % Import multirow for creating table cells spanning multiple rows
 \usepackage{longtable}       % Multi-page tables
 \usepackage{booktabs}        % Import booktabs for creating professional-quality tables with enhanced layout and design
+\usepackage{tabularx}        % Import tabularx for adjustable-width columns
 \renewcommand{\arraystretch}{1.2} % Increase table row spacing for better readability
 
 % SIUnitx Package for SI Units
@@ -105,7 +106,7 @@
 
 % BibLaTeX for Bibliography Management
 \usepackage[backend=biber, style=apa]{biblatex} % Import biblatex with Biber backend and APA style for advanced bibliography management
-\addbibresource{references.bib}
+\addbibresource{../../paper/pig-age-human/pig-age-human.bib}
 
 \DefineBibliographyStrings{english}{%
   bibliography = {References},
@@ -137,6 +138,9 @@
 \include{4_Results/4_Results}
 \include{5_Discussion/5_Discussion}
 \include{6_Conclusions/6_Conclusions}
+
+\appendix
+\include{7_Supplementary/supplementary}
 
 \printbibliography[heading=bibintoc]
 \end{document}

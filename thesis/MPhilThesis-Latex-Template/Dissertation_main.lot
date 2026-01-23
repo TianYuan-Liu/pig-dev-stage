@@ -3,10 +3,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces LightGBM hyperparameter configuration.}}{57}{table.caption.5}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces LightGBM hyperparameter configuration.}}{58}{table.caption.5}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces \textbf {Model performance metrics across tissues.} Performance evaluated on held-out test sets (30\% of samples). 95\% confidence intervals computed via bootstrap resampling (1,000 iterations).}}{72}{table.caption.7}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces \textbf {Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue.}}{76}{table.caption.9}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces \textbf {Functional annotations of key conserved developmental markers.}}}{88}{table.caption.12}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces \textbf {Model performance metrics across tissues.} Performance evaluated on held-out test sets (30\% of samples). 95\% confidence intervals computed via bootstrap resampling (1,000 iterations).}}{73}{table.caption.7}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces \textbf {Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue.}}{77}{table.caption.9}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces \textbf {Functional annotations of key conserved developmental markers.}}}{89}{table.caption.12}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {S1}{\ignorespaces \textbf {Train versus test performance comparison.} Test set performance (30\% held out) is reported for all tissues. Train set metrics are not shown as models were evaluated only on held-out data to prevent overfitting.}}{121}{table.caption.18}%
+\contentsline {table}{\numberline {S2}{\ignorespaces \textbf {Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue. $n$ indicates the number of test samples per class.}}{122}{table.caption.19}%
+\contentsline {table}{\numberline {S3}{\ignorespaces \textbf {Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (infant vs.\ adult). Pig FC derived from pig GTEx data (GEO: GSE257558); Human FC from \blx@tocontentsinit {0}\textcite {schaiter_molecular_2024}.}}{123}{table.caption.20}%

@@ -25,7 +25,7 @@ This thesis set out to address four interconnected research objectives, as state
 
 This thesis makes several novel contributions to the fields of porcine biology and developmental transcriptomics:
 
-First, it presents the first calibrated transcriptomic staging system for pigs, filling a critical gap by providing a complementary approach to existing epigenetic clocks. Second, it demonstrates that cross-tissue feature overlap is 180-fold lower than random expectation, providing quantitative evidence for the tissue-specificity of postnatal development. Third, the cross-species analysis provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle, supporting the pig's validity as a translational model. Finally, the analytical framework developed for this thesis is open-source, enabling other researchers to apply and extend the approach.
+First, it presents the first calibrated transcriptomic staging system for pigs, filling a critical gap by providing a complementary approach to existing epigenetic clocks. Second, it demonstrates that cross-tissue feature overlap is extremely low (0.3\% Jaccard similarity), providing quantitative evidence for the tissue-specificity of postnatal development. Third, the cross-species analysis provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle, supporting the pig's validity as a translational model. Finally, the analytical framework developed for this thesis is open-source, enabling other researchers to apply and extend the approach.
 
 \subsection{Integration with Existing Literature}
 
@@ -33,7 +33,7 @@ The findings of this thesis align with and extend previous work on developmental
 
 The high performance achieved by the machine learning framework (mean balanced accuracy 82.5\%) is comparable to that reported for epigenetic clocks in predicting chronological age \parencite{horvath_dna_2013}. However, direct comparison is complicated by differences in the target variable (categorical stages vs. continuous age) and the modalities (transcriptomics vs. DNA methylation).
 
-The tissue-specific developmental markers identified in this thesis overlap substantially with genes previously implicated in tissue development. For example, the identification of MEF2A and TRDN as muscle markers aligns with the known roles of these genes in myogenesis and calcium handling. Similarly, the liver markers NPAS2 and BHLHE41 are established circadian regulators with roles in hepatic metabolism.
+The tissue-specific developmental markers identified in this thesis overlap substantially with genes previously implicated in tissue development. For example, the identification of MEF2A and TRDN as muscle markers aligns with the known roles of these genes in myogenesis and calcium handling \parencite{lefaucheur_second_2010}. Similarly, the liver markers NPAS2 and BHLHE41 are established circadian regulators with roles in hepatic metabolism \parencite{zhang_night-restricted_2025}.
 
 The cross-species conservation analysis extends previous work showing conservation of developmental gene expression across mammals \parencite{cardoso-moreira_gene_2019}. The finding of 89\% directional concordance between pig and human muscle is consistent with the general pattern of developmental conservation, while providing the first specific comparison for postnatal muscle development.
 
@@ -42,7 +42,7 @@ The cross-species conservation analysis extends previous work showing conservati
 
 \subsection{Tissue-Specificity of Developmental Programs}
 
-One of the most striking findings of this thesis is the profound tissue-specificity of developmental gene expression programs. The cross-tissue feature overlap of only 0.3\%---180-fold lower than the 55\% expected by chance---indicates that each tissue follows a largely independent developmental trajectory.
+One of the most striking findings of this thesis is the profound tissue-specificity of developmental gene expression programs. The cross-tissue feature overlap of only 0.3\% indicates that each tissue follows a largely independent developmental trajectory.
 
 This tissue-specificity has several important biological implications:
 
@@ -62,7 +62,7 @@ The identification of conserved developmental modules between pig and human musc
 
 The conserved upregulation of SORCS2, ACHE, and KREMEN1 during development points to the importance of neuromuscular junction maturation as a conserved developmental process. SORCS2 is a neurotrophin receptor that regulates the trafficking of signalling receptors, influencing the balance between neuronal growth and pruning \parencite{thomasen_sorcs2_2023}. Its upregulation during development may reflect the refinement of motor neuron innervation patterns.
 
-ACHE (acetylcholinesterase) is essential for terminating synaptic transmission at the neuromuscular junction. Its developmental upregulation in both species suggests that the establishment of efficient neuromuscular transmission is a conserved aspect of postnatal muscle development.
+ACHE (acetylcholinesterase) is essential for terminating synaptic transmission at the neuromuscular junction \parencite{rotundo_expression_2003}. Its developmental upregulation in both species suggests that the establishment of efficient neuromuscular transmission is a conserved aspect of postnatal muscle development.
 
 KREMEN1 is a negative regulator of Wnt signalling that partners with DKK1 to control cell survival and tissue patterning \parencite{osada_wnt_2006}. Its developmental upregulation may reflect the dampening of growth-promoting pathways as tissues mature.
 
@@ -78,11 +78,11 @@ The downregulation of MSS51 during development in both species is consistent wit
 
 The developmental markers identified through feature importance analysis provide insight into the molecular programs driving postnatal maturation. Several patterns emerge from examination of these markers:
 
-\textbf{Circadian regulation in liver.} The prominence of circadian clock genes (NPAS2, BHLHE41) among liver markers suggests that the establishment of circadian metabolic rhythms is a key aspect of hepatic development. This aligns with the known importance of circadian regulation for hepatic function in adult animals.
+\textbf{Circadian regulation in liver.} The prominence of circadian clock genes (NPAS2, BHLHE41) among liver markers suggests that the establishment of circadian metabolic rhythms is a key aspect of hepatic development. This aligns with the known importance of circadian regulation for hepatic function in adult animals \parencite{zhang_night-restricted_2025}.
 
-\textbf{Epigenetic regulation in brain.} The identification of DNMT3L and HDAC6 as brain markers points to the role of epigenetic mechanisms in neural development. DNA methylation and histone modification are known to be dynamically regulated during brain development, establishing stable patterns of gene expression that underlie neural function.
+\textbf{Epigenetic regulation in brain.} The identification of DNMT3L and HDAC6 as brain markers points to the role of epigenetic mechanisms in neural development. DNA methylation and histone modification are known to be dynamically regulated during brain development, establishing stable patterns of gene expression that underlie neural function \parencite{pena_epigenetic_2026}.
 
-\textbf{Immune development in lung and blood.} The prominence of immune-related genes (GFI1, IL-6 pathway components) among lung and blood markers reflects the establishment of immune competence during postnatal life. The lung, in particular, must develop robust immune defences as it is exposed to environmental antigens from birth.
+\textbf{Immune development in lung and blood.} The prominence of immune-related genes (GFI1, IL-6 pathway components) among lung and blood markers reflects the establishment of immune competence during postnatal life \parencite{georgountzou_postnatal_2017}. The lung, in particular, must develop robust immune defences as it is exposed to environmental antigens from birth \parencite{mair_porcine_2014}.
 
 \textbf{Contractile and metabolic function in muscle.} Muscle markers reflect both the structural (TRDN, PDLIM3) and metabolic (MSS51) aspects of muscle development, capturing the establishment of mature contractile and oxidative function.
 
@@ -202,6 +202,12 @@ Alternative approaches, such as preregistering analysis parameters or using vali
 The moderate stability of feature selection across random seeds (Jaccard similarity 0.16--0.43) means that the specific genes identified as top markers may vary between runs. While this variability reflects biological gene redundancy, it complicates the interpretation of individual marker genes.
 
 Stable feature selection methods or consensus approaches that aggregate across multiple runs could provide more reproducible marker sets.
+
+\subsubsection{Reliance on Chronological Age as Ground Truth}
+
+A fundamental paradox of this work is the use of chronological age bins as ground truth labels for training, while simultaneously arguing that genetic variability renders chronological age an imperfect proxy for biological development. It is crucial to recognise that in this context, chronological age serves as a ``scaffold'' for learning, rather than an absolute ground truth. The model effectively uses this scaffold to learn the consensus transcriptomic profile of each developmental stage, treating individual deviations as noise or biological variance.
+
+Critics might argue that without independent physiological measurements (e.g., hormone levels), deviations between the model's prediction and the animal's chronological age are indistinguishable from classification errors. However, this ``circularity'' is broken by the cross-species validation. If the model were merely overfitting to the noisy chronological labels of the pig dataset, the identified molecular signatures would be unlikely to generalise to humans, who develop on a vastly different timescale. The fact that the ``denoised'' molecular features identified in pigs successfully predict developmental changes in human muscle (89\% directional concordance) confirms that the model has captured a conserved latent variable---biological maturity---rather than simply predicting calendar age with a non-linear error function \parencite{cardoso-moreira_gene_2019}. Thus, the molecular stage offers a functionally relevant definition of development that transcends the variability inherent in chronological age.
 
 \subsection{Generalisability Considerations}
 

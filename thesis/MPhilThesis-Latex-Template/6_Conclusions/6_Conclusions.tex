@@ -17,7 +17,7 @@ This thesis set out to address a fundamental challenge in pig research: the lack
 
 \textbf{\chapref{chapter:methods}: Materials and Methods} documented the data sources, analytical methods, and computational approaches employed. The PigGTEx dataset (1,924 samples across five tissues) and the human skeletal muscle dataset for cross-species validation were described. The machine learning framework, including data preprocessing, ordinal LightGBM classification, and evaluation metrics, was detailed with sufficient precision to enable reproduction.
 
-\textbf{\chapref{chapter:results}: Results} presented the findings in four sections. The data landscape characterisation revealed substantial variation in sample availability across tissues and developmental stages, motivating the adaptive classification scheme selection. Model performance assessment demonstrated balanced accuracy ranging from 64\% (brain) to 92\% (liver), with strong ordinal consistency across tissues. Feature analysis revealed profound tissue-specificity in developmental markers, with cross-tissue overlap 180-fold lower than random expectation. Cross-species validation with human skeletal muscle demonstrated 89\% directional concordance and significant correlation ($r = 0.62$) in developmental trajectories.
+\textbf{\chapref{chapter:results}: Results} presented the findings in four sections. The data landscape characterisation revealed substantial variation in sample availability across tissues and developmental stages, motivating the adaptive classification scheme selection. Model performance assessment demonstrated balanced accuracy ranging from 64\% (brain) to 92\% (liver), with strong ordinal consistency across tissues. Feature analysis revealed profound tissue-specificity in developmental markers, with extremely low cross-tissue overlap (0.3\% Jaccard similarity). Cross-species validation with human skeletal muscle demonstrated 89\% directional concordance and significant correlation ($r = 0.62$) in developmental trajectories.
 
 \textbf{\chapref{chapter:discussion}: Discussion} interpreted these findings in the context of the broader literature. The biological implications of tissue-specific developmental programs and conserved pig-human modules were discussed. Methodological contributions, including ordinal classification for staging and adaptive threshold optimisation for cross-species comparison, were highlighted. Practical applications for standardising pig research were outlined, and limitations including sample size constraints and bulk RNA-seq resolution were acknowledged. Future directions, including single-cell approaches and extension to additional tissues, were identified.
 
@@ -46,7 +46,7 @@ The framework achieves balanced accuracy of 64--92\% across tissues, comparable 
 
 \subsection{Demonstration of Profound Tissue-Specificity in Developmental Programs}
 
-The finding that cross-tissue feature overlap is 180-fold lower than random expectation provides quantitative evidence for the tissue-specificity of postnatal developmental programs. This tissue-specificity has not been previously quantified and has important implications for both developmental biology and staging applications.
+The finding that cross-tissue feature overlap is extremely low (0.3\% Jaccard similarity) provides quantitative evidence for the tissue-specificity of postnatal developmental programs. This tissue-specificity has not been previously quantified and has important implications for both developmental biology and staging applications.
 
 From a biological perspective, the results indicate that each tissue follows a largely independent developmental trajectory, regulated by distinct sets of genes. This modular organisation may enable the independent optimisation of tissue-specific functions during evolution.
 
@@ -60,7 +60,7 @@ Three conserved functional modules were identified:
 
 Three conserved functional modules were identified: a neuromuscular maturation module involving \textbf{SORCS2}, \textbf{ACHE}, and \textbf{KREMEN1}; a structural refinement module characterised by \textbf{FGFRL1} and \textbf{IGSF1}; and a metabolic transition module defined by \textbf{MSS51} and \textbf{PDLIM3}.
 
-These modules provide molecular targets for understanding postnatal muscle development in both species. The conservation of these modules across 80 million years of mammalian evolution suggests they represent fundamental developmental programs.
+These modules provide molecular targets for understanding postnatal muscle development in both species. The conservation of these modules across 80 million years of mammalian evolution \parencite{kumar_timetree_2022} suggests they represent fundamental developmental programs.
 
 
 \section{Implications for the Field}\label{sec:conclusions:implications}

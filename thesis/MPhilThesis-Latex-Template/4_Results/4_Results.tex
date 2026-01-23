@@ -59,6 +59,7 @@ The performance metrics for each tissue are summarised in \tabref{tab:performanc
 \centering
 \caption{\textbf{Model performance metrics across tissues.} Performance evaluated on held-out test sets (30\% of samples). 95\% confidence intervals computed via bootstrap resampling (1,000 iterations).}
 \label{tab:performance}
+\small
 \begin{tabular}{lccccc}
 \toprule
 \textbf{Tissue} & \textbf{Scheme} & \textbf{$n$} & \textbf{Balanced Acc.} & \textbf{F1-macro} & \textbf{Spearman $\rho$} \\
@@ -108,7 +109,7 @@ The large sample size for muscle ($n = 761$) provides statistical power that ena
 
 \subsubsection{Brain: Lowest Performance}
 
-The brain showed the lowest balanced accuracy (63.8\%, 95\% CI: 49.2--78.4\%), reflecting the challenges of this tissue. The limited sample size ($n = 43$) constrained the model's ability to learn robust developmental signatures. Additionally, the brain's extreme cellular heterogeneity, comprising diverse neuronal and glial populations, may obscure developmental signals in bulk RNA-seq data.
+The brain showed the lowest balanced accuracy (63.8\%, 95\% CI: 49.2--78.4\%), reflecting the challenges of this tissue. The limited sample size ($n = 43$) constrained the model's ability to learn robust developmental signatures. Additionally, the brain's extreme cellular heterogeneity, comprising diverse neuronal and glial populations \parencite{chen_decoding_2021}, may obscure developmental signals in bulk RNA-seq data.
 
 Despite the lower overall accuracy, the Spearman correlation of 0.942 indicates that the model correctly orders samples by developmental stage, even when exact classification is incorrect.
 
@@ -120,6 +121,7 @@ Per-class metrics reveal the stages that are easiest and hardest to classify. Th
 \centering
 \caption{\textbf{Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue.}
 \label{tab:perclass}
+\small
 \begin{tabular}{llcccc}
 \toprule
 \textbf{Tissue} & \textbf{Stage} & \textbf{$n$ (test)} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
@@ -148,7 +150,7 @@ Lung & Mature & 8 & 0.857 & 0.750 & 0.800 \\
 
 Several patterns emerge from the per-class analysis:
 
-Several patterns emerged from the per-class analysis. First, extreme stages (Infant and Post-pubertal/Adult) consistently showed higher F1-scores than intermediate stages, reflecting the greater transcriptomic distinctiveness of developmental extremes. Second, Early childhood proved to be the most challenging stage to classify in both muscle (F1 = 0.682) and liver (F1 = 0.878), likely due to the transitional nature of the weaning period. Finally, minority classes in brain and lung showed lower recall, illustrating the difficulty of learning from limited examples.
+Several patterns emerged from the per-class analysis. First, extreme stages (Infant and Post-pubertal/Adult) consistently showed higher F1-scores than intermediate stages, reflecting the greater transcriptomic distinctiveness of developmental extremes. Second, Early childhood proved to be the most challenging stage to classify in both muscle (F1 = 0.682) and liver (F1 = 0.878), likely due to the transitional nature of the weaning period \parencite{pluske_gastrointestinal_2018}. Finally, minority classes in brain and lung showed lower recall, illustrating the difficulty of learning from limited examples.
 
 \subsection{Ordinal Consistency Analysis}
 
@@ -179,7 +181,7 @@ Feature importance analysis identified the genes most informative for developmen
 
 The top developmental markers for muscle include genes involved in contractile function, neuromuscular signalling, and metabolic adaptation:
 
-Key genes included \textbf{FGFRL1} (Fibroblast growth factor receptor-like 1), a decoy receptor modulating FGF signalling, and \textbf{SORCS2} (Sortilin-related VPS10 domain-containing receptor 2), which is involved in neurotrophin signalling. Other significant markers were \textbf{ACHE} (Acetylcholinesterase) for neuromuscular junction function, \textbf{MEF2A} (Myocyte enhancer factor 2A) regulating differentiation, and \textbf{TRDN} (Triadin), a component of the calcium release complex.
+Key genes included \textbf{FGFRL1} (Fibroblast growth factor receptor-like 1), a decoy receptor modulating FGF signalling \parencite{amann_fgfrl1_2014}, and \textbf{SORCS2} (Sortilin-related VPS10 domain-containing receptor 2), which is involved in neurotrophin signalling \parencite{thomasen_sorcs2_2023}. Other significant markers were \textbf{ACHE} (Acetylcholinesterase) for neuromuscular junction function \parencite{rotundo_expression_2003}, \textbf{MEF2A} (Myocyte enhancer factor 2A) regulating differentiation, and \textbf{TRDN} (Triadin), a component of the calcium release complex.
 
 \subsubsection{Liver Developmental Markers}
 
@@ -225,7 +227,7 @@ Mean correlations ranged from 0.40 to 0.70 across tissues, indicating that the s
 
 \subsection{Cross-Tissue Feature Overlap}
 
-A striking finding was the minimal overlap of developmental markers across tissues. The pairwise Jaccard similarity between tissue-specific feature sets was only 0.3\%, compared to 55\% expected by chance---a 180-fold lower overlap than random expectation.
+A striking finding was the minimal overlap of developmental markers across tissues. The pairwise Jaccard similarity between tissue-specific feature sets was only 0.3\%, indicating extremely low cross-tissue overlap.
 
 This profound tissue-specificity indicates that each tissue uses distinct molecular programs for developmental progression. The genes that mark liver development are different from those that mark muscle or brain development, reflecting the tissue-specific nature of postnatal maturation.
 
@@ -250,15 +252,15 @@ Functional network showing interconnected enrichment modules, with nodes represe
 
 Brain developmental markers were enriched for processes related to synaptic function and neuronal metabolism:
 
-Specifically, enrichment for sarcosine-related processes reflects the role of this glycine derivative as a co-agonist at NMDA receptors, which is critical for synaptic plasticity. Furthermore, the enrichment of beta-tubulin binding reflects the importance of microtubule dynamics for axonal transport and neuronal morphology.
+Specifically, enrichment for sarcosine-related processes reflects the role of this glycine derivative as a co-agonist at NMDA receptors, which is critical for synaptic plasticity \parencite{jiang_cellular_2016}. Furthermore, the enrichment of beta-tubulin binding reflects the importance of microtubule dynamics for axonal transport and neuronal morphology.
 
-These findings align with the known prolonged development of neural circuits during postnatal life, including ongoing synaptogenesis, synaptic pruning, and myelination.
+These findings align with the known prolonged development of neural circuits during postnatal life, including ongoing synaptogenesis, synaptic pruning, and myelination \parencite{jiang_cellular_2016, kang_spatio-temporal_2011}.
 
 \subsubsection{Liver: Metabolic Autonomy and Homeostasis}
 
 Liver markers were enriched for metabolic processes:
 
-Specifically, enrichment for autophagosome-membrane adaptors reflects the role of autophagy in hepatic homeostasis and the response to nutritional changes associated with weaning. There was also a general enrichment for metabolic enzyme expression, reflecting the liver's central role in nutrient processing.
+Specifically, enrichment for autophagosome-membrane adaptors reflects the role of autophagy in hepatic homeostasis and the response to nutritional changes associated with weaning \parencite{gordillo_orchestrating_2015, pluske_gastrointestinal_2018}. There was also a general enrichment for metabolic enzyme expression, reflecting the liver's central role in nutrient processing.
 
 The functional profile reflects the liver's adaptation to postnatal metabolic demands, including the switch from maternal nutrition to independent feeding.
 
@@ -268,7 +270,7 @@ Muscle markers were enriched for:
 
 Enrichment for acetylcholinesterase activity reflects the maturation of neuromuscular junctions and the establishment of efficient synaptic transmission. Additionally, the enrichment for sarcomere organisation captures the development of the mature contractile apparatus.
 
-These findings capture the establishment of adult muscle function, including the transition from neonatal to adult fibre types and the refinement of neuromuscular connectivity.
+These findings capture the establishment of adult muscle function, including the transition from neonatal to adult fibre types \parencite{lefaucheur_pattern_1995, lefaucheur_second_2010} and the refinement of neuromuscular connectivity.
 
 \subsubsection{Lung: Immune Establishment and RNA Metabolism}
 
@@ -276,7 +278,7 @@ Lung markers were enriched for:
 
 Enrichment for IL-6 signalling regulation reflects the establishment of pulmonary immune function and inflammatory responses. Concurrently, enrichment for m6A reader activity suggests a role for post-transcriptional regulation in lung development.
 
-The lung's exposure to environmental antigens drives rapid immune maturation during postnatal life, as captured by these functional enrichments.
+The lung's exposure to environmental antigens drives rapid immune maturation during postnatal life \parencite{georgountzou_postnatal_2017}, as captured by these functional enrichments.
 
 \subsection{Integration Across Tissues}
 
@@ -344,7 +346,7 @@ This module features genes downregulated during development, notably \textbf{MSS
 
 The conservation of developmental trajectories between pig and human muscle has important implications for the use of pigs as translational models. The shared expression changes indicate that:
 
-First, the porcine developmental staging framework captures evolutionarily conserved processes rather than species-specific artefacts. Second, insights from pig developmental biology are likely to translate to human biology, enhancing the pig's value as a biomedical model. Finally, the identifed developmental markers likely represent fundamental regulators maintained across 80 million years of mammalian evolution.
+First, the porcine developmental staging framework captures evolutionarily conserved processes rather than species-specific artefacts. Second, insights from pig developmental biology are likely to translate to human biology, enhancing the pig's value as a biomedical model. Finally, the identifed developmental markers likely represent fundamental regulators maintained across 80 million years of mammalian evolution \parencite{kumar_timetree_2022}.
 
 \subsection{Functional Annotations of Key Markers}
 
