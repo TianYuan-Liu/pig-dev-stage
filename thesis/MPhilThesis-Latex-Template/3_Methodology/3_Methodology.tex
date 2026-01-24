@@ -21,7 +21,7 @@ Quality control measures included filtering of low-quality reads, removal of dup
 
 \subsubsection{Expression Matrices and Normalisation}
 
-Gene expression values were provided as Transcripts Per Million (TPM), a normalisation method that accounts for both sequencing depth and gene length. TPM values enable meaningful comparison of expression levels across genes and samples, with the sum of TPM values within each sample normalised to one million.
+Gene expression values were provided as Transcripts Per Million (TPM), a normalisation method that accounts for both sequencing depth and gene length \parencite{mortazavi_mapping_2008}. TPM values enable meaningful comparison of expression levels across genes and samples, with the sum of TPM values within each sample normalised to one million.
 
 The TPM normalisation formula is:
 
@@ -75,7 +75,7 @@ Developmental stages were defined based on established milestones in porcine pos
 
 Five developmental stages were defined. The \textbf{Infant} stage (0--20 days) covers the neonatal period, characterised by dependence on maternal nutrition and immature physiological systems. The \textbf{Early childhood} stage (21--59 days) spans the weaning transition period, during which the gastrointestinal tract adapts to solid food and the immune system begins to mature. The \textbf{Pre-pubertal} stage (60--149 days) represents the juvenile growth phase, characterised by rapid tissue deposition and organ maturation. The \textbf{Post-pubertal} stage (150--365 days) encompasses sexual maturation and the approach to adult physiological function. finally, the \textbf{Adult} stage (>365 days) represents the mature state with fully developed organ systems.
 
-These stage boundaries were chosen to reflect physiological milestones rather than arbitrary chronological divisions. The weaning boundary at approximately 21 days corresponds to the typical weaning age in commercial production systems. The pre-pubertal boundary at 60 days marks the completion of the weaning transition. The post-pubertal boundary at 150 days corresponds to the typical onset of puberty in gilts. The adult boundary at 365 days marks the completion of major growth and reproductive maturation.
+These stage boundaries were chosen to reflect physiological milestones rather than arbitrary chronological divisions. The weaning boundary at approximately 21 days corresponds to the typical weaning age in commercial production systems \parencite{pluske_gastrointestinal_2018}. The pre-pubertal boundary at 60 days marks the completion of the weaning transition \parencite{meurens_pig_2012}. The post-pubertal boundary at 150 days corresponds to the typical onset of puberty in gilts \parencite{reiland_growth_1978}. The adult boundary at 365 days marks the completion of major growth and reproductive maturation.
 
 \subsection{Adaptive Classification Scheme Selection}
 
@@ -94,7 +94,7 @@ The preprocessing pipeline transforms raw TPM values into a format suitable for 
 
 \subsection{Log Transformation}
 
-Gene expression values typically follow a heavy-tailed distribution, with a small number of highly expressed genes and many genes with low expression. Log transformation reduces the skewness of this distribution, making it more suitable for downstream analysis.
+Gene expression values typically follow a heavy-tailed distribution, with a small number of highly expressed genes and many genes with low expression \parencite{love_moderated_2014}. Log transformation reduces the skewness of this distribution, making it more suitable for downstream analysis.
 
 The transformation applied was:
 
@@ -220,7 +220,7 @@ Limiting the feature set to 2,000 genes reduces computational cost and may impro
 
 \subsection{Monotonic Constraint Post-Processing}
 
-The binary reduction method does not inherently guarantee that the cumulative probabilities are monotonically decreasing. Small violations can occur due to noise in the binary predictions. A post-processing step was applied to enforce monotonicity:
+The binary reduction method does not inherently guarantee that the cumulative probabilities are monotonically decreasing. Small violations can occur due to noise in the binary predictions. A post-processing step was applied to enforce monotonicity \parencite{barlow_statistical_1972}:
 
 \begin{equation}
     P(y > k)' = \min(P(y > k), P(y > k-1)')
@@ -308,7 +308,7 @@ where $O_{ij}$ is the observed frequency, $E_{ij}$ is the expected frequency und
 
 \subsection{Bootstrap Confidence Intervals}
 
-Confidence intervals for all metrics were computed using bootstrap resampling. The procedure involved resampling the test set with replacement to create a bootstrap sample of the same size, computing the metric on this sample, and repeating the process for 1,000 iterations. The 2.5th and 97.5th percentiles of the resulting distribution were then taken to obtain the 95\% confidence intervals.
+Confidence intervals for all metrics were computed using bootstrap resampling \parencite{efron_bootstrap_1979}. The procedure involved resampling the test set with replacement to create a bootstrap sample of the same size, computing the metric on this sample, and repeating the process for 1,000 iterations. The 2.5th and 97.5th percentiles of the resulting distribution were then taken to obtain the 95\% confidence intervals.
 
 Bootstrap confidence intervals provide a measure of uncertainty in the performance estimates that accounts for sampling variability in the test set.
 

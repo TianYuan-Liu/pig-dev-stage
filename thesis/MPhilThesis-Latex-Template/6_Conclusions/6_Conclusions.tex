@@ -28,7 +28,7 @@ This thesis makes four key contributions to the fields of porcine biology and de
 
 \subsection{First Calibrated Transcriptomic Atlas for Porcine Development}
 
-Prior to this work, no transcriptomic framework existed for inferring developmental stage in pigs. While epigenetic clocks had been developed for this species, these focused on ageing rather than developmental staging and did not provide tissue-specific resolution.
+Prior to this work, no transcriptomic framework existed for inferring developmental stage in pigs. While epigenetic clocks had been developed for this species \parencite{schachtschneider_epigenetic_2021}, these focused on ageing rather than developmental staging and did not provide tissue-specific resolution.
 
 The atlas developed in this thesis provides a comprehensive reference for porcine postnatal development across five major tissues. By integrating data from the PigGTEx consortium with biologically meaningful stage definitions, the atlas bridges the gap between large-scale transcriptomic resources and practical staging applications.
 
@@ -36,7 +36,7 @@ The atlas is immediately applicable for characterising developmental state in ne
 
 \subsection{Robust Machine Learning Framework for Ordinal Classification}
 
-The machine learning framework developed in this thesis demonstrates the effectiveness of ordinal classification methods for developmental staging. By respecting the ordered nature of developmental stages, the framework provides more appropriate handling of transitional states than standard classification approaches.
+The machine learning framework developed in this thesis demonstrates the effectiveness of ordinal classification methods for developmental staging \parencite{frank_simple_2001}. By respecting the ordered nature of developmental stages, the framework provides more appropriate handling of transitional states than standard classification approaches.
 
 Key features of the framework include:
 
@@ -48,7 +48,7 @@ The framework achieves balanced accuracy of 64--92\% across tissues, comparable 
 
 The finding that cross-tissue feature overlap is extremely low (0.3\% Jaccard similarity) provides quantitative evidence for the tissue-specificity of postnatal developmental programs. This tissue-specificity has not been previously quantified and has important implications for both developmental biology and staging applications.
 
-From a biological perspective, the results indicate that each tissue follows a largely independent developmental trajectory, regulated by distinct sets of genes. This modular organisation may enable the independent optimisation of tissue-specific functions during evolution.
+From a biological perspective, the results indicate that each tissue follows a largely independent developmental trajectory, regulated by distinct sets of genes. This modular organisation may enable the independent optimisation of tissue-specific functions during evolution \parencite{cardoso-moreira_gene_2019}.
 
 From a practical perspective, the tissue-specificity means that accurate staging requires tissue-specific marker panels. A universal staging system based on a single gene set cannot capture development across all tissues. The tissue-resolved approach adopted in this thesis is therefore not merely convenient but biologically necessary.
 
@@ -81,14 +81,14 @@ This validation is particularly important for translational research, where find
 
 This thesis provides a foundation for multiple directions of future research:
 
-This thesis provides a foundation for multiple directions of future research. Single-cell transcriptomic studies can build on the tissue-resolved staging framework to investigate cell-type-specific developmental trajectories, while extension to additional tissues can expand the scope of the staging framework as new data become available. Integration with epigenetic clocks can provide complementary information about biological age, and the development of simplified staging panels can enable practical application using more accessible technologies. Finally, cross-species validation in additional tissues can establish the generality of conservation findings.
+This thesis provides a foundation for multiple directions of future research. Single-cell transcriptomic studies can build on the tissue-resolved staging framework to investigate cell-type-specific developmental trajectories \parencite{schaum_single-cell_2018}, while extension to additional tissues can expand the scope of the staging framework as new data become available. Integration with epigenetic clocks can provide complementary information about biological age \parencite{teschendorff_epigenetic_2025}, and the development of simplified staging panels can enable practical application using more accessible technologies. Finally, cross-species validation in additional tissues can establish the generality of conservation findings.
 
 The open-source code and comprehensive documentation provided with this thesis will facilitate these extensions by the broader research community.
 
 
 \section{Closing Remarks}\label{sec:conclusions:closing}
 
-The domestic pig stands at a unique intersection of agricultural and biomedical research. Its importance as a food animal has driven substantial investment in understanding porcine biology, while its similarities to humans have made it an increasingly valuable model organism. Yet the full realisation of the pig's potential as a research platform has been hampered by the lack of standardised approaches for characterising basic biological variables such as developmental stage.
+The domestic pig stands at a unique intersection of agricultural and biomedical research. Its importance as a food animal has driven substantial investment in understanding porcine biology, while its similarities to humans have made it an increasingly valuable model organism \parencite{lunney_importance_2021}. Yet the full realisation of the pig's potential as a research platform has been hampered by the lack of standardised approaches for characterising basic biological variables such as developmental stage.
 
 This thesis addresses this gap by providing the first calibrated transcriptomic framework for porcine developmental staging. The framework demonstrates that biological maturity can be inferred with high precision directly from gene expression profiles, providing an objective alternative to subjective morphological staging. The tissue-specific nature of the models acknowledges the biological reality that different organs follow distinct developmental trajectories.
 

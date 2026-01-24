@@ -57,9 +57,9 @@ The transition from morphological to molecular staging approaches reflects a gro
 
 Morphological staging relies on the assumption that external features accurately reflect internal developmental state. This assumption holds reasonably well during embryonic development, when morphological transformations are tightly coupled to underlying molecular and cellular changes \parencite{orahilly_developmental_2010}. However, the assumption becomes progressively less reliable during postnatal development, when external appearance may remain relatively stable while internal tissues continue to mature.
 
-The subjectivity of morphological assessment introduces variability that is difficult to quantify or control. Different observers may interpret staging criteria differently, and the same observer may apply criteria inconsistently across time or contexts. While standardised training and calibration can reduce this variability, it cannot be eliminated entirely.
+The subjectivity of morphological assessment introduces variability that is difficult to quantify or control \parencite{reiland_growth_1978}. Different observers may interpret staging criteria differently, and the same observer may apply criteria inconsistently across time or contexts. While standardised training and calibration can reduce this variability, it cannot be eliminated entirely.
 
-Perhaps most fundamentally, morphological staging provides limited resolution for characterising developmental state. The number of discrete stages that can be reliably distinguished based on morphological criteria is inherently limited by the precision of visual assessment \parencite{groves_accurate_2023}. Molecular approaches, by contrast, provide continuous measurements that can capture subtle variations in developmental state and enable the detection of transitional states between discrete stages.
+Perhaps most fundamentally, morphological staging provides limited resolution for characterising developmental state. The number of discrete stages that can be reliably distinguished based on morphological criteria is inherently limited by the precision of visual assessment \parencite{reiland_growth_1978}. Molecular approaches, by contrast, provide continuous measurements that can capture subtle variations in developmental state and enable the detection of transitional states between discrete stages.
 
 These limitations motivate the development of molecular staging approaches that can provide more objective, reproducible, and precise characterisation of developmental state.
 
@@ -145,7 +145,7 @@ Machine learning encompasses a diverse set of computational methods that learn p
 
 Supervised learning, the paradigm most relevant to developmental staging, involves training a model on labelled examples to predict labels for new, unlabelled data. In the context of this thesis, the training data consist of gene expression profiles from samples of known developmental stage, and the goal is to predict developmental stage for new samples.
 
-The choice of machine learning algorithm depends on the characteristics of the data and the requirements of the application. For gene expression data, which typically involve thousands of features (genes) measured in relatively few samples, methods that handle high-dimensional data and incorporate regularisation to prevent overfitting are particularly appropriate.
+The choice of machine learning algorithm depends on the characteristics of the data and the requirements of the application. For gene expression data, which typically involve thousands of features (genes) measured in relatively few samples, methods that handle high-dimensional data and incorporate regularisation to prevent overfitting are particularly appropriate \parencite{hastie_elements_2009}.
 
 \subsection{Classification Versus Regression for Age Prediction}
 

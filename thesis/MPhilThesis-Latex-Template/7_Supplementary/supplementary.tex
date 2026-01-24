@@ -24,7 +24,7 @@
   \includegraphics[width=\textwidth]{../../paper/figures/output/pdf/figS2_tissue_specificity_stability.pdf}
   \caption{\textbf{Tissue specificity and feature selection stability analysis.}
   \textbf{a}, Uniform manifold approximation and projection (UMAP) \parencite{mcinnes_umap_2018} of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes).
-  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across five independent random seeds (brain, blood, lung; stability analysis not performed for muscle and liver). Error bars represent standard deviation; higher values indicate more reproducible feature selection.
+  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index \parencite{jaccard_distribution_1912} of the top 50 selected features across five independent random seeds (brain, blood, lung; stability analysis not performed for muscle and liver). Error bars represent standard deviation; higher values indicate more reproducible feature selection.
   \textbf{c}, Mean absolute Spearman correlation between top-ranked features and developmental stage for each tissue.}
   \label{fig:S2}
 \end{figure}
@@ -105,7 +105,7 @@
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (infant vs.\ adult). Pig FC derived from pig GTEx data (GEO: GSE257558); Human FC from \textcite{schaiter_molecular_2024}.}
+  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (infant vs.\ adult). Pig FC derived from pig GTEx data (GEO: GSE257558) \parencite{teng_compendium_2024}; Human FC from \textcite{schaiter_molecular_2024}.}
   \label{tab:S3}
   \footnotesize
   \singlespacing
@@ -121,7 +121,7 @@
     \addlinespace
     \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring \parencite{rotundo_expression_2003}. & 1.81 & 0.53 \\
     \addlinespace
-    \textit{MSS51} & Acts as a skeletal muscle-specific ``brake'' on metabolism, regulating mitochondrial respiration and energy expenditure as muscle fibres differentiate and mature \parencite{rovira_gonzalez_mss51_nodate}. & $-$3.02 & $-$1.55 \\
+    \textit{MSS51} & Acts as a skeletal muscle-specific ``brake'' on metabolism, regulating mitochondrial respiration and energy expenditure as muscle fibres differentiate and mature \parencite{rovira_gonzalez_mss51_2019}. & $-$3.02 & $-$1.55 \\
     \addlinespace
     \textit{IGSF1} & Regulates the neuroendocrine system by modulating signal transduction in the pituitary gland, enabling maturation of the thyroid axis and coordination of testicular development \parencite{joustra_igsf1_2019}. & 2.45 & 0.34 \\
     \addlinespace
