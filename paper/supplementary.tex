@@ -21,6 +21,7 @@
 % Essential packages
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{siunitx}
 \usepackage{amsmath}
@@ -170,7 +171,7 @@
   \includegraphics[width=\textwidth]{figures/output/pdf/figS2_tissue_specificity_stability.pdf}
   \caption{\textbf{Tissue specificity and feature selection stability analysis.}
   \textbf{a}, Uniform manifold approximation and projection (UMAP) of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes).
-  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across five independent random seeds (brain, blood, lung; stability analysis not performed for muscle and liver). Error bars represent standard deviation; higher values indicate more reproducible feature selection.
+  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index of the top 50 selected features across ten independent random seeds. Error bars represent standard deviation; higher values indicate more reproducible feature selection.
   \textbf{c}, Mean absolute Spearman correlation between top-ranked features and developmental stage for each tissue.}
   \label{fig:S2}
 \end{figure}
@@ -259,12 +260,13 @@
 % ------------------------------------------------------------------------------
 % Supplementary Table 3: Functional annotations
 % ------------------------------------------------------------------------------
+\newgeometry{left=1.5cm,right=1.5cm}
 \begin{table}[H]
   \centering
   \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (adult/infant); positive values indicate higher expression in adults (upregulated during development), negative values indicate higher expression in infants (downregulated during development). Pig FC derived from pig GTEx data (GEO: GSE257558); Human FC from Schaiter \textit{et al.} \textit{Sci.~Rep.}\ \textbf{14}, 22953 (2024).}
   \label{tab:S3}
   \footnotesize
-  \begin{tabular}{lp{6.0cm}cc}
+  \begin{tabularx}{\textwidth}{lXcc}
     \toprule
     Gene & Developmental Function & Pig FC & Human FC \\
     \midrule
@@ -284,8 +286,9 @@
     \addlinespace
     \textit{PDLIM3} & Acts as a structural Z-disc protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of striated muscle. Expression increases from Infant (low) through development to Adult stages (high), reflecting establishment of the mature contractile apparatus. & 2.19 & 0.56 \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
+\restoregeometry
 
 \clearpage
 

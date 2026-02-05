@@ -321,9 +321,28 @@ create_fig_s2 <- function() {
       SD_Jaccard = data$jaccard_similarity$std,
       Stable_Genes = sum(data$gene_frequency >= 4)
     )
-  }) %>%
-    filter(Tissue %in% names(TISSUE_COLORS)) %>%
-    mutate(Tissue = factor(Tissue, levels = intersect(names(TISSUE_COLORS), Tissue)))
+  })
+
+  # Calculate Random Baseline
+  # Expected Jaccard for random selection of k features from N total genes
+  # J = (k^2/N) / (2k - k^2/N)
+  n_genes_total <- 11000 # Approx protein-coding genes
+  k_features <- 50
+  expected_intersection <- (k_features^2) / n_genes_total
+  random_jaccard <- expected_intersection / (2 * k_features - expected_intersection)
+
+  stability_summary <- stability_summary %>%
+    bind_rows(tibble(
+      Tissue = "Random",
+      Mean_Jaccard = random_jaccard,
+      SD_Jaccard = 0,
+      Stable_Genes = 0
+    )) %>%
+    filter(Tissue %in% c(names(TISSUE_COLORS), "Random")) %>%
+    mutate(Tissue = factor(Tissue, levels = c(intersect(names(TISSUE_COLORS), Tissue), "Random")))
+
+  # Extend palette for Random
+  plot_colors <- c(TISSUE_COLORS, "Random" = "gray70")
 
   panel_b <- stability_summary %>%
     ggplot(aes(x = Tissue, y = Mean_Jaccard, fill = Tissue)) +
@@ -333,10 +352,13 @@ create_fig_s2 <- function() {
       width = 0.25, linewidth = 0.5, color = "gray30"
     ) +
     geom_text(
-      aes(label = sprintf("%.2f", Mean_Jaccard), y = Mean_Jaccard + SD_Jaccard + 0.03),
+      aes(
+        label = ifelse(Mean_Jaccard < 0.01, sprintf("%.3f", Mean_Jaccard), sprintf("%.2f", Mean_Jaccard)),
+        y = Mean_Jaccard + SD_Jaccard + 0.03
+      ),
       size = 2.2, vjust = 0, family = "Arial"
     ) +
-    scale_fill_manual(values = TISSUE_COLORS) +
+    scale_fill_manual(values = plot_colors) +
     scale_y_continuous(
       limits = c(0, 1),
       breaks = seq(0, 1, 0.2),

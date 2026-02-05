@@ -161,6 +161,84 @@
       \endverb
       \keyw{Animals,Mice,Polymerase Chain Reaction,Gene Expression Regulation,Developmental,Blotting,Northern,Diaphragm,Extraocular muscles,Fgfr,FgfrL1,Fibroblast growth factor,Fibroblast growth factor receptor,Immunohistochemistry,In Situ Hybridization,Mice,Knockout,Microarray Analysis,Muscle development,Muscle Development,Muscle Fibers,Slow-Twitch,Myosin Heavy Chains,Myosin Light Chains,Receptor,Fibroblast Growth Factor,Type 5,Slow muscle fibers}
     \endentry
+    \entry{andersen_dual_2013}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=1f57c0a3a0dae51db069ce372a901de2}{%
+           family={Andersen},
+           familyi={A\bibinitperiod},
+           given={Ditte\bibnamedelima Caroline},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2f00043bf83e2e7183bcfd378108ad1}{%
+           family={Laborda},
+           familyi={L\bibinitperiod},
+           given={Jorge},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d9b2f2f6cb940ff374fa1c2176c2a798}{%
+           family={Baladron},
+           familyi={B\bibinitperiod},
+           given={Victoriano},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f39da28130e36a1ed1d954f7e9e5155e}{%
+           family={Kassem},
+           familyi={K\bibinitperiod},
+           given={Moustapha},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6601914aa0c19ada99e5c660900fba3}{%
+           family={Sheikh},
+           familyi={S\bibinitperiod},
+           given={Søren\bibnamedelima Paludan},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75e90c588f2cc232439090c875cf990f}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Charlotte\bibnamedelima Harken},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {Cambridge, England}%
+      }
+      \strng{namehash}{88dd8684e0fb42651cd92df743848f1f}
+      \strng{fullhash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{fullhashraw}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{bibnamehash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{authorbibnamehash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{authornamehash}{88dd8684e0fb42651cd92df743848f1f}
+      \strng{authorfullhash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{authorfullhashraw}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Muscle development and regeneration is tightly orchestrated by a specific set of myogenic transcription factors. However, factors that regulate these essential myogenic inducers remain poorly described. Here, we show that delta-like 1 homolog (Dlk1), an imprinted gene best known for its ability to inhibit adipogenesis, is a crucial regulator of the myogenic program in skeletal muscle. Dlk1(-/-) mice were developmentally retarded in their muscle mass and function owing to inhibition of the myogenic program during embryogenesis. Surprisingly however, Dlk1 depletion improves in vitro and in vivo adult skeletal muscle regeneration by substantial enhancement of the myogenic program and muscle function, possibly by means of an increased number of available myogenic precursor cells. By contrast, Dlk1 fails to alter the adipogenic commitment of muscle-derived progenitors in vitro, as well as intramuscular fat deposition during in vivo regeneration. Collectively, our results suggest a novel and surprising dual biological function of DLK1 as an enhancer of muscle development, but as an inhibitor of adult muscle regeneration.}
+      \field{issn}{1477-9129}
+      \field{journaltitle}{Development}
+      \field{month}{9}
+      \field{number}{18}
+      \field{title}{Dual role of delta-like 1 homolog ({DLK1}) in skeletal muscle development and adult muscle regeneration}
+      \field{volume}{140}
+      \field{year}{2013}
+      \field{pages}{3743\bibrangedash 3753}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1242/dev.095810
+      \endverb
+      \verb{file}
+      \verb Full Text:files/3486/Andersen et al. - 2013 - Dual role of delta-like 1 homolog (DLK1) in skeletal muscle development and adult muscle regeneratio.pdf:application/pdf
+      \endverb
+      \keyw{Adipogenesis,Adiponectin,Aging,Animals,Calcium-Binding Proteins,Cell Size,Cells,Cultured,Delta-like 1 homolog,Intercellular Signaling Peptides and Proteins,Mice,Mice,Inbred C57BL,Mice,Knockout,Mouse,Muscle development,Muscle Development,Muscle Fibers,Skeletal,Muscle regeneration,Muscle stem cells,Muscle,Skeletal,Organ Size,Phenotype,Regeneration}
+    \endentry
     \entry{baek_growth_2019}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=db33c0f9a06e11e8515adf72df98a385}{%
@@ -228,194 +306,6 @@
       \verb{url}
       \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC6795705/
       \endverb
-    \endentry
-    \entry{baker_reproducibility_2016}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9d7f46bdfd4b9f5f18c206cd6f21743e}{%
-           family={Baker},
-           familyi={B\bibinitperiod},
-           given={Monya},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Nature Publishing Group}%
-      }
-      \strng{namehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{fullhash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{fullhashraw}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{bibnamehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authorbibnamehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authornamehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authorfullhash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authorfullhashraw}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nature}
-      \field{number}{7604}
-      \field{title}{1,500 scientists lift the lid on reproducibility}
-      \field{volume}{533}
-      \field{year}{2016}
-      \field{pages}{452\bibrangedash 454}
-      \range{pages}{3}
-    \endentry
-    \entry{barlow_statistical_1972}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e3d80a0f2fc08841248b9593436ab708}{%
-           family={Barlow},
-           familyi={B\bibinitperiod},
-           given={Richard\bibnamedelima E},
-           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bc80d18c80e0332cbbe35d05ab3cd3bc}{%
-           family={Brunk},
-           familyi={B\bibinitperiod},
-           given={Hugh\bibnamedelima D},
-           giveni={H\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Taylor \& Francis}%
-      }
-      \strng{namehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{fullhash}{981540b36f9331f7245b4d015b15744a}
-      \strng{fullhashraw}{981540b36f9331f7245b4d015b15744a}
-      \strng{bibnamehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authorbibnamehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authornamehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authorfullhash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authorfullhashraw}{981540b36f9331f7245b4d015b15744a}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the American Statistical Association}
-      \field{number}{337}
-      \field{title}{The isotonic regression problem and its dual}
-      \field{volume}{67}
-      \field{year}{1972}
-      \field{pages}{140\bibrangedash 147}
-      \range{pages}{8}
-    \endentry
-    \entry{bell_igf2bp_2013}{article}{}{}
-      \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=2a065252ced72169f3c87cdd2feb8c9f}{%
-           family={Bell},
-           familyi={B\bibinitperiod},
-           given={Jessica\bibnamedelima L.},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=20e44ef3cc97bc58fc6120bb2933d62f}{%
-           family={Wächter},
-           familyi={W\bibinitperiod},
-           given={Kristin},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e6700b97800706f4fb379c57a3854891}{%
-           family={Mühleck},
-           familyi={M\bibinitperiod},
-           given={Britta},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7cb225118ee8a317a7515ca1cf18ecc2}{%
-           family={Pazaitis},
-           familyi={P\bibinitperiod},
-           given={Nikolaos},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e8366b387ba10fa28342c8a18bfa91ef}{%
-           family={Köhn},
-           familyi={K\bibinitperiod},
-           given={Marcel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8c8cb37da0003463b174b8d5a7ec9fc5}{%
-           family={Lederer},
-           familyi={L\bibinitperiod},
-           given={Marcell},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=37a7a2ed80bcdd662850743acade336f}{%
-           family={Hüttelmaier},
-           familyi={H\bibinitperiod},
-           given={Stefan},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Basel}%
-      }
-      \strng{namehash}{1f7a999bcfeb19953f24ce8d01c018d1}
-      \strng{fullhash}{16ef8344649b2cda2f7674d681429100}
-      \strng{fullhashraw}{16ef8344649b2cda2f7674d681429100}
-      \strng{bibnamehash}{16ef8344649b2cda2f7674d681429100}
-      \strng{authorbibnamehash}{16ef8344649b2cda2f7674d681429100}
-      \strng{authornamehash}{1f7a999bcfeb19953f24ce8d01c018d1}
-      \strng{authorfullhash}{16ef8344649b2cda2f7674d681429100}
-      \strng{authorfullhashraw}{16ef8344649b2cda2f7674d681429100}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Cellular and Molecular Life Sciences}
-      \field{number}{15}
-      \field{title}{Insulin-like growth factor 2 mRNA-binding proteins (IGF2BPs): post-transcriptional drivers of cancer progression?}
-      \field{volume}{70}
-      \field{year}{2013}
-      \field{pages}{2657\bibrangedash 2675}
-      \range{pages}{19}
-    \endentry
-    \entry{benjamini_controlling_1995}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=2bf06df9b6fb1b6a6811f2965ef58db2}{%
-           family={Benjamini},
-           familyi={B\bibinitperiod},
-           given={Yoav},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=486dfb83d695169656e5706b50266208}{%
-           family={Hochberg},
-           familyi={H\bibinitperiod},
-           given={Yosef},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{fullhash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{fullhashraw}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{bibnamehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authorbibnamehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authornamehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authorfullhash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authorfullhashraw}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Methodological)}
-      \field{number}{1}
-      \field{title}{Controlling the false discovery rate: a practical and powerful approach to multiple testing}
-      \field{volume}{57}
-      \field{year}{1995}
-      \field{pages}{289\bibrangedash 300}
-      \range{pages}{12}
     \endentry
     \entry{bi_ageing_clock_team_multi-tissue_2017}{article}{}{}
       \name{author}{8}{}{%
@@ -509,47 +399,6 @@
       \verb{url}
       \verb http://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1203-5
       \endverb
-    \endentry
-    \entry{black_mef2_1998}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=88fa4faba2eca14fbcc721ecb7ebadcd}{%
-           family={Black},
-           familyi={B\bibinitperiod},
-           given={Brian\bibnamedelima L},
-           giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=98ebba3c81dc40507c70d395986351fd}{%
-           family={Olson},
-           familyi={O\bibinitperiod},
-           given={Eric\bibnamedelima N},
-           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}%
-      }
-      \strng{namehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{fullhash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{fullhashraw}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{bibnamehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authorbibnamehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authornamehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authorfullhash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authorfullhashraw}{65dc81223aa21a42dbd0062c6d47110c}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual review of cell and developmental biology}
-      \field{number}{1}
-      \field{title}{Transcriptional control of muscle development by myocyte enhancer factor-2 (MEF2) proteins}
-      \field{volume}{14}
-      \field{year}{1998}
-      \field{pages}{167\bibrangedash 196}
-      \range{pages}{30}
     \endentry
     \entry{boeyer_evidence_2020}{article}{}{}
       \name{author}{4}{}{%
@@ -1386,39 +1235,6 @@
       \endverb
       \keyw{Humans,DNA Methylation,Epigenesis,Genetic,Epigenomics,Aging,DNA methylation,Biomarkers,Chronological age,Epigenetic age,Epigenetic clock}
     \endentry
-    \entry{efron_bootstrap_1979}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5470455fc7dceb3ccf6db38cb22a113d}{%
-           family={Efron},
-           familyi={E\bibinitperiod},
-           given={Bradley},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {JSTOR}%
-      }
-      \strng{namehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{fullhash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{fullhashraw}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{bibnamehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authorbibnamehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authornamehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authorfullhash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authorfullhashraw}{5470455fc7dceb3ccf6db38cb22a113d}
-      \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{The Annals of Statistics}
-      \field{title}{Bootstrap methods: another look at the jackknife}
-      \field{year}{1979}
-      \field{pages}{1\bibrangedash 26}
-      \range{pages}{26}
-    \endentry
     \entry{frank_simple_2001}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=14376659b7c222795bf43d1158efbaef}{%
@@ -1563,7 +1379,7 @@
       \verb{url}
       \verb https://doi.org/10.1186/s12947-023-00321-9
       \endverb
-      \keyw{Epicardial echocardiography,Experimental animal models,Hemodynamics,Swine}
+      \keyw{Swine,Epicardial echocardiography,Experimental animal models,Hemodynamics}
     \endentry
     \entry{georgountzou_postnatal_2017}{article}{}{}
       \name{author}{2}{}{%
@@ -1680,7 +1496,7 @@
       \verb{file}
       \verb Full Text:files/3231/Gordillo et al. - 2015 - Orchestrating liver development.pdf:application/pdf
       \endverb
-      \keyw{Animals,Cell Differentiation,Cell Lineage,Cholangiocyte,Hepatoblast,Hepatocyte,Hepatocytes,Humans,Liver,Liver development,Liver Diseases,Mice,Organogenesis,Signal Transduction,Stem Cells,Transcription factors}
+      \keyw{Humans,Animals,Mice,Transcription factors,Stem Cells,Signal Transduction,Cell Differentiation,Liver,Organogenesis,Hepatocytes,Cell Lineage,Cholangiocyte,Hepatoblast,Hepatocyte,Liver development,Liver Diseases}
     \endentry
     \entry{greener_guide_2022}{article}{}{}
       \name{author}{4}{}{%
@@ -2695,47 +2511,6 @@
       \endverb
       \keyw{Asthma,Cross-species comparison,Lung,scRNA-seq}
     \endentry
-    \entry{guo_triadin_1995}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e313f35522a5fbabdce43b506313ccb3}{%
-           family={Guo},
-           familyi={G\bibinitperiod},
-           given={W},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b4310ce879c94e2e0a2072ff8f000cd7}{%
-           family={Campbell},
-           familyi={C\bibinitperiod},
-           given={KP},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {ASBMB}%
-      }
-      \strng{namehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{fullhash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{fullhashraw}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{bibnamehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authorbibnamehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authornamehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authorfullhash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authorfullhashraw}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Biological Chemistry}
-      \field{number}{16}
-      \field{title}{Association of triadin with the ryanodine receptor and calsequestrin in the lumen of the sarcoplasmic reticulum}
-      \field{volume}{270}
-      \field{year}{1995}
-      \field{pages}{9027\bibrangedash 9030}
-      \range{pages}{4}
-    \endentry
     \entry{hannon_normal_1990}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=07459e0c207f60cf2c18f15364189a0c}{%
@@ -2785,7 +2560,7 @@
       \field{year}{1990}
       \field{pages}{293\bibrangedash 298}
       \range{pages}{6}
-      \keyw{Acid-Base Equilibrium,Animals,Blood Gas Monitoring,Transcutaneous,Electrolytes,Female,Hematocrit,Hemoglobins,Hormones,Kidney,Male,Oxygen Consumption,Reference Values,Research,Respiratory Function Tests,Swine}
+      \keyw{Animals,Swine,Male,Female,Acid-Base Equilibrium,Blood Gas Monitoring,Transcutaneous,Electrolytes,Hematocrit,Hemoglobins,Hormones,Kidney,Oxygen Consumption,Reference Values,Research,Respiratory Function Tests}
     \endentry
     \entry{hannum_genome-wide_2013}{article}{}{}
       \name{author}{16}{}{%
@@ -2927,49 +2702,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S1097276512008933
       \endverb
-      \keyw{Adult,Aged,Aged,80 and over,Aging,DNA Methylation,Epigenesis,Genetic,Female,Genome-Wide Association Study,Genome,Human,Humans,Male,Middle Aged,Models,Genetic,Phenotype,Sequence Analysis,DNA,Transcriptome,Young Adult}
-    \endentry
-    \entry{hastie_elements_2009}{book}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
-           family={Hastie},
-           familyi={H\bibinitperiod},
-           given={Trevor},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=88eea600247d798f8b2ce0b2dc614492}{%
-           family={Tibshirani},
-           familyi={T\bibinitperiod},
-           given={Robert},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=971cf69058b64a94326dea0f2a8bbcce}{%
-           family={Friedman},
-           familyi={F\bibinitperiod},
-           given={Jerome},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Science \& Business Media}%
-      }
-      \strng{namehash}{45eb7d473651da447f1d77717e7f8650}
-      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{fullhashraw}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{authornamehash}{45eb7d473651da447f1d77717e7f8650}
-      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{authorfullhashraw}{7ca1bfe876d5e037b6aed69704221267}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The elements of statistical learning: data mining, inference, and prediction}
-      \field{year}{2009}
+      \keyw{Humans,DNA Methylation,Epigenesis,Genetic,Sequence Analysis,DNA,Transcriptome,Genome,Human,Male,Female,Aging,Genome-Wide Association Study,Adult,Young Adult,Aged,Aged,80 and over,Middle Aged,Phenotype,Models,Genetic}
     \endentry
     \entry{hoffman_short_2020}{article}{}{}
       \name{author}{2}{}{%
@@ -3116,7 +2849,7 @@
       \verb{url}
       \verb https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0195961
       \endverb
-      \keyw{Animal performance,Biological locomotion,Birth weight,Body limbs,Gait analysis,Legs,Pig models,Swine}
+      \keyw{Swine,Animal performance,Biological locomotion,Birth weight,Body limbs,Gait analysis,Legs,Pig models}
     \endentry
     \entry{horvath_dna_2013}{article}{}{}
       \name{author}{1}{}{%
@@ -3172,74 +2905,6 @@
       \verb https://doi.org/10.1186/gb-2013-14-10-r115
       \endverb
       \keyw{Cell Passage Number,DNAm Level,Epigenetic Clock,Penalize Regression Model,Progeria}
-    \endentry
-    \entry{hu_aldh18a1_2008}{article}{}{}
-      \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=c2f557b25ab3e76a10e54090dc81ea8e}{%
-           family={Hu},
-           familyi={H\bibinitperiod},
-           given={C-A\bibnamedelima A},
-           giveni={C\bibinithyphendelim A\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0c3783de365873c29710511ade36faf0}{%
-           family={Khalil},
-           familyi={K\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=46650decac5c91086181f2cc9fb2bf2b}{%
-           family={Zhaorigetu},
-           familyi={Z\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4502ea5dcc2b2cf1ac11fe01b5f68826}{%
-           family={Liu},
-           familyi={L\bibinitperiod},
-           given={Z},
-           giveni={Z\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8a3d1f63825d25dddffed253e0613da7}{%
-           family={Tyler},
-           familyi={T\bibinitperiod},
-           given={M},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6b98bd4d2e3839c5bf850636baf6175e}{%
-           family={Wan},
-           familyi={W\bibinitperiod},
-           given={G},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=81f7b8bf72d1fff2ee7e2d27dc2adcda}{%
-           family={Valle},
-           familyi={V\bibinitperiod},
-           given={D},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{03f6f32de7a963603ff3ee75518a409c}
-      \strng{fullhash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{fullhashraw}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{bibnamehash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{authorbibnamehash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{authornamehash}{03f6f32de7a963603ff3ee75518a409c}
-      \strng{authorfullhash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{authorfullhashraw}{b1be8bae006c71ddf4ed7242ee81c889}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Amino Acids}
-      \field{number}{4}
-      \field{title}{Human Delta1-pyrroline-5-carboxylate Synthase: Function and Regulation}
-      \field{volume}{35}
-      \field{year}{2008}
-      \field{pages}{665\bibrangedash 672}
-      \range{pages}{8}
     \endentry
     \entry{iwata_metabolic_2024}{article}{}{}
       \name{author}{2}{}{%
@@ -3299,41 +2964,6 @@
       \endverb
       \keyw{metabolism,evolution,developmental timing,mitochondria,neoteny}
     \endentry
-    \entry{jaccard_distribution_1912}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c4a98c7a2913792b5501ecdcb067315d}{%
-           family={Jaccard},
-           familyi={J\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{fullhash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{fullhashraw}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{bibnamehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authorbibnamehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authornamehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authorfullhash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authorfullhashraw}{c4a98c7a2913792b5501ecdcb067315d}
-      \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{New phytologist}
-      \field{number}{2}
-      \field{title}{The distribution of the flora in the alpine zone}
-      \field{volume}{11}
-      \field{year}{1912}
-      \field{pages}{37\bibrangedash 50}
-      \range{pages}{14}
-    \endentry
     \entry{jiang_cellular_2016}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=e9839c3fde05cf2b73aad4045bd8ff2d}{%
@@ -3391,209 +3021,6 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0969996115300097
       \endverb
       \keyw{Cerebral cortex,Gliogenesis,Neurodevelopment,Neurodevelopmental disorders,Neuronal maturation,Progenitor cell,Synaptogenesis}
-    \endentry
-    \entry{joustra_igsf1_2019}{article}{}{}
-      \name{author}{26}{}{%
-        {{un=0,uniquepart=base,hash=5b0732973979ff14ee7cd3389e045bd5}{%
-           family={Joustra},
-           familyi={J\bibinitperiod},
-           given={Sjoerd\bibnamedelima D},
-           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=948b375c62eb4a5e3d74b8041f6b6cec}{%
-           family={Roelfsema},
-           familyi={R\bibinitperiod},
-           given={Ferdinand},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c740f81cdf23687f9abbadb808cf2be3}{%
-           family={Trotsenburg},
-           familyi={T\bibinitperiod},
-           given={A\bibnamedelima S\bibnamedelima Paul},
-           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0,
-           prefix={van},
-           prefixi={v\bibinitperiod}}}%
-        {{un=0,uniquepart=base,hash=7b50cc2472e07ee61e4dc35f376f24fa}{%
-           family={Schneider},
-           familyi={S\bibinitperiod},
-           given={Harald\bibnamedelima J},
-           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=da4dd805ac36470d296bff452f52464c}{%
-           family={Kosilek},
-           familyi={K\bibinitperiod},
-           given={Robert\bibnamedelima P},
-           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1d1fd6782221e9a9f9f6217426d6eace}{%
-           family={Kroon},
-           familyi={K\bibinitperiod},
-           given={Herman\bibnamedelima M},
-           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9eb8d2ac7b5d0cea2669efaafe84e6c6}{%
-           family={Logan},
-           familyi={L\bibinitperiod},
-           given={John\bibnamedelima G},
-           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=346758950939071b80cc3a972d070371}{%
-           family={Butterfield},
-           familyi={B\bibinitperiod},
-           given={Natalie\bibnamedelima C},
-           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d1654f226dfdf60d9b41a59d7e0d44d1}{%
-           family={Zhou},
-           familyi={Z\bibinitperiod},
-           given={Xiang},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b775224f68d4a057ea14fec9888af3a2}{%
-           family={Toufaily},
-           familyi={T\bibinitperiod},
-           given={Chirine},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=19daf5ae218441aa3c2b960eff361570}{%
-           family={Bak},
-           familyi={B\bibinitperiod},
-           given={Beata},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9be0c5e902475814ee90c251f07e51d1}{%
-           family={Turgeon},
-           familyi={T\bibinitperiod},
-           given={Marc-Olivier},
-           giveni={M\bibinithyphendelim O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1251e5835bccfbcbe044ad16df859c99}{%
-           family={Brûlé},
-           familyi={B\bibinitperiod},
-           given={Emilie},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b6e279031f135bf1386de75dc55ba0e7}{%
-           family={Steyn},
-           familyi={S\bibinitperiod},
-           given={Frederik\bibnamedelima J},
-           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ad98ee245f8ba3f503514087b4174cdf}{%
-           family={Gurnell},
-           familyi={G\bibinitperiod},
-           given={Mark},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b9e67ddad3f50ed9af78f3da84374fda}{%
-           family={Koulouri},
-           familyi={K\bibinitperiod},
-           given={Olympia},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d8df8ccde0ab0bf67afd96078df11000}{%
-           family={Le\bibnamedelima Tissier},
-           familyi={L\bibinitperiod\bibinitdelim T\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0154319da2efafc4866820e70312c913}{%
-           family={Fontanaud},
-           familyi={F\bibinitperiod},
-           given={Pierre},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ebc9e6cf80d69b6a60b095e1628b13dc}{%
-           family={Duncan\bibnamedelima Bassett},
-           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
-           given={J\bibnamedelima H},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8e71d9410cde1893e50f948af09d2ccd}{%
-           family={Williams},
-           familyi={W\bibinitperiod},
-           given={Graham\bibnamedelima R},
-           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=56695238dae597b7d1557b9b35008eb5}{%
-           family={Oostdijk},
-           familyi={O\bibinitperiod},
-           given={Wilma},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=49e1e7b290299f8490de9e9f09b85278}{%
-           family={Wit},
-           familyi={W\bibinitperiod},
-           given={Jan\bibnamedelima M},
-           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ec88f903f8205c1b0117caaefd7345e8}{%
-           family={Pereira},
-           familyi={P\bibinitperiod},
-           given={Alberto\bibnamedelima M},
-           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4cfcce2b39fd2b6ffd3a23740d693e9a}{%
-           family={Biermasz},
-           familyi={B\bibinitperiod},
-           given={Nienke\bibnamedelima R},
-           giveni={N\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c3e5fc0bbf481d80f3d0d2cbab72cc57}{%
-           family={Bernard},
-           familyi={B\bibinitperiod},
-           given={Daniel\bibnamedelima J},
-           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e324a3570924ded794220537fed15ad0}{%
-           family={Schoenmakers},
-           familyi={S\bibinitperiod},
-           given={Nadia},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{f576dd580789fd96f0bc72faa45c2f4c}
-      \strng{fullhash}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \strng{fullhashraw}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \strng{bibnamehash}{b9fc1feaa595262f0f295351c4c48935}
-      \strng{authorbibnamehash}{b9fc1feaa595262f0f295351c4c48935}
-      \strng{authornamehash}{f576dd580789fd96f0bc72faa45c2f4c}
-      \strng{authorfullhash}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \strng{authorfullhashraw}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Context The X-linked immunoglobulin superfamily, member 1 (IGSF1), gene is highly expressed in the hypothalamus and in pituitary cells of the POU1F1 lineage. Human loss-of-function mutations in IGSF1 cause central hypothyroidism, hypoprolactinemia, and macroorchidism. Additionally, most affected adults exhibit higher than average IGF-1 levels and anecdotal reports describe acromegaloid features in older subjects. However, somatotrope function has not yet been formally evaluated in this condition. Objective We aimed to evaluate the role of IGSF1 in human and murine somatotrope function. Patients, Design, and Setting We evaluated 21 adult males harboring hemizygous IGSF1 loss-of-function mutations for features of GH excess, in an academic clinical setting. Main Outcome Measures We compared biochemical and tissue markers of GH excess in patients and controls, including 24-hour GH profile studies in 7 patients. Parallel studies were undertaken in male Igsf1-deficient mice and wild-type littermates. Results IGSF1-deficient adult male patients demonstrated acromegaloid facial features with increased head circumference as well as increased finger soft-tissue thickness. Median serum IGF-1 concentrations were elevated, and 24-hour GH profile studies confirmed 2- to 3-fold increased median basal, pulsatile, and total GH secretion. Male Igsf1-deficient mice also demonstrated features of GH excess with increased lean mass, organ size, and skeletal dimensions and elevated mean circulating IGF-1 and pituitary GH levels. Conclusions We demonstrate somatotrope neurosecretory hyperfunction in IGSF1-deficient humans and mice. These observations define a hitherto uncharacterized role for IGSF1 in somatotropes and indicate that patients with IGSF1 mutations should be evaluated for long-term consequences of increased GH exposure.}
-      \field{issn}{0021-972X}
-      \field{journaltitle}{J Clin Endocrinol Metab}
-      \field{month}{10}
-      \field{number}{3}
-      \field{title}{{IGSF1} {Deficiency} {Results} in {Human} and {Murine} {Somatotrope} {Neurosecretory} {Hyperfunction}}
-      \field{urlday}{15}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{volume}{105}
-      \field{year}{2019}
-      \field{urldateera}{ce}
-      \field{pages}{e70\bibrangedash e84}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1210/clinem/dgz093
-      \endverb
-      \verb{file}
-      \verb Full Text:files/2988/Joustra et al. - 2019 - IGSF1 Deficiency Results in Human and Murine Somatotrope Neurosecretory Hyperfunction.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC7108761/
-      \endverb
-      \verb{url}
-      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC7108761/
-      \endverb
     \endentry
     \entry{kang_spatio-temporal_2011}{article}{}{}
       \name{author}{26}{}{%
@@ -4282,7 +3709,7 @@
       \verb{file}
       \verb Full Text:files/3195/Lallès et al. - 2007 - Nutritional management of gut health in pigs around weaning.pdf:application/pdf
       \endverb
-      \keyw{Adaptation,Physiological,Animal Feed,Animal Nutritional Physiological Phenomena,Animals,Animals,Newborn,Immunity,Mucosal,Intestines,Probiotics,Swine,Weaning}
+      \keyw{Animals,Swine,Weaning,Adaptation,Physiological,Animal Feed,Animal Nutritional Physiological Phenomena,Animals,Newborn,Immunity,Mucosal,Intestines,Probiotics}
     \endentry
     \entry{lefaucheur_second_2010}{article}{}{}
       \name{author}{1}{}{%
@@ -4324,7 +3751,7 @@
       \verb{doi}
       \verb 10.1016/j.meatsci.2009.05.004
       \endverb
-      \keyw{Animals,Animals,Domestic,Animals,Genetically Modified,Calcium,Food Technology,Humans,Meat,Mitochondria,Muscle,Muscle Fibers,Skeletal,Species Specificity}
+      \keyw{Humans,Animals,Species Specificity,Meat,Animals,Domestic,Animals,Genetically Modified,Calcium,Food Technology,Mitochondria,Muscle,Muscle Fibers,Skeletal}
     \endentry
     \entry{lefaucheur_pattern_1995}{article}{}{}
       \name{author}{4}{}{%
@@ -4371,7 +3798,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The aim of this study was to analyze the temporal sequence of expression of the myosin isoforms in the populations of muscle fibers in the pig and to bring more information on the origin of the strikingly different pattern of fiber composition and distribution between the deep medial red (oxido-glycolytic) and superficial white (glycolytic) portions of semitendinosus (ST) muscle. Muscle samples were taken from 49-, 55-, 75-, 90-, 103-, and 113- (birth) day-old fetuses, from 6-, 11-, 21-, 35-, 50-, and 80-day-old piglets, and from a 3-year-old pig. Our results confirm the sequential formation of primary and secondary generation fibers. The use of immunohistochemistry and heterologous monoclonal antibodies (mAb) directed against specific myosin heavy chain (MHC) isoforms revealed a different pattern of gene expression between the two portions of the ST muscle for both generations of fibers. By 75 days of gestation (dg), primary myotubes from the deep medial portion stained positively for the anti-slow MHC mAb and negatively for the adult anti-fast MHC, whereas the opposite was observed in the superficial portion. Secondary fibers never expressed slow MHC until late gestation. Instead, they expressed an adult fast MHC isoform as soon as they formed in the deep medial portion and later on in the superficial portion. From late gestation to the first 3 postnatal weeks, slow MHC began to be expressed in a subpopulation of secondary fibers. These fibers were in the direct vicinity of primary myotubes in the deep medial portion, whereas their location could not be established in the superficial portion. The remaining secondary fibers matured to type IIA in the direct vicinity of these type I fibers and to type IIB at the periphery of the islets. In both portions of the muscle, a subpopulation of secondary fibers, the first ones to express slow MHC, also transitorily expressed a MHC that was identical or closely related to the $\alpha$cardiac MHC during the early postnatal period. A third generation of small diameter fibers was observed shortly after birth and reacted with the anti-fetal MHC mAb; their destiny remains to be established. The present work reveals a remarkable pattern of MHC gene expression in the pig and raises many questions on the real nature of these isoforms. In order to answer these questions, we have undertaken to make a cDNA library of pig skeletal muscle and to screen this library with the same mAbs used in the present study. ©1995 Wiley-Liss, Inc.}
+      \field{abstract}{The aim of this study was to analyze the temporal sequence of expression of the myosin isoforms in the populations of muscle fibers in the pig and to bring more information on the origin of the strikingly different pattern of fiber composition and distribution between the deep medial red (oxido-glycolytic) and superficial white (glycolytic) portions of semitendinosus (ST) muscle. Muscle samples were taken from 49-, 55-, 75-, 90-, 103-, and 113- (birth) day-old fetuses, from 6-, 11-, 21-, 35-, 50-, and 80-day-old piglets, and from a 3-year-old pig. Our results confirm the sequential formation of primary and secondary generation fibers. The use of immunohistochemistry and heterologous monoclonal antibodies (mAb) directed against specific myosin heavy chain (MHC) isoforms revealed a different pattern of gene expression between the two portions of the ST muscle for both generations of fibers. By 75 days of gestation (dg), primary myotubes from the deep medial portion stained positively for the anti-slow MHC mAb and negatively for the adult anti-fast MHC, whereas the opposite was observed in the superficial portion. Secondary fibers never expressed slow MHC until late gestation. Instead, they expressed an adult fast MHC isoform as soon as they formed in the deep medial portion and later on in the superficial portion. From late gestation to the first 3 postnatal weeks, slow MHC began to be expressed in a subpopulation of secondary fibers. These fibers were in the direct vicinity of primary myotubes in the deep medial portion, whereas their location could not be established in the superficial portion. The remaining secondary fibers matured to type IIA in the direct vicinity of these type I fibers and to type IIB at the periphery of the islets. In both portions of the muscle, a subpopulation of secondary fibers, the first ones to express slow MHC, also transitorily expressed a MHC that was identical or closely related to the αcardiac MHC during the early postnatal period. A third generation of small diameter fibers was observed shortly after birth and reacted with the anti-fetal MHC mAb; their destiny remains to be established. The present work reveals a remarkable pattern of MHC gene expression in the pig and raises many questions on the real nature of these isoforms. In order to answer these questions, we have undertaken to make a cDNA library of pig skeletal muscle and to screen this library with the same mAbs used in the present study. ©1995 Wiley-Liss, Inc.}
       \field{issn}{1097-0177}
       \field{journaltitle}{Developmental Dynamics}
       \field{note}{\_eprint: https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/aja.1002030104}
@@ -4397,7 +3824,7 @@
       \verb{url}
       \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/aja.1002030104
       \endverb
-      \keyw{Development,Myofiber,Myosin,Pig,Skeletal muscle}
+      \keyw{Development,Pig,Skeletal muscle,Myofiber,Myosin}
     \endentry
     \entry{lelovas_comparative_2014}{article}{}{}
       \name{author}{3}{}{%
@@ -4451,7 +3878,7 @@
       \verb{file}
       \verb Full Text PDF:files/3102/Lelovas et al. - 2014 - A Comparative Anatomic and Physiologic Overview of the Porcine Heart.pdf:application/pdf
       \endverb
-      \keyw{Animals,Biomedical Research,Cardiovascular Diseases,Heart,Hemodynamics,Humans,Models,Animal,Sus scrofa}
+      \keyw{Humans,Animals,Biomedical Research,Models,Animal,Sus scrofa,Hemodynamics,Cardiovascular Diseases,Heart}
     \endentry
     \entry{li_bulk_2021}{article}{}{}
       \name{author}{2}{}{%
@@ -4837,47 +4264,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S0145305X14000937
       \endverb
-      \keyw{Animal model,Innate immune cells,Innate response,Pig}
-    \endentry
-    \entry{mcinnes_umap_2018}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=f3edd0ee6ca72eca5c532b9c1fcee621}{%
-           family={McInnes},
-           familyi={M\bibinitperiod},
-           given={Leland},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2a653f5c3174b96798d6336399101032}{%
-           family={Healy},
-           familyi={H\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=542b470ec223367aba58d9d095e4e340}{%
-           family={Melville},
-           familyi={M\bibinitperiod},
-           given={James},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{3341d13f7f8011d4c09baee830a3a666}
-      \strng{fullhash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{fullhashraw}{9bc0813b09f8460b9f60233db84de773}
-      \strng{bibnamehash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{authorbibnamehash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{authornamehash}{3341d13f7f8011d4c09baee830a3a666}
-      \strng{authorfullhash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{authorfullhashraw}{9bc0813b09f8460b9f60233db84de773}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1802.03426}
-      \field{title}{UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction}
-      \field{year}{2018}
+      \keyw{Pig,Animal model,Innate immune cells,Innate response}
     \endentry
     \entry{meer_whole_2018}{article}{}{}
       \name{author}{4}{}{%
@@ -4975,7 +4362,7 @@
       \verb{url}
       \verb https://doi.org/10.7554/eLife.40675
       \endverb
-      \keyw{aging,biological age,clock,DNA methylation,lifespan}
+      \keyw{DNA methylation,aging,biological age,clock,lifespan}
     \endentry
     \entry{meurens_pig_2012}{article}{}{}
       \name{author}{5}{}{%
@@ -5130,7 +4517,7 @@
       \verb{url}
       \verb https://www.nature.com/articles/nmeth.1226
       \endverb
-      \keyw{Bioinformatics,Biological Microscopy,Biological Techniques,Biomedical Engineering/Biotechnology,general,Life Sciences,Proteomics}
+      \keyw{Bioinformatics,Proteomics,Biomedical Engineering/Biotechnology,general,Life Sciences,Biological Techniques,Biological Microscopy}
     \endentry
     \entry{muralidharan_human_2025}{article}{}{}
       \name{author}{13}{}{%
@@ -5307,12 +4694,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Myotonic dystrophy type 1 (DM1) is an autosomal dominant disorder of muscular dystrophy characterized by muscle weakness and wasting. DM1 is caused by expansion of CTG repeats in the 3′-untranslated region (3′-UTR) of DM protein kinase (DMPK) gene. Since CUG-repeat RNA transcribed from the expansion of CTG repeats traps RNA-binding proteins that regulate alternative splicing, several abnormalities of alternative splicing are detected in DM1, and the abnormal splicing of important genes results in the appearance of symptoms. In this study, we identify two abnormal splicing events for actinin-associated LIM protein 3 (PDLIM3/ALP) and fibronectin 1 (FN1) in the skeletal muscles of DM1 patients. From the analysis of the abnormal PDLIM3 splicing, we propose that ZASP-like motif-deficient PDLIM3 causes the muscular symptoms in DM. PDLIM3 binds $\alpha$-actinin 2 in the Z-discs of muscle, and the ZASP-like motif is needed for this interaction. Moreover, in adult humans, PDLIM3 expression is highest in skeletal muscles, and PDLIM3 splicing in skeletal muscles is regulated during human development.}
+      \field{abstract}{Myotonic dystrophy type 1 (DM1) is an autosomal dominant disorder of muscular dystrophy characterized by muscle weakness and wasting. DM1 is caused by expansion of CTG repeats in the 3′-untranslated region (3′-UTR) of DM protein kinase (DMPK) gene. Since CUG-repeat RNA transcribed from the expansion of CTG repeats traps RNA-binding proteins that regulate alternative splicing, several abnormalities of alternative splicing are detected in DM1, and the abnormal splicing of important genes results in the appearance of symptoms. In this study, we identify two abnormal splicing events for actinin-associated LIM protein 3 (PDLIM3/ALP) and fibronectin 1 (FN1) in the skeletal muscles of DM1 patients. From the analysis of the abnormal PDLIM3 splicing, we propose that ZASP-like motif-deficient PDLIM3 causes the muscular symptoms in DM. PDLIM3 binds α-actinin 2 in the Z-discs of muscle, and the ZASP-like motif is needed for this interaction. Moreover, in adult humans, PDLIM3 expression is highest in skeletal muscles, and PDLIM3 splicing in skeletal muscles is regulated during human development.}
       \field{issn}{0006-291X}
       \field{journaltitle}{Biochemical and Biophysical Research Communications}
       \field{month}{5}
       \field{number}{1}
-      \field{title}{Alternative splicing of \textit{{PDLIM3}/{ALP}}, for $\alpha$-actinin-associated {LIM} protein 3, is aberrant in persons with myotonic dystrophy}
+      \field{title}{Alternative splicing of \textit{{PDLIM3}/{ALP}}, for α-actinin-associated {LIM} protein 3, is aberrant in persons with myotonic dystrophy}
       \field{urlday}{15}
       \field{urlmonth}{1}
       \field{urlyear}{2026}
@@ -5325,7 +4712,7 @@
       \verb 10.1016/j.bbrc.2011.04.106
       \endverb
       \verb{file}
-      \verb ScienceDirect Full Text PDF:files/2982/Ohsawa et al. - 2011 - Alternative splicing of PDLIM3ALP, for $\alpha$-actinin-associated LIM protein 3, is aberrant in pe.pdf:application/pdf;ScienceDirect Snapshot:files/2981/S0006291X11007042.html:text/html
+      \verb ScienceDirect Full Text PDF:files/2982/Ohsawa et al. - 2011 - Alternative splicing of PDLIM3ALP, for α-actinin-associated LIM protein 3, is aberrant in pe.pdf:application/pdf;ScienceDirect Snapshot:files/2981/S0006291X11007042.html:text/html
       \endverb
       \verb{urlraw}
       \verb https://www.sciencedirect.com/science/article/pii/S0006291X11007042
@@ -5722,7 +5109,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Wnt signaling plays a major role in regulating cell proliferation and differentiation. The Wnt ligands are a family of 19 secreted glycoproteins that mediate their signaling effects via binding to Frizzled receptors and LRP5/6 coreceptors and transducing the signal either through $\beta$-catenin in the canonical pathway or through a series of other proteins in the noncanonical pathway. Many of the individual components of both canonical and noncanonical Wnt signaling have additional functions throughout the body, establishing the complex interplay between Wnt signaling and other signaling pathways. This crosstalk between Wnt signaling and other pathways gives Wnt signaling a vital role in many cellular and organ processes. Dysregulation of this system has been implicated in many diseases affecting a wide array of organ systems, including cancer and embryological defects, and can even cause embryonic lethality. The complexity of this system and its interacting proteins have made Wnt signaling a target for many therapeutic treatments. However, both stimulatory and inhibitory treatments come with potential risks that need to be addressed. This review synthesized much of the current knowledge on the Wnt signaling pathway, beginning with the history of Wnt signaling. It thoroughly described the different variants of Wnt signaling, including canonical, noncanonical Wnt/PCP, and the noncanonical Wnt/Ca2+ pathway. Further description involved each of its components and their involvement in other cellular processes. Finally, this review explained the various other pathways and processes that crosstalk with Wnt signaling.}
+      \field{abstract}{Wnt signaling plays a major role in regulating cell proliferation and differentiation. The Wnt ligands are a family of 19 secreted glycoproteins that mediate their signaling effects via binding to Frizzled receptors and LRP5/6 coreceptors and transducing the signal either through β-catenin in the canonical pathway or through a series of other proteins in the noncanonical pathway. Many of the individual components of both canonical and noncanonical Wnt signaling have additional functions throughout the body, establishing the complex interplay between Wnt signaling and other signaling pathways. This crosstalk between Wnt signaling and other pathways gives Wnt signaling a vital role in many cellular and organ processes. Dysregulation of this system has been implicated in many diseases affecting a wide array of organ systems, including cancer and embryological defects, and can even cause embryonic lethality. The complexity of this system and its interacting proteins have made Wnt signaling a target for many therapeutic treatments. However, both stimulatory and inhibitory treatments come with potential risks that need to be addressed. This review synthesized much of the current knowledge on the Wnt signaling pathway, beginning with the history of Wnt signaling. It thoroughly described the different variants of Wnt signaling, including canonical, noncanonical Wnt/PCP, and the noncanonical Wnt/Ca2+ pathway. Further description involved each of its components and their involvement in other cellular processes. Finally, this review explained the various other pathways and processes that crosstalk with Wnt signaling.}
       \field{issn}{2352-3042}
       \field{journaltitle}{Genes \& Diseases}
       \field{month}{1}
@@ -5749,7 +5136,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S2352304223000557
       \endverb
-      \keyw{Canonical Wnt,Noncanonical Wnt,Signal transduction,Signaling crosstalk,$\beta$-catenin}
+      \keyw{Canonical Wnt,Noncanonical Wnt,Signal transduction,Signaling crosstalk,β-catenin}
     \endentry
     \entry{reiland_growth_1978}{article}{}{}
       \name{author}{1}{}{%
@@ -5786,7 +5173,7 @@
       \field{year}{1978}
       \field{pages}{15\bibrangedash 22}
       \range{pages}{8}
-      \keyw{Animals,Body Weight,Bone Development,Male,Swine,Tooth}
+      \keyw{Animals,Swine,Body Weight,Bone Development,Male,Tooth}
     \endentry
     \entry{rotundo_expression_2003}{article}{}{}
       \name{author}{1}{}{%
@@ -5963,7 +5350,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Myostatin is a negative regulator of muscle growth and metabolism and its inhibition in mice improves insulin sensitivity, increases glucose uptake into skeletal muscle, and decreases total body fat. A recently described mammalian protein called MSS51 is significantly downregulated with myostatin inhibition. In vitro disruption of Mss51 results in increased levels of ATP, $\beta$-oxidation, glycolysis, and oxidative phosphorylation. To determine the in vivo biological function of Mss51 in mice, we disrupted the Mss51 gene by CRISPR/Cas9 and found that Mss51-KO mice have normal muscle weights and fiber-type distribution but reduced fat pads. Myofibers isolated from Mss51-KO mice showed an increased oxygen consumption rate compared with WT controls, indicating an accelerated rate of skeletal muscle metabolism. The expression of genes related to oxidative phosphorylation and fatty acid $\beta$-oxidation were enhanced in skeletal muscle of Mss51-KO mice compared with that of WT mice. We found that mice lacking Mss51 and challenged with a high-fat diet were resistant to diet-induced weight gain, had increased whole-body glucose turnover and glycolysis rate, and increased systemic insulin sensitivity and fatty acid $\beta$-oxidation. These findings demonstrate that MSS51 modulates skeletal muscle mitochondrial respiration and regulates whole-body glucose and fatty acid metabolism, making it a potential target for obesity and diabetes.}
+      \field{abstract}{Myostatin is a negative regulator of muscle growth and metabolism and its inhibition in mice improves insulin sensitivity, increases glucose uptake into skeletal muscle, and decreases total body fat. A recently described mammalian protein called MSS51 is significantly downregulated with myostatin inhibition. In vitro disruption of Mss51 results in increased levels of ATP, β-oxidation, glycolysis, and oxidative phosphorylation. To determine the in vivo biological function of Mss51 in mice, we disrupted the Mss51 gene by CRISPR/Cas9 and found that Mss51-KO mice have normal muscle weights and fiber-type distribution but reduced fat pads. Myofibers isolated from Mss51-KO mice showed an increased oxygen consumption rate compared with WT controls, indicating an accelerated rate of skeletal muscle metabolism. The expression of genes related to oxidative phosphorylation and fatty acid β-oxidation were enhanced in skeletal muscle of Mss51-KO mice compared with that of WT mice. We found that mice lacking Mss51 and challenged with a high-fat diet were resistant to diet-induced weight gain, had increased whole-body glucose turnover and glycolysis rate, and increased systemic insulin sensitivity and fatty acid β-oxidation. These findings demonstrate that MSS51 modulates skeletal muscle mitochondrial respiration and regulates whole-body glucose and fatty acid metabolism, making it a potential target for obesity and diabetes.}
       \field{issn}{2379-3708}
       \field{journaltitle}{JCI Insight}
       \field{month}{10}
@@ -5979,46 +5366,7 @@
       \verb{file}
       \verb Full Text:files/3330/Rovira Gonzalez et al. - 2019 - Mss51 deletion enhances muscle metabolism and glucose homeostasis in mice.pdf:application/pdf
       \endverb
-      \keyw{Animals,CRISPR-Cas Systems,Diabetes,Diabetes Mellitus,Type 2,Diet,High-Fat,Disease Models,Animal,Fatty acid oxidation,Fatty Acids,Female,Glucose,Glucose metabolism,Humans,Insulin,Insulin Resistance,Male,Metabolism,Mice,Mice,Knockout,Mitochondria,Mitochondrial Proteins,Muscle Biology,Muscle Fibers,Skeletal,Obesity,Oxidation-Reduction,Oxidative Phosphorylation,Oxygen Consumption,Transcription Factors,Weight Gain,Zinc Fingers}
-    \endentry
-    \entry{russell_principles_1959}{book}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=088858e8ed15109a417867b25607cf84}{%
-           family={Russell},
-           familyi={R\bibinitperiod},
-           given={W.\bibnamedelimi M.\bibnamedelimi S.},
-           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a8e28fc38a647cbafc02294d981e030c}{%
-           family={Burch},
-           familyi={B\bibinitperiod},
-           given={R.\bibnamedelimi L.},
-           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {London}%
-      }
-      \list{publisher}{1}{%
-        {Methuen}%
-      }
-      \strng{namehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{fullhash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{fullhashraw}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{bibnamehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authorbibnamehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authornamehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authorfullhash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authorfullhashraw}{01c6252dd0e3f22ad24243b99c463a0a}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The Principles of Humane Experimental Technique}
-      \field{year}{1959}
+      \keyw{Humans,Animals,Transcription Factors,Mice,Disease Models,Animal,Male,Female,Mitochondria,Mitochondrial Proteins,Metabolism,Glucose,Obesity,Mice,Knockout,Oxygen Consumption,Weight Gain,Muscle Fibers,Skeletal,CRISPR-Cas Systems,Diabetes,Diabetes Mellitus,Type 2,Diet,High-Fat,Fatty acid oxidation,Fatty Acids,Glucose metabolism,Insulin,Insulin Resistance,Muscle Biology,Oxidation-Reduction,Oxidative Phosphorylation,Zinc Fingers}
     \endentry
     \entry{schachtschneider_epigenetic_2021}{article}{}{}
       \name{author}{11}{}{%
@@ -7929,40 +7277,6 @@
       \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC6642641/
       \endverb
     \endentry
-    \entry{scoris_klk6_2002}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3f66d86ad2279f9ab1126a6911e19d34}{%
-           family={Scorilas},
-           familyi={S\bibinitperiod},
-           given={Andreas},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{fullhash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{fullhashraw}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{bibnamehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authorbibnamehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authornamehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authorfullhash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authorfullhashraw}{6d810565074ad0f98a5d4d3e03cd7902}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Clinical Chemistry}
-      \field{number}{9}
-      \field{title}{Determination of human kallikrein 6 (zyme/protease M/neurosin) in biological fluids: bioavailability and biological implications}
-      \field{volume}{48}
-      \field{year}{2002}
-      \field{pages}{1452\bibrangedash 1455}
-      \range{pages}{4}
-    \endentry
     \entry{simianer_genetic_2010}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=187dbac96cdbc428d613531e9a314cb6}{%
@@ -8084,43 +7398,6 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S1534580710000559
       \endverb
-    \endentry
-    \entry{steele_perkins_nfib_2005}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c37722c3494c7b66333ea5b2af0f759f}{%
-           family={Steele-Perkins},
-           familyi={S\bibinithyphendelim P\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Am Soc Microbiol}%
-      }
-      \strng{namehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{fullhash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{fullhashraw}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{bibnamehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authorbibnamehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authornamehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authorfullhash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authorfullhashraw}{10abe3d97f2d8b12ac610dae511964b9}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Molecular and Cellular Biology}
-      \field{number}{2}
-      \field{title}{The transcription factor gene Nfib is essential for both lung maturation and brain development}
-      \field{volume}{25}
-      \field{year}{2005}
-      \field{pages}{685\bibrangedash 698}
-      \range{pages}{14}
     \endentry
     \entry{sun_spatial_2025}{article}{}{}
       \name{author}{10}{}{%
@@ -8301,7 +7578,7 @@
       \verb{file}
       \verb SAGE PDF Full Text:files/64/Swindle et al. - 2012 - Swine as Models in Biomedical Research and Toxicology Testing.pdf:application/pdf
       \endverb
-      \keyw{Animal Use Alternatives,Animals,Biomedical Research,Drug-Related Side Effects and Adverse Reactions,Female,Humans,Male,Models,Animal,Sus scrofa,Swine,Swine,Miniature,Toxicity Tests}
+      \keyw{Humans,Animals,Biomedical Research,Models,Animal,Swine,Male,Female,Animal Use Alternatives,Drug-Related Side Effects and Adverse Reactions,Sus scrofa,Swine,Miniature,Toxicity Tests}
     \endentry
     \entry{teng_compendium_2024}{article}{}{}
       \name{author}{102}{}{%
@@ -9132,7 +8409,7 @@
       \verb{url}
       \verb http://link.springer.com/10.1007/978-3-642-88418-4
       \endverb
-      \keyw{amyotrophic lateral sclerosis (ALS),anatomy,attention,biology,birth,development,developmental biology,documentation,embryo,gene,hernia,implantation,mouse,newborn,research}
+      \keyw{development,amyotrophic lateral sclerosis (ALS),anatomy,attention,biology,birth,developmental biology,documentation,embryo,gene,hernia,implantation,mouse,newborn,research}
     \endentry
     \entry{thomasen_sorcs2_2023}{article}{}{}
       \name{author}{23}{}{%
@@ -9318,53 +8595,98 @@
       \endverb
       \keyw{image segmentation,light-sheet microscopy,motor neurons,nerve injury,neurodevelopment,neurotrophic signaling,progranulin,SorCS2,VPS10p-D receptors,zebrafish}
     \endentry
-    \entry{van_der_meer_gfi1_2010}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=b1a5c74cd48896bb789b064a52479823}{%
-           family={Meer},
-           familyi={M\bibinitperiod},
-           given={L.\bibnamedelimi T.},
-           giveni={L\bibinitperiod\bibinitdelim T\bibinitperiod},
-           givenun=0,
-           prefix={van\bibnamedelima der},
-           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
-        {{un=0,uniquepart=base,hash=6fdeb4c7e073bc9daaeb4619aa9ac9bb}{%
-           family={Jansen},
-           familyi={J\bibinitperiod},
-           given={J.\bibnamedelimi H.},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+    \entry{waddell_dlk1_2010}{article}{}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=b7d106162e9454edbda787ea1c71f366}{%
+           family={Waddell},
+           familyi={W\bibinitperiod},
+           given={Jolena\bibnamedelima N.},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=6d8452163d6e18617e9dd3a42bc11ed6}{%
-           family={Reijden},
-           familyi={R\bibinitperiod},
-           given={B.\bibnamedelimi A.},
-           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0,
-           prefix={van\bibnamedelima der},
-           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=3114553b96cfbe74fc1fd958640c96e4}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Peijing},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=410e714052a81f8ff438160cd9f5eda8}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Yefei},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a2df7ef61e4b669f6765f8e2ba8ac8c}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Sanjay\bibnamedelima K.},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4162f3cbee5ce9c0788b706edace937e}{%
+           family={Yevtodiyenko},
+           familyi={Y\bibinitperiod},
+           given={Aleksey},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78565559d5585247c9a5dfe1ece8b9a1}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Jennifer\bibnamedelima V.},
+           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d32ce81e39c67bfbf49f85cc9ab7d368}{%
+           family={Bidwell},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63e17e24dd9b8137c976a8c361bab819}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Ashok},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d634e21c57fb9912013e752658fc0da6}{%
+           family={Kuang},
+           familyi={K\bibinitperiod},
+           given={Shihuan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
       }
-      \strng{namehash}{aa028a4ec4f36e3116b1864d44966408}
-      \strng{fullhash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{fullhashraw}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{bibnamehash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{authorbibnamehash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{authornamehash}{aa028a4ec4f36e3116b1864d44966408}
-      \strng{authorfullhash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{authorfullhashraw}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \field{sortinit}{v}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{ab954db25d0948cccbef356d30e88767}
+      \strng{fullhash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{fullhashraw}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{bibnamehash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{authorbibnamehash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{authornamehash}{ab954db25d0948cccbef356d30e88767}
+      \strng{authorfullhash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{authorfullhashraw}{06b1ce44c10d02fee3efc13a1333bac4}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Leukemia}
+      \field{abstract}{Delta-like 1homolog (Dlk1) is an imprinted gene encoding a transmembrane protein whose increased expression has been associated with muscle hypertrophy in animal models. However, the mechanisms by which Dlk1 regulates skeletal muscle plasticity remain unknown. Here we combine conditional gene knockout and over-expression analyses to investigate the role of Dlk1 in mouse muscle development, regeneration and myogenic stem cells (satellite cells). Genetic ablation of Dlk1 in the myogenic lineage resulted in reduced body weight and skeletal muscle mass due to reductions in myofiber numbers and myosin heavy chain IIB gene expression. In addition, muscle-specific Dlk1 ablation led to postnatal growth retardation and impaired muscle regeneration, associated with augmented myogenic inhibitory signaling mediated by NF-κB and inflammatory cytokines. To examine the role of Dlk1 in satellite cells, we analyzed the proliferation, self-renewal and differentiation of satellite cells cultured on their native host myofibers. We showed that ablation of Dlk1 inhibits the expression of the myogenic regulatory transcription factor MyoD, and facilitated the self-renewal of activated satellite cells. Conversely, Dlk1 over-expression inhibited the proliferation and enhanced differentiation of cultured myoblasts. As Dlk1 is expressed at low levels in satellite cells but its expression rapidly increases upon myogenic differentiation in vitro and in regenerating muscles in vivo, our results suggest a model in which Dlk1 expressed by nascent or regenerating myofibers non-cell autonomously promotes the differentiation of their neighbor satellite cells and therefore leads to muscle hypertrophy.}
+      \field{issn}{1932-6203}
+      \field{journaltitle}{PLoS One}
+      \field{month}{11}
       \field{number}{11}
-      \field{title}{Gfi1 and Gfi1b: key regulators of hematopoiesis}
-      \field{volume}{24}
+      \field{title}{Dlk1 is necessary for proper skeletal muscle development and regeneration}
+      \field{volume}{5}
       \field{year}{2010}
-      \field{pages}{1834\bibrangedash 1843}
-      \range{pages}{10}
+      \field{pages}{e15055}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0015055
+      \endverb
+      \verb{file}
+      \verb Full Text:files/3483/Waddell et al. - 2010 - Dlk1 is necessary for proper skeletal muscle development and regeneration.pdf:application/pdf
+      \endverb
+      \keyw{Animals,Blotting,Western,Calcium-Binding Proteins,Cell Differentiation,Cell Line,Cell Proliferation,Cells,Cultured,Immunohistochemistry,Intercellular Signaling Peptides and Proteins,Mice,Mice,Inbred C57BL,Mice,Knockout,Muscle Fibers,Skeletal,Muscle,Skeletal,Myoblasts,MyoD Protein,Regeneration,Reverse Transcriptase Polymerase Chain Reaction,Satellite Cells,Skeletal Muscle}
     \endentry
     \entry{wang_rna-seq_2009}{article}{}{}
       \name{author}{3}{}{%
@@ -9827,7 +9149,7 @@
       \verb{url}
       \verb https://doi.org/10.1631/jzus.B1500010
       \endverb
-      \keyw{A,Growth,Morbidity,Mortality,Pig,Q95,Sow nutrition,Within-litter variation,发病率,死亡率,母,猪,猪营养,生长性能,窝内变异}
+      \keyw{Pig,A,Growth,Morbidity,Mortality,Q95,Sow nutrition,Within-litter variation,发病率,死亡率,母,猪,猪营养,生长性能,窝内变异}
     \endentry
     \entry{zaret_regulatory_2002}{article}{}{}
       \name{author}{1}{}{%
@@ -9859,7 +9181,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Foxa transcription factors help endow the competence to activate liver genes in development by binding to regulatory sequences in precursor endoderm and opening a local domain of chromatin. Fibroblast growth factors and bone morphogenetic proteins, which are secreted from different mesodermal cell types, induce the hepatic gene programme in the endoderm, whereas they inhibit the pancreatic programme. Transcription factors Hex and Prox1 are crucial for nascent hepatoblasts to undergo a transition from an endodermal epithelium to a non-polarized, migrating cell that proliferates more rapidly, thereby creating a liver bud. Expansion of a liver bud into a haematopoietic organ, during fetal development, requires a diverse array of growth signals, including those from the septum transversum mesenchyme and from primitive endothelial cells that surround the liver bud, before blood-vessel formation. Distinct transcriptional cascades have been identified that promote the differentiation of hepatocytes and bile-duct cells from early hepatoblasts. The transcription factors Hnf4 (hepatocyte nuclear factor-4) and C/EBP$\alpha$ (CCAAT/enhancer binding protein-$\alpha$) promote the terminal differentiation of hepatocytes as the organ ceases to be a site of haematopoiesis and begins to control metabolite and protein levels in the blood, during the perinatal period.}
+      \field{abstract}{Foxa transcription factors help endow the competence to activate liver genes in development by binding to regulatory sequences in precursor endoderm and opening a local domain of chromatin. Fibroblast growth factors and bone morphogenetic proteins, which are secreted from different mesodermal cell types, induce the hepatic gene programme in the endoderm, whereas they inhibit the pancreatic programme. Transcription factors Hex and Prox1 are crucial for nascent hepatoblasts to undergo a transition from an endodermal epithelium to a non-polarized, migrating cell that proliferates more rapidly, thereby creating a liver bud. Expansion of a liver bud into a haematopoietic organ, during fetal development, requires a diverse array of growth signals, including those from the septum transversum mesenchyme and from primitive endothelial cells that surround the liver bud, before blood-vessel formation. Distinct transcriptional cascades have been identified that promote the differentiation of hepatocytes and bile-duct cells from early hepatoblasts. The transcription factors Hnf4 (hepatocyte nuclear factor-4) and C/EBPα (CCAAT/enhancer binding protein-α) promote the terminal differentiation of hepatocytes as the organ ceases to be a site of haematopoiesis and begins to control metabolite and protein levels in the blood, during the perinatal period.}
       \field{issn}{1471-0064}
       \field{journaltitle}{Nat Rev Genet}
       \field{month}{7}
@@ -9883,7 +9205,7 @@
       \verb{url}
       \verb https://www.nature.com/articles/nrg837
       \endverb
-      \keyw{Agriculture,Animal Genetics and Genomics,Biomedicine,Cancer Research,Gene Function,general,Human Genetics}
+      \keyw{Agriculture,Biomedicine,general,Animal Genetics and Genomics,Cancer Research,Gene Function,Human Genetics}
     \endentry
     \entry{zhang_night-restricted_2025}{article}{}{}
       \name{author}{11}{}{%
@@ -10315,6 +9637,84 @@
       \endverb
       \keyw{Animals,Mice,Polymerase Chain Reaction,Gene Expression Regulation,Developmental,Blotting,Northern,Diaphragm,Extraocular muscles,Fgfr,FgfrL1,Fibroblast growth factor,Fibroblast growth factor receptor,Immunohistochemistry,In Situ Hybridization,Mice,Knockout,Microarray Analysis,Muscle development,Muscle Development,Muscle Fibers,Slow-Twitch,Myosin Heavy Chains,Myosin Light Chains,Receptor,Fibroblast Growth Factor,Type 5,Slow muscle fibers}
     \endentry
+    \entry{andersen_dual_2013}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=1f57c0a3a0dae51db069ce372a901de2}{%
+           family={Andersen},
+           familyi={A\bibinitperiod},
+           given={Ditte\bibnamedelima Caroline},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2f00043bf83e2e7183bcfd378108ad1}{%
+           family={Laborda},
+           familyi={L\bibinitperiod},
+           given={Jorge},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d9b2f2f6cb940ff374fa1c2176c2a798}{%
+           family={Baladron},
+           familyi={B\bibinitperiod},
+           given={Victoriano},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f39da28130e36a1ed1d954f7e9e5155e}{%
+           family={Kassem},
+           familyi={K\bibinitperiod},
+           given={Moustapha},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6601914aa0c19ada99e5c660900fba3}{%
+           family={Sheikh},
+           familyi={S\bibinitperiod},
+           given={Søren\bibnamedelima Paludan},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75e90c588f2cc232439090c875cf990f}{%
+           family={Jensen},
+           familyi={J\bibinitperiod},
+           given={Charlotte\bibnamedelima Harken},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {Cambridge, England}%
+      }
+      \strng{namehash}{88dd8684e0fb42651cd92df743848f1f}
+      \strng{fullhash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{fullhashraw}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{bibnamehash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{authorbibnamehash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{authornamehash}{88dd8684e0fb42651cd92df743848f1f}
+      \strng{authorfullhash}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \strng{authorfullhashraw}{e635b89b8d148f3a81e4a85c09f2fed2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Muscle development and regeneration is tightly orchestrated by a specific set of myogenic transcription factors. However, factors that regulate these essential myogenic inducers remain poorly described. Here, we show that delta-like 1 homolog (Dlk1), an imprinted gene best known for its ability to inhibit adipogenesis, is a crucial regulator of the myogenic program in skeletal muscle. Dlk1(-/-) mice were developmentally retarded in their muscle mass and function owing to inhibition of the myogenic program during embryogenesis. Surprisingly however, Dlk1 depletion improves in vitro and in vivo adult skeletal muscle regeneration by substantial enhancement of the myogenic program and muscle function, possibly by means of an increased number of available myogenic precursor cells. By contrast, Dlk1 fails to alter the adipogenic commitment of muscle-derived progenitors in vitro, as well as intramuscular fat deposition during in vivo regeneration. Collectively, our results suggest a novel and surprising dual biological function of DLK1 as an enhancer of muscle development, but as an inhibitor of adult muscle regeneration.}
+      \field{issn}{1477-9129}
+      \field{journaltitle}{Development}
+      \field{month}{9}
+      \field{number}{18}
+      \field{title}{Dual role of delta-like 1 homolog ({DLK1}) in skeletal muscle development and adult muscle regeneration}
+      \field{volume}{140}
+      \field{year}{2013}
+      \field{pages}{3743\bibrangedash 3753}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1242/dev.095810
+      \endverb
+      \verb{file}
+      \verb Full Text:files/3486/Andersen et al. - 2013 - Dual role of delta-like 1 homolog (DLK1) in skeletal muscle development and adult muscle regeneratio.pdf:application/pdf
+      \endverb
+      \keyw{Adipogenesis,Adiponectin,Aging,Animals,Calcium-Binding Proteins,Cell Size,Cells,Cultured,Delta-like 1 homolog,Intercellular Signaling Peptides and Proteins,Mice,Mice,Inbred C57BL,Mice,Knockout,Mouse,Muscle development,Muscle Development,Muscle Fibers,Skeletal,Muscle regeneration,Muscle stem cells,Muscle,Skeletal,Organ Size,Phenotype,Regeneration}
+    \endentry
     \entry{baek_growth_2019}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=db33c0f9a06e11e8515adf72df98a385}{%
@@ -10382,194 +9782,6 @@
       \verb{url}
       \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC6795705/
       \endverb
-    \endentry
-    \entry{baker_reproducibility_2016}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9d7f46bdfd4b9f5f18c206cd6f21743e}{%
-           family={Baker},
-           familyi={B\bibinitperiod},
-           given={Monya},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Nature Publishing Group}%
-      }
-      \strng{namehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{fullhash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{fullhashraw}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{bibnamehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authorbibnamehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authornamehash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authorfullhash}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \strng{authorfullhashraw}{9d7f46bdfd4b9f5f18c206cd6f21743e}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Nature}
-      \field{number}{7604}
-      \field{title}{1,500 scientists lift the lid on reproducibility}
-      \field{volume}{533}
-      \field{year}{2016}
-      \field{pages}{452\bibrangedash 454}
-      \range{pages}{3}
-    \endentry
-    \entry{barlow_statistical_1972}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e3d80a0f2fc08841248b9593436ab708}{%
-           family={Barlow},
-           familyi={B\bibinitperiod},
-           given={Richard\bibnamedelima E},
-           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bc80d18c80e0332cbbe35d05ab3cd3bc}{%
-           family={Brunk},
-           familyi={B\bibinitperiod},
-           given={Hugh\bibnamedelima D},
-           giveni={H\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Taylor \& Francis}%
-      }
-      \strng{namehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{fullhash}{981540b36f9331f7245b4d015b15744a}
-      \strng{fullhashraw}{981540b36f9331f7245b4d015b15744a}
-      \strng{bibnamehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authorbibnamehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authornamehash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authorfullhash}{981540b36f9331f7245b4d015b15744a}
-      \strng{authorfullhashraw}{981540b36f9331f7245b4d015b15744a}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the American Statistical Association}
-      \field{number}{337}
-      \field{title}{The isotonic regression problem and its dual}
-      \field{volume}{67}
-      \field{year}{1972}
-      \field{pages}{140\bibrangedash 147}
-      \range{pages}{8}
-    \endentry
-    \entry{bell_igf2bp_2013}{article}{}{}
-      \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=2a065252ced72169f3c87cdd2feb8c9f}{%
-           family={Bell},
-           familyi={B\bibinitperiod},
-           given={Jessica\bibnamedelima L.},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=20e44ef3cc97bc58fc6120bb2933d62f}{%
-           family={Wächter},
-           familyi={W\bibinitperiod},
-           given={Kristin},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e6700b97800706f4fb379c57a3854891}{%
-           family={Mühleck},
-           familyi={M\bibinitperiod},
-           given={Britta},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7cb225118ee8a317a7515ca1cf18ecc2}{%
-           family={Pazaitis},
-           familyi={P\bibinitperiod},
-           given={Nikolaos},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e8366b387ba10fa28342c8a18bfa91ef}{%
-           family={Köhn},
-           familyi={K\bibinitperiod},
-           given={Marcel},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8c8cb37da0003463b174b8d5a7ec9fc5}{%
-           family={Lederer},
-           familyi={L\bibinitperiod},
-           given={Marcell},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=37a7a2ed80bcdd662850743acade336f}{%
-           family={Hüttelmaier},
-           familyi={H\bibinitperiod},
-           given={Stefan},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Basel}%
-      }
-      \strng{namehash}{1f7a999bcfeb19953f24ce8d01c018d1}
-      \strng{fullhash}{16ef8344649b2cda2f7674d681429100}
-      \strng{fullhashraw}{16ef8344649b2cda2f7674d681429100}
-      \strng{bibnamehash}{16ef8344649b2cda2f7674d681429100}
-      \strng{authorbibnamehash}{16ef8344649b2cda2f7674d681429100}
-      \strng{authornamehash}{1f7a999bcfeb19953f24ce8d01c018d1}
-      \strng{authorfullhash}{16ef8344649b2cda2f7674d681429100}
-      \strng{authorfullhashraw}{16ef8344649b2cda2f7674d681429100}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Cellular and Molecular Life Sciences}
-      \field{number}{15}
-      \field{title}{Insulin-like growth factor 2 mRNA-binding proteins (IGF2BPs): post-transcriptional drivers of cancer progression?}
-      \field{volume}{70}
-      \field{year}{2013}
-      \field{pages}{2657\bibrangedash 2675}
-      \range{pages}{19}
-    \endentry
-    \entry{benjamini_controlling_1995}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=2bf06df9b6fb1b6a6811f2965ef58db2}{%
-           family={Benjamini},
-           familyi={B\bibinitperiod},
-           given={Yoav},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=486dfb83d695169656e5706b50266208}{%
-           family={Hochberg},
-           familyi={H\bibinitperiod},
-           given={Yosef},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{fullhash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{fullhashraw}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{bibnamehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authorbibnamehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authornamehash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authorfullhash}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \strng{authorfullhashraw}{0ba4be1a60b0ea36e468eb3f8db88a98}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Methodological)}
-      \field{number}{1}
-      \field{title}{Controlling the false discovery rate: a practical and powerful approach to multiple testing}
-      \field{volume}{57}
-      \field{year}{1995}
-      \field{pages}{289\bibrangedash 300}
-      \range{pages}{12}
     \endentry
     \entry{bi_ageing_clock_team_multi-tissue_2017}{article}{}{}
       \name{author}{8}{}{%
@@ -10663,47 +9875,6 @@
       \verb{url}
       \verb http://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1203-5
       \endverb
-    \endentry
-    \entry{black_mef2_1998}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=88fa4faba2eca14fbcc721ecb7ebadcd}{%
-           family={Black},
-           familyi={B\bibinitperiod},
-           given={Brian\bibnamedelima L},
-           giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=98ebba3c81dc40507c70d395986351fd}{%
-           family={Olson},
-           familyi={O\bibinitperiod},
-           given={Eric\bibnamedelima N},
-           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}%
-      }
-      \strng{namehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{fullhash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{fullhashraw}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{bibnamehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authorbibnamehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authornamehash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authorfullhash}{65dc81223aa21a42dbd0062c6d47110c}
-      \strng{authorfullhashraw}{65dc81223aa21a42dbd0062c6d47110c}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual review of cell and developmental biology}
-      \field{number}{1}
-      \field{title}{Transcriptional control of muscle development by myocyte enhancer factor-2 (MEF2) proteins}
-      \field{volume}{14}
-      \field{year}{1998}
-      \field{pages}{167\bibrangedash 196}
-      \range{pages}{30}
     \endentry
     \entry{boeyer_evidence_2020}{article}{}{}
       \name{author}{4}{}{%
@@ -11540,39 +10711,6 @@
       \endverb
       \keyw{Humans,DNA Methylation,Epigenesis,Genetic,Epigenomics,Aging,DNA methylation,Biomarkers,Chronological age,Epigenetic age,Epigenetic clock}
     \endentry
-    \entry{efron_bootstrap_1979}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5470455fc7dceb3ccf6db38cb22a113d}{%
-           family={Efron},
-           familyi={E\bibinitperiod},
-           given={Bradley},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {JSTOR}%
-      }
-      \strng{namehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{fullhash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{fullhashraw}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{bibnamehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authorbibnamehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authornamehash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authorfullhash}{5470455fc7dceb3ccf6db38cb22a113d}
-      \strng{authorfullhashraw}{5470455fc7dceb3ccf6db38cb22a113d}
-      \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{The Annals of Statistics}
-      \field{title}{Bootstrap methods: another look at the jackknife}
-      \field{year}{1979}
-      \field{pages}{1\bibrangedash 26}
-      \range{pages}{26}
-    \endentry
     \entry{frank_simple_2001}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=14376659b7c222795bf43d1158efbaef}{%
@@ -11717,7 +10855,7 @@
       \verb{url}
       \verb https://doi.org/10.1186/s12947-023-00321-9
       \endverb
-      \keyw{Epicardial echocardiography,Experimental animal models,Hemodynamics,Swine}
+      \keyw{Swine,Epicardial echocardiography,Experimental animal models,Hemodynamics}
     \endentry
     \entry{georgountzou_postnatal_2017}{article}{}{}
       \name{author}{2}{}{%
@@ -11834,7 +10972,7 @@
       \verb{file}
       \verb Full Text:files/3231/Gordillo et al. - 2015 - Orchestrating liver development.pdf:application/pdf
       \endverb
-      \keyw{Animals,Cell Differentiation,Cell Lineage,Cholangiocyte,Hepatoblast,Hepatocyte,Hepatocytes,Humans,Liver,Liver development,Liver Diseases,Mice,Organogenesis,Signal Transduction,Stem Cells,Transcription factors}
+      \keyw{Humans,Animals,Mice,Transcription factors,Stem Cells,Signal Transduction,Cell Differentiation,Liver,Organogenesis,Hepatocytes,Cell Lineage,Cholangiocyte,Hepatoblast,Hepatocyte,Liver development,Liver Diseases}
     \endentry
     \entry{greener_guide_2022}{article}{}{}
       \name{author}{4}{}{%
@@ -12849,47 +11987,6 @@
       \endverb
       \keyw{Asthma,Cross-species comparison,Lung,scRNA-seq}
     \endentry
-    \entry{guo_triadin_1995}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e313f35522a5fbabdce43b506313ccb3}{%
-           family={Guo},
-           familyi={G\bibinitperiod},
-           given={W},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b4310ce879c94e2e0a2072ff8f000cd7}{%
-           family={Campbell},
-           familyi={C\bibinitperiod},
-           given={KP},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {ASBMB}%
-      }
-      \strng{namehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{fullhash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{fullhashraw}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{bibnamehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authorbibnamehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authornamehash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authorfullhash}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \strng{authorfullhashraw}{ec9f9e1e7a59e6fb057bb74cdd37cc5c}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Biological Chemistry}
-      \field{number}{16}
-      \field{title}{Association of triadin with the ryanodine receptor and calsequestrin in the lumen of the sarcoplasmic reticulum}
-      \field{volume}{270}
-      \field{year}{1995}
-      \field{pages}{9027\bibrangedash 9030}
-      \range{pages}{4}
-    \endentry
     \entry{hannon_normal_1990}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=07459e0c207f60cf2c18f15364189a0c}{%
@@ -12939,7 +12036,7 @@
       \field{year}{1990}
       \field{pages}{293\bibrangedash 298}
       \range{pages}{6}
-      \keyw{Acid-Base Equilibrium,Animals,Blood Gas Monitoring,Transcutaneous,Electrolytes,Female,Hematocrit,Hemoglobins,Hormones,Kidney,Male,Oxygen Consumption,Reference Values,Research,Respiratory Function Tests,Swine}
+      \keyw{Animals,Swine,Male,Female,Acid-Base Equilibrium,Blood Gas Monitoring,Transcutaneous,Electrolytes,Hematocrit,Hemoglobins,Hormones,Kidney,Oxygen Consumption,Reference Values,Research,Respiratory Function Tests}
     \endentry
     \entry{hannum_genome-wide_2013}{article}{}{}
       \name{author}{16}{}{%
@@ -13081,49 +12178,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S1097276512008933
       \endverb
-      \keyw{Adult,Aged,Aged,80 and over,Aging,DNA Methylation,Epigenesis,Genetic,Female,Genome-Wide Association Study,Genome,Human,Humans,Male,Middle Aged,Models,Genetic,Phenotype,Sequence Analysis,DNA,Transcriptome,Young Adult}
-    \endentry
-    \entry{hastie_elements_2009}{book}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
-           family={Hastie},
-           familyi={H\bibinitperiod},
-           given={Trevor},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=88eea600247d798f8b2ce0b2dc614492}{%
-           family={Tibshirani},
-           familyi={T\bibinitperiod},
-           given={Robert},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=971cf69058b64a94326dea0f2a8bbcce}{%
-           family={Friedman},
-           familyi={F\bibinitperiod},
-           given={Jerome},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Science \& Business Media}%
-      }
-      \strng{namehash}{45eb7d473651da447f1d77717e7f8650}
-      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{fullhashraw}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{authornamehash}{45eb7d473651da447f1d77717e7f8650}
-      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
-      \strng{authorfullhashraw}{7ca1bfe876d5e037b6aed69704221267}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The elements of statistical learning: data mining, inference, and prediction}
-      \field{year}{2009}
+      \keyw{Humans,DNA Methylation,Epigenesis,Genetic,Sequence Analysis,DNA,Transcriptome,Genome,Human,Male,Female,Aging,Genome-Wide Association Study,Adult,Young Adult,Aged,Aged,80 and over,Middle Aged,Phenotype,Models,Genetic}
     \endentry
     \entry{hoffman_short_2020}{article}{}{}
       \name{author}{2}{}{%
@@ -13270,7 +12325,7 @@
       \verb{url}
       \verb https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0195961
       \endverb
-      \keyw{Animal performance,Biological locomotion,Birth weight,Body limbs,Gait analysis,Legs,Pig models,Swine}
+      \keyw{Swine,Animal performance,Biological locomotion,Birth weight,Body limbs,Gait analysis,Legs,Pig models}
     \endentry
     \entry{horvath_dna_2013}{article}{}{}
       \name{author}{1}{}{%
@@ -13326,74 +12381,6 @@
       \verb https://doi.org/10.1186/gb-2013-14-10-r115
       \endverb
       \keyw{Cell Passage Number,DNAm Level,Epigenetic Clock,Penalize Regression Model,Progeria}
-    \endentry
-    \entry{hu_aldh18a1_2008}{article}{}{}
-      \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=c2f557b25ab3e76a10e54090dc81ea8e}{%
-           family={Hu},
-           familyi={H\bibinitperiod},
-           given={C-A\bibnamedelima A},
-           giveni={C\bibinithyphendelim A\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0c3783de365873c29710511ade36faf0}{%
-           family={Khalil},
-           familyi={K\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=46650decac5c91086181f2cc9fb2bf2b}{%
-           family={Zhaorigetu},
-           familyi={Z\bibinitperiod},
-           given={S},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4502ea5dcc2b2cf1ac11fe01b5f68826}{%
-           family={Liu},
-           familyi={L\bibinitperiod},
-           given={Z},
-           giveni={Z\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8a3d1f63825d25dddffed253e0613da7}{%
-           family={Tyler},
-           familyi={T\bibinitperiod},
-           given={M},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6b98bd4d2e3839c5bf850636baf6175e}{%
-           family={Wan},
-           familyi={W\bibinitperiod},
-           given={G},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=81f7b8bf72d1fff2ee7e2d27dc2adcda}{%
-           family={Valle},
-           familyi={V\bibinitperiod},
-           given={D},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{03f6f32de7a963603ff3ee75518a409c}
-      \strng{fullhash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{fullhashraw}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{bibnamehash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{authorbibnamehash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{authornamehash}{03f6f32de7a963603ff3ee75518a409c}
-      \strng{authorfullhash}{b1be8bae006c71ddf4ed7242ee81c889}
-      \strng{authorfullhashraw}{b1be8bae006c71ddf4ed7242ee81c889}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Amino Acids}
-      \field{number}{4}
-      \field{title}{Human Delta1-pyrroline-5-carboxylate Synthase: Function and Regulation}
-      \field{volume}{35}
-      \field{year}{2008}
-      \field{pages}{665\bibrangedash 672}
-      \range{pages}{8}
     \endentry
     \entry{iwata_metabolic_2024}{article}{}{}
       \name{author}{2}{}{%
@@ -13453,41 +12440,6 @@
       \endverb
       \keyw{metabolism,evolution,developmental timing,mitochondria,neoteny}
     \endentry
-    \entry{jaccard_distribution_1912}{article}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c4a98c7a2913792b5501ecdcb067315d}{%
-           family={Jaccard},
-           familyi={J\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{fullhash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{fullhashraw}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{bibnamehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authorbibnamehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authornamehash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authorfullhash}{c4a98c7a2913792b5501ecdcb067315d}
-      \strng{authorfullhashraw}{c4a98c7a2913792b5501ecdcb067315d}
-      \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{New phytologist}
-      \field{number}{2}
-      \field{title}{The distribution of the flora in the alpine zone}
-      \field{volume}{11}
-      \field{year}{1912}
-      \field{pages}{37\bibrangedash 50}
-      \range{pages}{14}
-    \endentry
     \entry{jiang_cellular_2016}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=e9839c3fde05cf2b73aad4045bd8ff2d}{%
@@ -13545,209 +12497,6 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0969996115300097
       \endverb
       \keyw{Cerebral cortex,Gliogenesis,Neurodevelopment,Neurodevelopmental disorders,Neuronal maturation,Progenitor cell,Synaptogenesis}
-    \endentry
-    \entry{joustra_igsf1_2019}{article}{}{}
-      \name{author}{26}{}{%
-        {{un=0,uniquepart=base,hash=5b0732973979ff14ee7cd3389e045bd5}{%
-           family={Joustra},
-           familyi={J\bibinitperiod},
-           given={Sjoerd\bibnamedelima D},
-           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=948b375c62eb4a5e3d74b8041f6b6cec}{%
-           family={Roelfsema},
-           familyi={R\bibinitperiod},
-           given={Ferdinand},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c740f81cdf23687f9abbadb808cf2be3}{%
-           family={Trotsenburg},
-           familyi={T\bibinitperiod},
-           given={A\bibnamedelima S\bibnamedelima Paul},
-           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0,
-           prefix={van},
-           prefixi={v\bibinitperiod}}}%
-        {{un=0,uniquepart=base,hash=7b50cc2472e07ee61e4dc35f376f24fa}{%
-           family={Schneider},
-           familyi={S\bibinitperiod},
-           given={Harald\bibnamedelima J},
-           giveni={H\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=da4dd805ac36470d296bff452f52464c}{%
-           family={Kosilek},
-           familyi={K\bibinitperiod},
-           given={Robert\bibnamedelima P},
-           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1d1fd6782221e9a9f9f6217426d6eace}{%
-           family={Kroon},
-           familyi={K\bibinitperiod},
-           given={Herman\bibnamedelima M},
-           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9eb8d2ac7b5d0cea2669efaafe84e6c6}{%
-           family={Logan},
-           familyi={L\bibinitperiod},
-           given={John\bibnamedelima G},
-           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=346758950939071b80cc3a972d070371}{%
-           family={Butterfield},
-           familyi={B\bibinitperiod},
-           given={Natalie\bibnamedelima C},
-           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d1654f226dfdf60d9b41a59d7e0d44d1}{%
-           family={Zhou},
-           familyi={Z\bibinitperiod},
-           given={Xiang},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b775224f68d4a057ea14fec9888af3a2}{%
-           family={Toufaily},
-           familyi={T\bibinitperiod},
-           given={Chirine},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=19daf5ae218441aa3c2b960eff361570}{%
-           family={Bak},
-           familyi={B\bibinitperiod},
-           given={Beata},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9be0c5e902475814ee90c251f07e51d1}{%
-           family={Turgeon},
-           familyi={T\bibinitperiod},
-           given={Marc-Olivier},
-           giveni={M\bibinithyphendelim O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1251e5835bccfbcbe044ad16df859c99}{%
-           family={Brûlé},
-           familyi={B\bibinitperiod},
-           given={Emilie},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b6e279031f135bf1386de75dc55ba0e7}{%
-           family={Steyn},
-           familyi={S\bibinitperiod},
-           given={Frederik\bibnamedelima J},
-           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ad98ee245f8ba3f503514087b4174cdf}{%
-           family={Gurnell},
-           familyi={G\bibinitperiod},
-           given={Mark},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b9e67ddad3f50ed9af78f3da84374fda}{%
-           family={Koulouri},
-           familyi={K\bibinitperiod},
-           given={Olympia},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d8df8ccde0ab0bf67afd96078df11000}{%
-           family={Le\bibnamedelima Tissier},
-           familyi={L\bibinitperiod\bibinitdelim T\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0154319da2efafc4866820e70312c913}{%
-           family={Fontanaud},
-           familyi={F\bibinitperiod},
-           given={Pierre},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ebc9e6cf80d69b6a60b095e1628b13dc}{%
-           family={Duncan\bibnamedelima Bassett},
-           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
-           given={J\bibnamedelima H},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8e71d9410cde1893e50f948af09d2ccd}{%
-           family={Williams},
-           familyi={W\bibinitperiod},
-           given={Graham\bibnamedelima R},
-           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=56695238dae597b7d1557b9b35008eb5}{%
-           family={Oostdijk},
-           familyi={O\bibinitperiod},
-           given={Wilma},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=49e1e7b290299f8490de9e9f09b85278}{%
-           family={Wit},
-           familyi={W\bibinitperiod},
-           given={Jan\bibnamedelima M},
-           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ec88f903f8205c1b0117caaefd7345e8}{%
-           family={Pereira},
-           familyi={P\bibinitperiod},
-           given={Alberto\bibnamedelima M},
-           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4cfcce2b39fd2b6ffd3a23740d693e9a}{%
-           family={Biermasz},
-           familyi={B\bibinitperiod},
-           given={Nienke\bibnamedelima R},
-           giveni={N\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c3e5fc0bbf481d80f3d0d2cbab72cc57}{%
-           family={Bernard},
-           familyi={B\bibinitperiod},
-           given={Daniel\bibnamedelima J},
-           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e324a3570924ded794220537fed15ad0}{%
-           family={Schoenmakers},
-           familyi={S\bibinitperiod},
-           given={Nadia},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{f576dd580789fd96f0bc72faa45c2f4c}
-      \strng{fullhash}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \strng{fullhashraw}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \strng{bibnamehash}{b9fc1feaa595262f0f295351c4c48935}
-      \strng{authorbibnamehash}{b9fc1feaa595262f0f295351c4c48935}
-      \strng{authornamehash}{f576dd580789fd96f0bc72faa45c2f4c}
-      \strng{authorfullhash}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \strng{authorfullhashraw}{a1ade0a185e21f70b3b40a938ed49ba6}
-      \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Context The X-linked immunoglobulin superfamily, member 1 (IGSF1), gene is highly expressed in the hypothalamus and in pituitary cells of the POU1F1 lineage. Human loss-of-function mutations in IGSF1 cause central hypothyroidism, hypoprolactinemia, and macroorchidism. Additionally, most affected adults exhibit higher than average IGF-1 levels and anecdotal reports describe acromegaloid features in older subjects. However, somatotrope function has not yet been formally evaluated in this condition. Objective We aimed to evaluate the role of IGSF1 in human and murine somatotrope function. Patients, Design, and Setting We evaluated 21 adult males harboring hemizygous IGSF1 loss-of-function mutations for features of GH excess, in an academic clinical setting. Main Outcome Measures We compared biochemical and tissue markers of GH excess in patients and controls, including 24-hour GH profile studies in 7 patients. Parallel studies were undertaken in male Igsf1-deficient mice and wild-type littermates. Results IGSF1-deficient adult male patients demonstrated acromegaloid facial features with increased head circumference as well as increased finger soft-tissue thickness. Median serum IGF-1 concentrations were elevated, and 24-hour GH profile studies confirmed 2- to 3-fold increased median basal, pulsatile, and total GH secretion. Male Igsf1-deficient mice also demonstrated features of GH excess with increased lean mass, organ size, and skeletal dimensions and elevated mean circulating IGF-1 and pituitary GH levels. Conclusions We demonstrate somatotrope neurosecretory hyperfunction in IGSF1-deficient humans and mice. These observations define a hitherto uncharacterized role for IGSF1 in somatotropes and indicate that patients with IGSF1 mutations should be evaluated for long-term consequences of increased GH exposure.}
-      \field{issn}{0021-972X}
-      \field{journaltitle}{J Clin Endocrinol Metab}
-      \field{month}{10}
-      \field{number}{3}
-      \field{title}{{IGSF1} {Deficiency} {Results} in {Human} and {Murine} {Somatotrope} {Neurosecretory} {Hyperfunction}}
-      \field{urlday}{15}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{volume}{105}
-      \field{year}{2019}
-      \field{urldateera}{ce}
-      \field{pages}{e70\bibrangedash e84}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1210/clinem/dgz093
-      \endverb
-      \verb{file}
-      \verb Full Text:files/2988/Joustra et al. - 2019 - IGSF1 Deficiency Results in Human and Murine Somatotrope Neurosecretory Hyperfunction.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC7108761/
-      \endverb
-      \verb{url}
-      \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC7108761/
-      \endverb
     \endentry
     \entry{kang_spatio-temporal_2011}{article}{}{}
       \name{author}{26}{}{%
@@ -14323,7 +13072,7 @@
       \verb{file}
       \verb Full Text:files/3195/Lallès et al. - 2007 - Nutritional management of gut health in pigs around weaning.pdf:application/pdf
       \endverb
-      \keyw{Adaptation,Physiological,Animal Feed,Animal Nutritional Physiological Phenomena,Animals,Animals,Newborn,Immunity,Mucosal,Intestines,Probiotics,Swine,Weaning}
+      \keyw{Animals,Swine,Weaning,Adaptation,Physiological,Animal Feed,Animal Nutritional Physiological Phenomena,Animals,Newborn,Immunity,Mucosal,Intestines,Probiotics}
     \endentry
     \entry{lalles_gut_2004}{article}{}{}
       \name{author}{10}{}{%
@@ -14478,7 +13227,7 @@
       \verb{doi}
       \verb 10.1016/j.meatsci.2009.05.004
       \endverb
-      \keyw{Animals,Animals,Domestic,Animals,Genetically Modified,Calcium,Food Technology,Humans,Meat,Mitochondria,Muscle,Muscle Fibers,Skeletal,Species Specificity}
+      \keyw{Humans,Animals,Species Specificity,Meat,Animals,Domestic,Animals,Genetically Modified,Calcium,Food Technology,Mitochondria,Muscle,Muscle Fibers,Skeletal}
     \endentry
     \entry{lefaucheur_pattern_1995}{article}{}{}
       \name{author}{4}{}{%
@@ -14525,7 +13274,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The aim of this study was to analyze the temporal sequence of expression of the myosin isoforms in the populations of muscle fibers in the pig and to bring more information on the origin of the strikingly different pattern of fiber composition and distribution between the deep medial red (oxido-glycolytic) and superficial white (glycolytic) portions of semitendinosus (ST) muscle. Muscle samples were taken from 49-, 55-, 75-, 90-, 103-, and 113- (birth) day-old fetuses, from 6-, 11-, 21-, 35-, 50-, and 80-day-old piglets, and from a 3-year-old pig. Our results confirm the sequential formation of primary and secondary generation fibers. The use of immunohistochemistry and heterologous monoclonal antibodies (mAb) directed against specific myosin heavy chain (MHC) isoforms revealed a different pattern of gene expression between the two portions of the ST muscle for both generations of fibers. By 75 days of gestation (dg), primary myotubes from the deep medial portion stained positively for the anti-slow MHC mAb and negatively for the adult anti-fast MHC, whereas the opposite was observed in the superficial portion. Secondary fibers never expressed slow MHC until late gestation. Instead, they expressed an adult fast MHC isoform as soon as they formed in the deep medial portion and later on in the superficial portion. From late gestation to the first 3 postnatal weeks, slow MHC began to be expressed in a subpopulation of secondary fibers. These fibers were in the direct vicinity of primary myotubes in the deep medial portion, whereas their location could not be established in the superficial portion. The remaining secondary fibers matured to type IIA in the direct vicinity of these type I fibers and to type IIB at the periphery of the islets. In both portions of the muscle, a subpopulation of secondary fibers, the first ones to express slow MHC, also transitorily expressed a MHC that was identical or closely related to the $\alpha$cardiac MHC during the early postnatal period. A third generation of small diameter fibers was observed shortly after birth and reacted with the anti-fetal MHC mAb; their destiny remains to be established. The present work reveals a remarkable pattern of MHC gene expression in the pig and raises many questions on the real nature of these isoforms. In order to answer these questions, we have undertaken to make a cDNA library of pig skeletal muscle and to screen this library with the same mAbs used in the present study. ©1995 Wiley-Liss, Inc.}
+      \field{abstract}{The aim of this study was to analyze the temporal sequence of expression of the myosin isoforms in the populations of muscle fibers in the pig and to bring more information on the origin of the strikingly different pattern of fiber composition and distribution between the deep medial red (oxido-glycolytic) and superficial white (glycolytic) portions of semitendinosus (ST) muscle. Muscle samples were taken from 49-, 55-, 75-, 90-, 103-, and 113- (birth) day-old fetuses, from 6-, 11-, 21-, 35-, 50-, and 80-day-old piglets, and from a 3-year-old pig. Our results confirm the sequential formation of primary and secondary generation fibers. The use of immunohistochemistry and heterologous monoclonal antibodies (mAb) directed against specific myosin heavy chain (MHC) isoforms revealed a different pattern of gene expression between the two portions of the ST muscle for both generations of fibers. By 75 days of gestation (dg), primary myotubes from the deep medial portion stained positively for the anti-slow MHC mAb and negatively for the adult anti-fast MHC, whereas the opposite was observed in the superficial portion. Secondary fibers never expressed slow MHC until late gestation. Instead, they expressed an adult fast MHC isoform as soon as they formed in the deep medial portion and later on in the superficial portion. From late gestation to the first 3 postnatal weeks, slow MHC began to be expressed in a subpopulation of secondary fibers. These fibers were in the direct vicinity of primary myotubes in the deep medial portion, whereas their location could not be established in the superficial portion. The remaining secondary fibers matured to type IIA in the direct vicinity of these type I fibers and to type IIB at the periphery of the islets. In both portions of the muscle, a subpopulation of secondary fibers, the first ones to express slow MHC, also transitorily expressed a MHC that was identical or closely related to the αcardiac MHC during the early postnatal period. A third generation of small diameter fibers was observed shortly after birth and reacted with the anti-fetal MHC mAb; their destiny remains to be established. The present work reveals a remarkable pattern of MHC gene expression in the pig and raises many questions on the real nature of these isoforms. In order to answer these questions, we have undertaken to make a cDNA library of pig skeletal muscle and to screen this library with the same mAbs used in the present study. ©1995 Wiley-Liss, Inc.}
       \field{issn}{1097-0177}
       \field{journaltitle}{Developmental Dynamics}
       \field{note}{\_eprint: https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/aja.1002030104}
@@ -14551,7 +13300,7 @@
       \verb{url}
       \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/aja.1002030104
       \endverb
-      \keyw{Development,Myofiber,Myosin,Pig,Skeletal muscle}
+      \keyw{Development,Pig,Skeletal muscle,Myofiber,Myosin}
     \endentry
     \entry{lelovas_comparative_2014}{article}{}{}
       \name{author}{3}{}{%
@@ -14605,7 +13354,7 @@
       \verb{file}
       \verb Full Text PDF:files/3102/Lelovas et al. - 2014 - A Comparative Anatomic and Physiologic Overview of the Porcine Heart.pdf:application/pdf
       \endverb
-      \keyw{Animals,Biomedical Research,Cardiovascular Diseases,Heart,Hemodynamics,Humans,Models,Animal,Sus scrofa}
+      \keyw{Humans,Animals,Biomedical Research,Models,Animal,Sus scrofa,Hemodynamics,Cardiovascular Diseases,Heart}
     \endentry
     \entry{li_bulk_2021}{article}{}{}
       \name{author}{2}{}{%
@@ -14991,47 +13740,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S0145305X14000937
       \endverb
-      \keyw{Animal model,Innate immune cells,Innate response,Pig}
-    \endentry
-    \entry{mcinnes_umap_2018}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=f3edd0ee6ca72eca5c532b9c1fcee621}{%
-           family={McInnes},
-           familyi={M\bibinitperiod},
-           given={Leland},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2a653f5c3174b96798d6336399101032}{%
-           family={Healy},
-           familyi={H\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=542b470ec223367aba58d9d095e4e340}{%
-           family={Melville},
-           familyi={M\bibinitperiod},
-           given={James},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{3341d13f7f8011d4c09baee830a3a666}
-      \strng{fullhash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{fullhashraw}{9bc0813b09f8460b9f60233db84de773}
-      \strng{bibnamehash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{authorbibnamehash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{authornamehash}{3341d13f7f8011d4c09baee830a3a666}
-      \strng{authorfullhash}{9bc0813b09f8460b9f60233db84de773}
-      \strng{authorfullhashraw}{9bc0813b09f8460b9f60233db84de773}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv preprint arXiv:1802.03426}
-      \field{title}{UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction}
-      \field{year}{2018}
+      \keyw{Pig,Animal model,Innate immune cells,Innate response}
     \endentry
     \entry{meer_whole_2018}{article}{}{}
       \name{author}{4}{}{%
@@ -15129,7 +13838,7 @@
       \verb{url}
       \verb https://doi.org/10.7554/eLife.40675
       \endverb
-      \keyw{aging,biological age,clock,DNA methylation,lifespan}
+      \keyw{DNA methylation,aging,biological age,clock,lifespan}
     \endentry
     \entry{meurens_pig_2012}{article}{}{}
       \name{author}{5}{}{%
@@ -15284,7 +13993,7 @@
       \verb{url}
       \verb https://www.nature.com/articles/nmeth.1226
       \endverb
-      \keyw{Bioinformatics,Biological Microscopy,Biological Techniques,Biomedical Engineering/Biotechnology,general,Life Sciences,Proteomics}
+      \keyw{Bioinformatics,Proteomics,Biomedical Engineering/Biotechnology,general,Life Sciences,Biological Techniques,Biological Microscopy}
     \endentry
     \entry{muralidharan_human_2025}{article}{}{}
       \name{author}{13}{}{%
@@ -15461,12 +14170,12 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Myotonic dystrophy type 1 (DM1) is an autosomal dominant disorder of muscular dystrophy characterized by muscle weakness and wasting. DM1 is caused by expansion of CTG repeats in the 3′-untranslated region (3′-UTR) of DM protein kinase (DMPK) gene. Since CUG-repeat RNA transcribed from the expansion of CTG repeats traps RNA-binding proteins that regulate alternative splicing, several abnormalities of alternative splicing are detected in DM1, and the abnormal splicing of important genes results in the appearance of symptoms. In this study, we identify two abnormal splicing events for actinin-associated LIM protein 3 (PDLIM3/ALP) and fibronectin 1 (FN1) in the skeletal muscles of DM1 patients. From the analysis of the abnormal PDLIM3 splicing, we propose that ZASP-like motif-deficient PDLIM3 causes the muscular symptoms in DM. PDLIM3 binds $\alpha$-actinin 2 in the Z-discs of muscle, and the ZASP-like motif is needed for this interaction. Moreover, in adult humans, PDLIM3 expression is highest in skeletal muscles, and PDLIM3 splicing in skeletal muscles is regulated during human development.}
+      \field{abstract}{Myotonic dystrophy type 1 (DM1) is an autosomal dominant disorder of muscular dystrophy characterized by muscle weakness and wasting. DM1 is caused by expansion of CTG repeats in the 3′-untranslated region (3′-UTR) of DM protein kinase (DMPK) gene. Since CUG-repeat RNA transcribed from the expansion of CTG repeats traps RNA-binding proteins that regulate alternative splicing, several abnormalities of alternative splicing are detected in DM1, and the abnormal splicing of important genes results in the appearance of symptoms. In this study, we identify two abnormal splicing events for actinin-associated LIM protein 3 (PDLIM3/ALP) and fibronectin 1 (FN1) in the skeletal muscles of DM1 patients. From the analysis of the abnormal PDLIM3 splicing, we propose that ZASP-like motif-deficient PDLIM3 causes the muscular symptoms in DM. PDLIM3 binds α-actinin 2 in the Z-discs of muscle, and the ZASP-like motif is needed for this interaction. Moreover, in adult humans, PDLIM3 expression is highest in skeletal muscles, and PDLIM3 splicing in skeletal muscles is regulated during human development.}
       \field{issn}{0006-291X}
       \field{journaltitle}{Biochemical and Biophysical Research Communications}
       \field{month}{5}
       \field{number}{1}
-      \field{title}{Alternative splicing of \textit{{PDLIM3}/{ALP}}, for $\alpha$-actinin-associated {LIM} protein 3, is aberrant in persons with myotonic dystrophy}
+      \field{title}{Alternative splicing of \textit{{PDLIM3}/{ALP}}, for α-actinin-associated {LIM} protein 3, is aberrant in persons with myotonic dystrophy}
       \field{urlday}{15}
       \field{urlmonth}{1}
       \field{urlyear}{2026}
@@ -15479,7 +14188,7 @@
       \verb 10.1016/j.bbrc.2011.04.106
       \endverb
       \verb{file}
-      \verb ScienceDirect Full Text PDF:files/2982/Ohsawa et al. - 2011 - Alternative splicing of PDLIM3ALP, for $\alpha$-actinin-associated LIM protein 3, is aberrant in pe.pdf:application/pdf;ScienceDirect Snapshot:files/2981/S0006291X11007042.html:text/html
+      \verb ScienceDirect Full Text PDF:files/2982/Ohsawa et al. - 2011 - Alternative splicing of PDLIM3ALP, for α-actinin-associated LIM protein 3, is aberrant in pe.pdf:application/pdf;ScienceDirect Snapshot:files/2981/S0006291X11007042.html:text/html
       \endverb
       \verb{urlraw}
       \verb https://www.sciencedirect.com/science/article/pii/S0006291X11007042
@@ -15876,7 +14585,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Wnt signaling plays a major role in regulating cell proliferation and differentiation. The Wnt ligands are a family of 19 secreted glycoproteins that mediate their signaling effects via binding to Frizzled receptors and LRP5/6 coreceptors and transducing the signal either through $\beta$-catenin in the canonical pathway or through a series of other proteins in the noncanonical pathway. Many of the individual components of both canonical and noncanonical Wnt signaling have additional functions throughout the body, establishing the complex interplay between Wnt signaling and other signaling pathways. This crosstalk between Wnt signaling and other pathways gives Wnt signaling a vital role in many cellular and organ processes. Dysregulation of this system has been implicated in many diseases affecting a wide array of organ systems, including cancer and embryological defects, and can even cause embryonic lethality. The complexity of this system and its interacting proteins have made Wnt signaling a target for many therapeutic treatments. However, both stimulatory and inhibitory treatments come with potential risks that need to be addressed. This review synthesized much of the current knowledge on the Wnt signaling pathway, beginning with the history of Wnt signaling. It thoroughly described the different variants of Wnt signaling, including canonical, noncanonical Wnt/PCP, and the noncanonical Wnt/Ca2+ pathway. Further description involved each of its components and their involvement in other cellular processes. Finally, this review explained the various other pathways and processes that crosstalk with Wnt signaling.}
+      \field{abstract}{Wnt signaling plays a major role in regulating cell proliferation and differentiation. The Wnt ligands are a family of 19 secreted glycoproteins that mediate their signaling effects via binding to Frizzled receptors and LRP5/6 coreceptors and transducing the signal either through β-catenin in the canonical pathway or through a series of other proteins in the noncanonical pathway. Many of the individual components of both canonical and noncanonical Wnt signaling have additional functions throughout the body, establishing the complex interplay between Wnt signaling and other signaling pathways. This crosstalk between Wnt signaling and other pathways gives Wnt signaling a vital role in many cellular and organ processes. Dysregulation of this system has been implicated in many diseases affecting a wide array of organ systems, including cancer and embryological defects, and can even cause embryonic lethality. The complexity of this system and its interacting proteins have made Wnt signaling a target for many therapeutic treatments. However, both stimulatory and inhibitory treatments come with potential risks that need to be addressed. This review synthesized much of the current knowledge on the Wnt signaling pathway, beginning with the history of Wnt signaling. It thoroughly described the different variants of Wnt signaling, including canonical, noncanonical Wnt/PCP, and the noncanonical Wnt/Ca2+ pathway. Further description involved each of its components and their involvement in other cellular processes. Finally, this review explained the various other pathways and processes that crosstalk with Wnt signaling.}
       \field{issn}{2352-3042}
       \field{journaltitle}{Genes \& Diseases}
       \field{month}{1}
@@ -15903,7 +14612,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S2352304223000557
       \endverb
-      \keyw{Canonical Wnt,Noncanonical Wnt,Signal transduction,Signaling crosstalk,$\beta$-catenin}
+      \keyw{Canonical Wnt,Noncanonical Wnt,Signal transduction,Signaling crosstalk,β-catenin}
     \endentry
     \entry{reiland_growth_1978}{article}{}{}
       \name{author}{1}{}{%
@@ -15940,7 +14649,7 @@
       \field{year}{1978}
       \field{pages}{15\bibrangedash 22}
       \range{pages}{8}
-      \keyw{Animals,Body Weight,Bone Development,Male,Swine,Tooth}
+      \keyw{Animals,Swine,Body Weight,Bone Development,Male,Tooth}
     \endentry
     \entry{rotundo_expression_2003}{article}{}{}
       \name{author}{1}{}{%
@@ -16117,7 +14826,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Myostatin is a negative regulator of muscle growth and metabolism and its inhibition in mice improves insulin sensitivity, increases glucose uptake into skeletal muscle, and decreases total body fat. A recently described mammalian protein called MSS51 is significantly downregulated with myostatin inhibition. In vitro disruption of Mss51 results in increased levels of ATP, $\beta$-oxidation, glycolysis, and oxidative phosphorylation. To determine the in vivo biological function of Mss51 in mice, we disrupted the Mss51 gene by CRISPR/Cas9 and found that Mss51-KO mice have normal muscle weights and fiber-type distribution but reduced fat pads. Myofibers isolated from Mss51-KO mice showed an increased oxygen consumption rate compared with WT controls, indicating an accelerated rate of skeletal muscle metabolism. The expression of genes related to oxidative phosphorylation and fatty acid $\beta$-oxidation were enhanced in skeletal muscle of Mss51-KO mice compared with that of WT mice. We found that mice lacking Mss51 and challenged with a high-fat diet were resistant to diet-induced weight gain, had increased whole-body glucose turnover and glycolysis rate, and increased systemic insulin sensitivity and fatty acid $\beta$-oxidation. These findings demonstrate that MSS51 modulates skeletal muscle mitochondrial respiration and regulates whole-body glucose and fatty acid metabolism, making it a potential target for obesity and diabetes.}
+      \field{abstract}{Myostatin is a negative regulator of muscle growth and metabolism and its inhibition in mice improves insulin sensitivity, increases glucose uptake into skeletal muscle, and decreases total body fat. A recently described mammalian protein called MSS51 is significantly downregulated with myostatin inhibition. In vitro disruption of Mss51 results in increased levels of ATP, β-oxidation, glycolysis, and oxidative phosphorylation. To determine the in vivo biological function of Mss51 in mice, we disrupted the Mss51 gene by CRISPR/Cas9 and found that Mss51-KO mice have normal muscle weights and fiber-type distribution but reduced fat pads. Myofibers isolated from Mss51-KO mice showed an increased oxygen consumption rate compared with WT controls, indicating an accelerated rate of skeletal muscle metabolism. The expression of genes related to oxidative phosphorylation and fatty acid β-oxidation were enhanced in skeletal muscle of Mss51-KO mice compared with that of WT mice. We found that mice lacking Mss51 and challenged with a high-fat diet were resistant to diet-induced weight gain, had increased whole-body glucose turnover and glycolysis rate, and increased systemic insulin sensitivity and fatty acid β-oxidation. These findings demonstrate that MSS51 modulates skeletal muscle mitochondrial respiration and regulates whole-body glucose and fatty acid metabolism, making it a potential target for obesity and diabetes.}
       \field{issn}{2379-3708}
       \field{journaltitle}{JCI Insight}
       \field{month}{10}
@@ -16133,46 +14842,7 @@
       \verb{file}
       \verb Full Text:files/3330/Rovira Gonzalez et al. - 2019 - Mss51 deletion enhances muscle metabolism and glucose homeostasis in mice.pdf:application/pdf
       \endverb
-      \keyw{Animals,CRISPR-Cas Systems,Diabetes,Diabetes Mellitus,Type 2,Diet,High-Fat,Disease Models,Animal,Fatty acid oxidation,Fatty Acids,Female,Glucose,Glucose metabolism,Humans,Insulin,Insulin Resistance,Male,Metabolism,Mice,Mice,Knockout,Mitochondria,Mitochondrial Proteins,Muscle Biology,Muscle Fibers,Skeletal,Obesity,Oxidation-Reduction,Oxidative Phosphorylation,Oxygen Consumption,Transcription Factors,Weight Gain,Zinc Fingers}
-    \endentry
-    \entry{russell_principles_1959}{book}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=088858e8ed15109a417867b25607cf84}{%
-           family={Russell},
-           familyi={R\bibinitperiod},
-           given={W.\bibnamedelimi M.\bibnamedelimi S.},
-           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a8e28fc38a647cbafc02294d981e030c}{%
-           family={Burch},
-           familyi={B\bibinitperiod},
-           given={R.\bibnamedelimi L.},
-           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {London}%
-      }
-      \list{publisher}{1}{%
-        {Methuen}%
-      }
-      \strng{namehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{fullhash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{fullhashraw}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{bibnamehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authorbibnamehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authornamehash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authorfullhash}{01c6252dd0e3f22ad24243b99c463a0a}
-      \strng{authorfullhashraw}{01c6252dd0e3f22ad24243b99c463a0a}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The Principles of Humane Experimental Technique}
-      \field{year}{1959}
+      \keyw{Humans,Animals,Transcription Factors,Mice,Disease Models,Animal,Male,Female,Mitochondria,Mitochondrial Proteins,Metabolism,Glucose,Obesity,Mice,Knockout,Oxygen Consumption,Weight Gain,Muscle Fibers,Skeletal,CRISPR-Cas Systems,Diabetes,Diabetes Mellitus,Type 2,Diet,High-Fat,Fatty acid oxidation,Fatty Acids,Glucose metabolism,Insulin,Insulin Resistance,Muscle Biology,Oxidation-Reduction,Oxidative Phosphorylation,Zinc Fingers}
     \endentry
     \entry{schachtschneider_epigenetic_2021}{article}{}{}
       \name{author}{11}{}{%
@@ -18083,40 +16753,6 @@
       \verb https://pmc.ncbi.nlm.nih.gov/articles/PMC6642641/
       \endverb
     \endentry
-    \entry{scoris_klk6_2002}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3f66d86ad2279f9ab1126a6911e19d34}{%
-           family={Scorilas},
-           familyi={S\bibinitperiod},
-           given={Andreas},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{fullhash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{fullhashraw}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{bibnamehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authorbibnamehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authornamehash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authorfullhash}{6d810565074ad0f98a5d4d3e03cd7902}
-      \strng{authorfullhashraw}{6d810565074ad0f98a5d4d3e03cd7902}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Clinical Chemistry}
-      \field{number}{9}
-      \field{title}{Determination of human kallikrein 6 (zyme/protease M/neurosin) in biological fluids: bioavailability and biological implications}
-      \field{volume}{48}
-      \field{year}{2002}
-      \field{pages}{1452\bibrangedash 1455}
-      \range{pages}{4}
-    \endentry
     \entry{simianer_genetic_2010}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=187dbac96cdbc428d613531e9a314cb6}{%
@@ -18238,43 +16874,6 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S1534580710000559
       \endverb
-    \endentry
-    \entry{steele_perkins_nfib_2005}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c37722c3494c7b66333ea5b2af0f759f}{%
-           family={Steele-Perkins},
-           familyi={S\bibinithyphendelim P\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Am Soc Microbiol}%
-      }
-      \strng{namehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{fullhash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{fullhashraw}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{bibnamehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authorbibnamehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authornamehash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authorfullhash}{10abe3d97f2d8b12ac610dae511964b9}
-      \strng{authorfullhashraw}{10abe3d97f2d8b12ac610dae511964b9}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Molecular and Cellular Biology}
-      \field{number}{2}
-      \field{title}{The transcription factor gene Nfib is essential for both lung maturation and brain development}
-      \field{volume}{25}
-      \field{year}{2005}
-      \field{pages}{685\bibrangedash 698}
-      \range{pages}{14}
     \endentry
     \entry{sun_spatial_2025}{article}{}{}
       \name{author}{10}{}{%
@@ -18455,7 +17054,7 @@
       \verb{file}
       \verb SAGE PDF Full Text:files/64/Swindle et al. - 2012 - Swine as Models in Biomedical Research and Toxicology Testing.pdf:application/pdf
       \endverb
-      \keyw{Animal Use Alternatives,Animals,Biomedical Research,Drug-Related Side Effects and Adverse Reactions,Female,Humans,Male,Models,Animal,Sus scrofa,Swine,Swine,Miniature,Toxicity Tests}
+      \keyw{Humans,Animals,Biomedical Research,Models,Animal,Swine,Male,Female,Animal Use Alternatives,Drug-Related Side Effects and Adverse Reactions,Sus scrofa,Swine,Miniature,Toxicity Tests}
     \endentry
     \entry{teng_compendium_2024}{article}{}{}
       \name{author}{102}{}{%
@@ -19286,7 +17885,7 @@
       \verb{url}
       \verb http://link.springer.com/10.1007/978-3-642-88418-4
       \endverb
-      \keyw{amyotrophic lateral sclerosis (ALS),anatomy,attention,biology,birth,development,developmental biology,documentation,embryo,gene,hernia,implantation,mouse,newborn,research}
+      \keyw{development,amyotrophic lateral sclerosis (ALS),anatomy,attention,biology,birth,developmental biology,documentation,embryo,gene,hernia,implantation,mouse,newborn,research}
     \endentry
     \entry{thomasen_sorcs2_2023}{article}{}{}
       \name{author}{23}{}{%
@@ -19472,53 +18071,98 @@
       \endverb
       \keyw{image segmentation,light-sheet microscopy,motor neurons,nerve injury,neurodevelopment,neurotrophic signaling,progranulin,SorCS2,VPS10p-D receptors,zebrafish}
     \endentry
-    \entry{van_der_meer_gfi1_2010}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=b1a5c74cd48896bb789b064a52479823}{%
-           family={Meer},
-           familyi={M\bibinitperiod},
-           given={L.\bibnamedelimi T.},
-           giveni={L\bibinitperiod\bibinitdelim T\bibinitperiod},
-           givenun=0,
-           prefix={van\bibnamedelima der},
-           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
-        {{un=0,uniquepart=base,hash=6fdeb4c7e073bc9daaeb4619aa9ac9bb}{%
-           family={Jansen},
-           familyi={J\bibinitperiod},
-           given={J.\bibnamedelimi H.},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+    \entry{waddell_dlk1_2010}{article}{}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=b7d106162e9454edbda787ea1c71f366}{%
+           family={Waddell},
+           familyi={W\bibinitperiod},
+           given={Jolena\bibnamedelima N.},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=6d8452163d6e18617e9dd3a42bc11ed6}{%
-           family={Reijden},
-           familyi={R\bibinitperiod},
-           given={B.\bibnamedelimi A.},
-           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0,
-           prefix={van\bibnamedelima der},
-           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=3114553b96cfbe74fc1fd958640c96e4}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Peijing},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=410e714052a81f8ff438160cd9f5eda8}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Yefei},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a2df7ef61e4b669f6765f8e2ba8ac8c}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Sanjay\bibnamedelima K.},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4162f3cbee5ce9c0788b706edace937e}{%
+           family={Yevtodiyenko},
+           familyi={Y\bibinitperiod},
+           given={Aleksey},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78565559d5585247c9a5dfe1ece8b9a1}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Jennifer\bibnamedelima V.},
+           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d32ce81e39c67bfbf49f85cc9ab7d368}{%
+           family={Bidwell},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima A.},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63e17e24dd9b8137c976a8c361bab819}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Ashok},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d634e21c57fb9912013e752658fc0da6}{%
+           family={Kuang},
+           familyi={K\bibinitperiod},
+           given={Shihuan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
       }
-      \strng{namehash}{aa028a4ec4f36e3116b1864d44966408}
-      \strng{fullhash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{fullhashraw}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{bibnamehash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{authorbibnamehash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{authornamehash}{aa028a4ec4f36e3116b1864d44966408}
-      \strng{authorfullhash}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \strng{authorfullhashraw}{2a7d3d72ab03ebef1dc593a45f8651a0}
-      \field{sortinit}{v}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{ab954db25d0948cccbef356d30e88767}
+      \strng{fullhash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{fullhashraw}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{bibnamehash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{authorbibnamehash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{authornamehash}{ab954db25d0948cccbef356d30e88767}
+      \strng{authorfullhash}{06b1ce44c10d02fee3efc13a1333bac4}
+      \strng{authorfullhashraw}{06b1ce44c10d02fee3efc13a1333bac4}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Leukemia}
+      \field{abstract}{Delta-like 1homolog (Dlk1) is an imprinted gene encoding a transmembrane protein whose increased expression has been associated with muscle hypertrophy in animal models. However, the mechanisms by which Dlk1 regulates skeletal muscle plasticity remain unknown. Here we combine conditional gene knockout and over-expression analyses to investigate the role of Dlk1 in mouse muscle development, regeneration and myogenic stem cells (satellite cells). Genetic ablation of Dlk1 in the myogenic lineage resulted in reduced body weight and skeletal muscle mass due to reductions in myofiber numbers and myosin heavy chain IIB gene expression. In addition, muscle-specific Dlk1 ablation led to postnatal growth retardation and impaired muscle regeneration, associated with augmented myogenic inhibitory signaling mediated by NF-κB and inflammatory cytokines. To examine the role of Dlk1 in satellite cells, we analyzed the proliferation, self-renewal and differentiation of satellite cells cultured on their native host myofibers. We showed that ablation of Dlk1 inhibits the expression of the myogenic regulatory transcription factor MyoD, and facilitated the self-renewal of activated satellite cells. Conversely, Dlk1 over-expression inhibited the proliferation and enhanced differentiation of cultured myoblasts. As Dlk1 is expressed at low levels in satellite cells but its expression rapidly increases upon myogenic differentiation in vitro and in regenerating muscles in vivo, our results suggest a model in which Dlk1 expressed by nascent or regenerating myofibers non-cell autonomously promotes the differentiation of their neighbor satellite cells and therefore leads to muscle hypertrophy.}
+      \field{issn}{1932-6203}
+      \field{journaltitle}{PLoS One}
+      \field{month}{11}
       \field{number}{11}
-      \field{title}{Gfi1 and Gfi1b: key regulators of hematopoiesis}
-      \field{volume}{24}
+      \field{title}{Dlk1 is necessary for proper skeletal muscle development and regeneration}
+      \field{volume}{5}
       \field{year}{2010}
-      \field{pages}{1834\bibrangedash 1843}
-      \range{pages}{10}
+      \field{pages}{e15055}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0015055
+      \endverb
+      \verb{file}
+      \verb Full Text:files/3483/Waddell et al. - 2010 - Dlk1 is necessary for proper skeletal muscle development and regeneration.pdf:application/pdf
+      \endverb
+      \keyw{Animals,Blotting,Western,Calcium-Binding Proteins,Cell Differentiation,Cell Line,Cell Proliferation,Cells,Cultured,Immunohistochemistry,Intercellular Signaling Peptides and Proteins,Mice,Mice,Inbred C57BL,Mice,Knockout,Muscle Fibers,Skeletal,Muscle,Skeletal,Myoblasts,MyoD Protein,Regeneration,Reverse Transcriptase Polymerase Chain Reaction,Satellite Cells,Skeletal Muscle}
     \endentry
     \entry{wang_rna-seq_2009}{article}{}{}
       \name{author}{3}{}{%
@@ -19981,7 +18625,7 @@
       \verb{url}
       \verb https://doi.org/10.1631/jzus.B1500010
       \endverb
-      \keyw{A,Growth,Morbidity,Mortality,Pig,Q95,Sow nutrition,Within-litter variation,发病率,死亡率,母,猪,猪营养,生长性能,窝内变异}
+      \keyw{Pig,A,Growth,Morbidity,Mortality,Q95,Sow nutrition,Within-litter variation,发病率,死亡率,母,猪,猪营养,生长性能,窝内变异}
     \endentry
     \entry{zaret_regulatory_2002}{article}{}{}
       \name{author}{1}{}{%
@@ -20013,7 +18657,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Foxa transcription factors help endow the competence to activate liver genes in development by binding to regulatory sequences in precursor endoderm and opening a local domain of chromatin. Fibroblast growth factors and bone morphogenetic proteins, which are secreted from different mesodermal cell types, induce the hepatic gene programme in the endoderm, whereas they inhibit the pancreatic programme. Transcription factors Hex and Prox1 are crucial for nascent hepatoblasts to undergo a transition from an endodermal epithelium to a non-polarized, migrating cell that proliferates more rapidly, thereby creating a liver bud. Expansion of a liver bud into a haematopoietic organ, during fetal development, requires a diverse array of growth signals, including those from the septum transversum mesenchyme and from primitive endothelial cells that surround the liver bud, before blood-vessel formation. Distinct transcriptional cascades have been identified that promote the differentiation of hepatocytes and bile-duct cells from early hepatoblasts. The transcription factors Hnf4 (hepatocyte nuclear factor-4) and C/EBP$\alpha$ (CCAAT/enhancer binding protein-$\alpha$) promote the terminal differentiation of hepatocytes as the organ ceases to be a site of haematopoiesis and begins to control metabolite and protein levels in the blood, during the perinatal period.}
+      \field{abstract}{Foxa transcription factors help endow the competence to activate liver genes in development by binding to regulatory sequences in precursor endoderm and opening a local domain of chromatin. Fibroblast growth factors and bone morphogenetic proteins, which are secreted from different mesodermal cell types, induce the hepatic gene programme in the endoderm, whereas they inhibit the pancreatic programme. Transcription factors Hex and Prox1 are crucial for nascent hepatoblasts to undergo a transition from an endodermal epithelium to a non-polarized, migrating cell that proliferates more rapidly, thereby creating a liver bud. Expansion of a liver bud into a haematopoietic organ, during fetal development, requires a diverse array of growth signals, including those from the septum transversum mesenchyme and from primitive endothelial cells that surround the liver bud, before blood-vessel formation. Distinct transcriptional cascades have been identified that promote the differentiation of hepatocytes and bile-duct cells from early hepatoblasts. The transcription factors Hnf4 (hepatocyte nuclear factor-4) and C/EBPα (CCAAT/enhancer binding protein-α) promote the terminal differentiation of hepatocytes as the organ ceases to be a site of haematopoiesis and begins to control metabolite and protein levels in the blood, during the perinatal period.}
       \field{issn}{1471-0064}
       \field{journaltitle}{Nat Rev Genet}
       \field{month}{7}
@@ -20037,7 +18681,7 @@
       \verb{url}
       \verb https://www.nature.com/articles/nrg837
       \endverb
-      \keyw{Agriculture,Animal Genetics and Genomics,Biomedicine,Cancer Research,Gene Function,general,Human Genetics}
+      \keyw{Agriculture,Biomedicine,general,Animal Genetics and Genomics,Cancer Research,Gene Function,Human Genetics}
     \endentry
     \entry{zhang_night-restricted_2025}{article}{}{}
       \name{author}{11}{}{%
@@ -20326,6 +18970,20 @@
       \keyw{Aging,B lymphocytes differentiation,Cell-to-cell variability,Evaluation framework,Single-cell RNA-seq}
     \endentry
   \enddatalist
+  \missing{baker_reproducibility_2016}
+  \missing{barlow_statistical_1972}
+  \missing{bell_igf2bp_2013}
+  \missing{benjamini_controlling_1995}
+  \missing{black_mef2_1998}
+  \missing{efron_bootstrap_1979}
+  \missing{guo_triadin_1995}
+  \missing{hastie_elements_2009}
+  \missing{hu_aldh18a1_2008}
+  \missing{jaccard_distribution_1912}
+  \missing{mcinnes_umap_2018}
+  \missing{scoris_klk6_2002}
+  \missing{steele_perkins_nfib_2005}
+  \missing{van_der_meer_gfi1_2010}
 \endrefsection
 \endinput
 
