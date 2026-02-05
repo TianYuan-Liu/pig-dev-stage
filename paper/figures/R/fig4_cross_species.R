@@ -162,8 +162,8 @@ create_panel_a <- function(df_clean) {
       hjust = 1.1, vjust = -0.3, size = 2.5, fontface = "bold"
     ) +
     labs(
-      x = "Pig Log2 Fold Change (Infant vs Adult)",
-      y = "Human Log2 Fold Change (Infant vs Adult)"
+      x = "Pig Log2 Fold Change (Adult/Infant)",
+      y = "Human Log2 Fold Change (Adult/Infant)"
     ) +
     nature_theme() +
     theme(
@@ -225,7 +225,7 @@ create_panel_c <- function(df_clean) {
       name = "Species"
     ) +
     labs(
-      x = "Log2 Fold Change (Infant vs Adult)",
+      x = "Log2 Fold Change (Adult/Infant)",
       y = NULL
     ) +
     nature_theme() +

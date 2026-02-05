@@ -306,7 +306,7 @@ Human skeletal muscle transcriptomic data comparing infant (7--28 months) versus
 
 Using adaptive thresholding to optimise the gene selection, 36 genes meeting significance criteria ($p < 0.10$ in both species) were identified. The Pearson correlation between pig and human fold changes was $r = 0.618$ ($p = 5.86 \times 10^{-5}$), indicating a strong positive relationship between developmental trajectories in the two species.
 
-Bootstrap analysis confirmed the robustness of this correlation. The 95\% bootstrap confidence interval was 0.364--0.787 (based on 1,000 iterations), excluding zero and confirming the statistical significance of the conservation signal.
+Bootstrap analysis confirmed the robustness of this correlation. The 95\% bootstrap confidence interval was 0.36--0.81 (based on 1,000 iterations), excluding zero and confirming the statistical significance of the conservation signal.
 
 \subsubsection{Directional Concordance}
 
@@ -326,21 +326,21 @@ Three functional modules of conserved developmental genes were identified:
 
 \subsubsection{Module 1: Neuromuscular Maturation}
 
-This module includes genes involved in the establishment of mature neuromuscular function:
+This module comprises genes with high infant expression that decreases during postnatal development:
 
-This module includes \textbf{SORCS2}, a neurotrophin receptor involved in motor neuron development; \textbf{ACHE}, essential for synaptic transmission; and \textbf{KREMEN1}, a negative regulator of Wnt signalling. All three genes were upregulated during development in both species (pig FC: 1.25--1.84; human FC: 0.95--1.43).
+\textbf{ACHE} (pig FC = $-$1.81, human FC = $-$0.53), essential for neuromuscular junction function \parencite{rotundo_expression_2003}, shows elevated expression in the Infant stage (0--20 days; mean TPM = 16.2) that progressively declines through Early childhood (21--59 days; TPM = 9.9), Pre-pubertal (60--149 days; TPM = 9.1), to baseline in Post-pubertal stages (150--365 days; TPM = 1.3). \textbf{KREMEN1} (pig FC = $-$1.25, human FC = $-$1.43), a negative regulator of Wnt/$\beta$-catenin signalling that controls cellular proliferation \parencite{osada_wnt_2006}, shows a similar gradual postnatal decline. \textbf{SORCS2} (pig FC = $-$1.84, human FC = $-$0.95), a regulator of motor neuron innervation \parencite{thomasen_sorcs2_2023}, is highly expressed embryonically and during early postnatal life (Infant TPM = 14.6) and becomes progressively downregulated through Early childhood (TPM = 10.9), Pre-pubertal (TPM = 6.5), reaching its lowest in Post-pubertal (TPM = 0.6).
 
 \subsubsection{Module 2: Structural Refinement}
 
-This module includes genes involved in tissue structural organisation:
+This module reflects the transition from rapid tissue growth to structural consolidation:
 
-The module is characterised by the upregulation of \textbf{FGFRL1} (pig FC = 1.68, human FC = 2.10), a decoy FGF receptor, and \textbf{IGSF1} (pig FC = 2.45, human FC = 0.34), an immunoglobulin superfamily member involved in neuroendocrine function.
+\textbf{FGFRL1} (pig FC = $-$1.68, human FC = $-$2.10) acts as a decoy receptor dampening excessive FGF signalling \parencite{amann_fgfrl1_2014}; its expression peaks during the embryonic/fetal and early postnatal periods (Infant TPM = 71.2), drops sharply in Early childhood (TPM = 20.6), and decreases substantially to its lowest in Post-pubertal (TPM = 4.3). \textbf{DLK1} (pig FC = $-$1.37, human FC = $-$2.88), a crucial regulator of the myogenic program that inhibits myoblast proliferation while promoting differentiation \parencite{waddell_dlk1_2010,andersen_dual_2013}, shows high infant expression that declines substantially during postnatal development as the muscle fiber population matures. \textbf{PDLIM3} (pig FC = 2.19, human FC = 0.56), a structural Z-disc protein that stabilises actin filaments \parencite{ohsawa_alternative_2011}, shows the opposite pattern---lower infant expression (TPM = 278.6) that increases substantially during postnatal development (Post-pubertal TPM = 1221.2, Adult TPM = 1269.4) as the mature contractile apparatus is established.
 
 \subsubsection{Module 3: Metabolic Transition}
 
-This module includes genes involved in metabolic adaptation:
+This module captures genes upregulated during metabolic maturation of skeletal muscle:
 
-This module features genes downregulated during development, notably \textbf{MSS51} (pig FC = $-$3.02, human FC = $-$1.55), a regulator of mitochondrial respiration, and \textbf{PDLIM3} (pig FC = $-$2.19, human FC = $-$0.56), a cytoskeletal scaffold protein. The downregulation of these genes is consistent with the metabolic maturation of muscle tissue.
+\textbf{MSS51} (pig FC = 3.02, human FC = 1.55) is a skeletal muscle-specific regulator of oxidative metabolism \parencite{rovira_gonzalez_mss51_2019}. Notably, MSS51 is highly expressed specifically in fast-twitch (glycolytic) muscle fibres, with reduced expression in slow-twitch (oxidative) fibres; the increased postnatal expression reflects the maturation of fast-twitch fibre metabolism.
 
 \subsection{Biological Significance of Conservation}
 
@@ -361,15 +361,15 @@ The biological functions of key conserved markers provide insight into the molec
 \toprule
 \textbf{Gene} & \textbf{Developmental Function} & \textbf{Pig FC} & \textbf{Human FC} \\
 \midrule
-\textit{SORCS2} & Regulates trafficking of signalling receptors, balancing neuronal growth and pruning for precise circuit development. & 1.84 & 0.95 \\
+\textit{SORCS2} & Regulates trafficking of signalling receptors, balancing neuronal growth and pruning for precise circuit development. & $-$1.84 & $-$0.95 \\
 \addlinespace
-\textit{FGFRL1} & Acts as a decoy receptor dampening excessive growth factor signalling during tissue formation. & 1.68 & 2.10 \\
+\textit{FGFRL1} & Acts as a decoy receptor dampening excessive growth factor signalling during tissue formation. & $-$1.68 & $-$2.10 \\
 \addlinespace
-\textit{KREMEN1} & Negative regulator of Wnt signalling, controlling cell survival and tissue patterning. & 1.25 & 1.43 \\
+\textit{KREMEN1} & Negative regulator of Wnt signalling, controlling cell survival and tissue patterning. & $-$1.25 & $-$1.43 \\
 \addlinespace
-\textit{MSS51} & Skeletal muscle-specific brake on metabolism, regulating mitochondrial respiration during fibre maturation. & $-$3.02 & $-$1.55 \\
+\textit{MSS51} & Skeletal muscle-specific regulator of metabolism, modulating mitochondrial respiration during fibre maturation. & 3.02 & 1.55 \\
 \addlinespace
-\textit{PDLIM3} & Cytoskeletal scaffold stabilising actin filaments at the muscle Z-disc. & $-$2.19 & $-$0.56 \\
+\textit{PDLIM3} & Structural Z-disc protein stabilising actin filaments at the muscle Z-disc. & 2.19 & 0.56 \\
 \bottomrule
 \end{tabular}
 \end{table}

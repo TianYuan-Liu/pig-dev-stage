@@ -13,7 +13,7 @@
   \includegraphics[width=\textwidth]{../../paper/figures/output/pdf/figS1_cross_species_sensitivity.pdf}
   \caption{\textbf{Cross-species sensitivity analysis of conserved developmental markers.}
   \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across significance thresholds ranging from $p < 0.01$ to $p < 0.20$. Shaded region indicates the range (minimum--maximum) across different gene set sizes ($n = 15$--$50$ genes).
-  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.603$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.404--0.776).}
+  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.618$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.36--0.81).}
   \label{fig:S1}
 \end{figure}
 
@@ -105,7 +105,7 @@
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (infant vs.\ adult). Pig FC derived from pig GTEx data (GEO: GSE257558) \parencite{teng_compendium_2024}; Human FC from \textcite{schaiter_molecular_2024}.}
+  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (adult/infant); positive values indicate higher expression in adults (upregulated during development), negative values indicate higher expression in infants (downregulated during development). Pig FC derived from pig GTEx data (GEO: GSE257558) \parencite{teng_compendium_2024}; Human FC from \textcite{schaiter_molecular_2024}.}
   \label{tab:S3}
   \footnotesize
   \singlespacing
@@ -113,19 +113,45 @@
     \toprule
     Gene & Developmental Function & Pig FC & Human FC \\
     \midrule
-    \textit{SORCS2} & Serves as a molecular switch directing trafficking of key signalling receptors to regulate the balance between neuronal growth and pruning, ensuring precise wiring of the developing nervous system \parencite{thomasen_sorcs2_2023}. & 1.84 & 0.95 \\
+    \textit{SORCS2} & Serves as a molecular switch directing trafficking of key signalling receptors to regulate the balance between neuronal growth and pruning, ensuring precise wiring of the developing nervous system \parencite{thomasen_sorcs2_2023}. & $-$1.84 & $-$0.95 \\
     \addlinespace
-    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive growth factor signalling to ensure proper formation of critical structures including the diaphragm, kidneys, and skeleton \parencite{amann_fgfrl1_2014}. & 1.68 & 2.10 \\
+    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive growth factor signalling to ensure proper formation of critical structures including the diaphragm, kidneys, and skeleton \parencite{amann_fgfrl1_2014}. & $-$1.68 & $-$2.10 \\
     \addlinespace
-    \textit{KREMEN1} & Functions as a critical negative regulator of Wnt signalling, partnering with Dkk1 to control cell survival and ensure proper patterning of organs including thymus, teeth, and neural tissues \parencite{osada_wnt_2006}. & 1.25 & 1.43 \\
+    \textit{KREMEN1} & Functions as a critical negative regulator of Wnt signalling, partnering with Dkk1 to control cell survival and ensure proper patterning of organs including thymus, teeth, and neural tissues \parencite{osada_wnt_2006}. & $-$1.25 & $-$1.43 \\
     \addlinespace
-    \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring \parencite{rotundo_expression_2003}. & 1.81 & 0.53 \\
+    \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring \parencite{rotundo_expression_2003}. & $-$1.81 & $-$0.53 \\
     \addlinespace
-    \textit{MSS51} & Acts as a skeletal muscle-specific ``brake'' on metabolism, regulating mitochondrial respiration and energy expenditure as muscle fibres differentiate and mature \parencite{rovira_gonzalez_mss51_2019}. & $-$3.02 & $-$1.55 \\
+    \textit{MSS51} & Acts as a skeletal muscle-specific regulator of metabolism, modulating mitochondrial respiration and energy expenditure. Highly expressed specifically in fast-twitch (glycolytic) muscle fibres; expression increases postnatally as fast-twitch fibres mature. Expression in slow-twitch (oxidative) fibres is reduced \parencite{rovira_gonzalez_mss51_2019}. & 3.02 & 1.55 \\
     \addlinespace
-    \textit{IGSF1} & Regulates the neuroendocrine system by modulating signal transduction in the pituitary gland, enabling maturation of the thyroid axis and coordination of testicular development \parencite{joustra_igsf1_2019}. & 2.45 & 0.34 \\
+    \textit{DLK1} & Crucial regulator of the myogenic program that inhibits myoblast proliferation while promoting differentiation; shows high infant expression that declines as the muscle fiber population matures \parencite{waddell_dlk1_2010,andersen_dual_2013}. & $-$1.37 & $-$2.88 \\
     \addlinespace
-    \textit{PDLIM3} & Acts as a cytoskeletal scaffolding protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of the heart \parencite{ohsawa_alternative_2011}. & $-$2.19 & $-$0.56 \\
+    \textit{ACTC1} & Cardiac $\alpha$-actin expressed in fetal skeletal muscle; switches to skeletal actin (ACTA1) postnatally as a hallmark of muscle fiber maturation. LMOD2-ACTC1 interaction regulates myogenic differentiation. & $-$2.54 & $-$0.28 \\
+    \addlinespace
+    \textit{PDLIM3} & Acts as a structural Z-disc protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of striated muscle. Expression increases from Infant (low) through development to Adult stages (high), reflecting establishment of the mature contractile apparatus \parencite{ohsawa_alternative_2011}. & 2.19 & 0.56 \\
     \bottomrule
   \end{tabularx}
 \end{table}
+
+\clearpage
+
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Stage-by-stage expression trajectories of key developmental markers.} Mean TPM values across porcine developmental stages for genes with conserved pig-human developmental patterns. Stage boundaries: Infant (0--20 days), Early childhood (21--59 days), Pre-pubertal (60--149 days), Post-pubertal (150--365 days), Adult (>365 days). ``Peak Change'' indicates the developmental transition with the largest fold change.}
+  \label{tab:S4}
+  \footnotesize
+  \begin{tabular}{lcccccl}
+    \toprule
+    Gene & Infant & Early & Pre-pub & Post-pub & Adult & Peak Change \\
+    \midrule
+    \textit{SORCS2} & 14.6 & 10.9 & 6.5 & 0.6 & 4.1 & Pre-pub$\to$Post-pub \\
+    \textit{FGFRL1} & 71.2 & 20.6 & 27.0 & 4.3 & 22.2 & Infant$\to$Early \\
+    \textit{ACHE} & 16.2 & 9.9 & 9.1 & 1.3 & 4.6 & Pre-pub$\to$Post-pub \\
+    \textit{KREMEN1} & 28.9 & 15.1 & 12.2 & 5.2 & 12.1 & Pre-pub$\to$Post-pub \\
+    \textit{DLK1} & 301.5 & 25.8 & 121.8 & 0.7 & 116.5 & Infant$\to$Early \\
+    \textit{ACTC1} & 9112.7 & 696.0 & 1125.4 & 57.6 & 1566.8 & Pre-pub$\to$Post-pub \\
+    \textit{MSS51} & 28.9 & 177.3 & 191.4 & 229.2 & 234.8 & Infant$\to$Early \\
+    \textit{PDLIM3} & 278.6 & 771.0 & 535.0 & 1221.2 & 1269.4 & Infant$\to$Early \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+

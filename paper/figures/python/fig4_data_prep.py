@@ -151,6 +151,72 @@ def get_pig_id_from_symbol_batch(symbols: list) -> dict:
 
 
 # ==============================================================================
+# KEY GENES FOR STAGE TRAJECTORY ANALYSIS
+# ==============================================================================
+KEY_GENES = {
+    "ENSSSCG00000037539": "SORCS2",
+    "ENSSSCG00000036512": "FGFRL1",
+    "ENSSSCG00000030303": "ACHE",
+    "ENSSSCG00000009972": "KREMEN1",
+    "ENSSSCG00000035805": "DLK1",
+    "ENSSSCG00000004803": "ACTC1",
+    "ENSSSCG00000010300": "MSS51",
+    "ENSSSCG00000015796": "PDLIM3"
+}
+
+
+# ==============================================================================
+# STAGE TRAJECTORY FUNCTIONS
+# ==============================================================================
+
+def calculate_stage_trajectories(pig_expr, metadata, key_genes):
+    """
+    Calculate mean expression across all 5 pig developmental stages for key genes.
+
+    Args:
+        pig_expr: DataFrame with gene expression (genes x samples)
+        metadata: DataFrame with sample metadata including Stage column
+        key_genes: Dict mapping gene_id -> gene_symbol
+
+    Returns:
+        DataFrame with stage means and transition FCs
+    """
+    stage_order = [
+        "Infant_0_20d",
+        "Early childhood_21_59d",
+        "Pre_pubertal_60_149d",
+        "Post_pubertal_150_365d",
+        "Adult_>365d"
+    ]
+    stage_labels = ["Infant", "Early", "Pre-pub", "Post-pub", "Adult"]
+
+    results = []
+    for gene_id, gene_symbol in key_genes.items():
+        if gene_id not in pig_expr.index:
+            continue
+
+        row = {"gene_id": gene_id, "gene_symbol": gene_symbol}
+
+        # Calculate mean TPM per stage
+        for i, stage in enumerate(stage_order):
+            stage_samples = metadata[metadata["Stage"] == stage]["Sample_ID"]
+            valid = [s for s in stage_samples if s in pig_expr.columns]
+            if valid:
+                row[f"mean_{stage_labels[i]}"] = pig_expr.loc[gene_id, valid].mean()
+
+        # Calculate consecutive stage FCs
+        for i in range(len(stage_labels) - 1):
+            s1, s2 = stage_labels[i], stage_labels[i+1]
+            if f"mean_{s1}" in row and f"mean_{s2}" in row:
+                fc = np.log2((row[f"mean_{s2}"] + 0.01) / (row[f"mean_{s1}"] + 0.01))
+                row[f"fc_{s1}_to_{s2}"] = fc
+
+        results.append(row)
+
+    return pd.DataFrame(results)
+
+
+# ==============================================================================
 # DATA LOADING FUNCTIONS
 # ==============================================================================
 
@@ -309,12 +375,12 @@ def main():
         label = row["biomarker_label"]
         imp = row["importance"]
         
-        # Pig stats
+        # Pig stats - FC = log2(Adult/Infant), positive = increases with age
         fc_pig, p_pig = np.nan, np.nan
         if pig_id in pig_expr.index:
-            v1 = pig_expr.loc[pig_id, p_young].astype(float)
-            v2 = pig_expr.loc[pig_id, p_adult].astype(float)
-            fc_pig = np.log2((v1.mean() + 0.01) / (v2.mean() + 0.01))
+            v1 = pig_expr.loc[pig_id, p_young].astype(float)  # Infant
+            v2 = pig_expr.loc[pig_id, p_adult].astype(float)  # Adult
+            fc_pig = np.log2((v2.mean() + 0.01) / (v1.mean() + 0.01))
             try:
                 p_pig = stats.mannwhitneyu(v1, v2)[1]
             except:
@@ -331,9 +397,9 @@ def main():
                     break
             
             if found_sym:
-                h1 = human_expr.loc[found_sym, h_infant].astype(float)
-                h2 = human_expr.loc[found_sym, h_adult].astype(float)
-                fc_human = np.log2((h1.mean() + 0.01) / (h2.mean() + 0.01))
+                h1 = human_expr.loc[found_sym, h_infant].astype(float)  # Infant
+                h2 = human_expr.loc[found_sym, h_adult].astype(float)   # Adult
+                fc_human = np.log2((h2.mean() + 0.01) / (h1.mean() + 0.01))
                 try:
                     p_human = stats.mannwhitneyu(h1, h2)[1]
                 except:
@@ -365,6 +431,23 @@ def main():
     print(f"  Significant in both: {len(sig)}")
     print(f"  Conserved direction: {len(conserved)}")
     
+    # Generate stage trajectory data for key genes
+    print("\nCalculating stage trajectories for key genes...")
+    meta_full = pd.read_csv(DATA_DIR / "full_metadata.csv")
+    muscle_meta = meta_full[meta_full["Tissue"] == "Muscle"]
+
+    trajectories = calculate_stage_trajectories(pig_expr, muscle_meta, KEY_GENES)
+    trajectories.to_csv(OUTPUT_DIR / "fig4_stage_trajectories.csv", index=False)
+    print(f"Saved: {OUTPUT_DIR / 'fig4_stage_trajectories.csv'}")
+
+    # Print trajectory summary
+    print("\nStage trajectory summary:")
+    for _, row in trajectories.iterrows():
+        gene = row["gene_symbol"]
+        cols = [c for c in row.index if c.startswith("mean_")]
+        vals = [f"{row[c]:.1f}" if pd.notna(row.get(c)) else "--" for c in cols]
+        print(f"  {gene}: {' -> '.join(vals)}")
+
     print("\n✓ Data preparation completed!")
 
 
