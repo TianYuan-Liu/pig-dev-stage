@@ -134,15 +134,15 @@ def find_optimal_parameters(df):
     Find optimal p-threshold and n for correlation.
     
     IMPORTANT: To ensure consistency with Figure 4, we use FIXED parameters
-    that match the R script (fig4_cross_species.R): p < 0.10, n = 36 genes.
+    that match the R script (fig4_cross_species.R): p < 0.05, n = 43 genes.
     
     The sensitivity analysis is still run for Figure S1a, but the bootstrap
     uses the fixed parameters for consistency.
     """
     # Fixed parameters to match Figure 4 (from fig4_summary.txt)
     # This ensures Figure S1b bootstrap CI matches the main figure
-    FIXED_P_THRESHOLD = 0.10
-    FIXED_N_GENES = 36
+    FIXED_P_THRESHOLD = 0.05
+    FIXED_N_GENES = 43
     
     # Calculate correlation for the fixed configuration
     df_clean = df[

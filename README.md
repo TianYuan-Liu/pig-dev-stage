@@ -18,7 +18,7 @@ Current developmental staging in pig research relies on chronological age or sub
 - **1,924 samples** across **5 tissues** (brain, liver, muscle, lung, blood) from [PigGTEx](https://piggtex.farmgtex.org/)
 - **5 developmental stages**: Infant (0–20d), Early childhood (21–59d), Pre-pubertal (60–149d), Post-pubertal (150–365d), Adult (>365d)
 - **High-precision staging**: Balanced accuracy 0.64–0.92 (mean: 0.83) using LightGBM ordinal classification
-- **Cross-species conservation**: 89% directional concordance with human skeletal muscle (Pearson r = 0.62, p < 10⁻⁴)
+- **Cross-species conservation**: 91% directional concordance with human skeletal muscle (Pearson r = 0.69, p < 10⁻⁷)
 
 ## Project Structure
 
@@ -95,13 +95,13 @@ Rscript fig4_cross_species.R
 We implemented a **reduction-based ordinal classification** framework using LightGBM. Given the ordinal nature of developmental stages, we decomposed the K-class problem into K-1 binary classification subtasks (Frank & Hall method).
 
 **Key parameters:**
-- Feature selection: Top 2000 genes by information gain
+- Feature selection: All preprocessed genes (15,000–20,000 per tissue after variance filtering)
 - Train/test split: 70%/30% stratified
 - Hyperparameters: num_leaves=31, learning_rate=0.05, n_estimators=200
 
 ### Cross-Species Validation
 
-Developmental conservation was validated by comparing pig muscle transcriptomes with human skeletal muscle data from [Schaiter et al. (2024)](https://doi.org/10.1038/s41598-024-74913-4). We identified 36 genes with conserved developmental trajectories (p < 0.10 in both species).
+Developmental conservation was validated by comparing pig muscle transcriptomes with human skeletal muscle data from [Schaiter et al. (2024)](https://doi.org/10.1038/s41598-024-74913-4). We identified 43 genes with conserved developmental trajectories (p < 0.05 in both species).
 
 ## Requirements
 

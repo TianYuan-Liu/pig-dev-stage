@@ -106,20 +106,20 @@ def extract_train_test_metrics():
             'Spearman_r': metrics.get('spearman_r', None)
         })
         
-        # Train set metrics (not available in current results)
-        # Note: Would need to load saved model and predict on train set
+        # Train set metrics (available from new pipeline)
+        train_metrics = results.get('train_metrics', {})
         all_metrics.append({
             'Tissue': tissue,
             'Scheme': scheme,
             'N_samples': n_samples,
             'Set': 'Train',
-            'Balanced_Accuracy': None,  # Not available
-            'F1_macro': None,
-            'F1_weighted': None,
-            'Precision_macro': None,
-            'Recall_macro': None,
-            'MAE': None,
-            'Spearman_r': None
+            'Balanced_Accuracy': train_metrics.get('balanced_accuracy', None),
+            'F1_macro': train_metrics.get('f1_macro', None),
+            'F1_weighted': train_metrics.get('f1_weighted', None),
+            'Precision_macro': train_metrics.get('precision_macro', None),
+            'Recall_macro': train_metrics.get('recall_macro', None),
+            'MAE': train_metrics.get('mae', None),
+            'Spearman_r': train_metrics.get('spearman_r', None)
         })
     
     df = pd.DataFrame(all_metrics)
@@ -148,8 +148,11 @@ def main():
     train_test_file = output_dir / "supplementary_train_test_metrics.csv"
     train_test_df.to_csv(train_test_file, index=False)
     print(f"   Saved to {train_test_file}")
-    print(f"   Note: Train metrics not available in current results")
-    print(f"   Only test set performance is reported (standard practice)")
+    train_available = train_test_df[train_test_df['Set'] == 'Train']['Balanced_Accuracy'].notna().any()
+    if train_available:
+        print(f"   Train and test metrics both available")
+    else:
+        print(f"   Note: Train metrics not available in current results")
     
     print("\n" + "=" * 70)
     print("✓ Extraction complete")

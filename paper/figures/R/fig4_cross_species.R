@@ -59,7 +59,7 @@ cat("Preparing data...\n")
 # Find optimal parameters for correlation
 # Use a range of thresholds to find the "sweet spot" (good R and sufficient N)
 find_best_params <- function(df) {
-  p_thresholds <- c(0.15, 0.1, 0.05, 0.01, 0.005, 0.001)
+  p_thresholds <- c(0.05)
 
   # Store all valid results
   results <- list()

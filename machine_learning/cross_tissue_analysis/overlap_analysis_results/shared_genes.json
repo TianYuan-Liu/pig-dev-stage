@@ -1,14 +1,10 @@
 {
-  "ENSSSCG00000028552": [
-    "Liver",
-    "Muscle"
-  ],
-  "ENSSSCG00000036747": [
-    "Muscle",
+  "ENSSSCG00000005360": [
+    "Lung",
     "Brain"
   ],
-  "ENSSSCG00000003651": [
-    "Blood",
-    "Brain"
+  "ENSSSCG00000044599": [
+    "Lung",
+    "Blood"
   ]
 }

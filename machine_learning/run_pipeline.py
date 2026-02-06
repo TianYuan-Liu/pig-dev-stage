@@ -148,6 +148,59 @@ def create_lightgbm_model(seed: int = None) -> OrdinalLightGBM:
     return OrdinalLightGBM(**params, seed=seed)
 
 
+def validate_hyperparameters(
+    X_train: pd.DataFrame,
+    y_train: np.ndarray,
+    seed: int = 42,
+    n_folds: int = 3,
+    tissue_logger=None
+) -> Dict[str, float]:
+    """
+    Run stratified k-fold CV on training data to validate hyperparameters.
+
+    Args:
+        X_train: Training features (samples x genes)
+        y_train: Training labels
+        seed: Random seed
+        n_folds: Number of CV folds
+        tissue_logger: Logger instance
+
+    Returns:
+        Dictionary with CV balanced accuracy mean and std
+    """
+    from sklearn.model_selection import StratifiedKFold
+    from sklearn.metrics import balanced_accuracy_score
+
+    log = tissue_logger or logger
+
+    skf = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=seed)
+    fold_scores = []
+
+    for fold_i, (train_idx, val_idx) in enumerate(skf.split(X_train, y_train)):
+        X_tr = X_train.iloc[train_idx]
+        X_val = X_train.iloc[val_idx]
+        y_tr, y_val = y_train[train_idx], y_train[val_idx]
+
+        fold_model = create_lightgbm_model(seed=seed)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            fold_model.fit(X_tr, y_tr)
+
+        y_val_pred = fold_model.predict(X_val)
+        ba = balanced_accuracy_score(y_val, y_val_pred)
+        fold_scores.append(ba)
+        log.debug(f"  CV fold {fold_i + 1}/{n_folds}: balanced_accuracy={ba:.3f}")
+
+    cv_mean = float(np.mean(fold_scores))
+    cv_std = float(np.std(fold_scores))
+    log.info(
+        f"Hyperparameter validation CV ({n_folds}-fold): "
+        f"balanced_accuracy={cv_mean:.3f} +/- {cv_std:.3f}"
+    )
+
+    return {'cv_balanced_accuracy_mean': cv_mean, 'cv_balanced_accuracy_std': cv_std}
+
+
 @log_execution_time(logger)
 def run_single_tissue_pipeline(
     tissue_name: str,
@@ -435,48 +488,25 @@ def run_single_tissue_pipeline(
                 if tracker:
                     tracker.end_phase(phase_name)
 
-            # ===== 5. FEATURE SELECTION =====
-            phase_name = "Feature Selection"
-            with LogContext(tissue_logger, phase_name):
-                if tracker:
-                    tracker.start_phase(phase_name)
-                if perf_logger:
-                    perf_logger.start_timer(f"{tissue_name}_feature_selection")
-
-                # Fit LightGBM on training set to derive feature importance
-                max_features = min(config.get('max_features', 2000), X_train_full.shape[1])
-                importance_model = create_lightgbm_model(seed=random_state)
-
-                tissue_logger.debug(
-                    f"LightGBM importance run: max_features={max_features}, "
-                    f"n_estimators={importance_model.n_estimators}"
-                )
-
-                with warnings.catch_warnings(record=True) as w:
-                    warnings.simplefilter("always")
-                    importance_model.fit(X_train_full, y_train)
-                    if w:
-                        for warning in w:
-                            tissue_logger.warning(f"Importance model warning: {warning.message}")
-
-                importance = importance_model.get_feature_importance()
-                selected_genes = importance.head(max_features).index.to_numpy()
-
-                if len(selected_genes) == 0:
-                    raise ValueError("No features selected from LightGBM importance")
-
-                X_train = X_train_full[selected_genes]
-                X_test = X_test_full[selected_genes]
-
-                tissue_logger.info(
-                    f"Selected {len(selected_genes)}/{X_train_full.shape[1]} features via LightGBM importance, "
-                    f"Top 10 genes: {selected_genes[:10].tolist()}"
-                )
-
-                if perf_logger:
-                    perf_logger.end_timer(f"{tissue_name}_feature_selection")
-                if tracker:
-                    tracker.end_phase(phase_name)
+            # ===== 5. HYPERPARAMETER VALIDATION (OPTIONAL) =====
+            cv_results = None
+            pipeline_config_obj = get_config()
+            hp_validation_enabled = config.get(
+                'hyperparameter_validation',
+                getattr(pipeline_config_obj, 'hyperparameter_validation', False)
+            )
+            if hp_validation_enabled:
+                phase_name = "Hyperparameter Validation"
+                with LogContext(tissue_logger, phase_name):
+                    if tracker:
+                        tracker.start_phase(phase_name)
+                    cv_results = validate_hyperparameters(
+                        X_train_full, y_train,
+                        seed=config.get('seed', 42),
+                        tissue_logger=tissue_logger
+                    )
+                    if tracker:
+                        tracker.end_phase(phase_name)
 
             # ===== 6. MODEL TRAINING PHASE =====
             phase_name = "Model Training"
@@ -487,7 +517,12 @@ def run_single_tissue_pipeline(
                     perf_logger.start_timer(f"{tissue_name}_training")
 
                 model = create_lightgbm_model(seed=config.get('seed', 42))
-                tissue_logger.debug("Using OrdinalLightGBM for classification with selected features")
+                X_train = X_train_full
+                X_test = X_test_full
+                tissue_logger.debug(
+                    f"Using OrdinalLightGBM for classification on all "
+                    f"{X_train.shape[1]} preprocessed features"
+                )
 
                 with warnings.catch_warnings(record=True) as w:
                     warnings.simplefilter("always")
@@ -497,11 +532,20 @@ def run_single_tissue_pipeline(
                         for warning in w:
                             tissue_logger.warning(f"Model training warning: {warning.message}")
 
-                # Make predictions
-                y_pred = model.predict(X_test)
+                # Extract feature importance from the trained model
+                importance = model.get_feature_importance()
+                top_genes = importance.head(1000).index.to_numpy()
+                tissue_logger.info(
+                    f"Top 10 genes by importance: {importance.head(10).index.tolist()}"
+                )
 
-                # Get probability predictions for AUROC/AUPRC
+                # Make predictions on test set
+                y_pred = model.predict(X_test)
                 y_prob = model.predict_proba(X_test)
+
+                # Make predictions on training set (for overfitting detection)
+                y_train_pred = model.predict(X_train)
+                y_train_prob = model.predict_proba(X_train)
 
                 # Log prediction distribution
                 pred_dist = pd.Series(y_pred).value_counts()
@@ -523,16 +567,41 @@ def run_single_tissue_pipeline(
                 evaluator = MetricCalculator()
                 label_series = pd.Series(y).dropna()
                 labels = label_series.unique().tolist()
-                # Pass probability predictions for AUROC/AUPRC calculation
+
+                # Test set metrics
                 metrics = evaluator.calculate(y_test, y_pred, y_prob=y_prob, labels=labels)
 
-                # Log detailed metrics
+                # Training set metrics (for overfitting detection)
+                train_metrics = evaluator.calculate(
+                    y_train, y_train_pred, y_prob=y_train_prob, labels=labels
+                )
+
+                # Log detailed metrics with train-test comparison
                 tissue_logger.info(
-                    f"Performance metrics - "
+                    f"Test metrics - "
                     f"Balanced Accuracy: {metrics['balanced_accuracy']:.3f}, "
                     f"F1 Macro: {metrics.get('f1_macro', 0):.3f}, "
                     f"F1 Weighted: {metrics.get('f1_weighted', 0):.3f}"
                 )
+                tissue_logger.info(
+                    f"Train metrics - "
+                    f"Balanced Accuracy: {train_metrics['balanced_accuracy']:.3f}, "
+                    f"F1 Macro: {train_metrics.get('f1_macro', 0):.3f}, "
+                    f"F1 Weighted: {train_metrics.get('f1_weighted', 0):.3f}"
+                )
+
+                # Log train-test gap (overfitting indicator)
+                ba_gap = train_metrics['balanced_accuracy'] - metrics['balanced_accuracy']
+                f1_gap = train_metrics.get('f1_macro', 0) - metrics.get('f1_macro', 0)
+                tissue_logger.info(
+                    f"Train-test gap - "
+                    f"Balanced Accuracy: {ba_gap:+.3f}, "
+                    f"F1 Macro: {f1_gap:+.3f}"
+                )
+                if ba_gap > 0.15:
+                    tissue_logger.warning(
+                        f"Possible overfitting: train-test balanced accuracy gap is {ba_gap:.3f}"
+                    )
 
                 # Log confusion matrix if available
                 if 'confusion_matrix' in metrics:
@@ -559,11 +628,16 @@ def run_single_tissue_pipeline(
                     'n_samples': len(y),
                     'n_genes_initial': X.shape[0],
                     'n_genes_preprocessed': X_train_full.shape[1],
-                    'n_features_selected': len(selected_genes),
+                    'n_features_used': X_train.shape[1],
                     'metrics': metrics,
-                    'top_genes': selected_genes[:1000].tolist(),
-                    'feature_importance': importance.head(max_features).to_dict()
+                    'train_metrics': train_metrics,
+                    'top_genes': top_genes[:1000].tolist(),
+                    'feature_importance': importance.head(1000).to_dict()
                 }
+
+                # Add CV results if hyperparameter validation was run
+                if cv_results is not None:
+                    results['cv_validation'] = cv_results
 
                 # Add performance metrics if available
                 if perf_logger:
@@ -920,6 +994,11 @@ def main(args=None):
             help='Skip cross-tissue validation'
         )
         parser.add_argument(
+            '--hyperparameter-validation',
+            action='store_true',
+            help='Run 3-fold stratified CV to validate hyperparameters before final training'
+        )
+        parser.add_argument(
             '--log-level',
             choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
             default='INFO',
@@ -997,7 +1076,8 @@ def main(args=None):
         'train_ratio': args.train_ratio,
         'seed': args.seed,
         'tissues': args.tissues,
-        'skip_cross_validation': args.skip_cv
+        'skip_cross_validation': args.skip_cv,
+        'hyperparameter_validation': args.hyperparameter_validation
     }
     logger.info(f"Pipeline configuration: {json.dumps(config, indent=2)}")
 

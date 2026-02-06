@@ -157,7 +157,7 @@
   \includegraphics[width=\textwidth]{figures/output/pdf/figS1_cross_species_sensitivity.pdf}
   \caption{\textbf{Cross-species sensitivity analysis of conserved developmental markers.}
   \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across significance thresholds ranging from $p < 0.01$ to $p < 0.20$. Shaded region indicates the range (minimum--maximum) across different gene set sizes ($n = 15$--$50$ genes).
-  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.618$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.36--0.81).}
+  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the optimal parameter combination ($p < 0.05$, $n = 43$ genes). Solid vertical line indicates the observed correlation ($r = 0.685$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.55--0.80).}
   \label{fig:S1}
 \end{figure}
 
@@ -203,18 +203,27 @@
 % ------------------------------------------------------------------------------
 \begin{table}[H]
   \centering
-  \caption{\textbf{Train versus test performance comparison.} Test set performance (30\% held out) is reported for all tissues. Train set metrics are not shown as models were evaluated only on held-out data to prevent overfitting.}
+  \caption{\textbf{Train versus test performance comparison.} Both train set (70\%) and test set (30\% held out) performance are reported for all tissues. The gap between train and test metrics indicates the degree of overfitting; regularisation and early stopping were used to minimise this gap.}
   \label{tab:S1}
   \small
-  \begin{tabular}{lcccccc}
+  \begin{tabular}{llccccc}
     \toprule
-    Tissue & Scheme & $n$ & Balanced Acc. & F1-macro & F1-weighted & MAE \\
+    Tissue & Set & Scheme & $n$ & Balanced Acc. & F1-macro & F1-weighted \\
     \midrule
-    Muscle & 4-class & 761 & 0.844 & 0.842 & 0.908 & 0.10 \\
-    Brain & 2-class & 43 & 0.637 & 0.639 & 0.671 & -- \\
-    Liver & 4-class & 309 & 0.920 & 0.910 & 0.913 & 0.09 \\
-    Blood & 2-class & 78 & 0.864 & 0.869 & 0.874 & -- \\
-    Lung & 2-class & 129 & 0.859 & 0.876 & 0.921 & -- \\
+    Muscle & Train & 4-class & 761 & 0.995 & 0.995 & 0.996 \\
+    Muscle & Test & 4-class & 761 & 0.828 & 0.830 & 0.903 \\
+    \midrule
+    Brain & Train & 2-class & 43 & 0.975 & 0.963 & 0.967 \\
+    Brain & Test & 2-class & 43 & 0.638 & 0.639 & 0.671 \\
+    \midrule
+    Liver & Train & 4-class & 309 & 0.987 & 0.986 & 0.986 \\
+    Liver & Test & 4-class & 309 & 0.950 & 0.945 & 0.947 \\
+    \midrule
+    Blood & Train & 2-class & 78 & 0.978 & 0.981 & 0.981 \\
+    Blood & Test & 2-class & 78 & 0.900 & 0.911 & 0.915 \\
+    \midrule
+    Lung & Train & 2-class & 129 & 1.000 & 1.000 & 1.000 \\
+    Lung & Test & 2-class & 129 & 0.859 & 0.876 & 0.921 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -233,21 +242,21 @@
     \toprule
     Tissue & Stage & $n$ & Precision & Recall & F1 \\
     \midrule
-    Muscle & Infant & 58 & 0.912 & 0.897 & 0.904 \\
-    Muscle & Early childhood & 23 & 0.714 & 0.652 & 0.682 \\
-    Muscle & Pre-pubertal & 27 & 0.767 & 0.852 & 0.807 \\
+    Muscle & Infant & 58 & 0.898 & 0.914 & 0.906 \\
+    Muscle & Early childhood & 23 & 0.737 & 0.609 & 0.667 \\
+    Muscle & Pre-pubertal & 27 & 0.733 & 0.815 & 0.772 \\
     Muscle & Post-pubertal & 121 & 0.975 & 0.975 & 0.975 \\
     \midrule
     Brain & Infant & 8 & 0.700 & 0.875 & 0.778 \\
     Brain & Early childhood & 5 & 0.667 & 0.400 & 0.500 \\
     \midrule
     Liver & Infant & 26 & 1.000 & 0.962 & 0.980 \\
-    Liver & Early childhood & 18 & 0.783 & 1.000 & 0.878 \\
-    Liver & Pre-pubertal & 25 & 0.950 & 0.760 & 0.844 \\
-    Liver & Post-pubertal & 24 & 0.920 & 0.958 & 0.939 \\
+    Liver & Early childhood & 18 & 0.857 & 1.000 & 0.923 \\
+    Liver & Pre-pubertal & 25 & 0.920 & 0.920 & 0.920 \\
+    Liver & Post-pubertal & 24 & 1.000 & 0.917 & 0.957 \\
     \midrule
-    Blood & Infant & 14 & 0.867 & 0.929 & 0.897 \\
-    Blood & Early childhood & 10 & 0.889 & 0.800 & 0.842 \\
+    Blood & Infant & 14 & 0.875 & 1.000 & 0.933 \\
+    Blood & Early childhood & 10 & 1.000 & 0.800 & 0.889 \\
     \midrule
     Lung & Infant & 31 & 0.938 & 0.968 & 0.952 \\
     Lung & Early childhood & 8 & 0.857 & 0.750 & 0.800 \\
@@ -278,13 +287,11 @@
     \addlinespace
     \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring. & $-$1.81 & $-$0.53 \\
     \addlinespace
-    \textit{MSS51} & Acts as a skeletal muscle-specific regulator of metabolism, modulating mitochondrial respiration and energy expenditure. Highly expressed specifically in fast-twitch (glycolytic) muscle fibres; expression increases postnatally as fast-twitch fibres mature. Expression in slow-twitch (oxidative) fibres is reduced. & 3.02 & 1.55 \\
-    \addlinespace
     \textit{DLK1} & Crucial regulator of the myogenic program that inhibits myoblast proliferation while promoting differentiation; shows high infant expression that declines as the muscle fiber population matures. & $-$1.37 & $-$2.88 \\
     \addlinespace
-    \textit{ACTC1} & Cardiac $\alpha$-actin expressed in fetal skeletal muscle; switches to skeletal actin (ACTA1) postnatally as a hallmark of muscle fiber maturation. LMOD2-ACTC1 interaction regulates myogenic differentiation. & $-$2.54 & $-$0.28 \\
+    \textit{TRIM54} & Muscle-specific E3 ubiquitin ligase (MuRF3) involved in sarcomere Z-disc assembly and organisation; expression increases postnatally as the mature contractile apparatus is established. & 1.73 & 0.36 \\
     \addlinespace
-    \textit{PDLIM3} & Acts as a structural Z-disc protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of striated muscle. Expression increases from Infant (low) through development to Adult stages (high), reflecting establishment of the mature contractile apparatus. & 2.19 & 0.56 \\
+    \textit{ME1} & Malic enzyme 1, catalysing oxidative decarboxylation of malate to pyruvate; a key source of NADPH for lipid biosynthesis. Expression increases progressively during postnatal development, reflecting metabolic maturation of skeletal muscle. & 1.71 & 0.64 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -309,9 +316,8 @@
     \textit{ACHE} & 16.2 & 9.9 & 9.1 & 1.3 & 4.6 & Pre-pub$\to$Post-pub \\
     \textit{KREMEN1} & 28.9 & 15.1 & 12.2 & 5.2 & 12.1 & Pre-pub$\to$Post-pub \\
     \textit{DLK1} & 301.5 & 25.8 & 121.8 & 0.7 & 116.5 & Infant$\to$Early \\
-    \textit{ACTC1} & 9112.7 & 696.0 & 1125.4 & 57.6 & 1566.8 & Pre-pub$\to$Post-pub \\
-    \textit{MSS51} & 28.9 & 177.3 & 191.4 & 229.2 & 234.8 & Infant$\to$Early \\
-    \textit{PDLIM3} & 278.6 & 771.0 & 535.0 & 1221.2 & 1269.4 & Infant$\to$Early \\
+    \textit{TRIM54} & 68.4 & 334.5 & 142.6 & 377.9 & 227.5 & Infant$\to$Early \\
+    \textit{ME1} & 3.1 & 4.0 & 3.7 & 6.9 & 10.2 & Post-pub$\to$Adult \\
     \bottomrule
   \end{tabular}
 \end{table}

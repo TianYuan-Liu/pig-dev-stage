@@ -95,6 +95,14 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
             X_df = pd.DataFrame(X)
         self.feature_names_ = X_df.columns.tolist()
 
+        # One consistent validation split for all thresholds
+        n_train = int(0.8 * len(y_encoded))
+        indices = np.random.RandomState(self.seed).permutation(len(y_encoded))
+        train_idx, val_idx = indices[:n_train], indices[n_train:]
+
+        X_train_split = X_df.iloc[train_idx] if isinstance(X_df, pd.DataFrame) else X_df[train_idx]
+        X_val_split = X_df.iloc[val_idx] if isinstance(X_df, pd.DataFrame) else X_df[val_idx]
+
         # Fit binary models for each threshold
         self.models_ = []
         for k in range(self.n_classes_ - 1):
@@ -127,18 +135,11 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
                 'verbosity': -1
             }
 
-            # Split data for early stopping validation (80/20 split)
-            n_train = int(0.8 * len(y_binary))
-            indices = np.random.RandomState(self.seed + k).permutation(len(y_binary))
-            train_idx, val_idx = indices[:n_train], indices[n_train:]
-
-            X_train_k = X_df.iloc[train_idx] if isinstance(X_df, pd.DataFrame) else X_df[train_idx]
-            X_val_k = X_df.iloc[val_idx] if isinstance(X_df, pd.DataFrame) else X_df[val_idx]
             y_train_k, y_val_k = y_binary[train_idx], y_binary[val_idx]
 
             # Train model with validation set for early stopping
-            train_data = lgb.Dataset(X_train_k, label=y_train_k)
-            val_data = lgb.Dataset(X_val_k, label=y_val_k, reference=train_data)
+            train_data = lgb.Dataset(X_train_split, label=y_train_k)
+            val_data = lgb.Dataset(X_val_split, label=y_val_k, reference=train_data)
             model = lgb.train(
                 params,
                 train_data,

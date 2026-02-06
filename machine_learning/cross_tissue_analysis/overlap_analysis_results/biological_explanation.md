@@ -2,17 +2,17 @@
 # Biological Explanation for Low Cross-Tissue Feature Overlap
 
 ## Summary Statistics
-- **Total unique genes** in top 50 per tissue: 247
-- **Tissue-specific genes**: 244 (98.8%)
-- **Genes shared by 2 tissues**: 3
+- **Total unique genes** in top 50 per tissue: 248
+- **Tissue-specific genes**: 246 (99.2%)
+- **Genes shared by 2 tissues**: 2
 - **Genes shared by 3+ tissues**: 0
-- **Average Jaccard similarity**: 0.003
+- **Average Jaccard similarity**: 0.002
 
 ## Key Findings and Biological Interpretations
 
 ### 1. Tissue-Specific Gene Expression Dominates Age Prediction
 
-The high proportion of tissue-specific genes (98.8%) is **biologically expected** because:
+The high proportion of tissue-specific genes (99.2%) is **biologically expected** because:
 
 **a) Tissues have distinct developmental trajectories:**
 - Each tissue has unique developmental programs regulated by tissue-specific transcription factors
