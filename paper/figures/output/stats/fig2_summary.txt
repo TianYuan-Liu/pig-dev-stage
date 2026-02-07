@@ -8,23 +8,23 @@ PERFORMANCE METRICS
 # A tibble: 5 × 11
   Tissue Scheme  N_samples Balanced_Accuracy BA_CI_lower BA_CI_upper F1_macro
   <chr>  <chr>       <int>             <dbl>       <dbl>       <dbl>    <dbl>
-1 Muscle 4-class       761             0.828       0.763       0.894    0.830
-2 Brain  2-class        43             0.638       0.389       0.9      0.639
-3 Liver  4-class       309             0.950       0.902       0.99     0.945
-4 Blood  2-class        78             0.9         0.75        1        0.911
-5 Lung   2-class       129             0.859       0.667       1        0.876
+1 Muscle 4-class       761             0.902       0.870       0.932    0.909
+2 Brain  2-class        43             0.746       0.595       0.887    0.757
+3 Liver  4-class       309             0.942       0.912       0.966    0.938
+4 Blood  2-class        78             0.913       0.845       0.972    0.920
+5 Lung   2-class       129             0.911       0.832       0.973    0.917
 # ℹ 4 more variables: F1_CI_lower <dbl>, F1_CI_upper <dbl>, MAE <dbl>,
 #   Spearman_r <dbl>
 
-Mean Balanced Accuracy: 0.835
-Best: Liver (0.950)
-Worst: Brain (0.637)
+Mean Balanced Accuracy: 0.883
+Best: Liver (0.942)
+Worst: Brain (0.746)
 
 ADJACENT ERROR RATES
 --------------------
-  Muscle: 27.3%
+  Muscle: 64.3%
   Brain: 100.0%
-  Liver: 0.0%
+  Liver: 94.7%
   Blood: 100.0%
   Lung: 100.0%
 

@@ -614,5 +614,97 @@
       "n_kfold_splits": 5,
       "warning": "Performance gap 60.6% > 10% suggests batch-inflated accuracy"
     }
+  },
+  "Muscle": {
+    "tissue": "Muscle",
+    "scheme": "4-class",
+    "n_samples": 761,
+    "n_genes": 31908,
+    "pca": {
+      "variance_explained_top10": [
+        0.33901682525223326,
+        0.150166197636916,
+        0.06821315968003476,
+        0.04238022426348895,
+        0.031214412065860894,
+        0.02253599241054691,
+        0.021196195807291165,
+        0.014909767023076803,
+        0.012570108969094535,
+        0.010716147304690357
+      ],
+      "cumulative_var_top10": 0.7129190304132337,
+      "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Muscle_pca_batch.png"
+    },
+    "umap": {
+      "n_neighbors": 15,
+      "min_dist": 0.1,
+      "pca_components_input": 50,
+      "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Muscle_umap_batch.png"
+    },
+    "permanova": {
+      "Stage": {
+        "R2": 0.1713822257925681,
+        "F_statistic": 52.18986323300716,
+        "p_value": 0.001
+      },
+      "BioProject": {
+        "R2": 0.7298036583460311,
+        "F_statistic": 34.62206751945583,
+        "p_value": 0.001
+      },
+      "Breed_group": {
+        "R2": 0.07080311389994985,
+        "F_statistic": 19.22734138266399,
+        "p_value": 0.001
+      },
+      "LibraryLayout": {
+        "R2": 0.037743103124757316,
+        "F_statistic": 29.77065206258003,
+        "p_value": 0.001
+      },
+      "Platform": {
+        "R2": 0.00025865264450640864,
+        "F_statistic": 0.1963681483212243,
+        "p_value": 0.863
+      },
+      "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.7298) than Stage (R\u00b2=0.1714)"
+    },
+    "cramers_v": {
+      "BioProject": {
+        "cramers_v": 0.8708226426763962,
+        "chi2": 1731.2721272202114,
+        "p_value": 5.960647540005497e-259,
+        "dof": 165
+      },
+      "Breed_group": {
+        "cramers_v": 0.411234054479413,
+        "chi2": 386.08600078764596,
+        "p_value": 1.2721536278282703e-77,
+        "dof": 9
+      },
+      "LibraryLayout": {
+        "cramers_v": 0.2115329757009367,
+        "chi2": 34.05185805456763,
+        "p_value": 1.9318695895907643e-07,
+        "dof": 3
+      },
+      "Platform": {
+        "cramers_v": 0.10890095629767664,
+        "chi2": 9.025017313019392,
+        "p_value": 0.02896011025758969,
+        "dof": 3
+      }
+    },
+    "silhouette": {
+      "Stage": 0.03639142885963292,
+      "BioProject": 0.10582797547527878,
+      "Breed_group": -0.04609351165667617,
+      "LibraryLayout": 0.013761479701661625,
+      "Platform": -0.21303982391261683,
+      "warning": "Samples cluster more by 'BioProject' (sil=0.1058) than by Stage (sil=0.0364)",
+      "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Muscle_silhouette_comparison.png"
+    },
+    "lopo": null
   }
 }
