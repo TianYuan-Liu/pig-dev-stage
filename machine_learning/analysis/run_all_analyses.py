@@ -8,7 +8,6 @@ feature overlap is due to overfitting or biological tissue-specificity.
 Analyses performed:
 1. Feature Stability - Do same genes get selected across random seeds?
 2. Expression Correlation - Do top genes correlate with developmental stage?
-3. Method Comparison - Do different selection methods agree?
 
 The combination of these analyses provides strong evidence for or against
 the biological interpretation of tissue-specific feature selection.
@@ -30,13 +29,12 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from machine_learning.analysis.feature_stability import run_stability_analysis
 from machine_learning.analysis.expression_correlation import run_correlation_analysis
-from machine_learning.analysis.alternative_selection import run_method_comparison
+from machine_learning.analysis.batch_diagnostics import run_batch_diagnostics
 
 
 def generate_final_report(
     stability_results: Dict,
     correlation_results: Dict,
-    method_results: Dict,
     output_dir: Path
 ) -> str:
     """Generate comprehensive analysis report."""
@@ -52,8 +50,7 @@ def generate_final_report(
 
     summary_data = []
     tissues = set(list(stability_results.keys()) +
-                  list(correlation_results.keys()) +
-                  list(method_results.keys()))
+                  list(correlation_results.keys()))
 
     for tissue in sorted(tissues):
         row = {'Tissue': tissue}
@@ -75,13 +72,6 @@ def generate_final_report(
         else:
             row['Correlated %'] = 'N/A'
             row['Mean |r|'] = 'N/A'
-
-        # Method comparison
-        if tissue in method_results:
-            mr = method_results[tissue]
-            row['Method Agree'] = f"{mr['jaccard_with_lightgbm']['Correlation']:.2f}"
-        else:
-            row['Method Agree'] = 'N/A'
 
         summary_data.append(row)
 
@@ -159,48 +149,12 @@ def generate_final_report(
         correlation_verdict = "NOT_RUN"
         report_lines.append("\n  Analysis not run or no results available")
 
-    # ============== ANALYSIS 3: METHOD COMPARISON ==============
-    report_lines.append("\n\n" + "=" * 80)
-    report_lines.append("ANALYSIS 3: FEATURE SELECTION METHOD COMPARISON")
-    report_lines.append("=" * 80)
-
-    if method_results:
-        avg_corr_jaccard = np.mean([r['jaccard_with_lightgbm']['Correlation'] for r in method_results.values()])
-        avg_mi_jaccard = np.mean([r['jaccard_with_lightgbm']['MutualInfo'] for r in method_results.values()])
-
-        report_lines.append(f"\nOverall Results:")
-        report_lines.append(f"  Average Jaccard (LightGBM vs Correlation): {avg_corr_jaccard:.3f}")
-        report_lines.append(f"  Average Jaccard (LightGBM vs MutualInfo): {avg_mi_jaccard:.3f}")
-
-        if avg_corr_jaccard >= 0.35:
-            report_lines.append(f"\n  VERDICT: PASS - LightGBM agrees with correlation-based selection")
-            report_lines.append(f"  Features capture real age-correlated expression")
-            method_verdict = "PASS"
-        elif avg_corr_jaccard >= 0.20:
-            report_lines.append(f"\n  VERDICT: MODERATE - Reasonable agreement between methods")
-            method_verdict = "MODERATE"
-        else:
-            report_lines.append(f"\n  VERDICT: WEAK - LightGBM captures different patterns")
-            report_lines.append(f"  May indicate non-linear patterns (not necessarily bad)")
-            method_verdict = "WEAK"
-
-        report_lines.append("\n  Per-tissue details:")
-        for tissue, result in method_results.items():
-            jw = result['jaccard_with_lightgbm']
-            report_lines.append(
-                f"    {tissue:15}: vs Corr={jw['Correlation']:.3f}, "
-                f"vs MI={jw['MutualInfo']:.3f}, Robust genes={result['n_robust_genes']}"
-            )
-    else:
-        method_verdict = "NOT_RUN"
-        report_lines.append("\n  Analysis not run or no results available")
-
     # ============== FINAL CONCLUSION ==============
     report_lines.append("\n\n" + "=" * 80)
     report_lines.append("FINAL CONCLUSION")
     report_lines.append("=" * 80)
 
-    verdicts = [stability_verdict, correlation_verdict, method_verdict]
+    verdicts = [stability_verdict, correlation_verdict]
     pass_count = verdicts.count("PASS")
     moderate_count = verdicts.count("MODERATE")
 
@@ -212,8 +166,6 @@ def generate_final_report(
             report_lines.append("    - Features are STABLE across random seeds")
         if correlation_verdict == "PASS":
             report_lines.append("    - Top genes CORRELATE with developmental stage")
-        if method_verdict in ["PASS", "MODERATE"]:
-            report_lines.append("    - Different methods select SIMILAR genes")
 
         report_lines.append("")
         report_lines.append("  CONCLUSION: Low cross-tissue feature overlap is a BIOLOGICAL phenomenon,")
@@ -261,7 +213,8 @@ def run_all_analyses(
     stability_seeds: Optional[List[int]] = None,
     skip_stability: bool = False,
     skip_correlation: bool = False,
-    skip_methods: bool = False
+    skip_batch_diagnostics: bool = False,
+    run_lopo: bool = False,
 ):
     """Run all validation analyses."""
 
@@ -318,22 +271,23 @@ def run_all_analyses(
     else:
         results['correlation'] = {}
 
-    # Analysis 3: Method Comparison
-    if not skip_methods:
+    # Analysis 3: Batch Effect Diagnostics
+    if not skip_batch_diagnostics:
         print("\n" + "=" * 80)
-        print("Running METHOD COMPARISON analysis...")
+        print("Running BATCH EFFECT DIAGNOSTICS...")
         print("=" * 80)
         try:
-            results['methods'] = run_method_comparison(
+            batch_output = output_dir / "batch_diagnostics"
+            results['batch_diagnostics'] = run_batch_diagnostics(
                 tissues=tissues,
-                n_features=n_features,
-                output_dir=output_dir
+                output_dir=batch_output,
+                run_lopo=run_lopo,
             )
         except Exception as e:
-            print(f"Method comparison failed: {e}")
-            results['methods'] = {}
+            print(f"Batch diagnostics failed: {e}")
+            results['batch_diagnostics'] = {}
     else:
-        results['methods'] = {}
+        results['batch_diagnostics'] = {}
 
     # Generate comprehensive report
     print("\n" + "=" * 80)
@@ -343,7 +297,6 @@ def run_all_analyses(
     report = generate_final_report(
         results.get('stability', {}),
         results.get('correlation', {}),
-        results.get('methods', {}),
         output_dir
     )
 
@@ -384,8 +337,12 @@ def main():
         help='Skip correlation analysis'
     )
     parser.add_argument(
-        '--skip-methods', action='store_true',
-        help='Skip method comparison'
+        '--skip-batch-diagnostics', action='store_true',
+        help='Skip batch effect diagnostics'
+    )
+    parser.add_argument(
+        '--run-lopo', action='store_true',
+        help='Run Leave-One-Project-Out CV in batch diagnostics (slow)'
     )
 
     args = parser.parse_args()
@@ -396,7 +353,8 @@ def main():
         stability_seeds=args.seeds,
         skip_stability=args.skip_stability,
         skip_correlation=args.skip_correlation,
-        skip_methods=args.skip_methods
+        skip_batch_diagnostics=args.skip_batch_diagnostics,
+        run_lopo=args.run_lopo,
     )
 
 

@@ -4,17 +4,16 @@ LightGBM-based ordinal classifier with class balancing.
 """
 
 import logging
-import warnings
 from typing import Dict, List, Optional, Union
 
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, ClassifierMixin
+from sklearn.model_selection import StratifiedShuffleSplit
 from sklearn.preprocessing import LabelEncoder
 import lightgbm as lgb
 
 logger = logging.getLogger(__name__)
-warnings.filterwarnings('ignore', category=UserWarning)
 
 
 class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
@@ -95,10 +94,14 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
             X_df = pd.DataFrame(X)
         self.feature_names_ = X_df.columns.tolist()
 
-        # One consistent validation split for all thresholds
-        n_train = int(0.8 * len(y_encoded))
-        indices = np.random.RandomState(self.seed).permutation(len(y_encoded))
-        train_idx, val_idx = indices[:n_train], indices[n_train:]
+        # One consistent stratified validation split for all thresholds.
+        # Note: when training the final model on ALL data, this 80/20 internal
+        # split means 20% of samples are used only for early stopping, not for
+        # gradient updates. This is a deliberate tradeoff: we accept slightly
+        # less training data in exchange for automatic iteration selection.
+        # Stratified split ensures each class is represented in both partitions.
+        sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=self.seed)
+        train_idx, val_idx = next(sss.split(X_df, y_encoded))
 
         X_train_split = X_df.iloc[train_idx] if isinstance(X_df, pd.DataFrame) else X_df[train_idx]
         X_val_split = X_df.iloc[val_idx] if isinstance(X_df, pd.DataFrame) else X_df[val_idx]
@@ -109,44 +112,84 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
             # Create binary labels
             y_binary = (y_encoded > k).astype(int)
 
-            # Compute class weights (correct formula: neg_count / pos_count)
-            if self.class_weight == 'balanced':
-                n_pos = np.sum(y_binary)
-                n_neg = len(y_binary) - n_pos
-                scale_pos_weight = n_neg / n_pos if n_pos > 0 else 1.0
+            # Check if binary split is degenerate (too few of either class
+            # for a meaningful 80/20 stratified split)
+            n_pos = int(y_binary.sum())
+            n_neg = len(y_binary) - n_pos
+            degenerate = n_pos < 2 or n_neg < 2
+
+            if degenerate:
+                # Train on ALL data with fixed n_estimators, no early stopping
+                if self.class_weight == 'balanced':
+                    scale_pos_weight = n_neg / n_pos if n_pos > 0 else 1.0
+                else:
+                    scale_pos_weight = 1.0
+
+                params = {
+                    'objective': 'binary',
+                    'metric': 'binary_logloss',
+                    'num_leaves': self.num_leaves,
+                    'max_depth': self.max_depth,
+                    'learning_rate': self.learning_rate,
+                    'feature_fraction': self.feature_fraction,
+                    'bagging_fraction': self.bagging_fraction,
+                    'bagging_freq': 5,
+                    'lambda_l1': self.lambda_l1,
+                    'lambda_l2': self.lambda_l2,
+                    'min_data_in_leaf': self.min_data_in_leaf,
+                    'scale_pos_weight': scale_pos_weight,
+                    'random_state': self.seed + k,
+                    'verbosity': -1
+                }
+
+                logger.warning(
+                    f"Threshold {k}: degenerate split (n_pos={n_pos}, n_neg={n_neg}). "
+                    f"Training on all data with {self.n_estimators} iterations, no early stopping."
+                )
+                train_data = lgb.Dataset(X_df, label=y_binary)
+                model = lgb.train(
+                    params,
+                    train_data,
+                    num_boost_round=self.n_estimators,
+                    callbacks=[lgb.log_evaluation(0)]
+                )
             else:
-                scale_pos_weight = 1.0
+                # Normal path: 80/20 split with early stopping
+                if self.class_weight == 'balanced':
+                    n_pos_train = np.sum(y_binary[train_idx])
+                    n_neg_train = len(train_idx) - n_pos_train
+                    scale_pos_weight = n_neg_train / n_pos_train if n_pos_train > 0 else 1.0
+                else:
+                    scale_pos_weight = 1.0
 
-            # LightGBM parameters
-            params = {
-                'objective': 'binary',
-                'metric': 'binary_logloss',
-                'num_leaves': self.num_leaves,
-                'max_depth': self.max_depth,
-                'learning_rate': self.learning_rate,
-                'feature_fraction': self.feature_fraction,
-                'bagging_fraction': self.bagging_fraction,
-                'bagging_freq': 5,
-                'lambda_l1': self.lambda_l1,
-                'lambda_l2': self.lambda_l2,
-                'min_data_in_leaf': self.min_data_in_leaf,
-                'scale_pos_weight': scale_pos_weight,
-                'random_state': self.seed + k,
-                'verbosity': -1
-            }
+                params = {
+                    'objective': 'binary',
+                    'metric': 'binary_logloss',
+                    'num_leaves': self.num_leaves,
+                    'max_depth': self.max_depth,
+                    'learning_rate': self.learning_rate,
+                    'feature_fraction': self.feature_fraction,
+                    'bagging_fraction': self.bagging_fraction,
+                    'bagging_freq': 5,
+                    'lambda_l1': self.lambda_l1,
+                    'lambda_l2': self.lambda_l2,
+                    'min_data_in_leaf': self.min_data_in_leaf,
+                    'scale_pos_weight': scale_pos_weight,
+                    'random_state': self.seed + k,
+                    'verbosity': -1
+                }
 
-            y_train_k, y_val_k = y_binary[train_idx], y_binary[val_idx]
+                y_train_k, y_val_k = y_binary[train_idx], y_binary[val_idx]
 
-            # Train model with validation set for early stopping
-            train_data = lgb.Dataset(X_train_split, label=y_train_k)
-            val_data = lgb.Dataset(X_val_split, label=y_val_k, reference=train_data)
-            model = lgb.train(
-                params,
-                train_data,
-                num_boost_round=self.n_estimators,
-                valid_sets=[val_data],
-                callbacks=[lgb.early_stopping(10), lgb.log_evaluation(0)]
-            )
+                train_data = lgb.Dataset(X_train_split, label=y_train_k)
+                val_data = lgb.Dataset(X_val_split, label=y_val_k, reference=train_data)
+                model = lgb.train(
+                    params,
+                    train_data,
+                    num_boost_round=self.n_estimators,
+                    valid_sets=[val_data],
+                    callbacks=[lgb.early_stopping(10), lgb.log_evaluation(0)]
+                )
 
             self.models_.append(model)
 
@@ -175,6 +218,10 @@ class OrdinalLightGBM(BaseEstimator, ClassifierMixin):
         for k in range(self.n_classes_ - 1):
             prob_greater = self.models_[k].predict(X_df, num_iteration=self.models_[k].best_iteration)
             cumulative_probs[:, k + 1] = prob_greater
+
+        # Enforce monotonicity: P(Y>k) must be <= P(Y>k-1)
+        for k in range(2, self.n_classes_):
+            cumulative_probs[:, k] = np.minimum(cumulative_probs[:, k], cumulative_probs[:, k - 1])
 
         # Convert to class probabilities
         class_probs = np.zeros((n_samples, self.n_classes_))

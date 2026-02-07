@@ -28,9 +28,7 @@ from tqdm import tqdm
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from machine_learning.data_processing.data_loader import DataLoader
-from machine_learning.data_processing.preprocessing import ExpressionPreprocessor
-from machine_learning.data_processing.stage_selection import StageGranularitySelector
+from machine_learning.utils.helpers import load_and_prepare_tissue
 
 warnings.filterwarnings('ignore')
 
@@ -115,48 +113,21 @@ def analyze_tissue_correlations(
     print(f"Analyzing correlations for {tissue_name}")
     print(f"{'='*60}")
 
-    # Load data
-    data_loader = DataLoader(
-        data_dir=PROJECT_ROOT / "data/pigGTEx",
-        metadata_path=PROJECT_ROOT / "data/PigGTEx_v0.MetaTable.xlsx"
-    )
-    data_loader.load_metadata()
-
     try:
-        expr_data, metadata = data_loader.load_expression(tissue_name)
+        prepared = load_and_prepare_tissue(tissue_name)
     except Exception as e:
         print(f"  Error loading {tissue_name}: {e}")
         return None
 
-    X = expr_data
-    y = metadata['Stage'].values
-
-    # Stage selection (to get numeric labels)
-    stage_selector = StageGranularitySelector()
-    stage_counts = pd.Series(y).value_counts()
-    scheme_name, scheme = stage_selector.select_scheme(stage_counts, tissue_name)
-
-    if scheme is None:
+    if prepared is None:
         print(f"  {tissue_name} not eligible for classification")
         return None
 
-    # Map stages to numeric values
-    if 'mapping' in scheme:
-        labels = scheme.get('labels', scheme.get('stages', []))
-        stage_mapping = scheme['mapping']
-        y_mapped = [stage_mapping.get(stage, stage) for stage in y]
-        label_to_int = {label: i for i, label in enumerate(labels)}
-        y_numeric = np.array([label_to_int.get(label, -1) for label in y_mapped])
+    X, y_numeric, _sample_ids, _gene_names, scheme_name = prepared
 
-        # Filter invalid samples
-        valid_mask = y_numeric != -1
-        X = X.loc[:, valid_mask]
-        y_numeric = y_numeric[valid_mask]
-    else:
-        # If no mapping, use original labels as numeric
-        unique_stages = sorted(pd.Series(y).unique())
-        label_to_int = {label: i for i, label in enumerate(unique_stages)}
-        y_numeric = np.array([label_to_int[label] for label in y])
+    # Build label_to_int for reporting (reverse from integer labels)
+    unique_ints = sorted(set(y_numeric.tolist()))
+    label_to_int = {f"class_{i}": i for i in unique_ints}
 
     print(f"  Samples: {len(y_numeric)}, Scheme: {scheme_name}")
     print(f"  Stage distribution: {pd.Series(y_numeric).value_counts().sort_index().to_dict()}")

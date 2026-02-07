@@ -60,18 +60,9 @@ class StageGranularitySelector:
         self.stage_order = ['Infant', 'Early childhood', 'Pre-pubertal', 'Post-pubertal', 'Adult']
 
         # Define stage merging schemes
+        # Note: 5-class not included — Post-pubertal and Adult are intentionally
+        # merged due to insufficient biological distinction in the transcriptomic data.
         self.schemes = {
-            '5-class': {
-                'n_classes': 5,
-                'mapping': {
-                    'Infant': 'Infant',
-                    'Early childhood': 'Early childhood',
-                    'Pre-pubertal': 'Pre-pubertal',
-                    'Post-pubertal': 'Post-pubertal',
-                    'Adult': 'Adult'
-                },
-                'labels': ['Infant', 'Early childhood', 'Pre-pubertal', 'Post-pubertal', 'Adult']
-            },
             '4-class': {
                 'n_classes': 4,
                 'mapping': {

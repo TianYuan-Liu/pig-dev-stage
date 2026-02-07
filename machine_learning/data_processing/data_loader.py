@@ -247,28 +247,22 @@ class DataLoader:
     def load_expression(
         self,
         tissue: str,
-        min_tpm: float = 0.1,
-        min_detection_rate: float = 0.1,
-        protein_coding_only: bool = True
     ) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
         Load expression data for a specific tissue.
 
         Args:
             tissue: Tissue name
-            min_tpm: Minimum TPM threshold for detection
-            min_detection_rate: Minimum fraction of samples with expression
-            protein_coding_only: Whether to filter to protein-coding genes
 
         Returns:
             Tuple of (expression_matrix, sample_metadata)
         """
-        # Find expression file (handle spaces in tissue names)
-        expr_files = list(self.data_dir.glob(f"{tissue}*.expr_tpm.txt.gz"))
+        # Find expression file (exact match to avoid e.g. "Blood" matching "Blood_vessel")
+        expr_files = list(self.data_dir.glob(f"{tissue}.expr_tpm.txt.gz"))
         if not expr_files:
             # Try with underscores instead of spaces
             tissue_underscore = tissue.replace(' ', '_')
-            expr_files = list(self.data_dir.glob(f"{tissue_underscore}*.expr_tpm.txt.gz"))
+            expr_files = list(self.data_dir.glob(f"{tissue_underscore}.expr_tpm.txt.gz"))
 
         if not expr_files:
             raise ValueError(f"No expression file found for tissue: {tissue} or {tissue.replace(' ', '_')}")
@@ -281,13 +275,6 @@ class DataLoader:
             expr_df = pd.read_csv(f, sep='\t', index_col=0)
 
         logger.info(f"Loaded expression matrix: {expr_df.shape}")
-
-        # Filter genes by detection rate
-        detection_rate = (expr_df > min_tpm).mean(axis=1)
-        keep_genes = detection_rate >= min_detection_rate
-
-        expr_df = expr_df.loc[keep_genes]
-        logger.info(f"After filtering by detection rate: {expr_df.shape}")
 
         # Get sample metadata for this tissue
         if self.metadata is not None and 'Tissue' in self.metadata.columns:

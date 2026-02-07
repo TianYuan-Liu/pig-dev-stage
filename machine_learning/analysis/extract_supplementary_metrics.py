@@ -15,6 +15,8 @@ import sys
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from machine_learning.data_processing.stage_selection import StageGranularitySelector
+
 def load_ml_results(tissue):
     """Load ML results for a tissue."""
     results_file = PROJECT_ROOT / f"machine_learning/model_outputs/{tissue}_results.json"
@@ -28,39 +30,36 @@ def extract_per_class_metrics():
     """Extract per-class metrics for Table S2."""
     tissues = ["Muscle", "Brain", "Liver", "Blood", "Lung"]
     all_metrics = []
-    
+    selector = StageGranularitySelector()
+
     for tissue in tissues:
         results = load_ml_results(tissue)
         if results is None:
             continue
         
         metrics = results.get('metrics', {})
-        scheme = results.get('scheme', 'unknown')
+        scheme_name = results.get('scheme', 'unknown')
         n_samples = results.get('n_samples', 0)
-        
+
         # Get per-class metrics
         per_class_precision = metrics.get('per_class_precision', {})
         per_class_recall = metrics.get('per_class_recall', {})
         per_class_f1 = metrics.get('per_class_f1', {})
-        
+
         # Get class labels (stages)
         class_dist = metrics.get('class_distribution', {})
-        
-        # Map numeric labels to stage names
-        stage_map = {
-            '0': 'Infant',
-            '1': 'Early childhood',
-            '2': 'Pre-pubertal',
-            '3': 'Post-pubertal',
-            '4': 'Adult'
-        }
+        if scheme_name in selector.schemes:
+            labels = selector.schemes[scheme_name]['labels']
+        else:
+            labels = ['Infant', 'Early childhood', 'Pre-pubertal', 'Post-pubertal/Adult']
+        stage_map = {str(i): label for i, label in enumerate(labels)}
         
         for class_label, n_class_samples in class_dist.items():
             stage_name = stage_map.get(class_label, f'Stage_{class_label}')
             
             all_metrics.append({
                 'Tissue': tissue,
-                'Scheme': scheme,
+                'Scheme': scheme_name,
                 'Stage': stage_name,
                 'N_samples': n_class_samples,
                 'Precision': per_class_precision.get(class_label, None),

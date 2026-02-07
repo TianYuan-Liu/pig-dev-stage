@@ -1,0 +1,3 @@
+Tissue,Scheme,N,R²(Stage),R²(max batch),Max batch var,V(max),V variable,Sil(Stage),LOPO gap
+Brain,2-class,43,0.1751,0.7638,BioProject,0.870,BioProject,0.2843,N/A
+Lung,2-class,129,0.0288,0.8242,BioProject,1.000,BioProject,0.0784,N/A

@@ -15,84 +15,35 @@ paths:
   # Expression file pattern (use {tissue_name} as placeholder)
   expression_pattern: "data/pigGTEx/{tissue_name}.expr_tpm.txt.gz"
 
-  # Eligible tissues list (fallback paths in order of preference)
-  eligible_tissues_paths:
-    - "eligible_tissues.json"
-    - "machine_learning/eligible_tissues.json"
-    - "data/eligible_tissues.json"
-
-  # Timing history file
-  timing_history: "machine_learning/timing_history.json"
-
 # ============================================================================
 # MODEL HYPERPARAMETERS
 # ============================================================================
-model:
-  # LightGBM parameters for ordinal classification
-  lightgbm:
-    # Tree structure
-    num_leaves: 31
-    max_depth: 6
-    min_data_in_leaf: 10
-
-    # Learning parameters
-    learning_rate: 0.05
-    n_estimators: 200
-
-    # Regularization
-    feature_fraction: 0.8
-    bagging_fraction: 0.8
-    lambda_l1: 0.1
-    lambda_l2: 0.1
-
-    # Class balancing
-    class_weight: "balanced"
-
-  # Early stopping configuration
-  early_stopping:
-    patience: 10
-    validation_split: 0.8  # Fraction of training data used for training (rest for validation)
+# LightGBM hyperparameters are tuned automatically via Optuna nested CV.
+# See machine_learning/model_training/hyperparameter_tuning.py for the search space.
 
 # ============================================================================
 # PREPROCESSING PARAMETERS
 # ============================================================================
 preprocessing:
-  # Log transformation
+  # Log transformation: log2(TPM + 1)
   log_transform: true
-  log_base: 2
-  pseudocount: 1  # log2(TPM + pseudocount)
 
-  # Variance filtering
-  # Genes below this percentile of variance are removed
-  # Justification: Low-variance genes have limited discriminative power
-  min_variance_percentile: 20
+  # Variance filtering (disabled: tree-based models are unaffected, and filtering
+  # adds artificial randomness to feature stability analysis)
+  min_variance_percentile: 0
 
-  # Standardization (z-score normalization)
-  standardize: true
+  # Standardization (disabled: z-score has zero effect on tree-based splits)
+  standardize: false
 
 # ============================================================================
 # TRAIN/TEST SPLIT
 # ============================================================================
 splitting:
-  # Train ratio (test_ratio = 1 - train_ratio)
-  train_ratio: 0.7
+  # Number of CV folds (auto-reduced for small datasets)
+  n_cv_folds: 5
 
   # Random seed for reproducibility
   seed: 42
-
-  # Minimum samples per class required for stratified splitting
-  min_samples_for_stratification: 2
-
-# ============================================================================
-# FEATURE SELECTION
-# ============================================================================
-feature_selection:
-  # Maximum number of features to select via LightGBM importance
-  max_features: 2000
-
-  # Stability threshold for stable feature selection
-  # Features must appear in at least this fraction of bootstrap samples
-  stability_threshold: 0.6
 
 # ============================================================================
 # STAGE CLASSIFICATION THRESHOLDS
@@ -141,66 +92,3 @@ age_conversion:
   weeks: 7
   months: 30
   years: 365
-
-# ============================================================================
-# CROSS-TISSUE VALIDATION
-# ============================================================================
-# Settings for cross-tissue validation and label harmonization
-cross_tissue_validation:
-  # Common scheme for harmonizing labels across tissues
-  # 'auto' = automatically determine lowest common denominator
-  # '2-class', '3-class', '4-class' = use specific scheme
-  common_scheme: 'auto'
-  
-  # Minimum number of tissues required for cross-tissue validation
-  min_tissues: 3
-
-# ============================================================================
-# CROSS-VALIDATION
-# ============================================================================
-cross_validation:
-  n_folds: 5
-  shuffle: true
-
-# ============================================================================
-# VISUALIZATION / UMAP
-# ============================================================================
-visualization:
-  umap:
-    n_neighbors: 15
-    min_dist: 0.1
-    n_components: 2
-    metric: "euclidean"
-
-  # Maximum samples per tissue for UMAP (subsampling for speed)
-  max_samples_per_tissue: 500
-
-# ============================================================================
-# STATISTICAL TESTING
-# ============================================================================
-statistical_tests:
-  # Significance level for hypothesis tests
-  alpha: 0.05
-
-  # Number of permutations for permutation tests
-  n_permutations: 1000
-
-  # Number of bootstrap samples for confidence intervals
-  n_bootstrap: 1000
-
-# ============================================================================
-# CORRELATION ANALYSIS
-# ============================================================================
-correlation:
-  # Minimum correlation threshold for "moderate" correlation
-  moderate_threshold: 0.3
-
-  # Minimum correlation threshold for "strong" correlation
-  strong_threshold: 0.5
-
-# ============================================================================
-# LOGGING
-# ============================================================================
-logging:
-  level: "INFO"
-  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -4,11 +4,10 @@ Includes transformation, normalization, and covariate adjustment.
 """
 
 import logging
-from typing import Dict, List, Optional, Tuple, Union
+from typing import List, Optional
 
 import numpy as np
 import pandas as pd
-from scipy import stats
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
@@ -21,14 +20,16 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
 
     def __init__(
         self,
-        log_transform: bool = True,
-        standardize: bool = True,
-        min_variance_percentile: float = 20,
+        log_transform: bool = None,
+        standardize: bool = None,
+        min_variance_percentile: float = None,
         remove_covariates: Optional[List[str]] = None,
         seed: int = 42
     ):
         """
         Initialize preprocessor.
+
+        Parameters default to values from config.yaml. Explicit arguments override config.
 
         Args:
             log_transform: Apply log2(TPM+1) transformation
@@ -37,9 +38,19 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
             remove_covariates: List of covariates to regress out
             seed: Random seed
         """
-        self.log_transform = log_transform
-        self.standardize = standardize
-        self.min_variance_percentile = min_variance_percentile
+        # Load defaults from config, fall back to sensible hardcoded defaults
+        try:
+            from machine_learning.utils.config_loader import get_config
+            config = get_config()
+            preproc_config = config.get('preprocessing', default={})
+            if not isinstance(preproc_config, dict):
+                preproc_config = {}
+        except (ImportError, Exception):
+            preproc_config = {}
+
+        self.log_transform = log_transform if log_transform is not None else preproc_config.get('log_transform', True)
+        self.standardize = standardize if standardize is not None else preproc_config.get('standardize', False)
+        self.min_variance_percentile = min_variance_percentile if min_variance_percentile is not None else preproc_config.get('min_variance_percentile', 0)
         self.remove_covariates = remove_covariates if remove_covariates is not None else []
         self.seed = seed
 
@@ -47,6 +58,7 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
         self.variance_threshold_ = None
         self.selected_genes_ = None
         self.covariate_models_ = {}
+        self.gene_means_ = None
         self.feature_names_ = None
 
     def fit(self, X: pd.DataFrame, y=None, sample_metadata: Optional[pd.DataFrame] = None):
@@ -61,12 +73,15 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
         Returns:
             self
         """
-        np.random.seed(self.seed)
-
         X_processed = X.copy()
 
         # Log transformation
         if self.log_transform:
+            if (X_processed < 0).any().any():
+                raise ValueError(
+                    f"Cannot apply log2(x+1) transform: {(X_processed < 0).sum().sum()} "
+                    f"negative values detected. Check upstream data or disable log_transform."
+                )
             X_processed = np.log2(X_processed + 1)
             logger.info("Applied log2(TPM+1) transformation")
 
@@ -118,6 +133,11 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
 
         # Log transformation
         if self.log_transform:
+            if (X_processed < 0).any().any():
+                raise ValueError(
+                    f"Cannot apply log2(x+1) transform: {(X_processed < 0).sum().sum()} "
+                    f"negative values detected. Check upstream data or disable log_transform."
+                )
             X_processed = np.log2(X_processed + 1)
 
         # Apply gene selection
@@ -210,6 +230,7 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
 
         # Add back mean for interpretability
         gene_means = X_aligned.mean(axis=1)
+        self.gene_means_ = gene_means
         residuals = residuals.add(gene_means, axis=0)
 
         return residuals
@@ -252,8 +273,8 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
                 expression = X_aligned.loc[gene].values
                 model = self.covariate_models_[gene]
                 residuals.loc[gene] = expression - model.predict(covariate_matrix)
-                # Add back training mean
-                residuals.loc[gene] += X_aligned.loc[gene].mean()
+                # Add back training mean (from fit, not test data)
+                residuals.loc[gene] += self.gene_means_[gene]
             else:
                 # Gene not in training set, keep original values
                 residuals.loc[gene] = X_aligned.loc[gene]
@@ -280,7 +301,7 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
             values = metadata[covar]
 
             # Handle categorical variables
-            if values.dtype == 'object' or pd.api.types.is_categorical_dtype(values):
+            if values.dtype == 'object' or isinstance(values.dtype, pd.CategoricalDtype):
                 # One-hot encode with handling for unknown categories
                 dummies = pd.get_dummies(values, prefix=covar, drop_first=True)
                 covariate_list.append(dummies.values)
@@ -297,132 +318,3 @@ class ExpressionPreprocessor(BaseEstimator, TransformerMixin):
             return np.empty((len(metadata), 0))
 
 
-class SexEncoder:
-    """Encode sex labels with explicit Unknown level."""
-
-    def __init__(self):
-        """Initialize encoder."""
-        self.classes_ = ['Female', 'Male', 'Unknown', 'Other']
-        self.n_classes_ = len(self.classes_)
-
-    def fit(self, X: pd.Series):
-        """
-        Fit encoder (no-op for predefined classes).
-
-        Args:
-            X: Sex labels
-
-        Returns:
-            self
-        """
-        return self
-
-    def transform(self, X: pd.Series) -> pd.DataFrame:
-        """
-        Transform sex labels to one-hot encoding.
-
-        Args:
-            X: Sex labels
-
-        Returns:
-            One-hot encoded DataFrame
-        """
-        X_filled = X.fillna('Unknown')
-
-        # Map variations to standard labels
-        mapping = {
-            'F': 'Female',
-            'M': 'Male',
-            'female': 'Female',
-            'male': 'Male',
-            'Other/pooled': 'Other'
-        }
-
-        X_mapped = X_filled.replace(mapping)
-
-        # Handle any remaining non-standard values
-        X_mapped[~X_mapped.isin(self.classes_)] = 'Other'
-
-        # One-hot encode
-        encoded = pd.get_dummies(X_mapped, prefix='Sex')
-
-        # Ensure all expected columns exist
-        for class_name in self.classes_:
-            col_name = f'Sex_{class_name}'
-            if col_name not in encoded.columns:
-                encoded[col_name] = 0
-
-        return encoded[['Sex_Female', 'Sex_Male', 'Sex_Unknown', 'Sex_Other']]
-
-    def fit_transform(self, X: pd.Series) -> pd.DataFrame:
-        """
-        Fit and transform sex labels.
-
-        Args:
-            X: Sex labels
-
-        Returns:
-            One-hot encoded DataFrame
-        """
-        return self.fit(X).transform(X)
-
-
-def prepare_data_for_modeling(
-    expression: pd.DataFrame,
-    metadata: pd.DataFrame,
-    target_column: str = 'Stage',
-    stage_mapping: Optional[Dict[str, str]] = None,
-    preprocessor: Optional[ExpressionPreprocessor] = None,
-    fit_preprocessor: bool = True
-) -> Tuple[pd.DataFrame, pd.Series, pd.DataFrame]:
-    """
-    Prepare data for machine learning modeling.
-
-    Args:
-        expression: Expression matrix (genes x samples)
-        metadata: Sample metadata
-        target_column: Name of target column in metadata
-        stage_mapping: Optional mapping to merge stages
-        preprocessor: Preprocessor instance
-        fit_preprocessor: Whether to fit preprocessor
-
-    Returns:
-        Tuple of (preprocessed_expression, target_labels, processed_metadata)
-    """
-    # Align samples
-    common_samples = expression.columns.intersection(metadata.index)
-    X = expression[common_samples]
-    metadata_aligned = metadata.loc[common_samples]
-
-    # Get target variable
-    if target_column not in metadata_aligned.columns:
-        raise ValueError(f"Target column {target_column} not found in metadata")
-
-    y = metadata_aligned[target_column].copy()
-
-    # Apply stage mapping if provided
-    if stage_mapping:
-        y = y.map(stage_mapping).fillna(y)
-
-    # Remove samples with missing target
-    valid_mask = y.notna()
-    X = X.loc[:, valid_mask]
-    y = y[valid_mask]
-    metadata_aligned = metadata_aligned[valid_mask]
-
-    # Preprocess expression
-    if preprocessor is None:
-        preprocessor = ExpressionPreprocessor()
-
-    if fit_preprocessor:
-        X_processed = preprocessor.fit_transform(X, sample_metadata=metadata_aligned)
-    else:
-        X_processed = preprocessor.transform(X, sample_metadata=metadata_aligned)
-
-    # Encode sex if present
-    if 'Sex' in metadata_aligned.columns:
-        sex_encoder = SexEncoder()
-        sex_encoded = sex_encoder.fit_transform(metadata_aligned['Sex'])
-        metadata_aligned = pd.concat([metadata_aligned, sex_encoded], axis=1)
-
-    return X_processed, y, metadata_aligned

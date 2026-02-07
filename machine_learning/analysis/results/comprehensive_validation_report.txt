@@ -1,73 +1,27 @@
 ================================================================================
 COMPREHENSIVE FEATURE SELECTION VALIDATION REPORT
-Generated: 2026-02-05 23:15:31
+Generated: 2026-02-07 13:57:49
 ================================================================================
 
 ## SUMMARY TABLE
 
-Tissue Stability (Jaccard)  Stable Genes Correlated % Mean |r| Method Agree
- Blood                0.22             9          58%     0.41         0.10
- Brain                0.43            30          80%     0.49         0.00
- Liver                0.14             8          54%     0.33         0.09
-  Lung                0.08             5          76%     0.37         0.08
-Muscle                0.25            18          90%     0.57         0.15
+Empty DataFrame
+Columns: []
+Index: []
 
 
 ================================================================================
 ANALYSIS 1: FEATURE STABILITY ACROSS RANDOM SEEDS
 ================================================================================
 
-Overall Results:
-  Average Jaccard similarity: 0.225
-  Average stable gene ratio: 28.0%
-
-  VERDICT: FAIL - Features are unstable
-  This suggests potential overfitting
-
-  Per-tissue details:
-    Muscle         : Jaccard=0.251 (+/-0.033), Stable genes=18/50
-    Liver          : Jaccard=0.143 (+/-0.041), Stable genes=8/50
-    Brain          : Jaccard=0.433 (+/-0.077), Stable genes=30/50
-    Blood          : Jaccard=0.221 (+/-0.179), Stable genes=9/50
-    Lung           : Jaccard=0.078 (+/-0.017), Stable genes=5/50
+  Analysis not run or no results available
 
 
 ================================================================================
 ANALYSIS 2: EXPRESSION-STAGE CORRELATION
 ================================================================================
 
-Overall Results:
-  Average % significant correlations: 71.6%
-  Average |correlation|: 0.434
-
-  VERDICT: PASS - Top genes show strong stage correlations
-  This confirms real developmental expression changes
-
-  Per-tissue details:
-    Muscle         : 90.0% significant, mean |r|=0.570
-    Liver          : 54.0% significant, mean |r|=0.326
-    Brain          : 80.0% significant, mean |r|=0.490
-    Blood          : 58.0% significant, mean |r|=0.412
-    Lung           : 76.0% significant, mean |r|=0.373
-
-
-================================================================================
-ANALYSIS 3: FEATURE SELECTION METHOD COMPARISON
-================================================================================
-
-Overall Results:
-  Average Jaccard (LightGBM vs Correlation): 0.082
-  Average Jaccard (LightGBM vs MutualInfo): 0.056
-
-  VERDICT: WEAK - LightGBM captures different patterns
-  May indicate non-linear patterns (not necessarily bad)
-
-  Per-tissue details:
-    Muscle         : vs Corr=0.149, vs MI=0.176, Robust genes=12
-    Liver          : vs Corr=0.087, vs MI=0.010, Robust genes=1
-    Brain          : vs Corr=0.000, vs MI=0.010, Robust genes=0
-    Blood          : vs Corr=0.099, vs MI=0.064, Robust genes=4
-    Lung           : vs Corr=0.075, vs MI=0.020, Robust genes=2
+  Analysis not run or no results available
 
 
 ================================================================================

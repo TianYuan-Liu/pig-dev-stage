@@ -234,13 +234,13 @@ def bootstrap_metrics(
     Returns:
         Dictionary with mean, std, and CI bounds
     """
-    np.random.seed(seed)
+    rng = np.random.RandomState(seed)
     n_samples = len(y_true)
     bootstrap_scores = []
 
     for _ in range(n_bootstraps):
         # Sample with replacement
-        indices = np.random.choice(n_samples, n_samples, replace=True)
+        indices = rng.choice(n_samples, n_samples, replace=True)
         y_true_boot = y_true[indices]
         y_pred_boot = y_pred[indices]
 

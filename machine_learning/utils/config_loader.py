@@ -50,43 +50,25 @@ class PipelineConfig:
 
     @staticmethod
     def _get_defaults() -> Dict[str, Any]:
-        """Return default configuration values."""
+        """Return default configuration values.
+
+        These must stay in sync with config.yaml. They serve as a fallback
+        only when the YAML file cannot be loaded.
+        """
         return {
             "paths": {
                 "data_dir": "data/pigGTEx",
                 "metadata_file": "data/PigGTEx_v0.MetaTable.xlsx",
                 "expression_pattern": "data/pigGTEx/{tissue_name}.expr_tpm.txt.gz",
             },
-            "model": {
-                "lightgbm": {
-                    "num_leaves": 31,
-                    "max_depth": 6,
-                    "learning_rate": 0.05,
-                    "n_estimators": 200,
-                    "min_data_in_leaf": 10,
-                    "feature_fraction": 0.8,
-                    "bagging_fraction": 0.8,
-                    "lambda_l1": 0.1,
-                    "lambda_l2": 0.1,
-                    "class_weight": "balanced",
-                },
-                "early_stopping": {
-                    "patience": 10,
-                    "validation_split": 0.8,
-                },
-            },
             "preprocessing": {
                 "log_transform": True,
-                "min_variance_percentile": 20,
-                "standardize": True,
+                "min_variance_percentile": 0,
+                "standardize": False,
             },
             "splitting": {
-                "train_ratio": 0.7,
+                "n_cv_folds": 5,
                 "seed": 42,
-            },
-            "feature_selection": {
-                "max_features": 2000,
-                "stability_threshold": 0.6,
             },
             "stage_selection": {
                 "min_samples_4class": 40,
@@ -96,15 +78,16 @@ class PipelineConfig:
             },
             "stage_mapping": {
                 "Infant": {"min_days": 0, "max_days": 20},
-                "Early_childhood": {"min_days": 21, "max_days": 59},
-                "Pre_pubertal": {"min_days": 60, "max_days": 149},
-                "Post_pubertal": {"min_days": 150, "max_days": 365},
+                "Early childhood": {"min_days": 21, "max_days": 59},
+                "Pre-pubertal": {"min_days": 60, "max_days": 149},
+                "Post-pubertal": {"min_days": 150, "max_days": 365},
                 "Adult": {"min_days": 366, "max_days": None},
             },
-            "statistical_tests": {
-                "alpha": 0.05,
-                "n_permutations": 1000,
-                "n_bootstrap": 1000,
+            "age_conversion": {
+                "days": 1,
+                "weeks": 7,
+                "months": 30,
+                "years": 365,
             },
         }
 
@@ -134,16 +117,6 @@ class PipelineConfig:
         return self._config.get("paths", {})
 
     @property
-    def model(self) -> Dict[str, Any]:
-        """Get model configuration."""
-        return self._config.get("model", {})
-
-    @property
-    def lightgbm_params(self) -> Dict[str, Any]:
-        """Get LightGBM parameters."""
-        return self.model.get("lightgbm", {})
-
-    @property
     def preprocessing(self) -> Dict[str, Any]:
         """Get preprocessing configuration."""
         return self._config.get("preprocessing", {})
@@ -154,11 +127,6 @@ class PipelineConfig:
         return self._config.get("splitting", {})
 
     @property
-    def feature_selection(self) -> Dict[str, Any]:
-        """Get feature selection configuration."""
-        return self._config.get("feature_selection", {})
-
-    @property
     def stage_selection(self) -> Dict[str, Any]:
         """Get stage selection thresholds."""
         return self._config.get("stage_selection", {})
@@ -167,11 +135,6 @@ class PipelineConfig:
     def stage_mapping(self) -> Dict[str, Dict[str, int]]:
         """Get developmental stage age boundaries."""
         return self._config.get("stage_mapping", {})
-
-    @property
-    def statistical_tests(self) -> Dict[str, Any]:
-        """Get statistical testing configuration."""
-        return self._config.get("statistical_tests", {})
 
     @classmethod
     def reload(cls, config_path: Optional[Union[str, Path]] = None) -> "PipelineConfig":

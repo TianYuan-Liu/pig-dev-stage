@@ -26,13 +26,10 @@ Current developmental staging in pig research relies on chronological age or sub
 pig-dev-stage/
 ├── machine_learning/           # Python Machine Learning Pipeline
 │   ├── data_processing/       # Data loading, cleaning & preprocessing
-│   ├── feature_engineering/   # Feature selection (variance, LightGBM importance)
 │   ├── model_training/        # LightGBM ordinal classification implementation
 │   ├── model_evaluation/      # Metrics, performance assessments & bootstrap CI
-│   ├── cross_tissue_analysis/ # Cross-tissue validation scripts
 │   ├── analysis/              # Downstream statistical analyses
 │   ├── utils/                 # Shared helper functions
-│   ├── visualization/         # Performance and exploration plots
 │   ├── model_outputs/         # Saved models and predictions
 │   ├── config.yaml            # Pipeline hyperparameters and settings
 │   └── run_pipeline.py        # Main execution script
@@ -53,10 +50,6 @@ pig-dev-stage/
 │   ├── human_muscle/          # Human validation data (Schaiter et al. 2024)
 │   └── PigGTEx_v0.MetaTable.xlsx # Master metadata for samples
 │
-├── configs/                    # Global Configuration
-│   ├── pipeline_config.yaml   # Pipeline execution parameters
-│   └── logging_config.yaml    # Logger configuration
-│
 ├── logs/                       # System and execution logs
 └── requirements.txt           # Python dependency list
 ```
@@ -73,8 +66,8 @@ python machine_learning/run_pipeline.py
 
 ```bash
 python machine_learning/run_pipeline.py \
-    --max-features 2000 \
     --seed 42 \
+    --n-cv-folds 5 \
     --tissues muscle liver brain blood lung
 ```
 
