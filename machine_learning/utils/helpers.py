@@ -50,7 +50,7 @@ def load_and_prepare_tissue(tissue_name: str):
 
     data_loader = DataLoader(
         data_dir=PROJECT_ROOT / "data/pigGTEx",
-        metadata_path=PROJECT_ROOT / "data/PigGTEx_v0.MetaTable.xlsx"
+        metadata_path=PROJECT_ROOT / "data/PigGTEx_v0.MetaTable.csv"
     )
     data_loader.load_metadata()
     expr_data, metadata = data_loader.load_expression(tissue_name)

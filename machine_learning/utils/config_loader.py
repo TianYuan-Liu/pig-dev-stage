@@ -58,7 +58,7 @@ class PipelineConfig:
         return {
             "paths": {
                 "data_dir": "data/pigGTEx",
-                "metadata_file": "data/PigGTEx_v0.MetaTable.xlsx",
+                "metadata_file": "data/PigGTEx_v0.MetaTable.csv",
                 "expression_pattern": "data/pigGTEx/{tissue_name}.expr_tpm.txt.gz",
             },
             "preprocessing": {

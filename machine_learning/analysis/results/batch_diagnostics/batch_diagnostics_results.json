@@ -32,6 +32,11 @@
         "F_statistic": 8.702177193696754,
         "p_value": 0.001
       },
+      "TechBatch": {
+        "R2": 0.3953493323435977,
+        "F_statistic": 8.500017605847344,
+        "p_value": 0.001
+      },
       "BioProject": {
         "R2": 0.7638009702968186,
         "F_statistic": 23.92951057969705,
@@ -50,6 +55,12 @@
       "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.7638) than Stage (R\u00b2=0.1751)"
     },
     "cramers_v": {
+      "TechBatch": {
+        "cramers_v": 0.8400325957394523,
+        "chi2": 30.343154761904767,
+        "p_value": 1.1686978976326383e-06,
+        "dof": 3
+      },
       "BioProject": {
         "cramers_v": 0.8699685270716626,
         "chi2": 32.54434523809524,
@@ -77,41 +88,12 @@
     },
     "silhouette": {
       "Stage": 0.28432076131542516,
+      "TechBatch": 0.34902899655653924,
       "BioProject": 0.3672034338709255,
       "Breed_group": 0.29074995092107087,
       "LibraryLayout": 0.3244495725435622,
       "warning": "Samples cluster more by 'BioProject' (sil=0.3672) than by Stage (sil=0.2843)",
       "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Brain_silhouette_comparison.png"
-    },
-    "lopo": {
-      "lopo_results": [
-        {
-          "project": "PRJNA556242",
-          "n_test": 24,
-          "n_train": 19,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA645684",
-          "n_test": 8,
-          "n_train": 35,
-          "balanced_accuracy": 0.1
-        },
-        {
-          "project": "PRJNA384017",
-          "n_test": 6,
-          "n_train": 37,
-          "balanced_accuracy": 0.16666666666666666
-        }
-      ],
-      "lopo_ba_mean": 0.08888888888888889,
-      "lopo_ba_std": 0.06849348892187751,
-      "kfold_ba_mean": 0.7433333333333333,
-      "kfold_ba_std": 0.1749920633120892,
-      "performance_gap": 0.6544444444444444,
-      "n_projects_tested": 3,
-      "n_kfold_splits": 5,
-      "warning": "Performance gap 65.4% > 10% suggests batch-inflated accuracy"
     }
   },
   "Lung": {
@@ -147,6 +129,11 @@
         "F_statistic": 3.768042287705611,
         "p_value": 0.006
       },
+      "TechBatch": {
+        "R2": 0.20046316752567347,
+        "F_statistic": 7.772447673316444,
+        "p_value": 0.001
+      },
       "BioProject": {
         "R2": 0.8242365440857485,
         "F_statistic": 26.902719261019673,
@@ -165,6 +152,12 @@
       "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.8242) than Stage (R\u00b2=0.0288)"
     },
     "cramers_v": {
+      "TechBatch": {
+        "cramers_v": 0.5633676482449,
+        "chi2": 40.94242081447963,
+        "p_value": 2.762630550123251e-08,
+        "dof": 4
+      },
       "BioProject": {
         "cramers_v": 1.0,
         "chi2": 129.0,
@@ -192,89 +185,12 @@
     },
     "silhouette": {
       "Stage": 0.0784251301890766,
+      "TechBatch": -0.023335024660874556,
       "BioProject": 0.21540130764832638,
       "Breed_group": 0.025185007877356773,
       "LibraryLayout": 0.1100204290090192,
       "warning": "Samples cluster more by 'BioProject' (sil=0.2154) than by Stage (sil=0.0784)",
       "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Lung_silhouette_comparison.png"
-    },
-    "lopo": {
-      "lopo_results": [
-        {
-          "project": "PRJNA598508",
-          "n_test": 19,
-          "n_train": 110,
-          "balanced_accuracy": 0.5263157894736842
-        },
-        {
-          "project": "PRJNA661122",
-          "n_test": 13,
-          "n_train": 116,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA593525",
-          "n_test": 13,
-          "n_train": 116,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA474394",
-          "n_test": 12,
-          "n_train": 117,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA496272",
-          "n_test": 11,
-          "n_train": 118,
-          "balanced_accuracy": 0.09090909090909091
-        },
-        {
-          "project": "PRJNA687172",
-          "n_test": 8,
-          "n_train": 121,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA311523",
-          "n_test": 8,
-          "n_train": 121,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA360048",
-          "n_test": 8,
-          "n_train": 121,
-          "balanced_accuracy": 0.125
-        },
-        {
-          "project": "PRJNA284205",
-          "n_test": 8,
-          "n_train": 121,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA362606",
-          "n_test": 6,
-          "n_train": 123,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA483488",
-          "n_test": 5,
-          "n_train": 124,
-          "balanced_accuracy": 1.0
-        }
-      ],
-      "lopo_ba_mean": 0.6129295345802522,
-      "lopo_ba_std": 0.44398904727387684,
-      "kfold_ba_mean": 0.8926190476190478,
-      "kfold_ba_std": 0.07920523586073777,
-      "performance_gap": 0.2796895130387955,
-      "n_projects_tested": 11,
-      "n_kfold_splits": 5,
-      "warning": "Performance gap 28.0% > 10% suggests batch-inflated accuracy"
     }
   },
   "Blood": {
@@ -310,6 +226,11 @@
         "F_statistic": 4.15072524988414,
         "p_value": 0.001
       },
+      "TechBatch": {
+        "R2": 0.16584111165222243,
+        "F_statistic": 7.45546414937378,
+        "p_value": 0.001
+      },
       "BioProject": {
         "R2": 0.5058060939408695,
         "F_statistic": 12.11138388848824,
@@ -328,6 +249,12 @@
       "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.5058) than Stage (R\u00b2=0.0518)"
     },
     "cramers_v": {
+      "TechBatch": {
+        "cramers_v": 0.3651483716701107,
+        "chi2": 10.399999999999999,
+        "p_value": 0.005516564420760776,
+        "dof": 2
+      },
       "BioProject": {
         "cramers_v": 0.973383145259228,
         "chi2": 73.90303030303029,
@@ -355,47 +282,12 @@
     },
     "silhouette": {
       "Stage": 0.07389385964910791,
+      "TechBatch": 0.24731662335452753,
       "BioProject": 0.19657406702377686,
       "Breed_group": 0.1703385178651899,
       "LibraryLayout": 0.23247442569961302,
-      "warning": "Samples cluster more by 'LibraryLayout' (sil=0.2325) than by Stage (sil=0.0739)",
+      "warning": "Samples cluster more by 'TechBatch' (sil=0.2473) than by Stage (sil=0.0739)",
       "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Blood_silhouette_comparison.png"
-    },
-    "lopo": {
-      "lopo_results": [
-        {
-          "project": "PRJNA311061",
-          "n_test": 20,
-          "n_train": 58,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA360366",
-          "n_test": 9,
-          "n_train": 69,
-          "balanced_accuracy": 0.6666666666666666
-        },
-        {
-          "project": "PRJNA609023",
-          "n_test": 6,
-          "n_train": 72,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA389819",
-          "n_test": 5,
-          "n_train": 73,
-          "balanced_accuracy": 0.4
-        }
-      ],
-      "lopo_ba_mean": 0.5166666666666666,
-      "lopo_ba_std": 0.36628768293059855,
-      "kfold_ba_mean": 0.9126984126984127,
-      "kfold_ba_std": 0.07239209048248496,
-      "performance_gap": 0.39603174603174607,
-      "n_projects_tested": 4,
-      "n_kfold_splits": 5,
-      "warning": "Performance gap 39.6% > 10% suggests batch-inflated accuracy"
     }
   },
   "Liver": {
@@ -431,6 +323,11 @@
         "F_statistic": 6.490868611146582,
         "p_value": 0.001
       },
+      "TechBatch": {
+        "R2": 0.14674797118954802,
+        "F_statistic": 10.422391923854603,
+        "p_value": 0.001
+      },
       "BioProject": {
         "R2": 0.6965713634869458,
         "F_statistic": 19.13056535829466,
@@ -454,6 +351,12 @@
       "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.6966) than Stage (R\u00b2=0.0600)"
     },
     "cramers_v": {
+      "TechBatch": {
+        "cramers_v": 0.3145356990866035,
+        "chi2": 91.7106184619058,
+        "p_value": 4.751795636515027e-13,
+        "dof": 15
+      },
       "BioProject": {
         "cramers_v": 0.9538654131910013,
         "chi2": 843.4395029488506,
@@ -481,138 +384,13 @@
     },
     "silhouette": {
       "Stage": 0.037680454213975555,
+      "TechBatch": 0.04834603769005986,
       "BioProject": 0.2620901179946173,
       "Breed_group": 0.08136797557511052,
       "LibraryLayout": 0.1650302656586963,
       "Platform": 0.12857075799423776,
       "warning": "Samples cluster more by 'BioProject' (sil=0.2621) than by Stage (sil=0.0377)",
       "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Liver_silhouette_comparison.png"
-    },
-    "lopo": {
-      "lopo_results": [
-        {
-          "project": "PRJEB30250",
-          "n_test": 48,
-          "n_train": 261,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA597972",
-          "n_test": 42,
-          "n_train": 267,
-          "balanced_accuracy": 0.08333333333333333
-        },
-        {
-          "project": "PRJNA503185",
-          "n_test": 32,
-          "n_train": 277,
-          "balanced_accuracy": 0.4375
-        },
-        {
-          "project": "PRJEB29969",
-          "n_test": 24,
-          "n_train": 285,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA518006",
-          "n_test": 18,
-          "n_train": 291,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJEB23668",
-          "n_test": 15,
-          "n_train": 294,
-          "balanced_accuracy": 0.4
-        },
-        {
-          "project": "PRJNA578377",
-          "n_test": 12,
-          "n_train": 297,
-          "balanced_accuracy": 0.25
-        },
-        {
-          "project": "PRJNA188941",
-          "n_test": 10,
-          "n_train": 299,
-          "balanced_accuracy": 0.5
-        },
-        {
-          "project": "PRJNA305529",
-          "n_test": 10,
-          "n_train": 299,
-          "balanced_accuracy": 0.9
-        },
-        {
-          "project": "PRJNA311523",
-          "n_test": 9,
-          "n_train": 300,
-          "balanced_accuracy": 0.2222222222222222
-        },
-        {
-          "project": "PRJNA597497",
-          "n_test": 8,
-          "n_train": 301,
-          "balanced_accuracy": 0.0
-        },
-        {
-          "project": "PRJNA294650",
-          "n_test": 7,
-          "n_train": 302,
-          "balanced_accuracy": 0.2857142857142857
-        },
-        {
-          "project": "PRJNA323755",
-          "n_test": 6,
-          "n_train": 303,
-          "balanced_accuracy": 0.3333333333333333
-        },
-        {
-          "project": "PRJNA526943",
-          "n_test": 6,
-          "n_train": 303,
-          "balanced_accuracy": 0.3333333333333333
-        },
-        {
-          "project": "PRJNA512179",
-          "n_test": 6,
-          "n_train": 303,
-          "balanced_accuracy": 0.6666666666666666
-        },
-        {
-          "project": "PRJNA392495",
-          "n_test": 6,
-          "n_train": 303,
-          "balanced_accuracy": 1.0
-        },
-        {
-          "project": "PRJNA362606",
-          "n_test": 6,
-          "n_train": 303,
-          "balanced_accuracy": 0.16666666666666666
-        },
-        {
-          "project": "PRJNA417068",
-          "n_test": 5,
-          "n_train": 304,
-          "balanced_accuracy": 0.8
-        },
-        {
-          "project": "PRJNA503188",
-          "n_test": 5,
-          "n_train": 304,
-          "balanced_accuracy": 0.0
-        }
-      ],
-      "lopo_ba_mean": 0.33572472848788637,
-      "lopo_ba_std": 0.3082036011054057,
-      "kfold_ba_mean": 0.9415849673202615,
-      "kfold_ba_std": 0.018445674344830635,
-      "performance_gap": 0.6058602388323752,
-      "n_projects_tested": 19,
-      "n_kfold_splits": 5,
-      "warning": "Performance gap 60.6% > 10% suggests batch-inflated accuracy"
     }
   },
   "Muscle": {
@@ -646,31 +424,42 @@
       "Stage": {
         "R2": 0.1713822257925681,
         "F_statistic": 52.18986323300716,
-        "p_value": 0.001
+        "p_value": 0.01
+      },
+      "TechBatch": {
+        "R2": 0.1694941167209693,
+        "F_statistic": 30.816893823577537,
+        "p_value": 0.01
       },
       "BioProject": {
         "R2": 0.7298036583460311,
         "F_statistic": 34.62206751945583,
-        "p_value": 0.001
+        "p_value": 0.01
       },
       "Breed_group": {
         "R2": 0.07080311389994985,
         "F_statistic": 19.22734138266399,
-        "p_value": 0.001
+        "p_value": 0.01
       },
       "LibraryLayout": {
         "R2": 0.037743103124757316,
         "F_statistic": 29.77065206258003,
-        "p_value": 0.001
+        "p_value": 0.01
       },
       "Platform": {
         "R2": 0.00025865264450640864,
         "F_statistic": 0.1963681483212243,
-        "p_value": 0.863
+        "p_value": 0.85
       },
       "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.7298) than Stage (R\u00b2=0.1714)"
     },
     "cramers_v": {
+      "TechBatch": {
+        "cramers_v": 0.39474978118142046,
+        "chi2": 355.7539307827653,
+        "p_value": 1.314416758665795e-66,
+        "dof": 15
+      },
       "BioProject": {
         "cramers_v": 0.8708226426763962,
         "chi2": 1731.2721272202114,
@@ -698,13 +487,13 @@
     },
     "silhouette": {
       "Stage": 0.03639142885963292,
+      "TechBatch": -0.1623224760324369,
       "BioProject": 0.10582797547527878,
       "Breed_group": -0.04609351165667617,
       "LibraryLayout": 0.013761479701661625,
       "Platform": -0.21303982391261683,
       "warning": "Samples cluster more by 'BioProject' (sil=0.1058) than by Stage (sil=0.0364)",
       "figure": "/Users/tianyuan/Desktop/github_dev/pig-dev-stage/machine_learning/analysis/results/batch_diagnostics/Muscle_silhouette_comparison.png"
-    },
-    "lopo": null
+    }
   }
 }

@@ -214,7 +214,6 @@ def run_all_analyses(
     skip_stability: bool = False,
     skip_correlation: bool = False,
     skip_batch_diagnostics: bool = False,
-    run_lopo: bool = False,
 ):
     """Run all validation analyses."""
 
@@ -281,7 +280,6 @@ def run_all_analyses(
             results['batch_diagnostics'] = run_batch_diagnostics(
                 tissues=tissues,
                 output_dir=batch_output,
-                run_lopo=run_lopo,
             )
         except Exception as e:
             print(f"Batch diagnostics failed: {e}")
@@ -340,10 +338,6 @@ def main():
         '--skip-batch-diagnostics', action='store_true',
         help='Skip batch effect diagnostics'
     )
-    parser.add_argument(
-        '--run-lopo', action='store_true',
-        help='Run Leave-One-Project-Out CV in batch diagnostics (slow)'
-    )
 
     args = parser.parse_args()
 
@@ -354,7 +348,6 @@ def main():
         skip_stability=args.skip_stability,
         skip_correlation=args.skip_correlation,
         skip_batch_diagnostics=args.skip_batch_diagnostics,
-        run_lopo=args.run_lopo,
     )
 
 

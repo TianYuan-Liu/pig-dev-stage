@@ -180,7 +180,7 @@ def run_single_tissue_pipeline(
             with LogContext(tissue_logger, "Data Loading", level=logging.INFO):
                 pipeline_config = get_config()
                 data_dir = PROJECT_ROOT / pipeline_config.paths.get("data_dir", "data/pigGTEx")
-                metadata_file = PROJECT_ROOT / pipeline_config.paths.get("metadata_file", "data/PigGTEx_v0.MetaTable.xlsx")
+                metadata_file = PROJECT_ROOT / pipeline_config.paths.get("metadata_file", "data/PigGTEx_v0.MetaTable.csv")
 
                 data_loader = DataLoader(data_dir=data_dir, metadata_path=metadata_file)
                 data_loader.load_metadata()

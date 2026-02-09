@@ -3,13 +3,12 @@
 Batch Effect Diagnostic Analysis for Developmental Stage Classification.
 
 Quantifies whether batch variables (BioProject, Breed_group, LibraryLayout,
-Platform) confound the developmental stage classifier. Five analyses:
+Platform) confound the developmental stage classifier. Four analyses:
 
   1. PCA Visualization — PC1 vs PC2 colored by Stage and batch variables
   2. PERMANOVA Variance Partitioning — R² for each factor
   3. Cramer's V Confounding — association between Stage and batch variables
   4. Silhouette Analysis — clustering coherence by Stage vs BioProject
-  5. Leave-One-Project-Out CV — generalization across BioProjects (optional)
 """
 
 import sys
@@ -25,10 +24,8 @@ import pandas as pd
 from scipy.spatial.distance import pdist, squareform
 from scipy.stats import chi2_contingency
 from sklearn.decomposition import PCA
-from sklearn.metrics import balanced_accuracy_score, silhouette_score
-from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
-from tqdm import tqdm
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -45,7 +42,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 DEFAULT_TISSUES = ["Muscle", "Liver", "Brain", "Blood", "Lung"]
-BATCH_COLUMNS = ["BioProject", "Breed_group", "LibraryLayout", "Platform"]
+BATCH_COLUMNS = ["TechBatch", "BioProject", "Breed_group", "LibraryLayout", "Platform"]
 N_PCA_COMPONENTS = 50
 
 
@@ -57,7 +54,7 @@ def _load_batch_metadata() -> pd.DataFrame:
     """Load full metadata table and return it indexed by Sample_ID."""
     loader = DataLoader(
         data_dir=PROJECT_ROOT / "data/pigGTEx",
-        metadata_path=PROJECT_ROOT / "data/PigGTEx_v0.MetaTable.xlsx",
+        metadata_path=PROJECT_ROOT / "data/PigGTEx_v0.MetaTable.csv",
     )
     meta = loader.load_metadata()
     return meta
@@ -517,190 +514,13 @@ def run_silhouette_analysis(
 
 
 # ===================================================================
-# Analysis 5: Leave-One-Project-Out CV (optional)
-# ===================================================================
-
-def run_lopo_cv(
-    tissue_name: str,
-    n_tuning_trials: int = 20,
-    n_inner_folds: int = 3,
-) -> Optional[Dict]:
-    """
-    Leave-One-Project-Out CV vs stratified K-fold CV.
-
-    Holds out entire BioProjects (those with >=5 samples) as test sets,
-    trains on the rest, and compares balanced accuracy to standard 5-fold CV.
-    """
-    from machine_learning.model_training.models import OrdinalLightGBM
-    from machine_learning.model_training.hyperparameter_tuning import run_tuning, FIXED_PARAMS
-
-    print("  Leave-One-Project-Out CV (this may take a while)...")
-
-    # Load raw data
-    prepared = load_and_prepare_tissue(tissue_name)
-    if prepared is None:
-        return None
-    X_raw, y, sample_ids, gene_names, scheme_name = prepared
-
-    # Load batch metadata to get BioProject
-    full_meta = _load_batch_metadata()
-    if "BioProject" not in full_meta.columns:
-        print("    BioProject column not found in metadata, skipping LOPO")
-        return None
-
-    bio_project = full_meta.reindex(sample_ids)["BioProject"]
-    bio_project = bio_project.fillna("Unknown")
-
-    # Identify projects with >= 5 samples
-    project_counts = bio_project.value_counts()
-    eligible_projects = project_counts[project_counts >= 5].index.tolist()
-
-    if len(eligible_projects) < 2:
-        print(f"    Only {len(eligible_projects)} project(s) with >=5 samples, skipping LOPO")
-        return None
-
-    print(f"    {len(eligible_projects)} BioProjects with >=5 samples")
-
-    # --- LOPO CV ---
-    lopo_results = []
-    for proj in tqdm(eligible_projects, desc="    LOPO", leave=False):
-        test_mask = (bio_project == proj).values
-        train_mask = ~test_mask
-
-        if test_mask.sum() == 0 or train_mask.sum() == 0:
-            continue
-
-        y_train, y_test = y[train_mask], y[test_mask]
-        # Ensure at least 2 classes in train
-        if len(np.unique(y_train)) < 2:
-            continue
-
-        X_train_raw = X_raw.iloc[:, train_mask]
-        X_test_raw = X_raw.iloc[:, test_mask]
-        train_ids = sample_ids[train_mask]
-        test_ids = sample_ids[test_mask]
-
-        try:
-            tuning_result = run_tuning(
-                X_raw=X_train_raw,
-                y=y_train,
-                sample_ids=np.asarray(train_ids),
-                gene_names=gene_names,
-                study_name=f"lopo_{tissue_name}_{proj}",
-                n_trials=n_tuning_trials,
-                n_inner_folds=n_inner_folds,
-                seed=42,
-            )
-            best_params = tuning_result["best_params"]
-
-            preprocessor = ExpressionPreprocessor()
-            X_train_proc = preprocessor.fit_transform(X_train_raw)
-            X_test_proc = preprocessor.transform(X_test_raw)
-
-            X_train_df = to_samples_x_genes_df(X_train_proc, train_ids, preprocessor, gene_names)
-            X_test_df = to_samples_x_genes_df(X_test_proc, test_ids, preprocessor, gene_names)
-
-            model = OrdinalLightGBM(**best_params, **FIXED_PARAMS, seed=42)
-            model.fit(X_train_df, y_train)
-            y_pred = model.predict(X_test_df)
-            ba = balanced_accuracy_score(y_test, y_pred)
-
-            lopo_results.append({
-                "project": proj,
-                "n_test": int(test_mask.sum()),
-                "n_train": int(train_mask.sum()),
-                "balanced_accuracy": float(ba),
-            })
-        except Exception as e:
-            print(f"    Project {proj} failed: {e}")
-
-    if not lopo_results:
-        print("    No LOPO folds completed successfully")
-        return None
-
-    lopo_ba = [r["balanced_accuracy"] for r in lopo_results]
-
-    # --- Standard 5-fold CV for comparison ---
-    print("    Running 5-fold stratified CV for comparison...")
-    kfold_bas = []
-    min_per_class = pd.Series(y).value_counts().min()
-    n_splits = min(5, min_per_class) if min_per_class >= 2 else 2
-    skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
-
-    for fold_i, (train_idx, test_idx) in enumerate(skf.split(X_raw.values.T, y)):
-        y_train, y_test = y[train_idx], y[test_idx]
-        X_train_raw = X_raw.iloc[:, train_idx]
-        X_test_raw = X_raw.iloc[:, test_idx]
-        train_ids = sample_ids[train_idx]
-        test_ids = sample_ids[test_idx]
-
-        try:
-            tuning_result = run_tuning(
-                X_raw=X_train_raw,
-                y=y_train,
-                sample_ids=np.asarray(train_ids),
-                gene_names=gene_names,
-                study_name=f"kfold_{tissue_name}_f{fold_i}",
-                n_trials=n_tuning_trials,
-                n_inner_folds=n_inner_folds,
-                seed=42 + fold_i,
-            )
-            best_params = tuning_result["best_params"]
-
-            preprocessor = ExpressionPreprocessor()
-            X_train_proc = preprocessor.fit_transform(X_train_raw)
-            X_test_proc = preprocessor.transform(X_test_raw)
-
-            X_train_df = to_samples_x_genes_df(X_train_proc, train_ids, preprocessor, gene_names)
-            X_test_df = to_samples_x_genes_df(X_test_proc, test_ids, preprocessor, gene_names)
-
-            model = OrdinalLightGBM(**best_params, **FIXED_PARAMS, seed=42 + fold_i)
-            model.fit(X_train_df, y_train)
-            y_pred = model.predict(X_test_df)
-            ba = balanced_accuracy_score(y_test, y_pred)
-            kfold_bas.append(float(ba))
-        except Exception as e:
-            print(f"    K-fold {fold_i} failed: {e}")
-
-    kfold_mean = float(np.mean(kfold_bas)) if kfold_bas else np.nan
-    lopo_mean = float(np.mean(lopo_ba))
-    gap = kfold_mean - lopo_mean if not np.isnan(kfold_mean) else np.nan
-
-    result = {
-        "lopo_results": lopo_results,
-        "lopo_ba_mean": lopo_mean,
-        "lopo_ba_std": float(np.std(lopo_ba)),
-        "kfold_ba_mean": kfold_mean,
-        "kfold_ba_std": float(np.std(kfold_bas)) if kfold_bas else np.nan,
-        "performance_gap": float(gap) if not np.isnan(gap) else np.nan,
-        "n_projects_tested": len(lopo_results),
-        "n_kfold_splits": len(kfold_bas),
-    }
-
-    print(f"    LOPO BA:   {lopo_mean:.3f} +/- {np.std(lopo_ba):.3f}")
-    print(f"    K-fold BA: {kfold_mean:.3f} +/- {np.std(kfold_bas):.3f}")
-    if not np.isnan(gap):
-        print(f"    Gap (K-fold - LOPO): {gap:.3f}")
-        if gap > 0.10:
-            result["warning"] = f"Performance gap {gap:.1%} > 10% suggests batch-inflated accuracy"
-            print(f"    WARNING: {result['warning']}")
-        else:
-            result["warning"] = None
-
-    return result
-
-
-# ===================================================================
 # Tissue-level orchestrator
 # ===================================================================
 
 def run_tissue_batch_diagnostics(
     tissue_name: str,
     output_dir: Path,
-    run_lopo: bool = False,
     n_permutations: int = 999,
-    n_tuning_trials: int = 20,
-    n_inner_folds: int = 3,
 ) -> Optional[Dict]:
     """Run all batch diagnostic analyses for a single tissue."""
 
@@ -746,16 +566,6 @@ def run_tissue_batch_diagnostics(
     # 4. Silhouette
     result["silhouette"] = run_silhouette_analysis(X_scaled, y, batch_df, tissue_name, output_dir)
 
-    # 5. LOPO (optional)
-    if run_lopo:
-        result["lopo"] = run_lopo_cv(
-            tissue_name,
-            n_tuning_trials=n_tuning_trials,
-            n_inner_folds=n_inner_folds,
-        )
-    else:
-        result["lopo"] = None
-
     return result
 
 
@@ -766,10 +576,7 @@ def run_tissue_batch_diagnostics(
 def run_batch_diagnostics(
     tissues: Optional[List[str]] = None,
     output_dir: Optional[Path] = None,
-    run_lopo: bool = False,
     n_permutations: int = 999,
-    n_tuning_trials: int = 20,
-    n_inner_folds: int = 3,
 ) -> Dict:
     """Run batch diagnostics across multiple tissues."""
 
@@ -784,7 +591,6 @@ def run_batch_diagnostics(
     print("BATCH EFFECT DIAGNOSTIC ANALYSIS")
     print("=" * 80)
     print(f"Tissues:        {tissues}")
-    print(f"LOPO CV:        {'YES' if run_lopo else 'SKIPPED (use --run-lopo to enable)'}")
     print(f"Permutations:   {n_permutations}")
     print(f"Output:         {output_dir}")
 
@@ -813,10 +619,7 @@ def run_batch_diagnostics(
     for tissue in tissues:
         result = run_tissue_batch_diagnostics(
             tissue, output_dir,
-            run_lopo=run_lopo,
             n_permutations=n_permutations,
-            n_tuning_trials=n_tuning_trials,
-            n_inner_folds=n_inner_folds,
         )
         if result:
             all_results[tissue] = result
@@ -864,13 +667,6 @@ def run_batch_diagnostics(
         sil = r.get("silhouette", {})
         row["Sil(Stage)"] = f"{sil.get('Stage', np.nan):.4f}"
 
-        # LOPO gap
-        lopo = r.get("lopo")
-        if lopo and lopo.get("performance_gap") is not None:
-            row["LOPO gap"] = f"{lopo['performance_gap']:.3f}"
-        else:
-            row["LOPO gap"] = "N/A"
-
         rows.append(row)
 
     if rows:
@@ -892,9 +688,6 @@ def run_batch_diagnostics(
         sil = r.get("silhouette", {})
         if sil.get("warning"):
             warnings_found.append(f"Silhouette: {sil['warning']}")
-        lopo = r.get("lopo")
-        if lopo and lopo.get("warning"):
-            warnings_found.append(f"LOPO: {lopo['warning']}")
 
         if warnings_found:
             print(f"  {tissue}: POTENTIAL BATCH EFFECTS")
@@ -926,24 +719,12 @@ def main():
         help="Tissues to evaluate",
     )
     parser.add_argument(
-        "--run-lopo", action="store_true",
-        help="Run Leave-One-Project-Out CV (slow, ~30-120 min per tissue)",
-    )
-    parser.add_argument(
         "--n-permutations", type=int, default=999,
         help="Number of permutations for PERMANOVA (default: 999)",
     )
     parser.add_argument(
         "--output-dir", type=str, default=None,
         help="Output directory (default: analysis/results/batch_diagnostics/)",
-    )
-    parser.add_argument(
-        "--n-tuning-trials", type=int, default=20,
-        help="Optuna trials for LOPO tuning (default: 20)",
-    )
-    parser.add_argument(
-        "--n-inner-folds", type=int, default=3,
-        help="Inner CV folds for LOPO tuning (default: 3)",
     )
     args = parser.parse_args()
 
@@ -952,10 +733,7 @@ def main():
     run_batch_diagnostics(
         tissues=args.tissues,
         output_dir=out,
-        run_lopo=args.run_lopo,
         n_permutations=args.n_permutations,
-        n_tuning_trials=args.n_tuning_trials,
-        n_inner_folds=args.n_inner_folds,
     )
 
 

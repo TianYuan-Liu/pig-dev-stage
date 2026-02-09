@@ -322,4 +322,27 @@
   \end{tabular}
 \end{table}
 
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 5: Batch diagnostics summary
+% ------------------------------------------------------------------------------
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Batch structure diagnostics across tissues.} PERMANOVA $R^2$ quantifies the fraction of transcriptomic variance explained by each factor (999 permutations on PCA-reduced Euclidean distances). Cram\'{e}r's $V$ measures categorical association between developmental stage and batch variables (values approaching 1.0 indicate near-complete confounding). Silhouette scores measure clustering coherence in PCA space. TechBatch is a composite variable encoding sequencer generation and library layout (7 levels), designed to capture genuine technical variation without the structural confounding inherent in BioProject identity. BioProject shows high $V$ ($>$0.87) because $\sim$90\% of projects contain samples from a single developmental stage, making it structurally inseparable from Stage.}
+  \label{tab:S5}
+  \footnotesize
+  \begin{tabular}{llccccccc}
+    \toprule
+    Tissue & Scheme & $N$ & $R^2$(Stage) & $R^2$(TechBatch) & $R^2$(BioProject) & $V$(TechBatch) & $V$(BioProject) & Sil(Stage) \\
+    \midrule
+    Muscle & 4-class & 761 & 0.171 & 0.170 & 0.730 & 0.395 & 0.871 & 0.036 \\
+    Liver  & 4-class & 309 & 0.060 & 0.147 & 0.697 & 0.315 & 0.954 & 0.038 \\
+    Brain  & 2-class &  43 & 0.175 & 0.395 & 0.764 & 0.840 & 0.870 & 0.284 \\
+    Blood  & 2-class &  78 & 0.052 & 0.166 & 0.506 & 0.365 & 0.973 & 0.074 \\
+    Lung   & 2-class & 129 & 0.029 & 0.201 & 0.824 & 0.563 & 1.000 & 0.078 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \end{document}
