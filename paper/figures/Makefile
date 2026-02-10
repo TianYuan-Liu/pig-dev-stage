@@ -21,6 +21,11 @@ PY_DIR := python
 OUT_DIR := output
 PAPER_DIR := ..
 
+# Mermaid
+MERMAID_SRC := mermaid/fig1b_pipeline.mmd
+MERMAID_CFG := mermaid/config.json
+MERMAID_PNG := $(OUT_DIR)/png/figure1b.png
+
 # Figure scripts
 FIG1_SCRIPT := $(R_DIR)/fig1_study_design.R
 FIG2_SCRIPT := $(R_DIR)/fig2_model_performance.R
@@ -49,7 +54,7 @@ SHARED_DEPS := $(R_DIR)/_theme.R $(R_DIR)/_utils.R config/nature_style.yaml
 # TARGETS
 # ==============================================================================
 
-.PHONY: all main supp supp-pdf fig1 fig2 fig3 fig4 fig4-data clean help
+.PHONY: all main supp supp-pdf fig1 fig2 fig3 fig4 fig4-data mermaid clean help
 
 # Default target - generates everything
 all: main supp
@@ -95,12 +100,19 @@ fig4: $(FIG4_PDF)
 fig4-data: $(FIG4_DATA)
 	@echo "✓ Figure 4 data prepared"
 
+mermaid: $(MERMAID_PNG)
+	@echo "✓ Mermaid diagram rendered"
 
 # ==============================================================================
 # RULES
 # ==============================================================================
 
-$(FIG1_PDF): $(FIG1_SCRIPT) $(SHARED_DEPS)
+# Mermaid diagram for Panel B (PNG via Chromium for foreignObject support)
+$(MERMAID_PNG): $(MERMAID_SRC) $(MERMAID_CFG)
+	@echo "Rendering mermaid diagram..."
+	mmdc -i $(MERMAID_SRC) -o $(MERMAID_PNG) -c $(MERMAID_CFG) -t neutral -w 1800 -H 680 -b white -s 4
+
+$(FIG1_PDF): $(FIG1_SCRIPT) $(SHARED_DEPS) $(MERMAID_PNG)
 	@echo ""
 	@echo "═══════════════════════════════════════════════════════════════"
 	@echo "Generating Figure 1: Study Design"

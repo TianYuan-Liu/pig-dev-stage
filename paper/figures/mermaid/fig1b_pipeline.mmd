@@ -1,0 +1,27 @@
+graph LR
+    classDef data fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#1E40AF
+    classDef process fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E
+    classDef model fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px,color:#5B21B6
+    classDef eval fill:#FCE7F3,stroke:#DB2777,stroke-width:2px,color:#9D174D
+    classDef result fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#065F46
+
+    subgraph prep ["① Preparation"]
+        direction TB
+        A1[/"TPM +<br/>metadata"/]:::data --> A2["Stage selection<br/>(4 / 3 / 2-class)"]:::process
+    end
+
+    subgraph cv ["② Nested CV"]
+        direction LR
+        B1{{"5-fold<br/>outer CV"}}:::model --> B2["log₂ + Optuna<br/>(3-fold × 25)"]:::process
+        B2 --> B3["Train Ordinal<br/>LightGBM"]:::model
+        B3 --> B4(["Evaluate<br/>held-out fold"]):::eval
+        B4 -.->|"×5"| B1
+    end
+
+    subgraph out ["③ Final Model"]
+        direction TB
+        C1["Pool + bootstrap<br/>95% CI"]:::eval --> C2["Retrain on<br/>full dataset"]:::model
+        C2 --> C3[("Top features<br/>+ JSON")]:::result
+    end
+
+    prep --> cv --> out

@@ -4,9 +4,9 @@
 # ==============================================================================
 # Panels:
 #   A - Developmental stage timeline
-#   B - Sample distribution heatmap (tissues × stages)
-#   C - Classification schemes bar chart
-#   D - Machine learning workflow diagram
+#   B - Machine learning pipeline flowchart (mermaid SVG)
+#   C - Sample distribution heatmap (tissues × stages)
+#   D - Classification schemes bar chart
 # ==============================================================================
 
 # ==============================================================================
@@ -14,6 +14,7 @@
 # ==============================================================================
 suppressPackageStartupMessages({
   library(tidyverse)
+  library(magick)
   library(patchwork)
   library(viridis)
 })
@@ -100,14 +101,29 @@ create_panel_a <- function() {
 }
 
 # ==============================================================================
-# 4. PANEL B: EMPTY PLACEHOLDER
+# 4. PANEL B: ML PIPELINE FLOWCHART (mermaid PNG)
 # ==============================================================================
 create_panel_b <- function() {
-  cat("Creating Panel B: Empty placeholder...\n")
+  cat("Creating Panel B: ML pipeline flowchart...\n")
 
-  # Create an empty plot
+  png_path <- file.path(dirname(script_dir), "output", "png", "figure1b.png")
+
+  if (!file.exists(png_path)) {
+    warning("Mermaid PNG not found at: ", png_path, "\nReturning empty panel.")
+    return(ggplot() + theme_void())
+  }
+
+  img <- magick::image_read(png_path)
+  img <- magick::image_trim(img)
+  img_raster <- as.raster(img)
+
+  img_h <- nrow(img_raster)
+  img_w <- ncol(img_raster)
+
   ggplot() +
-    theme_void() +
+    annotation_raster(img_raster, xmin = 0, xmax = img_w, ymin = 0, ymax = img_h) +
+    coord_fixed(ratio = 1, xlim = c(0, img_w), ylim = c(0, img_h), expand = FALSE) +
+    theme_void(base_size = 7) +
     theme(plot.margin = margin(2, 2, 2, 2, "mm"))
 }
 
@@ -201,9 +217,7 @@ panel_b <- create_panel_b()
 panel_c <- create_panel_c(metadata, results_list)
 panel_d <- create_panel_d(results_list)
 
-# Layout: A (timeline), B (SVG workflow), C (heatmap), D (schemes)
-# C and D should be on the same line
-# Give B more space so text is legible
+# Layout: A (timeline), B (ML pipeline centered), C (heatmap), D (schemes)
 design <- "
   AAAA
   BBBB
@@ -233,7 +247,7 @@ fig1 <- wrap_plots(
 # 8. SAVE FIGURE
 # ==============================================================================
 cat("\nSaving figure...\n")
-save_figure(fig1, "fig1_study_design", width = 183, height = 160)
+save_figure(fig1, "fig1_study_design", width = 183, height = 180)
 
 # ==============================================================================
 # 9. SUMMARY STATISTICS
