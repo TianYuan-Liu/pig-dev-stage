@@ -59,41 +59,34 @@ create_fig_s1 <- function() {
   sensitivity <- read_csv(sensitivity_file, show_col_types = FALSE)
   bootstrap_data <- fromJSON(bootstrap_file)
 
-  # Panel A: Correlation vs. p-value threshold
-  # Improved: larger points, clear error ribbon, grid for readability
+  # Panel A: Correlation vs. FDR threshold
+  # Each threshold now uses ALL passing genes (no top-N selection)
   panel_a <- sensitivity %>%
-    filter(n_genes >= 15, n_genes <= 50) %>%
-    group_by(p_threshold) %>%
-    summarise(
-      mean_r = mean(correlation, na.rm = TRUE),
-      max_r = max(correlation, na.rm = TRUE),
-      min_r = min(correlation, na.rm = TRUE),
-      .groups = "drop"
-    ) %>%
-    ggplot(aes(x = p_threshold, y = mean_r)) +
-    geom_ribbon(
-      aes(ymin = min_r, ymax = max_r),
-      alpha = 0.25,
-      fill = PRIMARY_COLORS[1]
-    ) +
+    ggplot(aes(x = fdr_threshold, y = correlation)) +
     geom_line(color = PRIMARY_COLORS[1], linewidth = 0.8) +
     geom_point(
+      aes(size = n_genes),
       color = PRIMARY_COLORS[1],
-      size = 2.5,
-      shape = 16
+      shape = 16,
+      alpha = 0.8
     ) +
+    geom_text(
+      aes(label = sprintf("n=%d", n_genes)),
+      vjust = -1.2, size = 2.2, family = "Arial"
+    ) +
+    scale_size_continuous(range = c(2, 5), name = "N genes") +
     scale_y_continuous(
       limits = c(0, 1),
       breaks = seq(0, 1, 0.2),
       expand = expansion(mult = c(0.02, 0.05))
     ) +
     scale_x_continuous(
-      breaks = c(0.01, 0.05, 0.10, 0.15, 0.20),
-      labels = c("0.01", "0.05", "0.10", "0.15", "0.20")
+      breaks = c(0.05, 0.10, 0.15, 0.20),
+      labels = c("0.05", "0.10", "0.15", "0.20")
     ) +
     labs(
-      x = "P-value threshold",
-      y = "Mean Pearson correlation (r)"
+      x = "FDR threshold (Benjamini-Hochberg)",
+      y = "Pearson correlation (r)"
     ) +
     nature_theme(show_grid = TRUE) +
     theme(

@@ -1,0 +1,66 @@
+---
+COMPREHENSIVE FEATURE SELECTION VALIDATION REPORT
+Generated: 2026-02-10 02:24:13
+---
+
+## SUMMARY TABLE
+
+Tissue Stability (Jaccard)  Stable Genes Correlated % Mean |r|
+ Blood                0.13             5          96%     0.60
+ Brain                0.51            31          82%     0.55
+ Liver                0.13             8          80%     0.43
+  Lung                0.05             4          20%     0.19
+Muscle                0.28            19          92%     0.59
+
+
+---
+ANALYSIS 1: FEATURE STABILITY ACROSS RANDOM SEEDS
+---
+
+Overall Results:
+  Average Jaccard similarity: 0.222
+  Average stable gene ratio: 26.8%
+
+  VERDICT: FAIL - Features are unstable
+  This suggests potential overfitting
+
+  Per-tissue details:
+    Muscle         : Jaccard=0.278 (+/-0.036), Stable genes=19/50
+    Liver          : Jaccard=0.133 (+/-0.031), Stable genes=8/50
+    Brain          : Jaccard=0.510 (+/-0.182), Stable genes=31/50
+    Blood          : Jaccard=0.132 (+/-0.072), Stable genes=5/50
+    Lung           : Jaccard=0.054 (+/-0.026), Stable genes=4/50
+
+
+---
+ANALYSIS 2: EXPRESSION-STAGE CORRELATION
+---
+
+Overall Results:
+  Average % significant correlations: 74.0%
+  Average |correlation|: 0.472
+
+  VERDICT: PASS - Top genes show strong stage correlations
+  This confirms real developmental expression changes
+
+  Per-tissue details:
+    Muscle         : 92.0% significant, mean |r|=0.586
+    Liver          : 80.0% significant, mean |r|=0.430
+    Brain          : 82.0% significant, mean |r|=0.554
+    Blood          : 96.0% significant, mean |r|=0.601
+    Lung           : 20.0% significant, mean |r|=0.191
+
+
+---
+FINAL CONCLUSION
+---
+
+  OVERALL VERDICT: POTENTIAL OVERFITTING CONCERNS
+
+  The evidence does not strongly support biological interpretation.
+  Consider:
+    - Using more regularization
+    - Reducing number of features
+    - Using cross-validation for feature selection
+
+---

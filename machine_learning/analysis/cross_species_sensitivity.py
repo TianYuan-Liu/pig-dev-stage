@@ -63,109 +63,99 @@ def bootstrap_correlation(x, y, n_bootstrap=1000, random_state=42):
         'bootstrap_distribution': bootstrap_corrs.tolist()
     }
 
-def threshold_sensitivity_analysis(df, p_thresholds=[0.05, 0.10, 0.15, 0.20], 
-                                   n_max=60, n_min=15):
+def threshold_sensitivity_analysis(df, fdr_thresholds=[0.05, 0.10, 0.15, 0.20],
+                                   fc_threshold=0.5):
     """
-    Analyze correlation sensitivity across p-value thresholds and sample sizes.
-    
+    Analyze correlation sensitivity across FDR thresholds.
+
+    Uses ALL genes passing the pre-specified criteria at each threshold
+    (no top-N selection). The |log2FC| > fc_threshold filter is applied
+    alongside the FDR filter.
+
     Args:
-        df: DataFrame with expression stats
-        p_thresholds: List of p-value thresholds to test
-        n_max: Maximum number of genes to include
-        n_min: Minimum number of genes required
-        
+        df: DataFrame with expression stats (must include fdr_pig, fdr_human)
+        fdr_thresholds: List of FDR thresholds to test
+        fc_threshold: Minimum absolute log2FC in both species
+
     Returns:
         DataFrame with sensitivity results
     """
     results = []
-    
+
     # Filter to genes with both pig and human data
     df_clean = df[
-        df['log2fc_pig'].notna() & 
+        df['log2fc_pig'].notna() &
         df['log2fc_human'].notna() &
         df['gene_symbol'].notna() &
         (df['gene_symbol'] != '')
     ].copy()
-    
-    for p_thresh in p_thresholds:
-        # Filter by p-value threshold
+
+    for fdr_thresh in fdr_thresholds:
+        # Filter by FDR and fold-change thresholds
         df_filtered = df_clean[
-            (df_clean['p_pig'] < p_thresh) & 
-            (df_clean['p_human'] < p_thresh)
+            (df_clean['fdr_pig'] < fdr_thresh) &
+            (df_clean['fdr_human'] < fdr_thresh) &
+            (df_clean['log2fc_pig'].abs() > fc_threshold) &
+            (df_clean['log2fc_human'].abs() > fc_threshold)
         ].copy()
-        
-        if len(df_filtered) < n_min:
+
+        n = len(df_filtered)
+        if n < 5:
             continue
-        
-        # Test different numbers of top genes
-        n_steps = range(n_min, min(n_max + 1, len(df_filtered) + 1), 2)
-        
-        for n in n_steps:
-            df_subset = df_filtered.nlargest(n, 'importance')
-            
-            if len(df_subset) < n_min:
-                continue
-            
-            x = df_subset['log2fc_pig'].values
-            y = df_subset['log2fc_human'].values
-            
-            if np.std(x) == 0 or np.std(y) == 0:
-                continue
-            
-            r, p_val = pearsonr(x, y)
-            
-            if not np.isnan(r) and r > 0:
-                # Calculate score (weighted by correlation and sample size)
-                score = r * np.sqrt(n)
-                
-                results.append({
-                    'p_threshold': p_thresh,
-                    'n_genes': n,
-                    'correlation': r,
-                    'p_value': p_val,
-                    'score': score,
-                    'n_available': len(df_filtered)
-                })
-    
+
+        x = df_filtered['log2fc_pig'].values
+        y = df_filtered['log2fc_human'].values
+
+        if np.std(x) == 0 or np.std(y) == 0:
+            continue
+
+        r, p_val = pearsonr(x, y)
+
+        if not np.isnan(r):
+            results.append({
+                'fdr_threshold': fdr_thresh,
+                'n_genes': n,
+                'correlation': r,
+                'p_value': p_val,
+                'n_available': n
+            })
+
     return pd.DataFrame(results)
 
 def find_optimal_parameters(df):
     """
-    Find optimal p-threshold and n for correlation.
-    
-    IMPORTANT: To ensure consistency with Figure 4, we use FIXED parameters
-    that match the R script (fig4_cross_species.R): p < 0.05, n = 43 genes.
-    
-    The sensitivity analysis is still run for Figure S1a, but the bootstrap
-    uses the fixed parameters for consistency.
+    Apply pre-specified criteria to select genes for cross-species analysis.
+
+    Criteria: FDR < 0.10 (BH-corrected) AND |log2FC| > 0.5 in both species.
+    Uses ALL passing genes (no top-N selection).
     """
-    # Fixed parameters to match Figure 4 (from fig4_summary.txt)
-    # This ensures Figure S1b bootstrap CI matches the main figure
-    FIXED_P_THRESHOLD = 0.05
-    FIXED_N_GENES = 43
-    
-    # Calculate correlation for the fixed configuration
+    FDR_THRESHOLD = 0.10
+    FC_THRESHOLD = 0.5
+
     df_clean = df[
-        df['log2fc_pig'].notna() & 
+        df['log2fc_pig'].notna() &
         df['log2fc_human'].notna() &
         df['gene_symbol'].notna() &
         (df['gene_symbol'] != '') &
-        (df['p_pig'] < FIXED_P_THRESHOLD) &
-        (df['p_human'] < FIXED_P_THRESHOLD)
+        (df['fdr_pig'] < FDR_THRESHOLD) &
+        (df['fdr_human'] < FDR_THRESHOLD) &
+        (df['log2fc_pig'].abs() > FC_THRESHOLD) &
+        (df['log2fc_human'].abs() > FC_THRESHOLD)
     ].copy()
-    
-    df_subset = df_clean.nlargest(FIXED_N_GENES, 'importance')
-    
-    if len(df_subset) >= 15:
-        x = df_subset['log2fc_pig'].values
-        y = df_subset['log2fc_human'].values
+
+    n_genes = len(df_clean)
+
+    if n_genes >= 5:
+        x = df_clean['log2fc_pig'].values
+        y = df_clean['log2fc_human'].values
         r, p_val = pearsonr(x, y)
     else:
         r, p_val = 0.0, 1.0
-    
+
     return {
-        'p_threshold': FIXED_P_THRESHOLD,
-        'n_genes': FIXED_N_GENES,
+        'fdr_threshold': FDR_THRESHOLD,
+        'fc_threshold': FC_THRESHOLD,
+        'n_genes': n_genes,
         'correlation': r,
         'p_value': p_val
     }
@@ -184,17 +174,19 @@ def main():
     # Find optimal parameters
     print("\n2. Finding optimal parameters...")
     optimal = find_optimal_parameters(df)
-    print(f"   Optimal: p < {optimal['p_threshold']}, n = {optimal['n_genes']}, R = {optimal['correlation']:.3f}")
-    
-    # Filter to optimal set
+    print(f"   Optimal: FDR < {optimal['fdr_threshold']}, n = {optimal['n_genes']}, R = {optimal['correlation']:.3f}")
+
+    # Filter to genes passing pre-specified criteria
     df_optimal = df[
-        df['log2fc_pig'].notna() & 
+        df['log2fc_pig'].notna() &
         df['log2fc_human'].notna() &
         df['gene_symbol'].notna() &
         (df['gene_symbol'] != '') &
-        (df['p_pig'] < optimal['p_threshold']) &
-        (df['p_human'] < optimal['p_threshold'])
-    ].nlargest(optimal['n_genes'], 'importance')
+        (df['fdr_pig'] < optimal['fdr_threshold']) &
+        (df['fdr_human'] < optimal['fdr_threshold']) &
+        (df['log2fc_pig'].abs() > optimal['fc_threshold']) &
+        (df['log2fc_human'].abs() > optimal['fc_threshold'])
+    ]
     
     print(f"   Selected {len(df_optimal)} genes for bootstrap analysis")
     

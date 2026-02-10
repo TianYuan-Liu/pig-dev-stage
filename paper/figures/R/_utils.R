@@ -52,13 +52,13 @@ project_path <- function(...) {
 #' @return Tibble with standardized metadata columns
 #' @export
 load_metadata <- function(filter_valid = TRUE) {
-  metadata_path <- project_path("data", "PigGTEx_v0.MetaTable.xlsx")
-  
+  metadata_path <- project_path("data", "PigGTEx_v0.MetaTable.csv")
+
   if (!file.exists(metadata_path)) {
     stop("Metadata file not found: ", metadata_path)
   }
-  
-  raw <- readxl::read_excel(metadata_path)
+
+  raw <- readr::read_csv(metadata_path, show_col_types = FALSE)
   
   # Standardize column names and parse
   metadata <- raw %>%

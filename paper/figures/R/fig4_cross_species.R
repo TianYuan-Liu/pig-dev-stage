@@ -56,81 +56,13 @@ cat(sprintf("  Loaded %d genes\n", nrow(df)))
 # ==============================================================================
 cat("Preparing data...\n")
 
-# Find optimal parameters for correlation
-# Use a range of thresholds to find the "sweet spot" (good R and sufficient N)
-find_best_params <- function(df) {
-  p_thresholds <- c(0.05)
-
-  # Store all valid results
-  results <- list()
-  idx <- 1
-
-  for (p_cut in p_thresholds) {
-    df_strict <- df %>%
-      filter(!is.na(log2fc_pig), !is.na(log2fc_human)) %>%
-      filter(!is.na(gene_symbol), gene_symbol != "") %>%
-      filter(p_pig < p_cut, p_human < p_cut)
-
-    n_available <- nrow(df_strict)
-    if (n_available < 15) next
-
-    # Check a range of N values
-    n_steps <- seq(15, min(60, n_available), by = 1)
-    for (n in n_steps) {
-      sub <- df_strict %>%
-        arrange(desc(importance)) %>%
-        slice(1:n)
-
-      if (nrow(sub) < 15) next
-      if (sd(sub$log2fc_pig) == 0 | sd(sub$log2fc_human) == 0) next
-
-      r <- cor(sub$log2fc_pig, sub$log2fc_human)
-
-      if (!is.na(r) && r > 0) {
-        # Weighted score: combine R and N
-        score <- r * sqrt(n)
-        results[[idx]] <- list(p = p_cut, n = n, score = score, r = r)
-        idx <- idx + 1
-      }
-    }
-  }
-
-  if (length(results) == 0) {
-    return(list(p = 0.05, n = 20, score = -1, r = -1))
-  }
-
-  # Convert to dataframe for easier filtering
-  res_df <- do.call(rbind, lapply(results, as.data.frame))
-
-  # Strategy:
-  # 1. Prioritize configurations with R > 0.6
-  # 2. Within those, maximize the score (balance of R and N)
-
-  high_r <- res_df[res_df$r > 0.6, ]
-
-  if (nrow(high_r) > 0) {
-    best_row <- high_r[which.max(high_r$score), ]
-  } else {
-    # If no configuration reaches 0.6, just pick the overall best score
-    best_row <- res_df[which.max(res_df$score), ]
-  }
-
-  as.list(best_row)
-}
-
-best_params <- find_best_params(df)
-cat(sprintf(
-  "  Best params: p < %.3f, n = %d, r = %.3f\n",
-  best_params$p, best_params$n, best_params$r
-))
-
-# Apply best parameters
+# Pre-specified criteria: FDR < 0.10 (BH-corrected) and |log2FC| > 0.5 in both species
 df_clean <- df %>%
   filter(!is.na(log2fc_pig), !is.na(log2fc_human)) %>%
   filter(!is.na(gene_symbol), gene_symbol != "") %>%
-  filter(p_pig < best_params$p, p_human < best_params$p) %>%
-  arrange(desc(importance)) %>%
-  slice(1:best_params$n)
+  filter(fdr_pig < 0.10, fdr_human < 0.10) %>%
+  filter(abs(log2fc_pig) > 0.5, abs(log2fc_human) > 0.5) %>%
+  arrange(desc(importance))
 
 cat(sprintf("  Selected %d genes for visualization\n", nrow(df_clean)))
 
@@ -280,9 +212,10 @@ Generated: %s
 
 DATA SELECTION
 --------------
-P-value threshold: < %.3f
+FDR threshold: < 0.10 (Benjamini-Hochberg)
+|log2FC| threshold: > 0.5
 Number of genes: %d
-Selection criteria: Significant in both species
+Selection criteria: Pre-specified (FDR < 0.10 AND |log2FC| > 0.5 in both species)
 
 CORRELATION ANALYSIS
 --------------------
@@ -301,7 +234,6 @@ TOP CONSERVED MARKERS
 Figure dimensions: 183mm × 200mm
 ",
   format(Sys.time(), "%%Y-%%m-%%d %%H:%%M"),
-  best_params$p,
   nrow(df_clean),
   cor_test$estimate,
   format.pval(cor_test$p.value, digits = 3),

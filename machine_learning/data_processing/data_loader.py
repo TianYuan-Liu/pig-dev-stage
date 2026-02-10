@@ -282,7 +282,11 @@ class DataLoader:
 
         # Get sample metadata for this tissue
         if self.metadata is not None and 'Tissue' in self.metadata.columns:
-            tissue_mask = self.metadata['Tissue'] == tissue
+            tissue_mask = (
+                (self.metadata['Tissue'] == tissue) &
+                (self.metadata['Tissue_Main'] == tissue) &
+                (self.metadata['Sub_categories'] == tissue)
+            )
             tissue_metadata = self.metadata[tissue_mask].copy()
 
             # Align expression and metadata by matching sample IDs

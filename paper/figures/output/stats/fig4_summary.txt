@@ -5,70 +5,89 @@ Generated: %Y-%m-%d %H:%M
 
 DATA SELECTION
 --------------
-P-value threshold: < 0.050
-Number of genes: 48
-Selection criteria: Significant in both species
+FDR threshold: < 0.10 (Benjamini-Hochberg)
+|log2FC| threshold: > 0.5
+Number of genes: 66
+Selection criteria: Pre-specified (FDR < 0.10 AND |log2FC| > 0.5 in both species)
 
 CORRELATION ANALYSIS
 --------------------
-Pearson R: 0.473
-P-value: 0.000687
-95% CI: [0.218, 0.667]
+Pearson R: 0.693
+P-value: 1.09e-10
+95% CI: [0.542, 0.801]
 
 DIRECTIONAL CONSERVATION
 ------------------------
-Genes with conserved direction: 43 / 48 (89.6%)
+Genes with conserved direction: 64 / 66 (97.0%)
 
 TOP CONSERVED MARKERS
 ---------------------
-  SORCS2: Pig=-1.84, Human=-0.95, Imp=1795.4
-  FGFRL1: Pig=-1.68, Human=-2.10, Imp=1311.5
-  IGSF1: Pig=-2.45, Human=-0.34, Imp=690.1
-  ACHE: Pig=-1.81, Human=-0.53, Imp=352.4
-  TCAF1: Pig=-2.44, Human=-1.02, Imp=290.3
-  TRDN: Pig=1.46, Human=0.37, Imp=246.1
-  KREMEN1: Pig=-1.25, Human=-1.43, Imp=190.0
-  DLK1: Pig=-1.37, Human=-2.88, Imp=132.0
-  WDR1: Pig=-0.73, Human=-0.52, Imp=94.7
-  SRPX: Pig=-1.46, Human=-1.75, Imp=77.7
-  FSCN1: Pig=-1.85, Human=-1.95, Imp=55.1
-  SLC25A6: Pig=-1.47, Human=-0.50, Imp=39.4
-  BAIAP2: Pig=-0.68, Human=-1.33, Imp=23.8
-  BOK: Pig=-0.81, Human=-0.99, Imp=18.3
-  IGF2BP2: Pig=-1.98, Human=-2.03, Imp=18.1
-  PTN: Pig=-3.24, Human=-1.51, Imp=17.0
-  COL11A2: Pig=-3.21, Human=-0.70, Imp=16.1
-  ADAMTS2: Pig=-1.17, Human=-1.83, Imp=15.6
-  NEDD4: Pig=1.35, Human=1.01, Imp=13.6
-  TENM3: Pig=-2.37, Human=-0.26, Imp=13.2
-  LRTM1: Pig=-1.70, Human=-1.05, Imp=12.7
-  NDN: Pig=-1.90, Human=-1.13, Imp=12.4
-  COL4A2: Pig=-0.42, Human=-1.65, Imp=12.0
-  EMID1: Pig=-1.56, Human=-1.00, Imp=9.1
-  IGF2BP3: Pig=-3.91, Human=-1.23, Imp=8.1
-  KDELR1: Pig=-0.43, Human=-0.55, Imp=6.8
-  POSTN: Pig=-1.97, Human=-2.93, Imp=6.6
-  HTATIP2: Pig=1.18, Human=0.81, Imp=6.4
-  ME1: Pig=1.71, Human=0.64, Imp=6.0
-  TP73: Pig=-1.41, Human=-0.13, Imp=5.4
-  RUVBL2: Pig=-1.07, Human=-0.20, Imp=4.8
-  LAMB3: Pig=-0.25, Human=1.45, Imp=4.5
-  PLA2G4E: Pig=1.51, Human=-1.25, Imp=4.1
-  GPC4: Pig=-1.14, Human=-0.99, Imp=4.1
-  SMIM1: Pig=-1.27, Human=1.37, Imp=3.8
-  TMEM41B: Pig=-1.19, Human=-0.54, Imp=3.8
-  STC1: Pig=-0.67, Human=-2.22, Imp=3.5
-  CHPF: Pig=-0.64, Human=-1.29, Imp=3.3
-  MAOB: Pig=0.79, Human=0.80, Imp=3.1
-  WDR55: Pig=0.16, Human=-0.38, Imp=3.0
-  MOSPD1: Pig=-0.99, Human=0.48, Imp=3.0
-  TRAF4: Pig=-1.60, Human=-1.32, Imp=2.9
-  PSEN1: Pig=-0.69, Human=-0.45, Imp=2.8
-  PYCR1: Pig=-1.31, Human=-1.02, Imp=2.3
-  SMPX: Pig=-0.54, Human=-0.47, Imp=2.2
-  FREM2: Pig=-2.41, Human=-1.05, Imp=2.2
-  POLR2F: Pig=0.40, Human=0.22, Imp=2.1
-  KLHDC3: Pig=-0.28, Human=-0.51, Imp=2.1
+  FGFRL1: Pig=-3.03, Human=-2.10, Imp=1749.9
+  TCAF1: Pig=-4.72, Human=-1.02, Imp=552.4
+  ACHE: Pig=-3.34, Human=-0.53, Imp=384.2
+  DLK1: Pig=-9.15, Human=-2.88, Imp=324.2
+  WDR1: Pig=-1.69, Human=-0.52, Imp=250.6
+  NRK: Pig=-8.56, Human=-2.45, Imp=234.5
+  KREMEN1: Pig=-1.69, Human=-1.43, Imp=179.8
+  IGF2BP2: Pig=-2.19, Human=-2.03, Imp=117.0
+  FSCN1: Pig=-4.28, Human=-1.95, Imp=88.3
+  POSTN: Pig=-7.97, Human=-2.93, Imp=37.0
+  FREM2: Pig=-4.58, Human=-1.05, Imp=29.0
+  ADAMTS2: Pig=-4.25, Human=-1.83, Imp=22.3
+  PLA2G4E: Pig=2.32, Human=-1.25, Imp=20.3
+  MAOB: Pig=2.55, Human=0.80, Imp=16.0
+  KLHDC3: Pig=-1.06, Human=-0.51, Imp=13.3
+  RALGPS2: Pig=-3.53, Human=-0.89, Imp=7.6
+  ETV5: Pig=-2.80, Human=-2.24, Imp=7.2
+  COL11A2: Pig=-8.35, Human=-0.70, Imp=7.2
+  IGF2BP3: Pig=-4.85, Human=-1.23, Imp=7.1
+  LRRC32: Pig=-2.09, Human=-1.11, Imp=6.2
+  CCDC8: Pig=-4.44, Human=-3.14, Imp=5.9
+  GPX7: Pig=-4.92, Human=-1.04, Imp=5.7
+  DEGS1: Pig=-2.22, Human=-0.65, Imp=4.7
+  ZNF106: Pig=0.65, Human=0.66, Imp=4.6
+  SLC2A5: Pig=3.71, Human=-1.08, Imp=4.5
+  SPON1: Pig=-3.55, Human=-1.04, Imp=3.9
+  HCN1: Pig=0.89, Human=1.02, Imp=3.5
+  CHODL: Pig=-5.01, Human=-1.27, Imp=3.5
+  DENND5A: Pig=-2.10, Human=-0.62, Imp=3.3
+  DPT: Pig=-2.90, Human=-1.24, Imp=3.1
+  SOCS3: Pig=-2.11, Human=-2.96, Imp=3.0
+  STRADB: Pig=2.38, Human=0.66, Imp=3.0
+  CHPF: Pig=-1.79, Human=-1.29, Imp=2.0
+  GALE: Pig=-2.73, Human=-0.82, Imp=1.8
+  PKNOX2: Pig=-0.64, Human=-0.61, Imp=1.6
+  TIMP1: Pig=-4.39, Human=-1.33, Imp=1.6
+  BAIAP2: Pig=-1.58, Human=-1.33, Imp=1.4
+  NET1: Pig=-3.54, Human=-1.02, Imp=1.3
+  ARHGAP39: Pig=-3.57, Human=-1.07, Imp=1.3
+  WWP1: Pig=3.22, Human=0.95, Imp=1.1
+  MEA1: Pig=-0.86, Human=-0.52, Imp=0.9
+  PYCR1: Pig=-3.84, Human=-1.02, Imp=0.8
+  ADAMTSL4: Pig=-3.03, Human=-1.74, Imp=0.7
+  SLC9A2: Pig=3.05, Human=0.97, Imp=0.6
+  IER2: Pig=-1.38, Human=-1.98, Imp=0.6
+  HEYL: Pig=-2.85, Human=-1.08, Imp=0.6
+  MARCKSL1: Pig=-5.32, Human=-1.13, Imp=0.6
+  GPR157: Pig=2.87, Human=1.18, Imp=0.5
+  SFMBT2: Pig=-1.65, Human=-0.53, Imp=0.5
+  CHFR: Pig=-1.26, Human=-0.82, Imp=0.5
+  PROSER2: Pig=-3.37, Human=-2.26, Imp=0.5
+  NDN: Pig=-4.20, Human=-1.13, Imp=0.4
+  NID1: Pig=-1.96, Human=-1.68, Imp=0.4
+  PTK7: Pig=-7.05, Human=-2.58, Imp=0.3
+  XPNPEP2: Pig=-3.04, Human=-1.24, Imp=0.3
+  PFKL: Pig=-3.28, Human=-0.82, Imp=0.3
+  TMEM132A: Pig=-3.92, Human=-0.91, Imp=0.3
+  C14orf132: Pig=-7.61, Human=-1.53, Imp=0.3
+  NTN1: Pig=-3.07, Human=-1.15, Imp=0.3
+  GLCCI1: Pig=-1.09, Human=-0.69, Imp=0.2
+  RRP8: Pig=-1.36, Human=-0.75, Imp=0.2
+  RNF128: Pig=2.08, Human=1.51, Imp=0.2
+  ARMCX4: Pig=-4.85, Human=-1.46, Imp=0.2
+  TUBA1B: Pig=-4.22, Human=-1.13, Imp=0.2
+  PMP22: Pig=-2.71, Human=-1.33, Imp=0.2
+  MYH3: Pig=-5.38, Human=-2.14, Imp=0.0
 
 Figure dimensions: 183mm × 200mm
 

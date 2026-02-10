@@ -424,32 +424,32 @@
       "Stage": {
         "R2": 0.1713822257925681,
         "F_statistic": 52.18986323300716,
-        "p_value": 0.01
+        "p_value": 0.001
       },
       "TechBatch": {
         "R2": 0.1694941167209693,
         "F_statistic": 30.816893823577537,
-        "p_value": 0.01
+        "p_value": 0.001
       },
       "BioProject": {
         "R2": 0.7298036583460311,
         "F_statistic": 34.62206751945583,
-        "p_value": 0.01
+        "p_value": 0.001
       },
       "Breed_group": {
         "R2": 0.07080311389994985,
         "F_statistic": 19.22734138266399,
-        "p_value": 0.01
+        "p_value": 0.001
       },
       "LibraryLayout": {
         "R2": 0.037743103124757316,
         "F_statistic": 29.77065206258003,
-        "p_value": 0.01
+        "p_value": 0.001
       },
       "Platform": {
         "R2": 0.00025865264450640864,
         "F_statistic": 0.1963681483212243,
-        "p_value": 0.85
+        "p_value": 0.863
       },
       "warning": "Batch variable 'BioProject' explains more variance (R\u00b2=0.7298) than Stage (R\u00b2=0.1714)"
     },

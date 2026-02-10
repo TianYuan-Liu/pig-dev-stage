@@ -160,7 +160,21 @@ KEY_GENES = {
     "ENSSSCG00000009972": "KREMEN1",
     "ENSSSCG00000035805": "DLK1",
     "ENSSSCG00000039557": "TRIM54",
-    "ENSSSCG00000004454": "ME1"
+    "ENSSSCG00000004454": "ME1",
+    "ENSSSCG00000016453": "TCAF1",
+    "ENSSSCG00000036501": "WDR1",
+    "ENSSSCG00000012546": "NRK",
+    "ENSSSCG00000011795": "IGF2BP2",
+    "ENSSSCG00000007586": "FSCN1",
+    "ENSSSCG00000009361": "POSTN",
+    "ENSSSCG00000009364": "FREM2",
+    "ENSSSCG00000024043": "ADAMTS2",
+    "ENSSSCG00000037292": "PLA2G4E",
+    "ENSSSCG00000023215": "MAOB",
+    "ENSSSCG00000023229": "ETV5",
+    "ENSSSCG00000001473": "COL11A2",
+    "ENSSSCG00000036695": "IGF2BP3",
+    "ENSSSCG00000033830": "CCDC8",
 }
 
 
@@ -181,11 +195,11 @@ def calculate_stage_trajectories(pig_expr, metadata, key_genes):
         DataFrame with stage means and transition FCs
     """
     stage_order = [
-        "Infant_0_20d",
-        "Early childhood_21_59d",
-        "Pre_pubertal_60_149d",
-        "Post_pubertal_150_365d",
-        "Adult_>365d"
+        "Infant",
+        "Early childhood",
+        "Pre-pubertal",
+        "Post-pubertal",
+        "Adult"
     ]
     stage_labels = ["Infant", "Early", "Pre-pub", "Post-pub", "Adult"]
 
@@ -198,7 +212,7 @@ def calculate_stage_trajectories(pig_expr, metadata, key_genes):
 
         # Calculate mean TPM per stage
         for i, stage in enumerate(stage_order):
-            stage_samples = metadata[metadata["Stage"] == stage]["Sample_ID"]
+            stage_samples = metadata[metadata["Stage"] == stage].index
             valid = [s for s in stage_samples if s in pig_expr.columns]
             if valid:
                 row[f"mean_{stage_labels[i]}"] = pig_expr.loc[gene_id, valid].mean()
@@ -288,23 +302,33 @@ def build_gene_metadata(top_genes: list, biomarkers: dict) -> pd.DataFrame:
     return pd.DataFrame(final_list)
 
 
+def _load_pig_metadata() -> pd.DataFrame:
+    """Load and process pig metadata using the same logic as the ML pipeline."""
+    import sys
+    sys.path.insert(0, str(PROJECT_ROOT))
+    from machine_learning.data_processing.data_loader import DataLoader
+    loader = DataLoader(DATA_DIR / "pigGTEx", DATA_DIR / "PigGTEx_v0.MetaTable.csv")
+    loader.load_metadata()
+    return loader.metadata
+
+
 def load_pig_expression() -> tuple:
     """Load pig muscle expression data."""
     print("\nLoading pig expression...")
-    
-    meta = pd.read_csv(DATA_DIR / "full_metadata.csv")
+
+    meta = _load_pig_metadata()
     muscle_meta = meta[meta["Tissue"] == "Muscle"]
-    
-    young_ids = muscle_meta[muscle_meta["Stage"] == "Infant_0_20d"]["Sample_ID"].tolist()
-    adult_ids = muscle_meta[muscle_meta["Stage"] == "Adult_>365d"]["Sample_ID"].tolist()
-    
+
+    young_ids = muscle_meta[muscle_meta["Stage"] == "Infant"].index.tolist()
+    adult_ids = muscle_meta[muscle_meta["Stage"] == "Adult"].index.tolist()
+
     expr_path = DATA_DIR / "pigGTEx" / "Muscle.expr_tpm.txt.gz"
     with gzip.open(expr_path, 'rt') as f:
         expr = pd.read_csv(f, sep='\t', index_col=0)
-    
+
     y_av = [x for x in young_ids if x in expr.columns]
     a_av = [x for x in adult_ids if x in expr.columns]
-    
+
     print(f"  Pig samples: {len(y_av)} young, {len(a_av)} adult")
     return expr, y_av, a_av
 
@@ -416,12 +440,25 @@ def main():
         })
     
     stats_df = pd.DataFrame(stats_rows)
+
+    # Add FDR-corrected p-values (Benjamini-Hochberg)
+    from statsmodels.stats.multitest import multipletests
+    valid_mask = stats_df["p_pig"].notna() & stats_df["p_human"].notna()
+    stats_df["fdr_pig"] = np.nan
+    stats_df["fdr_human"] = np.nan
+    if valid_mask.sum() > 0:
+        _, fdr_pig, _, _ = multipletests(stats_df.loc[valid_mask, "p_pig"], method="fdr_bh")
+        _, fdr_human, _, _ = multipletests(stats_df.loc[valid_mask, "p_human"], method="fdr_bh")
+        stats_df.loc[valid_mask, "fdr_pig"] = fdr_pig
+        stats_df.loc[valid_mask, "fdr_human"] = fdr_human
+
     stats_df.to_csv(OUTPUT_DIR / "fig4_expression_stats.csv", index=False)
     print(f"Saved: {OUTPUT_DIR / 'fig4_expression_stats.csv'}")
-    
+
     # Summary
     valid = stats_df.dropna(subset=["log2fc_pig", "log2fc_human"])
-    sig = valid[(valid["p_pig"] < 0.05) & (valid["p_human"] < 0.05)]
+    sig = valid[(valid["fdr_pig"] < 0.10) & (valid["fdr_human"] < 0.10) &
+                (valid["log2fc_pig"].abs() > 0.5) & (valid["log2fc_human"].abs() > 0.5)]
     conserved = sig[np.sign(sig["log2fc_pig"]) == np.sign(sig["log2fc_human"])]
     
     print(f"\nSummary:")
@@ -432,7 +469,7 @@ def main():
     
     # Generate stage trajectory data for key genes
     print("\nCalculating stage trajectories for key genes...")
-    meta_full = pd.read_csv(DATA_DIR / "full_metadata.csv")
+    meta_full = _load_pig_metadata()
     muscle_meta = meta_full[meta_full["Tissue"] == "Muscle"]
 
     trajectories = calculate_stage_trajectories(pig_expr, muscle_meta, KEY_GENES)
