@@ -1,0 +1,172 @@
+{
+  "comparisons": {
+    "Infant vs Early childhood": {
+      "stage_young": "Infant",
+      "stage_old": "Early childhood",
+      "full_dataset": {
+        "n_young": 194,
+        "n_old": 76
+      },
+      "projects": {
+        "PRJNA488311": {
+          "n_young": 54,
+          "n_old": 6,
+          "n_total": 81,
+          "all_genes": {
+            "r": 0.636,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": 0.7255,
+            "p": 5.556569691272633e-12,
+            "n": 66
+          }
+        },
+        "PRJNA486202": {
+          "n_young": 52,
+          "n_old": 6,
+          "n_total": 74,
+          "all_genes": {
+            "r": 0.5637,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": 0.7649,
+            "p": 7.618234352178217e-14,
+            "n": 66
+          }
+        }
+      },
+      "pooled": {
+        "r": 0.6685,
+        "p": 0.0,
+        "n": 31908,
+        "ci_95": [
+          0.6596,
+          0.6764
+        ],
+        "cross_species_genes": {
+          "r": 0.7605,
+          "p": 1.2926312395314978e-13,
+          "n": 66
+        }
+      }
+    },
+    "Infant vs Pre-pubertal": {
+      "stage_young": "Infant",
+      "stage_old": "Pre-pubertal",
+      "full_dataset": {
+        "n_young": 194,
+        "n_old": 90
+      },
+      "projects": {
+        "PRJNA488311": {
+          "n_young": 54,
+          "n_old": 15,
+          "n_total": 81,
+          "all_genes": {
+            "r": 0.7295,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": 0.962,
+            "p": 8.362990844824663e-38,
+            "n": 66
+          }
+        },
+        "PRJNA486202": {
+          "n_young": 52,
+          "n_old": 12,
+          "n_total": 74,
+          "all_genes": {
+            "r": 0.7679,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": 0.93,
+            "p": 1.6335451029513248e-29,
+            "n": 66
+          }
+        }
+      },
+      "pooled": {
+        "r": 0.8063,
+        "p": 0.0,
+        "n": 31908,
+        "ci_95": [
+          0.7962,
+          0.8152
+        ],
+        "cross_species_genes": {
+          "r": 0.9649,
+          "p": 6.866070687718341e-39,
+          "n": 66
+        }
+      }
+    },
+    "Infant vs Post-pubertal": {
+      "stage_young": "Infant",
+      "stage_old": "Post-pubertal",
+      "full_dataset": {
+        "n_young": 194,
+        "n_old": 396
+      },
+      "projects": {
+        "PRJNA488311": {
+          "n_young": 54,
+          "n_old": 6,
+          "n_total": 81,
+          "all_genes": {
+            "r": 0.7731,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": 0.9758,
+            "p": 5.629001199968671e-44,
+            "n": 66
+          }
+        },
+        "PRJNA486202": {
+          "n_young": 52,
+          "n_old": 4,
+          "n_total": 74,
+          "all_genes": {
+            "r": 0.6707,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": 0.9364,
+            "p": 8.173586970761775e-31,
+            "n": 66
+          }
+        }
+      },
+      "pooled": {
+        "r": 0.799,
+        "p": 0.0,
+        "n": 31908,
+        "ci_95": [
+          0.7923,
+          0.8051
+        ],
+        "cross_species_genes": {
+          "r": 0.9775,
+          "p": 5.624281707126606e-45,
+          "n": 66
+        }
+      }
+    }
+  },
+  "full_dataset_stages": {
+    "Infant": 194,
+    "Early childhood": 76,
+    "Pre-pubertal": 90,
+    "Post-pubertal": 396
+  }
+}

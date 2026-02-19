@@ -22,6 +22,7 @@ suppressPackageStartupMessages({
   library(viridis)
   library(umap)
   library(jsonlite)
+  library(limma)
 })
 
 # Load shared modules
@@ -216,6 +217,13 @@ create_fig_s2 <- function() {
   # Panel A: UMAP showing tissue clustering
   umap_file <- project_path("paper/figures/output/stats/umap_tissue_clustering.csv")
 
+  # Load raw metadata to get BioProject for batch correction
+  raw_meta <- readr::read_csv(
+    project_path("data", "PigGTEx_v0.MetaTable.csv"),
+    show_col_types = FALSE
+  )
+  bioproject_map <- setNames(raw_meta$BioProject, raw_meta$BioSample)
+
   if (file.exists(umap_file)) {
     umap_df <- read_csv(umap_file, show_col_types = FALSE)
     umap_df$Tissue <- factor(umap_df$Tissue, levels = names(TISSUE_COLORS))
@@ -234,10 +242,8 @@ create_fig_s2 <- function() {
 
           set.seed(42)
           if (n_samples >= target_n) {
-            # Downsample to exactly target_n
             idx <- sample(ncol(expr), target_n)
           } else {
-            # Upsample via bootstrap (sampling with replacement) to reach target_n
             idx <- sample(ncol(expr), target_n, replace = TRUE)
             cat(sprintf(
               "  Note: %s has %d samples, upsampled to %d via bootstrap\n",
@@ -245,6 +251,30 @@ create_fig_s2 <- function() {
             ))
           }
           expr <- expr[, idx]
+
+          # --- Batch correction (visualization only) ---
+          # Get BioProject for each sampled sample
+          sample_ids <- colnames(expr)
+          batch <- bioproject_map[sample_ids]
+
+          # Merge small batches (< 2 samples) into "Other" for limma
+          batch_counts <- table(batch)
+          small_batches <- names(batch_counts[batch_counts < 2])
+          if (length(small_batches) > 0) {
+            batch[batch %in% small_batches] <- "Other"
+          }
+          batch <- factor(batch)
+
+          # Only correct if there are at least 2 batch levels
+          if (nlevels(batch) >= 2) {
+            expr <- limma::removeBatchEffect(expr, batch = batch)
+            cat(sprintf(
+              "  %s: batch-corrected across %d BioProjects (visualization only)\n",
+              tissue, nlevels(batch)
+            ))
+          }
+          # --- End batch correction ---
+
           expr_list[[tissue]] <- expr
           tissue_labels <- c(tissue_labels, rep(tissue, target_n))
         },
@@ -451,7 +481,11 @@ create_fig_s3 <- function() {
   per_class <- read_csv(per_class_file, show_col_types = FALSE)
 
   # Define stage order for consistent display
-  stage_order <- c("Infant", "Early childhood", "Pre-pubertal", "Post-pubertal", "Adult")
+  # 4-class tissues (Muscle, Liver): Infant, Early childhood, Pre-pubertal, Post-pubertal/Adult
+  # 2-class tissues (Brain, Blood, Lung): Pre-pubertal (<150d), Post-pubertal (≥150d)
+  stage_order <- c("Infant", "Early childhood", "Pre-pubertal",
+                   "Pre-pubertal (<150d)", "Post-pubertal/Adult",
+                   "Post-pubertal (≥150d)")
 
   # Panel A: Per-class metrics heatmap style - separated by metric
   # Improved: cleaner facet labels, better color scale, value annotations

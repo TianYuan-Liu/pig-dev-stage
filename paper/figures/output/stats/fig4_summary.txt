@@ -89,5 +89,5 @@ TOP CONSERVED MARKERS
   PMP22: Pig=-2.71, Human=-1.33, Imp=0.2
   MYH3: Pig=-5.38, Human=-2.14, Imp=0.0
 
-Figure dimensions: 183mm × 200mm
+Figure dimensions: 183mm × 250mm
 

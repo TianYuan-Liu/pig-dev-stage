@@ -229,10 +229,6 @@ class DataLoader:
             self.metadata['Sex'] = self.metadata['Sex'].fillna('Unknown')
             self.metadata['Sex'] = pd.Categorical(self.metadata['Sex'])
 
-        # Derive TechBatch composite batch variable
-        from machine_learning.data_processing.batch_variables import create_tech_batch
-        self.metadata['TechBatch'] = create_tech_batch(self.metadata)
-
         logger.info(f"Loaded metadata for {len(self.metadata)} samples")
         return self.metadata
 

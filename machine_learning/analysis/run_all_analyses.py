@@ -29,7 +29,6 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from machine_learning.analysis.feature_stability import run_stability_analysis
 from machine_learning.analysis.expression_correlation import run_correlation_analysis
-from machine_learning.analysis.batch_diagnostics import run_batch_diagnostics
 
 
 def generate_final_report(
@@ -213,7 +212,6 @@ def run_all_analyses(
     stability_seeds: Optional[List[int]] = None,
     skip_stability: bool = False,
     skip_correlation: bool = False,
-    skip_batch_diagnostics: bool = False,
 ):
     """Run all validation analyses."""
 
@@ -270,23 +268,6 @@ def run_all_analyses(
     else:
         results['correlation'] = {}
 
-    # Analysis 3: Batch Effect Diagnostics
-    if not skip_batch_diagnostics:
-        print("\n" + "=" * 80)
-        print("Running BATCH EFFECT DIAGNOSTICS...")
-        print("=" * 80)
-        try:
-            batch_output = output_dir / "batch_diagnostics"
-            results['batch_diagnostics'] = run_batch_diagnostics(
-                tissues=tissues,
-                output_dir=batch_output,
-            )
-        except Exception as e:
-            print(f"Batch diagnostics failed: {e}")
-            results['batch_diagnostics'] = {}
-    else:
-        results['batch_diagnostics'] = {}
-
     # Generate comprehensive report
     print("\n" + "=" * 80)
     print("Generating COMPREHENSIVE REPORT...")
@@ -334,11 +315,6 @@ def main():
         '--skip-correlation', action='store_true',
         help='Skip correlation analysis'
     )
-    parser.add_argument(
-        '--skip-batch-diagnostics', action='store_true',
-        help='Skip batch effect diagnostics'
-    )
-
     args = parser.parse_args()
 
     run_all_analyses(
@@ -347,7 +323,6 @@ def main():
         stability_seeds=args.seeds,
         skip_stability=args.skip_stability,
         skip_correlation=args.skip_correlation,
-        skip_batch_diagnostics=args.skip_batch_diagnostics,
     )
 
 

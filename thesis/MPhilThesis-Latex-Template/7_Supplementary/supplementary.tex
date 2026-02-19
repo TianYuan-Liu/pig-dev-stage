@@ -12,8 +12,8 @@
   \centering
   \includegraphics[width=\textwidth]{../../paper/figures/output/pdf/figS1_cross_species_sensitivity.pdf}
   \caption{\textbf{Cross-species sensitivity analysis of conserved developmental markers.}
-  \textbf{a}, Mean Pearson correlation between pig and human developmental fold changes across significance thresholds ranging from $p < 0.01$ to $p < 0.20$. Shaded region indicates the range (minimum--maximum) across different gene set sizes ($n = 15$--$50$ genes).
-  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the optimal parameter combination ($p < 0.10$, $n = 36$ genes). Solid vertical line indicates the observed correlation ($r = 0.618$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.36--0.81).}
+  \textbf{a}, Pearson correlation between pig and human developmental fold changes across FDR thresholds (Benjamini--Hochberg corrected) ranging from $< 0.05$ to $< 0.20$, using all genes passing pre-specified criteria (FDR $< \text{threshold}$ and $|\log_2\text{FC}| > 0.5$ in both species). Points are sized by the number of genes at each threshold.
+  \textbf{b}, Bootstrap distribution of correlation coefficients ($n = 1{,}000$ iterations) for the pre-specified criteria (FDR $< 0.10$, $|\log_2\text{FC}| > 0.5$, $n = 66$ genes). Solid vertical line indicates the observed correlation ($r = 0.693$); dashed lines denote the 95\% bootstrap confidence interval boundaries (0.50--0.82).}
   \label{fig:S1}
 \end{figure}
 
@@ -23,8 +23,8 @@
   \centering
   \includegraphics[width=\textwidth]{../../paper/figures/output/pdf/figS2_tissue_specificity_stability.pdf}
   \caption{\textbf{Tissue specificity and feature selection stability analysis.}
-  \textbf{a}, Uniform manifold approximation and projection (UMAP) \parencite{mcinnes_umap_2018} of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes).
-  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index \parencite{jaccard_distribution_1912} of the top 50 selected features across five independent random seeds (brain, blood, lung; stability analysis not performed for muscle and liver). Error bars represent standard deviation; higher values indicate more reproducible feature selection.
+  \textbf{a}, Uniform manifold approximation and projection (UMAP) \parencite{mcinnes_umap_2018} of gene expression profiles across five tissues (muscle, brain, liver, blood, lung), demonstrating distinct tissue-specific clustering patterns ($n = 150$ samples per tissue, balanced sampling; top 500 variable genes). For visualization only, BioProject batch effects were removed per tissue using \texttt{limma::removeBatchEffect} prior to UMAP; the machine learning pipeline operates on uncorrected expression data.
+  \textbf{b}, Within-tissue feature selection stability quantified as mean Jaccard similarity index \parencite{jaccard_distribution_1912} of the top 50 selected features across ten independent random seeds. Error bars represent standard deviation; higher values indicate more reproducible feature selection.
   \textbf{c}, Mean absolute Spearman correlation between top-ranked features and developmental stage for each tissue.}
   \label{fig:S2}
 \end{figure}
@@ -36,7 +36,7 @@
   \includegraphics[width=\textwidth]{../../paper/figures/output/pdf/figS3_extended_performance.pdf}
   \caption{\textbf{Extended classification performance metrics across tissues and developmental stages.}
   \textbf{a}, Heatmap of per-class precision, recall, and F1 scores for each developmental stage across all five tissues. Colour scale ranges from 0.4 (red, poor performance) to 1.0 (green, excellent performance). Missing values indicate developmental stages not present in that tissue's classification scheme.
-  \textbf{b}, Overall performance summary showing balanced accuracy and macro-averaged F1 scores evaluated on the held-out test set (30\% of samples) for each tissue. Error bars indicate 95\% bootstrap confidence intervals from 1,000 resampling iterations.}
+  \textbf{b}, Overall performance summary showing balanced accuracy and macro-averaged F1 scores evaluated on pooled cross-validated held-out predictions for each tissue. Error bars indicate 95\% bootstrap confidence intervals from 1,000 resampling iterations.}
   \label{fig:S3}
 \end{figure}
 
@@ -46,22 +46,29 @@
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{Train versus test performance comparison.} Test set performance (30\% held out) is reported for all tissues. Train set metrics are not shown as models were evaluated only on held-out data to prevent overfitting.}
+  \caption{\textbf{Train versus test performance comparison.} Both train and test (pooled cross-validated held-out predictions) performance are reported for all tissues. The gap between train and test metrics indicates the degree of overfitting; regularisation and early stopping were used to minimise this gap.}
   \label{tab:S1}
   \small
-  \begin{adjustbox}{max width=\textwidth}
-  \begin{tabular}{lcccccc}
+  \begin{tabular}{llccccc}
     \toprule
-    Tissue & Scheme & $n$ & Balanced Acc. & F1-macro & F1-weighted & MAE \\
+    Tissue & Set & Scheme & $n$ & Balanced Acc. & F1-macro & F1-weighted \\
     \midrule
-    Muscle & 4-class & 761 & 0.844 & 0.842 & 0.908 & 0.10 \\
-    Brain & 2-class & 43 & 0.637 & 0.639 & 0.671 & -- \\
-    Liver & 4-class & 309 & 0.920 & 0.910 & 0.913 & 0.09 \\
-    Blood & 2-class & 78 & 0.864 & 0.869 & 0.874 & -- \\
-    Lung & 2-class & 129 & 0.859 & 0.876 & 0.921 & -- \\
+    Muscle & Train & 4-class & 761 & 0.968 & 0.974 & 0.984 \\
+    Muscle & Test & 4-class & 761 & 0.894 & 0.899 & 0.939 \\
+    \midrule
+    Brain & Train & 2-class & 43 & 0.915 & 0.922 & 0.930 \\
+    Brain & Test & 2-class & 43 & 0.811 & 0.801 & 0.816 \\
+    \midrule
+    Liver & Train & 4-class & 309 & 0.985 & 0.987 & 0.987 \\
+    Liver & Test & 4-class & 309 & 0.921 & 0.918 & 0.919 \\
+    \midrule
+    Blood & Train & 2-class & 78 & 1.000 & 1.000 & 1.000 \\
+    Blood & Test & 2-class & 78 & 0.959 & 0.960 & 0.961 \\
+    \midrule
+    Lung & Train & 2-class & 129 & 0.948 & 0.942 & 0.961 \\
+    Lung & Test & 2-class & 129 & 0.892 & 0.876 & 0.916 \\
     \bottomrule
   \end{tabular}
-  \end{adjustbox}
 
 \end{table}
 
@@ -69,35 +76,33 @@
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue. $n$ indicates the number of test samples per class.}
+  \caption{\textbf{Per-class performance metrics by tissue.} Precision, recall, and F1 scores for each developmental stage within each tissue. $n$ indicates the total number of samples per class (pooled across cross-validation folds).}
   \label{tab:S2}
   \small
-  \begin{adjustbox}{max width=\textwidth}
   \begin{tabular}{llcccc}
     \toprule
     Tissue & Stage & $n$ & Precision & Recall & F1 \\
     \midrule
-    Muscle & Infant & 58 & 0.912 & 0.897 & 0.904 \\
-    Muscle & Early childhood & 23 & 0.714 & 0.652 & 0.682 \\
-    Muscle & Pre-pubertal & 27 & 0.767 & 0.852 & 0.807 \\
-    Muscle & Post-pubertal & 121 & 0.975 & 0.975 & 0.975 \\
+    Muscle & Infant & 194 & 0.939 & 0.959 & 0.949 \\
+    Muscle & Early childhood & 76 & 0.838 & 0.816 & 0.827 \\
+    Muscle & Pre-pubertal & 90 & 0.871 & 0.822 & 0.846 \\
+    Muscle & Post-pubertal/Adult & 401 & 0.973 & 0.980 & 0.976 \\
     \midrule
-    Brain & Infant & 8 & 0.700 & 0.875 & 0.778 \\
-    Brain & Early childhood & 5 & 0.667 & 0.400 & 0.500 \\
+    Brain & Pre-pubertal ($<$150d) & 28 & 0.885 & 0.821 & 0.852 \\
+    Brain & Post-pubertal ($\geq$150d) & 15 & 0.706 & 0.800 & 0.750 \\
     \midrule
-    Liver & Infant & 26 & 1.000 & 0.962 & 0.980 \\
-    Liver & Early childhood & 18 & 0.783 & 1.000 & 0.878 \\
-    Liver & Pre-pubertal & 25 & 0.950 & 0.760 & 0.844 \\
-    Liver & Post-pubertal & 24 & 0.920 & 0.958 & 0.939 \\
+    Liver & Infant & 87 & 0.965 & 0.954 & 0.960 \\
+    Liver & Early childhood & 58 & 0.887 & 0.948 & 0.917 \\
+    Liver & Pre-pubertal & 83 & 0.910 & 0.855 & 0.882 \\
+    Liver & Post-pubertal/Adult & 81 & 0.904 & 0.926 & 0.915 \\
     \midrule
-    Blood & Infant & 14 & 0.867 & 0.929 & 0.897 \\
-    Blood & Early childhood & 10 & 0.889 & 0.800 & 0.842 \\
+    Blood & Pre-pubertal ($<$150d) & 45 & 0.957 & 0.978 & 0.967 \\
+    Blood & Post-pubertal ($\geq$150d) & 33 & 0.969 & 0.939 & 0.954 \\
     \midrule
-    Lung & Infant & 31 & 0.938 & 0.968 & 0.952 \\
-    Lung & Early childhood & 8 & 0.857 & 0.750 & 0.800 \\
+    Lung & Pre-pubertal ($<$150d) & 102 & 0.960 & 0.931 & 0.945 \\
+    Lung & Post-pubertal ($\geq$150d) & 27 & 0.767 & 0.852 & 0.807 \\
     \bottomrule
   \end{tabular}
-  \end{adjustbox}
 
 \end{table}
 
@@ -105,29 +110,58 @@
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{Functional annotations of key developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. All listed genes show conserved developmental expression patterns between pig and human muscle tissue. FC = log$_2$ fold change (adult/infant); positive values indicate higher expression in adults (upregulated during development), negative values indicate higher expression in infants (downregulated during development). Pig FC derived from pig GTEx data (GEO: GSE257558) \parencite{teng_compendium_2024}; Human FC from \textcite{schaiter_molecular_2024}.}
+  \caption{\textbf{Functional annotations of cross-species developmental markers.} Annotations compiled from UniProt, GeneCards, and literature review. FC = log$_2$ fold change (adult/infant); positive values indicate higher expression in adults, negative values indicate higher expression in infants. Pig FC from pig GTEx data (GEO: GSE257558) \parencite{teng_compendium_2024}; Human FC from \textcite{schaiter_molecular_2024}. Genes ordered by model importance within each functional module. ``---'' indicates the gene did not pass cross-species criteria (FDR $< 0.10$, $|\log_2\text{FC}| > 0.5$) but is included based on its known biological role.}
   \label{tab:S3}
-  \footnotesize
+  \scriptsize
   \singlespacing
   \begin{tabularx}{\textwidth}{lXcc}
     \toprule
     Gene & Developmental Function & Pig FC & Human FC \\
     \midrule
-    \textit{SORCS2} & Serves as a molecular switch directing trafficking of key signalling receptors to regulate the balance between neuronal growth and pruning, ensuring precise wiring of the developing nervous system \parencite{thomasen_sorcs2_2023}. & $-$1.84 & $-$0.95 \\
+    \multicolumn{4}{l}{\textit{Module 1: Neuromuscular Maturation and Growth Signalling}} \\
+    \textit{ACHE} & Functions as the key enzyme at the neuromuscular junction and as a structural adhesion molecule guiding neuronal growth during development \parencite{rotundo_expression_2003}. & $-$3.34 & $-$0.53 \\
     \addlinespace
-    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive growth factor signalling to ensure proper formation of critical structures including the diaphragm, kidneys, and skeleton \parencite{amann_fgfrl1_2014}. & $-$1.68 & $-$2.10 \\
+    \textit{NRK} & Embryonic Ste20-type kinase that promotes actin polymerisation via cofilin phosphorylation and activates JNK signalling during skeletal muscle formation; expression restricted to embryonic and early postnatal development \parencite{kanai-azuma_nrk_1999}. & $-$8.56 & $-$2.45 \\
     \addlinespace
-    \textit{KREMEN1} & Functions as a critical negative regulator of Wnt signalling, partnering with Dkk1 to control cell survival and ensure proper patterning of organs including thymus, teeth, and neural tissues \parencite{osada_wnt_2006}. & $-$1.25 & $-$1.43 \\
+    \textit{KREMEN1} & Negative regulator of Wnt/$\beta$-catenin signalling, partnering with Dkk1 to control cell survival and ensure proper patterning during postnatal development \parencite{osada_wnt_2006}. & $-$1.69 & $-$1.43 \\
     \addlinespace
-    \textit{ACHE} & Functions not only as an enzyme regulating chemical signalling to prevent cell damage but also as a structural adhesion molecule guiding physical growth of neurons and brain wiring \parencite{rotundo_expression_2003}. & $-$1.81 & $-$0.53 \\
+    \textit{IGF2BP2} & RNA-binding protein that promotes myoblast proliferation via translational control of growth-related transcripts (c-Myc, Igf1r, Sp1); postnatal downregulation required for terminal myogenic differentiation \parencite{li_hmga2-igf2bp2_2012}. & $-$2.19 & $-$2.03 \\
     \addlinespace
-    \textit{MSS51} & Acts as a skeletal muscle-specific regulator of metabolism, modulating mitochondrial respiration and energy expenditure. Highly expressed specifically in fast-twitch (glycolytic) muscle fibres; expression increases postnatally as fast-twitch fibres mature. Expression in slow-twitch (oxidative) fibres is reduced \parencite{rovira_gonzalez_mss51_2019}. & 3.02 & 1.55 \\
+    \textit{SORCS2} & Molecular switch directing trafficking of signalling receptors to regulate the balance between neuronal growth and pruning during neuromuscular maturation \parencite{thomasen_sorcs2_2023}. & $-$4.67 & $-$0.95 \\
     \addlinespace
-    \textit{DLK1} & Crucial regulator of the myogenic program that inhibits myoblast proliferation while promoting differentiation; shows high infant expression that declines as the muscle fiber population matures \parencite{waddell_dlk1_2010,andersen_dual_2013}. & $-$1.37 & $-$2.88 \\
+    \textit{ETV5} & FGF-responsive PEA3-subfamily ETS transcription factor that promotes stem/progenitor cell self-renewal and myogenic differentiation; highly expressed during active postnatal myogenesis \parencite{taylor_role_1997}. & $-$2.80 & $-$2.24 \\
     \addlinespace
-    \textit{ACTC1} & Cardiac $\alpha$-actin expressed in fetal skeletal muscle; switches to skeletal actin (ACTA1) postnatally as a hallmark of muscle fiber maturation. LMOD2-ACTC1 interaction regulates myogenic differentiation. & $-$2.54 & $-$0.28 \\
+    \textit{IGF2BP3} & Oncofetal RNA-binding protein that promotes myoblast proliferation and differentiation via IGF2--PI3K/Akt signalling; pronounced postnatal silencing reflects the conserved transition from fetal growth programs. & $-$4.85 & $-$1.23 \\
     \addlinespace
-    \textit{PDLIM3} & Acts as a structural Z-disc protein stabilising actin filaments at the muscle Z-disc, playing a critical role in ensuring structural integrity of striated muscle. Expression increases from Infant (low) through development to Adult stages (high), reflecting establishment of the mature contractile apparatus \parencite{ohsawa_alternative_2011}. & 2.19 & 0.56 \\
+    \textit{CCDC8} & Core component of the 3M complex (with CUL7 and OBSL1) that regulates microtubule dynamics, genome integrity, and growth hormone signalling during rapid postnatal growth; consistent with severe growth restriction in 3-M syndrome \parencite{hanson_exome_2011}. & $-$4.44 & $-$3.14 \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Module 2: Structural Refinement and ECM Remodelling}} \\
+    \textit{TCAF1} & Regulates TRPM8 ion channel trafficking and Ca$^{2+}$ signalling; may support calcium-dependent processes during early postnatal muscle growth and metabolic maturation \parencite{gkika_trp_2015}. & $-$4.72 & $-$1.02 \\
+    \addlinespace
+    \textit{FGFRL1} & Acts as a ``decoy'' receptor dampening excessive FGF signalling to ensure proper formation of critical structures including the diaphragm and skeleton \parencite{amann_fgfrl1_2014}. & $-$3.03 & $-$2.10 \\
+    \addlinespace
+    \textit{WDR1} & Cofactor of cofilin-mediated actin filament disassembly, essential for sarcomere assembly and myofibril organisation during postnatal muscle growth \parencite{ono_functions_2018}. & $-$1.69 & $-$0.52 \\
+    \addlinespace
+    \textit{DLK1} & Crucial regulator of the myogenic program that inhibits myoblast proliferation while promoting differentiation; high infant expression declines as the muscle fiber population matures \parencite{waddell_dlk1_2010,andersen_dual_2013}. & $-$9.15 & $-$2.88 \\
+    \addlinespace
+    \textit{FSCN1} & Actin-bundling protein essential for formation of cellular protrusions during cell migration and tissue morphogenesis; highly expressed in embryonic somite-derived tissues \parencite{adams_roles_2004}. & $-$4.28 & $-$1.95 \\
+    \addlinespace
+    \textit{POSTN} & Secreted matricellular protein that mediates ECM remodelling, collagen fibrillogenesis, and connective tissue maturation during postnatal myofiber development \parencite{ozdemir_periostin_2014}. & $-$7.97 & $-$2.93 \\
+    \addlinespace
+    \textit{FREM2} & Basement membrane extracellular matrix protein of the FRAS/FREM complex maintaining epithelial--mesenchymal adhesion during organogenesis \parencite{kiyozumi_breakdown_2006}. & $-$4.58 & $-$1.05 \\
+    \addlinespace
+    \textit{ADAMTS2} & Procollagen N-proteinase that cleaves propeptides from fibrillar procollagens to initiate collagen fibrillogenesis \parencite{colige_cdna_1997}. & $-$4.25 & $-$1.83 \\
+    \addlinespace
+    \textit{COL11A2} & Component of type XI collagen regulating collagen fibril organisation in cartilage and developing connective tissue \parencite{sun_collagen_2020}. & $-$8.35 & $-$0.70 \\
+    \addlinespace
+    \textit{TRIM54} & Muscle-specific E3 ubiquitin ligase (MuRF3) involved in sarcomere Z-disc assembly; expression increases postnatally as the mature contractile apparatus is established \parencite{gregorio_functional_2005}. & --- & --- \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Module 3: Metabolic Transition}} \\
+    \textit{ME1} & Malic enzyme 1, catalysing oxidative decarboxylation of malate to pyruvate; a key source of NADPH for lipid biosynthesis \parencite{simmen_malic_2020}. & 2.59 & 0.64 \\
+    \addlinespace
+    \textit{MAOB} & Mitochondrial outer membrane enzyme catalysing oxidative deamination of monoamines; postnatal upregulation reflects developmental maturation of oxidative metabolism. & 2.55 & 0.80 \\
+    \addlinespace
+    \textit{PLA2G4E} & Calcium-dependent N-acyltransferase synthesising endocannabinoid precursors; species-discordant expression may reflect divergent intramuscular lipid metabolism programs. & 2.32 & $-$1.25 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -136,21 +170,65 @@
 
 \begin{table}[H]
   \centering
-  \caption{\textbf{Stage-by-stage expression trajectories of key developmental markers.} Mean TPM values across porcine developmental stages for genes with conserved pig-human developmental patterns. Stage boundaries: Infant (0--20 days), Early childhood (21--59 days), Pre-pubertal (60--149 days), Post-pubertal (150--365 days), Adult (>365 days). ``Peak Change'' indicates the developmental transition with the largest fold change.}
+  \caption{\textbf{Stage-by-stage expression trajectories of cross-species developmental markers.} Mean TPM values across porcine developmental stages for genes with conserved pig-human developmental patterns. Stage boundaries: Infant (0--20\,d), Early childhood (21--59\,d), Pre-pubertal (60--149\,d), Post-pubertal (150--365\,d), Adult ($>$365\,d). ``Peak Change'' indicates the developmental transition with the largest fold change. Genes are grouped by functional module and ordered by model importance within each module.}
   \label{tab:S4}
   \footnotesize
   \begin{tabular}{lcccccl}
     \toprule
     Gene & Infant & Early & Pre-pub & Post-pub & Adult & Peak Change \\
     \midrule
-    \textit{SORCS2} & 14.6 & 10.9 & 6.5 & 0.6 & 4.1 & Pre-pub$\to$Post-pub \\
-    \textit{FGFRL1} & 71.2 & 20.6 & 27.0 & 4.3 & 22.2 & Infant$\to$Early \\
-    \textit{ACHE} & 16.2 & 9.9 & 9.1 & 1.3 & 4.6 & Pre-pub$\to$Post-pub \\
-    \textit{KREMEN1} & 28.9 & 15.1 & 12.2 & 5.2 & 12.1 & Pre-pub$\to$Post-pub \\
-    \textit{DLK1} & 301.5 & 25.8 & 121.8 & 0.7 & 116.5 & Infant$\to$Early \\
-    \textit{ACTC1} & 9112.7 & 696.0 & 1125.4 & 57.6 & 1566.8 & Pre-pub$\to$Post-pub \\
-    \textit{MSS51} & 28.9 & 177.3 & 191.4 & 229.2 & 234.8 & Infant$\to$Early \\
-    \textit{PDLIM3} & 278.6 & 771.0 & 535.0 & 1221.2 & 1269.4 & Infant$\to$Early \\
+    \multicolumn{7}{l}{\textit{Module 1: Neuromuscular Maturation and Growth Signalling}} \\
+    \textit{ACHE} & 17.5 & 7.6 & 3.4 & 1.3 & 1.7 & Infant$\to$Early \\
+    \textit{NRK} & 128.2 & 4.2 & 8.1 & 1.3 & 0.3 & Infant$\to$Early \\
+    \textit{KREMEN1} & 30.3 & 13.2 & 9.4 & 5.2 & 9.4 & Infant$\to$Early \\
+    \textit{IGF2BP2} & 11.3 & 1.5 & 1.9 & 1.0 & 2.5 & Infant$\to$Early \\
+    \textit{SORCS2} & 14.4 & 3.0 & 2.2 & 0.6 & 0.6 & Infant$\to$Early \\
+    \textit{ETV5} & 34.2 & 16.7 & 7.5 & 5.5 & 4.9 & Early$\to$Pre-pub \\
+    \textit{IGF2BP3} & 21.8 & 1.7 & 2.1 & 0.4 & 0.7 & Infant$\to$Early \\
+    \textit{CCDC8} & 177.4 & 28.2 & 25.4 & 13.4 & 8.2 & Infant$\to$Early \\
+    \midrule
+    \multicolumn{7}{l}{\textit{Module 2: Structural Refinement and ECM Remodelling}} \\
+    \textit{TCAF1} & 78.9 & 8.3 & 8.1 & 3.8 & 3.0 & Infant$\to$Early \\
+    \textit{FGFRL1} & 77.4 & 15.6 & 14.2 & 4.3 & 9.5 & Infant$\to$Early \\
+    \textit{WDR1} & 202.9 & 125.6 & 95.0 & 51.9 & 63.1 & Pre-pub$\to$Post-pub \\
+    \textit{DLK1} & 338.8 & 3.9 & 6.4 & 0.7 & 0.6 & Infant$\to$Early \\
+    \textit{FSCN1} & 123.7 & 32.5 & 18.9 & 6.2 & 6.4 & Infant$\to$Early \\
+    \textit{POSTN} & 602.4 & 44.1 & 54.3 & 2.5 & 2.4 & Pre-pub$\to$Post-pub \\
+    \textit{FREM2} & 33.1 & 4.4 & 5.5 & 1.5 & 1.4 & Infant$\to$Early \\
+    \textit{ADAMTS2} & 51.1 & 16.6 & 16.0 & 6.4 & 2.7 & Infant$\to$Early \\
+    \textit{COL11A2} & 44.6 & 1.5 & 1.0 & 0.3 & 0.1 & Infant$\to$Early \\
+    \textit{TRIM54} & 78.3 & 351.1 & 149.4 & 377.9 & 144.4 & Infant$\to$Early \\
+    \midrule
+    \multicolumn{7}{l}{\textit{Module 3: Metabolic Transition}} \\
+    \textit{ME1} & 2.8 & 4.0 & 3.9 & 6.9 & 16.9 & Post-pub$\to$Adult \\
+    \textit{MAOB} & 5.7 & 24.2 & 10.8 & 15.7 & 33.4 & Infant$\to$Early \\
+    \textit{PLA2G4E} & 0.1 & 1.4 & 0.7 & 0.6 & 0.5 & Infant$\to$Early \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Within-project fold-change validation across developmental contrasts.} Developmental fold-changes ($\log_2$ scale) were computed within single-project muscle cohorts---each spanning four developmental stages under uniform laboratory protocols---and correlated with full-dataset estimates across three stage comparisons (all using Infant as baseline). Pooled within-project fold-changes were computed by averaging across both projects before correlating with full-dataset estimates. ``All genes'' includes all 31{,}908 expressed genes; ``Cross-species'' includes the 66 genes passing pre-specified criteria (FDR $< 0.10$, $|\log_2\text{FC}| > 0.5$) in both pig and human. CI = 95\% bootstrap confidence interval (1{,}000 iterations). Full-dataset sample sizes: Infant $n = 194$, Early childhood $n = 76$, Pre-pubertal $n = 90$, Post-pubertal $n = 396$.}
+  \label{tab:S5}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{llcccccc}
+    \toprule
+    & & \multicolumn{2}{c}{Full dataset} & \multicolumn{2}{c}{Within-project} & & \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    Comparison & Gene set & $n_{\text{Inf}}$ & $n_{\text{later}}$ & $n_{\text{Inf}}$ & $n_{\text{later}}$ & Pooled $r$ [95\% CI] & $p$-value \\
+    \midrule
+    Infant vs.\ Early childhood & All genes & 194 & 76 & 106 & 12 & 0.669 [0.66--0.68] & $< 10^{-300}$ \\
+    & Cross-species & & & & & 0.761 & $1.3 \times 10^{-13}$ \\
+    \midrule
+    Infant vs.\ Pre-pubertal & All genes & 194 & 90 & 106 & 27 & 0.806 [0.80--0.82] & $< 10^{-300}$ \\
+    & Cross-species & & & & & 0.965 & $6.9 \times 10^{-39}$ \\
+    \midrule
+    Infant vs.\ Post-pubertal & All genes & 194 & 396 & 106 & 10 & 0.799 [0.79--0.81] & $< 10^{-300}$ \\
+    & Cross-species & & & & & 0.978 & $5.6 \times 10^{-45}$ \\
     \bottomrule
   \end{tabular}
 \end{table}

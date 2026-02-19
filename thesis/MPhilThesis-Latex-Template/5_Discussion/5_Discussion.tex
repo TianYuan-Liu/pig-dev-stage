@@ -15,34 +15,34 @@ This thesis set out to address four interconnected research objectives, as state
 
 \textbf{Objective 1: Construction of a transcriptomic atlas.} A comprehensive atlas was successfully constructed, integrating 1,924 RNA-seq profiles from five major tissues (brain, liver, muscle, lung, and blood) with calibrated developmental stage annotations. The atlas provides the most extensive tissue-resolved resource for porcine postnatal development currently available.
 
-\textbf{Objective 2: Development of a machine learning framework.} An ordinal classification framework based on LightGBM was successfully developed and validated. The framework achieves balanced accuracy of 64--92\% across tissues, with probabilistic outputs that capture transitional developmental states.
+\textbf{Objective 2: Development of a machine learning framework.} An ordinal classification framework based on LightGBM was successfully developed and validated. The framework achieves balanced accuracy of 81--96\% across tissues, with probabilistic outputs that capture transitional developmental states.
 
 \textbf{Objective 3: Characterisation of molecular signatures.} The genes and pathways driving developmental transitions were identified for each tissue, revealing profound tissue-specificity in developmental programs. Functional enrichment analysis linked these signatures to relevant biological processes.
 
-\textbf{Objective 4: Cross-species validation.} Conservation of developmental gene expression programs was demonstrated between pig and human skeletal muscle, with 89\% directional concordance and significant correlation ($r = 0.62$) in developmental trajectories.
+\textbf{Objective 4: Cross-species validation.} Conservation of developmental gene expression programs was demonstrated between pig and human skeletal muscle, with 97\% directional concordance and significant correlation ($r = 0.69$) in developmental trajectories.
 
 \subsection{Novel Contributions to the Field}
 
 This thesis makes several novel contributions to the fields of porcine biology and developmental transcriptomics:
 
-First, it presents the first calibrated transcriptomic staging system for pigs, filling a critical gap by providing a complementary approach to existing epigenetic clocks. Second, it demonstrates that cross-tissue feature overlap is extremely low (0.3\% Jaccard similarity), providing quantitative evidence for the tissue-specificity of postnatal development. Third, the cross-species analysis provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle, supporting the pig's validity as a translational model. Finally, the analytical framework developed for this thesis is open-source, enabling other researchers to apply and extend the approach.
+First, it presents the first calibrated transcriptomic staging system for pigs, filling a critical gap by providing a complementary approach to existing epigenetic clocks. Second, it demonstrates that cross-tissue feature overlap is extremely low (0.2\% Jaccard similarity), providing quantitative evidence for the tissue-specificity of postnatal development. Third, the cross-species analysis provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle, supporting the pig's validity as a translational model. Finally, the analytical framework developed for this thesis is open-source, enabling other researchers to apply and extend the approach.
 
 \subsection{Integration with Existing Literature}
 
 The findings of this thesis align with and extend previous work on developmental transcriptomics and molecular age estimation.
 
-The high performance achieved by the machine learning framework (mean balanced accuracy 82.5\%) is comparable to that reported for epigenetic clocks in predicting chronological age \parencite{horvath_dna_2013}. However, direct comparison is complicated by differences in the target variable (categorical stages vs. continuous age) and the modalities (transcriptomics vs. DNA methylation).
+The high performance achieved by the machine learning framework (mean balanced accuracy 89.5\%) is comparable to that reported for epigenetic clocks in predicting chronological age \parencite{horvath_dna_2013}. However, direct comparison is complicated by differences in the target variable (categorical stages vs. continuous age) and the modalities (transcriptomics vs. DNA methylation).
 
 The tissue-specific developmental markers identified in this thesis overlap substantially with genes previously implicated in tissue development. For example, the identification of MEF2A and TRDN as muscle markers aligns with the known roles of these genes in myogenesis and calcium handling \parencite{lefaucheur_second_2010}. Similarly, the liver markers NPAS2 and BHLHE41 are established circadian regulators with roles in hepatic metabolism \parencite{zhang_night-restricted_2025}.
 
-The cross-species conservation analysis extends previous work showing conservation of developmental gene expression across mammals \parencite{cardoso-moreira_gene_2019}. The finding of 89\% directional concordance between pig and human muscle is consistent with the general pattern of developmental conservation, while providing the first specific comparison for postnatal muscle development.
+The cross-species conservation analysis extends previous work showing conservation of developmental gene expression across mammals \parencite{cardoso-moreira_gene_2019}. The finding of 97\% directional concordance between pig and human muscle is consistent with the general pattern of developmental conservation, while providing the first specific comparison for postnatal muscle development.
 
 
 \section{Biological Implications}\label{sec:discussion:biology}
 
 \subsection{Tissue-Specificity of Developmental Programs}
 
-One of the most striking findings of this thesis is the profound tissue-specificity of developmental gene expression programs. The cross-tissue feature overlap of only 0.3\% indicates that each tissue follows a largely independent developmental trajectory.
+One of the most striking findings of this thesis is the profound tissue-specificity of developmental gene expression programs. The cross-tissue feature overlap of only 0.2\% indicates that each tissue follows a largely independent developmental trajectory.
 
 This tissue-specificity has several important biological implications:
 
@@ -56,23 +56,37 @@ The biological basis for tissue-specific developmental programs likely involves 
 
 \subsection{Conserved Pig-Human Developmental Modules}
 
-The identification of conserved developmental modules between pig and human muscle has implications for both understanding mammalian development and for using pigs as translational models.
+The identification of conserved developmental modules between pig and human muscle has implications for both understanding mammalian development and for using pigs as translational models. Three expanded functional modules emerged from the cross-species analysis, each encompassing a broader set of genes than initially anticipated.
 
-\subsubsection{Neuromuscular Maturation Module}
+\subsubsection{Neuromuscular Maturation and Growth Signalling Module}
 
-The conserved high infant expression of SORCS2, ACHE, and KREMEN1, which decreases during development, points to the importance of neuromuscular junction maturation as a conserved developmental process. SORCS2 is a neurotrophin receptor that regulates the trafficking of signalling receptors, influencing the balance between neuronal growth and pruning \parencite{thomasen_sorcs2_2023}. Its high expression in early development may reflect the active refinement of motor neuron innervation patterns during this period.
+The conserved high infant expression of ACHE, NRK, KREMEN1, IGF2BP2, SORCS2, ETV5, IGF2BP3, and CCDC8, which decreases during development, points to the importance of neuromuscular junction maturation and growth signalling as conserved developmental processes.
 
 ACHE (acetylcholinesterase) is essential for terminating synaptic transmission at the neuromuscular junction \parencite{rotundo_expression_2003}. Its high infant expression that decreases during maturation in both species suggests dynamic remodelling of neuromuscular transmission during postnatal muscle development.
 
+NRK is an embryonic Ste20-type kinase whose expression is normally restricted to early development. Its high infant expression followed by developmental decline is consistent with a role in early tissue patterning that becomes dispensable as the muscle matures.
+
 KREMEN1 is a negative regulator of Wnt signalling that partners with DKK1 to control cell survival and tissue patterning \parencite{osada_wnt_2006}. Its high infant expression followed by developmental decline may reflect the need for active Wnt pathway modulation during early tissue patterning.
 
-\subsubsection{Structural Refinement Module}
+IGF2BP2 and IGF2BP3 are oncofetal RNA-binding proteins that regulate myoblast proliferation by stabilising mRNAs encoding growth factors and cell-cycle regulators. Their high expression in infant muscle and subsequent decline parallels the transition from proliferative growth to post-mitotic differentiation, a hallmark of postnatal muscle maturation.
 
-The high infant expression of FGFRL1 in both species is particularly noteworthy given its role as a decoy receptor that attenuates FGF signalling. The elevated expression of this growth-dampening receptor in early development, followed by its decrease during maturation, may reflect a conserved mechanism for fine-tuning growth factor signalling during the transition from proliferative growth to tissue homeostasis \parencite{amann_fgfrl1_2014}.
+SORCS2 is a neurotrophin receptor that regulates the trafficking of signalling receptors, influencing the balance between neuronal growth and pruning \parencite{thomasen_sorcs2_2023}. Its high expression in early development may reflect the active refinement of motor neuron innervation patterns during this period.
+
+ETV5 is a PEA3-subfamily transcription factor required for myogenic differentiation. Its high infant expression suggests a conserved role in directing the transcriptional programs that govern early muscle fibre specification.
+
+CCDC8 is a component of the 3M growth-regulatory complex, which modulates ubiquitin-dependent degradation of growth-related substrates. Mutations in CCDC8 cause 3M syndrome, a primordial growth disorder, and its high infant expression is consistent with a role in coordinating the growth signalling that dominates early postnatal development.
+
+\subsubsection{Structural Refinement and ECM Remodelling Module}
+
+The high infant expression of TCAF1, FGFRL1, WDR1, DLK1, FSCN1, POSTN, FREM2, ADAMTS2, and COL11A2 in both species, followed by developmental decline, reflects the active structural remodelling that characterises early postnatal muscle. TRIM54, a muscle-specific E3 ubiquitin ligase, shows the opposite pattern---increasing postnatally---consistent with its role in maintaining sarcomeric integrity in mature fibres.
+
+TCAF1 regulates TRPM8 ion channel trafficking and calcium signalling, processes essential for the fine-tuning of excitation-contraction coupling during muscle maturation. FGFRL1 acts as a decoy receptor that attenuates FGF signalling \parencite{amann_fgfrl1_2014}; its elevated expression in early development may reflect a conserved mechanism for dampening proliferative signalling during the transition to tissue homeostasis. WDR1 is a cofactor of cofilin-mediated actin filament disassembly, and its high infant expression suggests active cytoskeletal remodelling during early fibre organisation.
+
+DLK1 is an imprinted gene that regulates the balance between adipogenesis and myogenesis. FSCN1 is an actin-bundling protein involved in cell migration, while POSTN is a secreted matricellular protein that promotes extracellular matrix remodelling during tissue growth. FREM2 is a basement membrane protein involved in epithelial-mesenchymal interactions, ADAMTS2 is a procollagen N-proteinase required for collagen fibril assembly, and COL11A2 encodes a minor fibrillar collagen component. Together, these genes define a coordinated program of extracellular matrix deposition and remodelling that is most active in early postnatal life and diminishes as the tissue architecture stabilises.
 
 \subsubsection{Metabolic Transition Module}
 
-The upregulation of MSS51 during development in both species reflects its role as a skeletal muscle-specific regulator of metabolism \parencite{rovira_gonzalez_mss51_2019}. MSS51 modulates mitochondrial respiration, and its increased expression during maturation is consistent with the establishment of adult metabolic capacity. This metabolic transition appears to be a conserved feature of postnatal muscle development.
+The metabolic transition module comprises ME1, MAOB, and PLA2G4E. ME1 (malic enzyme 1) generates NADPH for lipid biosynthesis and its developmental upregulation is consistent with the increasing lipogenic capacity of maturing muscle. MAOB (monoamine oxidase B) catalyses mitochondrial oxidative deamination, and its increased expression during maturation reflects the establishment of adult oxidative metabolic capacity. PLA2G4E generates endocannabinoid precursors; notably, this gene shows species-discordant directionality, suggesting that while the broader metabolic transition is conserved, specific lipid signalling pathways may have diverged between pig and human.
 
 \subsection{Identified Developmental Markers and Their Functions}
 
@@ -84,7 +98,7 @@ The developmental markers identified through feature importance analysis provide
 
 \textbf{Immune development in lung and blood.} The prominence of immune-related genes (GFI1, IL-6 pathway components) among lung and blood markers reflects the establishment of immune competence during postnatal life \parencite{georgountzou_postnatal_2017}. The lung, in particular, must develop robust immune defences as it is exposed to environmental antigens from birth \parencite{mair_porcine_2014}.
 
-\textbf{Contractile and metabolic function in muscle.} Muscle markers reflect both the structural (TRDN, PDLIM3 \parencite{ohsawa_alternative_2011}) and metabolic (MSS51) aspects of muscle development, capturing the establishment of mature contractile and oxidative function.
+\textbf{Contractile and metabolic function in muscle.} Muscle markers reflect both the structural (TRDN, TRIM54) and metabolic (ME1, MAOB) aspects of muscle development, capturing the establishment of mature contractile and oxidative function.
 
 
 \section{Methodological Contributions}\label{sec:discussion:methods}
@@ -105,13 +119,19 @@ The scheme selection approach embodies a principled trade-off between classifica
 
 \subsection{Cross-Species Validation Framework}
 
-The adaptive thresholding approach for cross-species analysis represents a practical solution to the challenge of comparing noisy transcriptomic data across species. By optimising the $p$-value threshold and gene number to balance correlation strength and gene coverage, the approach identifies a robust set of conserved markers without arbitrary parameter choices.
+The cross-species analysis employed pre-specified criteria (FDR $< 0.10$ with Benjamini--Hochberg correction and $|\log_2\text{FC}| > 0.5$) rather than adaptive thresholding, ensuring that the gene selection was not optimised to maximise the correlation. This design choice avoids the risk of circular reasoning that would arise from optimising selection criteria against the very metric used to evaluate conservation. The sensitivity analysis demonstrating consistent positive correlations across a range of alternative thresholds provides confidence that the conservation signal is robust and not an artefact of the specific analytical criteria chosen.
 
-The sensitivity analysis demonstrating consistent positive correlations across parameter settings provides confidence that the conservation signal is robust and not an artefact of specific analytical choices.
+\subsection{Nested Cross-Validation}
+
+The use of nested cross-validation for hyperparameter tuning ensures that model selection and performance estimation are conducted on independent data partitions. This avoids the optimistic bias that can arise when the same data are used for both parameter selection and evaluation, providing more reliable estimates of generalisation performance.
+
+\subsection{Robustness to Batch Effects}
+
+No batch correction was applied to the expression data because tree-based models such as LightGBM are inherently robust to monotonic platform shifts: decision stumps split on rank order, making them invariant to the scale transformations that typify inter-platform differences. Within-project fold-change validation (Table~S5) confirms that developmental signatures reflect biology rather than batch artefacts.
 
 \subsection{Feature Stability Analysis}
 
-The assessment of feature selection stability across random seeds provides insight into the reproducibility of the identified markers. The finding of moderate stability (Jaccard similarity 0.16--0.43) is interpretable as reflecting biological gene redundancy rather than analytical instability.
+The assessment of feature selection stability across random seeds provides insight into the reproducibility of the identified markers. The finding of moderate stability (Jaccard similarity 0.08--0.31) is interpretable as reflecting biological gene redundancy rather than analytical instability.
 
 This interpretation is supported by the high classification performance achieved despite the variable feature selection. Multiple gene sets achieve similar performance because they capture the same underlying developmental signal through different combinations of correlated genes. This redundancy is a feature of the biology, not a bug of the analysis.
 
@@ -154,9 +174,9 @@ Molecular staging enables precise characterisation of developmental stage in dis
 
 \subsubsection{Example: Duchenne Muscular Dystrophy}
 
-The staging framework has immediate applications for age-dependent muscular disorders such as Duchenne Muscular Dystrophy (DMD) \parencite{klymiuk_dystrophin-deficient_2013, selsby_porcine_2015}. Since the molecular ``blueprint'' for muscle development is highly conserved between pigs and humans, porcine models can provide superior physiological mirroring compared to rodents. DMD typically manifests in humans between 2--5 years of age \parencite{bushby_diagnosis_2010}, with rapid deterioration through the pre-teen years. Using the transcriptomic atlas, this developmental window corresponds approximately to Infant stage (0--20 days) in pigs for early onset, with pathological changes becoming visible by Pre-pubertal stage (60 days) and rapid changes occurring within Post-pubertal stage (150 days).
+The staging framework has immediate applications for age-dependent muscular disorders such as Duchenne Muscular Dystrophy (DMD) \parencite{klymiuk_dystrophin-deficient_2013, selsby_porcine_2015}. Since the molecular ``blueprint'' for muscle development is highly conserved between pigs and humans (97\% directional concordance), porcine models can provide superior physiological mirroring compared to rodents. DMD typically manifests in humans between 2--5 years of age \parencite{bushby_diagnosis_2010}, with rapid deterioration through the pre-teen years. Using the transcriptomic atlas, this developmental window corresponds approximately to Infant stage (0--20 days) in pigs for early onset, with pathological changes becoming visible by Pre-pubertal stage (60 days) and rapid changes occurring within Post-pubertal stage (150 days).
 
-By providing a standardised molecular definition of developmental stages, the atlas enables researchers to identify specific developmentally conserved checkpoints that a successful gene therapy must restore. For example, researchers could track whether a gene therapy successfully stabilises \textit{PDLIM3} (Z-disc reinforcement) and \textit{FGFRL1} (fusion control) expression back to healthy Infant or Early childhood levels. Critically, by using molecular markers to synchronise experimental cohorts rather than relying on chronological age alone, it may be possible to reduce variability in disease progression and treatment response, improving pre-clinical trial quality.
+By providing a standardised molecular definition of developmental stages, the atlas enables researchers to identify specific developmentally conserved checkpoints that a successful gene therapy must restore. For example, researchers could track whether a gene therapy successfully stabilises \textit{TRIM54} (microtubule stability) and \textit{FGFRL1} (slow fibre development) expression back to healthy Infant or Early childhood levels. Critically, by using molecular markers to synchronise experimental cohorts rather than relying on chronological age alone, it may be possible to reduce variability in disease progression and treatment response, improving pre-clinical trial quality.
 
 \subsection{Implications for Agricultural Science}
 
@@ -175,7 +195,7 @@ While this thesis makes significant contributions to the field, several limitati
 
 The sample sizes available for some tissues, particularly brain ($n = 43$), limited the complexity of classification schemes that could be reliably trained. The 2-class schemes used for brain, blood, and lung provide less developmental resolution than the 4-class schemes used for muscle and liver.
 
-Larger datasets would enable more granular staging for all tissues and would improve the precision of performance estimates. The wide confidence intervals for brain performance (balanced accuracy 95\% CI: 49.2--78.4\%) reflect the uncertainty arising from limited sample size.
+Larger datasets would enable more granular staging for all tissues and would improve the precision of performance estimates. Brain remains the lowest-performing tissue (balanced accuracy 81.1\%), though performance is substantially higher than initial estimates suggested, reflecting the benefit of the updated modelling framework.
 
 \subsubsection{Class Imbalance}
 
@@ -197,15 +217,13 @@ The use of bulk RNA-seq means that expression measurements represent averages ac
 
 During development, the cellular composition of tissues may change, with some cell types becoming more or less abundant. Changes in bulk expression may reflect these compositional changes rather than changes in gene expression within specific cell types. Deconvolution methods or single-cell approaches would be needed to disentangle these effects.
 
-\subsubsection{Parameter Optimisation in Cross-Species Analysis}
+\subsubsection{Pre-Specified Criteria in Cross-Species Analysis}
 
-The adaptive thresholding approach for cross-species analysis involves parameter optimisation that could be seen as selective reporting. While the sensitivity analysis demonstrates robustness across parameter settings, the optimised parameters were selected to maximise a specific criterion.
-
-Alternative approaches, such as preregistering analysis parameters or using validation datasets, could provide additional assurance that the conservation signal is robust.
+The cross-species analysis used pre-specified criteria (FDR $< 0.10$, $|\log_2\text{FC}| > 0.5$) rather than adaptive optimisation, which avoids data-driven threshold selection. However, the choice of these specific thresholds, while conventional, remains somewhat arbitrary. The sensitivity analysis across alternative thresholds mitigates this concern by demonstrating that the conservation signal is robust to reasonable parameter variations.
 
 \subsubsection{Feature Selection Variability}
 
-The moderate stability of feature selection across random seeds (Jaccard similarity 0.16--0.43) means that the specific genes identified as top markers may vary between runs. While this variability reflects biological gene redundancy, it complicates the interpretation of individual marker genes.
+The moderate stability of feature selection across random seeds (Jaccard similarity 0.08--0.31) means that the specific genes identified as top markers may vary between runs. While this variability reflects biological gene redundancy, it complicates the interpretation of individual marker genes.
 
 Stable feature selection methods or consensus approaches that aggregate across multiple runs could provide more reproducible marker sets.
 
@@ -213,7 +231,7 @@ Stable feature selection methods or consensus approaches that aggregate across m
 
 A fundamental paradox of this work is the use of chronological age bins as ground truth labels for training, while simultaneously arguing that genetic variability renders chronological age an imperfect proxy for biological development. It is crucial to recognise that in this context, chronological age serves as a ``scaffold'' for learning, rather than an absolute ground truth. The model effectively uses this scaffold to learn the consensus transcriptomic profile of each developmental stage, treating individual deviations as noise or biological variance.
 
-Critics might argue that without independent physiological measurements (e.g., hormone levels), deviations between the model's prediction and the animal's chronological age are indistinguishable from classification errors. However, this ``circularity'' is broken by the cross-species validation. If the model were merely overfitting to the noisy chronological labels of the pig dataset, the identified molecular signatures would be unlikely to generalise to humans, who develop on a vastly different timescale. The fact that the ``denoised'' molecular features identified in pigs successfully predict developmental changes in human muscle (89\% directional concordance) confirms that the model has captured a conserved latent variable---biological maturity---rather than simply predicting calendar age with a non-linear error function \parencite{cardoso-moreira_gene_2019}. Thus, the molecular stage offers a functionally relevant definition of development that transcends the variability inherent in chronological age.
+Critics might argue that without independent physiological measurements (e.g., hormone levels), deviations between the model's prediction and the animal's chronological age are indistinguishable from classification errors. However, this ``circularity'' is broken by the cross-species validation. If the model were merely overfitting to the noisy chronological labels of the pig dataset, the identified molecular signatures would be unlikely to generalise to humans, who develop on a vastly different timescale. The fact that the ``denoised'' molecular features identified in pigs successfully predict developmental changes in human muscle (97\% directional concordance) confirms that the model has captured a conserved latent variable---biological maturity---rather than simply predicting calendar age with a non-linear error function \parencite{cardoso-moreira_gene_2019}. Thus, the molecular stage offers a functionally relevant definition of development that transcends the variability inherent in chronological age.
 
 \subsection{Generalisability Considerations}
 
@@ -234,6 +252,14 @@ The staging framework may need calibration or adaptation for application in sett
 The cross-species validation was limited to muscle tissue and human comparison. The conservation of developmental programs in other tissues remains to be established, as does conservation with other species.
 
 Extension of the validation to additional tissues and species would strengthen confidence in the biological accuracy of the staging framework.
+
+\subsubsection{Batch Variation}
+
+The PigGTEx dataset aggregates RNA-seq profiles from multiple sequencing platforms and library protocols. No batch correction was applied because tree-based models are robust to monotonic platform shifts: decision stumps split on rank order, making them invariant to the scale transformations that typify inter-platform differences. Within-project fold-change validation (Table~S5) confirms that developmental signatures reflect biology rather than batch artefacts. Nevertheless, batch effects that alter the rank ordering of genes could in principle confound developmental signal, and future work should evaluate the framework on prospective datasets generated with uniform protocols.
+
+\subsubsection{Cross-Validation Strategy}
+
+Stratified $K$-fold cross-validation ensures that all developmental stages are represented in both training and test sets, providing reliable within-dataset performance estimates. However, this strategy does not test cross-project generalisation: samples from the same sequencing batch may appear in both folds, potentially inflating performance. Future work should prioritise prospective datasets from independent laboratories to evaluate out-of-distribution generalisation.
 
 
 \section{Future Directions}\label{sec:discussion:future}

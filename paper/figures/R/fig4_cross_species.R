@@ -192,7 +192,7 @@ fig4 <- panel_a / (panel_b | panel_c) +
 # 8. SAVE FIGURE
 # ==============================================================================
 cat("\nSaving figure...\n")
-save_figure(fig4, "fig4_cross_species", width = 183, height = 170)
+save_figure(fig4, "fig4_cross_species", width = 183, height = 250)
 
 # ==============================================================================
 # 9. SUMMARY STATISTICS
@@ -231,7 +231,7 @@ TOP CONSERVED MARKERS
 ---------------------
 %s
 
-Figure dimensions: 183mm × 200mm
+Figure dimensions: 183mm × 250mm
 ",
   format(Sys.time(), "%%Y-%%m-%%d %%H:%%M"),
   nrow(df_clean),

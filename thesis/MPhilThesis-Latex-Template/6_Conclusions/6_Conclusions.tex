@@ -17,9 +17,9 @@ This thesis set out to address a fundamental challenge in pig research: the lack
 
 \textbf{\chapref{chapter:methods}: Materials and Methods} documented the data sources, analytical methods, and computational approaches employed. The PigGTEx dataset (1,924 samples across five tissues) and the human skeletal muscle dataset for cross-species validation were described. The machine learning framework, including data preprocessing, ordinal LightGBM classification, and evaluation metrics, was detailed with sufficient precision to enable reproduction.
 
-\textbf{\chapref{chapter:results}: Results} presented the findings in four sections. The data landscape characterisation revealed substantial variation in sample availability across tissues and developmental stages, motivating the adaptive classification scheme selection. Model performance assessment demonstrated balanced accuracy ranging from 64\% (brain) to 92\% (liver), with strong ordinal consistency across tissues. Feature analysis revealed profound tissue-specificity in developmental markers, with extremely low cross-tissue overlap (0.3\% Jaccard similarity). Cross-species validation with human skeletal muscle demonstrated 89\% directional concordance and significant correlation ($r = 0.62$) in developmental trajectories.
+\textbf{\chapref{chapter:results}: Results} presented the findings in four sections. The data landscape characterisation revealed substantial variation in sample availability across tissues and developmental stages, motivating the adaptive classification scheme selection. Model performance assessment demonstrated balanced accuracy ranging from 81\% (brain) to 96\% (blood), with strong ordinal consistency across tissues. Feature analysis revealed profound tissue-specificity in developmental markers, with extremely low cross-tissue overlap (0.2\% Jaccard similarity). Cross-species validation with human skeletal muscle demonstrated 97\% directional concordance and significant correlation ($r = 0.69$) in developmental trajectories.
 
-\textbf{\chapref{chapter:discussion}: Discussion} interpreted these findings in the context of the broader literature. The biological implications of tissue-specific developmental programs and conserved pig-human modules were discussed. Methodological contributions, including ordinal classification for staging and adaptive threshold optimisation for cross-species comparison, were highlighted. Practical applications for standardising pig research were outlined, and limitations including sample size constraints and bulk RNA-seq resolution were acknowledged. Future directions, including single-cell approaches and extension to additional tissues, were identified.
+\textbf{\chapref{chapter:discussion}: Discussion} interpreted these findings in the context of the broader literature. The biological implications of tissue-specific developmental programs and conserved pig-human modules were discussed. Methodological contributions, including ordinal classification for staging and pre-specified criteria for cross-species comparison, were highlighted. Practical applications for standardising pig research were outlined, and limitations including sample size constraints and bulk RNA-seq resolution were acknowledged. Future directions, including single-cell approaches and extension to additional tissues, were identified.
 
 
 \section{Key Contributions}\label{sec:conclusions:contributions}
@@ -42,11 +42,11 @@ Key features of the framework include:
 
 Key features of the framework include the use of the Frank and Hall binary reduction method, which enables the use of any binary classifier, and a LightGBM implementation that achieves high accuracy with efficient computation. Furthermore, the model provides probabilistic outputs capturing uncertainty in stage assignments. An adaptive scheme selection algorithm maximises information extraction from available data, and the framework is comprehensively evaluated using both classification and ordinal metrics.
 
-The framework achieves balanced accuracy of 64--92\% across tissues, comparable to or exceeding performance reported for similar biological classification tasks. The strong ordinal consistency (Spearman $\rho$ up to 0.98) indicates that the models correctly capture the continuous nature of development.
+The framework achieves balanced accuracy of 81--96\% across tissues, comparable to or exceeding performance reported for similar biological classification tasks. The strong ordinal consistency (Spearman $\rho$ up to 0.97) indicates that the models correctly capture the continuous nature of development.
 
 \subsection{Demonstration of Profound Tissue-Specificity in Developmental Programs}
 
-The finding that cross-tissue feature overlap is extremely low (0.3\% Jaccard similarity) provides quantitative evidence for the tissue-specificity of postnatal developmental programs. This tissue-specificity has not been previously quantified and has important implications for both developmental biology and staging applications.
+The finding that cross-tissue feature overlap is extremely low (0.2\% Jaccard similarity) provides quantitative evidence for the tissue-specificity of postnatal developmental programs. This tissue-specificity has not been previously quantified and has important implications for both developmental biology and staging applications.
 
 From a biological perspective, the results indicate that each tissue follows a largely independent developmental trajectory, regulated by distinct sets of genes. This modular organisation may enable the independent optimisation of tissue-specific functions during evolution \parencite{cardoso-moreira_gene_2019}.
 
@@ -54,11 +54,11 @@ From a practical perspective, the tissue-specificity means that accurate staging
 
 \subsection{Cross-Species Validation Revealing Conserved Pig-Human Developmental Modules}
 
-The cross-species validation provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle at the transcriptomic level. The finding of 89\% directional concordance and significant correlation ($r = 0.62$) supports the pig's validity as a translational model for human developmental biology.
+The cross-species validation provides the first systematic comparison of postnatal developmental trajectories between pig and human muscle at the transcriptomic level. The finding of 97\% directional concordance and significant correlation ($r = 0.69$) supports the pig's validity as a translational model for human developmental biology.
 
 Three conserved functional modules were identified:
 
-Three conserved functional modules were identified: a neuromuscular maturation module involving \textbf{SORCS2}, \textbf{ACHE}, and \textbf{KREMEN1}; a structural refinement module characterised by \textbf{FGFRL1} and \textbf{DLK1}; and a metabolic transition module defined by \textbf{MSS51} and \textbf{PDLIM3}.
+Three conserved functional modules were identified: a neuromuscular maturation and growth signalling module involving \textbf{SORCS2}, \textbf{ACHE}, \textbf{KREMEN1}, \textbf{NRK}, \textbf{IGF2BP2}, \textbf{IGF2BP3}, \textbf{ETV5}, and \textbf{CCDC8}; a structural refinement and ECM remodelling module characterised by \textbf{TCAF1}, \textbf{FGFRL1}, \textbf{WDR1}, \textbf{DLK1}, \textbf{FSCN1}, \textbf{POSTN}, \textbf{FREM2}, \textbf{ADAMTS2}, \textbf{COL11A2}, and \textbf{TRIM54}; and a metabolic transition module defined by \textbf{ME1}, \textbf{MAOB}, and \textbf{PLA2G4E}.
 
 These modules provide molecular targets for understanding postnatal muscle development in both species. The conservation of these modules across 80 million years of mammalian evolution \parencite{kumar_timetree_2022} suggests they represent fundamental developmental programs.
 
@@ -92,7 +92,7 @@ The domestic pig stands at a unique intersection of agricultural and biomedical 
 
 This thesis addresses this gap by providing the first calibrated transcriptomic framework for porcine developmental staging. The framework demonstrates that biological maturity can be inferred with high precision directly from gene expression profiles, providing an objective alternative to subjective morphological staging. The tissue-specific nature of the models acknowledges the biological reality that different organs follow distinct developmental trajectories.
 
-The validation of conserved developmental programs between pig and human provides confidence that the staging framework captures genuine biology rather than species-specific artefacts. The identified developmental modules offer molecular insights into postnatal maturation that may translate across species.
+The validation of conserved developmental programs between pig and human---with 97\% directional concordance---provides strong confidence that the staging framework captures genuine biology rather than species-specific artefacts. The identified developmental modules offer molecular insights into postnatal maturation that translate across species.
 
 As the pig continues to serve as a major species for both agricultural and biomedical research, the need for rigorous, reproducible characterisation of developmental state will only grow. This thesis provides tools to meet that need, enabling precise synchronisation of experimental cohorts and meaningful comparison across studies. The shift from qualitative morphological observation to quantitative molecular measurement represents a maturation of the field itself---one that promises to improve both the rigour and reproducibility of pig research for years to come.
 

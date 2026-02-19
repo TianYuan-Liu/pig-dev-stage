@@ -90,7 +90,7 @@ Based on these criteria, Muscle and Liver were assigned to the 4-class scheme, w
 
 \section{Data Preprocessing Pipeline}\label{sec:methods:preprocessing}
 
-The preprocessing pipeline transforms raw TPM values into a format suitable for machine learning, including log transformation, variance filtering, and standardisation. Critically, preprocessing parameters were fit on training data only and applied to test data, preventing information leakage.
+The preprocessing pipeline transforms raw TPM values into a format suitable for machine learning. The only transformation applied was log transformation; variance filtering and z-score standardisation were omitted because tree-based models are invariant to monotonic transformations and split-based feature selection is unaffected by feature scale.
 
 \subsection{Log Transformation}
 
@@ -105,32 +105,23 @@ The transformation applied was:
 
 where $x$ is the TPM value and $x' $ is the transformed value. The pseudocount of 1 ensures that zero values remain finite after transformation.
 
-\subsection{Variance Filtering}
+\subsection{Nested Cross-Validation Design}\label{sec:methods:nested_cv}
 
-Genes with low variance across samples provide limited discriminative power for classification. A variance filter was applied to remove genes below the 20th percentile of variance within each tissue.
+To obtain unbiased performance estimates while simultaneously optimising hyperparameters, a nested cross-validation design was employed. This approach avoids the optimistic bias that arises when hyperparameters are tuned on the same data used for performance evaluation.
 
-The rationale for variance filtering is twofold. First, low-variance genes are unlikely to distinguish between developmental stages and contribute primarily noise to the analysis. Second, removing low-variance genes reduces the dimensionality of the data, improving computational efficiency and reducing the risk of overfitting.
+\subsubsection{Outer Loop: Performance Estimation}
 
-The variance threshold was computed on the training data and applied to both training and test data, ensuring that the same set of genes was used for model training and evaluation.
+The outer loop used stratified $K$-fold cross-validation with $K = 5$. Stratification ensured that the class distribution in each fold was representative of the full dataset. For tissues with small class sizes, $K$ was automatically reduced to ensure that every class was represented in each fold.
 
-\subsection{Z-Score Standardisation}
+In each iteration, one fold was held out for evaluation while the remaining $K - 1$ folds were used for hyperparameter optimisation (inner loop) and model training. Held-out predictions from all outer folds were pooled to provide a single, unbiased estimate of model performance across the entire dataset.
 
-Following variance filtering, gene expression values were standardised to zero mean and unit variance:
+\subsubsection{Inner Loop: Hyperparameter Optimisation}
 
-\begin{equation}
-    z = \frac{x' - \mu}{\sigma}
-    \label{eq:zscore}
-\end{equation}
+Within each outer fold, hyperparameters were optimised using an inner 3-fold cross-validation loop combined with Bayesian optimisation via Optuna \parencite{akiba_optuna_2019}. Each inner loop evaluated 25 candidate configurations using the Tree-structured Parzen Estimator (TPE) sampler with a median pruner for early termination of unpromising trials. The optimisation objective was balanced accuracy on the inner validation folds.
 
-where $\mu$ and $\sigma$ are the mean and standard deviation of gene expression across training samples.
+\subsubsection{Final Model Training}
 
-Standardisation ensures that all genes contribute equally to the model, regardless of their baseline expression level. The mean and standard deviation were computed on training data and applied to both training and test data, preventing information leakage.
-
-\subsection{Train-Test Splitting Strategy}
-
-Data were split into training (70\%) and test (30\%) sets using stratified sampling to ensure that the class distribution in the test set matched that of the full dataset. Stratification is particularly important for imbalanced datasets, ensuring that minority classes are represented in both training and test sets.
-
-The split was performed with a fixed random seed (42) to ensure reproducibility. All preprocessing steps (variance filtering, standardisation) were fit on the training data only, with the resulting parameters applied to the test data. This prevents the test data from influencing the preprocessing and ensures unbiased performance estimates.
+After nested cross-validation, a final model was retrained on the entire dataset using the hyperparameters selected by the inner cross-validation loop. This final model was used for downstream analyses including feature importance extraction and cross-species validation.
 
 
 \section{Machine Learning Framework}\label{sec:methods:ml}
@@ -164,34 +155,33 @@ This formulation ensures that the class probabilities sum to 1 and respect the o
 
 Each binary classifier was implemented using Light Gradient Boosting Machine (LightGBM), a gradient boosting framework optimised for efficiency and accuracy \parencite{ke_lightgbm_2017}.
 
-\subsubsection{Hyperparameter Settings}
+\subsubsection{Hyperparameter Search Space}
 
-The following hyperparameters were used for all binary classifiers:
+Rather than using fixed hyperparameters, nine key parameters were optimised per tissue via Optuna within the inner cross-validation loop (see \autoref{sec:methods:nested_cv}). The search space is summarised in \autoref{tab:hyperparameters}.
 
 \begin{table}[H]
 \centering
-\caption{LightGBM hyperparameter configuration.}
+\caption{LightGBM hyperparameter search space optimised by Optuna.}
 \label{tab:hyperparameters}
 \small
-\begin{tabular}{lcp{7cm}}
+\begin{tabular}{lll}
 \toprule
-\textbf{Parameter} & \textbf{Value} & \textbf{Description} \\
+\textbf{Parameter} & \textbf{Range} & \textbf{Description} \\
 \midrule
-\texttt{num\_leaves} & 31 & Maximum number of leaves per tree \\
-\texttt{max\_depth} & 6 & Maximum tree depth \\
-\texttt{learning\_rate} & 0.05 & Step size for gradient descent \\
-\texttt{n\_estimators} & 200 & Maximum number of boosting rounds \\
-\texttt{min\_data\_in\_leaf} & 10 & Minimum samples in a leaf node \\
-\texttt{feature\_fraction} & 0.8 & Fraction of features used per tree \\
-\texttt{bagging\_fraction} & 0.8 & Fraction of samples used per tree \\
-\texttt{lambda\_l1} & 0.1 & L1 regularisation coefficient \\
-\texttt{lambda\_l2} & 0.1 & L2 regularisation coefficient \\
-\texttt{class\_weight} & balanced & Automatic class weight balancing \\
+\texttt{num\_leaves}        & 15--63        & Maximum number of leaves per tree \\
+\texttt{max\_depth}         & 3--8          & Maximum tree depth \\
+\texttt{min\_data\_in\_leaf} & 5--50        & Minimum samples in a leaf node \\
+\texttt{learning\_rate}     & 0.01--0.2     & Step size for gradient descent \\
+\texttt{n\_estimators}      & 100--500      & Maximum number of boosting rounds \\
+\texttt{feature\_fraction}  & 0.5--1.0      & Fraction of features used per tree \\
+\texttt{bagging\_fraction}  & 0.5--1.0      & Fraction of samples used per tree \\
+\texttt{lambda\_l1}         & $10^{-3}$--10 & L1 regularisation coefficient \\
+\texttt{lambda\_l2}         & $10^{-3}$--10 & L2 regularisation coefficient \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-These hyperparameters were chosen to balance model complexity and generalisation. The moderate number of leaves (31) and limited depth (6) constrain tree complexity. The regularisation parameters ($\lambda_{L1} = 0.1$, $\lambda_{L2} = 0.1$) discourage overfitting. Feature and bagging fractions of 0.8 introduce randomness that improves robustness.
+Optuna's TPE sampler explored 25 trial configurations per inner fold, with a median pruner for early termination of unpromising trials. The optimal hyperparameters were selected based on the balanced accuracy averaged across the three inner validation folds.
 
 \subsubsection{Class Balancing Strategy}
 
@@ -204,19 +194,13 @@ Class imbalance was addressed using the \texttt{scale\_pos\_weight} parameter, w
 
 This weighting ensures that the classifier does not simply predict the majority class and instead learns to distinguish between classes even when one class is much more common.
 
-\subsubsection{Early Stopping and Validation}
+\subsubsection{Early Stopping}
 
-To prevent overfitting, early stopping was employed with a patience of 10 rounds. During training, 20\% of the training data was held out as a validation set. If the validation loss did not improve for 10 consecutive boosting rounds, training was terminated early.
+To prevent overfitting, early stopping was employed with a patience of 10 rounds. If the validation loss within the inner cross-validation folds did not improve for 10 consecutive boosting rounds, training was terminated early.
 
-The early stopping mechanism ensures that the model does not overfit to the training data by continuing to add trees after the validation loss has plateaued or begun to increase.
+\subsubsection{Implicit Feature Selection}
 
-\subsection{Feature Selection via Information Gain}
-
-Feature selection was performed using the built-in feature importance measures from LightGBM. After training, the total information gain contributed by each feature across all trees was computed. Features were ranked by importance, and the top 2,000 features were retained for the final model.
-
-The information gain measures the reduction in training loss attributable to splits on each feature. Features with high information gain are those that most effectively separate samples into their correct classes.
-
-Limiting the feature set to 2,000 genes reduces computational cost and may improve generalisation by excluding uninformative features. The threshold of 2,000 was chosen to balance retention of informative features with dimensionality reduction.
+No explicit feature selection step was applied. Models were trained on all genes passing the detection-rate filter (approximately 20,000--25,000 genes per tissue). LightGBM's built-in regularisation mechanisms---feature subsampling (\texttt{feature\_fraction}), L1 and L2 penalties, and limited tree depth---provide implicit feature selection by assigning zero importance to uninformative genes.
 
 \subsection{Monotonic Constraint Post-Processing}
 
@@ -308,9 +292,9 @@ where $O_{ij}$ is the observed frequency, $E_{ij}$ is the expected frequency und
 
 \subsection{Bootstrap Confidence Intervals}
 
-Confidence intervals for all metrics were computed using bootstrap resampling \parencite{efron_bootstrap_1979}. The procedure involved resampling the test set with replacement to create a bootstrap sample of the same size, computing the metric on this sample, and repeating the process for 1,000 iterations. The 2.5th and 97.5th percentiles of the resulting distribution were then taken to obtain the 95\% confidence intervals.
+Confidence intervals for all metrics were computed using bootstrap resampling \parencite{efron_bootstrap_1979}. The procedure involved resampling the pooled held-out predictions from all outer folds with replacement to create a bootstrap sample of the same size, computing the metric on this sample, and repeating the process for 1,000 iterations. The 2.5th and 97.5th percentiles of the resulting distribution were then taken to obtain the 95\% confidence intervals.
 
-Bootstrap confidence intervals provide a measure of uncertainty in the performance estimates that accounts for sampling variability in the test set.
+Bootstrap confidence intervals provide a measure of uncertainty in the performance estimates that accounts for sampling variability in the cross-validated predictions.
 
 \subsection{Per-Class Performance Assessment}
 
@@ -346,15 +330,9 @@ where $\bar{x}_{\text{mature}}$ and $\bar{x}_{\text{young}}$ are the mean expres
 
 For pig data, the comparison was between Post-pubertal/Adult (combined) and Infant stages. For human data, the comparison was between Adult and Infant groups.
 
-\subsection{Adaptive Thresholding Approach}
+\subsection{Gene Selection Criteria}
 
-To identify genes with conserved developmental trajectories, an adaptive thresholding approach was employed. The goal was to select a gene set that shows significant developmental changes in both species and exhibits strong cross-species correlation.
-
-The procedure tested multiple parameter combinations, including $p$-value thresholds of 0.05, 0.10, 0.15, and 0.20, and minimum gene numbers ranging from 15 to 50 in increments of 5.
-
-For each combination, genes meeting the $p$-value threshold in both species were selected. The correlation between pig and human fold changes was computed. The optimal parameters were selected to maximise $r \times \sqrt{n}$, where $r$ is the Pearson correlation and $n$ is the number of genes, subject to the constraint $r > 0.6$.
-
-This optimisation criterion balances correlation strength with the number of genes included. The constraint $r > 0.6$ ensures that only parameter combinations yielding strong correlation are considered.
+Genes with conserved developmental trajectories were identified using pre-specified, non-optimised criteria applied identically in both species. A gene was included in the cross-species comparison if it met both of the following conditions: (1) a false discovery rate below 0.10 after Benjamini-Hochberg correction \parencite{benjamini_controlling_1995} for differential expression between young and mature stages, and (2) an absolute log$_2$ fold change greater than 0.5 in both species. No additional selection by feature importance ranking or top-$N$ filtering was applied, ensuring that the gene set was defined solely by expression-based criteria.
 
 \subsection{Correlation Analysis}
 
@@ -375,11 +353,34 @@ Beyond correlation, the directional concordance of developmental changes was ass
 
 Directional concordance provides a more conservative measure of conservation than correlation, as it requires only that genes change in the same direction, not that the magnitudes of change are proportional.
 
-\subsection{Bootstrap Validation}
+\subsection{Statistical Inference for Cross-Species Correlation}
 
-The robustness of the cross-species correlation was assessed using bootstrap resampling. For each of 1,000 bootstrap iterations, the gene set was resampled with replacement, and the Pearson correlation was computed on the bootstrap sample.
+The 95\% confidence interval for the Pearson correlation was computed using Fisher's $z$-transformation. The sample correlation $r$ was transformed to $z = \text{arctanh}(r)$, which is approximately normally distributed with standard error $1/\sqrt{n-3}$. The confidence interval was constructed in the $z$-domain and back-transformed to the correlation scale.
 
-The 95\% confidence interval was computed from the 2.5th and 97.5th percentiles of the bootstrap distribution.
+In addition, bootstrap confidence intervals were computed by resampling the gene set with replacement for 1,000 iterations and computing the Pearson correlation on each bootstrap sample. The 2.5th and 97.5th percentiles of the bootstrap distribution provided a non-parametric 95\% confidence interval.
+
+\subsection{Sensitivity Analysis}
+
+To assess the robustness of the cross-species correlation to the choice of gene selection thresholds, a sensitivity analysis was performed across FDR thresholds from 0.05 to 0.20 in increments of 0.05. For each threshold, the gene set was recomputed and the Pearson correlation, number of selected genes, and directional concordance rate were recorded. This analysis demonstrates that the cross-species conservation signal is not an artefact of a particular threshold choice.
+
+
+\section{Within-Project Batch Validation}\label{sec:methods:within_project}
+
+Because the full porcine dataset aggregates samples from multiple BioProjects, developmental fold-change estimates could in principle be confounded by project-specific technical variation. To assess this, a within-project validation was performed using the two largest single-project muscle cohorts that individually span multiple consecutive developmental stages.
+
+\subsection{Cohort Selection}
+
+Two BioProjects were selected: PRJNA488311 ($n = 81$) and PRJNA486202 ($n = 75$), each containing samples spanning four consecutive developmental stages (Infant, Early childhood, Pre-pubertal, and Post-pubertal). These cohorts were chosen because they provide sufficient sample sizes to estimate fold changes within a single technical batch.
+
+\subsection{Developmental Contrasts}
+
+Three developmental contrasts were defined, all using the Infant stage as the baseline: Infant versus Early childhood, Infant versus Pre-pubertal, and Infant versus Post-pubertal. For each contrast and each gene, the log$_2$ fold change was computed and statistical significance was assessed using the Mann-Whitney $U$ test with Benjamini-Hochberg correction for multiple testing.
+
+\subsection{Concordance with Full-Dataset Estimates}
+
+For each developmental contrast, the within-project fold changes were correlated with the corresponding fold changes estimated from the full multi-project dataset using Pearson's $r$. High within-project correlations indicate that the developmental signal is reproducible within individual technical batches and is not driven by confounding between project and developmental stage.
+
+A pooled within-project estimate was obtained by averaging the fold changes from both BioProjects for each gene. The pooled estimate was then correlated with the full-dataset fold change. Bootstrap confidence intervals (1,000 iterations) were computed for all correlation coefficients.
 
 
 \section{Functional Enrichment Analysis}\label{sec:methods:enrichment}
