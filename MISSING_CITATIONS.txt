@@ -13,7 +13,7 @@ Please verify each reference is real, then add the BibTeX entry to:
 ================================================================================
 USED IN:
   - thesis/.../1_Introduction.tex line 52: "a critical gap undermines reproducibility across studies \parencite{baker_reproducibility_2016}"
-  - thesis/.../5_Discussion.tex line 70: "Reproducibility has been identified as a major challenge across biomedical science \parencite{baker_reproducibility_2016}"
+  - thesis/.../6_Conclusions.tex line 70: "Reproducibility has been identified as a major challenge across biomedical science \parencite{baker_reproducibility_2016}"
 
 SUGGESTED REFERENCE (from Nature website):
   Baker M. 1,500 scientists lift the lid on reproducibility. Nature. 2016;533(7604):452-454.
