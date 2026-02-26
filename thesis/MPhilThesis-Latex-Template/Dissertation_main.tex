@@ -40,6 +40,9 @@
 % Adjustbox Package
 \usepackage{adjustbox} % Import adjustbox for flexible resizing and alignment of boxes
 
+% Changepage Package for Adjustable Margins
+\usepackage{changepage} % Import changepage for adjustwidth environment
+
 % Bigints Package for Large Integral Signs
 \usepackage{bigints} % Import bigints for displaying large integral signs
 
@@ -81,6 +84,7 @@
 \usepackage{multicol}        % Import multicol for using multiple columns in the document layout
 \usepackage{multirow}        % Import multirow for creating table cells spanning multiple rows
 \usepackage{longtable}       % Multi-page tables
+\usepackage{pdflscape}       % Landscape pages
 \usepackage{booktabs}        % Import booktabs for creating professional-quality tables with enhanced layout and design
 \usepackage{tabularx}        % Import tabularx for adjustable-width columns
 \renewcommand{\arraystretch}{1.2} % Increase table row spacing for better readability
@@ -92,6 +96,7 @@
 \usepackage[T1]{fontenc} % Import fontenc with T1 encoding for better font rendering and support for European characters
 \usepackage[utf8]{inputenc} % Import inputenc with UTF-8 encoding for supporting a wide range of input characters
 \DeclareUnicodeCharacter{03B1}{\ensuremath{\alpha}} % Handle Greek alpha in bibliography
+\DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}} % Handle Greek Delta in bibliography
 
 % CSQuotes for Context-Sensitive Quotation Marks
 \usepackage{csquotes}

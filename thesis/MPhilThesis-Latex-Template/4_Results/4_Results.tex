@@ -17,34 +17,31 @@ The final dataset comprised 1,924 samples spanning five tissues and up to five d
 \centering
 \includegraphics[width=\textwidth]{fig1_study_design.pdf}
 \caption{\textbf{Study design and data landscape.}
-\textbf{(a)} Developmental stage definitions mapping chronological age to five ordered stages: Infant (0--20 days), Early childhood (21--59 days), Pre-pubertal (60--149 days), Post-pubertal (150--365 days), and Adult (>365 days).
+\textbf{(a)} Developmental stage definitions mapping chronological age to five ordered stages: infant (0--20 days), early childhood (21--59 days), pre-pubertal (60--149 days), post-pubertal (150--365 days), and adult (>365 days).
 \textbf{(b)} Machine learning workflow diagram illustrating the pipeline from data preprocessing to model calibration and evaluation.
 \textbf{(c)} Sample distribution heatmap showing tissue-by-stage availability across 1,924 samples from five tissues.
 \textbf{(d)} Classification scheme assignments based on per-class sample availability.}
 \label{fig:sample_distribution}
 \end{figure}
 
-Muscle tissue contributed the largest number of samples ($n = 761$), followed by liver ($n = 309$), lung ($n = 129$), blood ($n = 78$), and brain ($n = 43$). This uneven distribution reflects the relative availability of these tissues in the PigGTEx resource \parencite{teng_compendium_2024} and the differential representation of developmental stages across tissues.
+Muscle tissue contributed the largest number of samples ($n = 761$), followed by liver ($n = 309$), lung ($n = 129$), blood ($n = 78$), and brain ($n = 43$). This uneven distribution reflects the relative availability of these tissues in the PigGTEx resource \parencite{teng_compendium_2024, chen_construction_2025, long_comprehensive_2024} and the differential representation of developmental stages across tissues.
 
 \subsection{Class Distribution and Imbalance Analysis}
 
-The distribution of samples across developmental stages varied substantially between tissues. Muscle and liver showed relatively balanced representation across four stages (Infant, Early childhood, Pre-pubertal, and Post-pubertal/Adult combined). In contrast, brain, blood, and lung samples were concentrated in younger developmental stages, with limited representation of adult animals.
+The distribution of samples across developmental stages varied substantially between tissues. Muscle and liver showed relatively balanced representation across four stages (infant, early childhood, pre-pubertal, and post-pubertal/adult combined). In contrast, brain, blood, and lung samples were concentrated in younger developmental stages, with limited representation of adult animals.
 
 The quantitative distribution was as follows:
 
-\textbf{Muscle} (761 samples):
-\textbf{Muscle} (761 samples) was predominantly composed of Post-pubertal/Adult samples (402, 52.8\%), followed by Infant (192, 25.2\%), Pre-pubertal (91, 12.0\%), and Early childhood (76, 10.0\%) stages.
-\textbf{Liver} (309 samples) showed a more even distribution, with Infant (86, 27.8\%), Pre-pubertal (82, 26.5\%), and Post-pubertal/Adult (81, 26.2\%) stages similarly represented, while Early childhood (60, 19.4\%) was slightly less common.
-\textbf{Brain} (43 samples) was heavily skewed towards young animals, with 27 samples (62.8\%) in the Infant/Early childhood stages and only 16 samples (37.2\%) in the mature stages.
+\textbf{Muscle} (761 samples) was predominantly composed of post-pubertal/adult samples (401, 52.7\%), followed by infant (194, 25.5\%), pre-pubertal (90, 11.8\%), and early childhood (76, 10.0\%) stages.
+\textbf{Liver} (309 samples) showed a more even distribution, with infant (87, 28.2\%), pre-pubertal (83, 26.9\%), and post-pubertal/adult (81, 26.2\%) stages similarly represented, while early childhood (58, 18.8\%) was slightly less common.
+\textbf{Brain} (43 samples) was heavily skewed towards young animals, with 28 samples (65.1\%) in the pre-pubertal stage and only 15 samples (34.9\%) in the post-pubertal stage.
 \textbf{Blood} (78 samples) and \textbf{Lung} (129 samples) distinctively favored younger stages, with 60.3\% and 79.8\% of samples classified as young, respectively. This contrasted with the mature populations comprising 39.7\% and 20.2\% of the cohorts.
 
 \subsection{Classification Scheme Selection}
 
 Based on the sample distribution, the adaptive scheme selection algorithm assigned classification schemes as follows:
 
-Specifically, muscle and liver were assigned 4-class schemes (Infant, Early childhood, Pre-pubertal, Post-pubertal/Adult), enabling finer-grained staging. Conversely, brain, blood, and lung were assigned 2-class schemes (Young vs. Mature), ensuring robust classification despite smaller sample sizes.
-
-The 4-class schemes for muscle and liver enable finer-grained developmental staging, while the 2-class schemes for brain, blood, and lung provide robust binary classification despite limited sample sizes.
+Specifically, muscle and liver were assigned 4-class schemes (infant, early childhood, pre-pubertal, post-pubertal/adult), enabling finer-grained staging. Conversely, brain, blood, and lung were assigned 2-class schemes (young vs. mature), ensuring robust classification despite smaller sample sizes.
 
 
 \section{Model Performance Assessment}\label{sec:results:performance}
@@ -89,7 +86,7 @@ Brain & 2-class & 43 & 0.811 & 0.801 & 0.942 \\
 
 \subsubsection{Blood: Highest Performance}
 
-Blood achieved the highest balanced accuracy (95.9\%) using the 2-class (Pre-pubertal vs.\ Post-pubertal) scheme. The macro F1-score of 0.960 indicates excellent precision and recall across both classes, demonstrating robust discrimination between pre-pubertal and post-pubertal animals even with a modest sample size ($n = 78$).
+Blood achieved the highest balanced accuracy (95.9\%) using the 2-class (pre-pubertal vs.\ post-pubertal) scheme. The macro F1-score of 0.960 indicates excellent precision and recall across both classes, demonstrating robust discrimination between pre-pubertal and post-pubertal animals even with a modest sample size ($n = 78$).
 
 \subsubsection{Liver: Strong 4-Class Classification}
 
@@ -126,45 +123,43 @@ Per-class metrics reveal the stages that are easiest and hardest to classify. Th
 \toprule
 \textbf{Tissue} & \textbf{Stage} & \textbf{$n$} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
 \midrule
-Muscle & Infant & 194 & 0.939 & 0.959 & 0.949 \\
-Muscle & Early childhood & 76 & 0.838 & 0.816 & 0.827 \\
-Muscle & Pre-pubertal & 90 & 0.871 & 0.822 & 0.846 \\
-Muscle & Post-pubertal/Adult & 401 & 0.973 & 0.980 & 0.976 \\
+Muscle & infant & 194 & 0.939 & 0.959 & 0.949 \\
+Muscle & early childhood & 76 & 0.838 & 0.816 & 0.827 \\
+Muscle & pre-pubertal & 90 & 0.871 & 0.822 & 0.846 \\
+Muscle & post-pubertal/adult & 401 & 0.973 & 0.980 & 0.976 \\
 \midrule
-Brain & Pre-pubertal ($<$150d) & 28 & 0.885 & 0.821 & 0.852 \\
-Brain & Post-pubertal ($\geq$150d) & 15 & 0.706 & 0.800 & 0.750 \\
+Brain & pre-pubertal ($<$150d) & 28 & 0.885 & 0.821 & 0.852 \\
+Brain & post-pubertal ($\geq$150d) & 15 & 0.706 & 0.800 & 0.750 \\
 \midrule
-Liver & Infant & 87 & 0.965 & 0.954 & 0.960 \\
-Liver & Early childhood & 58 & 0.887 & 0.948 & 0.917 \\
-Liver & Pre-pubertal & 83 & 0.910 & 0.855 & 0.882 \\
-Liver & Post-pubertal/Adult & 81 & 0.904 & 0.926 & 0.915 \\
+Liver & infant & 87 & 0.965 & 0.954 & 0.960 \\
+Liver & early childhood & 58 & 0.887 & 0.948 & 0.917 \\
+Liver & pre-pubertal & 83 & 0.910 & 0.855 & 0.882 \\
+Liver & post-pubertal/adult & 81 & 0.904 & 0.926 & 0.915 \\
 \midrule
-Blood & Pre-pubertal ($<$150d) & 45 & 0.957 & 0.978 & 0.967 \\
-Blood & Post-pubertal ($\geq$150d) & 33 & 0.969 & 0.939 & 0.954 \\
+Blood & pre-pubertal ($<$150d) & 45 & 0.957 & 0.978 & 0.967 \\
+Blood & post-pubertal ($\geq$150d) & 33 & 0.969 & 0.939 & 0.954 \\
 \midrule
-Lung & Pre-pubertal ($<$150d) & 102 & 0.960 & 0.931 & 0.945 \\
-Lung & Post-pubertal ($\geq$150d) & 27 & 0.767 & 0.852 & 0.807 \\
+Lung & pre-pubertal ($<$150d) & 102 & 0.960 & 0.931 & 0.945 \\
+Lung & post-pubertal ($\geq$150d) & 27 & 0.767 & 0.852 & 0.807 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Several patterns emerged from the per-class analysis. First, extreme stages (Infant and Post-pubertal/Adult) consistently showed higher F1-scores than intermediate stages, reflecting the greater transcriptomic distinctiveness of developmental extremes. Second, Early childhood proved to be the most challenging stage to classify in both muscle (F1 = 0.827) and liver (F1 = 0.917), likely due to the transitional nature of the weaning period \parencite{pluske_gastrointestinal_2018}. Finally, the post-pubertal class in brain (F1 = 0.750) and lung (F1 = 0.807) showed lower performance, illustrating the difficulty of learning from limited examples in the minority class.
+Several patterns emerged from the per-class analysis. First, extreme stages (infant and post-pubertal/adult) consistently showed higher F1-scores than intermediate stages, reflecting the greater transcriptomic distinctiveness of developmental extremes. Second, early childhood proved to be the most challenging stage to classify in both muscle (F1 = 0.827) and liver (F1 = 0.917), likely due to the transitional nature of the weaning period \parencite{pluske_gastrointestinal_2018}. Finally, the post-pubertal class in brain (F1 = 0.750) and lung (F1 = 0.807) showed lower performance, illustrating the difficulty of learning from limited examples in the minority class.
 
 \subsection{Ordinal Consistency Analysis}
 
-The ordinal nature of developmental staging means that not all errors are equally severe. Misclassifying an Infant as Early childhood is a smaller error than misclassifying an Infant as Adult. The confusion matrices in \figref{fig:performance}b reveal the pattern of errors.
+The ordinal nature of developmental staging means that not all errors are equally severe. Misclassifying an infant as early childhood is a smaller error than misclassifying an infant as adult. The confusion matrices in \figref{fig:performance}b reveal the pattern of errors.
 
-For liver, the confusion matrix shows that errors are concentrated on the diagonal and adjacent cells. Only one sample (out of 93 test samples) was misclassified by more than one stage. This near-perfect ordinal consistency reflects the model's ability to capture the continuous nature of development.
+For liver, the confusion matrix shows that errors are concentrated on the diagonal and adjacent cells. Only four samples (out of 309 pooled held-out predictions) were misclassified by more than one stage. This near-perfect ordinal consistency reflects the model's ability to capture the continuous nature of development.
 
-For muscle, a similar pattern emerges. The majority of errors involve adjacent stages, with very few distant misclassifications. The Early childhood $\leftrightarrow$ Pre-pubertal boundary shows the highest error rate, consistent with the biological similarity of these transitional stages.
+For muscle, a similar pattern emerges. The majority of errors involve adjacent stages, with very few distant misclassifications. The early childhood $\leftrightarrow$ pre-pubertal boundary shows the highest error rate, consistent with the biological similarity of these transitional stages.
 
 For the 2-class tissues (brain, blood, lung), ordinal analysis is less informative, as there is only one possible misclassification type. However, the binary classification still reflects the model's ability to distinguish young from mature animals.
 
 \subsection{Relationship Between Predicted Stage and Chronological Age}
 
-The scatter plots in \figref{fig:performance}c demonstrate the relationship between model-predicted developmental stage and chronological age. For tissues with continuous age data (liver, muscle, brain, blood), strong positive correlations were observed:
-
-For tissues with continuous age data, strong positive correlations were observed: muscle ($\rho = 0.965$), liver ($\rho = 0.949$), brain ($\rho = 0.942$), and blood ($\rho = 0.773$).
+The scatter plots in \figref{fig:performance}c demonstrate the relationship between model-predicted developmental stage and chronological age. For tissues with continuous age data, strong positive correlations were observed: muscle ($\rho = 0.965$), liver ($\rho = 0.949$), and brain ($\rho = 0.942$).
 
 These correlations confirm that the model's predictions align with chronological age, as expected given the age-based stage definitions. However, the imperfect correlation reflects inter-individual variability in developmental rate and the limitations of using chronological age as ground truth.
 
@@ -179,31 +174,31 @@ Feature importance analysis identified the genes most informative for developmen
 
 The top developmental markers for muscle include genes involved in contractile function, neuromuscular signalling, and metabolic adaptation:
 
-Key genes included \textbf{FGFRL1} (Fibroblast growth factor receptor-like 1), a decoy receptor modulating FGF signalling \parencite{amann_fgfrl1_2014}, and \textbf{SORCS2} (Sortilin-related VPS10 domain-containing receptor 2), which is involved in neurotrophin signalling \parencite{thomasen_sorcs2_2023}. Other significant markers were \textbf{ACHE} (Acetylcholinesterase) for neuromuscular junction function \parencite{rotundo_expression_2003}, \textbf{MEF2A} (Myocyte enhancer factor 2A) regulating differentiation \parencite{black_mef2_1998}, and \textbf{TRDN} (Triadin), a component of the calcium release complex \parencite{guo_triadin_1995}.
+Key genes included \textbf{FGFRL1} (Fibroblast growth factor receptor-like 1), a decoy receptor modulating FGF signalling \parencite{amann_fgfrl1_2014}, and \textbf{SORCS2} (Sortilin-related VPS10 domain-containing receptor 2), which is involved in neurotrophin signalling \parencite{thomasen_sorcs2_2023}. Other significant markers were \textbf{ACHE} (Acetylcholinesterase) for neuromuscular junction function \parencite{rotundo_expression_2003}, \textbf{MEF2A} (Myocyte enhancer factor 2A) regulating differentiation \parencite{black_transcriptional_1998}, and \textbf{TRDN} (Triadin), a component of the calcium release complex \parencite{guo_association_1995}.
 
 \subsubsection{Liver Developmental Markers}
 
-Liver markers reflect metabolic maturation and circadian regulation:
+Liver markers reflect metabolic maturation and circadian regulation.
 
-Identified markers included \textbf{NPAS2} (Neuronal PAS domain protein 2) and \textbf{BHLHE41} (Basic helix-loop-helix family member e41), both circadian clock genes regulating metabolism \parencite{zhang_night-restricted_2025}. \textbf{ALDH18A1} (Aldehyde dehydrogenase 18 family member A1), involved in proline biosynthesis \parencite{hu_aldh18a1_2008}, was also a top feature.
+Identified markers included \textbf{NPAS2} (Neuronal PAS domain protein 2) and \textbf{BHLHE41} (Basic helix-loop-helix family member e41), both circadian clock genes regulating metabolism \parencite{zhang_night-restricted_2025}. \textbf{ALDH18A1} (Aldehyde dehydrogenase 18 family member A1), involved in proline biosynthesis \parencite{marco-marin_1_2020}, was also a top feature.
 
 \subsubsection{Brain Developmental Markers}
 
-Brain markers reflect neuronal maturation and epigenetic regulation:
+Brain markers reflect neuronal maturation and epigenetic regulation.
 
-Key markers were \textbf{DNMT3L} (DNA methyltransferase 3L), a regulator of de novo methylation, \textbf{HDAC6} (Histone deacetylase 6), involved in chromatin remodelling \parencite{teschendorff_epigenetic_2025}, and \textbf{KLK6} (Kallikrein-related peptidase 6), which is implicated in myelination \parencite{scoris_klk6_2002}.
+Key markers were \textbf{DNMT3L} (DNA methyltransferase 3L), a regulator of de novo methylation \parencite{bourchis_dnmt3l_2001}, \textbf{HDAC6} (Histone deacetylase 6), involved in chromatin remodelling \parencite{hubbert_hdac6_2002}, and \textbf{KLK6} (Kallikrein-related peptidase 6), which is implicated in myelination \parencite{scarisbrick_kallikrein_2012}.
 
 \subsubsection{Lung Developmental Markers}
 
-Lung markers reflect immune development and RNA metabolism:
+Lung markers reflect immune development and RNA metabolism.
 
-The top features included \textbf{IGF2BP2/3} (Insulin-like growth factor 2 mRNA-binding proteins), regulators of mRNA stability \parencite{bell_igf2bp_2013}; \textbf{GFI1} (Growth factor independent 1), a transcription factor essential for haematopoiesis \parencite{van_der_meer_gfi1_2010}; and \textbf{NFIB} (Nuclear factor I B), known for its role in lung development \parencite{steele_perkins_nfib_2005}.
+The top features included \textbf{IGF2BP2/3} (Insulin-like growth factor 2 mRNA-binding proteins), regulators of mRNA stability \parencite{li_hmga2-igf2bp2_2012}; \textbf{GFI1} (Growth factor independent 1), a transcription factor essential for haematopoiesis \parencite{van_der_meer_gfi1_2010}; and \textbf{NFIB} (Nuclear factor I B), known for its role in lung development \parencite{steele-perkins_transcription_2005}.
 
 \subsubsection{Blood Developmental Markers}
 
 Blood markers reflect haematopoietic development:
 
-Markers included \textbf{GFI1}, essential for lymphocyte development, alongside other immune-related genes involved in lymphocyte differentiation and activation.
+Markers included \textbf{GFI1}, essential for lymphocyte development \parencite{van_der_meer_gfi1_2010}, alongside other immune-related genes involved in lymphocyte differentiation and activation.
 
 \subsection{Feature Selection Stability Analysis}
 
@@ -246,33 +241,25 @@ Functional network showing interconnected enrichment modules, with nodes represe
 
 \subsubsection{Brain: Synaptic Refinement and Metabolic Support}
 
-Brain developmental markers were enriched for processes related to synaptic function and neuronal metabolism:
+Brain developmental markers were enriched for processes related to synaptic function and neuronal metabolism. Enrichment for sarcosine-related processes reflects the role of this glycine derivative as a co-agonist at NMDA receptors, which is critical for synaptic plasticity \parencite{zhang_glycine_2009}. Furthermore, the enrichment of beta-tubulin binding reflects the importance of microtubule dynamics for axonal transport and neuronal morphology.
 
-Specifically, enrichment for sarcosine-related processes reflects the role of this glycine derivative as a co-agonist at NMDA receptors, which is critical for synaptic plasticity \parencite{jiang_cellular_2016}. Furthermore, the enrichment of beta-tubulin binding reflects the importance of microtubule dynamics for axonal transport and neuronal morphology.
-
-These findings align with the known prolonged development of neural circuits during postnatal life, including ongoing synaptogenesis, synaptic pruning, and myelination \parencite{jiang_cellular_2016, kang_spatio-temporal_2011}.
+These findings align with the known prolonged development of neural circuits during postnatal life, including ongoing synaptogenesis, synaptic pruning, and myelination \parencite{jiang_cellular_2016, kang_spatio-temporal_2011, semple_brain_2013}.
 
 \subsubsection{Liver: Metabolic Autonomy and Homeostasis}
 
-Liver markers were enriched for metabolic processes:
-
-Specifically, enrichment for autophagosome-membrane adaptors reflects the role of autophagy in hepatic homeostasis and the response to nutritional changes associated with weaning \parencite{gordillo_orchestrating_2015, pluske_gastrointestinal_2018}. There was also a general enrichment for metabolic enzyme expression, reflecting the liver's central role in nutrient processing.
+Liver markers were enriched for metabolic processes. Enrichment for autophagosome-membrane adaptors reflects the role of autophagy in hepatic homeostasis and the response to nutritional changes associated with weaning \parencite{gordillo_orchestrating_2015, pluske_gastrointestinal_2018}. There was also a general enrichment for metabolic enzyme expression, reflecting the liver's central role in nutrient processing.
 
 The functional profile reflects the liver's adaptation to postnatal metabolic demands, including the switch from maternal nutrition to independent feeding.
 
 \subsubsection{Muscle: Contractile Machinery and Neuromuscular Signalling}
 
-Muscle markers were enriched for:
-
-Enrichment for acetylcholinesterase activity reflects the maturation of neuromuscular junctions and the establishment of efficient synaptic transmission. Additionally, the enrichment for sarcomere organisation captures the development of the mature contractile apparatus.
+Muscle markers were enriched for contractile machinery and neuromuscular signalling processes. Enrichment for acetylcholinesterase activity \parencite{rotundo_expression_2003} reflects the maturation of neuromuscular junctions and the establishment of efficient synaptic transmission. Additionally, the enrichment for sarcomere organisation captures the development of the mature contractile apparatus.
 
 These findings capture the establishment of adult muscle function, including the transition from neonatal to adult fibre types \parencite{lefaucheur_pattern_1995, lefaucheur_second_2010} and the refinement of neuromuscular connectivity.
 
 \subsubsection{Lung: Immune Establishment and RNA Metabolism}
 
-Lung markers were enriched for:
-
-Enrichment for IL-6 signalling regulation reflects the establishment of pulmonary immune function and inflammatory responses. Concurrently, enrichment for m6A reader activity suggests a role for post-transcriptional regulation in lung development.
+Lung markers were enriched for immune establishment and RNA metabolism processes. Enrichment for IL-6 signalling regulation reflects the establishment of pulmonary immune function and inflammatory responses. Concurrently, enrichment for m6A reader activity \parencite{wang_n6-methyladenosine_2014} suggests a role for post-transcriptional regulation in lung development.
 
 The lung's exposure to environmental antigens drives rapid immune maturation during postnatal life \parencite{georgountzou_postnatal_2017}, as captured by these functional enrichments.
 
@@ -285,7 +272,7 @@ The functional network in \figref{fig:enrichment} reveals both tissue-specific a
 
 \subsection{Conservation of Developmental Trajectories}
 
-Cross-species analysis with human skeletal muscle transcriptomes revealed striking conservation of developmental gene expression programs. The results are summarised in \figref{fig:crossspecies}.
+Preliminary cross-species analysis with human skeletal muscle transcriptomes \parencite{schaiter_molecular_2024} ($n = 11$) provided evidence of conservation of developmental gene expression programs. The results are summarised in \figref{fig:crossspecies}.
 
 \begin{figure}[H]
 \centering
@@ -314,7 +301,7 @@ The 2 genes showing discordant directions (3.0\%) may reflect species-specific d
 
 The robustness of the cross-species correlation was assessed across a range of FDR thresholds. Sensitivity analysis across thresholds from 0.05 to 0.20 showed correlations ranging from $r = 0.61$ to $r = 0.69$, with the correlation magnitude decreasing slightly at more permissive thresholds as noisier genes are included. This consistency demonstrates that the conservation signal is not an artefact of the specific parameter choices.
 
-The sensitivity analysis results are presented in Supplementary Figure S1, showing the correlation coefficient as a function of FDR threshold.
+The sensitivity analysis results are presented in \figref{fig:S1}, showing the correlation coefficient as a function of FDR threshold.
 
 \subsection{Conserved Functional Modules}
 
@@ -324,25 +311,25 @@ Three functional modules of conserved developmental genes were identified:
 
 This module comprises genes with high infant expression that decrease during postnatal development, reflecting the transition from active myogenesis to mature muscle homeostasis:
 
-\textbf{ACHE} (pig FC = $-$3.34, human FC = $-$0.53), essential for neuromuscular junction function \parencite{rotundo_expression_2003}, shows elevated expression in the Infant stage (0--20 days; mean TPM = 17.5) that progressively declines through Early childhood (TPM = 7.6), Pre-pubertal (TPM = 3.4), to baseline in Post-pubertal stages (TPM = 1.3). \textbf{NRK} (pig FC = $-$8.56, human FC = $-$2.45), an embryonic Ste20-type kinase expressed predominantly in developing skeletal musculature \parencite{kanai-azuma_nrk_1999}, has the second-largest fold change, with Infant TPM = 128.2 declining to 0.3 in adults. \textbf{KREMEN1} (pig FC = $-$1.69, human FC = $-$1.43), a negative regulator of Wnt/$\beta$-catenin signalling \parencite{osada_wnt_2006}, shows a similar gradual postnatal decline. \textbf{IGF2BP2} (pig FC = $-$2.19, human FC = $-$2.03) and \textbf{IGF2BP3} (pig FC = $-$4.85, human FC = $-$1.23), oncofetal RNA-binding proteins that regulate myoblast proliferation via translational control of growth-related transcripts \parencite{li_hmga2-igf2bp2_2012}, show pronounced postnatal decline. \textbf{SORCS2} (pig FC = $-$4.67, human FC = $-$0.95), a regulator of motor neuron innervation \parencite{thomasen_sorcs2_2023}, is highly expressed during early postnatal life (Infant TPM = 14.4) and becomes progressively downregulated through Early childhood (TPM = 3.0), Pre-pubertal (TPM = 2.2), reaching its lowest in Post-pubertal (TPM = 0.6). \textbf{ETV5} (pig FC = $-$2.80, human FC = $-$2.24), a PEA3-subfamily transcription factor implicated in myogenic differentiation, and \textbf{CCDC8} (pig FC = $-$4.44, human FC = $-$3.14), a core component of the 3M growth-regulatory complex \parencite{hanson_exome_2011}, complete this module.
+\textbf{ACHE} (pig FC = $-$3.34, human FC = $-$0.53), essential for neuromuscular junction function \parencite{rotundo_expression_2003}, shows elevated expression in the infant stage (0--20 days; mean TPM = 17.5) that progressively declines through early childhood (TPM = 7.6), pre-pubertal (TPM = 3.4), to baseline in post-pubertal stages (TPM = 1.3). \textbf{NRK} (pig FC = $-$8.56, human FC = $-$2.45), an embryonic Ste20-type kinase expressed predominantly in developing skeletal musculature \parencite{kanai-azuma_nrk_1999}, has the second-largest fold change, with infant TPM = 128.2 declining to 0.3 in adults. \textbf{KREMEN1} (pig FC = $-$1.69, human FC = $-$1.43), a negative regulator of Wnt/$\beta$-catenin signalling \parencite{osada_wnt_2006, qin_canonical_2024}, shows a similar gradual postnatal decline. \textbf{IGF2BP2} (pig FC = $-$2.19, human FC = $-$2.03) and \textbf{IGF2BP3} (pig FC = $-$4.85, human FC = $-$1.23), oncofetal RNA-binding proteins that regulate myoblast proliferation via translational control of growth-related transcripts \parencite{li_hmga2-igf2bp2_2012}, show pronounced postnatal decline. \textbf{SORCS2} (pig FC = $-$4.67, human FC = $-$0.95), a regulator of motor neuron innervation \parencite{thomasen_sorcs2_2023}, is highly expressed during early postnatal life (infant TPM = 14.4) and becomes progressively downregulated through early childhood (TPM = 3.0), pre-pubertal (TPM = 2.2), reaching its lowest in post-pubertal (TPM = 0.6). \textbf{ETV5} (pig FC = $-$2.80, human FC = $-$2.24), a PEA3-subfamily transcription factor implicated in myogenic differentiation \parencite{taylor_role_1997}, and \textbf{CCDC8} (pig FC = $-$4.44, human FC = $-$3.14), a core component of the 3M growth-regulatory complex \parencite{hanson_exome_2011}, complete this module.
 
 \subsubsection{Module 2: Structural Refinement and ECM Remodelling}
 
 This module reflects the transition from rapid tissue growth to structural consolidation, encompassing both cytoskeletal dynamics and extracellular matrix maturation:
 
-\textbf{TCAF1} (pig FC = $-$4.72, human FC = $-$1.02), which regulates TRPM8 ion channel trafficking and calcium signalling \parencite{gkika_trp_2015}, is the highest-importance gene among the cross-species markers, with Infant TPM = 78.9 declining to 3.0 in adults. \textbf{FGFRL1} (pig FC = $-$3.03, human FC = $-$2.10) is required for slow muscle fibre development \parencite{amann_fgfrl1_2014}; its expression peaks during the Infant stage (TPM = 77.4), drops sharply in Early childhood (TPM = 15.6), and decreases to its lowest in Post-pubertal (TPM = 4.3). \textbf{DLK1} (pig FC = $-$9.15, human FC = $-$2.88), a crucial regulator of the myogenic program \parencite{waddell_dlk1_2010,andersen_dual_2013}, shows high infant expression (TPM = 338.8) declining sharply as the muscle fiber population matures. \textbf{POSTN} (pig FC = $-$7.97, human FC = $-$2.93), a secreted matricellular protein associated with ECM remodelling during myofibre maturation \parencite{ozdemir_periostin_2014}, is the most highly expressed ECM gene in this set (Infant TPM = 602.4), declining dramatically as tissue architecture stabilises. \textbf{WDR1} (pig FC = $-$1.69, human FC = $-$0.52), a cofactor of cofilin-mediated actin filament disassembly \parencite{ono_functions_2018}, \textbf{FSCN1} (pig FC = $-$4.28, human FC = $-$1.95), an actin-bundling protein driving cell migration during morphogenesis \parencite{adams_roles_2004}, \textbf{FREM2} (pig FC = $-$4.58, human FC = $-$1.05), a basement membrane protein \parencite{kiyozumi_breakdown_2006}, \textbf{ADAMTS2} (pig FC = $-$4.25, human FC = $-$1.83), the principal procollagen N-proteinase \parencite{colige_cdna_1997}, and \textbf{COL11A2} (pig FC = $-$8.35, human FC = $-$0.70), a collagen component regulating fibril organisation \parencite{sun_collagen_2020}, reflect intensive ECM biosynthesis during rapid postnatal growth. \textbf{TRIM54}, a muscle-specific E3 ubiquitin ligase involved in sarcomere assembly \parencite{gregorio_functional_2005}, shows the opposite pattern---lower infant expression (TPM = 78.3) increasing sharply in Early childhood (TPM = 351.1) as the mature contractile apparatus is established.
+\textbf{TCAF1} (pig FC = $-$4.72, human FC = $-$1.02), which regulates TRPM8 ion channel trafficking and calcium signalling \parencite{gkika_trp_2015}, is the highest-importance gene among the cross-species markers, with infant TPM = 78.9 declining to 3.0 in adults. \textbf{FGFRL1} (pig FC = $-$3.03, human FC = $-$2.10) is required for slow muscle fibre development \parencite{amann_fgfrl1_2014}; its expression peaks during the infant stage (TPM = 77.4), drops sharply in early childhood (TPM = 15.6), and decreases to its lowest in post-pubertal (TPM = 4.3). \textbf{DLK1} (pig FC = $-$9.15, human FC = $-$2.88), a crucial regulator of the myogenic program \parencite{waddell_dlk1_2010,andersen_dual_2013}, shows high infant expression (TPM = 338.8) declining sharply as the muscle fibre population matures. \textbf{POSTN} (pig FC = $-$7.97, human FC = $-$2.93), a secreted matricellular protein associated with ECM remodelling during myofibre maturation \parencite{ozdemir_periostin_2014}, is the most highly expressed ECM gene in this set (infant TPM = 602.4), declining dramatically as tissue architecture stabilises. \textbf{WDR1} (pig FC = $-$1.69, human FC = $-$0.52), a cofactor of cofilin-mediated actin filament disassembly \parencite{ono_functions_2018}, \textbf{FSCN1} (pig FC = $-$4.28, human FC = $-$1.95), an actin-bundling protein driving cell migration during morphogenesis \parencite{adams_roles_2004}, \textbf{FREM2} (pig FC = $-$4.58, human FC = $-$1.05), a basement membrane protein \parencite{kiyozumi_breakdown_2006}, \textbf{ADAMTS2} (pig FC = $-$4.25, human FC = $-$1.83), the principal procollagen N-proteinase \parencite{colige_cdna_1997}, and \textbf{COL11A2} (pig FC = $-$8.35, human FC = $-$0.70), a collagen component regulating fibril organisation \parencite{sun_collagen_2020}, reflect intensive ECM biosynthesis during rapid postnatal growth. \textbf{TRIM54}, a muscle-specific E3 ubiquitin ligase involved in sarcomere assembly \parencite{gregorio_functional_2005}, shows the opposite pattern---lower infant expression (TPM = 78.3) increasing sharply in early childhood (TPM = 351.1) as the mature contractile apparatus is established.
 
 \subsubsection{Module 3: Metabolic Transition}
 
 This module captures genes upregulated during metabolic maturation of skeletal muscle:
 
-\textbf{ME1} (pig FC = 2.59, human FC = 0.64) encodes malic enzyme 1, a key source of NADPH for lipid biosynthesis \parencite{simmen_malic_2020}; its expression increases progressively from Infant (TPM = 2.8) to Adult stages (TPM = 16.9), reflecting the transition from carbohydrate to lipid metabolism. \textbf{MAOB} (pig FC = 2.55, human FC = 0.80), a mitochondrial outer membrane enzyme catalysing oxidative deamination of monoamines, shows concordant postnatal upregulation (Infant TPM = 5.7 to Adult TPM = 33.4), consistent with the general increase in mitochondrial content during postnatal muscle maturation. Notably, \textbf{PLA2G4E} (pig FC = 2.32, human FC = $-$1.25), a group~IVE cytosolic phospholipase, is the only discordant gene among the top 20 markers, showing opposite developmental trajectories in pig and human---potentially reflecting species-specific differences in intramuscular lipid metabolism.
+\textbf{ME1} (pig FC = 2.59, human FC = 0.64) encodes malic enzyme 1 \parencite{simmen_malic_2020}, a key source of NADPH for lipid biosynthesis; its expression increases progressively from infant (TPM = 2.8) to adult stages (TPM = 16.9), reflecting the transition from carbohydrate to lipid metabolism. \textbf{MAOB} (pig FC = 2.55, human FC = 0.80), a mitochondrial outer membrane enzyme catalysing oxidative deamination of monoamines, shows concordant postnatal upregulation (infant TPM = 5.7 to adult TPM = 33.4), consistent with the general increase in mitochondrial content during postnatal muscle maturation. Notably, \textbf{PLA2G4E} (pig FC = 2.32, human FC = $-$1.25), a group~IVE cytosolic phospholipase, is the only discordant gene among the top 20 markers, showing opposite developmental trajectories in pig and human---potentially reflecting species-specific differences in intramuscular lipid metabolism.
 
 \subsection{Biological Significance of Conservation}
 
 The conservation of developmental trajectories between pig and human muscle has important implications for the use of pigs as translational models. The shared expression changes indicate that:
 
-First, the porcine developmental staging framework captures evolutionarily conserved processes rather than species-specific artefacts. Second, insights from pig developmental biology are likely to translate to human biology, enhancing the pig's value as a biomedical model. Finally, the identifed developmental markers likely represent fundamental regulators maintained across 80 million years of mammalian evolution \parencite{kumar_timetree_2022}.
+First, the porcine developmental staging framework captures evolutionarily conserved processes rather than species-specific artefacts. Second, insights from pig developmental biology are likely to translate to human biology, enhancing the pig's value as a biomedical model. Finally, the identified developmental markers likely represent fundamental regulators maintained across 80 million years of mammalian evolution \parencite{kumar_timetree_2022}.
 
 \subsection{Functional Annotations of Key Markers}
 
@@ -385,8 +372,8 @@ Despite these limitations, the conservation analysis provides important validati
 
 \section{Within-Project Batch Validation}\label{sec:results:batch}
 
-To assess whether cross-project technical variation confounds the developmental signals, we performed a within-project fold-change validation. We identified the two largest single-project muscle cohorts that each span multiple developmental stages under uniform protocols: PRJNA488311 ($n_{\text{total}} = 81$) and PRJNA486202 ($n_{\text{total}} = 75$), each containing samples from Infant through Post-pubertal stages.
+To assess whether cross-project technical variation confounds the developmental signals, we performed a within-project fold-change validation. We identified the two largest single-project muscle cohorts that each span multiple developmental stages under uniform protocols: PRJNA488311 ($n_{\text{total}} = 81$) and PRJNA486202 ($n_{\text{total}} = 75$), each containing samples from infant through post-pubertal stages.
 
-Within-project fold-changes correlated strongly with full-dataset estimates across three developmental contrasts (Infant vs.\ Early childhood, Infant vs.\ Pre-pubertal, and Infant vs.\ Post-pubertal), with pooled Pearson $r = 0.67$--$0.81$ for all expressed genes (Supplementary Table S5). Critically, the 66 cross-species validated genes showed even higher agreement ($r = 0.76$--$0.98$), confirming that the developmental signatures reflect biology rather than batch artefacts even for the earliest and subtlest developmental transitions.
+Within-project fold-changes correlated strongly with full-dataset estimates across three developmental contrasts (infant vs.\ early childhood, infant vs.\ pre-pubertal, and infant vs.\ post-pubertal), with pooled Pearson $r = 0.67$--$0.81$ for all expressed genes (\tabref{tab:S5}). Critically, the 66 cross-species validated genes showed even higher agreement ($r = 0.76$--$0.98$), confirming that the developmental signatures reflect biology rather than batch artefacts even for the earliest and subtlest developmental transitions.
 
 These results provide important evidence that the multi-project aggregation strategy does not introduce spurious developmental signals, and that the key findings---particularly the cross-species conserved genes---are robust to technical variation across sequencing platforms and library protocols.

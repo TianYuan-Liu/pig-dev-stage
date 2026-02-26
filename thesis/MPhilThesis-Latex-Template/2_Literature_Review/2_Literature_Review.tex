@@ -25,15 +25,15 @@ The extension of staging systems to postnatal development presents additional ch
 
 Postnatal development in pigs proceeds through a series of physiological transitions that are fundamental to understanding the biology of this species \parencite{swindle_swine_2012}. These transitions provide the biological rationale for the developmental staging system employed in this thesis.
 
-The \textbf{neonatal period} (0--20 days) represents the initial phase of postnatal life, during which piglets are entirely dependent on maternal nutrition and care. During this period, the gastrointestinal tract is adapted to digest milk, with high expression of lactase and limited capacity to handle solid food \parencite{lalles_nutritional_2007}. The immune system relies heavily on passive immunity transferred from the sow through colostrum, with the piglet's own adaptive immune responses still immature. Thermoregulation is poorly developed, requiring external heat sources or huddling behaviour to maintain body temperature \parencite{lalles_gut_2004}.
+The \textbf{neonatal period} (0--20 days) represents the initial phase of postnatal life, during which piglets are entirely dependent on maternal nutrition and care. During this period, the gastrointestinal tract is adapted to digest milk, with high expression of lactase and limited capacity to handle solid food \parencite{lalles_nutritional_2007}. The immune system relies heavily on passive immunity transferred from the sow through colostrum, with the piglet's own adaptive immune responses still immature \parencite{summerfield_immunology_2015}. Thermoregulation is poorly developed, requiring external heat sources or huddling behaviour to maintain body temperature \parencite{le_dividich_effects_2000}.
 
-\textbf{Early childhood} (21--59 days) encompasses the weaning transition, one of the most significant physiological challenges in the porcine lifespan. Weaning typically occurs at 21--28 days in commercial production systems, though it may be later in other contexts. This transition requires rapid adaptation of the gastrointestinal tract to handle solid food, including changes in digestive enzyme expression, gut morphology, and barrier function \parencite{pluske_gastrointestinal_2018}. The weaning transition is associated with temporary growth depression and increased susceptibility to enteric pathogens, reflecting the physiological stress of this developmental milestone.
+The \textbf{early childhood} period (21--59 days) encompasses the weaning transition, one of the most significant physiological challenges in the porcine lifespan. Weaning typically occurs at 21--28 days in commercial production systems \parencite{pluske_gastrointestinal_2018}, though it may be later in other contexts. This transition requires rapid adaptation of the gastrointestinal tract to handle solid food, including changes in digestive enzyme expression, gut morphology, and barrier function \parencite{pluske_gastrointestinal_2018}. The weaning transition is associated with temporary growth depression and increased susceptibility to enteric pathogens \parencite{pluske_factors_1997, lalles_nutritional_2007}, reflecting the physiological stress of this developmental milestone.
 
-The \textbf{pre-pubertal period} (60--149 days) represents a phase of rapid growth and tissue deposition. During this period, pigs achieve the highest rates of body weight gain, with muscle and adipose tissue accumulating rapidly. Skeletal development continues, with bones increasing in both length and density \parencite{reiland_growth_1978}. The immune system matures, with the development of a diverse repertoire of antigen-specific responses \parencite{baek_growth_2019}. Neural development continues, with refinement of synaptic connections and maturation of cognitive functions.
+The \textbf{pre-pubertal period} (60--149 days) represents a phase of rapid growth and tissue deposition. During this period, pigs achieve the highest rates of body weight gain, with muscle and adipose tissue accumulating rapidly \parencite{whittemore_whittemores_2006}. Skeletal development continues, with bones increasing in both length and density \parencite{reiland_growth_1978}. The immune system matures, with the development of a diverse repertoire of antigen-specific responses \parencite{baek_growth_2019}. Neural development continues, with refinement of synaptic connections and maturation of cognitive functions \parencite{semple_brain_2013}.
 
-\textbf{Post-pubertal development} (150--365 days) encompasses sexual maturation and the approach to adult physiological function. In gilts (female pigs), puberty typically occurs at 5--7 months of age \parencite{swindle_swine_2012}, marked by the onset of oestrous cycling. In boars (male pigs), puberty is characterised by the development of mature spermatogenesis and the expression of sexual behaviour. Beyond reproductive maturation, this period involves continued refinement of tissue function and the establishment of adult metabolic homeostasis.
+The \textbf{post-pubertal period} (150--365 days) encompasses sexual maturation and the approach to adult physiological function. In gilts (female pigs), puberty typically occurs at 5--7 months of age \parencite{swindle_swine_2012}, marked by the onset of oestrous cycling. In boars (male pigs), puberty is characterised by the development of mature spermatogenesis and the expression of sexual behaviour \parencite{lents_physiological_2020}. Beyond reproductive maturation, this period involves continued refinement of tissue function and the establishment of adult metabolic homeostasis \parencite{whittemore_whittemores_2006}.
 
-\textbf{Adulthood} (>365 days) represents the mature physiological state, with fully developed organ systems and reproductive capacity. While growth slows substantially after the first year of life, tissue remodelling continues throughout adulthood in response to physiological demands, reproductive status, and environmental conditions.
+The \textbf{adult period} (>365 days) represents the mature physiological state, with fully developed organ systems and reproductive capacity. While growth slows substantially after the first year of life, tissue remodelling continues throughout adulthood in response to physiological demands, reproductive status, and environmental conditions \parencite{swindle_swine_2012}.
 
 These developmental periods provide a biologically meaningful framework for classifying porcine developmental state. However, the boundaries between periods are not sharp, and individuals may transition between stages at different rates depending on genetic background, nutrition, and environmental factors.
 
@@ -70,11 +70,11 @@ The development of high-throughput technologies for measuring gene expression ha
 
 \subsection{RNA Sequencing Technology Evolution and Capabilities}
 
-RNA sequencing (RNA-seq) has become the dominant technology for transcriptome profiling, superseding earlier microarray-based approaches. The technology involves converting RNA molecules to complementary DNA, fragmenting the cDNA, sequencing the fragments, and mapping the resulting reads to a reference genome or transcriptome. The number of reads mapping to each gene provides a measure of that gene's expression level.
+RNA sequencing (RNA-seq) has become the dominant technology for transcriptome profiling, superseding earlier microarray-based approaches \parencite{marioni_rna-seq_2008}. The technology involves converting RNA molecules to complementary DNA, fragmenting the cDNA, sequencing the fragments, and mapping the resulting reads to a reference genome or transcriptome. The number of reads mapping to each gene provides a measure of that gene's expression level.
 
 The first RNA-seq studies, published in the late 2000s \parencite{mortazavi_mapping_2008, wang_rna-seq_2009}, demonstrated the technology's advantages over microarrays: broader dynamic range, greater sensitivity for lowly expressed genes, and the ability to detect novel transcripts and splice variants. Over the subsequent decade, improvements in sequencing chemistry, library preparation methods, and computational analysis have increased both the throughput and accuracy of RNA-seq experiments.
 
-Current RNA-seq protocols can profile the expression of tens of thousands of genes simultaneously, with sufficient sensitivity to detect transcripts present at a few copies per cell. The declining cost of sequencing has enabled large-scale studies profiling hundreds or thousands of samples, generating datasets of unprecedented size and comprehensiveness.
+Current RNA-seq protocols can profile the expression of tens of thousands of genes simultaneously, with sufficient sensitivity to detect transcripts present at a few copies per cell \parencite{wang_rna-seq_2009}. The declining cost of sequencing has enabled large-scale studies profiling hundreds or thousands of samples, generating datasets of unprecedented size and comprehensiveness.
 
 For developmental research, RNA-seq provides the ability to characterise the transcriptional programs that drive tissue maturation \parencite{cardoso-moreira_gene_2019}. By comparing expression profiles across developmental stages, researchers can identify the genes whose expression changes most dramatically during development, infer the regulatory networks that control these changes, and relate transcriptional state to physiological function.
 
@@ -84,7 +84,7 @@ A fundamental distinction in transcriptomic methodology is between bulk and sing
 
 Bulk RNA-seq provides robust, cost-effective profiling of tissue-level expression. The averaging across cells means that bulk profiles are relatively reproducible and can be compared meaningfully across samples and studies \parencite{li_bulk_2021}. However, bulk profiling obscures cellular heterogeneity, conflating expression changes in different cell types into a single measurement. During development, when the cellular composition of tissues may be changing, bulk profiles can be difficult to interpret.
 
-Single-cell RNA-seq addresses the heterogeneity problem by profiling individual cells, enabling the identification of cell types, the characterisation of cell-type-specific expression, and the reconstruction of developmental trajectories at cellular resolution. Single-cell studies have revealed previously unrecognised cellular diversity in developing tissues and have identified rare cell populations that would be undetectable in bulk profiles.
+Single-cell RNA-seq addresses the heterogeneity problem by profiling individual cells \parencite{schaum_single-cell_2018}, enabling the identification of cell types, the characterisation of cell-type-specific expression, and the reconstruction of developmental trajectories at cellular resolution. Single-cell studies have revealed previously unrecognised cellular diversity in developing tissues and have identified rare cell populations that would be undetectable in bulk profiles.
 
 However, scRNA-seq has its own limitations. Current technologies capture only a fraction of the transcripts in each cell, resulting in sparse, noisy data \parencite{zheng_measuring_2023, li_bulk_2021}. The technical variability in single-cell data is substantially higher than in bulk data, requiring sophisticated computational methods to separate biological signal from technical noise. The cost per sample remains higher than for bulk sequencing, limiting the number of samples that can be profiled.
 
@@ -104,9 +104,9 @@ For pigs, the PigGTEx resource provides a comparable atlas of tissue-specific ex
 
 The systematic changes in gene expression that accompany development and ageing provide the biological basis for transcriptomic staging approaches. These changes reflect the coordinated regulation of thousands of genes as tissues mature, adapt to physiological challenges, and eventually senesce.
 
-During development, gene expression changes are driven by developmental regulatory networks that control cell differentiation, tissue morphogenesis, and functional maturation. These networks involve transcription factors that activate or repress large sets of target genes, signalling pathways that transmit information between cells, and epigenetic mechanisms that establish stable patterns of gene expression.
+During development, gene expression changes are driven by developmental regulatory networks that control cell differentiation, tissue morphogenesis, and functional maturation \parencite{cardoso-moreira_gene_2019}. These networks involve transcription factors that activate or repress large sets of target genes, signalling pathways that transmit information between cells, and epigenetic mechanisms that establish stable patterns of gene expression.
 
-The genes most strongly associated with developmental stage are often those encoding proteins with direct roles in tissue function. In muscle, developmental changes in the expression of contractile proteins, metabolic enzymes, and ion channels reflect the maturation of contractile and metabolic function. In the brain, changes in expression of neurotransmitter receptors, synaptic proteins, and myelination-related genes reflect the development of neural circuits.
+The genes most strongly associated with developmental stage are often those encoding proteins with direct roles in tissue function. In muscle, developmental changes in the expression of contractile proteins, metabolic enzymes, and ion channels reflect the maturation of contractile and metabolic function \parencite{lefaucheur_second_2010}. In the brain, changes in expression of neurotransmitter receptors, synaptic proteins, and myelination-related genes reflect the development of neural circuits \parencite{kang_spatio-temporal_2011}.
 
 By measuring the expression of developmentally regulated genes, researchers can infer the developmental state of a tissue without relying on morphological assessment or chronological age. This approach forms the basis of transcriptomic staging systems, which use machine learning methods to combine information from many genes into a robust prediction of developmental state.
 
@@ -145,11 +145,11 @@ Machine learning encompasses a diverse set of computational methods that learn p
 
 Supervised learning, the paradigm most relevant to developmental staging, involves training a model on labelled examples to predict labels for new, unlabelled data. In the context of this thesis, the training data consist of gene expression profiles from samples of known developmental stage, and the goal is to predict developmental stage for new samples.
 
-The choice of machine learning algorithm depends on the characteristics of the data and the requirements of the application. For gene expression data, which typically involve thousands of features (genes) measured in relatively few samples, methods that handle high-dimensional data and incorporate regularisation to prevent overfitting are particularly appropriate \parencite{hastie_elements_2009}.
+The choice of machine learning algorithm depends on the characteristics of the data and the requirements of the application. For gene expression data, which typically involve thousands of features (genes) measured in relatively few samples, methods that handle high-dimensional data and incorporate regularisation to prevent overfitting are particularly appropriate \parencite{greener_guide_2022}.
 
 \subsection{Classification Versus Regression for Age Prediction}
 
-A fundamental choice in developing a molecular staging system is whether to treat developmental stage as a categorical (classification) or continuous (regression) variable. Both approaches have been used in previous work on molecular age prediction, each with distinct advantages.
+A fundamental choice in developing a molecular staging system is whether to treat developmental stage as a categorical (classification) or continuous (regression) variable. Both approaches have been used in previous work on molecular age prediction \parencite{horvath_dna_2013, frank_simple_2001}, each with distinct advantages.
 
 Classification approaches divide development into discrete stages and train models to assign samples to one of these stages. This approach aligns with the traditional practice of defining developmental periods and is appropriate when the boundaries between stages have biological meaning. Classification also enables straightforward interpretation: a sample is assigned to a specific stage with an associated confidence.
 
@@ -159,9 +159,9 @@ The ordinal nature of developmental stages---the fact that stages have a natural
 
 \subsection{Ordinal Classification: Theory and Methods}
 
-Ordinal classification addresses problems where the classes have a natural ordering but the distances between classes are not necessarily equal. Developmental staging is a prototypical ordinal problem: an Infant is more similar to Early childhood than to Adult, but the difference between stages is not quantified on a continuous scale.
+Ordinal classification addresses problems where the classes have a natural ordering but the distances between classes are not necessarily equal. Developmental staging is a prototypical ordinal problem: an infant is more similar to early childhood than to adult, but the difference between stages is not quantified on a continuous scale.
 
-Standard classification methods ignore the ordering of classes, treating all misclassifications as equally severe. For ordinal problems, this is suboptimal: misclassifying an Infant as Early childhood is a less serious error than misclassifying an Infant as Adult. Ordinal methods incorporate this ordering into the learning process, encouraging models to make errors that respect the ordinal structure.
+Standard classification methods ignore the ordering of classes, treating all misclassifications as equally severe. For ordinal problems, this is suboptimal: misclassifying an infant as early childhood is a less serious error than misclassifying an infant as adult. Ordinal methods incorporate this ordering into the learning process, encouraging models to make errors that respect the ordinal structure.
 
 The Frank and Hall binary reduction method provides an elegant approach to ordinal classification \parencite{frank_simple_2001}. Given $K$ ordered classes, the method decomposes the ordinal problem into $K-1$ binary classification problems. The $k$th binary classifier predicts whether the true class is greater than $k$. The class probabilities are then computed from the binary predictions:
 
@@ -172,9 +172,9 @@ The Frank and Hall binary reduction method provides an elegant approach to ordin
 
 where $P(y > -1) = 1$ and $P(y > K-1) = 0$.
 
-This decomposition has several advantages. It transforms the ordinal problem into a series of standard binary problems, enabling the use of any binary classifier. The resulting class probabilities respect the ordinal structure by construction. The method is straightforward to implement and has proven effective across a range of ordinal classification tasks.
+This decomposition has several advantages. It transforms the ordinal problem into a series of standard binary problems, enabling the use of any binary classifier. The resulting class probabilities respect the ordinal structure by construction. The method is straightforward to implement and has proven effective across a range of ordinal classification tasks \parencite{frank_simple_2001}.
 
-Alternative approaches to ordinal classification include threshold models, which fit a single regression function with multiple thresholds separating classes; CORAL (consistent rank logits), which modifies the neural network loss function to encourage ordinal consistency; and ordinal variants of specific classifiers such as ordinal random forests.
+Alternative approaches to ordinal classification include threshold models, which fit a single regression function with multiple thresholds separating classes; CORAL (consistent rank logits), which modifies the neural network loss function to encourage ordinal consistency \parencite{cao_rank_2020}; and ordinal variants of specific classifiers such as ordinal random forests \parencite{hornung_ordinal_2020}.
 
 \subsection{Ensemble Methods: Random Forest Versus Gradient Boosting}
 
@@ -182,15 +182,15 @@ Ensemble methods combine multiple weak learners into a strong learner, typically
 
 Random forests construct an ensemble of decision trees \parencite{breiman_random_2001}, each trained on a bootstrap sample of the data with a random subset of features considered at each split. The final prediction is obtained by averaging (for regression) or voting (for classification) across trees. Random forests are robust to overfitting, handle high-dimensional data well, and provide measures of feature importance.
 
-Gradient boosting constructs an ensemble sequentially, with each new tree trained to correct the errors of the previous trees. This iterative refinement can produce more accurate predictions than random forests but requires careful tuning of hyperparameters to prevent overfitting. Modern implementations such as XGBoost and LightGBM have made gradient boosting highly efficient and widely accessible.
+Gradient boosting constructs an ensemble sequentially, with each new tree trained to correct the errors of the previous trees. This iterative refinement can produce more accurate predictions than random forests but requires careful tuning of hyperparameters to prevent overfitting. Modern implementations such as XGBoost \parencite{chen_xgboost_2016} and LightGBM have made gradient boosting highly efficient and widely accessible.
 
-For gene expression classification, gradient boosting often achieves superior accuracy compared to random forests, particularly when combined with appropriate regularisation. The ability of gradient boosting to model complex interactions between features makes it well-suited for transcriptomic data, where developmental signatures may involve coordinated changes across many genes.
+For gene expression classification, gradient boosting often achieves superior accuracy compared to random forests, particularly when combined with appropriate regularisation \parencite{ke_lightgbm_2017}. The ability of gradient boosting to model complex interactions between features makes it well-suited for transcriptomic data, where developmental signatures may involve coordinated changes across many genes.
 
 \subsection{LightGBM: Architecture and Advantages}
 
 Light Gradient Boosting Machine (LightGBM) is a gradient boosting framework developed by Microsoft that has become widely used in machine learning competitions and applications \parencite{ke_lightgbm_2017}. LightGBM introduces several innovations that improve both computational efficiency and predictive accuracy.
 
-Gradient-based One-Side Sampling (GOSS) reduces the computational cost of finding optimal splits by focusing on instances with large gradients, which contribute most to the loss function. Exclusive Feature Bundling (EFB) groups mutually exclusive features together, reducing the effective dimensionality of the data without loss of information.
+Gradient-based One-Side Sampling (GOSS) reduces the computational cost of finding optimal splits by focusing on instances with large gradients, which contribute most to the loss function. Exclusive Feature Bundling (EFB) groups mutually exclusive features together, reducing the effective dimensionality of the data without loss of information \parencite{ke_lightgbm_2017}.
 
 For transcriptomic data, LightGBM's efficiency enables rapid model training even with thousands of features, while its regularisation capabilities help prevent overfitting on the relatively small sample sizes typical of biological datasets. The framework provides built-in support for feature importance calculation, enabling identification of the genes most informative for classification.
 
@@ -198,7 +198,7 @@ LightGBM's leaf-wise tree growth strategy, which grows trees by splitting the le
 
 \subsection{Feature Selection Strategies}
 
-Gene expression data typically involve many more features (genes) than samples, creating challenges for machine learning algorithms. Feature selection methods address this challenge by identifying the most informative features and excluding uninformative or redundant features.
+Gene expression data typically involve many more features (genes) than samples, creating challenges for machine learning algorithms \parencite{greener_guide_2022}. Feature selection methods address this challenge by identifying the most informative features and excluding uninformative or redundant features.
 
 Filter methods rank features based on statistical measures of their association with the target variable, selecting the top-ranked features for model training. For classification problems, univariate measures such as the F-statistic or mutual information can identify features that differ significantly across classes. Filter methods are computationally efficient and can be applied as a preprocessing step before model training.
 
@@ -210,7 +210,7 @@ For the developmental staging framework in this thesis, feature selection is per
 
 \subsection{Evaluation Metrics for Ordinal Problems}
 
-Evaluation of ordinal classification models requires metrics that account for the ordered nature of the classes. Standard classification metrics such as accuracy treat all errors as equivalent, failing to distinguish between minor and major misclassifications.
+Evaluation of ordinal classification models requires metrics that account for the ordered nature of the classes \parencite{greener_guide_2022}. Standard classification metrics such as accuracy treat all errors as equivalent, failing to distinguish between minor and major misclassifications.
 
 Mean Absolute Error (MAE) measures the average distance between predicted and true class indices. For ordinal problems, MAE penalises predictions that are far from the true class more heavily than predictions that are close, making it appropriate for evaluating ordinal consistency.
 
@@ -218,7 +218,7 @@ Spearman's rank correlation coefficient ($\rho$) measures the monotonic relation
 
 Cohen's Kappa with quadratic weighting provides another ordinal-aware metric, weighting disagreements by the squared distance between classes. Quadratic Kappa penalises distant misclassifications more heavily than adjacent misclassifications, aligning with the ordinal structure of developmental stages.
 
-Balanced accuracy addresses class imbalance by averaging recall across classes, ensuring that performance on rare classes contributes equally to the overall metric. For developmental data, where some stages may be underrepresented, balanced accuracy provides a fairer assessment of model performance than simple accuracy.
+Balanced accuracy addresses class imbalance by averaging recall across classes \parencite{chicco_advantages_2020}, ensuring that performance on rare classes contributes equally to the overall metric. For developmental data, where some stages may be underrepresented, balanced accuracy provides a fairer assessment of model performance than simple accuracy.
 
 \subsection{Critical Evaluation of Machine Learning Approaches in Transcriptomics}
 
@@ -239,9 +239,9 @@ A central question for the pig as a biomedical model is whether its developmenta
 
 \subsection{Evolutionary Conservation of Developmental Programs}
 
-Comparative studies have revealed remarkable conservation of developmental programs across diverse animal species. The genes that control body plan formation, organ development, and cellular differentiation are often shared across species that diverged hundreds of millions of years ago.
+Comparative studies have revealed remarkable conservation of developmental programs across diverse animal species \parencite{cardoso-moreira_gene_2019}. The genes that control body plan formation, organ development, and cellular differentiation are often shared across species that diverged hundreds of millions of years ago.
 
-This conservation reflects the ancient origins of developmental regulatory networks and the evolutionary constraints that maintain their function. Core developmental genes, such as the Hox genes that control body segment identity, are present in nearly all animals and perform similar functions across species. Signalling pathways such as Wnt, Notch, and Hedgehog are conserved from flies to humans, controlling similar developmental processes in distantly related organisms \parencite{qin_canonical_2024}.
+This conservation reflects the ancient origins of developmental regulatory networks and the evolutionary constraints that maintain their function. Core developmental genes, such as the Hox genes that control body segment identity, are present in nearly all animals and perform similar functions across species. Signalling pathways such as Wnt, Notch, and Hedgehog are conserved from flies to humans, controlling similar developmental processes in distantly related organisms \parencite{qin_canonical_2024, zong_notch_2009}.
 
 The conservation of developmental programs at the molecular level provides the foundation for using animal models to understand human development. If the genes and pathways controlling development are shared between species, insights gained from model organisms can inform understanding of human biology.
 
@@ -261,7 +261,7 @@ Developmental comparisons between pigs and humans have been more limited, partly
 
 Cross-species comparison of gene expression requires careful attention to methodological issues that can confound interpretation.
 
-Ortholog identification is the first challenge. While most mammalian genes have clear orthologs in other mammals, some genes have undergone lineage-specific duplications or losses, complicating one-to-one mapping. Databases such as Ensembl Compara provide curated ortholog annotations, but researchers must be aware of genes with complex orthology relationships.
+Ortholog identification is the first challenge. While most mammalian genes have clear orthologs in other mammals, some genes have undergone lineage-specific duplications or losses, complicating one-to-one mapping. Databases such as Ensembl Compara provide curated ortholog annotations \parencite{cunningham_ensembl_2022}, but researchers must be aware of genes with complex orthology relationships.
 
 Expression level comparisons are complicated by species differences in gene length, transcript structure, and normalisation. TPM values computed in one species are not directly comparable to TPM values in another species. Appropriate cross-species comparison requires either normalisation to a common scale or the use of relative measures such as fold changes.
 
@@ -283,7 +283,7 @@ Recent work on species-specific developmental tempo has provided insights into t
 
 Cross-species comparison of developmental transcriptomes faces several inherent limitations that must be acknowledged.
 
-The available human developmental datasets are limited in sample size and developmental coverage. Ethical constraints on obtaining human tissue samples, particularly from children, limit the scale of human developmental studies. The Schaiter dataset used for cross-species validation in this thesis includes only 11 samples (4 infants, 7 adults), with a substantial age gap between groups.
+The available human developmental datasets are limited in sample size and developmental coverage. Ethical constraints on obtaining human tissue samples, particularly from children, limit the scale of human developmental studies. The Schaiter dataset \parencite{schaiter_molecular_2024} used for cross-species validation in this thesis includes only 11 samples (4 infants, 7 adults), with a substantial age gap between groups.
 
 Tissue heterogeneity may differ between species, complicating comparison of bulk expression profiles. Skeletal muscle in pigs and humans may differ in fibre type composition, intramuscular adipose content, or other features that affect bulk expression measurements.
 
@@ -310,7 +310,7 @@ Fourth, cross-species comparison provides essential validation of developmental 
 
 The literature review has identified several methodological gaps that the present thesis aims to address.
 
-No existing framework provides tissue-resolved transcriptomic staging for porcine development. While epigenetic clocks have been developed for pigs, these focus on ageing rather than developmental staging and do not provide tissue-specific resolution.
+No existing framework provides tissue-resolved transcriptomic staging for porcine development. While epigenetic clocks have been developed for pigs \parencite{schachtschneider_epigenetic_2021, lu_universal_2023, horvath_dna_2013, teschendorff_epigenetic_2025}, these focus on ageing rather than developmental staging and do not provide tissue-specific resolution.
 
 The application of ordinal classification methods to developmental staging has been limited. While the theoretical advantages of ordinal methods for this application are clear, practical implementations and validation studies are lacking.
 
