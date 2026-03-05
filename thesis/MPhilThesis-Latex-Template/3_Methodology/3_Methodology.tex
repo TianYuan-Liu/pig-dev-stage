@@ -21,7 +21,7 @@ Quality control measures included filtering of low-quality reads, removal of dup
 
 \subsubsection{Expression Matrices and Normalisation}
 
-Gene expression values were provided as Transcripts Per Million (TPM), a normalisation method that accounts for both sequencing depth and gene length \parencite{mortazavi_mapping_2008}. TPM values enable meaningful comparison of expression levels across genes and samples, with the sum of TPM values within each sample normalised to one million.
+Gene expression values were provided as Transcripts Per Million (TPM), a normalisation method that accounts for both sequencing depth and gene length \parencite{zhao_tpm_2021}. TPM values enable meaningful comparison of expression levels across genes and samples, with the sum of TPM values within each sample normalised to one million.
 
 The TPM normalisation formula is:
 
@@ -50,7 +50,7 @@ Samples with missing or ambiguous age information were excluded from the analysi
 
 \subsection{Human Skeletal Muscle Data}
 
-For cross-species validation, human skeletal muscle transcriptomic data were obtained from the study by Schaiter and colleagues \parencite{schaiter_molecular_2024, cardoso-moreira_gene_2019}. Of the larger cohort described in that study (infants aged 4--28 months and adults aged 19--65 years), RNA-seq data were deposited for a subset of 11 subjects through the NCBI Gene Expression Omnibus under accession number GSE257558.
+For cross-species validation, human skeletal muscle transcriptomic data were obtained from the study by Schaiter and colleagues \parencite{schaiter_molecular_2024}. Of the larger cohort described in that study (infants aged 4--28 months and adults aged 19--65 years), RNA-seq data were deposited for a subset of 11 subjects through the NCBI Gene Expression Omnibus under accession number GSE257558.
 
 \subsubsection{Sample Composition}
 
@@ -75,7 +75,7 @@ Developmental stages were defined based on established milestones in porcine pos
 
 Five developmental stages were defined. The \textbf{infant} stage (0--20 days) covers the neonatal period, characterised by dependence on maternal nutrition and immature physiological systems. The \textbf{early childhood} stage (21--59 days) spans the weaning transition period, during which the gastrointestinal tract adapts to solid food \parencite{inoue_weaning_2015} and the immune system begins to mature. The \textbf{pre-pubertal} stage (60--149 days) represents the juvenile growth phase, characterised by rapid tissue deposition and organ maturation. The \textbf{post-pubertal} stage (150--365 days) encompasses sexual maturation and the approach to adult physiological function. Finally, the \textbf{adult} stage (>365 days) represents the mature state with fully developed organ systems.
 
-These stage boundaries were chosen to reflect physiological milestones rather than arbitrary chronological divisions. The weaning boundary at approximately 21 days corresponds to the typical weaning age in commercial production systems \parencite{pluske_gastrointestinal_2018}. The pre-pubertal boundary at 60 days marks the completion of the weaning transition \parencite{whittemore_whittemores_2006}. The post-pubertal boundary at 150 days corresponds to the earliest onset of puberty in gilts (typical range: 150--220\,d) \parencite{lents_physiological_2020}. The adult boundary at 365 days marks the completion of major growth and reproductive maturation.
+These stage boundaries were chosen to reflect physiological milestones rather than arbitrary chronological divisions. The weaning boundary at approximately 21 days corresponds to the typical weaning age in commercial production systems \parencite{pluske_gastrointestinal_2018}. The pre-pubertal boundary at 60 days marks the completion of the weaning transition \parencite{whittemore_whittemores_2006}. The post-pubertal boundary at 150 days corresponds to the earliest onset of puberty in gilts (typical range: 150--220\,d) \parencite{lents_physiological_2020}. The adult boundary at 365 days marks the completion of major growth and reproductive maturation \parencite{whittemore_whittemores_2006}.
 
 \subsection{Adaptive Classification Scheme Selection}
 
@@ -409,7 +409,7 @@ Terms with adjusted $p$-values (FDR) below 0.05 were considered significantly en
 
 \subsection{Software Environment}
 
-All analyses were conducted using Python 3.9. Key libraries included NumPy (v1.21) for numerical computing, Pandas (v1.3) for data manipulation, Scikit-learn (v1.0) for machine learning utilities, LightGBM (v3.3) for the gradient boosting framework, and SciPy (v1.7) for statistical functions \parencite{pedregosa_scikit-learn_nodate, harris_array_2020, virtanen_scipy_2020}.
+All analyses were conducted using Python 3.9. Key libraries included NumPy (v1.21) for numerical computing, Pandas (v1.3) for data manipulation, Scikit-learn (v1.0) for machine learning utilities, LightGBM (v3.3) for the gradient boosting framework, and SciPy (v1.7) for statistical functions \parencite{pedregosa_scikit-learn_nodate, harris_array_2020, virtanen_scipy_2020, ke_lightgbm_2017, mckinney_data_2010}.
 
 Figures were generated using R 4.2.0 with ggplot2 for publication-quality visualisation.
 \subsection{Reproducibility Measures}

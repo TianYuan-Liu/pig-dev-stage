@@ -106,7 +106,7 @@ The large sample size for muscle ($n = 761$) provides statistical power that ena
 
 \subsubsection{Brain: Lowest Performance}
 
-The brain showed the lowest balanced accuracy (81.1\%), reflecting the challenges of this tissue. The limited sample size ($n = 43$) constrained the model's ability to learn robust developmental signatures. Additionally, the brain's extreme cellular heterogeneity, comprising diverse neuronal and glial populations \parencite{chen_decoding_2021}, may obscure developmental signals in bulk RNA-seq data.
+The brain showed the lowest balanced accuracy (81.1\%), reflecting the challenges of this tissue. The limited sample size ($n = 43$) constrained the model's ability to learn robust developmental signatures. Additionally, the brain's extreme cellular heterogeneity, comprising diverse neuronal and glial populations \parencite{jiang_cellular_2016}, may obscure developmental signals in bulk RNA-seq data.
 
 Despite the lower overall accuracy, the Spearman correlation of 0.942 indicates that the model correctly orders samples by developmental stage, even when exact classification is incorrect. Notably, the brain's performance (81.1\%) is substantially improved compared to earlier iterations and remains robust for a tissue with only 43 samples.
 
@@ -180,19 +180,19 @@ Key genes included \textbf{FGFRL1} (Fibroblast growth factor receptor-like 1), a
 
 Liver markers reflect metabolic maturation and circadian regulation.
 
-Identified markers included \textbf{NPAS2} (Neuronal PAS domain protein 2) and \textbf{BHLHE41} (Basic helix-loop-helix family member e41), both circadian clock genes regulating metabolism \parencite{zhang_night-restricted_2025}. \textbf{ALDH18A1} (Aldehyde dehydrogenase 18 family member A1), involved in proline biosynthesis \parencite{marco-marin_1_2020}, was also a top feature.
+Identified markers included \textbf{NPAS2} (Neuronal PAS domain protein 2) and \textbf{BHLHE41} (Basic helix-loop-helix family member e41), both circadian clock genes involved in the regulation of hepatic metabolism \parencite{zhang_night-restricted_2025}. \textbf{ALDH18A1} (Aldehyde dehydrogenase 18 family member A1), involved in proline biosynthesis \parencite{marco-marin_1_2020}, was also a top feature.
 
 \subsubsection{Brain Developmental Markers}
 
 Brain markers reflect neuronal maturation and epigenetic regulation.
 
-Key markers were \textbf{DNMT3L} (DNA methyltransferase 3L), a regulator of de novo methylation \parencite{bourchis_dnmt3l_2001}, \textbf{HDAC6} (Histone deacetylase 6), involved in chromatin remodelling \parencite{hubbert_hdac6_2002}, and \textbf{KLK6} (Kallikrein-related peptidase 6), which is implicated in myelination \parencite{scarisbrick_kallikrein_2012}.
+Key markers were \textbf{DNMT3L} (DNA methyltransferase 3L), a regulator of de novo methylation \parencite{bourchis_dnmt3l_2001}, \textbf{HDAC6} (Histone deacetylase 6), involved in chromatin remodelling \parencite{hubbert_hdac6_2002}, and \textbf{KLK6} (Kallikrein-related peptidase 6), which is implicated in myelin biology \parencite{scarisbrick_kallikrein_2012}.
 
 \subsubsection{Lung Developmental Markers}
 
 Lung markers reflect immune development and RNA metabolism.
 
-The top features included \textbf{IGF2BP2/3} (Insulin-like growth factor 2 mRNA-binding proteins), regulators of mRNA stability \parencite{li_hmga2-igf2bp2_2012}; \textbf{GFI1} (Growth factor independent 1), a transcription factor essential for haematopoiesis \parencite{van_der_meer_gfi1_2010}; and \textbf{NFIB} (Nuclear factor I B), known for its role in lung development \parencite{steele-perkins_transcription_2005}.
+The top features included \textbf{IGF2BP2} (Insulin-like growth factor 2 mRNA-binding protein 2), a regulator of mRNA stability \parencite{li_hmga2-igf2bp2_2012}; \textbf{IGF2BP3}, a closely related oncofetal RNA-binding protein with a similar postnatal decline; \textbf{GFI1} (Growth factor independent 1), a transcription factor essential for haematopoiesis \parencite{van_der_meer_gfi1_2010}; and \textbf{NFIB} (Nuclear factor I B), known for its role in lung development \parencite{steele-perkins_transcription_2005}.
 
 \subsubsection{Blood Developmental Markers}
 
@@ -259,7 +259,7 @@ These findings capture the establishment of adult muscle function, including the
 
 \subsubsection{Lung: Immune Establishment and RNA Metabolism}
 
-Lung markers were enriched for immune establishment and RNA metabolism processes. Enrichment for IL-6 signalling regulation reflects the establishment of pulmonary immune function and inflammatory responses. Concurrently, enrichment for m6A reader activity \parencite{wang_n6-methyladenosine_2014} suggests a role for post-transcriptional regulation in lung development.
+Lung markers were enriched for immune establishment and RNA metabolism processes. Enrichment for IL-6 signalling regulation reflects the establishment of pulmonary immune function and inflammatory responses. Concurrently, enrichment for N6-methyladenosine (m6A) modification \parencite{wang_n6-methyladenosine_2014} suggests a role for post-transcriptional regulation in lung development.
 
 The lung's exposure to environmental antigens drives rapid immune maturation during postnatal life \parencite{georgountzou_postnatal_2017}, as captured by these functional enrichments.
 
@@ -311,7 +311,7 @@ Three functional modules of conserved developmental genes were identified:
 
 This module comprises genes with high infant expression that decrease during postnatal development, reflecting the transition from active myogenesis to mature muscle homeostasis:
 
-\textbf{ACHE} (pig FC = $-$3.34, human FC = $-$0.53), essential for neuromuscular junction function \parencite{rotundo_expression_2003}, shows elevated expression in the infant stage (0--20 days; mean TPM = 17.5) that progressively declines through early childhood (TPM = 7.6), pre-pubertal (TPM = 3.4), to baseline in post-pubertal stages (TPM = 1.3). \textbf{NRK} (pig FC = $-$8.56, human FC = $-$2.45), an embryonic Ste20-type kinase expressed predominantly in developing skeletal musculature \parencite{kanai-azuma_nrk_1999}, has the second-largest fold change, with infant TPM = 128.2 declining to 0.3 in adults. \textbf{KREMEN1} (pig FC = $-$1.69, human FC = $-$1.43), a negative regulator of Wnt/$\beta$-catenin signalling \parencite{osada_wnt_2006, qin_canonical_2024}, shows a similar gradual postnatal decline. \textbf{IGF2BP2} (pig FC = $-$2.19, human FC = $-$2.03) and \textbf{IGF2BP3} (pig FC = $-$4.85, human FC = $-$1.23), oncofetal RNA-binding proteins that regulate myoblast proliferation via translational control of growth-related transcripts \parencite{li_hmga2-igf2bp2_2012}, show pronounced postnatal decline. \textbf{SORCS2} (pig FC = $-$4.67, human FC = $-$0.95), a regulator of motor neuron innervation \parencite{thomasen_sorcs2_2023}, is highly expressed during early postnatal life (infant TPM = 14.4) and becomes progressively downregulated through early childhood (TPM = 3.0), pre-pubertal (TPM = 2.2), reaching its lowest in post-pubertal (TPM = 0.6). \textbf{ETV5} (pig FC = $-$2.80, human FC = $-$2.24), a PEA3-subfamily transcription factor implicated in myogenic differentiation \parencite{taylor_role_1997}, and \textbf{CCDC8} (pig FC = $-$4.44, human FC = $-$3.14), a core component of the 3M growth-regulatory complex \parencite{hanson_exome_2011}, complete this module.
+\textbf{ACHE} (pig FC = $-$3.34, human FC = $-$0.53), essential for neuromuscular junction function \parencite{rotundo_expression_2003}, shows elevated expression in the infant stage (0--20 days; mean TPM = 17.5) that progressively declines through early childhood (TPM = 7.6), pre-pubertal (TPM = 3.4), to baseline in post-pubertal stages (TPM = 1.3). \textbf{NRK} (pig FC = $-$8.56, human FC = $-$2.45), an embryonic Ste20-type kinase expressed predominantly in developing skeletal musculature \parencite{kanai-azuma_nrk_1999}, has the second-largest fold change, with infant TPM = 128.2 declining to 0.3 in adults. \textbf{KREMEN1} (pig FC = $-$1.69, human FC = $-$1.43), a negative regulator of Wnt/$\beta$-catenin signalling \parencite{osada_wnt_2006, qin_canonical_2024}, shows a similar gradual postnatal decline. \textbf{IGF2BP2} (pig FC = $-$2.19, human FC = $-$2.03) and \textbf{IGF2BP3} (pig FC = $-$4.85, human FC = $-$1.23), oncofetal RNA-binding proteins that regulate myoblast proliferation via translational control of growth-related transcripts \parencite{li_hmga2-igf2bp2_2012}, show pronounced postnatal decline. \textbf{SORCS2} (pig FC = $-$4.67, human FC = $-$0.95), a regulator of motor neuron innervation \parencite{thomasen_sorcs2_2023}, is highly expressed during early postnatal life (infant TPM = 14.4) and becomes progressively downregulated through early childhood (TPM = 3.0), pre-pubertal (TPM = 2.2), reaching its lowest in post-pubertal (TPM = 0.6). \textbf{ETV5} (pig FC = $-$2.80, human FC = $-$2.24), a member of the PEA3 subfamily of ETS transcription factors, which has been implicated in myogenic differentiation \parencite{taylor_role_1997}, and \textbf{CCDC8} (pig FC = $-$4.44, human FC = $-$3.14), a core component of the 3M growth-regulatory complex \parencite{hanson_exome_2011}, complete this module.
 
 \subsubsection{Module 2: Structural Refinement and ECM Remodelling}
 
@@ -344,9 +344,9 @@ The biological functions of key conserved markers provide insight into the molec
 \toprule
 \textbf{Gene} & \textbf{Developmental Function} & \textbf{Pig FC} & \textbf{Human FC} \\
 \midrule
-\textit{SORCS2} & Regulates trafficking of signalling receptors, balancing neuronal growth and pruning. & $-$4.67 & $-$0.95 \\
+\textit{SORCS2} & VPS10 domain-containing receptor that binds progranulin to regulate motor neuron development. & $-$4.67 & $-$0.95 \\
 \addlinespace
-\textit{FGFRL1} & Decoy receptor dampening excessive FGF signalling; required for slow muscle fibre development. & $-$3.03 & $-$2.10 \\
+\textit{FGFRL1} & Required for slow muscle fibre development; loss of function leads to diaphragm defects. & $-$3.03 & $-$2.10 \\
 \addlinespace
 \textit{KREMEN1} & Negative regulator of Wnt/$\beta$-catenin signalling, controlling cell survival and tissue patterning. & $-$1.69 & $-$1.43 \\
 \addlinespace
