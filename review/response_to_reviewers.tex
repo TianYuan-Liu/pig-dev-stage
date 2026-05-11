@@ -167,9 +167,9 @@ Supplementary Fig.~S7 / Supplementary Table~S8.
 
 \textbf{Method (also addresses R3.2).} We applied exactly the same
 pipeline used for muscle: strict one-to-one Ensembl Compara orthologs
-($n = 8{,}277$, verified at the Ensembl Compara REST homology endpoint;
-see also the R3.2 response); $\log_2$(Infant/Adult) in both species
-using $\mathrm{log}_2(x+0.01)$ on raw RPKM/TPM (matching the original
+($n = 7{,}485$ validated pairs at the Ensembl Compara REST homology
+endpoint; see also the R3.2 response); $\log_2$(Infant/Adult) in both
+species using $\log_2(x+0.01)$ on raw RPKM/TPM (matching the original
 pig pipeline); FDR$<0.10$ and $|\log_2\mathrm{FC}|>0.5$ in both species
 (``strict'' filter). Because the per-tissue postnatal sample size in
 Cardoso-Moreira is small (Brain: 7~young + 9~adult human samples;
@@ -179,29 +179,40 @@ filter; this is openly flagged as exploratory.
 
 \textbf{Findings (Supplementary Fig.~S7; Supplementary Table~S8).}
 \begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
-  \item Brain (strict, $n = 302$): Pearson $r = 0.26$, 95\% CI
-        $[0.16, 0.37]$, $p = 3.5 \times 10^{-6}$, directional
-        concordance 81.5\%.
-  \item Brain (pig-anchored, $n = 2{,}418$): $r = 0.19$, $p = 4.0
-        \times 10^{-20}$.
+  \item Brain (strict, $n = 272$): Pearson $r = 0.29$, 95\% CI
+        $[0.17, 0.41]$, $p = 1.6 \times 10^{-6}$, directional
+        concordance 85.3\%.
+  \item Brain (pig-anchored, $n = 2{,}193$): $r = 0.21$, $p = 2.7
+        \times 10^{-22}$.
   \item Liver (strict, $n = 0$): no orthologs pass the strict
         bidirectional filter (consistent with the small human cohort).
-  \item Liver (pig-anchored, $n = 941$): $r = 0.25$, $p = 2.0 \times
-        10^{-14}$, concordance 50.3\%.
+  \item Liver (pig-anchored, $n = 857$): $r = 0.21$, $p = 3.0 \times
+        10^{-10}$, directional concordance \emph{47.3\%---below the
+        50\% chance baseline.}
 \end{itemize}
-The brain result is directionally compatible with the muscle finding
-($r = 0.69$, $n = 66$) but the magnitude is smaller. We attribute this
-to the markedly smaller per-tissue human cohort in Cardoso-Moreira
-(brain: $n = 16$; liver: $n = 10$) relative to Schaiter \textit{et~al.}
-($n = 11$ but with cleaner perinatal vs adult separation). This is now
-stated as a limitation of the extension rather than glossed.
+The brain strict result is statistically significant but its top
+genes by pig log$_2$FC are dominated by canonical skeletal-muscle
+markers (\textit{TNNC2}, \textit{SMPX}, \textit{MYBPHL}, \textit{CHRNA1},
+\textit{LRRC2}), whose median expression in pig ``brain'' is near zero
+with high-TPM outliers in a small number of samples. We therefore
+interpret the brain $r$ as reflecting cross-species concordance of
+muscle developmental dynamics that leak into the brain expression
+matrix---consistent with variable muscle-tissue contamination of a
+subset of pig brain biopsies in PigGTEx---rather than as a clean
+estimate of brain-specific developmental conservation. The liver
+pig-anchored estimate falls below the 50\% chance baseline for
+direction, so we report it as a null result rather than as a smaller
+but compatible signal. We have updated the Results~2.4 paragraph and
+Supplementary Table~S8 caption to state both points explicitly.
 
-\textbf{Honest framing.} We do not over-claim multi-tissue conservation.
-We say: ``The brain result is directionally compatible with the muscle
-finding---less complete because of the markedly smaller human cohort,
-but already significant---while liver would clearly benefit from a
-larger human postnatal RNA-seq cohort.'' Lung remains a known gap and
-is flagged for future work.
+\textbf{Honest framing.} Lung is genuinely unavailable in the
+Cardoso-Moreira atlas; brain is a partial positive result with a
+biological-leakage caveat; liver is a null result given the available
+human cohort. The cleanest cross-species finding remains the original
+muscle analysis with a matched human muscle cohort. Obtaining clean
+per-tissue conservation estimates for brain, liver, and lung will
+require dedicated human postnatal cohorts with matched dissection
+rigour, and we say so plainly in the Discussion.
 
 The full analysis is reproducible from
 \texttt{review/analyses/cross\_species\_all\_tissues.py}, with results
@@ -260,9 +271,11 @@ pooled, $n = 118$) to 0.95 (Female, $n = 274$); per-BioProject BA spans
 0.50 (PRJEB28465, $n = 48$, only two stages represented) to 1.00
 (PRJNA341938, $n = 21$). A within-stage label permutation test (1{,}000
 shuffles) confirms the spread is larger than expected by chance for
-muscle/Sex ($p = 0.005$), muscle/BioProject ($p = 0.014$), and
-liver/Breed ($p = 0.008$); Brain/Sex, Liver/Sex, and Lung/Sex are
-consistent with chance ($p \geq 0.23$).
+muscle/Sex ($p = 0.005$), muscle/BioProject ($p = 0.015$), and
+liver/Breed ($p = 0.008$); muscle/Breed sits at the boundary of
+nominal significance ($p = 0.054$) and is therefore reported as
+borderline rather than excluded; Brain/Sex, Liver/Sex, and Lung/Sex
+are consistent with chance ($p \geq 0.23$).
 
 \textbf{Honest implication.} The marginal point estimates remain within
 the range we report (Muscle 0.89, Liver 0.92, Brain 0.81, Lung 0.89,

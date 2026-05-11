@@ -251,7 +251,7 @@
 % ------------------------------------------------------------------------------
 \begin{table}[H]
   \centering
-  \caption{\textbf{Cross-species developmental conservation across tissues.} Per-tissue Pearson correlation of $\log_2$ fold change (Infant vs Adult) between pig (PigGTEx v0) and human (Cardoso-Moreira~\textit{et~al.}~2019 unless otherwise noted) on strict one-to-one Ensembl Compara orthologs (the validated ortholog table is \texttt{review/analyses/results/pig\_human\_one\_to\_one\_orthologs.csv}; $n_{\text{orthologs}} = 8{,}277$). ``Strict'' uses FDR$<0.10$, $|\log_2\mathrm{FC}|>0.5$ in both species; ``Pig-anchored'' applies the filter in pig only (accommodating the small per-tissue postnatal $n$ in the Cardoso-Moreira atlas). CI = 95\% bootstrap confidence interval (1{,}000 iterations). Lung is excluded because the Cardoso-Moreira human RPKM matrix does not include lung samples.}
+  \caption{\textbf{Cross-species developmental conservation across tissues.} Per-tissue Pearson correlation of $\log_2$ fold change (Infant vs Adult) between pig (PigGTEx v0) and human (Cardoso-Moreira~\textit{et~al.}~2019 unless otherwise noted) on strict one-to-one Ensembl Compara orthologs (the validated ortholog table is \texttt{review/analyses/results/pig\_human\_one\_to\_one\_orthologs.csv}; $n_{\text{orthologs}} = 8{,}277$). ``Strict'' uses FDR$<0.10$, $|\log_2\mathrm{FC}|>0.5$ in both species; ``Pig-anchored'' applies the filter in pig only (accommodating the small per-tissue postnatal $n$ in the Cardoso-Moreira atlas). CI = 95\% bootstrap percentile confidence interval (1{,}000 iterations). Per-tissue Pearson $p$-values are nominal; BH-FDR was applied gene-wise within each tissue but not across the panel of tissue-level tests. Lung is excluded because the Cardoso-Moreira human RPKM matrix does not include lung samples. Inspection of the brain strict-filter gene list revealed that several of the top infant-to-adult upregulated transcripts are canonical skeletal-muscle markers (e.g.\ \textit{TNNC2}, \textit{SMPX}, \textit{MYBPHL}, \textit{CHRNA1}, \textit{LRRC2}), suggesting variable muscle-tissue contamination in a subset of pig brain biopsies; the brain strict $r$ therefore partly reflects cross-species concordance of muscle developmental dynamics rather than brain-specific conservation. The liver pig-anchored directional concordance (47.3\%) is below the 50\% chance baseline, meaning the pig-anchored liver analysis provides no evidence of cross-species concordance.}
   \label{tab:S8}
   \footnotesize
   \setlength{\tabcolsep}{4pt}
@@ -261,11 +261,11 @@
     \midrule
     Muscle & strict & 66 & 0.693 & 0.54--0.80 & $1.1\times 10^{-10}$ & 97.0 & Schaiter 2024 \\
     \midrule
-    Brain & strict & 302 & 0.263 & 0.16--0.37 & $3.5\times 10^{-6}$ & 81.5 & Cardoso-Moreira 2019 \\
-    Brain & pig-anchored & 2{,}418 & 0.185 & 0.14--0.23 & $4.0\times 10^{-20}$ & 38.0 & Cardoso-Moreira 2019 \\
+    Brain & strict & 272 & 0.286 & 0.17--0.41 & $1.6\times 10^{-6}$ & 85.3 & Cardoso-Moreira 2019 \\
+    Brain & pig-anchored & 2{,}193 & 0.205 & 0.16--0.25 & $2.7\times 10^{-22}$ & 38.5 & Cardoso-Moreira 2019 \\
     \midrule
     Liver & strict & 0 & --- & --- & --- & --- & Cardoso-Moreira 2019 \\
-    Liver & pig-anchored & 941 & 0.246 & 0.17--0.32 & $2.0\times 10^{-14}$ & 50.3 & Cardoso-Moreira 2019 \\
+    Liver & pig-anchored & 857 & 0.213 & 0.14--0.29 & $3.0\times 10^{-10}$ & 47.3 & Cardoso-Moreira 2019 \\
     \midrule
     Lung & N/A & N/A & N/A & N/A & N/A & N/A & not in Cardoso-Moreira atlas \\
     \bottomrule
@@ -549,12 +549,12 @@
     Tissue & Stratification & Observed std(BA) & Permutation $p$ & Significant? \\
     \midrule
     Muscle & Sex         & 0.096 & 0.005 & yes \\
-    Muscle & BioProject  & 0.177 & 0.014 & yes \\
-    Muscle & Breed       & 0.105 & 0.054 & marginal \\
+    Muscle & BioProject  & 0.177 & 0.015 & yes \\
+    Muscle & Breed       & 0.131 & 0.054 & borderline \\
     Liver  & Breed       & 0.152 & 0.008 & yes \\
-    Brain  & Sex         & ---   & $\geq 0.23$ & no \\
-    Liver  & Sex         & ---   & $\geq 0.23$ & no \\
-    Lung   & Sex         & ---   & $\geq 0.23$ & no \\
+    Brain  & Sex         & 0.012 & 1.000 & no \\
+    Liver  & Sex         & 0.039 & 0.232 & no \\
+    Lung   & Sex         & 0.051 & 0.480 & no \\
     \bottomrule
   \end{tabular}
 \end{table}

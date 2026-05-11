@@ -21,15 +21,18 @@ NOTE ON TISSUE AVAILABILITY (data-quality caveat):
       - Lung  : present in pig (PigGTEx, n=166) but ABSENT in
                 Cardoso-Moreira 2019 human                  -> CANNOT analyse
 
-    To still provide three independent cross-species comparisons, we add
-    KIDNEY and HEART (both present in both species) so the figure is a
-    four-tissue panel (Muscle [previously published] + Brain + Liver +
-    Kidney). The absence of human lung in Cardoso-Moreira is stated
-    explicitly in the response letter (R1.2).
+    Kidney and Heart were initially considered as substitutes for the
+    missing lung comparison, but per-tissue postnatal sample sizes in
+    Cardoso-Moreira (Kidney: 0 adults; Heart: 2 adults) are insufficient
+    for either the strict or pig-anchored test, so the figure ultimately
+    contains only Brain and Liver alongside the previously published
+    muscle reference. The absence of human lung from the Cardoso-Moreira
+    matrix is stated explicitly in the response letter (R1.2), in
+    Supplementary Fig.~S7, and in Supplementary Table~S8.
 
 DATA SOURCES
     - Pig:   PigGTEx v0 per-tissue TPM matrices
-             data/pigGTEx/{Brain,Liver,Kidney,Heart}.expr_tpm.txt.gz
+             data/pigGTEx/{Brain,Liver}.expr_tpm.txt.gz
              metadata: data/PigGTEx_v0.MetaTable.csv
     - Human: Cardoso-Moreira 2019 RPKM matrix
              data/cardoso_moreira_2019/Human.RPKM.tsv (E-MTAB-6814)
