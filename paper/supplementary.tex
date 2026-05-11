@@ -1,10 +1,10 @@
 % ==============================================================================
-% Supplementary Materials - Nature Publication Standard
+% Supplementary Materials - BMC Genomics Submission
 % Paper: A Multi-Tissue Transcriptomic Atlas of Porcine Development
 % ==============================================================================
-\documentclass[11pt,letterpaper]{article}
+\documentclass[10pt,a4paper]{article}
 
-% Page layout - Nature-compliant margins
+% Page layout - BMC Genomics margins
 \usepackage[
   top=2.5cm,
   bottom=2.5cm,
@@ -12,10 +12,8 @@
   right=2.5cm
 ]{geometry}
 
-% Typography - Sans-serif (Helvetica) as required by Nature
+% Typography
 \usepackage[T1]{fontenc}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 \usepackage{microtype}  % Improved typography
 
 % Essential packages
@@ -38,20 +36,20 @@
 \usepackage{titlesec}
 \usepackage{tocloft}
 \usepackage{enumitem}
-\usepackage[super,sort&compress,comma]{natbib}
+\usepackage[numbers,sort&compress,square]{natbib}
 
 % Define Nature blue color
 % Removed custom colors.
 
-% Line spacing - 1.5 for readability (Nature allows this for supplementary)
-\onehalfspacing
+% Line spacing - double for BMC Genomics
+\doublespacing
 
 % Header and footer styling
 \pagestyle{plain} % Simple page numbers only, no headers
 
 % Caption formatting - Standard style
 \captionsetup{
-  font={sf,small},
+  font={small},
   labelfont={bf},
   labelsep=colon,
   justification=justified,

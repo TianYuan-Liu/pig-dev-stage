@@ -1,0 +1,44 @@
+\documentclass[11pt,a4paper]{letter}
+\usepackage[top=2.5cm,bottom=2.5cm,left=3cm,right=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\signature{Tianyuan Liu\\On behalf of all authors}
+\address{Cardiff School of Engineering\\Cardiff University\\The Parade, Cardiff CF24 3AA, UK\\Email: LiuT50@Cardiff.ac.uk}
+\date{\today}
+
+\begin{document}
+\begin{letter}{Editorial Board\\BMC Genomics}
+
+\opening{Dear Editors,}
+
+We are pleased to submit our manuscript entitled \textbf{``A Multi-Tissue Transcriptomic Atlas of Porcine Development Identifies Conserved Molecular Programs with Humans''} for consideration as a Research Article in \textit{BMC Genomics}.
+
+\textbf{Why BMC Genomics.} This work sits at the intersection of transcriptomics, genomics, and computational biology---core areas of the journal's scope. BMC Genomics has a strong track record of publishing high-quality transcriptomic atlas and resource papers, and we believe our study will be of direct interest to the journal's readership in both agricultural and biomedical genomics.
+
+\textbf{Summary.} The domestic pig is central to agricultural science and is increasingly used as a preclinical model, yet no standardised molecular framework exists for defining developmental stage across tissues. We address this gap by constructing the first multi-tissue transcriptomic atlas of porcine development, integrating 1,924 RNA-seq profiles across five tissues (muscle, brain, liver, blood, and lung) from the PigGTEx resource. Our ordinal machine learning framework achieves tissue-specific developmental staging with a mean balanced accuracy of 0.90, and reveals highly tissue-specific molecular programs underlying maturation (cross-tissue feature overlap: 0.2\% Jaccard similarity). Cross-species comparison with human skeletal muscle demonstrates 97\% directional concordance in gene trajectories ($r = 0.69$, $p = 1.09 \times 10^{-10}$) among 66 conserved developmental genes organised into three functional modules.
+
+\textbf{Key contributions:}
+\begin{itemize}
+\item The first multi-tissue transcriptomic atlas for standardised porcine developmental staging
+\item An ordinal classification framework achieving high accuracy across five tissues
+\item Quantitative evidence for conserved pig--human developmental programs in skeletal muscle
+\item A publicly available interactive web application (\url{https://pigdevstage.streamlit.app}) for developmental stage prediction from gene expression data
+\end{itemize}
+
+\textbf{Prior submission.} An earlier version of this manuscript was submitted to \textit{Scientific Reports}, where it received an editorial decision without external peer review. The manuscript has since been substantially revised: the abstract has been restructured, the biological narrative has been strengthened, a new Conclusions section has been added, and an interactive web application has been developed and deployed to facilitate community adoption of the atlas.
+
+We confirm that this manuscript has not been published elsewhere and is not under consideration by any other journal. All authors have read and approved the manuscript and agree to its submission. The authors declare no competing interests.
+
+\textbf{Suggested reviewers:}
+\begin{enumerate}
+\item Prof.\ Steve Horvath (Altos Labs) --- epigenetic clocks and cross-species age prediction
+\item Prof.\ Martien Groenen (Wageningen University) --- pig genomics and comparative genomics
+\item Dr.\ Lingzhao Fang (Huazhong Agricultural University) --- PigGTEx consortium and livestock functional genomics
+\end{enumerate}
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}
