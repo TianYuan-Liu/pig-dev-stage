@@ -34,6 +34,19 @@ data/pigGTEx/*.txt
 data/cardoso_moreira_2019/Human.RPKM.tsv
 data/cardoso_moreira_2019/Human.RPKM.txt
 
+# Autoresearch-style local log (per CONSTRAINTS.md rule 10)
+review/revision_log.tsv
+# Build artifacts inside review/
+review/response_to_reviewers.aux
+review/response_to_reviewers.log
+review/response_to_reviewers.run.xml
+review/response_to_reviewers.bcf
+review/response_to_reviewers.bbl
+review/response_to_reviewers.blg
+review/response_to_reviewers.out
+review/analyses/results/*.log
+review/__pycache__/
+
 # Output files
 artifacts/results/*.json
 artifacts/figures/*.pdf
