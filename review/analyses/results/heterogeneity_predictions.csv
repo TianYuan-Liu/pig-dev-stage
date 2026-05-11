@@ -1,0 +1,1321 @@
+sample_id,fold,y_true,y_pred,stage_int,stage_label,pred_label,tissue
+SAMEA104365482,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA104365490,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA4881075,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881085,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881089,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881097,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881098,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881099,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881101,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881102,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881104,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881113,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881114,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881118,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881119,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881121,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA5131489,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131490,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131512,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131518,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131520,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5756312,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02673059,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768561,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768562,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768565,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768566,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768567,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768568,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN03351807,1,0,0,0,Infant,Infant,Muscle
+SAMN03351815,1,0,0,0,Infant,Infant,Muscle
+SAMN04041114,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04271249,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301623,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317049,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317103,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317104,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04484923,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN04484960,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05163541,1,0,0,0,Infant,Infant,Muscle
+SAMN05163542,1,0,0,0,Infant,Infant,Muscle
+SAMN05730654,1,0,0,0,Infant,Infant,Muscle
+SAMN05730658,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730660,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730661,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730663,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730665,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05830996,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831007,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831009,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831017,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831025,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831027,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06045920,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06047101,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06118138,1,0,0,0,Infant,Infant,Muscle
+SAMN06972145,1,0,0,0,Infant,Infant,Muscle
+SAMN06972161,1,0,0,0,Infant,Infant,Muscle
+SAMN06972162,1,0,0,0,Infant,Infant,Muscle
+SAMN06972163,1,0,0,0,Infant,Infant,Muscle
+SAMN07136159,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136165,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136175,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136177,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136197,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136209,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136215,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07201004,1,0,1,0,Infant,Early childhood,Muscle
+SAMN07201009,1,0,0,0,Infant,Infant,Muscle
+SAMN07201011,1,0,1,0,Infant,Early childhood,Muscle
+SAMN07313545,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626887,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626889,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626895,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626902,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626903,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626912,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626919,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626926,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626927,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626928,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626930,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626931,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626934,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626938,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626940,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626944,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626957,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626959,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626963,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626967,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626968,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626970,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626986,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626987,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626991,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626992,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626994,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626995,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626999,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627001,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627003,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627006,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627008,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627013,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627026,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627038,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627040,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049025,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049164,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08580360,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN08580361,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840078,1,0,0,0,Infant,Infant,Muscle
+SAMN09840081,1,0,0,0,Infant,Infant,Muscle
+SAMN09840082,1,0,0,0,Infant,Infant,Muscle
+SAMN09840084,1,0,0,0,Infant,Infant,Muscle
+SAMN09840087,1,0,0,0,Infant,Infant,Muscle
+SAMN09840089,1,0,0,0,Infant,Infant,Muscle
+SAMN09840102,1,0,0,0,Infant,Infant,Muscle
+SAMN09840103,1,0,0,0,Infant,Infant,Muscle
+SAMN09840104,1,0,0,0,Infant,Infant,Muscle
+SAMN09840111,1,0,0,0,Infant,Infant,Muscle
+SAMN09840115,1,0,0,0,Infant,Infant,Muscle
+SAMN09840116,1,0,0,0,Infant,Infant,Muscle
+SAMN09840119,1,0,0,0,Infant,Infant,Muscle
+SAMN09840120,1,0,0,0,Infant,Infant,Muscle
+SAMN09840121,1,0,0,0,Infant,Infant,Muscle
+SAMN09840125,1,0,0,0,Infant,Infant,Muscle
+SAMN09840128,1,0,0,0,Infant,Infant,Muscle
+SAMN09840141,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929699,1,0,0,0,Infant,Infant,Muscle
+SAMN09929721,1,0,0,0,Infant,Infant,Muscle
+SAMN09929723,1,0,0,0,Infant,Infant,Muscle
+SAMN09929729,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09929730,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929733,1,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929743,1,0,0,0,Infant,Infant,Muscle
+SAMN09929744,1,0,0,0,Infant,Infant,Muscle
+SAMN09929746,1,0,0,0,Infant,Infant,Muscle
+SAMN09929751,1,0,0,0,Infant,Infant,Muscle
+SAMN09929754,1,0,1,0,Infant,Early childhood,Muscle
+SAMN09929756,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09947778,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947784,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947823,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947832,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN10458212,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN10458215,1,1,3,1,Early childhood,Post-pubertal/Adult,Muscle
+SAMN10458220,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN10458222,1,1,1,1,Early childhood,Early childhood,Muscle
+SAMN10458223,1,1,3,1,Early childhood,Post-pubertal/Adult,Muscle
+SAMN10790771,1,2,0,2,Pre-pubertal,Infant,Muscle
+SAMN13676546,1,0,0,0,Infant,Infant,Muscle
+SAMEA104365478,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA104365483,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA3293596,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMEA4881077,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881087,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881090,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881093,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881094,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881096,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881100,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881105,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881106,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881107,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881109,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881120,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA5131486,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131491,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131492,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131510,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131511,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131516,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN02225715,2,0,0,0,Infant,Infant,Muscle
+SAMN02673055,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768559,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768564,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768570,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN03351774,2,0,0,0,Infant,Infant,Muscle
+SAMN03351783,2,0,0,0,Infant,Infant,Muscle
+SAMN03351810,2,0,0,0,Infant,Infant,Muscle
+SAMN03658148,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04041115,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04122448,2,0,0,0,Infant,Infant,Muscle
+SAMN04122450,2,0,0,0,Infant,Infant,Muscle
+SAMN04301625,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301627,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301633,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317051,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317054,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317056,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317092,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04420603,2,0,0,0,Infant,Infant,Muscle
+SAMN04484940,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN04484982,2,2,1,2,Pre-pubertal,Early childhood,Muscle
+SAMN04484985,2,2,1,2,Pre-pubertal,Early childhood,Muscle
+SAMN04485000,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730659,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730670,2,0,0,0,Infant,Infant,Muscle
+SAMN05730673,2,0,0,0,Infant,Infant,Muscle
+SAMN05730677,2,0,0,0,Infant,Infant,Muscle
+SAMN05831001,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831003,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831013,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831015,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831019,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831029,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06047102,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06242686,2,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN07136155,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136161,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136181,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136191,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136199,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136201,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136205,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136207,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136229,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07626879,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626881,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626890,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626892,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626894,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626896,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626910,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626911,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626921,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626922,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626923,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626924,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626951,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626952,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626955,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626958,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626981,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627004,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627011,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627019,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627024,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627028,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627029,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627032,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627041,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049026,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049159,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049161,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049163,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049165,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08580367,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN08580368,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN08822294,2,0,0,0,Infant,Infant,Muscle
+SAMN09840080,2,0,0,0,Infant,Infant,Muscle
+SAMN09840083,2,0,0,0,Infant,Infant,Muscle
+SAMN09840086,2,0,0,0,Infant,Infant,Muscle
+SAMN09840088,2,0,0,0,Infant,Infant,Muscle
+SAMN09840090,2,0,0,0,Infant,Infant,Muscle
+SAMN09840092,2,0,0,0,Infant,Infant,Muscle
+SAMN09840093,2,0,0,0,Infant,Infant,Muscle
+SAMN09840095,2,0,0,0,Infant,Infant,Muscle
+SAMN09840096,2,0,0,0,Infant,Infant,Muscle
+SAMN09840106,2,0,0,0,Infant,Infant,Muscle
+SAMN09840117,2,0,0,0,Infant,Infant,Muscle
+SAMN09840122,2,0,0,0,Infant,Infant,Muscle
+SAMN09840135,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840136,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840150,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09840153,2,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN09840157,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09927935,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09929689,2,0,0,0,Infant,Infant,Muscle
+SAMN09929691,2,0,0,0,Infant,Infant,Muscle
+SAMN09929695,2,0,0,0,Infant,Infant,Muscle
+SAMN09929707,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929709,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09929711,2,0,0,0,Infant,Infant,Muscle
+SAMN09929712,2,0,0,0,Infant,Infant,Muscle
+SAMN09929722,2,0,0,0,Infant,Infant,Muscle
+SAMN09929725,2,0,0,0,Infant,Infant,Muscle
+SAMN09929726,2,0,1,0,Infant,Early childhood,Muscle
+SAMN09929732,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929734,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929735,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09929738,2,0,0,0,Infant,Infant,Muscle
+SAMN09929753,2,0,0,0,Infant,Infant,Muscle
+SAMN09929760,2,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929763,2,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN09947769,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947780,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947822,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947826,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947828,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN10458213,2,1,1,1,Early childhood,Early childhood,Muscle
+SAMN12919855,2,0,0,0,Infant,Infant,Muscle
+SAMN13108037,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999233,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999234,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999243,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999250,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN15566336,2,3,1,3,Post-pubertal/Adult,Early childhood,Muscle
+SAMN15566337,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN16550669,2,0,0,0,Infant,Infant,Muscle
+SAMN16550675,2,0,0,0,Infant,Infant,Muscle
+SAMN13676545,2,0,0,0,Infant,Infant,Muscle
+SAMN13676566,2,0,0,0,Infant,Infant,Muscle
+SAMEA104365477,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA104365484,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA104365491,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA4881078,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881081,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881082,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881083,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881086,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881088,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881091,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881092,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881112,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881116,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881117,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881122,3,0,3,0,Infant,Post-pubertal/Adult,Muscle
+SAMEA5131493,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN02225713,3,0,0,0,Infant,Infant,Muscle
+SAMN02369917,3,0,0,0,Infant,Infant,Muscle
+SAMN02369925,3,0,0,0,Infant,Infant,Muscle
+SAMN02672955,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02673051,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02673054,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02673058,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02673062,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768563,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768569,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN03351775,3,0,0,0,Infant,Infant,Muscle
+SAMN03351777,3,0,0,0,Infant,Infant,Muscle
+SAMN03351785,3,0,0,0,Infant,Infant,Muscle
+SAMN03351788,3,0,0,0,Infant,Infant,Muscle
+SAMN03351802,3,0,0,0,Infant,Infant,Muscle
+SAMN03351808,3,0,0,0,Infant,Infant,Muscle
+SAMN04271248,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301624,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301628,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301630,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317057,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317090,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317093,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317095,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317102,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04420594,3,0,0,0,Infant,Infant,Muscle
+SAMN04420596,3,2,3,2,Pre-pubertal,Post-pubertal/Adult,Muscle
+SAMN04420600,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04420605,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN04484930,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN04485009,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05163539,3,0,0,0,Infant,Infant,Muscle
+SAMN05730662,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730667,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730672,3,0,0,0,Infant,Infant,Muscle
+SAMN05730675,3,0,0,0,Infant,Infant,Muscle
+SAMN05730676,3,0,0,0,Infant,Infant,Muscle
+SAMN05771462,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05785620,3,0,0,0,Infant,Infant,Muscle
+SAMN05831038,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05868441,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06047099,3,2,3,2,Pre-pubertal,Post-pubertal/Adult,Muscle
+SAMN06047100,3,2,0,2,Pre-pubertal,Infant,Muscle
+SAMN06118136,3,0,0,0,Infant,Infant,Muscle
+SAMN06118382,3,0,0,0,Infant,Infant,Muscle
+SAMN06242687,3,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN06972146,3,0,0,0,Infant,Infant,Muscle
+SAMN06972164,3,0,0,0,Infant,Infant,Muscle
+SAMN07136157,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136169,3,1,2,1,Early childhood,Pre-pubertal,Muscle
+SAMN07136173,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136183,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136195,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136213,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136223,3,1,3,1,Early childhood,Post-pubertal/Adult,Muscle
+SAMN07136227,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07201003,3,0,0,0,Infant,Infant,Muscle
+SAMN07201007,3,0,0,0,Infant,Infant,Muscle
+SAMN07626877,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626884,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626885,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626897,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626904,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626907,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626908,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626909,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626913,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626916,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626929,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626941,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626947,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626956,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626960,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626965,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626972,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626974,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626975,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626979,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626982,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626993,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626998,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627002,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627005,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627007,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627010,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627015,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627017,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627018,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627022,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627033,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049167,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08580372,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840094,3,0,0,0,Infant,Infant,Muscle
+SAMN09840098,3,0,0,0,Infant,Infant,Muscle
+SAMN09840108,3,0,0,0,Infant,Infant,Muscle
+SAMN09840114,3,0,0,0,Infant,Infant,Muscle
+SAMN09840130,3,0,0,0,Infant,Infant,Muscle
+SAMN09840132,3,1,0,1,Early childhood,Infant,Muscle
+SAMN09840134,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840138,3,2,0,2,Pre-pubertal,Infant,Muscle
+SAMN09840143,3,2,3,2,Pre-pubertal,Post-pubertal/Adult,Muscle
+SAMN09840146,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929683,3,0,0,0,Infant,Infant,Muscle
+SAMN09929686,3,0,0,0,Infant,Infant,Muscle
+SAMN09929688,3,0,0,0,Infant,Infant,Muscle
+SAMN09929696,3,0,0,0,Infant,Infant,Muscle
+SAMN09929697,3,0,0,0,Infant,Infant,Muscle
+SAMN09929700,3,0,0,0,Infant,Infant,Muscle
+SAMN09929706,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929708,3,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN09929718,3,0,0,0,Infant,Infant,Muscle
+SAMN09929719,3,0,0,0,Infant,Infant,Muscle
+SAMN09929720,3,0,0,0,Infant,Infant,Muscle
+SAMN09929728,3,1,0,1,Early childhood,Infant,Muscle
+SAMN09929731,3,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929736,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09929737,3,0,0,0,Infant,Infant,Muscle
+SAMN09929741,3,0,0,0,Infant,Infant,Muscle
+SAMN09947770,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947771,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947776,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947782,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947785,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947825,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN10458214,3,1,2,1,Early childhood,Pre-pubertal,Muscle
+SAMN10458216,3,1,1,1,Early childhood,Early childhood,Muscle
+SAMN10458218,3,1,2,1,Early childhood,Pre-pubertal,Muscle
+SAMN10797387,3,2,0,2,Pre-pubertal,Infant,Muscle
+SAMN13108039,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999244,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999245,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999247,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999248,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN15566332,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN15566335,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13676555,3,0,0,0,Infant,Infant,Muscle
+SAMEA104365479,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA104365480,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA104365488,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA3293598,4,1,0,1,Early childhood,Infant,Muscle
+SAMEA4881076,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881079,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881080,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881084,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881095,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881103,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881108,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881110,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881111,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA4881115,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA5131487,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131494,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131496,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131514,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131515,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131519,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5760419,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMEA5760477,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02673063,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02768560,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN03351791,4,0,0,0,Infant,Infant,Muscle
+SAMN03351792,4,0,0,0,Infant,Infant,Muscle
+SAMN03351794,4,0,0,0,Infant,Infant,Muscle
+SAMN03351795,4,0,0,0,Infant,Infant,Muscle
+SAMN03658147,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04271247,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04271250,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04271251,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04271252,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301626,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301631,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301632,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317047,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317052,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317053,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317055,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317094,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317099,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317105,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05163538,4,0,0,0,Infant,Infant,Muscle
+SAMN05163540,4,0,0,0,Infant,Infant,Muscle
+SAMN05730666,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05762247,4,2,0,2,Pre-pubertal,Infant,Muscle
+SAMN05831005,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831032,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831036,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05952593,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN06118383,4,0,0,0,Infant,Infant,Muscle
+SAMN07136167,4,1,3,1,Early childhood,Post-pubertal/Adult,Muscle
+SAMN07136171,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136179,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136187,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136189,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136193,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136219,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07201005,4,0,0,0,Infant,Infant,Muscle
+SAMN07626878,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626880,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626883,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626888,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626893,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626914,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626915,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626917,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626932,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626933,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626935,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626943,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626948,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626953,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626961,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626962,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626964,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626969,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626971,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626973,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626977,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626980,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626984,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626988,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626996,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627000,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627012,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627014,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627020,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627021,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627023,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627042,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627043,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049158,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049160,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049162,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049166,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08580359,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN08580362,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN08580363,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN08580365,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840079,4,0,0,0,Infant,Infant,Muscle
+SAMN09840099,4,0,0,0,Infant,Infant,Muscle
+SAMN09840101,4,0,0,0,Infant,Infant,Muscle
+SAMN09840107,4,0,0,0,Infant,Infant,Muscle
+SAMN09840113,4,0,0,0,Infant,Infant,Muscle
+SAMN09840118,4,0,0,0,Infant,Infant,Muscle
+SAMN09840124,4,0,0,0,Infant,Infant,Muscle
+SAMN09840129,4,0,0,0,Infant,Infant,Muscle
+SAMN09840131,4,0,0,0,Infant,Infant,Muscle
+SAMN09840137,4,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840139,4,2,1,2,Pre-pubertal,Early childhood,Muscle
+SAMN09840145,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09840149,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09840154,4,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN09929684,4,0,0,0,Infant,Infant,Muscle
+SAMN09929687,4,0,0,0,Infant,Infant,Muscle
+SAMN09929690,4,0,0,0,Infant,Infant,Muscle
+SAMN09929693,4,0,0,0,Infant,Infant,Muscle
+SAMN09929694,4,0,0,0,Infant,Infant,Muscle
+SAMN09929698,4,0,0,0,Infant,Infant,Muscle
+SAMN09929701,4,1,0,1,Early childhood,Infant,Muscle
+SAMN09929703,4,2,0,2,Pre-pubertal,Infant,Muscle
+SAMN09929704,4,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929710,4,0,0,0,Infant,Infant,Muscle
+SAMN09929713,4,0,0,0,Infant,Infant,Muscle
+SAMN09929715,4,0,0,0,Infant,Infant,Muscle
+SAMN09929717,4,0,0,0,Infant,Infant,Muscle
+SAMN09929724,4,0,0,0,Infant,Infant,Muscle
+SAMN09929740,4,0,0,0,Infant,Infant,Muscle
+SAMN09929747,4,0,0,0,Infant,Infant,Muscle
+SAMN09929750,4,0,0,0,Infant,Infant,Muscle
+SAMN09929752,4,0,0,0,Infant,Infant,Muscle
+SAMN09929761,4,2,3,2,Pre-pubertal,Post-pubertal/Adult,Muscle
+SAMN09947766,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947767,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947768,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947773,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947830,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947831,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN10593695,4,2,1,2,Pre-pubertal,Early childhood,Muscle
+SAMN13999242,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999246,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999249,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN15566334,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN16550668,4,0,0,0,Infant,Infant,Muscle
+SAMN16550671,4,0,0,0,Infant,Infant,Muscle
+SAMN16550672,4,0,0,0,Infant,Infant,Muscle
+SAMN16550673,4,0,0,0,Infant,Infant,Muscle
+SAMN13676583,4,0,0,0,Infant,Infant,Muscle
+SAMN13676582,4,0,0,0,Infant,Infant,Muscle
+SAMN13676565,4,0,2,0,Infant,Pre-pubertal,Muscle
+SAMEA5131485,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131488,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131495,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131509,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5131517,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMEA5760449,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN02225714,5,0,0,0,Infant,Infant,Muscle
+SAMN02673057,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN03351780,5,0,0,0,Infant,Infant,Muscle
+SAMN03351801,5,0,0,0,Infant,Infant,Muscle
+SAMN03351812,5,0,0,0,Infant,Infant,Muscle
+SAMN03658146,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN03782154,5,0,0,0,Infant,Infant,Muscle
+SAMN03853115,5,1,0,1,Early childhood,Infant,Muscle
+SAMN03853116,5,1,0,1,Early childhood,Infant,Muscle
+SAMN04122445,5,0,0,0,Infant,Infant,Muscle
+SAMN04122452,5,0,0,0,Infant,Infant,Muscle
+SAMN04147104,5,0,0,0,Infant,Infant,Muscle
+SAMN04147106,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04301629,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317058,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317059,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317060,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317089,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04317091,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04420598,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04420609,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN04484970,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN04484991,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05163537,5,0,0,0,Infant,Infant,Muscle
+SAMN05730653,5,0,0,0,Infant,Infant,Muscle
+SAMN05730664,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730668,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730669,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN05730674,5,0,0,0,Infant,Infant,Muscle
+SAMN05771457,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05785621,5,0,1,0,Infant,Early childhood,Muscle
+SAMN05830998,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831011,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831021,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831023,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN05831034,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN06118381,5,0,0,0,Infant,Infant,Muscle
+SAMN06118384,5,0,0,0,Infant,Infant,Muscle
+SAMN06242688,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07136163,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136185,5,1,3,1,Early childhood,Post-pubertal/Adult,Muscle
+SAMN07136203,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136211,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136217,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07136231,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN07201006,5,0,0,0,Infant,Infant,Muscle
+SAMN07201008,5,0,0,0,Infant,Infant,Muscle
+SAMN07201010,5,0,0,0,Infant,Infant,Muscle
+SAMN07626882,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626886,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626891,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626898,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626899,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626900,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626901,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626905,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626906,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626918,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626920,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626925,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626937,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626939,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626942,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626945,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626946,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626949,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626950,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626954,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626966,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626978,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626983,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626985,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626989,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626990,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07626997,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627009,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627016,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627025,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627027,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627030,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627031,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627034,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627035,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627036,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627037,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627039,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN07627044,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049156,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049157,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08049168,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN08580364,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840085,5,0,0,0,Infant,Infant,Muscle
+SAMN09840091,5,0,0,0,Infant,Infant,Muscle
+SAMN09840097,5,0,0,0,Infant,Infant,Muscle
+SAMN09840100,5,0,0,0,Infant,Infant,Muscle
+SAMN09840105,5,0,0,0,Infant,Infant,Muscle
+SAMN09840109,5,0,0,0,Infant,Infant,Muscle
+SAMN09840112,5,0,0,0,Infant,Infant,Muscle
+SAMN09840123,5,0,0,0,Infant,Infant,Muscle
+SAMN09840126,5,0,0,0,Infant,Infant,Muscle
+SAMN09840133,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09840140,5,2,1,2,Pre-pubertal,Early childhood,Muscle
+SAMN09840142,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09840147,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09840152,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09840158,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09927932,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09927934,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09929685,5,0,0,0,Infant,Infant,Muscle
+SAMN09929692,5,0,0,0,Infant,Infant,Muscle
+SAMN09929702,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09929705,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929714,5,0,0,0,Infant,Infant,Muscle
+SAMN09929716,5,0,0,0,Infant,Infant,Muscle
+SAMN09929727,5,0,0,0,Infant,Infant,Muscle
+SAMN09929739,5,0,0,0,Infant,Infant,Muscle
+SAMN09929742,5,0,0,0,Infant,Infant,Muscle
+SAMN09929745,5,0,0,0,Infant,Infant,Muscle
+SAMN09929748,5,0,0,0,Infant,Infant,Muscle
+SAMN09929749,5,0,0,0,Infant,Infant,Muscle
+SAMN09929755,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN09929757,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929758,5,2,2,2,Pre-pubertal,Pre-pubertal,Muscle
+SAMN09929759,5,2,3,2,Pre-pubertal,Post-pubertal/Adult,Muscle
+SAMN09929762,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947765,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947772,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947774,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947775,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947777,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947779,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947781,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947783,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947824,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947827,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN09947829,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN10130935,5,3,2,3,Post-pubertal/Adult,Pre-pubertal,Muscle
+SAMN10458217,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN10458219,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN10458221,5,1,1,1,Early childhood,Early childhood,Muscle
+SAMN13108040,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN13999241,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN15566333,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Muscle
+SAMN16550670,5,0,0,0,Infant,Infant,Muscle
+SAMN16550674,5,0,0,0,Infant,Infant,Muscle
+SAMN13676556,5,0,1,0,Infant,Early childhood,Muscle
+SAMN06821194,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN06821198,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN06821199,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN12344377,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344383,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344393,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344396,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344398,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN15512246,1,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Brain
+SAMN06821196,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN10130936,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN12344384,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344386,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344388,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344390,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344397,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN15512248,2,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Brain
+SAMN15512252,2,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Brain
+SAMN06821197,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN12344372,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344374,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344378,3,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Brain
+SAMN12344380,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344387,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344391,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN15512249,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN15512253,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMEA5760399,4,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Brain
+SAMEA5760498,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN07314856,4,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Brain
+SAMN12344389,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344395,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344400,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344401,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN15512250,4,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Brain
+SAMN06821195,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN07313681,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMN12344375,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344382,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344385,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN12344392,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Brain
+SAMN15512247,5,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Brain
+SAMN15512251,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Brain
+SAMEA104407659,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407664,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407666,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407667,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131478,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131480,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131498,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131502,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5158159,1,0,0,0,Infant,Infant,Liver
+SAMEA5158170,1,0,0,0,Infant,Infant,Liver
+SAMEA5158172,1,0,0,0,Infant,Infant,Liver
+SAMEA5158174,1,0,0,0,Infant,Infant,Liver
+SAMEA5158175,1,0,0,0,Infant,Infant,Liver
+SAMEA5158188,1,0,0,0,Infant,Infant,Liver
+SAMEA5158191,1,0,0,0,Infant,Infant,Liver
+SAMEA5158202,1,0,0,0,Infant,Infant,Liver
+SAMN01915401,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN01915403,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN01915406,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN01915408,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN02570544,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN03142843,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN03142844,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04028028,1,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMN04327535,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327538,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327541,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04484996,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN06242617,1,3,2,3,Post-pubertal/Adult,Pre-pubertal,Liver
+SAMN07313082,1,3,2,3,Post-pubertal/Adult,Pre-pubertal,Liver
+SAMN07313102,1,0,2,0,Infant,Pre-pubertal,Liver
+SAMN07411814,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN07975615,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN07975638,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10130932,1,3,0,3,Post-pubertal/Adult,Infant,Liver
+SAMN10354869,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354872,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354889,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354904,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354905,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354923,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10475342,1,1,3,1,Early childhood,Post-pubertal/Adult,Liver
+SAMN10662301,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN10662304,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN10849966,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849972,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849975,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN11605463,1,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN12327413,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN13058855,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058859,1,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13694302,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694305,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694308,1,0,0,0,Infant,Infant,Liver
+SAMN13694309,1,0,0,0,Infant,Infant,Liver
+SAMN13694312,1,0,0,0,Infant,Infant,Liver
+SAMN13694317,1,0,0,0,Infant,Infant,Liver
+SAMN13694319,1,0,0,0,Infant,Infant,Liver
+SAMN13694320,1,0,0,0,Infant,Infant,Liver
+SAMN13694321,1,1,1,1,Early childhood,Early childhood,Liver
+SAMN13676554,1,0,1,0,Infant,Early childhood,Liver
+SAMN13676581,1,0,0,0,Infant,Infant,Liver
+SAMEA104407658,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407660,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407661,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407662,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407663,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407669,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131505,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131507,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5158156,2,0,0,0,Infant,Infant,Liver
+SAMEA5158161,2,0,0,0,Infant,Infant,Liver
+SAMEA5158162,2,0,0,0,Infant,Infant,Liver
+SAMEA5158165,2,0,0,0,Infant,Infant,Liver
+SAMEA5158173,2,0,0,0,Infant,Infant,Liver
+SAMEA5158177,2,0,0,0,Infant,Infant,Liver
+SAMEA5158187,2,0,0,0,Infant,Infant,Liver
+SAMEA5158190,2,0,0,0,Infant,Infant,Liver
+SAMEA5158199,2,0,0,0,Infant,Infant,Liver
+SAMEA5760401,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN01915404,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04028029,2,2,1,2,Pre-pubertal,Early childhood,Liver
+SAMN04320383,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327537,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327542,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04484936,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04484951,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04485006,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN05188550,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN05188552,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06242615,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06242631,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN07411809,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN07411818,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354868,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354873,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354879,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354894,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354897,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354898,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354918,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10354922,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10475341,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10475344,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN10576355,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10576362,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10662300,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN10662303,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN10849962,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN11124308,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN11124314,2,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN11605462,2,3,2,3,Post-pubertal/Adult,Pre-pubertal,Liver
+SAMN13058850,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058856,2,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13694290,2,0,0,0,Infant,Infant,Liver
+SAMN13694291,2,0,0,0,Infant,Infant,Liver
+SAMN13694296,2,0,0,0,Infant,Infant,Liver
+SAMN13694297,2,0,0,0,Infant,Infant,Liver
+SAMN13694303,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694307,2,0,0,0,Infant,Infant,Liver
+SAMN13694310,2,0,0,0,Infant,Infant,Liver
+SAMN13694313,2,0,0,0,Infant,Infant,Liver
+SAMN13694326,2,1,1,1,Early childhood,Early childhood,Liver
+SAMN13676580,2,0,0,0,Infant,Infant,Liver
+SAMEA104407668,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407672,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131473,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131477,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131481,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131482,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131484,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131499,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131508,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5158160,3,0,0,0,Infant,Infant,Liver
+SAMEA5158166,3,0,0,0,Infant,Infant,Liver
+SAMEA5158169,3,0,0,0,Infant,Infant,Liver
+SAMEA5158182,3,0,0,0,Infant,Infant,Liver
+SAMEA5158183,3,0,0,0,Infant,Infant,Liver
+SAMEA5158186,3,0,0,0,Infant,Infant,Liver
+SAMEA5158189,3,0,0,0,Infant,Infant,Liver
+SAMEA5158197,3,0,0,0,Infant,Infant,Liver
+SAMEA5158198,3,0,0,0,Infant,Infant,Liver
+SAMEA5760407,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMEA5760421,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN01915405,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN01915409,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN02570543,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04028025,3,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMN04028026,3,2,0,2,Pre-pubertal,Infant,Liver
+SAMN04028031,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04327543,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327544,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04484946,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04484956,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN05188553,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN05952612,3,1,2,1,Early childhood,Pre-pubertal,Liver
+SAMN06045919,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06242623,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06242633,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06242635,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN07975640,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10354870,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354877,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354878,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354896,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354899,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354902,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354907,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354908,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354917,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10662293,3,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN10849970,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849973,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN12327411,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN13058851,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058853,3,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13694285,3,0,0,0,Infant,Infant,Liver
+SAMN13694292,3,0,0,0,Infant,Infant,Liver
+SAMN13694293,3,0,0,0,Infant,Infant,Liver
+SAMN13694295,3,0,0,0,Infant,Infant,Liver
+SAMN13694299,3,0,0,0,Infant,Infant,Liver
+SAMN13694300,3,1,0,1,Early childhood,Infant,Liver
+SAMN13694315,3,0,0,0,Infant,Infant,Liver
+SAMN13694325,3,1,1,1,Early childhood,Early childhood,Liver
+SAMN13676543,3,0,0,0,Infant,Infant,Liver
+SAMN13676564,3,0,1,0,Infant,Early childhood,Liver
+SAMEA104407665,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131476,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131479,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131483,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131497,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131500,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131504,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5158154,4,0,0,0,Infant,Infant,Liver
+SAMEA5158155,4,0,0,0,Infant,Infant,Liver
+SAMEA5158157,4,0,0,0,Infant,Infant,Liver
+SAMEA5158164,4,0,0,0,Infant,Infant,Liver
+SAMEA5158167,4,0,0,0,Infant,Infant,Liver
+SAMEA5158171,4,0,0,0,Infant,Infant,Liver
+SAMEA5158176,4,0,0,0,Infant,Infant,Liver
+SAMEA5158180,4,0,0,0,Infant,Infant,Liver
+SAMEA5158184,4,0,0,0,Infant,Infant,Liver
+SAMEA5158185,4,0,0,0,Infant,Infant,Liver
+SAMEA5158193,4,0,0,0,Infant,Infant,Liver
+SAMEA5158201,4,0,0,0,Infant,Infant,Liver
+SAMN01915402,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN01915407,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN02570541,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN02570542,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN03142845,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04028024,4,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMN04484978,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN05188549,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN05188551,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06143127,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN06143128,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN07411816,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN07975614,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10354874,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354875,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354890,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354892,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354893,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354900,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354901,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354903,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354906,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354921,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10662302,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN10849963,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849964,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849965,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849967,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849977,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849979,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN11124316,4,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN12327412,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN13028760,4,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMN13058849,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058852,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058854,4,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13694287,4,0,0,0,Infant,Infant,Liver
+SAMN13694289,4,0,1,0,Infant,Early childhood,Liver
+SAMN13694298,4,0,0,0,Infant,Infant,Liver
+SAMN13694301,4,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694318,4,0,0,0,Infant,Infant,Liver
+SAMN13676544,4,0,0,0,Infant,Infant,Liver
+SAMN13676563,4,0,0,0,Infant,Infant,Liver
+SAMEA104407670,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA104407673,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131474,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131475,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131501,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131503,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMEA5131506,5,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMEA5158158,5,0,0,0,Infant,Infant,Liver
+SAMEA5158163,5,0,0,0,Infant,Infant,Liver
+SAMEA5158178,5,0,0,0,Infant,Infant,Liver
+SAMEA5158179,5,0,0,0,Infant,Infant,Liver
+SAMEA5158181,5,0,0,0,Infant,Infant,Liver
+SAMEA5158192,5,0,0,0,Infant,Infant,Liver
+SAMEA5158194,5,0,0,0,Infant,Infant,Liver
+SAMEA5158195,5,0,0,0,Infant,Infant,Liver
+SAMEA5158196,5,0,0,0,Infant,Infant,Liver
+SAMEA5158200,5,0,0,0,Infant,Infant,Liver
+SAMN01915410,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04028027,5,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMN04327536,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327539,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04327540,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN04484966,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN04484976,5,2,1,2,Pre-pubertal,Early childhood,Liver
+SAMN05188555,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN06143126,5,2,1,2,Pre-pubertal,Early childhood,Liver
+SAMN07411807,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN07411811,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN07975613,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10354871,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354876,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354880,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN10354895,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN10475343,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN10576360,5,3,2,3,Post-pubertal/Adult,Pre-pubertal,Liver
+SAMN10576361,5,3,2,3,Post-pubertal/Adult,Pre-pubertal,Liver
+SAMN10593699,5,2,1,2,Pre-pubertal,Early childhood,Liver
+SAMN10849968,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849969,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849971,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849974,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849976,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN10849978,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN11124310,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN11124312,5,2,3,2,Pre-pubertal,Post-pubertal/Adult,Liver
+SAMN11124318,5,2,2,2,Pre-pubertal,Pre-pubertal,Liver
+SAMN13058857,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058858,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13058860,5,3,3,3,Post-pubertal/Adult,Post-pubertal/Adult,Liver
+SAMN13694286,5,0,0,0,Infant,Infant,Liver
+SAMN13694288,5,0,0,0,Infant,Infant,Liver
+SAMN13694294,5,0,0,0,Infant,Infant,Liver
+SAMN13694304,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694306,5,0,0,0,Infant,Infant,Liver
+SAMN13694311,5,0,0,0,Infant,Infant,Liver
+SAMN13694314,5,0,0,0,Infant,Infant,Liver
+SAMN13694316,5,0,0,0,Infant,Infant,Liver
+SAMN13694322,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694323,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN13694324,5,1,1,1,Early childhood,Early childhood,Liver
+SAMN13676553,5,0,0,0,Infant,Infant,Liver
+SAMEA3720879,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720880,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720882,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720886,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720887,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720889,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720896,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMN04159966,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461359,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461375,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461415,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209405,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07210909,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07966363,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN10601933,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN14218484,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMEA3720874,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720875,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720878,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720883,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720884,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720899,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720900,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMN04461357,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461364,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461372,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461401,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461421,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07210906,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07966351,2,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Blood
+SAMN14218485,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN14218486,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMEA3720871,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720873,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720876,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720881,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720894,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720897,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMN04159968,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461366,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461374,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461393,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461394,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209397,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07210904,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07210908,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN10601921,3,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Blood
+SAMN10601927,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMEA3720872,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720877,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720885,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720891,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720893,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720895,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMN04159967,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461354,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461391,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461395,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461406,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461412,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209414,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN07210905,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN14218487,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMEA3720870,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720888,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720890,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720892,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMEA3720898,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Blood
+SAMN04461355,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461385,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN04461408,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209382,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209391,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209410,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN06209418,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN10601923,5,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Blood
+SAMN14218482,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN14218488,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Blood
+SAMN03699806,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN03699807,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN03699808,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04161466,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484928,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06200051,1,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN06200054,1,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN06200056,1,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN06242691,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN09381495,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381499,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381502,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09741968,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN10238018,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN11633728,1,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN12204826,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540876,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540878,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540881,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707153,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124986,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124993,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124996,1,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN17136978,1,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Lung
+SAMN17136979,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN17136981,1,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMEA7629011,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN03699803,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN03699809,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04161468,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484938,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484958,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06200053,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06242670,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN09381493,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381498,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381501,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09741967,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09741970,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN10238023,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10238024,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN12204825,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540877,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540883,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707136,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707144,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707150,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707152,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124985,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124987,2,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN17136976,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN17136982,2,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMEA7629014,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN03699802,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN03699805,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484953,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484980,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06200058,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06242667,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN06242673,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN06242684,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN09381503,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN10238011,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10238013,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10238019,3,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10593697,3,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN13540885,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540887,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540888,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707131,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707133,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707137,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707139,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707142,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707146,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124984,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124994,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13676594,3,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMEA7629012,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMEA7629013,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04161465,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04161467,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484968,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06200052,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06242689,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN09381494,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381496,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381497,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09381504,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09741971,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN10130933,4,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Lung
+SAMN10238016,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10238021,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN13540880,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540882,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540889,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707132,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707135,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707143,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707147,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124990,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124995,4,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN17136985,4,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Lung
+SAMN17136987,4,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN03699804,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04038565,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04038566,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484948,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN04484998,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06200055,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN06200057,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN07313358,5,1,0,1,Post-pubertal (≥150d),Pre-pubertal (<150d),Lung
+SAMN09381500,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN09741969,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN10238015,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10238020,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN10238022,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN13540884,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13540886,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707134,5,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN13707140,5,0,1,0,Pre-pubertal (<150d),Post-pubertal (≥150d),Lung
+SAMN13707145,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN13707148,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124988,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124989,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124991,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN16124992,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung
+SAMN17136980,5,1,1,1,Post-pubertal (≥150d),Post-pubertal (≥150d),Lung
+SAMN13676595,5,0,0,0,Pre-pubertal (<150d),Pre-pubertal (<150d),Lung

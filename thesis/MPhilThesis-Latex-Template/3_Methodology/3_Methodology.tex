@@ -204,14 +204,14 @@ No explicit feature selection step was applied. Models were trained on all avail
 
 \subsection{Monotonic Constraint Post-Processing}
 
-The binary reduction method does not inherently guarantee that the cumulative probabilities are monotonically decreasing. Small violations can occur due to noise in the binary predictions. A post-processing step was applied to enforce monotonicity \parencite{barlow_statistical_1972}:
+The binary reduction method does not inherently guarantee that the cumulative probabilities are monotonically decreasing in $k$. Small violations can occur due to noise in the independently trained binary predictions, which would violate the ordinal probability identity in \eqref{eq:ordinal_probs}. Importantly, this monotonicity was \emph{not} enforced via LightGBM's \texttt{monotone\_constraints} parameter---which constrains the sign of the partial derivative of a tree ensemble with respect to a specific input feature and is unrelated to the ordinal output structure---but through a deterministic post-processing projection applied at inference time \parencite{barlow_statistical_1972}:
 
 \begin{equation}
     P(y > k)' = \min(P(y > k), P(y > k-1)')
     \label{eq:monotonic}
 \end{equation}
 
-This isotonic regression-like correction ensures that the cumulative probabilities decrease monotonically, which is required for the class probabilities to be non-negative.
+This isotonic regression-like correction is applied sequentially over $k = 1, \ldots, K-1$ to the predicted cumulative probabilities, ensuring that they decrease monotonically. The class probabilities derived from \eqref{eq:ordinal_probs} are then projected onto the unimodal simplex (by propagating non-increasing values away from the mode), clipped to $[0, 1]$, and row-normalised. The implementation is contained in the \texttt{OrdinalLightGBM.predict\_proba} method.
 
 
 \section{Model Evaluation Framework}\label{sec:methods:evaluation}

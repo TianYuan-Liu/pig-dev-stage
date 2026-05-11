@@ -1,0 +1,49 @@
+{
+  "n_panel_entries": 25,
+  "n_marker_tissue_pairs_evaluable": 30,
+  "n_window_match": 10,
+  "window_agreement_pct": 33.33,
+  "n_direction_match": 20,
+  "direction_agreement_pct": 66.67,
+  "n_both_match": 5,
+  "both_match_pct": 16.67,
+  "by_transition": [
+    {
+      "transition": "T1",
+      "n": 7,
+      "window_match": 4,
+      "direction_match": 4,
+      "window_pct": 57.1,
+      "direction_pct": 57.1
+    },
+    {
+      "transition": "T2",
+      "n": 6,
+      "window_match": 0,
+      "direction_match": 4,
+      "window_pct": 0.0,
+      "direction_pct": 66.7
+    },
+    {
+      "transition": "T3",
+      "n": 8,
+      "window_match": 2,
+      "direction_match": 7,
+      "window_pct": 25.0,
+      "direction_pct": 87.5
+    },
+    {
+      "transition": "T4",
+      "n": 9,
+      "window_match": 4,
+      "direction_match": 5,
+      "window_pct": 44.4,
+      "direction_pct": 55.6
+    }
+  ],
+  "skipped_not_in_TPM": 0,
+  "skipped_insufficient_stage_coverage": 4,
+  "skipped_expected_window_not_evaluable": 5,
+  "min_samples_per_stage": 5,
+  "random_seed": 20260511
+}

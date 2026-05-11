@@ -20,6 +20,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{multirow}
 \usepackage{pdflscape}
 \usepackage{siunitx}
@@ -189,6 +190,45 @@
   \textbf{a}, Heatmap of per-class precision, recall, and F1 scores for each developmental stage across all five tissues. Colour scale ranges from 0.4 (red, poor performance) to 1.0 (green, excellent performance). Missing values indicate developmental stages not present in that tissue's classification scheme.
   \textbf{b}, Overall performance summary showing balanced accuracy and macro-averaged F1 scores evaluated on pooled cross-validated held-out predictions for each tissue. Error bars indicate 95\% bootstrap confidence intervals from 1,000 resampling iterations.}
   \label{fig:S3}
+\end{figure}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 4: Batch-effect evaluation across all tissues (R3.1)
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/output/pdf/figS4_batch_effects.pdf}
+  \caption{\textbf{Batch-effect evaluation across five tissues: developmental stage drives visible variance even when samples span multiple BioProjects.}
+  Per-tissue uniform manifold approximation and projection (UMAP) embeddings of the top 5{,}000 most-variable genes ($\log_2(\text{TPM}+1)$), one row per tissue (muscle, brain, liver, lung, blood). \textbf{Left column}, points coloured by source \texttt{BioProject} (categorical palette). \textbf{Right column}, points coloured by developmental stage (ordered palette infant $\rightarrow$ adult). Sample counts ($n$) and the number of distinct BioProjects spanning each tissue are annotated. UMAP parameters: \texttt{n\_neighbors = 15}, \texttt{min\_dist = 0.1}, \texttt{metric = "euclidean"}, \texttt{random\_state = 42}; PCA used for upstream variance decomposition (10 components). For most tissues, infant-to-adult colour gradients are visible even where several BioProjects co-occupy the embedding, supporting the interpretation that the dominant variance components are not solely technical. Liver shows the strongest BioProject structuring; its developmental component is recovered at PC5 (see Supplementary Table~S6 for the full variance decomposition).}
+  \label{fig:S4}
+\end{figure}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 5: Tissue-specific top features (R3.4)
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/output/pdf/figS5_tissue_features.pdf}
+  \caption{\textbf{Top developmental-stage features per tissue with stage-wise expression trajectories.}
+  Heatmap of row-$z$-scored mean $\log_2(\text{TPM}+1)$ values across the five developmental stages (infant $\rightarrow$ adult) for the top 10 features per tissue, ranked by aggregate LightGBM importance across the $K-1$ binary classifiers within each tissue's calibrated ordinal model. Each panel/section corresponds to one tissue (muscle, brain, liver, lung, blood). Row order follows model importance (top to bottom = most to least important). The heatmap surfaces the timing of each gene's peak expression and the magnitude of its developmental trajectory; functional annotations for these genes are in Supplementary Table~\ref{tab:S7}.}
+  \label{fig:S5}
+\end{figure}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 6: Marker-gene validation of stage boundaries (R3.3)
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/output/pdf/figS6_marker_genes.pdf}
+  \caption{\textbf{Independent biological validation of stage boundaries using a curated panel of 25 literature-supported postnatal marker genes.}
+  Stage-wise $\log_2(\text{TPM}+1)$ trajectories (line with shaded SE band) for canonical markers of the four transition windows: T1 (suckling-to-weaning $\sim$21\,d), T2 (weaning-to-growth $\sim$60\,d), T3 (pubertal switch $\sim$150\,d), and T4 (adult maturation $\sim$365\,d). The vertical dashed line in each panel marks the literature-predicted transition. The final panel shows the per-gene observed-vs-expected window agreement (bar height indicates whether the gene's largest adjacent-stage change occurred at the predicted window). Of 30 marker $\times$ tissue pairs with adequate per-stage coverage ($\geq 5$ samples per flanking stage), 20/30 (67\%) matched the predicted direction of change and 10/30 (33\%) had their largest single-step change at the predicted transition; T1 (suckling$\rightarrow$weaning) had the highest window-match rate (4/7 = 57\%). The porcine myosin heavy-chain switch (\textit{MYH3}, \textit{MYH8}, \textit{MYH2}) was directionally correct but transitioned earlier than the assumed weaning boundary, consistent with the first-month perinatal isoform exchange documented in pig skeletal muscle. Full gene-level results are in \texttt{review/analyses/results/marker\_gene\_transitions.csv}.}
+  \label{fig:S6}
 \end{figure}
 
 \clearpage
@@ -386,6 +426,59 @@
     \bottomrule
   \end{tabular}
 \end{table}
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 6: Variance decomposition across tissues (R3.1)
+% ------------------------------------------------------------------------------
+\clearpage
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Variance decomposition of PC1--PC5 with respect to developmental stage and BioProject across five tissues.} For each tissue we projected the $\log_2(\text{TPM}+1)$ values of the top 5{,}000 most-variable genes into a 10-component PCA. For each principal component we fit ordinary-least-squares models $\text{PC} \sim \text{Stage}$, $\text{PC} \sim \text{BioProject}$, and the combined $\text{PC} \sim \text{Stage} + \text{BioProject}$, and report the coefficient of determination ($R^2$). $n_{\text{samples}}$ is the number of samples per tissue available after merging metadata; $n_{\text{projects}}$ is the number of distinct BioProjects represented. BioProject explains the larger absolute variance share in every tissue because most PigGTEx projects sample a single narrow age window (Stage and BioProject are partially confounded by design); however, stage alone still explains a substantial fraction of PC1 variance in muscle, brain, lung, and blood, and is recovered at later PCs in liver (PC5 $R^2_{\text{stage}} = 0.29$).}
+  \label{tab:S6}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{llccccc}
+    \toprule
+    Tissue & PC & $R^2_{\text{stage}}$ & $R^2_{\text{bioproject}}$ & $R^2_{\text{combined}}$ & $n_{\text{projects}}$ & $n_{\text{samples}}$ \\
+    \midrule
+    Muscle & PC1 & 0.403 & 0.803 & 0.884 & 56 & 761 \\
+    Muscle & PC2 & 0.242 & 0.750 & 0.798 & 56 & 761 \\
+    Muscle & PC3 & 0.156 & 0.862 & 0.884 & 56 & 761 \\
+    Muscle & PC4 & 0.242 & 0.718 & 0.797 & 56 & 761 \\
+    Muscle & PC5 & 0.038 & 0.846 & 0.848 & 56 & 761 \\
+    \midrule
+    Brain & PC1 & 0.648 & 0.954 & 0.956 & 6 & 43 \\
+    Brain & PC2 & 0.308 & 0.922 & 0.922 & 6 & 43 \\
+    Brain & PC3 & 0.803 & 0.991 & 0.994 & 6 & 43 \\
+    Brain & PC4 & 0.163 & 0.923 & 0.943 & 6 & 43 \\
+    Brain & PC5 & 0.136 & 0.478 & 0.504 & 6 & 43 \\
+    \midrule
+    Liver & PC1 & 0.016 & 0.935 & 0.936 & 34 & 309 \\
+    Liver & PC2 & 0.167 & 0.962 & 0.963 & 34 & 309 \\
+    Liver & PC3 & 0.216 & 0.920 & 0.920 & 34 & 309 \\
+    Liver & PC4 & 0.110 & 0.869 & 0.880 & 34 & 309 \\
+    Liver & PC5 & 0.292 & 0.641 & 0.778 & 34 & 309 \\
+    \midrule
+    Lung & PC1 & 0.333 & 0.881 & 0.916 & 20 & 129 \\
+    Lung & PC2 & 0.563 & 0.895 & 0.914 & 20 & 129 \\
+    Lung & PC3 & 0.218 & 0.813 & 0.842 & 20 & 129 \\
+    Lung & PC4 & 0.077 & 0.752 & 0.800 & 20 & 129 \\
+    Lung & PC5 & 0.119 & 0.904 & 0.904 & 20 & 129 \\
+    \midrule
+    Blood & PC1 & 0.545 & 0.806 & 0.817 & 7 & 78 \\
+    Blood & PC2 & 0.370 & 0.954 & 0.960 & 7 & 78 \\
+    Blood & PC3 & 0.344 & 0.727 & 0.746 & 7 & 78 \\
+    Blood & PC4 & 0.128 & 0.794 & 0.814 & 7 & 78 \\
+    Blood & PC5 & 0.327 & 0.914 & 0.930 & 7 & 78 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 7: Top-20 features per tissue (R3.4)
+% ------------------------------------------------------------------------------
+\clearpage
+\input{figures/output/supplementary/tableS7_tissue_features.tex}
 
 \bibliographystyle{unsrtnat}
 \bibliography{pig-age-human/pig-age-human}

@@ -109,10 +109,24 @@ collected bulk RNA-seq data from porcine postnatal stages. So, the authors
 should explain their limitations.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R1.1 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R1.1 task]}}
+\response{We agree completely. The original phrasing ``the entire postnatal
+lifespan'' implicitly suggested whole-of-development coverage, which we did
+not intend. We have (i) replaced the offending sentence in Results~2.1 to
+make the postnatal-only window explicit (``\,covering the postnatal lifespan
+from the day of birth to beyond 365~days of age; prenatal (embryonic and
+fetal) development is outside the scope of the present atlas, since the
+PigGTEx resource does not include systematic, multi-tissue prenatal sampling
+and addressing this developmental window would require dedicated prenatal
+sample collection\,''), and (ii) added an explicit Limitations item (now the
+\emph{first} limitation enumerated) clarifying that no claim is made about
+prenatal trajectories and that integration with single-cell atlases of
+porcine organogenesis is the natural complement to our postnatal staging.
+We thank the reviewer for catching this important framing issue.}
+\changeloc{\texttt{paper/paper.tex} Result 2.1 paragraph (the sentence
+beginning ``The dataset comprises 1{,}924 samples\dots'') and the first
+paragraph of the Limitations subsection in the Discussion;
+\texttt{thesis/MPhilThesis-Latex-Template/5\_Discussion/5\_Discussion.tex}
+new ``Postnatal-Only Atlas Scope'' subsubsection.}
 
 \begin{reviewerbox}{R1.2 — Cross-species expansion (Cardoso-Moreira 2019)}
 For Result 2.4 \emph{Evolutionary conservation with human development}. The
@@ -158,10 +172,39 @@ ordinal relationship of the cumulative probabilities would be useful for
 practitioners seeking to implement similar models.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R2.2 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R2.2 task]}}
+\response{We thank the reviewer for these methodological clarification
+requests; the points are well-taken and have improved the transparency of
+the manuscript. We have expanded the Methods accordingly in two ways.
+First, the recovery of class probabilities from cumulative predictions is
+now stated explicitly with the exact formula the reviewer suggested:
+\[
+\Pr(y = c \mid x) \;=\; \Pr(y > c-1 \mid x) \;-\; \Pr(y > c \mid x),
+\]
+under the boundary conventions $\Pr(y > -1 \mid x) = 1$ and
+$\Pr(y > K{-}1 \mid x) = 0$, with explicit edge cases for $c=0$ and
+$c=K-1$. Second, we have corrected a misleading statement about monotone
+constraints. Our implementation does \emph{not} use LightGBM's
+\texttt{monotone\_constraints} parameter (which constrains the sign of
+the partial derivative of a tree ensemble with respect to a specific
+input feature, and is therefore unrelated to the ordinal output
+structure). Instead, monotonicity of the cumulative probabilities is
+enforced through two deterministic post-hoc projections at inference
+time: (i) sequential clipping of the cumulative probabilities so that
+$\widehat{\Pr}(y > k) \leftarrow \min(\widehat{\Pr}(y > k),
+\widehat{\Pr}(y > k-1))$ for $k \geq 1$, restoring the non-increasing
+ordering required by the differencing identity above, and (ii)
+projection of the resulting class probabilities onto the unimodal
+simplex by propagating non-increasing values away from the predicted
+mode. Both projections are deterministic, applied uniformly during
+training and inference, and are implemented in the
+\texttt{OrdinalLightGBM.predict\_proba} method of the released codebase.
+We hope this is a useful template for practitioners.}
+\changeloc{\texttt{paper/paper.tex} Methods section ``Machine learning
+framework'' (Equation~(1) is unchanged; the surrounding paragraphs have
+been expanded with explicit boundary conditions and an accurate
+description of the post-hoc monotonicity projections);
+\texttt{thesis/MPhilThesis-Latex-Template/3\_Methodology/3\_Methodology.tex}
+``Monotonic Constraint Post-Processing'' subsection updated to match.}
 
 \begin{reviewerbox}{R2.3 — Web app input requirements / preprocessing guide}
 The interactive web application is a valuable resource. However, the
@@ -221,10 +264,52 @@ entire dataset to demonstrate that the developmental signals are not artifacts
 of technical variation.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R3.1 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R3.1 task]}}
+\response{We thank the reviewer for this important and well-targeted comment.
+We agree that within-project muscle validation alone is insufficient to
+demonstrate that batch effects are not driving developmental signals in the
+remaining tissues, and we have therefore added a global, multi-tissue
+batch-effect evaluation.
+
+\textbf{New analysis (Supplementary Fig.~S4; Supplementary Table~S6).} For
+each of the five focal tissues (muscle, brain, liver, lung, blood) we
+$\log_2$(TPM$+$1)-transformed the expression matrix, retained the
+5{,}000 most-variable genes, and computed PCA (10 components) and UMAP
+(\texttt{n\_neighbors\,=\,15}, \texttt{min\_dist\,=\,0.1},
+\texttt{metric\,=\,"euclidean"}, \texttt{random\_state\,=\,42}). For
+PC1--PC5 we fit OLS models $\text{PC}\!\sim\!\text{Stage}$,
+$\text{PC}\!\sim\!\text{BioProject}$, and the combined model with one-hot
+encoded factors, and report the corresponding $R^2$ values together with
+the silhouette scores in PC-10 space.
+
+\textbf{Honest framing of the results.} Developmental stage alone
+explains a substantial fraction of PC1 variance in four of the five
+tissues---muscle $R^2_{\text{stage}}=0.40$ (758 samples from 56
+BioProjects), brain $0.65$ (43/6), lung $0.33$ (129/20), and blood
+$0.55$ (78/7)---and the UMAPs in Supplementary Fig.~S4 show visible
+infant-to-adult gradients within tissues even where multiple BioProjects
+co-occupy the same region of the embedding. Liver is the most
+batch-structured tissue at PC1 ($R^2_{\text{stage}}=0.02$ vs
+$R^2_{\text{bioproject}}=0.94$, 309 samples / 34 projects); its
+developmental component is recovered at PC5
+($R^2_{\text{stage}}=0.29$), and held-out balanced accuracy for liver
+remains 0.921. We acknowledge in the Discussion that BioProject explains
+the larger absolute variance share in every tissue---an expected
+consequence of the PigGTEx sampling design, in which most projects
+sample a single narrow age window so that Stage and BioProject are
+partially confounded by design---and we therefore do not claim that the
+embedding is batch-free. The combined evidence (within-project muscle
+fold-change replication, visible UMAP stage gradients in 4/5 tissues,
+held-out balanced accuracies of 0.81--0.96, and the cross-species
+correlation of $r=0.69$ in muscle) supports the conclusion that the
+developmental signal captured by our models is biological rather than
+purely technical. The full embeddings, variance-decomposition table, and
+silhouette scores are reproducible from
+\texttt{review/analyses/batch\_effect\_visualization.py}.}
+\changeloc{New Supplementary Fig.~S4 and Supplementary Table~S6;
+\texttt{paper/paper.tex} Discussion ``Several limitations\,\ldots'' paragraph
+now references and quantifies the batch-effect analysis;
+\texttt{thesis/.../5\_Discussion/5\_Discussion.tex} ``Robustness to Batch
+Effects'' subsection updated to match.}
 
 \begin{reviewerbox}{R3.2 — Cross-species methodology (one-to-one orthologs)}
 Details on Cross-Species Comparison: The cross-species validation is a key
@@ -257,10 +342,51 @@ the defined boundaries would provide independent biological support for the
 staging framework.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R3.3 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R3.3 task]}}
+\response{We thank the reviewer for this excellent suggestion. To provide
+independent biological support for the staging framework, we have added a
+curated marker-gene validation (Supplementary Fig.~S6;
+\texttt{review/analyses/results/marker\_gene\_transitions.csv}).
+
+\textbf{Panel.} 25 literature-supported postnatal mammalian markers were
+selected to span the four transition windows of our framework:
+suckling$\rightarrow$weaning at $\sim$21\,d (\emph{AFP}, \emph{ALB},
+\emph{IGF1}, \emph{IGF2}, \emph{LCT}, \dots); weaning$\rightarrow$growth
+at $\sim$60\,d (\emph{MYH3}, \emph{MYH8}, \emph{MYH2}, \emph{MSTN},
+\emph{IGFBP5}, \emph{MBP}, \emph{PLP1}, \emph{SYP}); the pubertal switch
+at $\sim$150\,d (\emph{INSL3}, \emph{LHB}, \emph{AR}, \emph{ESR1},
+\emph{GHR}); and adult maturation at $\sim$365\,d (\emph{CDKN2A},
+\emph{LMNA}, \emph{SIRT1}, \emph{SIRT3}, \emph{MKI67}).
+
+\textbf{Test.} For each marker$\times$tissue pair we computed mean
+$\log_2(\mathrm{TPM}+1)$ per stage, fit one-way ANOVA with Tukey--HSD
+post-hoc, and recorded the adjacent-stage pair with the largest mean
+difference. After excluding pairs with fewer than five samples per
+flanking stage, 30 marker$\times$tissue combinations were evaluable.
+
+\textbf{Results.} 20/30 (67\%) matched the literature-predicted direction
+of change; 10/30 (33\%) had their largest single-step change at the
+exact predicted transition window; T1 (suckling$\rightarrow$weaning)
+had the highest window-match rate (4/7 = 57\%). The most informative
+miss is the porcine myosin heavy-chain switch (\emph{MYH3}, \emph{MYH8},
+\emph{MYH2}), which was directionally correct but transitioned earlier
+than the assumed boundary (Infant$\rightarrow$Early childhood rather
+than Early childhood$\rightarrow$Pre-pubertal), consistent with the
+first-month perinatal isoform exchange reported in pig skeletal muscle.
+
+We have not used these results to retro-fit the stage boundaries
+(doing so would invalidate the model evaluation that we report); rather
+we have added a paragraph in the Discussion presenting this analysis as
+\emph{partial, independent} biological support for the framework
+together with an explicit qualification that some boundaries (notably
+the myosin-switch midpoint and the post-pubertal$\rightarrow$adult
+boundary in lung and brain, which are sparsely sampled) are
+approximations. Twenty-five proposed BibTeX entries for the panel
+references have been written to \texttt{review/new\_bib\_entries.bib} so
+the corresponding author can paste them into the shared bibliography.}
+\changeloc{New Supplementary Fig.~S6; \texttt{paper/paper.tex} Discussion
+paragraph immediately following the ``noisy-labels'' paragraph;
+\texttt{thesis/.../5\_Discussion/5\_Discussion.tex} new
+``Independent Marker-Gene Validation of Stage Boundaries'' subsection.}
 
 \begin{reviewerbox}{R3.4 — Tissue-specific top features}
 Interpretability of Tissue-Specific Models: The paper highlights that
@@ -273,10 +399,54 @@ enhance the utility of the atlas, offering insights into the unique molecular
 logic of each tissue's development.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R3.4 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R3.4 task]}}
+\response{We thank the reviewer for this constructive suggestion; addressing
+it has materially improved the interpretability of the atlas. We have
+added Supplementary Table~S7 listing the top~20 features per tissue ranked
+by aggregate LightGBM importance, together with a brief functional
+description (drawn from mygene.info and UniProt REST, with placeholder
+rows for top-ranked features that returned no curated description from
+either resource---predominantly novel pig loci and uncharacterised
+\texttt{LOC} entries), the peak developmental stage, and the
+peak-vs-trough fold change in mean $\log_2(\text{TPM}+1)$. A companion
+heatmap (Supplementary Fig.~S5) displays row-$z$-scored trajectories of
+the top~10 genes per tissue across the five stages, making the timing of
+each transition immediately visible.
+
+For the four non-muscle tissues, biologically coherent stage-defining
+genes that were not previously discussed emerge:
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+  \item \textbf{Brain:} ketogenic enzyme \emph{HMGCS2} (infant peak) and
+        Hippo-pathway kinase \emph{LATS1} (post-pubertal peak),
+        consistent with a metabolic-to-circuit-maturation transition
+        during postnatal cortical development.
+  \item \textbf{Liver:} \emph{ALDH18A1} (proline/ornithine biosynthesis)
+        and \emph{COL1A1} peak in infancy alongside post-pubertal-peaking
+        transcription factors \emph{SATB2} and \emph{CDH7}, mirroring
+        the amino-acid-anabolism-to-mature-hepatocyte programme.
+  \item \textbf{Lung:} matricellular \emph{CCN5} (post-pubertal; fold
+        change 2.71) and adhesion molecule \emph{L1CAM} dominate
+        alveolar maturation; the oncofetal RNA-binder \emph{IGF2BP2}
+        (infant peak)---also a top cross-species muscle marker---
+        signals neonatal mesenchymal growth, suggesting a shared
+        early-postnatal proliferation programme across mesodermal
+        tissues.
+  \item \textbf{Blood:} ribosomal \emph{RPLP1} (infant peak; fold change
+        3.14) and the chemokine receptor \emph{CCR6} (post-pubertal)
+        track a neonatal ribosomal/transcriptional surge and adaptive-
+        immune maturation respectively.
+\end{itemize}
+
+Placeholder rows in Supplementary Table~S7 are retained intentionally so
+that readers can see which top-ranked features remain functionally
+uncharacterised in the pig genome---identifying clear opportunities for
+follow-up annotation. The table and figure are reproducible from
+\texttt{review/analyses/tissue\_specific\_features.py} (the script
+caches API responses locally).}
+\changeloc{New Supplementary Fig.~S5 and Supplementary Table~S7;
+\texttt{paper/paper.tex} Results section 2.3 has a new paragraph after the
+cross-tissue feature-overlap discussion;
+\texttt{thesis/.../4\_Results/4\_Results.tex} new ``Tissue-Specific Top
+Features'' subsection added to Section~4.}
 
 \subsection*{Minor concerns}
 
@@ -288,10 +458,27 @@ specific classification challenges (e.g., misclassification between adjacent
 stages).
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R3.m1 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R3.m1 task]}}
+\response{Agreed. We have rewritten the paragraph that introduces the
+confusion matrices in Results~2.2 to surface the matrices more explicitly
+and to tie them to the per-class precision/recall/F$_1$ heatmap
+(Supplementary Fig.~S3a) and per-class values in Supplementary
+Table~S2. The new text reads (paraphrased): ``Inspection of the per-tissue
+confusion matrices (Fig.~2b) confirms that residual misclassifications
+are concentrated almost exclusively between \emph{adjacent}
+developmental stages---for example, infant samples occasionally
+classified as early childhood, or pre-pubertal samples classified as
+post-pubertal---rather than being distributed randomly across the
+ordinal scale. Together with the per-stage precision/recall/F$_1$
+heatmap (Supplementary Fig.~S3a) and per-class values reported in
+Supplementary Table~S2, these patterns indicate that the most difficult
+decision boundaries lie at the genuinely continuous transitions of
+postnatal biology (notably the early-childhood-to-pre-pubertal
+transition, where post-weaning physiology overlaps with juvenile
+growth), rather than at boundaries of equal biological difficulty.''
+The figure and table references now appear in the same sentence as the
+narrative claim, addressing the reviewer's concern.}
+\changeloc{\texttt{paper/paper.tex} Results~2.2 paragraph immediately
+following the ordinal-consistency sentence.}
 
 \begin{reviewerbox}{R3.m2 — Infant-vs-adult comparison gap implications}
 Limitations: The authors acknowledge the limitations of the human dataset
@@ -301,10 +488,38 @@ How might the inclusion of childhood/adolescent data affect the observed
 correlations? Addressing this theoretically would strengthen the discussion.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R3.m2 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R3.m2 task]}}
+\response{We have expanded the relevant Limitations paragraph to address
+this directly. The text now spells out that the reported $r=0.69$
+summarises agreement of \emph{net} infant-to-adult $\log_2$ fold
+changes, not of trajectory shapes, and enumerates three possible
+outcomes had childhood/adolescent samples been available for any given
+gene:
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+  \item the gene's monotonic infant$\rightarrow$adult direction is
+        preserved through intermediate ages, strengthening the
+        conservation claim for that gene;
+  \item the gene exhibits a transient peak or trough at an intermediate
+        human stage (e.g.\ around puberty), refining---rather than
+        overturning---the directional concordance and improving
+        pig$\leftrightarrow$human stage alignment;
+  \item the trajectory shape diverges qualitatively, identifying
+        species-specific re-routing of the developmental program.
+\end{itemize}
+Because our current analysis cannot distinguish these scenarios, we have
+framed all conservation claims in net infant-to-adult terms and note
+that our cross-species inferences should be read as evidence of
+\emph{directional} conservation of the overall maturation programme
+rather than of \emph{trajectory-shape} conservation. Resolving this
+will require human postnatal muscle RNA-seq cohorts with at least one
+childhood and one adolescent sample group; we explicitly flag this as a
+priority for future work and point at dGTEx~\cite{coorens_human_2025}
+and the multi-organ developmental atlas of
+Cardoso-Moreira~\textit{et~al.}~\cite{cardoso-moreira_gene_2019} as the
+natural data sources.}
+\changeloc{\texttt{paper/paper.tex} expanded ``Third\,\ldots'' point of
+the Limitations paragraph in the Discussion;
+\texttt{thesis/.../5\_Discussion/5\_Discussion.tex} expanded
+``Human Validation Dataset Size'' subsubsection.}
 
 % -----------------------------------------------------------------------------
 \section*{Closing}
