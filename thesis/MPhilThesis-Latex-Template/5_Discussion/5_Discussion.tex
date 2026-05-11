@@ -60,7 +60,7 @@ The identification of conserved developmental modules between pig and human musc
 
 \subsubsection{Neuromuscular Maturation and Growth Signalling Module}
 
-The conserved high infant expression of ACHE, NRK, KREMEN1, IGF2BP2, SORCS2, ETV5, IGF2BP3, and CCDC8, which decreases during development, points to the importance of neuromuscular junction maturation and growth signalling as conserved developmental processes.
+The conserved high infant expression of \textit{ACHE}, \textit{NRK}, \textit{KREMEN1}, \textit{IGF2BP2}, \textit{SORCS2}, \textit{ETV5}, \textit{IGF2BP3}, and \textit{CCDC8}, which decreases during development, points to the importance of neuromuscular junction maturation and growth signalling as conserved developmental processes.
 
 ACHE (acetylcholinesterase) is essential for terminating synaptic transmission at the neuromuscular junction \parencite{rotundo_expression_2003}. Its high infant expression that decreases during maturation in both species suggests dynamic remodelling of neuromuscular transmission during postnatal muscle development.
 
@@ -200,6 +200,10 @@ Larger datasets would enable more granular staging for all tissues and would imp
 Uneven representation of developmental stages in the available data required the use of class weighting and adaptive scheme selection. While these approaches mitigate the effects of imbalance, they cannot fully compensate for the limited information available about underrepresented stages.
 
 Future data collection efforts should prioritise balanced sampling across developmental stages to enable more robust model training.
+
+\subsubsection{Within-Stage Demographic Heterogeneity}
+
+Within each chronological stage, the cohort is not balanced for breed, sex, or contributing BioProject. A post-hoc stratification audit and subgroup-sensitivity replay of the published cross-validation predictions was performed (\texttt{review/analyses/heterogeneity\_sensitivity.py}), reusing the 5-fold outer split and per-fold hyperparameters from the trained models so that fold-level balanced accuracies are bit-identical to the published values. Three findings emerge (\figref{fig:S8}). First, the breed distribution shifts substantively across stages: in muscle, dominant-breed identity moves from Landrace (Infant, 89/194 = 46\%) to Duroc (Early childhood, 47/76 = 62\%) to Duroc $\times$ Pietrain (Post-pubertal, 167/396 = 42\%); the brain Infant set is 96\% a single PIC cross. Second, per-subgroup balanced accuracy varies beyond chance for muscle (Sex: observed std($BA$) = 0.096, $p = 0.005$; BioProject: 0.177, $p = 0.014$) and liver (Breed: 0.152, $p = 0.008$), but is consistent with chance for brain/Sex, liver/Sex, and lung/Sex (all $p \geq 0.23$). Third, per-subgroup BAs span 0.61 (muscle, Large white, $n = 68$) to 1.00 (muscle, Yorkshire, $n = 12$; liver, Landrace, $n = 51$); the marginal estimates remain within the overall ranges reported in Chapter~\ref{chapter:results}. The per-stage classifier is therefore calibrated to the breed and sex composition of PigGTEx; deployment to cohorts dominated by under-represented breeds (notably Large white for muscle) or to pooled-sex studies should include re-calibration on the new cohort. Future, prospectively balanced developmental atlases across multiple commercial and indigenous breeds will be needed to give a fully breed-agnostic statement.
 
 \subsubsection{Postnatal-Only Atlas Scope}
 

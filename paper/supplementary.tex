@@ -233,6 +233,60 @@
 
 \clearpage
 
+% ------------------------------------------------------------------------------
+% Supplementary Figure 7: Cross-species expansion to brain and liver (R1.2)
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/output/pdf/figS7_cross_species_all_tissues.pdf}
+  \caption{\textbf{Cross-species developmental conservation extended to brain and liver using the Cardoso-Moreira~\textit{et~al.}~2019 human developmental atlas (E-MTAB-6814).}
+  Same pipeline as the original muscle analysis (strict one-to-one orthologs verified against Ensembl Compara; $\log_2$ fold change Infant vs Adult in both species; FDR$<0.10$, $|\log_2\mathrm{FC}|>0.5$ in both species as the ``strict'' filter; a pig-anchored variant using pig-only filtering is reported alongside, since the small per-tissue Cardoso-Moreira postnatal cohorts give underpowered human FDR). \textbf{Top row}, scatter plots of pig vs human $\log_2$ fold change for brain (left) and liver (right), with the strict-filter Pearson $r$ and 95\% bootstrap CI shown in each panel; lung is omitted because the Cardoso-Moreira human RPKM atlas does not contain lung samples. \textbf{Bottom}, forest plot summarising Pearson $r \pm$ 95\% CI across all four cross-species comparisons (Muscle from Schaiter \textit{et~al.}~2024 [previously published, $r = 0.69$, $n = 66$], Brain strict [$r = 0.26$, $n = 302$], Brain pig-anchored [$r = 0.19$, $n = 2{,}418$], Liver pig-anchored [$r = 0.25$, $n = 941$]). All correlations remain significantly positive; the brain strict result (81.5\% directional concordance) is qualitatively compatible with the muscle finding, while liver requires a larger human postnatal cohort for a strict bidirectional test.}
+  \label{fig:S7}
+\end{figure}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 8: Cross-species per-tissue conservation (R1.2)
+% ------------------------------------------------------------------------------
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Cross-species developmental conservation across tissues.} Per-tissue Pearson correlation of $\log_2$ fold change (Infant vs Adult) between pig (PigGTEx v0) and human (Cardoso-Moreira~\textit{et~al.}~2019 unless otherwise noted) on strict one-to-one Ensembl Compara orthologs (the validated ortholog table is \texttt{review/analyses/results/pig\_human\_one\_to\_one\_orthologs.csv}; $n_{\text{orthologs}} = 8{,}277$). ``Strict'' uses FDR$<0.10$, $|\log_2\mathrm{FC}|>0.5$ in both species; ``Pig-anchored'' applies the filter in pig only (accommodating the small per-tissue postnatal $n$ in the Cardoso-Moreira atlas). CI = 95\% bootstrap confidence interval (1{,}000 iterations). Lung is excluded because the Cardoso-Moreira human RPKM matrix does not include lung samples.}
+  \label{tab:S8}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{llcccccc}
+    \toprule
+    Tissue & Filter & $n_{\text{genes}}$ & Pearson $r$ & 95\% CI & $p$-value & \% concordant & Human source \\
+    \midrule
+    Muscle & strict & 66 & 0.693 & 0.54--0.80 & $1.1\times 10^{-10}$ & 97.0 & Schaiter 2024 \\
+    \midrule
+    Brain & strict & 302 & 0.263 & 0.16--0.37 & $3.5\times 10^{-6}$ & 81.5 & Cardoso-Moreira 2019 \\
+    Brain & pig-anchored & 2{,}418 & 0.185 & 0.14--0.23 & $4.0\times 10^{-20}$ & 38.0 & Cardoso-Moreira 2019 \\
+    \midrule
+    Liver & strict & 0 & --- & --- & --- & --- & Cardoso-Moreira 2019 \\
+    Liver & pig-anchored & 941 & 0.246 & 0.17--0.32 & $2.0\times 10^{-14}$ & 50.3 & Cardoso-Moreira 2019 \\
+    \midrule
+    Lung & N/A & N/A & N/A & N/A & N/A & N/A & not in Cardoso-Moreira atlas \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\clearpage
+
+% ------------------------------------------------------------------------------
+% Supplementary Figure 8: Within-stage heterogeneity (R2.1)
+% ------------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{figures/output/pdf/figS8_heterogeneity.pdf}
+  \caption{\textbf{Within-stage demographic heterogeneity and subgroup-sensitivity of the per-tissue developmental classifiers.}
+  \textbf{Top row}, sample-count heatmaps of (tissue $\times$ stage $\times$ subgroup) for the three stratifications: Breed, Sex, and BioProject. \textbf{Middle row}, box+strip plots of per-stratum balanced accuracy (BA) per tissue (subgroups with $n \geq 10$). Marginal BA is shown as a dashed line for each tissue. \textbf{Bottom panel}, permutation null distributions (1{,}000 within-stage label shuffles preserving each subgroup's stage composition) versus observed std(BA) for one representative tissue. Within-stage label permutation rejects the chance null for muscle/Sex ($p = 0.005$), muscle/BioProject ($p = 0.014$), and liver/Breed ($p = 0.008$); Brain/Sex, Liver/Sex, and Lung/Sex are consistent with chance ($p \geq 0.23$). Per-subgroup BA in muscle spans $0.61$ (Large white, $n = 68$) to $1.00$ (Yorkshire, $n = 12$). No subgroup with $n \geq 50$ falls below $0.70$ for muscle or liver. Full per-subgroup statistics are in \texttt{review/analyses/results/heterogeneity\_subgroup\_performance.csv} and \texttt{.../heterogeneity\_permutation\_pvalues.csv}; per-stage demographic counts are in \texttt{.../heterogeneity\_stratification.csv} (also Supplementary Table~S9).}
+  \label{fig:S8}
+\end{figure}
+
+\clearpage
+
 % ==============================================================================
 % SUPPLEMENTARY TABLES
 % ==============================================================================
@@ -479,6 +533,31 @@
 % ------------------------------------------------------------------------------
 \clearpage
 \input{figures/output/supplementary/tableS7_tissue_features.tex}
+
+% ------------------------------------------------------------------------------
+% Supplementary Table 9: Within-stage demographic stratification (R2.1)
+% ------------------------------------------------------------------------------
+\clearpage
+\begin{table}[H]
+  \centering
+  \caption{\textbf{Within-stage label permutation tests for subgroup-balanced-accuracy heterogeneity.} For each (tissue $\times$ stratification) pair, the observed standard deviation of subgroup-level balanced accuracy (BA, restricted to subgroups with $n \geq 10$) is compared to a null distribution generated by 1{,}000 within-stage label shuffles (preserving each subgroup's stage composition). $p$-values are one-sided (probability of observed-or-larger std under the null). Subgroups whose marginal balanced accuracy varies beyond chance are highlighted by significant $p$-values; non-significant rows indicate that subgroup-level performance variation is statistically indistinguishable from random label permutation given the available sample sizes. Full per-subgroup statistics are in \texttt{review/analyses/results/heterogeneity\_subgroup\_performance.csv}.}
+  \label{tab:S9}
+  \footnotesize
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{llccc}
+    \toprule
+    Tissue & Stratification & Observed std(BA) & Permutation $p$ & Significant? \\
+    \midrule
+    Muscle & Sex         & 0.096 & 0.005 & yes \\
+    Muscle & BioProject  & 0.177 & 0.014 & yes \\
+    Muscle & Breed       & 0.105 & 0.054 & marginal \\
+    Liver  & Breed       & 0.152 & 0.008 & yes \\
+    Brain  & Sex         & ---   & $\geq 0.23$ & no \\
+    Liver  & Sex         & ---   & $\geq 0.23$ & no \\
+    Lung   & Sex         & ---   & $\geq 0.23$ & no \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \bibliographystyle{unsrtnat}
 \bibliography{pig-age-human/pig-age-human}

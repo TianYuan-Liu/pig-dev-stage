@@ -844,6 +844,46 @@ If your data is already log2-transformed, check the box below.
 At least 1,000 matching genes are recommended for reliable predictions.
             """)
 
+        with st.expander("Using data with different annotations or microarray data"):
+            st.markdown("""
+The classifier was trained on the PigGTEx v0 Ensembl porcine annotation
+(31,908 genes). For datasets that use different annotations or platforms,
+follow the guidance below.
+
+**Gene symbols instead of Ensembl IDs.** Convert gene symbols to
+`ENSSSCG` identifiers before upload (e.g. via `mygene.info`,
+BioMart, or the Ensembl REST homology endpoint). Verify that at least
+80% of the model's expected genes are matched in the resulting file
+(the percentage is shown above the prediction results); below that
+threshold, predictions should be treated as exploratory.
+
+**RefSeq or alternative Ensembl assemblies.** Lift identifiers to the
+PigGTEx Ensembl IDs (`Sscrofa11.1`-style `ENSSSCG`) before upload. Use
+the latest Ensembl REST `xref` endpoint or the BioMart cross-reference
+tables. Cross-assembly differences mainly affect novel/long-noncoding
+loci; protein-coding overlap is typically high.
+
+**Microarray data (e.g. Affymetrix Porcine Genome arrays).** Convert
+probe-set IDs to Ensembl gene IDs via the platform's annotation file;
+aggregate multiple probes per gene by mean or median signal; upload
+the resulting matrix as a "log2-transformed" dataset (microarray
+intensities are typically log2-distributed). Note that the model was
+trained on RNA-seq TPM and its dynamic range differs from microarrays;
+prediction confidence should be interpreted accordingly.
+
+**Out-of-distribution cohorts.** The classifier is calibrated to the
+breed/sex composition of PigGTEx, in which no stage is a balanced
+mixture of breeds. For cohorts dominated by under-represented breeds
+(notably Large white for muscle, where balanced accuracy drops to
+0.61), or for pooled-sex tissue, we recommend re-calibration on a
+small in-house cohort before treating the prediction as authoritative.
+
+**Single-cell RNA-seq.** The classifier was trained on bulk samples
+and expects pseudo-bulk (per-sample summed or averaged) expression
+values. Apply per-cell-type or whole-sample pseudo-bulking before
+upload.
+            """)
+
         if uploaded is not None:
             user_df = parse_upload(uploaded)
 

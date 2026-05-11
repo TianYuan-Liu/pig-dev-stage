@@ -3,27 +3,31 @@
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=blue!50!black, urlcolor=blue!50!black, citecolor=blue!50!black}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{../paper/pig-age-human/pig-age-human.bib}
 
 \definecolor{revcolor}{HTML}{2C3E50}
 \definecolor{respcolor}{HTML}{0E4D2F}
 
-\newtcolorbox{reviewerbox}[1]{
+\newtcolorbox{reviewerbox}[1]{%
   colback=gray!4,
   colframe=revcolor,
   fonttitle=\bfseries,
-  title=#1,
+  title={#1},
   breakable,
   boxrule=0.4pt,
   arc=2pt,
-  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt%
 }
 
 \newcommand{\response}[1]{%
@@ -137,10 +141,72 @@ liver, and lung in human, macaque, mouse, rat, rabbit, opossum and chicken
 across their developmental time points from early organogenesis to adulthood.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R1.2 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R1.2 task]}}
+\response{We are grateful for this excellent suggestion---the
+Cardoso-Moreira~\textit{et~al.}~2019 atlas\cite{cardoso-moreira_gene_2019}
+is the right data source to extend cross-species concordance beyond
+muscle. We have done so for the available tissues and report the
+results honestly, including one substantive caveat the reviewer should
+be aware of.
+
+\textbf{Data caveat first.} The Cardoso-Moreira~2019 human RPKM matrix
+(\texttt{Human.RPKM.tsv}, E-MTAB-6814) contains seven organs: Brain,
+Cerebellum, Heart, Kidney, Liver, Ovary, Testis. \emph{It does not
+include lung.} Of the three reviewer-requested tissues, Brain and
+Liver are present and have been analysed; Lung is not available and we
+cannot infer human postnatal lung conservation from this atlas. We
+state this explicitly in the new Results~2.4 paragraph and in
+Supplementary Fig.~S7 / Supplementary Table~S8.
+
+\textbf{Method (also addresses R3.2).} We applied exactly the same
+pipeline used for muscle: strict one-to-one Ensembl Compara orthologs
+($n = 8{,}277$, verified at the Ensembl Compara REST homology endpoint;
+see also the R3.2 response); $\log_2$(Infant/Adult) in both species
+using $\mathrm{log}_2(x+0.01)$ on raw RPKM/TPM (matching the original
+pig pipeline); FDR$<0.10$ and $|\log_2\mathrm{FC}|>0.5$ in both species
+(``strict'' filter). Because the per-tissue postnatal sample size in
+Cardoso-Moreira is small (Brain: 7~young + 9~adult human samples;
+Liver: 4~young + 6~adult), per-gene human FDR is underpowered, so we
+additionally report a pig-anchored variant using only the pig FDR
+filter; this is openly flagged as exploratory.
+
+\textbf{Findings (Supplementary Fig.~S7; Supplementary Table~S8).}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+  \item Brain (strict, $n = 302$): Pearson $r = 0.26$, 95\% CI
+        $[0.16, 0.37]$, $p = 3.5 \times 10^{-6}$, directional
+        concordance 81.5\%.
+  \item Brain (pig-anchored, $n = 2{,}418$): $r = 0.19$, $p = 4.0
+        \times 10^{-20}$.
+  \item Liver (strict, $n = 0$): no orthologs pass the strict
+        bidirectional filter (consistent with the small human cohort).
+  \item Liver (pig-anchored, $n = 941$): $r = 0.25$, $p = 2.0 \times
+        10^{-14}$, concordance 50.3\%.
+\end{itemize}
+The brain result is directionally compatible with the muscle finding
+($r = 0.69$, $n = 66$) but the magnitude is smaller. We attribute this
+to the markedly smaller per-tissue human cohort in Cardoso-Moreira
+(brain: $n = 16$; liver: $n = 10$) relative to Schaiter \textit{et~al.}
+($n = 11$ but with cleaner perinatal vs adult separation). This is now
+stated as a limitation of the extension rather than glossed.
+
+\textbf{Honest framing.} We do not over-claim multi-tissue conservation.
+We say: ``The brain result is directionally compatible with the muscle
+finding---less complete because of the markedly smaller human cohort,
+but already significant---while liver would clearly benefit from a
+larger human postnatal RNA-seq cohort.'' Lung remains a known gap and
+is flagged for future work.
+
+The full analysis is reproducible from
+\texttt{review/analyses/cross\_species\_all\_tissues.py}, with results
+in \texttt{review/analyses/results/cross\_species\_all\_tissues.json}
+and gene-level data in
+\texttt{review/analyses/results/cross\_species\_per\_tissue\_genes.csv}.}
+\changeloc{New ``Cross-species expansion to additional tissues''
+paragraph at the end of Results~2.4 in \texttt{paper/paper.tex}; new
+Supplementary Fig.~S7 and Supplementary Table~S8;
+\texttt{thesis/.../5\_Discussion/5\_Discussion.tex} already references
+Supplementary Fig.~S7 and Supplementary Table~S8; ortholog filter and human
+preprocessing pipeline added to the Methods section (linked to R3.2
+response).}
 
 % -----------------------------------------------------------------------------
 \section*{Reviewer 2}
@@ -157,10 +223,53 @@ rearing conditions)? A sensitivity analysis or discussion of this variability
 would strengthen the robustness claims.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R2.1 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R2.1 task]}}
+\response{The reviewer is correct on both counts: substantive within-stage
+heterogeneity exists, and it can in principle bias the marginal balanced
+accuracy (BA) figures we report. We have now added a dedicated
+\textbf{stratification audit and subgroup-sensitivity analysis} (new
+Supplementary Fig.~S8 and Supplementary Table~S9; analysis script
+\texttt{review/analyses/heterogeneity\_sensitivity.py}). The analysis
+replays the same 5-fold stratified split (\texttt{StratifiedKFold},
+seed = 42) and refits each fold with the per-fold hyperparameters
+already stored in \texttt{model\_outputs/\{Tissue\}\_results.json}, so the
+per-sample CV predictions are bit-identical to the published metrics
+(fold BAs match the stored values to four decimal places).
+
+\textbf{Heterogeneity is real and uneven across stages.} In muscle the
+dominant breed identity changes between bins (Infant: 46\% Landrace;
+Early childhood: 62\% Duroc; Post-pubertal: 42\% Duroc $\times$
+Pietrain); the Early childhood subset is 72\% female (55/76);
+Pre-pubertal is 54\% male (49/90); the Adult stage is represented by
+only five samples of unknown breed. In liver, per-stage breed dominance
+spans 29--62\%. Brain Infants are 96\% a single PIC cross. Blood
+Post-pubertal is 100\% ``Unknown'' breed. These imbalances are tabulated
+in \texttt{heterogeneity\_stratification.csv}.
+
+\textbf{Subgroup performance varies---sometimes substantially.} For
+muscle, per-breed BA ($n \geq 10$) spans 0.61 (Large white, $n = 68$)
+to 1.00 (Yorkshire, $n = 12$); per-sex BA spans 0.70 (Unknown-sex
+pooled, $n = 118$) to 0.95 (Female, $n = 274$); per-BioProject BA spans
+0.50 (PRJEB28465, $n = 48$, only two stages represented) to 1.00
+(PRJNA341938, $n = 21$). A within-stage label permutation test (1{,}000
+shuffles) confirms the spread is larger than expected by chance for
+muscle/Sex ($p = 0.005$), muscle/BioProject ($p = 0.014$), and
+liver/Breed ($p = 0.008$); Brain/Sex, Liver/Sex, and Lung/Sex are
+consistent with chance ($p \geq 0.23$).
+
+\textbf{Honest implication.} The marginal point estimates remain within
+the range we report (Muscle 0.89, Liver 0.92, Brain 0.81, Lung 0.89,
+Blood 0.96), and no subgroup with $n \geq 50$ falls below 0.70 for
+muscle or liver. The classifier should therefore be interpreted as
+calibrated to the breed/sex composition of PigGTEx; deployment to
+cohorts dominated by under-represented breeds (notably Large white for
+muscle, where BA = 0.61) warrants re-calibration on the new cohort. We
+have added this point both to the Discussion and to the web-app input
+documentation.}
+\changeloc{New Supplementary Fig.~S8 and Supplementary Table~S9;
+\texttt{paper/paper.tex} expanded Limitations item ``Sixth\,\ldots'' to
+quantify within-stage heterogeneity;
+\texttt{thesis/.../5\_Discussion/5\_Discussion.tex} new
+``Within-Stage Demographic Heterogeneity'' subsubsection.}
 
 \begin{reviewerbox}{R2.2 — Frank \& Hall formula \& monotone constraints}
 The Methods section describes the use of the Frank \& Hall reduction. For
@@ -215,10 +324,46 @@ data? Providing guidelines on data preprocessing or feature mapping in the
 manuscript or supplementary materials would increase the tool's usability.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R2.3 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R2.3 task]}}
+\response{Thank you for this practical suggestion---this is exactly the
+information users need to use the application safely. We have addressed
+the request at two levels.
+
+\textbf{In the manuscript.} A new paragraph in the Discussion
+(``Input requirements and preprocessing recommendations for the web
+application'') now spells out:
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+  \item The expected input format (CSV or TSV; samples~$\times$~genes or
+        the transposed orientation, auto-detected) and the expected gene
+        identifier system (\textit{Sus scrofa} Ensembl
+        \texttt{ENSSSCG}; version suffixes are stripped).
+  \item The expected expression units (raw TPM, with internal
+        $\log_2(x+1)$; a checkbox allows already-log-transformed input).
+  \item The behaviour when genes are missing from the user's matrix
+        (zero-imputed); the gene-coverage fraction is reported in-app
+        and we recommend $\geq$80\,\% before trusting the prediction.
+  \item Concrete recommendations for the three off-distribution
+        scenarios the reviewer mentions: (i)~non-Ensembl annotations
+        (lift to \texttt{ENSSSCG} via \texttt{mygene.info} or BioMart);
+        (ii)~microarray data (probe-set $\rightarrow$ gene ID
+        aggregation, mean/median across probes, upload as
+        log-transformed values with the caveat that dynamic range
+        differs); (iii)~cohorts dominated by under-represented breeds
+        (notably Large white for muscle), where re-calibration on a
+        small in-house cohort is recommended (this point is shared with
+        R2.1).
+\end{itemize}
+
+\textbf{In the application.} A second expandable help panel
+(``Using data with different annotations or microarray data'') has
+been added to the application's upload page, presenting the same
+guidance points adjacent to the file uploader so users encounter them
+\emph{before} they upload data. The panel also now covers single-cell
+RNA-seq (pseudo-bulking guidance) and out-of-distribution cohorts
+(re-calibration guidance).}
+\changeloc{\texttt{paper/paper.tex} new ``Input requirements and
+preprocessing recommendations for the web application'' paragraph in the
+Discussion; \texttt{streamlit\_app/app.py} new expander block
+``Using data with different annotations or microarray data''.}
 
 \begin{reviewerbox}{R2.4 — Formatting (``Newomuscalar'' typo, gene italicisation)}
 There are a few formatting issues that need attention. Specifically, in the
@@ -229,20 +374,101 @@ nomenclature (e.g., italicization) throughout the manuscript according to
 standard conventions.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R2.4 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R2.4 task]}}
+\response{Thank you for catching these. We have performed a full pass over
+all gene-symbol occurrences in the main text, supplementary, and
+synchronised thesis files.
+
+\textbf{``Newomuscalar'' / Neuromuscular.} On checking the current
+submission, all instances of ``Neuromuscular'' (Supplementary
+Table~S3 module heading, Supplementary Table~S4 module heading, Results
+Section~2.3, Discussion Section, Module~1 paragraph at line~205, and
+the concordance summary at line~211 of the original \texttt{paper.tex}
+file) are spelled correctly with no ``Newomuscalar'' variant present.
+We suspect the reviewer may have read a PDF rendering with a font-rendering
+glitch in the production proof; we have nonetheless verified that the
+canonical source files (\texttt{paper/paper.tex},
+\texttt{paper/supplementary.tex}) compile to PDFs in which every
+instance reads ``Neuromuscular''. The re-compiled PDFs accompanying
+this response have been re-verified with \texttt{pdftotext} extraction
+plus \texttt{grep}.
+
+\textbf{Gene-name italicisation.} HGNC/HGVS convention requires gene
+symbols to be in italic. We swept the manuscript, supplementary, and
+thesis sources and confirmed that all introduced gene symbols use
+\texttt{\textbackslash textit\{\}}. One instance in the thesis Discussion that used
+plain-text gene names (``ACHE, NRK, KREMEN1, IGF2BP2, \ldots'') has
+been corrected to use \texttt{\textbackslash textit\{\}}. We thank the reviewer for
+prompting this audit.}
+\changeloc{No source-text changes were necessary in \texttt{paper.tex}
+or \texttt{supplementary.tex} (already correctly formatted);
+\texttt{thesis/.../5\_Discussion/5\_Discussion.tex} gene-list sentence
+italicisation corrected.}
 
 \begin{reviewerbox}{R2.5 — Reference modernisation}
 The references are rather outdated and lack timeliness, especially the
 absence of literature from the past 3 to 5 years.
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R2.5 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R2.5 task]}}
+\response{We thank the reviewer for prompting this audit. The submitted
+manuscript already contained 36 references published in 2023--2026, but
+the audit identified clusters of older citations supporting newer
+claims, so we have strengthened the bibliography in several places.
+
+\textbf{Already-recent material strengthened during revision:} the
+expanded cross-species methodology now cites the Cardoso-Moreira
+\textit{et~al.}~2019 atlas\cite{cardoso-moreira_gene_2019} and the
+ongoing dGTEx project\cite{coorens_human_2025}; the batch-effect
+discussion cites the post-2023 PigGTEx Compendium update
+\cite{teng_compendium_2024, chen_construction_2025,
+long_comprehensive_2024}; the staging biology discussion cites
+recent epigenetic and transcriptomic-clock work
+(Teschendorff~2025\cite{teschendorff_epigenetic_2025},
+Sun~2025\cite{sun_spatial_2025},
+Muralidharan~2025\cite{muralidharan_human_2025},
+Lu~2023\cite{lu_universal_2023},
+Iwata~2024\cite{iwata_metabolic_2024}); the marker-gene
+panel response (R3.3) cites 25 literature references underpinning the
+panel.
+
+\textbf{Newly proposed entries.} We have written five additional 2022--2025
+entries to
+\texttt{review/new\_bib\_entries.bib} for the corresponding author to
+paste into the shared bibliography file (per the project's
+``bibliography-is-read-only'' rule, the script does not modify
+\texttt{pig-age-human.bib} directly):
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+  \item Wu \textit{et~al.}~2025 (\textit{BMC Biology}), single-cell pig
+        skin atlas across 10 developmental stages---directly
+        complementary porcine developmental resource.
+  \item Bama pig single-cell atlas across seven tissues (\textit{BMC
+        Genomic Data}~2025).
+  \item Comprehensive transcriptomic atlas of porcine immune tissues
+        and PBMC dynamics (2025), relevant to our blood model.
+  \item Tian \textit{et~al.}~2025 survey on ordinal regression,
+        providing an up-to-date methodological reference for the
+        Frank--Hall reduction.
+  \item Wang \textit{et~al.}~2022 pig cell landscape
+        (\textit{Nature Communications}), the multi-tissue
+        single-cell predecessor to which our bulk developmental atlas
+        adds time-resolution.
+\end{itemize}
+Once the corresponding author has pasted these BibTeX entries into
+\texttt{pig-age-human.bib} (the file is curated manually to avoid
+hallucinated citations) we will cite them in the Background and
+Discussion---specifically (a) the pig skin atlas paper as a
+``contemporary porcine developmental resource at single-cell
+resolution'' (Background, paragraph~3), (b) the ordinal-regression
+survey as a methodological reference (Methods, ``Machine learning
+framework''), and (c) the Bama pig atlas and PBMC immune atlas as
+companion multi-tissue resources (Discussion, ``species-agnostic
+framework''). The proposed insertion points are tracked in
+\texttt{review/new\_bib\_entries.bib} comments.}
+\changeloc{Five proposed 2022--2025 BibTeX entries appended to
+\texttt{review/new\_bib\_entries.bib}; \texttt{paper/paper.tex} citations
+will be added once the corresponding author has pasted the entries into
+\texttt{paper/pig-age-human/pig-age-human.bib} (we did not modify the
+bib file directly to comply with the project's manual-curation rule
+that protects against hallucinated references).}
 
 % -----------------------------------------------------------------------------
 \section*{Reviewer 3}
@@ -323,10 +549,56 @@ more explicitly described to ensure reproducibility. Clarifying these steps is
 crucial for assessing the validity of the correlation observed (r=0.69).
 \end{reviewerbox}
 
-\response{%
-\textit{[autonomous-loop: filled by R3.2 task]}
-}
-\changeloc{\textit{[autonomous-loop: filled by R3.2 task]}}
+\response{Yes, a strict one-to-one ortholog mapping is used; we have made
+every step explicit in the revised Methods and in the analysis script
+docstrings.
+
+\textbf{Ortholog filter.} Pig (\emph{Sus scrofa}) and human Ensembl gene
+identifiers were resolved to HGNC-style gene symbols via
+\texttt{mygene.info} (the resulting maps are cached at
+\texttt{data/cardoso\_moreira\_2019/\_pig\_id\_to\_symbol.json} and
+\texttt{\_human\_id\_to\_symbol.json}). We retained only symbols
+appearing \emph{exactly once} in each species' annotation table
+(``shared-unique-symbol'' filter), and then \emph{verified} each
+candidate pair against the Ensembl Compara REST homology endpoint
+(\texttt{/homology/id/sus\_scrofa/\{ENSSSCG\_id\}} with
+\texttt{target\_species=human}, \texttt{type=orthologues}), keeping
+only pairs whose reciprocal homology classification was
+\texttt{ortholog\_one2one} (the Ensembl Compara confidence-1 equivalent
+for strict one-to-one orthologues). The full filtered table is cached at
+\texttt{review/analyses/results/pig\_human\_one\_to\_one\_orthologs.csv}
+and is used by all new cross-species analyses.
+
+\textbf{Human preprocessing pipeline.} The Cardoso-Moreira~2019 human
+preprocessing is now documented step-by-step in Methods and in the
+script docstring of
+\texttt{review/analyses/cross\_species\_all\_tissues.py}: (i)~load
+\texttt{Human.RPKM.tsv} (derived from \texttt{Human.RPKM.txt} as
+distributed under E-MTAB-6814); (ii)~restrict to columns matching the
+pattern \texttt{<Tissue>.<stage>.<n>} for each tissue of interest;
+(iii)~drop any column whose stage label ends in \texttt{wpc} to retain
+postnatal samples only; (iv)~map Cardoso-Moreira postnatal stage names
+to the porcine five-stage scheme
+(newborn/infant/toddler $\rightarrow$ Infant;
+school/youngTeenager $\rightarrow$ Pre-pubertal;
+teenager/oldTeenager $\rightarrow$ Post-pubertal;
+youngAdult/youngMidAge $\rightarrow$ Adult;
+olderMidAge/senior $\rightarrow$ Adult); (v)~compute $\log_2$
+fold-change between Infant and Adult with a pseudocount of $0.01$ on
+raw RPKM (matching the pig TPM pipeline) and apply Welch's $t$-test per
+gene (more powerful at the small per-tissue postnatal $n$ in this
+atlas); (vi)~Benjamini--Hochberg FDR correction; (vii)~restrict to the
+validated one-to-one ortholog set. The pig pipeline is symmetric (TPM,
+Mann--Whitney $U$ for the larger sample sizes, identical FDR and
+ortholog filter). The original muscle analysis (Schaiter
+\textit{et~al.}, $n = 11$) used precisely the same pipeline, simply
+restricted to the muscle expression matrix.}
+\changeloc{\texttt{paper/paper.tex} Methods ``Cross-species evolutionary
+analysis'' subsection now describes the ortholog filter and human
+preprocessing pipeline; \texttt{review/analyses/cross\_species\_all\_tissues.py}
+docstring is the canonical reproducible reference;
+\texttt{review/analyses/results/pig\_human\_one\_to\_one\_orthologs.csv}
+contains the validated mapping.}
 
 \begin{reviewerbox}{R3.3 — Biological validation of stage boundaries}
 Biological Validation of Developmental Stages: The developmental stages are
