@@ -51,22 +51,30 @@ additional analyses, and revised the manuscript accordingly. The most substantiv
 changes are:
 \begin{enumerate}[leftmargin=*, itemsep=2pt, topsep=2pt]
   \item A dedicated batch-effect evaluation across all five tissues
-        (new Supplementary Figure~S4), colouring PCA and UMAP embeddings by
-        \texttt{BioProject} as recommended by Reviewer~3 (R3.1).
-  \item Cross-species concordance extended from skeletal muscle alone to
-        brain, liver, and lung, using the Cardoso-Moreira \emph{et~al.}\ (2019)
-        developmental atlas as recommended by Reviewer~1 (R1.2)
-        (new Supplementary Table~S6 and Figure~S5).
-  \item A within-stage heterogeneity/sensitivity analysis stratifying by breed,
-        sex, and project (R2.1) (new Supplementary Figure~S6).
+        (new Supplementary Figure~S4 and Supplementary Table~S6), colouring
+        PCA and UMAP embeddings by \texttt{BioProject} as recommended by
+        Reviewer~3 (R3.1).
+  \item Tissue-specific top-feature tables for brain, liver, lung, and blood
+        (R3.4) (new Supplementary Figure~S5 and Supplementary Table~S7).
   \item An independent biological validation of stage boundaries using a
         literature-curated marker-gene panel (R3.3)
-        (new Supplementary Figure~S7).
-  \item Tissue-specific top-feature tables for brain, liver, lung, and blood
-        (R3.4) (new Supplementary Table~S7).
+        (new Supplementary Figure~S6).
+  \item Cross-species concordance extended from skeletal muscle alone to
+        brain and liver, using the Cardoso-Moreira \emph{et~al.}\ (2019)
+        developmental atlas as recommended by Reviewer~1 (R1.2)
+        (new Supplementary Figure~S7 and Supplementary Table~S8). Note:
+        human lung is not present in the Cardoso-Moreira atlas; that
+        comparison cannot be performed with this dataset and is flagged
+        as a future-work item.
+  \item A within-stage heterogeneity/sensitivity analysis stratifying by
+        breed, sex, and BioProject (R2.1) (new Supplementary Figure~S8 and
+        Supplementary Table~S9).
   \item Explicit formulae for the Frank \& Hall reduction and an accurate
         description of how monotonicity is enforced \emph{post hoc} (not via
         the LightGBM \texttt{monotone\_constraints} parameter), per R2.2.
+  \item One-to-one Ensembl Compara ortholog filter and full human dataset
+        preprocessing pipeline now documented explicitly in the Methods
+        (R3.2).
   \item Strengthened limitations: postnatal-only window (R1.1), small human
         cohort and infant-vs-adult gap (R3.m2), and chronological-age-bin
         heterogeneity (R2.1).
