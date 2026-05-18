@@ -55,32 +55,28 @@ def read_muscle_r() -> tuple[float | None, int | None]:
     return (float(r.group(1)) if r else None, int(n.group(1)) if n else None)
 
 
-def read_brain_liver_r(alltis_path: Path = ALLTIS_JSON) -> dict[str, tuple[float | None, int | None]]:
-    """Return per-tissue (r, n) using strict if available else pig-anchored gated on
-    directional concordance >= 50% (otherwise treat as null = 0.0)."""
+def read_alltis_r(alltis_path: Path = ALLTIS_JSON) -> dict[str, tuple[float | None, int | None]]:
+    """Return per-tissue (r, n) for ALL tissues in the JSON using strict if available
+    else pig-anchored gated on directional concordance >= 50% (otherwise treat as null)."""
     if not alltis_path.exists():
-        return {"Brain": (None, None), "Liver": (None, None)}
+        return {}
     d = json.loads(alltis_path.read_text())
     per = d.get("per_tissue", {})
     out: dict[str, tuple[float | None, int | None]] = {}
-    for tissue in ["Brain", "Liver"]:
-        row = per.get(tissue)
-        if row is None:
-            out[tissue] = (None, None)
+    for tissue, row in per.items():
+        if not isinstance(row, dict) or row.get("skipped") or row.get("error"):
+            out[tissue] = (0.0, 0)
             continue
-        strict = row.get("strict", {})
-        anchored = row.get("pig_anchored", {})
-        # Prefer strict when it has genes
+        strict = row.get("strict", {}) or {}
+        anchored = row.get("pig_anchored", {}) or {}
         if strict.get("n_genes", 0) and strict.get("pearson_r") is not None:
             out[tissue] = (float(strict["pearson_r"]), int(strict["n_genes"]))
             continue
-        # Fall back to pig-anchored ONLY when directional concordance >= 50%
         dc = anchored.get("directional_concordance")
         if anchored.get("n_genes", 0) and anchored.get("pearson_r") is not None \
                 and dc is not None and dc >= 50.0:
             out[tissue] = (float(anchored["pearson_r"]), int(anchored["n_genes"]))
             continue
-        # Below-chance pig-anchored: report as null (0.0 contribution to joint_score)
         out[tissue] = (0.0, 0)
     return out
 
@@ -108,21 +104,28 @@ def main() -> int:
 
     ba = read_ba_per_tissue()
     muscle_r, muscle_n = read_muscle_r()
-    bl = read_brain_liver_r(Path(args.alltis_json))
-    brain_r, brain_n = bl["Brain"]
-    liver_r, liver_n = bl["Liver"]
+    alltis = read_alltis_r(Path(args.alltis_json))
+    brain_r, brain_n = alltis.get("Brain", (0.0, 0))
+    liver_r, liver_n = alltis.get("Liver", (0.0, 0))
+    # Extra tissues beyond Brain/Liver/Muscle (so we don't double-count Muscle)
+    extra_tissues = {t: rn for t, rn in alltis.items()
+                     if t not in ("Brain", "Liver", "Muscle")}
 
-    # Mean BA across the five canonical tissues; require all five to be present
     if any(ba[t] is None for t in TISSUES):
         print(f"WARNING: missing BA for {[t for t in TISSUES if ba[t] is None]}", file=sys.stderr)
     ba_vals = [v for v in ba.values() if v is not None]
     mean_ba = sum(ba_vals) / len(ba_vals) if ba_vals else None
 
-    # Joint score: sum components, treating None as 0
     def _z(x):
         return 0.0 if x is None else float(x)
 
-    joint = _z(mean_ba) + _z(muscle_r) + _z(brain_r) + _z(liver_r)
+    joint = _z(mean_ba) + _z(muscle_r) + _z(brain_r) + _z(liver_r) \
+            + sum(_z(r) for r, _n in extra_tissues.values())
+
+    # Build extra-tissues compact description for visibility (eg "Testis:0.42(n=1327)")
+    extras_str = ";".join(f"{t}:{_z(r):.3f}(n={n})"
+                          for t, (r, n) in sorted(extra_tissues.items())
+                          if r is not None and r > 0)
 
     row = [
         git_short_sha(),
@@ -141,7 +144,8 @@ def main() -> int:
         f"{joint:.6f}",
         f"{args.wall_min:.1f}",
         args.status,
-        args.description.replace("\t", " ").replace("\n", " "),
+        (args.description + (f" | extra: {extras_str}" if extras_str else "")
+         ).replace("\t", " ").replace("\n", " "),
     ]
     line = "\t".join(row) + "\n"
     if args.dry_run:
