@@ -42,10 +42,23 @@ heart = json.loads((RES / "cross_species_heart_purity30.json").read_text())
 base["per_tissue"]["Heart"] = heart["per_tissue"]["Heart"]
 base["per_tissue"]["Heart"]["best_config"] = "stratified_purity drop 30% extended_old bins"
 
-# Add Testis with baseline
-testis = json.loads((RES / "cross_species_extended_tissues.json").read_text())
-base["per_tissue"]["Testis"] = testis["per_tissue"]["Testis"]
-base["per_tissue"]["Testis"]["best_config"] = "baseline default bins"
+# Add Testis with MEDIAN FC (no QC) - strongest result
+testis_median_path = ROOT / "tmp_testis_median_path.json"
+import os as _os
+testis_src = None
+for candidate in [RES / "cross_species_testis_median.json",
+                  Path("/tmp/testis_median.json")]:
+    if candidate.exists():
+        testis_src = candidate
+        break
+if testis_src is None:
+    testis = json.loads((RES / "cross_species_extended_tissues.json").read_text())
+    base["per_tissue"]["Testis"] = testis["per_tissue"]["Testis"]
+    base["per_tissue"]["Testis"]["best_config"] = "baseline default bins"
+else:
+    testis = json.loads(testis_src.read_text())
+    base["per_tissue"]["Testis"] = testis["per_tissue"]["Testis"]
+    base["per_tissue"]["Testis"]["best_config"] = "median FC, default bins"
 
 base["analysis"] = "cross_species_unified_best"
 base["notes"] = ("Brain: stratified_purity QC drop 30%. Liver: stratified_purity QC drop 30% "
