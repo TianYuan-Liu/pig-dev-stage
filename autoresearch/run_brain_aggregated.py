@@ -91,6 +91,10 @@ def analyse(args) -> dict:
         "extended_old": (("newborn","infant","toddler"),
                          ("teenager","oldTeenager","youngAdult","youngMidAge",
                           "olderMidAge","senior","Senior")),
+        "developmental": (("newborn","infant","toddler"),
+                          ("youngAdult","youngMidAge")),
+        "developmental_strict": (("newborn","infant","toddler"),
+                                  ("youngAdult",)),
     }
     y_set, o_set = BINS[args.bins]
     xs.HUMAN_YOUNG = set(y_set)
@@ -196,7 +200,7 @@ def main() -> int:
     ap.add_argument("--aggregation", choices=list(AGGREGATIONS.keys()), default="forebrain")
     ap.add_argument("--method", choices=["baseline", "purity", "median", "purity_median"],
                     default="baseline")
-    ap.add_argument("--bins", choices=["default", "extended_old"], default="default")
+    ap.add_argument("--bins", choices=["default", "extended_old", "developmental", "developmental_strict"], default="developmental")
     ap.add_argument("--drop-pct", type=float, default=30.0)
     ap.add_argument("--out", required=True)
     ap.add_argument("--merge-into", default=None)

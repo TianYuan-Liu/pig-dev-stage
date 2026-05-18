@@ -31,11 +31,11 @@ sys.path.insert(0, str(ROOT / "review" / "analyses"))
 import cross_species_all_tissues as xs  # noqa: E402
 
 BINS = {
-    "default": {
+    "default": {  # The PUBLISHED mapping (broad OLD, includes aging samples)
         "YOUNG": {"newborn", "infant", "toddler"},
         "OLD": {"youngAdult", "youngMidAge", "olderMidAge", "senior", "Senior"},
     },
-    "extended_old": {
+    "extended_old": {  # Adds teenagers to OLD (still includes aging)
         "YOUNG": {"newborn", "infant", "toddler"},
         "OLD": {"teenager", "oldTeenager", "youngAdult", "youngMidAge",
                 "olderMidAge", "senior", "Senior"},
@@ -45,13 +45,26 @@ BINS = {
         "OLD": {"teenager", "oldTeenager", "youngAdult", "youngMidAge",
                 "olderMidAge", "senior", "Senior"},
     },
+    # CORRECTED developmental mappings (exclude aging samples)
+    "developmental": {  # Pig Adult ~= human youngAdult+youngMidAge (20-50 y)
+        "YOUNG": {"newborn", "infant", "toddler"},
+        "OLD": {"youngAdult", "youngMidAge"},
+    },
+    "developmental_postpub": {  # For Heart/Lung (no pig Adult, only Post-pubertal)
+        "YOUNG": {"newborn", "infant", "toddler"},
+        "OLD": {"teenager", "oldTeenager"},
+    },
+    "developmental_strict": {  # Only youngAdult (matches pig 2-year-old "young adult")
+        "YOUNG": {"newborn", "infant", "toddler"},
+        "OLD": {"youngAdult"},
+    },
 }
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tissues", nargs="+", required=True)
-    ap.add_argument("--bins", choices=list(BINS.keys()), default="default")
+    ap.add_argument("--bins", choices=list(BINS.keys()), default="developmental")
     ap.add_argument("--out", type=str, required=True)
     args = ap.parse_args()
 

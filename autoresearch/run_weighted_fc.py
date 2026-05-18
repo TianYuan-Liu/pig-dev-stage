@@ -112,6 +112,10 @@ def analyse_weighted(pig_tissue: str, human_tissue: str, method: str,
         "extended_old": (("newborn","infant","toddler"),
                          ("teenager","oldTeenager","youngAdult","youngMidAge",
                           "olderMidAge","senior","Senior")),
+        "developmental": (("newborn","infant","toddler"),
+                          ("youngAdult","youngMidAge")),
+        "developmental_strict": (("newborn","infant","toddler"),
+                                  ("youngAdult",)),
     }
     y_set, o_set = BINS[bins]
     xs.HUMAN_YOUNG = set(y_set)
@@ -220,7 +224,7 @@ def main() -> int:
     ap.add_argument("--human-tissue", required=True)
     ap.add_argument("--method", choices=["median", "weighted", "limma", "baseline"],
                     default="weighted")
-    ap.add_argument("--bins", choices=["default", "extended_old"], default="default")
+    ap.add_argument("--bins", choices=["default", "extended_old", "developmental", "developmental_strict"], default="developmental")
     ap.add_argument("--out", required=True)
     ap.add_argument("--merge-into", default=None)
     args = ap.parse_args()

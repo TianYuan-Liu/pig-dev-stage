@@ -104,6 +104,10 @@ def analyse_with_purity(pig_tissue: str, human_tissue: str, ortho: pd.DataFrame,
         "extended_old": (("newborn","infant","toddler"),
                          ("teenager","oldTeenager","youngAdult","youngMidAge",
                           "olderMidAge","senior","Senior")),
+        "developmental": (("newborn","infant","toddler"),
+                          ("youngAdult","youngMidAge")),
+        "developmental_strict": (("newborn","infant","toddler"),
+                                  ("youngAdult",)),
     }
     y, o = BINS[bin_set]
     xs.HUMAN_YOUNG = set(y)
@@ -223,7 +227,7 @@ def main() -> int:
     ap.add_argument("--human-tissue", required=True)
     ap.add_argument("--method", choices=["none", "stratified_purity"], default="stratified_purity")
     ap.add_argument("--drop-pct", type=float, default=30.0)
-    ap.add_argument("--bins", choices=["default", "extended_old"], default="default")
+    ap.add_argument("--bins", choices=["default", "extended_old", "developmental", "developmental_strict"], default="developmental")
     ap.add_argument("--out", required=True)
     ap.add_argument("--merge-into", default=None,
                     help="Existing alltis JSON to merge tissue result into (default: cross_species_all_tissues.json)")
