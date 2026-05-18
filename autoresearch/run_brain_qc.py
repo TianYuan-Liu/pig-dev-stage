@@ -51,6 +51,13 @@ MARKER_EXT = [
     "MYH1", "MYH2", "MYH7", "ACTN3", "MB", "DES", "MYOG", "MYOD1",
     "CKM", "MYL1", "TNNT3", "TNNI2", "MYBPC1",
 ]
+# Brain-identity markers (drop samples with LOW score = poor brain purity):
+# pan-neuronal + glial canonical genes
+BRAIN_MARKERS = [
+    "NEFL", "NEFM", "NEFH", "MAP2", "SYN1", "SYP", "SNAP25", "STMN2",
+    "GFAP", "OLIG2", "MBP", "PLP1", "VGAT", "VGLUT1", "GAD1",
+    "SLC17A7", "RBFOX3", "TUBB3", "DLG4", "GRIN1",
+]
 
 
 def load_pig_symbol_map(cache: Path) -> dict[str, str]:
@@ -172,6 +179,42 @@ def analyse_brain_filtered(ortho: pd.DataFrame, drop_pct: float, method: str,
                      if method.startswith("stratified") else None)
         kept, dropped = select_keep_by_marker(marker_score, candidate, drop_pct,
                                               per_group=per_group)
+    elif method == "random":
+        # Permutation control: randomly drop drop_pct of samples within each stage.
+        # If purity-based filtering r is meaningfully higher than the random
+        # distribution, it implies real signal cleanup; if not, the gain is
+        # just from subset reduction.
+        rng = np.random.default_rng(int(drop_pct * 100))
+        kept, dropped = [], []
+        for samples in (p_young, p_old):
+            n = len(samples)
+            n_drop = int(round(n * drop_pct / 100.0))
+            idx_drop = set(rng.choice(n, size=n_drop, replace=False))
+            for i, s in enumerate(samples):
+                if i in idx_drop:
+                    dropped.append(s)
+                else:
+                    kept.append(s)
+    elif method in ("stratified_purity", "stratified_purity_ratio"):
+        # Compute brain-purity score (mean log2(TPM+1) over canonical brain markers)
+        brain_ids = [pig_sym2id[s.upper()] for s in BRAIN_MARKERS
+                     if s.upper() in pig_sym2id]
+        if not brain_ids:
+            raise SystemExit("No brain marker genes found in pig symbol cache")
+        purity = compute_marker_score(p_expr[candidate], brain_ids)
+        if method == "stratified_purity_ratio":
+            # Drop by muscle_marker / brain_marker ratio (high = contamination)
+            score = marker_score / purity.replace(0, np.nan)
+            score = score.fillna(score.median())
+            print(f"  Using muscle/brain ratio score for filtering")
+        else:
+            # Drop bottom drop_pct by brain purity (low purity = bad sample)
+            # We achieve this by negating purity then using the same top-drop logic
+            score = -purity
+            print(f"  Using brain-purity score for filtering (drop LOW-purity)")
+        per_group = {"young": p_young, "old": p_old}
+        kept, dropped = select_keep_by_marker(score, candidate, drop_pct,
+                                              per_group=per_group)
     elif method == "nmf":
         log_expr = np.log2(p_expr[candidate].astype(float) + 1.0)
         # Reduce to a manageable gene set for NMF (top 5,000 by variance)
@@ -286,7 +329,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--method",
                     choices=["marker", "extended_marker", "nmf",
-                             "stratified_marker", "stratified_extended_marker"],
+                             "stratified_marker", "stratified_extended_marker",
+                             "stratified_purity", "stratified_purity_ratio",
+                             "random"],
                     default="marker")
     ap.add_argument("--drop-pct", type=float, default=20.0)
     ap.add_argument("--nmf-components", type=int, default=8)
