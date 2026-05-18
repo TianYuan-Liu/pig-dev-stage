@@ -69,13 +69,26 @@ def read_alltis_r(alltis_path: Path = ALLTIS_JSON) -> dict[str, tuple[float | No
             continue
         strict = row.get("strict", {}) or {}
         anchored = row.get("pig_anchored", {}) or {}
-        if strict.get("n_genes", 0) and strict.get("pearson_r") is not None:
-            out[tissue] = (float(strict["pearson_r"]), int(strict["n_genes"]))
+        strict_n = int(strict.get("n_genes", 0))
+        strict_r = strict.get("pearson_r")
+        strict_p = strict.get("pearson_p")
+        strict_ci_low = strict.get("ci_low")
+        # Use strict if it's statistically robust: n >= 30 AND CI lower bound > 0
+        # (or p < 0.01 as a fallback). Otherwise fall through to pig-anchored.
+        strict_ok = (strict_n >= 30 and strict_r is not None
+                     and ((strict_ci_low is not None and strict_ci_low > 0)
+                          or (strict_p is not None and strict_p < 0.01)))
+        if strict_ok:
+            out[tissue] = (float(strict_r), strict_n)
             continue
         dc = anchored.get("directional_concordance")
         if anchored.get("n_genes", 0) and anchored.get("pearson_r") is not None \
                 and dc is not None and dc >= 50.0:
             out[tissue] = (float(anchored["pearson_r"]), int(anchored["n_genes"]))
+            continue
+        # Last resort: use strict even if not robust (so a real signal isn't lost)
+        if strict_n and strict_r is not None:
+            out[tissue] = (float(strict_r), strict_n)
             continue
         out[tissue] = (0.0, 0)
     return out

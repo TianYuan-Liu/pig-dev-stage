@@ -27,10 +27,16 @@ OUT = RES / "cross_species_unified_best.json"
 # Start from the published all-tissues JSON (has muscle reference + Brain/Liver baselines)
 base = json.loads((RES / "cross_species_all_tissues.json").read_text())
 
-# Replace Brain with purity-30 result
-brain = json.loads((RES / "cross_species_brain_qc_purity30.json").read_text())
-base["per_tissue"]["Brain"] = brain["per_tissue"]["Brain"]
-base["per_tissue"]["Brain"]["best_config"] = "stratified_purity drop 30% default bins"
+# Replace Brain with cortical aggregation + median + ext_old (best brain config)
+brain_path = RES / "cross_species_brain_cortical_median_ext.json"
+if brain_path.exists():
+    brain = json.loads(brain_path.read_text())
+    base["per_tissue"]["Brain"] = brain["per_tissue"]["Brain"]
+    base["per_tissue"]["Brain"]["best_config"] = "cortical aggregation + median FC + extended_old bins"
+else:
+    brain = json.loads((RES / "cross_species_brain_qc_purity30.json").read_text())
+    base["per_tissue"]["Brain"] = brain["per_tissue"]["Brain"]
+    base["per_tissue"]["Brain"]["best_config"] = "stratified_purity drop 30% default bins"
 
 # Replace Liver with purity-30 result (from extended_old base, but Liver bins default)
 liver = json.loads((RES / "cross_species_liver_purity30.json").read_text())

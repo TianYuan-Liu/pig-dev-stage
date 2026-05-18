@@ -1,5 +1,5 @@
 {
-  "analysis": "cross_species_unified_best",
+  "analysis": "brain_aggregated_cortical_median_extended_old",
   "reviewer_point": "R1.2 (and R3.2)",
   "note_on_lung": "The Cardoso-Moreira 2019 human RPKM atlas (E-MTAB-6814) does NOT include lung samples. Tissues present: Brain, Cerebellum, Heart, Kidney, Liver, Ovary, Testis. Kidney and Heart were considered as substitutes but have too few postnatal Adult samples to support a cross-species test (Kidney: 0 Adults; Heart: 2 Adults). The reported panel therefore covers Brain and Liver only; muscle is shown for reference (Schaiter 2024).",
   "ortholog_definition": "Strict one-to-one: (1) shared unique gene symbol in pig and human mygene mappings; (2) verified ortholog_one2one against Ensembl Compara REST homology endpoint.",
@@ -48,8 +48,7 @@
         "ci_low": 0.3089426019186066,
         "ci_high": 0.554189724660477,
         "directional_concordance": 71.17647058823529
-      },
-      "best_config": "cortical aggregation + median FC + extended_old bins"
+      }
     },
     "Liver": {
       "tissue": "Liver",
