@@ -76,19 +76,35 @@ def compute_marker_score(expr: pd.DataFrame, marker_pig_ids: list[str]) -> pd.Se
     return pd.Series(sub.mean(axis=0), index=expr.columns, name="marker_score")
 
 
-def select_keep_by_marker(score: pd.Series, candidate: list[str], drop_pct: float
+def select_keep_by_marker(score: pd.Series, candidate: list[str], drop_pct: float,
+                          per_group: dict[str, list[str]] | None = None
                           ) -> tuple[list[str], list[str]]:
     """Within `candidate` samples, keep those whose score is below the (100-drop_pct)
-    percentile. Returns (kept, dropped)."""
+    percentile. If `per_group` is supplied (e.g. {'young': [...], 'old': [...]}),
+    the percentile is computed within each group separately so that stage and
+    contamination are not conflated.
+    Returns (kept, dropped)."""
     if not candidate:
         return [], []
-    s = score.reindex(candidate).dropna()
-    if s.empty:
-        return list(candidate), []
-    thresh = float(np.percentile(s.values, 100.0 - drop_pct))
-    kept = s.index[s.values <= thresh].tolist()
-    dropped = s.index[s.values > thresh].tolist()
-    return kept, dropped
+    if per_group is None:
+        s = score.reindex(candidate).dropna()
+        if s.empty:
+            return list(candidate), []
+        thresh = float(np.percentile(s.values, 100.0 - drop_pct))
+        kept = s.index[s.values <= thresh].tolist()
+        dropped = s.index[s.values > thresh].tolist()
+        return kept, dropped
+
+    kept_all, dropped_all = [], []
+    for group_name, samples in per_group.items():
+        sg = score.reindex(samples).dropna()
+        if sg.empty:
+            kept_all.extend(samples)
+            continue
+        thresh = float(np.percentile(sg.values, 100.0 - drop_pct))
+        kept_all.extend(sg.index[sg.values <= thresh].tolist())
+        dropped_all.extend(sg.index[sg.values > thresh].tolist())
+    return kept_all, dropped_all
 
 
 def select_keep_by_nmf(expr_log: pd.DataFrame, candidate: list[str], drop_pct: float,
@@ -141,7 +157,8 @@ def analyse_brain_filtered(ortho: pd.DataFrame, drop_pct: float, method: str,
 
     # Build marker score for *all* candidate samples
     pig_sym2id = load_pig_symbol_map(xs.PIG_SYM_CACHE)
-    panel = MARKER_5 if method != "extended_marker" else MARKER_EXT
+    panel = (MARKER_EXT if method in ("extended_marker", "stratified_extended_marker")
+             else MARKER_5)
     marker_ids = [pig_sym2id[s.upper()] for s in panel if s.upper() in pig_sym2id]
     missing = [s for s in panel if s.upper() not in pig_sym2id]
     if missing:
@@ -150,8 +167,11 @@ def analyse_brain_filtered(ortho: pd.DataFrame, drop_pct: float, method: str,
     marker_score = compute_marker_score(p_expr[candidate], marker_ids)
 
     nmf_info: dict = {}
-    if method in ("marker", "extended_marker"):
-        kept, dropped = select_keep_by_marker(marker_score, candidate, drop_pct)
+    if method in ("marker", "extended_marker", "stratified_marker", "stratified_extended_marker"):
+        per_group = ({"young": p_young, "old": p_old}
+                     if method.startswith("stratified") else None)
+        kept, dropped = select_keep_by_marker(marker_score, candidate, drop_pct,
+                                              per_group=per_group)
     elif method == "nmf":
         log_expr = np.log2(p_expr[candidate].astype(float) + 1.0)
         # Reduce to a manageable gene set for NMF (top 5,000 by variance)
@@ -264,7 +284,9 @@ def analyse_brain_filtered(ortho: pd.DataFrame, drop_pct: float, method: str,
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--method", choices=["marker", "extended_marker", "nmf"],
+    ap.add_argument("--method",
+                    choices=["marker", "extended_marker", "nmf",
+                             "stratified_marker", "stratified_extended_marker"],
                     default="marker")
     ap.add_argument("--drop-pct", type=float, default=20.0)
     ap.add_argument("--nmf-components", type=int, default=8)
