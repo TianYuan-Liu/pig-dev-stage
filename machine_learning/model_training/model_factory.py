@@ -21,6 +21,7 @@ def get_model_class(model_type: str) -> Type:
         OrdinalElasticNetLR,
         OrdinalRidge,
         OrdinalRidgeVarFilter,
+        OrdinalRidgeStdWeight,
         OrdinalMLP,
     )
 
@@ -31,6 +32,7 @@ def get_model_class(model_type: str) -> Type:
         "elastic_net_lr":  OrdinalElasticNetLR,
         "ridge_continuous": OrdinalRidge,
         "ridge_var5k":     OrdinalRidgeVarFilter,
+        "ridge_std":       OrdinalRidgeStdWeight,
         "mlp":             OrdinalMLP,
     }
     if model_type not in registry:
@@ -51,6 +53,7 @@ MODEL_FIXED_PARAMS: Dict[str, Dict] = {
     "elastic_net_lr":   {"class_weight": "balanced"},
     "ridge_continuous": {},
     "ridge_var5k":      {"n_top_var": 5000},
+    "ridge_std":        {},
     "mlp":              {},
 }
 
@@ -112,6 +115,13 @@ def get_param_space(model_type: str):
         return space
 
     if model_type == "ridge_var5k":
+        def space(trial):
+            return {
+                "alpha": trial.suggest_float("alpha", 1e-3, 100, log=True),
+            }
+        return space
+
+    if model_type == "ridge_std":
         def space(trial):
             return {
                 "alpha": trial.suggest_float("alpha", 1e-3, 100, log=True),

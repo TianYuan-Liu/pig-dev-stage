@@ -530,10 +530,12 @@ class OrdinalRidge(_OrdinalBase):
         self.seed = seed
         self.proba_sigma = proba_sigma
         self.model_ = None
+        self._gene_std: Optional[pd.Series] = None
 
     def fit(self, X, y):
         from sklearn.linear_model import Ridge
         X_df, y_enc = self._fit_setup(X, y)
+        self._gene_std = X_df.std(axis=0)
         self.model_ = Ridge(alpha=self.alpha, random_state=self.seed)
         self.model_.fit(X_df.values, y_enc.astype(float))
         return self
@@ -541,11 +543,9 @@ class OrdinalRidge(_OrdinalBase):
     def predict_proba(self, X):
         X_df = X if isinstance(X, pd.DataFrame) else pd.DataFrame(X)
         y_hat = self.model_.predict(X_df.values)
-        # Gaussian distance softmax over class centres 0..n_classes-1
         ks = np.arange(self.n_classes_)
         dist = (y_hat[:, None] - ks[None, :]) ** 2
         logits = -dist / (2.0 * (self.proba_sigma ** 2))
-        # softmax
         logits = logits - logits.max(axis=1, keepdims=True)
         ex = np.exp(logits)
         return ex / ex.sum(axis=1, keepdims=True)
@@ -554,6 +554,25 @@ class OrdinalRidge(_OrdinalBase):
         return pd.Series(
             np.abs(self.model_.coef_), index=self.feature_names_,
         ).sort_values(ascending=False)
+
+
+# ----------------------------------------------------------------------------
+
+class OrdinalRidgeStdWeight(OrdinalRidge):
+    """Identical Ridge fit and predictions as OrdinalRidge — only the
+    feature importance is reweighted by per-gene std(x) of the training data.
+    Equivalent to standardised regression coefficients: a gene's importance
+    becomes the per-SD change in predicted stage produced by that gene.
+
+    Internal pig BA is unchanged (fit/predict identical); only the top-K
+    gene ranking shifts toward genes with larger expression range."""
+
+    def get_feature_importance(self, importance_type: str = "gain") -> pd.Series:
+        coef = np.abs(self.model_.coef_)
+        std = self._gene_std.reindex(self.feature_names_).fillna(0.0).values
+        imp = coef * std
+        return pd.Series(imp, index=self.feature_names_).sort_values(
+            ascending=False)
 
 
 # ----------------------------------------------------------------------------
