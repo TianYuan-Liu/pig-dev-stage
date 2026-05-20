@@ -27,6 +27,9 @@ except ImportError:
 
 from machine_learning.data_processing.preprocessing import ExpressionPreprocessor
 from machine_learning.model_training.models import OrdinalLightGBM
+from machine_learning.model_training.model_factory import (
+    get_model_class, MODEL_FIXED_PARAMS, get_param_space,
+)
 from machine_learning.utils.helpers import to_samples_x_genes_df
 
 logger = logging.getLogger(__name__)
@@ -115,6 +118,7 @@ def create_objective(
     gene_names: np.ndarray,
     n_inner_folds: int = 3,
     seed: int = 42,
+    model_type: str = "ordinal_lgb",
 ) -> Callable:
     """
     Factory returning an Optuna objective that runs inner CV.
@@ -143,8 +147,19 @@ def create_objective(
 
     n_samples = len(y)
 
+    if model_type != "ordinal_lgb":
+        custom_space = get_param_space(model_type)
+        custom_fixed = MODEL_FIXED_PARAMS.get(model_type, {})
+        model_cls = get_model_class(model_type)
+    else:
+        custom_space = None
+        model_cls = OrdinalLightGBM
+
     def objective(trial: "optuna.Trial") -> float:
-        params = sample_params(trial, n_samples=n_samples)
+        if custom_space is not None:
+            params = custom_space(trial)
+        else:
+            params = sample_params(trial, n_samples=n_samples)
 
         fold_scores: List[float] = []
         for fold_i, (train_idx, val_idx) in enumerate(inner_cv.split(X_T, y)):
@@ -166,7 +181,8 @@ def create_objective(
                 X_val_proc, val_ids, preprocessor, gene_names
             )
 
-            model = OrdinalLightGBM(**params, **FIXED_PARAMS, seed=seed + fold_i)
+            fixed = custom_fixed if custom_space is not None else FIXED_PARAMS
+            model = model_cls(**params, **fixed, seed=seed + fold_i)
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 model.fit(X_train_df, y_train)
@@ -225,6 +241,7 @@ def run_tuning(
     n_inner_folds: int = 3,
     seed: int = 42,
     timeout: int = 600,
+    model_type: str = "ordinal_lgb",
 ) -> Dict[str, Any]:
     """
     Run a complete Optuna tuning study.
@@ -236,7 +253,7 @@ def run_tuning(
     study = create_study(study_name=study_name, seed=seed)
     objective = create_objective(
         X_raw, y, sample_ids, gene_names,
-        n_inner_folds=n_inner_folds, seed=seed,
+        n_inner_folds=n_inner_folds, seed=seed, model_type=model_type,
     )
 
     t0 = time.time()

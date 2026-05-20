@@ -24,6 +24,9 @@ from machine_learning.data_processing.data_loader import DataLoader
 from machine_learning.data_processing.preprocessing import ExpressionPreprocessor
 from machine_learning.data_processing.stage_selection import StageGranularitySelector
 from machine_learning.model_training.models import OrdinalLightGBM
+from machine_learning.model_training.model_factory import (
+    get_model_class, MODEL_FIXED_PARAMS,
+)
 from machine_learning.model_training.hyperparameter_tuning import (
     run_tuning, compute_param_stability, FIXED_PARAMS,
 )
@@ -353,6 +356,7 @@ def run_single_tissue_pipeline(
                         n_inner_folds=n_inner_folds,
                         seed=random_state + fold_i,
                         timeout=timeout,
+                        model_type=config.get('model_type', 'ordinal_lgb'),
                     )
                     best_params = tuning_result["best_params"]
                     best_params_per_fold.append(best_params)
@@ -376,8 +380,10 @@ def run_single_tissue_pipeline(
                         X_test_proc, fold_test_ids, fold_preprocessor, gene_names
                     )
 
-                    fold_model = OrdinalLightGBM(
-                        **best_params, **FIXED_PARAMS, seed=random_state + fold_i
+                    model_cls = get_model_class(config.get('model_type', 'ordinal_lgb'))
+                    fold_fixed = MODEL_FIXED_PARAMS.get(config.get('model_type', 'ordinal_lgb'), {})
+                    fold_model = model_cls(
+                        **best_params, **fold_fixed, seed=random_state + fold_i
                     )
                     with warnings.catch_warnings():
                         warnings.simplefilter("ignore")
@@ -479,6 +485,7 @@ def run_single_tissue_pipeline(
                     n_inner_folds=n_inner_folds,
                     seed=random_state,
                     timeout=timeout,
+                    model_type=config.get('model_type', 'ordinal_lgb'),
                 )
                 final_model_params = final_tuning["best_params"]
 
@@ -500,8 +507,10 @@ def run_single_tissue_pipeline(
                     f"({X.shape[0] - X_all_df.shape[1]} genes removed)"
                 )
 
-                final_model = OrdinalLightGBM(
-                    **final_model_params, **FIXED_PARAMS, seed=random_state
+                final_model_cls = get_model_class(config.get('model_type', 'ordinal_lgb'))
+                final_fixed = MODEL_FIXED_PARAMS.get(config.get('model_type', 'ordinal_lgb'), {})
+                final_model = final_model_cls(
+                    **final_model_params, **final_fixed, seed=random_state
                 )
                 with warnings.catch_warnings(record=True) as w:
                     warnings.simplefilter("always")
@@ -557,7 +566,7 @@ def run_single_tissue_pipeline(
                     'final_model_params': final_model_params,
                 }
 
-                output_file = output_dir / f"{tissue_name}_results.json"
+                output_file = output_dir / f"{tissue_name}{config.get('output_suffix', '')}_results.json"
                 with open(output_file, 'w') as f:
                     json.dump(_to_serializable(results), f, indent=2)
 
@@ -640,6 +649,19 @@ def main(args=None):
             default='INFO',
             help='Logging level (default: INFO)'
         )
+        parser.add_argument(
+            '--model-type',
+            choices=['ordinal_lgb', 'multiclass_lgb', 'random_forest',
+                     'elastic_net_lr', 'ridge_continuous', 'mlp'],
+            default='ordinal_lgb',
+            help='ML model framework to use (default: ordinal_lgb).'
+        )
+        parser.add_argument(
+            '--output-suffix', type=str, default='',
+            help='Suffix for output JSON: {tissue}{suffix}_results.json. '
+                 'Default empty matches the published filenames. Used by the '
+                 'ML-framework sweep to keep parallel runs separate.'
+        )
 
         args = parser.parse_args()
 
@@ -661,6 +683,8 @@ def main(args=None):
         'n_inner_folds': getattr(args, 'n_inner_folds', 3),
         'timeout': getattr(args, 'timeout', 600),
         'tissues': args.tissues,
+        'model_type':   getattr(args, 'model_type', 'ordinal_lgb'),
+        'output_suffix': getattr(args, 'output_suffix', ''),
     }
     logger.info(f"Pipeline configuration: {json.dumps(config, indent=2)}")
 
