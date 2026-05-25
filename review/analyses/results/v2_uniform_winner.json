@@ -19,7 +19,7 @@
   },
   "role": "confirmatory",
   "objective": "max mean_r; tie-break max min_r (Loop A search objective)",
-  "note": "Pre-specified uniform protocol. This is the confirmatory cross-species validation: the config was NOT selected to maximize r.",
+  "note": "Pre-specified uniform protocol. This is the confirmatory cross-species validation: the config was NOT selected to maximize r. | CI corrected to Spearman bootstrap (Bug-1 fix from verification re-analysis; point estimates/p/perm-p/LOO unchanged).",
   "aggregate": {
     "mean_r": 0.35589176052738225,
     "min_r": 0.16189435788402715,
@@ -32,55 +32,60 @@
       "r": 0.5351844978488848,
       "p": 4.103842745140954e-23,
       "dc": 75.08532423208192,
-      "ci_low": 0.3975811468406846,
-      "ci_high": 0.6034029456421276,
+      "ci_low": 0.4288980515192506,
+      "ci_high": 0.6326371962231846,
       "perm_empirical_p": 0.000999000999000999,
       "loo_r_min": 0.5304311446340324,
-      "loo_r_max": 0.5480763066862099
+      "loo_r_max": 0.5480763066862099,
+      "ci_method": "spearman_percentile_bootstrap_n1000_seed42"
     },
     "Lung": {
       "n_genes": 233,
       "r": 0.3623905693241197,
       "p": 1.221331937524036e-08,
       "dc": 70.3862660944206,
-      "ci_low": 0.23824820619489873,
-      "ci_high": 0.5051858076619247,
+      "ci_low": 0.2273295288961364,
+      "ci_high": 0.4760067133177402,
       "perm_empirical_p": 0.000999000999000999,
       "loo_r_min": 0.35410992736729,
-      "loo_r_max": 0.37952849281841433
+      "loo_r_max": 0.37952849281841433,
+      "ci_method": "spearman_percentile_bootstrap_n1000_seed42"
     },
     "Testis": {
       "n_genes": 357,
       "r": 0.4197397495185382,
       "p": 1.143215707652541e-16,
       "dc": 74.2296918767507,
-      "ci_low": 0.25362195248621666,
-      "ci_high": 0.47179903837195497,
+      "ci_low": 0.3275990120327044,
+      "ci_high": 0.516950290663844,
       "perm_empirical_p": 0.000999000999000999,
       "loo_r_min": 0.4152430777660012,
-      "loo_r_max": 0.4312452374524743
+      "loo_r_max": 0.4312452374524743,
+      "ci_method": "spearman_percentile_bootstrap_n1000_seed42"
     },
     "Spleen": {
       "n_genes": 256,
       "r": 0.30024962806134126,
       "p": 9.887439899322487e-07,
       "dc": 44.140625,
-      "ci_low": 0.0681623999040891,
-      "ci_high": 0.4063183886109253,
+      "ci_low": 0.15722337316496132,
+      "ci_high": 0.42148192479526253,
       "perm_empirical_p": 0.000999000999000999,
       "loo_r_min": 0.29231559749884206,
-      "loo_r_max": 0.3149396421954609
+      "loo_r_max": 0.3149396421954609,
+      "ci_method": "spearman_percentile_bootstrap_n1000_seed42"
     },
     "Adipose Tissue": {
       "n_genes": 264,
       "r": 0.16189435788402715,
       "p": 0.008403878467589299,
       "dc": 60.60606060606061,
-      "ci_low": -0.005796444386623384,
-      "ci_high": 0.2675148067368207,
+      "ci_low": 0.04397698373317762,
+      "ci_high": 0.2814297745909311,
       "perm_empirical_p": 0.008991008991008992,
       "loo_r_min": 0.15321135776538788,
-      "loo_r_max": 0.17493528733478805
+      "loo_r_max": 0.17493528733478805,
+      "ci_method": "spearman_percentile_bootstrap_n1000_seed42"
     }
   }
 }
