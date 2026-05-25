@@ -1,0 +1,7 @@
+tissue	n_genes	spearman_r	ci_low	ci_high	p_value	directional_concordance_pct	perm_empirical_p	loo_r_min	loo_r_max	tier
+Muscle	161	0.4957	0.3139	0.5710	2.310e-11	69.6	0.0010	0.4866	0.5164	1
+Lung	49	0.6336	0.5859	0.8609	1.028e-06	85.7	0.0010	0.6102	0.6925	1
+Testis	357	0.5076	0.3759	0.5597	8.948e-25	71.4	0.0010	0.5038	0.5157	1
+Spleen	63	0.3778	0.0918	0.5536	2.266e-03	41.3	0.0030	0.3474	0.4066	2
+Adipose Tissue	105	0.1875	0.0105	0.3690	5.543e-02	53.3	0.0629	0.1657	0.2163	2
+PANEL_MEAN		0.4404								
