@@ -1,0 +1,15 @@
+{
+  "winner": "ridge_continuous",
+  "n_trials": 25,
+  "n_cv_folds": 5,
+  "per_tissue_BA": {
+    "Muscle": 0.9148,
+    "Brain": 0.831,
+    "Liver": 0.9513,
+    "Blood": 0.9697,
+    "Lung": 0.9581
+  },
+  "mean_BA": 0.925,
+  "min_BA": 0.831,
+  "note": "n_trials=25 reproduces n_trials=5 exactly (ridge has single hyperparameter alpha); hyperparameter-stable. Beats published ordinal_lgb (0.895)."
+}
