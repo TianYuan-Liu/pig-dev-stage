@@ -1,0 +1,106 @@
+{
+  "winner": "ridge_continuous",
+  "selection_rule": "max mean BA among frameworks complete on the 5-tissue panel with all tissues >= 0.80",
+  "qualified_frameworks": [
+    "ridge_continuous"
+  ],
+  "panel": [
+    "Muscle",
+    "Brain",
+    "Liver",
+    "Blood",
+    "Lung"
+  ],
+  "published_baseline": {
+    "framework": "ordinal_lgb",
+    "mean_BA_published": 0.895
+  },
+  "config": {
+    "n_trials": 5,
+    "n_cv_folds": 5,
+    "n_inner_folds": 3,
+    "seed": 42
+  },
+  "notes": {
+    "random_forest": "excluded: OrdinalRandomForest dtype bug (add.reduce on string class labels) in nested-CV eval; fails on all tissues.",
+    "elastic_net_lr_muscle": "saga solver on ~32k features; timed out under contention in the parallel sweep, re-run solo.",
+    "multiclass_lgb_brain": "BA=0.52 (near chance) \u2014 instability outlier on the 2-class Brain scheme."
+  },
+  "aggregate": {
+    "ordinal_lgb": {
+      "mean_BA": 0.867167609675717,
+      "min_BA": 0.7130952380952381,
+      "max_BA": 0.9363636363636364,
+      "n_tissues_ok": 5,
+      "panel_complete": true,
+      "all_above_080": false,
+      "per_tissue": {
+        "Muscle": 0.8929592316610054,
+        "Brain": 0.7130952380952381,
+        "Liver": 0.9018077418229752,
+        "Blood": 0.9363636363636364,
+        "Lung": 0.8916122004357299
+      }
+    },
+    "ridge_continuous": {
+      "mean_BA": 0.9249526061699266,
+      "min_BA": 0.8309523809523809,
+      "max_BA": 0.9696969696969697,
+      "n_tissues_ok": 5,
+      "panel_complete": true,
+      "all_above_080": true,
+      "per_tissue": {
+        "Muscle": 0.9147865663206787,
+        "Brain": 0.8309523809523809,
+        "Liver": 0.9512661117009545,
+        "Blood": 0.9696969696969697,
+        "Lung": 0.9580610021786493
+      }
+    },
+    "random_forest": {
+      "mean_BA": null,
+      "min_BA": null,
+      "max_BA": null,
+      "n_tissues_ok": 0,
+      "panel_complete": false,
+      "all_above_080": false,
+      "per_tissue": {
+        "Muscle": null,
+        "Brain": null,
+        "Liver": null,
+        "Blood": null,
+        "Lung": null
+      }
+    },
+    "elastic_net_lr": {
+      "mean_BA": 0.9504141075373775,
+      "min_BA": 0.9285714285714286,
+      "max_BA": 0.9585858585858587,
+      "n_tissues_ok": 4,
+      "panel_complete": false,
+      "all_above_080": true,
+      "per_tissue": {
+        "Muscle": null,
+        "Brain": 0.9285714285714286,
+        "Liver": 0.9564381408135736,
+        "Blood": 0.9585858585858587,
+        "Lung": 0.9580610021786493
+      }
+    },
+    "multiclass_lgb": {
+      "mean_BA": 0.8501885414852095,
+      "min_BA": 0.5214285714285715,
+      "max_BA": 0.9622596388106706,
+      "n_tissues_ok": 5,
+      "panel_complete": true,
+      "all_above_080": false,
+      "per_tissue": {
+        "Muscle": 0.9061631919778537,
+        "Brain": 0.5214285714285715,
+        "Liver": 0.9622596388106706,
+        "Blood": 0.9585858585858587,
+        "Lung": 0.9025054466230937
+      }
+    }
+  }
+}

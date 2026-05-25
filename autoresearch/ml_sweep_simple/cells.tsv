@@ -1,0 +1,26 @@
+framework	tissue	BA	scheme	status	note
+elastic_net_lr	Blood	0.9585858585858587	2-class	ok	
+elastic_net_lr	Brain	0.9285714285714286	2-class	ok	
+elastic_net_lr	Liver	0.9564381408135736	4-class	ok	
+elastic_net_lr	Lung	0.9580610021786493	2-class	ok	
+elastic_net_lr	Muscle		None	crash	saga did not converge within >1h on ~32k features (sweep timeout 3600s AND solo re-run >1h); killed as computationally impractical for this framework on the largest tissue
+multiclass_lgb	Blood	0.9585858585858587	2-class	ok	
+multiclass_lgb	Brain	0.5214285714285715	2-class	ok	
+multiclass_lgb	Liver	0.9622596388106706	4-class	ok	
+multiclass_lgb	Lung	0.9025054466230937	2-class	ok	
+multiclass_lgb	Muscle	0.9061631919778537	4-class	ok	
+ordinal_lgb	Blood	0.9363636363636364	2-class	ok	
+ordinal_lgb	Brain	0.7130952380952381	2-class	ok	
+ordinal_lgb	Liver	0.9018077418229752	4-class	ok	
+ordinal_lgb	Lung	0.8916122004357299	2-class	ok	
+ordinal_lgb	Muscle	0.8929592316610054	4-class	ok	
+random_forest	Blood		None	crash	OrdinalRandomForest dtype crash in nested-CV eval (add.reduce on string labels)
+random_forest	Brain		None	crash	OrdinalRandomForest dtype crash in nested-CV eval (add.reduce on string labels)
+random_forest	Liver		None	crash	OrdinalRandomForest dtype crash in nested-CV eval (add.reduce on string labels)
+random_forest	Lung		None	crash	OrdinalRandomForest dtype crash in nested-CV eval (add.reduce on string labels)
+random_forest	Muscle		None	crash	OrdinalRandomForest dtype crash in nested-CV eval (add.reduce on string labels)
+ridge_continuous	Blood	0.9696969696969697	2-class	ok	
+ridge_continuous	Brain	0.8309523809523809	2-class	ok	
+ridge_continuous	Liver	0.9512661117009545	4-class	ok	
+ridge_continuous	Lung	0.9580610021786493	2-class	ok	
+ridge_continuous	Muscle	0.9147865663206787	4-class	ok	

@@ -62,7 +62,17 @@ def run_cell(fw: str, tissue: str) -> dict:
             rec["status"] = "ok"
         else:
             rec["status"] = "crash"
-            rec["note"] = "no output json (tissue likely ineligible)"
+            # diagnose from the cell log rather than guessing "ineligible"
+            err = ""
+            if log.exists():
+                txt = log.read_text(errors="ignore")
+                if "add.reduce" in txt and "dtype" in txt:
+                    err = "dtype crash in nested-CV eval (add.reduce on string labels)"
+                else:
+                    import re as _re
+                    hits = _re.findall(r"ERROR[^\n]*", txt)
+                    err = hits[-1].split(" - ")[-1].strip()[:160] if hits else "no diagnostic in log"
+            rec["note"] = err or "no output json"
     except subprocess.CalledProcessError as e:
         rec["note"] = f"nonzero exit {e.returncode}"
     except subprocess.TimeoutExpired:
