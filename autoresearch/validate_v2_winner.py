@@ -35,7 +35,7 @@ N_PERM = 1000
 SEED = 42
 
 
-def winner_cfg():
+def _base_cfg():
     ortho = pd.read_csv(ROOT / "review/analyses/results/pig_human_one_to_one_orthologs.csv")
     return {
         "label": "loopC_validate", "panel": PANEL,
@@ -43,12 +43,24 @@ def winner_cfg():
         "filter": "pig_anchored", "statistic": "spearman",
         "pig_young": ["Infant", "Early childhood"], "pig_old": ["Post-pubertal", "Adult"],
         "human_young_cohorts": [1], "human_old_cohorts": [4],
-        "pig_method": "weighted", "drop_pct": 0.0,
-        "pig_min_tpm": 3.0, "human_min_tpm": 30.0,
+        "pig_method": "weighted",
         "top_n": 300, "bootstrap_B": 100, "bootstrap_frac": 0.8,
         "restrict_ids": None, "restrict_col": "human",
         "per_tissue": {}, "pig_pool": {},
     }
+
+
+# Two configs: the pre-specified baseline (CONFIRMATORY cross-species validation)
+# and ext3 (EXPLORATORY maximum conserved signal — protocol selected to maximize r).
+def config(name: str):
+    cfg = _base_cfg()
+    if name == "baseline":
+        cfg.update({"drop_pct": 30.0, "pig_min_tpm": 1.0, "human_min_tpm": 10.0})
+    elif name == "ext3":
+        cfg.update({"drop_pct": 0.0, "pig_min_tpm": 3.0, "human_min_tpm": 30.0})
+    else:
+        raise ValueError(name)
+    return cfg
 
 
 def validate_tissue(name: str, cfg: dict) -> dict:
@@ -103,12 +115,19 @@ def validate_tissue(name: str, cfg: dict) -> dict:
     }
 
 
-def main() -> int:
-    cfg = winner_cfg()
-    out = {"config": "strict_1to1 | pig_anchored | spearman | pig>=3 human>=30 TPM | drop0",
+CONFIG_LABEL = {
+    "baseline": "CONFIRMATORY: strict_1to1 | pig_anchored | spearman | pig>=1 human>=10 TPM | drop30 (pre-specified)",
+    "ext3": "EXPLORATORY-MAX: strict_1to1 | pig_anchored | spearman | pig>=3 human>=30 TPM | drop0 (protocol selected to maximize r)",
+}
+
+
+def run_config(name: str) -> dict:
+    cfg = config(name)
+    out = {"config_name": name, "config": CONFIG_LABEL[name],
+           "role": "confirmatory" if name == "baseline" else "exploratory_max",
            "n_perm": N_PERM, "seed": SEED, "per_tissue": {}}
-    print(f"Loop C validation (N_perm={N_PERM}, seed={SEED})")
-    print("=" * 78)
+    print(f"\n=== Loop C validation [{name}] (N_perm={N_PERM}, seed={SEED}) ===")
+    print(CONFIG_LABEL[name])
     for t in PANEL:
         res = validate_tissue(t, cfg)
         out["per_tissue"][t] = res
@@ -118,15 +137,23 @@ def main() -> int:
         ci = f"[{res['ci_low']:+.3f},{res['ci_high']:+.3f}]" if res["ci_low"] is not None else "NA"
         print(f"{t:16s} r={res['r']:+.3f} n={res['n_genes']:>4} CI={ci} "
               f"perm_p={res['perm_empirical_p']:.4f} "
-              f"LOO=[{res['loo_r_min']:+.3f},{res['loo_r_max']:+.3f}] "
-              f"markers={res['markers_concordant']}/{res['markers_in_set']}")
+              f"LOO=[{res['loo_r_min']:+.3f},{res['loo_r_max']:+.3f}]")
     rs = [r["r"] for r in out["per_tissue"].values() if r.get("status") == "ok"]
     out["mean_r"] = float(np.mean(rs)) if rs else None
     out["min_r"] = float(min(rs)) if rs else None
-    out_path = ROOT / "review/analyses/results/v2_loopC_validation.json"
-    out_path.write_text(json.dumps(out, indent=2))
-    print(f"\nmean_r={out['mean_r']:.4f} min_r={out['min_r']:.4f}")
-    print(f"Wrote {out_path}")
+    print(f"mean_r={out['mean_r']:.4f} min_r={out['min_r']:.4f}")
+    return out
+
+
+def main() -> int:
+    import sys as _sys
+    which = _sys.argv[1:] or ["baseline", "ext3"]
+    for name in which:
+        out = run_config(name)
+        suffix = "" if name == "baseline" else f"_{name}"
+        out_path = ROOT / f"review/analyses/results/v2_loopC_validation{suffix}.json"
+        out_path.write_text(json.dumps(out, indent=2))
+        print(f"Wrote {out_path}")
     return 0
 
 
