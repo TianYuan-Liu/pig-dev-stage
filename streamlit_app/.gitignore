@@ -1,0 +1,2 @@
+# The repository-wide .gitignore ignores test_*.py as scratch; keep the app tests tracked.
+!tests/test_app.py

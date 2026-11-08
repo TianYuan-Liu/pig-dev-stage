@@ -1,1053 +1,856 @@
+"""PigDevStage: postnatal developmental stage of pig tissue from bulk RNA-seq.
+
+Web companion to
+    Liu T, Lei R, Khan IM, Theobald P. Tissue identity is the dominant determinant
+    of cross-species transferability of a porcine developmental programme.
+    BMC Genomics 27:919 (2026). https://doi.org/10.1186/s12864-026-13103-0
+
+One linear PLS predictor per tissue, stored in models/<Tissue>_pls.npz:
+    score = ((log2(TPM + 1) - mean) / scale) @ coef + intercept
+Predicted stage = nearest stage index to the score. Every number the app shows
+comes from models/model_card.json or the npz files, both written by
+export_pls_models.py. Runtime needs only streamlit, numpy and pandas.
+
+Run locally:  streamlit run streamlit_app/app.py
 """
-Streamlit web app for porcine developmental stage prediction.
+from __future__ import annotations
 
-Loads pre-trained OrdinalLightGBM models (one per tissue) and predicts
-developmental stages from user-uploaded gene expression data.
-
-Run:
-    streamlit run streamlit_app/app.py
-"""
-
+import gzip
 import hashlib
+import io
 import json
 import re
-import sys
 from pathlib import Path
 
-# Project root must be on sys.path so joblib can unpickle OrdinalLightGBM
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT))
-
-import joblib
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-MODELS_DIR = Path(__file__).resolve().parent / "models"
-RESULTS_DIR = Path(__file__).resolve().parent / "results"
-_FALLBACK_RESULTS_DIR = PROJECT_ROOT / "machine_learning" / "model_outputs"
-ASSETS_DIR = Path(__file__).resolve().parent / "assets"
-LOGO_HIRES_PATH = ASSETS_DIR / "cardiff_logo_hires.png"
-LOGO_PATH = LOGO_HIRES_PATH if LOGO_HIRES_PATH.exists() else ASSETS_DIR / "cardiff_logo.png"
-STUDY_DESIGN_PATH = PROJECT_ROOT / "paper" / "figures" / "output" / "png" / "fig1_study_design.png"
-TISSUES = ["Muscle", "Liver", "Blood", "Brain", "Lung"]
+APP_DIR = Path(__file__).resolve().parent
+MODELS_DIR = APP_DIR / "models"
+CARD_PATH = MODELS_DIR / "model_card.json"
+EXAMPLE_TPM = APP_DIR / "example" / "muscle_example_tpm.csv"
+EXAMPLE_INFO = APP_DIR / "example" / "muscle_example_samples.csv"
+EXAMPLE_TISSUE = "Muscle"
 
-# Ordinal color palette (light → dark for developmental progression)
-STAGE_COLORS_4 = ["#a8d8ea", "#3dc1d3", "#e77f67", "#c0392b"]
-STAGE_COLORS_2 = ["#a8d8ea", "#e77f67"]
+# Display order: the cross-study validated tissue first.
+TISSUES = ["Muscle", "Liver", "Brain", "Lung", "Blood"]
 
-# Stage definitions with age boundaries and colors
-STAGE_DEFINITIONS = [
-    {"name": "Infant", "min_days": 0, "max_days": 20, "color": "#a8d8ea"},
-    {"name": "Early childhood", "min_days": 21, "max_days": 59, "color": "#3dc1d3"},
-    {"name": "Pre-pubertal", "min_days": 60, "max_days": 149, "color": "#e77f67"},
-    {"name": "Post-pubertal", "min_days": 150, "max_days": 365, "color": "#c0392b"},
-    {"name": "Adult", "min_days": 366, "max_days": 730, "color": "#7b241c"},
-]
+# Gene-coverage policy for uploads (fraction of the model's genes present).
+COVERAGE_WARN = 0.80
+COVERAGE_REFUSE = 0.50
 
+# TPM is at most 1e6, so log2(TPM + 1) never exceeds this value.
+LOG2_TPM_MAX = float(np.log2(1e6 + 1.0))
 
-# ---------------------------------------------------------------------------
-# Model & data loading
-# ---------------------------------------------------------------------------
+PIG_GENE_PREFIX = "ENSSSCG"
 
-@st.cache_resource
-def load_models():
-    """Load all serialized model artifacts."""
-    models = {}
-    for tissue in TISSUES:
-        path = MODELS_DIR / f"{tissue}.joblib"
-        if path.exists():
-            models[tissue] = joblib.load(path)
-    return models
+# Cross-study validation status per tissue, as stated in the paper.
+STATUS = {
+    "Muscle": "validated",
+    "Liver": "caution",
+    "Brain": "exploratory",
+    "Lung": "exploratory",
+    "Blood": "exploratory",
+}
+STATUS_LABEL = {
+    "validated": "Cross-study validated",
+    "caution": "Use with caution",
+    "exploratory": "Exploratory",
+}
 
+DOI = "10.1186/s12864-026-13103-0"
+DOI_URL = f"https://doi.org/{DOI}"
+CITATION = (
+    "Liu T, Lei R, Khan IM, Theobald P. Tissue identity is the dominant determinant "
+    "of cross-species transferability of a porcine developmental programme. "
+    "BMC Genomics. 2026;27:919."
+)
+BIBTEX = """@article{liu2026tissue,
+  title   = {Tissue identity is the dominant determinant of cross-species
+             transferability of a porcine developmental programme},
+  author  = {Liu, Tianyuan and Lei, Rujing and Khan, Ilyas M. and Theobald, Peter},
+  journal = {BMC Genomics},
+  volume  = {27},
+  pages   = {919},
+  year    = {2026},
+  doi     = {10.1186/s12864-026-13103-0}
+}"""
+PIGGTEX_URL = "https://piggtex.farmgtex.org/"
+PIGGTEX_CITATION = (
+    "Teng J, et al. A compendium of genetic regulatory effects across pig tissues. "
+    "Nat Genet. 2024;56:112-123."
+)
+PIGGTEX_DOI_URL = "https://doi.org/10.1038/s41588-023-01585-7"
+REPO_URL = "https://github.com/TianYuan-Liu/pig-dev-stage"
 
-@st.cache_data
-def load_ml_results():
-    """Load per-tissue ML results JSONs."""
-    results = {}
-    for tissue in TISSUES:
-        path = RESULTS_DIR / f"{tissue}_results.json"
-        if not path.exists():
-            path = _FALLBACK_RESULTS_DIR / f"{tissue}_results.json"
-        if path.exists():
-            with open(path) as f:
-                results[tissue] = json.load(f)
-    return results
-
-
-# ---------------------------------------------------------------------------
-# CSS
-# ---------------------------------------------------------------------------
-
-def inject_custom_css():
-    st.markdown("""
-    <style>
-    /*
-     * Theme-agnostic design: uses inherit / rgba overlays so custom
-     * elements adapt to whichever Streamlit theme is active without
-     * relying on prefers-color-scheme (which tracks the OS, not
-     * Streamlit's own light/dark toggle).
-     */
-    :root {
-        --cardiff-red: #9B1B30;
-        --cardiff-red-dark: #7A1526;
-        --cardiff-gold: #D4A843;
-        --cardiff-gold-light: #E8C97A;
-        --radius: 12px;
-        --radius-lg: 16px;
-        --overlay-subtle: rgba(128,128,128,0.08);
-        --overlay-border: rgba(128,128,128,0.18);
-    }
-
-    /* ── Metric cards (sidebar) ────────────────────────── */
-    div[data-testid="stMetric"] {
-        background: var(--overlay-subtle);
-        border: 1px solid var(--overlay-border);
-        border-radius: 8px;
-        padding: 12px 16px;
-    }
-
-    /* Tab panel padding */
-    div[data-testid="stTabPanel"] {
-        padding-top: 0.5rem;
-    }
-
-    /* ── Scheme badge ──────────────────────────────────── */
-    .scheme-badge {
-        display: inline-block;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-size: 0.85em;
-        font-weight: 600;
-        color: white;
-    }
-    .scheme-4class { background: #27ae60; }
-    .scheme-2class { background: #2980b9; }
-
-    /* ── Citation box ──────────────────────────────────── */
-    .citation-box {
-        background: var(--overlay-subtle);
-        border-left: 4px solid var(--cardiff-red);
-        border-radius: 0 var(--radius) var(--radius) 0;
-        padding: 1.2rem 1.4rem;
-        font-size: 0.85rem;
-        color: inherit;
-        opacity: 0.85;
-        line-height: 1.65;
-    }
-    .citation-box .citation-header {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--cardiff-red);
-        opacity: 1;
-        margin-bottom: 0.5rem;
-    }
-
-    /* ── Figure caption ────────────────────────────────── */
-    .figure-caption {
-        text-align: center;
-        font-style: italic;
-        font-size: 0.85rem;
-        color: inherit;
-        opacity: 0.6;
-        margin-top: 0.5rem;
-        padding: 0 2rem;
-        line-height: 1.5;
-    }
-    .figure-caption strong {
-        font-style: normal;
-        opacity: 0.8;
-    }
-
-    /* ── Sidebar panel ─────────────────────────────────── */
-    .sidebar-panel {
-        background: var(--overlay-subtle);
-        border: 1px solid var(--overlay-border);
-        border-radius: var(--radius);
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-    .sidebar-panel-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.6rem;
-        border-bottom: 2px solid var(--overlay-border);
-    }
-    .sidebar-tissue-name {
-        font-size: 1.1rem;
-        font-weight: 800;
-        color: var(--cardiff-red);
-    }
-    .sidebar-metrics-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.6rem;
-    }
-    .sidebar-metric {
-        text-align: center;
-        padding: 0.5rem 0.3rem;
-        border-radius: 8px;
-        background: var(--overlay-subtle);
-    }
-    .sidebar-metric-val {
-        font-size: 1.15rem;
-        font-weight: 800;
-        color: var(--cardiff-red);
-    }
-    .sidebar-metric-lbl {
-        font-size: 0.65rem;
-        font-weight: 600;
-        color: inherit;
-        opacity: 0.55;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-    }
-    .sidebar-ci {
-        text-align: center;
-        font-size: 0.72rem;
-        color: inherit;
-        opacity: 0.55;
-        margin-top: 0.5rem;
-    }
-    .sidebar-section {
-        margin-top: 0.5rem;
-    }
-    .sidebar-section-title {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: inherit;
-        opacity: 0.55;
-        margin-bottom: 0.5rem;
-    }
-    .sidebar-stage {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.25rem 0;
-        font-size: 0.85rem;
-        color: inherit;
-    }
-    .sidebar-stage-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        flex-shrink: 0;
-    }
-    .sidebar-feature-count {
-        margin-top: 0.7rem;
-        padding-top: 0.6rem;
-        border-top: 1px solid currentColor;
-        border-top-color: rgba(128,128,128,0.25);
-        font-size: 0.8rem;
-        color: inherit;
-        opacity: 0.55;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-
-    /* ── Sidebar app header ───────────────────────────── */
-    .sidebar-app-header {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--cardiff-red);
-        padding: 0.2rem 0 0.6rem 0;
-        letter-spacing: 0.02em;
-        line-height: 1.3;
-    }
-    .sidebar-app-header span {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 400;
-        color: inherit;
-        opacity: 0.55;
-        letter-spacing: 0;
-        margin-top: 0.15rem;
-    }
-
-    /* ── Tissue context banner ────────────────────────── */
-    .tissue-context-banner {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.6rem 1rem;
-        margin-bottom: 1rem;
-        background: var(--overlay-subtle);
-        border-left: 4px solid var(--cardiff-red);
-        border-radius: 0 6px 6px 0;
-    }
-    .tissue-context-banner .tcb-tissue {
-        font-weight: 700;
-        font-size: 1.05rem;
-        color: var(--cardiff-red);
-    }
-    .tissue-context-banner .tcb-scheme {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 600;
-        padding: 0.15rem 0.5rem;
-        border-radius: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-    }
-    .tissue-context-banner .tcb-scheme.scheme-4class {
-        background: #e8d5f5;
-        color: #6c3d8f;
-    }
-    .tissue-context-banner .tcb-scheme.scheme-2class {
-        background: #d5eaff;
-        color: #2a6cb6;
-    }
-    .tissue-context-banner .tcb-stat {
-        font-size: 0.85rem;
-        color: inherit;
-        opacity: 0.7;
-    }
-    .tissue-context-banner .tcb-stat strong {
-        color: inherit;
-        opacity: 1;
-    }
-
-    /* ── Section header ────────────────────────────────── */
-    .section-header {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        margin-bottom: 1rem;
-        padding-bottom: 0.4rem;
-        border-bottom: 2px solid var(--border);
-    }
-    </style>
-    """, unsafe_allow_html=True)
+SYSTEM_FONT = ('-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, '
+               '"Helvetica Neue", Arial, sans-serif')
+CSS = f"""
+<style>
+html, body, .stApp, h1, h2, h3, h4, h5, h6, p, li, label, input, textarea, select,
+button p, [data-testid="stMarkdownContainer"], [data-testid="stCaptionContainer"],
+[data-testid="stWidgetLabel"] p, [data-testid="stTable"] td, [data-testid="stTable"] th,
+[data-baseweb="tab"] p {{
+    font-family: {SYSTEM_FONT} !important;
+}}
+h1, h2, h3, h4 {{ font-weight: 600 !important; letter-spacing: 0 !important; }}
+.block-container, [data-testid="stMainBlockContainer"] {{ max-width: 1080px; }}
+</style>
+"""
 
 
 # ---------------------------------------------------------------------------
-# UI helpers
+# Input parsing (pure functions; no Streamlit calls)
 # ---------------------------------------------------------------------------
 
-def _tissue_banner_html(tissue: str, scheme: str, ba: float) -> str:
-    """Return HTML for the tissue-context banner shown on Predict / Performance tabs."""
-    badge_cls = "scheme-4class" if scheme == "4-class" else "scheme-2class"
-    return (
-        '<div class="tissue-context-banner">'
-        f'<span class="tcb-tissue">{tissue}</span>'
-        f'<span class="tcb-scheme {badge_cls}">{scheme}</span>'
-        f'<span class="tcb-stat">BA: <strong>{ba:.3f}</strong></span>'
-        '</div>'
-    )
+def strip_ensembl_version(gene_id) -> str:
+    """ENSSSCG00000037539.2 -> ENSSSCG00000037539 (only for Ensembl-style ids)."""
+    s = str(gene_id).strip()
+    if s.upper().startswith("ENS"):
+        return re.sub(r"\.\d+$", "", s)
+    return s
 
 
-# ---------------------------------------------------------------------------
-# Data parsing helpers
-# ---------------------------------------------------------------------------
-
-def strip_ensembl_version(gene_id: str) -> str:
-    """ENSSSCG00000037539.2 → ENSSSCG00000037539"""
-    return re.sub(r"\.\d+$", "", str(gene_id))
+def looks_like_pig_gene(label) -> bool:
+    return str(label).strip().upper().startswith(PIG_GENE_PREFIX)
 
 
-def detect_delimiter(filename: str, raw_bytes: bytes) -> str:
-    name = filename.removesuffix(".gz")
-    if name.endswith((".tsv", ".txt")):
-        return "\t"
-    first_line = raw_bytes.split(b"\n")[0].decode("utf-8", errors="replace")
-    if first_line.count("\t") > first_line.count(","):
-        return "\t"
-    return ","
+def detect_delimiter(filename: str, raw: bytes) -> str:
+    """Pick tab, comma or semicolon from the header line; extension breaks ties."""
+    first = raw.split(b"\n", 1)[0].decode("utf-8", errors="replace")
+    counts = {"\t": first.count("\t"), ",": first.count(","), ";": first.count(";")}
+    best = max(counts, key=counts.get)
+    ranked = sorted(counts.values(), reverse=True)
+    if ranked[0] > 0 and ranked[0] > ranked[1]:
+        return best
+    name = filename.lower()
+    if name.endswith(".gz"):
+        name = name[:-3]
+    return "," if name.endswith(".csv") else "\t"
 
 
-def parse_upload(uploaded_file) -> pd.DataFrame:
-    """Parse uploaded CSV/TSV into a samples x genes DataFrame with Ensembl IDs."""
-    raw = uploaded_file.getvalue()
+def parse_expression_table(raw: bytes, filename: str = "upload.csv") -> tuple[pd.DataFrame, list[str]]:
+    """Parse an uploaded table into a samples x genes float DataFrame.
 
-    # Decompress gzip if needed
+    Genes may be rows or columns. Values that are not numbers become NaN
+    (treated later as missing genes for that sample). Ensembl version suffixes
+    are stripped and duplicated gene ids averaged. Returns (table, notes);
+    raises ValueError for unusable input.
+    """
+    notes: list[str] = []
     if raw[:2] == b"\x1f\x8b":
-        import gzip
         raw = gzip.decompress(raw)
+    if not raw.strip():
+        raise ValueError("The file is empty.")
+    sep = detect_delimiter(filename, raw)
+    try:
+        df = pd.read_csv(io.BytesIO(raw), sep=sep, index_col=0,
+                         encoding="utf-8-sig", encoding_errors="replace")
+    except Exception as exc:  # pandas raises several parser error types
+        raise ValueError(f"Could not read the file as a delimited table ({exc}).") from exc
+    if df.shape[0] == 0 or df.shape[1] == 0:
+        raise ValueError("The table needs a header row, one identifier column and at "
+                         "least one column of values.")
+    df.index = pd.Index([str(i).strip() for i in df.index])
+    df.columns = pd.Index([str(c).strip() for c in df.columns])
 
-    sep = detect_delimiter(uploaded_file.name, raw)
-
-    from io import BytesIO
-    df = pd.read_csv(BytesIO(raw), sep=sep, index_col=0)
-
-    # Force numeric
-    df = df.apply(pd.to_numeric, errors="coerce")
-    n_nan = df.isna().sum().sum()
-    if n_nan > 0:
-        st.warning(f"{n_nan} non-numeric values were coerced to NaN and filled with 0.")
-        df = df.fillna(0.0)
-
-    # Detect orientation: genes as rows vs samples as rows
-    index_has_ensembl = sum(1 for g in df.index if str(g).startswith("ENSSSCG")) > len(df) * 0.5
-    cols_have_ensembl = sum(1 for g in df.columns if str(g).startswith("ENSSSCG")) > len(df.columns) * 0.5
-
-    if index_has_ensembl and not cols_have_ensembl:
-        df = df.T
-    elif not cols_have_ensembl and not index_has_ensembl:
-        if df.shape[0] > df.shape[1] * 5:
-            df = df.T
-
-    # Strip version suffixes from gene columns
-    df.columns = [strip_ensembl_version(c) for c in df.columns]
-
-    # Handle duplicate gene IDs (average)
-    if df.columns.duplicated().any():
-        n_dups = df.columns.duplicated().sum()
-        st.warning(f"{n_dups} duplicate gene IDs found — averaging their values.")
-        df = df.T.groupby(level=0).mean().T
-
-    # Check for negative values
-    if (df < 0).any().any():
-        st.error("Negative values detected. TPM expression values cannot be negative.")
-        st.stop()
-
-    return df
-
-
-# ---------------------------------------------------------------------------
-# Gene alignment
-# ---------------------------------------------------------------------------
-
-def align_genes(user_df: pd.DataFrame, expected_genes: list) -> tuple:
-    """Align user genes to the model's expected feature set."""
-    user_genes_stripped = {strip_ensembl_version(g): g for g in user_df.columns}
-
-    matched = {}
-    for exp_gene in expected_genes:
-        if exp_gene in user_genes_stripped:
-            matched[exp_gene] = user_genes_stripped[exp_gene]
-
-    n_matched = len(matched)
-    n_expected = len(expected_genes)
-
-    aligned = pd.DataFrame(0.0, index=user_df.index, columns=expected_genes)
-    for exp_gene, user_gene in matched.items():
-        aligned[exp_gene] = user_df[user_gene].values
-
-    return aligned, n_matched, n_expected
-
-
-# ---------------------------------------------------------------------------
-# Prediction
-# ---------------------------------------------------------------------------
-
-def detect_log_transformed(df: pd.DataFrame) -> bool:
-    """Heuristic: check distribution shape to detect log2-transformed data."""
-    max_val = df.max().max()
-    median_val = df.median().median()
-    if max_val > 30:
-        return False
-    if max_val < 18 and median_val < 10:
-        return True
-    return False
-
-
-def predict_stages(model_artifact: dict, aligned_df: pd.DataFrame, is_log: bool):
-    """Run prediction pipeline. Returns results DataFrame."""
-    model = model_artifact["model"]
-    class_labels = model_artifact["class_labels"]
-
-    if is_log:
-        X = aligned_df.values
+    n_row_genes = sum(looks_like_pig_gene(i) for i in df.index)
+    n_col_genes = sum(looks_like_pig_gene(c) for c in df.columns)
+    if n_row_genes != n_col_genes:
+        genes_in_rows = n_row_genes > n_col_genes
     else:
-        X = np.log2(aligned_df.values + 1)
+        genes_in_rows = df.shape[0] >= df.shape[1]
+        notes.append("No pig Ensembl gene ids (ENSSSCG...) were recognised; the longer "
+                     "side of the table was taken to be genes.")
+    notes.append("Genes were read from the rows, one column per sample."
+                 if genes_in_rows else "Genes were read from the columns, one row per sample.")
+    sample_axis = "column" if genes_in_rows else "row"
+    gene_axis = "row" if genes_in_rows else "column"
 
-    X_df = pd.DataFrame(X, index=aligned_df.index, columns=aligned_df.columns)
+    # genes x samples; coerce one sample at a time
+    G = df if genes_in_rows else df.T
+    G = G.apply(pd.to_numeric, errors="coerce").replace([np.inf, -np.inf], np.nan)
 
-    proba = model.predict_proba(X_df)
-    preds = model.predict(X_df)
+    empty_samples = G.isna().all(axis=0).to_numpy()
+    if empty_samples.any():
+        dropped = [str(c) for c in G.columns[empty_samples]]
+        shown = ", ".join(dropped[:5]) + (", ..." if len(dropped) > 5 else "")
+        notes.append(f"Ignored {len(dropped)} {sample_axis}(s) with no numeric values: {shown}.")
+        G = G.loc[:, ~empty_samples]
+    if G.shape[1] == 0:
+        raise ValueError("No numeric expression values were found.")
 
-    pred_labels = [class_labels[int(p)] for p in preds]
-    confidence = proba.max(axis=1)
+    empty_genes = G.isna().all(axis=1).to_numpy()
+    if empty_genes.any():
+        notes.append(f"Ignored {int(empty_genes.sum()):,} gene {gene_axis}(s) with no numeric values.")
+        G = G.loc[~empty_genes]
 
-    results = pd.DataFrame({
-        "Sample": aligned_df.index,
-        "Predicted Stage": pred_labels,
-        "Confidence": confidence,
+    n_missing = int(G.isna().to_numpy().sum())
+    if n_missing:
+        notes.append(f"{n_missing:,} value(s) could not be read as numbers; they are treated "
+                     "as missing and set to the training mean of that gene.")
+
+    stripped = [strip_ensembl_version(g) for g in G.index]
+    n_versioned = sum(a != str(b) for a, b in zip(stripped, G.index))
+    if n_versioned:
+        notes.append(f"Removed version suffixes from {n_versioned:,} gene id(s).")
+    G.index = pd.Index(stripped)
+    dup = G.index.duplicated(keep=False)
+    if dup.any():
+        n_dup_ids = int(pd.Index(G.index[dup]).nunique())
+        G = G.groupby(level=0, sort=False).mean()
+        notes.append(f"{n_dup_ids:,} gene id(s) occurred more than once; their values were averaged.")
+
+    vals = G.to_numpy(dtype=np.float64)
+    if np.any(vals[np.isfinite(vals)] < 0):
+        raise ValueError("Negative values were found. The app expects TPM or log2(TPM + 1), "
+                         "both of which are non-negative.")
+
+    X = G.T.astype(np.float64)
+    X.index = pd.Index([str(s) for s in X.index], name="Sample")
+    X.columns = pd.Index([str(g) for g in X.columns])
+    return X, notes
+
+
+def looks_log_transformed(X: pd.DataFrame) -> bool:
+    """True if no value exceeds the largest possible log2(TPM + 1)."""
+    v = X.to_numpy(dtype=np.float64)
+    v = v[np.isfinite(v)]
+    if v.size == 0:
+        return False
+    return bool(v.max() <= LOG2_TPM_MAX)
+
+
+# ---------------------------------------------------------------------------
+# Model and prediction (pure functions)
+# ---------------------------------------------------------------------------
+
+def read_model(path: Path) -> dict:
+    """Read one <Tissue>_pls.npz written by export_pls_models.py."""
+    with np.load(path, allow_pickle=False) as z:
+        d = {k: z[k] for k in z.files}
+    top = pd.DataFrame({
+        "Gene id": d["top_vip_gene"].astype(str),
+        "Symbol": d["top_vip_symbol"].astype(str),
+        "VIP": d["top_vip_value"].astype(np.float64),
+        "Coefficient": d["top_vip_coef"].astype(np.float64),
+        "Sign": d["top_vip_sign"].astype(int),
     })
-
-    for i, label in enumerate(class_labels):
-        results[f"P({label})"] = proba[:, i]
-
-    results = results.set_index("Sample")
-    return results
-
-
-# ---------------------------------------------------------------------------
-# Visualization — existing
-# ---------------------------------------------------------------------------
-
-def plot_probabilities(results: pd.DataFrame, class_labels: list):
-    """Horizontal stacked bar chart of per-class probabilities."""
-    prob_cols = [f"P({label})" for label in class_labels]
-    prob_data = results[prob_cols]
-
-    n_classes = len(class_labels)
-    colors = STAGE_COLORS_4[:n_classes] if n_classes <= 4 else STAGE_COLORS_4
-    if n_classes == 2:
-        colors = STAGE_COLORS_2
-
-    n_samples = len(results)
-    fig_height = max(2.5, 0.4 * n_samples + 1)
-    fig, ax = plt.subplots(figsize=(10, fig_height))
-
-    y_pos = np.arange(n_samples)
-    left = np.zeros(n_samples)
-
-    for i, col in enumerate(prob_cols):
-        widths = prob_data[col].values
-        ax.barh(y_pos, widths, left=left, color=colors[i], label=class_labels[i],
-                edgecolor="white", linewidth=0.5)
-        left += widths
-
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(results.index, fontsize=8)
-    ax.set_xlabel("Probability")
-    ax.set_xlim(0, 1)
-    ax.legend(loc="lower right", fontsize=8)
-    ax.invert_yaxis()
-    ax.set_title("Predicted Stage Probabilities")
-
-    plt.tight_layout()
-    return fig
+    return {
+        "tissue": str(d["tissue"]),
+        "gene_ids": d["gene_ids"].astype(str),
+        "mean": d["mean"].astype(np.float64),
+        "scale": d["scale"].astype(np.float64),
+        "coef": d["coef"].astype(np.float64),
+        "intercept": float(d["intercept"]),
+        "kept_stages": [str(s) for s in d["kept_stages"]],
+        "stage_n": [int(n) for n in d["stage_n"]],
+        "n_train": int(d["n_train"]),
+        "n_components": int(d["n_components"]),
+        "proba_sigma": float(d["proba_sigma"]),
+        "top_genes": top,
+    }
 
 
-# ---------------------------------------------------------------------------
-# Visualization — ML performance
-# ---------------------------------------------------------------------------
-
-def plot_confusion_matrix(cm, class_labels):
-    """Annotated heatmap of the confusion matrix with counts and row percentages."""
-    cm = np.array(cm)
-    row_sums = cm.sum(axis=1, keepdims=True)
-    row_pct = np.where(row_sums > 0, cm / row_sums * 100, 0)
-
-    n = len(class_labels)
-    fig, ax = plt.subplots(figsize=(max(4, n * 1.2), max(3.5, n * 1.0)))
-    im = ax.imshow(cm, cmap="Blues", aspect="auto")
-
-    for i in range(n):
-        for j in range(n):
-            val = cm[i, j]
-            pct = row_pct[i, j]
-            color = "white" if val > cm.max() * 0.6 else "black"
-            ax.text(j, i, f"{val}\n({pct:.0f}%)", ha="center", va="center",
-                    fontsize=9, color=color, fontweight="bold" if i == j else "normal")
-
-    ax.set_xticks(range(n))
-    ax.set_yticks(range(n))
-    ax.set_xticklabels(class_labels, fontsize=8, rotation=30, ha="right")
-    ax.set_yticklabels(class_labels, fontsize=8)
-    ax.set_xlabel("Predicted", fontsize=10)
-    ax.set_ylabel("Actual", fontsize=10)
-    ax.set_title("Confusion Matrix", fontsize=11, fontweight="bold")
-    fig.colorbar(im, ax=ax, shrink=0.8)
-    plt.tight_layout()
-    return fig
+def load_card(path: Path = CARD_PATH) -> dict | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text())
 
 
-def plot_per_class_metrics(precision, recall, f1, class_labels):
-    """Grouped bar chart of precision, recall, and F1 per class."""
-    n = len(class_labels)
-    x = np.arange(n)
-    width = 0.25
-
-    fig, ax = plt.subplots(figsize=(max(5, n * 1.5), 4))
-    ax.bar(x - width, precision, width, label="Precision", color="#3498db", edgecolor="white")
-    ax.bar(x, recall, width, label="Recall", color="#e74c3c", edgecolor="white")
-    ax.bar(x + width, f1, width, label="F1", color="#2ecc71", edgecolor="white")
-
-    ax.set_xticks(x)
-    ax.set_xticklabels(class_labels, fontsize=8, rotation=15, ha="right")
-    ax.set_ylabel("Score")
-    ax.set_ylim(0, 1.1)
-    ax.set_title("Per-Class Metrics", fontsize=11, fontweight="bold")
-    ax.legend(fontsize=8)
-
-    # Annotate values
-    for bars in ax.containers:
-        for bar in bars:
-            h = bar.get_height()
-            if h > 0:
-                ax.text(bar.get_x() + bar.get_width() / 2, h + 0.01,
-                        f"{h:.2f}", ha="center", va="bottom", fontsize=6.5)
-
-    plt.tight_layout()
-    return fig
+def pls_scores(model: dict, X_log) -> np.ndarray:
+    """Continuous stage score; non-finite entries (missing genes) get z = 0."""
+    X_log = np.asarray(X_log, dtype=np.float64)
+    if X_log.ndim == 1:
+        X_log = X_log[None, :]
+    Z = (X_log - model["mean"]) / model["scale"]
+    Z[~np.isfinite(Z)] = 0.0
+    return Z @ model["coef"] + model["intercept"]
 
 
-def plot_cv_folds(cv_data):
-    """Bar chart of per-fold balanced accuracy with mean line and SD band."""
-    agg = cv_data["aggregated_metrics"]["balanced_accuracy"]
-    fold_scores = agg["per_fold"]
-    mean_ba = agg["mean"]
-    std_ba = agg["std"]
-    n_folds = len(fold_scores)
-
-    fig, ax = plt.subplots(figsize=(max(5, n_folds * 1.2), 4))
-    x = np.arange(n_folds)
-    bars = ax.bar(x, fold_scores, color="#3498db", edgecolor="white", width=0.6)
-
-    # Mean line
-    ax.axhline(mean_ba, color="#e74c3c", linewidth=2, linestyle="--",
-               label=f"Mean = {mean_ba:.3f}")
-    # SD band
-    ax.axhspan(mean_ba - std_ba, mean_ba + std_ba, alpha=0.15, color="#e74c3c",
-               label=f"\u00b11 SD = {std_ba:.3f}")
-
-    # Annotate bars
-    for bar, score in zip(bars, fold_scores):
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.005,
-                f"{score:.3f}", ha="center", va="bottom", fontsize=9)
-
-    ax.set_xticks(x)
-    ax.set_xticklabels([f"Fold {i + 1}" for i in range(n_folds)], fontsize=9)
-    ax.set_ylabel("Balanced Accuracy")
-    ax.set_ylim(0, min(1.15, max(fold_scores) + 0.1))
-    ax.set_title("Cross-Validation Performance", fontsize=11, fontweight="bold")
-    ax.legend(fontsize=8, loc="lower right")
-    plt.tight_layout()
-    return fig
+def nearest_stage_index(scores, n_stages: int) -> np.ndarray:
+    """round(score) clipped to [0, K-1]; exact halves go to the lower stage."""
+    s = np.asarray(scores, dtype=np.float64).reshape(-1)
+    ks = np.arange(n_stages, dtype=np.float64)
+    return np.argmin((s[:, None] - ks[None, :]) ** 2, axis=1)
 
 
-def plot_feature_importance(feat_imp, top_n=20):
-    """Horizontal bar chart of top N feature importances."""
-    # feat_imp is dict {gene_id: importance}
-    sorted_feats = sorted(feat_imp.items(), key=lambda x: x[1], reverse=True)[:top_n]
-    genes = [g for g, _ in reversed(sorted_feats)]
-    importances = [v for _, v in reversed(sorted_feats)]
-
-    fig, ax = plt.subplots(figsize=(7, max(4, top_n * 0.3)))
-    colors = plt.cm.viridis(np.linspace(0.3, 0.9, len(genes)))
-    ax.barh(range(len(genes)), importances, color=colors, edgecolor="white")
-    ax.set_yticks(range(len(genes)))
-    ax.set_yticklabels(genes, fontsize=7)
-    ax.set_xlabel("Importance (split gain)")
-    ax.set_title(f"Top {top_n} Features", fontsize=11, fontweight="bold")
-    plt.tight_layout()
-    return fig
+def stage_probabilities(scores, n_stages: int, sigma: float) -> np.ndarray:
+    """Display-only P(c) proportional to exp(-(score - c)^2 / (2 sigma^2))."""
+    s = np.asarray(scores, dtype=np.float64).reshape(-1)
+    ks = np.arange(n_stages, dtype=np.float64)
+    logits = -((s[:, None] - ks[None, :]) ** 2) / (2.0 * sigma ** 2)
+    logits -= logits.max(axis=1, keepdims=True)
+    p = np.exp(logits)
+    return p / p.sum(axis=1, keepdims=True)
 
 
-def plot_stage_timeline():
-    """Horizontal bar chart showing age ranges for each developmental stage."""
-    fig, ax = plt.subplots(figsize=(9, 3))
-
-    for i, stage in enumerate(STAGE_DEFINITIONS):
-        width = stage["max_days"] - stage["min_days"]
-        ax.barh(i, width, left=stage["min_days"], color=stage["color"],
-                edgecolor="white", height=0.6)
-        # Center label
-        cx = stage["min_days"] + width / 2
-        ax.text(cx, i, f"{stage['name']}\n({stage['min_days']}-{stage['max_days']}d)",
-                ha="center", va="center", fontsize=8, fontweight="bold",
-                color="white" if i >= 2 else "black")
-
-    ax.set_yticks(range(len(STAGE_DEFINITIONS)))
-    ax.set_yticklabels([s["name"] for s in STAGE_DEFINITIONS], fontsize=9)
-    ax.set_xlabel("Age (days)")
-    ax.set_title("Developmental Stage Timeline", fontsize=11, fontweight="bold")
-    ax.invert_yaxis()
-    plt.tight_layout()
-    return fig
+def align_to_model(model: dict, X: pd.DataFrame) -> tuple[np.ndarray, float]:
+    """Reorder columns to the model's genes (NaN where absent); return file-level coverage."""
+    genes = pd.Index(model["gene_ids"])
+    coverage = float(genes.isin(X.columns).mean())
+    A = X.reindex(columns=genes).to_numpy(dtype=np.float64)
+    return A, coverage
 
 
-def plot_tissue_comparison(ml_results):
-    """Grouped bar chart comparing balanced accuracy across all tissues."""
-    tissues = []
-    ba_values = []
-    sample_counts = []
-    schemes = []
+def predict_table(model: dict, X: pd.DataFrame, already_log: bool) -> tuple[pd.DataFrame, float]:
+    """Per-sample stage call, score, display probabilities and gene coverage."""
+    A, file_coverage = align_to_model(model, X)
+    if not already_log:
+        with np.errstate(invalid="ignore"):
+            A = np.log2(A + 1.0)
+    coverage = np.isfinite(A).mean(axis=1)
+    scores = pls_scores(model, A)
+    stages = model["kept_stages"]
+    idx = nearest_stage_index(scores, len(stages))
+    probs = stage_probabilities(scores, len(stages), model["proba_sigma"])
+    ok = coverage >= COVERAGE_REFUSE
 
-    for tissue in TISSUES:
-        if tissue in ml_results:
-            r = ml_results[tissue]
-            tissues.append(tissue)
-            ba_values.append(r["metrics"]["balanced_accuracy"])
-            sample_counts.append(r["n_samples"])
-            schemes.append(r["scheme"])
-
-    n = len(tissues)
-    fig, ax = plt.subplots(figsize=(max(6, n * 1.5), 4.5))
-    x = np.arange(n)
-
-    colors = ["#27ae60" if s == "4-class" else "#2980b9" for s in schemes]
-    bars = ax.bar(x, ba_values, color=colors, edgecolor="white", width=0.6)
-
-    # Annotate with BA and sample count
-    for bar, ba, ns in zip(bars, ba_values, sample_counts):
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.008,
-                f"BA={ba:.3f}\nn={ns}", ha="center", va="bottom", fontsize=8)
-
-    ax.set_xticks(x)
-    ax.set_xticklabels(tissues, fontsize=10)
-    ax.set_ylabel("Balanced Accuracy")
-    ax.set_ylim(0, min(1.15, max(ba_values) + 0.12))
-    ax.set_title("Cross-Tissue Model Comparison", fontsize=12, fontweight="bold")
-
-    # Legend for scheme colors
-    from matplotlib.patches import Patch
-    legend_elements = [
-        Patch(facecolor="#27ae60", label="4-class"),
-        Patch(facecolor="#2980b9", label="2-class"),
-    ]
-    ax.legend(handles=legend_elements, fontsize=9, loc="lower right")
-
-    plt.tight_layout()
-    return fig
+    res = pd.DataFrame(index=pd.Index(X.index.astype(str), name="Sample"))
+    res["Predicted stage"] = np.where(ok, np.asarray(stages, dtype=object)[idx], "Not predicted")
+    res["Score"] = np.where(ok, scores, np.nan)
+    for k, stage in enumerate(stages):
+        res[f"P({stage})"] = np.where(ok, probs[:, k], np.nan)
+    res["Gene coverage (%)"] = 100.0 * coverage
+    return res, file_coverage
 
 
 # ---------------------------------------------------------------------------
-# Main app
+# Wording built from the model card
 # ---------------------------------------------------------------------------
 
-def main():
-    st.set_page_config(
-        page_title="Porcine Developmental Stage Predictor",
-        page_icon="\U0001f437",
-        layout="wide",
-    )
+def fmt(x, nd: int = 2) -> str:
+    return "n/a" if x is None else f"{float(x):.{nd}f}"
 
-    inject_custom_css()
 
-    models = load_models()
-    ml_results = load_ml_results()
+def stage_range_text(stage: dict) -> str:
+    if stage["max_days"] is None:
+        return f"over {stage['min_days'] - 1} days"
+    return f"{stage['min_days']}–{stage['max_days']} days"
 
-    if not models:
-        st.error(
-            "No models found. Run `python streamlit_app/export_models.py` first "
-            "to export trained models."
+
+def status_message(tissue: str, card: dict) -> tuple[str, str]:
+    """Return (kind, markdown) describing the tissue's cross-study status."""
+    t = card["tissues"][tissue]
+    g = t["grouped"]
+    kind = STATUS[tissue]
+    if kind == "validated":
+        text = (
+            f"**{tissue}: cross-study validated.** In grouped cross-validation that holds out "
+            f"whole studies (BioProjects), the model recovered stage with balanced accuracy "
+            f"{fmt(g['BA_mean'])} ± {fmt(g['BA_sd'])}, against a chance level of "
+            f"{fmt(t['chance'])} for {t['n_class']} stages, and an ordinal Spearman ρ of "
+            f"{fmt(g['rho_mean'])}. Most errors fall between adjacent stages. This is the "
+            f"paper's estimate for a new, unseen study."
         )
+    elif kind == "caution":
+        r = t.get("grouped_restricted", {})
+        names = [s.lower() for s in r.get("kept_stages", [])]
+        span = f"{names[0]} to {names[-1]}" if names else "the multi-study stages"
+        text = (
+            f"**{tissue}: use with caution.** At the full {t['n_class']}-stage resolution, the "
+            f"cross-study (grouped) balanced accuracy is {fmt(g['BA_mean'])} ± {fmt(g['BA_sd'])}, "
+            f"close to chance ({fmt(t['chance'])}). Restricted to the {r.get('n_class', '')} "
+            f"stages that span several studies ({span}), the estimate is a modest "
+            f"{fmt(r.get('BA_mean'))} ± {fmt(r.get('BA_sd'))} (chance {fmt(r.get('chance'))}; "
+            f"ordinal ρ {fmt(r.get('rho_mean'))})."
+        )
+        share = r.get("largest_cohort_share_pct") or {}
+        if "Neonatal" in share and "Adult" in share:
+            text += (
+                f" Neonatal and adult liver samples come largely from single studies (the "
+                f"largest study supplies {share['Neonatal']:.0f}% and {share['Adult']:.0f}% of "
+                f"them), so neonatal and adult calls rest on single cohorts."
+            )
+        else:
+            text += " Neonatal and adult calls rest on single cohorts."
+    else:
+        text = (
+            f"**{tissue}: exploratory.** In PigGTEx, {t['single_stage_pct']:.0f}% of the "
+            f"retained {tissue.lower()} samples come from studies that sampled a single stage, "
+            f"so stage is confounded with study and the paper reports no cross-study accuracy "
+            f"for this tissue. Recalibrate on a small labelled in-house cohort before using "
+            f"these predictions."
+        )
+        if tissue == "Blood":
+            text += (
+                " Blood's top-ranked genes are dominated by Y-chromosome genes (for example "
+                "ZFY and EIF1AY), so part of its signal separates male from female animals "
+                "(a sex confound) rather than stages."
+            )
+    return kind, text
+
+
+def show_status(tissue: str, card: dict) -> None:
+    kind, text = status_message(tissue, card)
+    if kind == "validated":
+        st.info(text)
+    else:
+        st.warning(text)
+
+
+# ---------------------------------------------------------------------------
+# Cached loaders
+# ---------------------------------------------------------------------------
+
+@st.cache_data(show_spinner=False)
+def cached_card() -> dict | None:
+    return load_card(CARD_PATH)
+
+
+@st.cache_resource(show_spinner=False)
+def cached_model(tissue: str) -> dict | None:
+    path = MODELS_DIR / f"{tissue}_pls.npz"
+    return read_model(path) if path.exists() else None
+
+
+@st.cache_data(show_spinner=False, max_entries=4)
+def cached_parse(raw: bytes, filename: str) -> tuple[pd.DataFrame, list[str]]:
+    return parse_expression_table(raw, filename)
+
+
+def available_tissues(card: dict) -> list[str]:
+    return [t for t in TISSUES
+            if t in card.get("tissues", {}) and (MODELS_DIR / f"{t}_pls.npz").exists()]
+
+
+# ---------------------------------------------------------------------------
+# Pages
+# ---------------------------------------------------------------------------
+
+def page_predict(card: dict) -> None:
+    tissues = available_tissues(card)
+    tissue = st.selectbox("Tissue", tissues, key="tissue")
+    model = cached_model(tissue)
+    stages_by_name = {s["name"]: s for s in card["stages"]}
+    kept = model["kept_stages"]
+    dropped = [s["name"] for s in card["stages"] if s["name"] not in kept]
+
+    show_status(tissue, card)
+    kept_text = "; ".join(f"{s} ({stage_range_text(stages_by_name[s])})" for s in kept)
+    msg = f"The {tissue.lower()} model assigns one of {len(kept)} stages: {kept_text}."
+    if dropped:
+        msg += (f" It was not trained on {', '.join(d.lower() for d in dropped)} samples "
+                f"(too few in PigGTEx), so such samples are assigned to the nearest stage it knows.")
+    st.write(msg)
+
+    uploaded = st.file_uploader("Expression table (CSV, TSV or TXT; gzip accepted)",
+                                type=["csv", "tsv", "txt", "gz"])
+    use_example = False
+    if EXAMPLE_TPM.exists():
+        use_example = st.checkbox(
+            "Use the example file: three real PigGTEx muscle samples (raw TPM, all genes)",
+            key="use_example",
+        )
+        st.download_button("Download the example file", EXAMPLE_TPM.read_bytes(),
+                           file_name=EXAMPLE_TPM.name, mime="text/csv")
+
+    with st.expander("Input format"):
+        st.markdown(
+            "**Layout.** A CSV, TSV or TXT table, optionally gzip-compressed, with one header "
+            "row and one identifier column. Genes may be rows (one column per sample, as in "
+            "PigGTEx downloads) or columns (one row per sample); the app works out which from "
+            "the gene identifiers.\n\n"
+            "**Gene identifiers.** Pig Ensembl gene ids (ENSSSCG...), as used by PigGTEx. "
+            "Version suffixes such as `.2` are removed and ids that occur more than once are "
+            "averaged. Columns without numbers, such as a gene-name column, are ignored.\n\n"
+            "**Values.** TPM from bulk RNA-seq. The model works on log2(TPM + 1); the app "
+            "applies this transform unless your values are already on that scale. This is "
+            "detected from the largest value and can be overridden. Negative values are "
+            "rejected.\n\n"
+            f"**Gene coverage.** Each model uses every gene in its tissue's PigGTEx matrix. "
+            f"Genes missing from your file are set to their training mean, so they add "
+            f"nothing to the score. The app warns when fewer than {COVERAGE_WARN:.0%} of the "
+            f"model's genes are present and does not predict below {COVERAGE_REFUSE:.0%}."
+        )
+    with st.expander("Other annotations, microarrays, single-cell data and new cohorts"):
+        st.markdown(
+            "**Gene symbols.** Convert them to pig Ensembl gene ids first (for example with "
+            "BioMart, the Ensembl REST API or mygene.info), then check the coverage reported "
+            "here.\n\n"
+            "**Other assemblies or RefSeq ids.** Map them to the Sscrofa11.1 Ensembl gene ids "
+            "used by PigGTEx before upload.\n\n"
+            "**Microarrays.** Map probe sets to Ensembl genes, average the probes of each gene "
+            "and upload on the log2 scale. The model was trained on RNA-seq TPM, so the scale "
+            "differs and the calls are less reliable.\n\n"
+            "**Single-cell RNA-seq.** Sum or average cells to one pseudo-bulk profile per "
+            "sample before upload.\n\n"
+            "**Cohorts unlike PigGTEx.** Within each stage, the PigGTEx cohorts are not "
+            "balanced for breed, sex or study, and accuracy varied between breeds in the "
+            "paper's subgroup audit. For a cohort dominated by an under-represented breed (for "
+            "example only Large White pigs), and for brain, lung and blood in general, "
+            "recalibrate first: score a small set of your own samples of known age, compare "
+            "the scores with their true stages, and set your own score cut-offs (or refit) "
+            "before relying on the calls."
+        )
+
+    if uploaded is not None:
+        raw, name = uploaded.getvalue(), uploaded.name
+        if use_example:
+            st.caption("A file was uploaded, so the example is not used.")
+            use_example = False
+    elif use_example:
+        raw, name = EXAMPLE_TPM.read_bytes(), EXAMPLE_TPM.name
+        if tissue != EXAMPLE_TISSUE:
+            st.warning(f"The example contains {EXAMPLE_TISSUE.lower()} samples; select "
+                       f"{EXAMPLE_TISSUE} to score them with the matching model.")
+    else:
         return
 
-    # --- Sidebar ---
-    st.sidebar.markdown(
-        '<div class="sidebar-app-header">'
-        'PigDevStage'
-        '<span>Porcine Developmental Stage Predictor</span>'
-        '</div>',
-        unsafe_allow_html=True,
+    try:
+        X, notes = cached_parse(raw, name)
+    except ValueError as exc:
+        st.error(str(exc))
+        return
+    for note in notes:
+        st.caption(note)
+
+    n_model = len(model["gene_ids"])
+    n_found = int(pd.Index(model["gene_ids"]).isin(X.columns).sum())
+    coverage = n_found / n_model
+    st.write(
+        f"{X.shape[0]:,} sample(s). Gene coverage: {n_found:,} of {n_model:,} model genes "
+        f"found ({coverage:.1%}). Missing genes are set to their training mean (z = 0)."
     )
-    tissue = st.sidebar.selectbox("Select Tissue", list(models.keys()))
-    artifact = models[tissue]
-    tissue_results = ml_results.get(tissue, {})
-    metrics = tissue_results.get("metrics", {})
-    scheme = artifact["scheme"]
-    n_classes = len(artifact["class_labels"])
-
-    # Build a single styled HTML panel for the selected tissue
-    if metrics:
-        ba = metrics.get("balanced_accuracy", 0)
-        f1_val = metrics.get("f1_macro", 0)
-        n_samples = tissue_results.get("n_samples", 0)
-        bootstrap = metrics.get("bootstrap", {})
-        ba_boot = bootstrap.get("balanced_accuracy", {})
-        ci_str = ""
-        if ba_boot:
-            ci_str = f"95% CI [{ba_boot.get('ci_lower', 0):.3f}, {ba_boot.get('ci_upper', 0):.3f}]"
-
-        badge_cls = "scheme-4class" if scheme == "4-class" else "scheme-2class"
-
-        st.sidebar.markdown(
-            f'<div class="sidebar-panel">'
-            f'<div class="sidebar-panel-header">'
-            f'  <span class="sidebar-tissue-name">{tissue}</span>'
-            f'  <span class="scheme-badge {badge_cls}">{scheme}</span>'
-            f'</div>'
-            f'<div class="sidebar-metrics-grid">'
-            f'  <div class="sidebar-metric">'
-            f'    <div class="sidebar-metric-val">{ba:.3f}</div>'
-            f'    <div class="sidebar-metric-lbl">Balanced Acc</div>'
-            f'  </div>'
-            f'  <div class="sidebar-metric">'
-            f'    <div class="sidebar-metric-val">{f1_val:.3f}</div>'
-            f'    <div class="sidebar-metric-lbl">F1 Macro</div>'
-            f'  </div>'
-            f'  <div class="sidebar-metric">'
-            f'    <div class="sidebar-metric-val">{n_samples:,}</div>'
-            f'    <div class="sidebar-metric-lbl">Samples</div>'
-            f'  </div>'
-            f'  <div class="sidebar-metric">'
-            f'    <div class="sidebar-metric-val">{n_classes}</div>'
-            f'    <div class="sidebar-metric-lbl">Classes</div>'
-            f'  </div>'
-            f'</div>'
-            + (f'<div class="sidebar-ci">{ci_str}</div>' if ci_str else "")
-            + '</div>',
-            unsafe_allow_html=True,
+    if coverage < COVERAGE_REFUSE:
+        st.error(
+            f"Gene coverage is below {COVERAGE_REFUSE:.0%}, too low for a meaningful "
+            f"prediction, so none is made. Check that the gene identifiers are pig Ensembl "
+            f"ids (ENSSSCG...) and that the right tissue is selected."
+        )
+        return
+    if coverage < COVERAGE_WARN:
+        st.warning(
+            f"Gene coverage is below {COVERAGE_WARN:.0%}. Many model genes are imputed with "
+            f"their training mean, which pulls scores toward the middle of the stage range. "
+            f"Treat these predictions as unreliable."
         )
 
-    # Stage labels with colored dots
-    stage_html_items = []
-    for label in artifact["class_labels"]:
-        # Match stage color from STAGE_DEFINITIONS
-        color = "#9B1B30"  # default fallback
-        for sd in STAGE_DEFINITIONS:
-            if sd["name"] == label or label.startswith(sd["name"]):
-                color = sd["color"]
-                break
-        stage_html_items.append(
-            f'<div class="sidebar-stage">'
-            f'<span class="sidebar-stage-dot" style="background:{color}"></span>'
-            f'{label}</div>'
+    file_key = hashlib.sha1(raw).hexdigest()
+    if st.session_state.get("_file_key") != file_key or "already_log" not in st.session_state:
+        st.session_state["_file_key"] = file_key
+        st.session_state["already_log"] = looks_log_transformed(X)
+    already_log = st.checkbox(
+        "Values are already log2(TPM + 1)",
+        key="already_log",
+        help="Ticked automatically when no value is larger than a log2(TPM + 1) value can be. "
+             "Leave unticked for raw TPM.",
+    )
+
+    res, _ = predict_table(model, X, already_log)
+    label = STATUS_LABEL[STATUS[tissue]]
+    res.insert(1, "Cross-study status", label)
+    if use_example and EXAMPLE_INFO.exists():
+        info = pd.read_csv(EXAMPLE_INFO, dtype=str).set_index("sample")
+        res.insert(1, "Recorded stage", info["recorded_stage"].reindex(res.index).fillna(""))
+
+    st.subheader(f"Predictions: {tissue}")
+    show_status(tissue, card)
+    n_withheld = int((res["Predicted stage"] == "Not predicted").sum())
+    if n_withheld:
+        st.warning(f"{n_withheld} sample(s) have gene coverage below {COVERAGE_REFUSE:.0%} and "
+                   f"were not predicted.")
+    col_cfg = {"Score": st.column_config.NumberColumn(format="%.2f"),
+               "Gene coverage (%)": st.column_config.NumberColumn(format="%.1f")}
+    for stage in kept:
+        col_cfg[f"P({stage})"] = st.column_config.NumberColumn(format="%.2f")
+    st.dataframe(res, column_config=col_cfg)
+
+    if use_example:
+        st.caption(
+            "These three samples were part of the muscle training data, so agreement with the "
+            "recorded stage shows the pipeline working, not accuracy on new data."
         )
 
-    st.sidebar.markdown(
-        '<div class="sidebar-section">'
-        '<div class="sidebar-section-title">Developmental Stages</div>'
-        + "".join(stage_html_items)
-        + f'<div class="sidebar-feature-count">'
-        f'&#x2630; {len(artifact["feature_names"]):,} genes'
-        f'</div>'
-        '</div>',
-        unsafe_allow_html=True,
-    )
+    out = res.copy()
+    out.insert(0, "Tissue", tissue)
+    st.download_button("Download predictions (CSV)", out.to_csv().encode("utf-8"),
+                       file_name=f"pigdevstage_{tissue.lower()}_predictions.csv",
+                       mime="text/csv")
 
-    # --- Main area: tabs ---
-    ba_val = metrics.get("balanced_accuracy", 0) if metrics else 0
-
-    tab_predict, tab_performance, tab_about = st.tabs(
-        ["Predict", "Model Performance", "About"]
-    )
-
-    # ===================== Predict tab =====================
-    with tab_predict:
+    sigma = fmt(model["proba_sigma"], 1)
+    first, last = kept[0], kept[-1]
+    with st.expander("How to read the output", expanded=False):
         st.markdown(
-            _tissue_banner_html(tissue, scheme, ba_val),
-            unsafe_allow_html=True,
+            f"**Predicted stage** is the stage whose index is nearest to the score.\n\n"
+            f"**Score** is the PLS output on the stage-index scale, from 0 ({first}) to "
+            f"{len(kept) - 1} ({last}). A score between two whole numbers lies between two "
+            f"stages; scores below 0 or above {len(kept) - 1} are assigned to the first or "
+            f"last stage.\n\n"
+            f"**P(stage)** converts the score into a spread over stages with a Gaussian kernel "
+            f"(σ = {sigma}). It is for display only: it does not change the call and is not a "
+            f"calibrated probability of being correct.\n\n"
+            f"**Gene coverage** is the share of the model's genes with a value for that "
+            f"sample.\n\n"
+            f"**Cross-study status** repeats the validation status of the {tissue.lower()} "
+            f"model shown above, so that it travels with every exported prediction."
         )
-        uploaded = st.file_uploader(
-            "Upload expression data (CSV or TSV)",
-            type=["csv", "tsv", "txt", "gz"],
-        )
 
-        with st.expander("Expected input format"):
-            st.markdown("""
-**Format:** CSV or TSV with one header row and one index column.
 
-**Gene IDs:** Ensembl porcine IDs (`ENSSSCG` format). Version suffixes (e.g., `.2`) are stripped automatically.
+def page_performance(card: dict) -> None:
+    st.header("Performance")
+    ev = card.get("evaluation", {})
+    st.write(
+        "The paper separates two questions. Cross-study accuracy asks whether a model "
+        "deploys to a study it has never seen; it is estimated by grouped cross-validation "
+        f"that holds out whole BioProjects ({ev.get('n_folds', '')} folds, "
+        f"{ev.get('n_seeds', '')} random seeds). In-distribution separability asks only "
+        "whether stage is encoded in the transcriptome; stratified cross-validation puts "
+        "samples from the same study in both training and test folds, so it overstates "
+        "accuracy on new data. Chance is 1/K for K stages."
+    )
 
-**Values:** Raw TPM expression values (the app applies log2(x+1) transformation).
-If your data is already log2-transformed, check the box below.
-
-**Orientation:** Either:
-- **Samples x Genes** (rows = samples, columns = genes) — *preferred*
-- **Genes x Samples** (rows = genes, columns = samples) — auto-detected and transposed
-
-**Gene coverage:** The model uses ~31,908 genes. Missing genes are filled with 0 (unexpressed).
-At least 1,000 matching genes are recommended for reliable predictions.
-            """)
-
-        with st.expander("Using data with different annotations or microarray data"):
-            st.markdown("""
-The classifier was trained on the PigGTEx v0 Ensembl porcine annotation
-(31,908 genes). For datasets that use different annotations or platforms,
-follow the guidance below.
-
-**Gene symbols instead of Ensembl IDs.** Convert gene symbols to
-`ENSSSCG` identifiers before upload (e.g. via `mygene.info`,
-BioMart, or the Ensembl REST homology endpoint). Verify that at least
-80% of the model's expected genes are matched in the resulting file
-(the percentage is shown above the prediction results); below that
-threshold, predictions should be treated as exploratory.
-
-**RefSeq or alternative Ensembl assemblies.** Lift identifiers to the
-PigGTEx Ensembl IDs (`Sscrofa11.1`-style `ENSSSCG`) before upload. Use
-the latest Ensembl REST `xref` endpoint or the BioMart cross-reference
-tables. Cross-assembly differences mainly affect novel/long-noncoding
-loci; protein-coding overlap is typically high.
-
-**Microarray data (e.g. Affymetrix Porcine Genome arrays).** Convert
-probe-set IDs to Ensembl gene IDs via the platform's annotation file;
-aggregate multiple probes per gene by mean or median signal; upload
-the resulting matrix as a "log2-transformed" dataset (microarray
-intensities are typically log2-distributed). Note that the model was
-trained on RNA-seq TPM and its dynamic range differs from microarrays;
-prediction confidence should be interpreted accordingly.
-
-**Out-of-distribution cohorts.** The classifier is calibrated to the
-breed/sex composition of PigGTEx, in which no stage is a balanced
-mixture of breeds. For cohorts dominated by under-represented breeds
-(notably Large white for muscle, where balanced accuracy drops to
-0.61), or for pooled-sex tissue, we recommend re-calibration on a
-small in-house cohort before treating the prediction as authoritative.
-
-**Single-cell RNA-seq.** The classifier was trained on bulk samples
-and expects pseudo-bulk (per-sample summed or averaged) expression
-values. Apply per-cell-type or whole-sample pseudo-bulking before
-upload.
-            """)
-
-        if uploaded is not None:
-            user_df = parse_upload(uploaded)
-
-            aligned_df, n_matched, n_expected = align_genes(user_df, artifact["feature_names"])
-            match_pct = n_matched / n_expected * 100
-
-            if n_matched == 0:
-                st.error(
-                    "No genes matched the model's expected features. "
-                    "Ensure your data uses Ensembl porcine gene IDs (ENSSSCG format)."
-                )
-            else:
-                # Gene match and sample info
-                st.caption(
-                    f"{user_df.shape[0]} samples | "
-                    f"{n_matched:,}/{n_expected:,} genes matched ({match_pct:.1f}%)"
-                )
-                if n_matched < 1000:
-                    st.warning(
-                        "Fewer than 1,000 genes matched — predictions may be unreliable."
-                    )
-
-                # Log-transform detection
-                is_log = detect_log_transformed(user_df)
-                file_hash = hashlib.md5(uploaded.getvalue()).hexdigest()
-                if st.session_state.get("_upload_hash") != file_hash:
-                    st.session_state["_upload_hash"] = file_hash
-                    st.session_state["log_override"] = is_log
-
-                log_override = st.checkbox(
-                    "My data is already log2-transformed",
-                    key="log_override",
-                    help="Check this if your expression values are already log2(TPM+1). "
-                         "Leave unchecked for raw TPM values.",
-                )
-
-                # Auto-predict
-                results = predict_stages(artifact, aligned_df, log_override)
-
-                st.subheader("Results")
-                st.dataframe(
-                    results.style.format({
-                        "Confidence": "{:.3f}",
-                        **{f"P({l})": "{:.3f}" for l in artifact["class_labels"]}
-                    }),
-                    use_container_width=True,
-                )
-
-                fig = plot_probabilities(results, artifact["class_labels"])
-                st.pyplot(fig)
-                plt.close(fig)
-
-                csv = results.to_csv()
-                st.download_button(
-                    "Download results as CSV",
-                    csv,
-                    file_name=f"{tissue}_predictions.csv",
-                    mime="text/csv",
-                )
-
-    # ===================== Model Performance tab =====================
-    with tab_performance:
-        st.markdown(
-            _tissue_banner_html(tissue, scheme, ba_val),
-            unsafe_allow_html=True,
-        )
-        if not tissue_results:
-            st.warning("No results data available for this tissue.")
+    st.subheader("Cross-study accuracy (deployment estimate)")
+    rows = []
+    for tissue in TISSUES:
+        t = card["tissues"].get(tissue)
+        if t is None:
+            continue
+        kind = STATUS[tissue]
+        g = t["grouped"]
+        if kind == "validated":
+            ba, rho, chance = f"{fmt(g['BA_mean'])} ± {fmt(g['BA_sd'])}", fmt(g["rho_mean"]), fmt(t["chance"])
+        elif kind == "caution":
+            r = t.get("grouped_restricted", {})
+            ba = f"{fmt(r.get('BA_mean'))} ± {fmt(r.get('BA_sd'))} ({r.get('n_class', '')} stages)"
+            rho, chance = fmt(r.get("rho_mean")), fmt(r.get("chance"))
         else:
-            class_labels = artifact["class_labels"]
-            n_classes = len(class_labels)
+            ba, rho, chance = "Not identifiable", "-", fmt(t["chance"])
+        rows.append({
+            "Tissue": tissue,
+            "Status": STATUS_LABEL[kind],
+            "Stages": t["n_class"],
+            "Samples": f"{t['n_train']:,}",
+            "BioProjects": t["n_bioprojects_train"],
+            "Single-stage studies": f"{t['single_stage_pct']:.0f}%",
+            "Balanced accuracy": ba,
+            "Ordinal ρ": rho,
+            "Chance": chance,
+        })
+    st.table(pd.DataFrame(rows).set_index("Tissue"))
 
-            # Row 1: Confusion matrix | Per-class metrics
-            row1_left, row1_right = st.columns(2)
-
-            with row1_left:
-                cm = metrics.get("confusion_matrix", [])
-                if cm:
-                    fig = plot_confusion_matrix(cm, class_labels)
-                    st.pyplot(fig)
-                    plt.close(fig)
-
-            with row1_right:
-                prec = metrics.get("per_class_precision", {})
-                rec = metrics.get("per_class_recall", {})
-                f1_vals = metrics.get("per_class_f1", {})
-                if prec and rec and f1_vals:
-                    prec_list = [prec[str(i)] for i in range(n_classes)]
-                    rec_list = [rec[str(i)] for i in range(n_classes)]
-                    f1_list = [f1_vals[str(i)] for i in range(n_classes)]
-                    fig = plot_per_class_metrics(prec_list, rec_list, f1_list, class_labels)
-                    st.pyplot(fig)
-                    plt.close(fig)
-
-            # Row 2: CV folds | Feature importance
-            row2_left, row2_right = st.columns(2)
-
-            with row2_left:
-                cv_data = tissue_results.get("cross_validation", {})
-                if cv_data and "aggregated_metrics" in cv_data:
-                    fig = plot_cv_folds(cv_data)
-                    st.pyplot(fig)
-                    plt.close(fig)
-
-            with row2_right:
-                feat_imp = tissue_results.get("feature_importance", {})
-                if feat_imp:
-                    fig = plot_feature_importance(feat_imp, top_n=20)
-                    st.pyplot(fig)
-                    plt.close(fig)
-
-
-    # ===================== About tab =====================
-    with tab_about:
-        st.subheader("Methodology")
-        st.markdown("""
-This application uses **OrdinalLightGBM** classifiers trained on the PigGTEx
-transcriptomic atlas to predict porcine developmental stages from gene expression
-profiles.
-
-**Key details:**
-- **Algorithm:** OrdinalLightGBM (ordinal classification preserving stage ordering)
-- **Validation:** 5-fold nested cross-validation with Optuna hyperparameter tuning
-- **Input features:** 31,908 genes (full transcriptome, no pre-selection)
-- **Expression units:** log2(TPM + 1) normalized
-- **Tissues:** 5 tissue-specific models (Muscle, Liver, Blood, Brain, Lung)
-- **Classification schemes:** 4-class (Muscle, Liver) or 2-class (Blood, Brain, Lung)
-  based on sample availability across developmental stages
-        """)
-
-        # ── Study design figure ───────────────────────────
-        if STUDY_DESIGN_PATH.exists():
-            st.subheader("Study Design")
-            st.image(str(STUDY_DESIGN_PATH), width="stretch")
-            st.markdown(
-                '<p class="figure-caption">'
-                "<strong>Figure 1.</strong> Overview of the porcine developmental "
-                "transcriptomic atlas study design, including tissue sampling, "
-                "stage classification scheme, and machine-learning pipeline."
-                "</p>",
-                unsafe_allow_html=True,
-            )
-
-        st.subheader("Developmental Stages")
-        fig = plot_stage_timeline()
-        st.pyplot(fig)
-        plt.close(fig)
-
-        st.subheader("Cross-Tissue Comparison")
-        if ml_results:
-            fig = plot_tissue_comparison(ml_results)
-            st.pyplot(fig)
-            plt.close(fig)
-
-        # ── Citation ──────────────────────────────────────
-        st.markdown(
-            '<div class="citation-box">'
-            '<div class="citation-header">How to Cite</div>'
-            "Liu T, Lei R, Khan IM, Theobald P. (2026). "
-            "A multi-tissue transcriptomic atlas of porcine development identifies "
-            "conserved molecular programs with humans. <em>In preparation.</em>"
-            "</div>",
-            unsafe_allow_html=True,
+    notes = []
+    liver = card["tissues"].get("Liver")
+    if liver:
+        g, r = liver["grouped"], liver.get("grouped_restricted", {})
+        names = ", ".join(s.lower() for s in r.get("kept_stages", []))
+        notes.append(
+            f"Liver: the table gives the estimate over the {r.get('n_class', '')} stages that "
+            f"span several studies ({names}). Over all {liver['n_class']} stages the "
+            f"cross-study balanced accuracy is {fmt(g['BA_mean'])} ± {fmt(g['BA_sd'])} "
+            f"(chance {fmt(liver['chance'])}), because the neonatal and adult samples each come "
+            f"mainly from one study."
         )
+    notes.append(
+        "Not identifiable: most or all retained stages of these tissues come from studies "
+        "that sampled a single stage, so a held-out study presents a stage the model has "
+        "barely seen and stage cannot be separated from study. The paper reports no "
+        "cross-study estimate for them."
+    )
+    notes.append(
+        "Samples and BioProjects count the retained samples (stages with enough samples) used "
+        "to fit each model. Single-stage studies is the share of those samples drawn from "
+        "BioProjects that sampled one stage only."
+    )
+    for n in notes:
+        st.caption(n)
+
+    with st.expander("Per-stage recall under grouped cross-validation"):
+        for tissue in ["Muscle", "Liver"]:
+            t = card["tissues"].get(tissue)
+            if not t:
+                continue
+            rec = t["grouped"].get("per_class_recall") or {}
+            if rec:
+                st.markdown(f"**{tissue}, all {t['n_class']} stages**")
+                st.table(pd.DataFrame({
+                    "Recall (mean)": {s: fmt(v["mean"]) for s, v in rec.items()},
+                    "Recall (sd)": {s: fmt(v["sd"]) for s, v in rec.items()},
+                }))
+            rrec = (t.get("grouped_restricted") or {}).get("per_class_recall") or {}
+            if rrec:
+                st.markdown(f"**{tissue}, {t['grouped_restricted']['n_class']} multi-study stages**")
+                st.table(pd.DataFrame({"Recall (mean over seeds)": {s: fmt(v) for s, v in rrec.items()}}))
+
+    st.subheader("In-distribution separability (not a deployment estimate)")
+    st.warning(
+        "These numbers come from stratified cross-validation, in which samples from the same "
+        "study appear in both training and test folds. They show that stage is encoded in "
+        "every tissue, but they are in-distribution figures and should not be read as the "
+        "accuracy to expect on a new study."
+    )
+    rows = []
+    for tissue in TISSUES:
+        t = card["tissues"].get(tissue)
+        if t is None:
+            continue
+        s = t["stratified"]
+        rows.append({
+            "Tissue": tissue,
+            "Stages": t["n_class"],
+            "Balanced accuracy": f"{fmt(s.get('BA_mean'))} ± {fmt(s.get('BA_sd'))}",
+            "Ordinal ρ": fmt(s.get("rho_mean")),
+            "Chance": fmt(t["chance"]),
+        })
+    st.table(pd.DataFrame(rows).set_index("Tissue"))
+
+    st.subheader("Top genes")
+    tissues = available_tissues(card)
+    if not tissues:
+        return
+    tissue = st.selectbox("Tissue", tissues, key="genes_tissue")
+    model = cached_model(tissue)
+    top = model["top_genes"].copy()
+    top.insert(0, "Rank", np.arange(1, len(top) + 1))
+    top["Direction"] = np.where(top["Sign"] > 0, "rises with age",
+                                np.where(top["Sign"] < 0, "falls with age", "flat"))
+    top["VIP"] = top["VIP"].map(lambda v: f"{v:.2f}")
+    top["Symbol"] = top["Symbol"].replace("", "-")
+    st.write(
+        f"The {len(top)} genes with the highest Variable Importance in Projection (VIP) in the "
+        f"{tissue.lower()} model, fitted on all retained samples. VIP is normalised so that its "
+        f"mean square is 1, so values above 1 mark above-average contributors. Direction is "
+        f"the sign of the gene's PLS coefficient on the stage index. Unannotated pig loci have "
+        f"no symbol."
+    )
+    if tissue == "Blood":
+        st.warning("Blood is a sex-confound negative control in the paper: its top genes are "
+                   "dominated by Y-chromosome genes.")
+    st.dataframe(top[["Rank", "Gene id", "Symbol", "VIP", "Direction"]].set_index("Rank"))
+
+
+def page_stages(card: dict) -> None:
+    st.header("Stage definitions")
+    st.write(
+        "Ages in days are grouped into six stages anchored on porcine physiological "
+        "milestones (the perinatal transition, weaning, early juvenile growth, the gilt "
+        "pubertal window and reproductive maturity). Cut points are upper-inclusive."
+    )
+    st.table(pd.DataFrame(
+        [{"Stage": s["name"], "Age": stage_range_text(s)} for s in card["stages"]]
+    ).set_index("Stage"))
+
+    min_n = card.get("model", {}).get("min_samples_per_stage")
+    st.subheader("Stages modelled per tissue")
+    st.write(
+        f"In each tissue, stages with fewer than {min_n} samples are dropped rather than merged "
+        f"into a neighbour, and the remaining stages are numbered 0 to K - 1 in developmental "
+        f"order. Each model therefore works at the resolution its data support. Cells give the "
+        f"number of training samples; a dash marks a stage the model does not know."
+    )
+    names = [s["name"] for s in card["stages"]]
+    rows = []
+    for tissue in TISSUES:
+        t = card["tissues"].get(tissue)
+        if t is None:
+            continue
+        n_by = {s["name"]: s["n"] for s in t["kept_stages"]}
+        row = {"Tissue": tissue}
+        row.update({n: (f"{n_by[n]:,}" if n in n_by else "-") for n in names})
+        row["K"] = t["n_class"]
+        rows.append(row)
+    st.table(pd.DataFrame(rows).set_index("Tissue"))
+    brain = card["tissues"].get("Brain", {})
+    if brain.get("regions"):
+        st.caption("Brain is a forebrain aggregate of PigGTEx samples labelled "
+                   + ", ".join(brain["regions"]) + ".")
+
+
+def page_methods(card: dict) -> None:
+    st.header("Methods")
+    m = card.get("model", {})
+    genes = sorted({t.get("n_genes") for t in card["tissues"].values() if t.get("n_genes")})
+    gene_text = (f"{genes[0]:,}" if len(genes) == 1 else
+                 ", ".join(f"{g:,}" for g in genes)) if genes else "all"
+    ev = card.get("evaluation", {})
+    st.markdown(
+        f"**Data.** Bulk RNA-seq TPM matrices and sample metadata from PigGTEx, one matrix per "
+        f"tissue (muscle, liver, lung, blood and brain; brain is a forebrain aggregate). Ages "
+        f"are mapped to the six stages on the Stages tab, and stages with fewer than "
+        f"{m.get('min_samples_per_stage', '')} samples in a tissue are dropped.\n\n"
+        f"**Features.** log2(TPM + 1) of every gene in the tissue's matrix ({gene_text} pig "
+        f"Ensembl genes), with no variance filter. Each gene is z-scored with the mean and "
+        f"standard deviation of the training samples; genes that are constant in training "
+        f"get a standard deviation of 1.\n\n"
+        f"**Model.** One partial least squares (PLS) regression per tissue "
+        f"({m.get('n_components', '')} latent components, scikit-learn PLSRegression with "
+        f"scale=False) regresses the integer stage index 0 to K - 1 on the z-scored genes. "
+        f"The fitted model reduces to one weight per gene, which is what this app stores and "
+        f"applies.\n\n"
+        f"**Prediction.** The predicted stage is the score rounded to the nearest stage index, "
+        f"clipped to the modelled range. Display probabilities use a Gaussian-distance softmax, "
+        f"P(c) proportional to exp(-(score - c)² / (2σ²)) with σ = {fmt(m.get('proba_sigma'), 1)}; "
+        f"they never change the call.\n\n"
+        f"**Gene importance.** Variable Importance in Projection (VIP), computed per latent "
+        f"component and normalised so that the mean squared VIP is 1. The sign of a gene's "
+        f"coefficient separates genes that rise with stage from genes that fall.\n\n"
+        f"**Evaluation.** Stratified cross-validation (in-distribution) and grouped "
+        f"cross-validation holding out whole BioProjects (deployment), {ev.get('n_folds', '')} "
+        f"folds × {ev.get('n_seeds', '')} seeds; balanced accuracy and ordinal Spearman ρ. The "
+        f"models served here are refitted on all retained samples of each tissue.\n\n"
+        f"**Missing genes.** A gene absent from an upload is set to its training mean "
+        f"(z = 0), which adds nothing to the score."
+    )
+    exp = card.get("export", {})
+    pk = exp.get("packages", {})
+    st.caption(
+        f"Models exported {exp.get('timestamp_utc', 'n/a')} with "
+        + ", ".join(f"{k} {v}" for k, v in pk.items())
+        + (f"; repository commit {exp['git']['commit'][:10]}"
+           if exp.get("git", {}).get("commit") else "")
+        + "."
+    )
+
+
+def page_cite() -> None:
+    st.header("How to cite")
+    st.markdown(f"{CITATION} [https://doi.org/{DOI}]({DOI_URL})")
+    st.code(BIBTEX, language="bibtex")
+    st.subheader("Data source")
+    st.markdown(
+        f"All models are trained on public bulk RNA-seq from PigGTEx, the pig component of the "
+        f"Farm Animal Genotype-Tissue Expression project ([piggtex.farmgtex.org]({PIGGTEX_URL})). "
+        f"Please also cite: {PIGGTEX_CITATION} [doi.org/10.1038/s41588-023-01585-7]({PIGGTEX_DOI_URL})"
+    )
+    st.subheader("Code")
+    st.markdown(f"Source code for the analysis and this app: [{REPO_URL}]({REPO_URL})")
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    st.set_page_config(page_title="PigDevStage", layout="wide")
+    st.markdown(CSS, unsafe_allow_html=True)
+
+    st.title("PigDevStage")
+    st.write(
+        "Estimate the postnatal developmental stage of a pig tissue sample from its bulk "
+        "RNA-seq profile. Companion to Liu et al., "
+        f"[BMC Genomics 27:919 (2026)]({DOI_URL})."
+    )
+
+    card = cached_card()
+    if card is None or not available_tissues(card):
+        st.error("Model files were not found. Run `python streamlit_app/export_pls_models.py` "
+                 "from the repository root to create streamlit_app/models/.")
+        return
+
+    tab_predict, tab_perf, tab_stages, tab_methods, tab_cite = st.tabs(
+        ["Predict", "Performance", "Stages", "Methods", "Cite and data"]
+    )
+    with tab_predict:
+        page_predict(card)
+    with tab_perf:
+        page_performance(card)
+    with tab_stages:
+        page_stages(card)
+    with tab_methods:
+        page_methods(card)
+    with tab_cite:
+        page_cite()
 
 
 if __name__ == "__main__":

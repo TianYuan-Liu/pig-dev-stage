@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "stages": [
+    {
+      "name": "Neonatal",
+      "min_days": 0,
+      "max_days": 3
+    },
+    {
+      "name": "Suckling",
+      "min_days": 4,
+      "max_days": 28
+    },
+    {
+      "name": "Juvenile",
+      "min_days": 29,
+      "max_days": 90
+    },
+    {
+      "name": "Pre-pubertal",
+      "min_days": 91,
+      "max_days": 165
+    },
+    {
+      "name": "Post-pubertal",
+      "min_days": 166,
+      "max_days": 540
+    },
+    {
+      "name": "Adult",
+      "min_days": 541,
+      "max_days": null
+    }
+  ],
+  "model": {
+    "estimator": "PLSRegression (scikit-learn), scale=False, on per-gene z-scored log2(TPM+1); integer stage target 0..K-1",
+    "n_components": 10,
+    "proba_sigma": 0.8,
+    "min_samples_per_stage": 10
+  },
+  "evaluation": {
+    "n_folds": 5,
+    "n_seeds": 5,
+    "stratified": "StratifiedKFold (in-distribution, batch-inclusive)",
+    "grouped": "StratifiedGroupKFold over BioProject (whole studies held out)"
+  },
+  "tissues": {
+    "Muscle": {
+      "kept_stages": [
+        {
+          "name": "Neonatal",
+          "n": 156
+        },
+        {
+          "name": "Suckling",
+          "n": 87
+        },
+        {
+          "name": "Juvenile",
+          "n": 56
+        },
+        {
+          "name": "Pre-pubertal",
+          "n": 227
+        },
+        {
+          "name": "Post-pubertal",
+          "n": 231
+        }
+      ],
+      "n_class": 5,
+      "chance": 0.2,
+      "n_samples": 761,
+      "n_bioprojects": 56,
+      "single_stage_pct": 46.8,
+      "n_train": 757,
+      "n_bioprojects_train": 54,
+      "n_genes": 31908,
+      "stratified": {
+        "BA_mean": 0.792769,
+        "BA_sd": 0.011079,
+        "rho_mean": 0.911966,
+        "rho_sd": 0.003988,
+        "n_seeds": 5
+      },
+      "grouped": {
+        "BA_mean": 0.445794,
+        "BA_sd": 0.043624,
+        "rho_mean": 0.660763,
+        "rho_sd": 0.027422,
+        "n_seeds": 5,
+        "per_class_recall": {
+          "Neonatal": {
+            "mean": 0.6423,
+            "sd": 0.1168
+          },
+          "Suckling": {
+            "mean": 0.1126,
+            "sd": 0.0046
+          },
+          "Juvenile": {
+            "mean": 0.3821,
+            "sd": 0.0625
+          },
+          "Pre-pubertal": {
+            "mean": 0.6441,
+            "sd": 0.0982
+          },
+          "Post-pubertal": {
+            "mean": 0.4719,
+            "sd": 0.0929
+          }
+        }
+      }
+    },
+    "Liver": {
+      "kept_stages": [
+        {
+          "name": "Neonatal",
+          "n": 17
+        },
+        {
+          "name": "Suckling",
+          "n": 120
+        },
+        {
+          "name": "Juvenile",
+          "n": 34
+        },
+        {
+          "name": "Pre-pubertal",
+          "n": 80
+        },
+        {
+          "name": "Post-pubertal",
+          "n": 29
+        },
+        {
+          "name": "Adult",
+          "n": 29
+        }
+      ],
+      "n_class": 6,
+      "chance": 0.1667,
+      "n_samples": 309,
+      "n_bioprojects": 34,
+      "single_stage_pct": 83.8,
+      "n_train": 309,
+      "n_bioprojects_train": 34,
+      "n_genes": 31908,
+      "stratified": {
+        "BA_mean": 0.615532,
+        "BA_sd": 0.012342,
+        "rho_mean": 0.878662,
+        "rho_sd": 0.008264,
+        "n_seeds": 5
+      },
+      "grouped": {
+        "BA_mean": 0.209871,
+        "BA_sd": 0.063513,
+        "rho_mean": -0.145204,
+        "rho_sd": 0.123122,
+        "n_seeds": 5,
+        "per_class_recall": {
+          "Neonatal": {
+            "mean": 0.0235,
+            "sd": 0.0471
+          },
+          "Suckling": {
+            "mean": 0.0133,
+            "sd": 0.0172
+          },
+          "Juvenile": {
+            "mean": 0.3706,
+            "sd": 0.1242
+          },
+          "Pre-pubertal": {
+            "mean": 0.3325,
+            "sd": 0.1831
+          },
+          "Post-pubertal": {
+            "mean": 0.2138,
+            "sd": 0.0669
+          },
+          "Adult": {
+            "mean": 0.0069,
+            "sd": 0.0138
+          }
+        }
+      },
+      "grouped_restricted": {
+        "scenario": "drop Neonatal + Adult",
+        "kept_stages": [
+          "Suckling",
+          "Juvenile",
+          "Pre-pubertal",
+          "Post-pubertal"
+        ],
+        "n": 263,
+        "n_class": 4,
+        "chance": 0.25,
+        "BA_mean": 0.39454,
+        "BA_sd": 0.064337,
+        "BA_mean_source_rounded": 0.395,
+        "BA_sd_source_rounded": 0.064,
+        "per_seed_ba": [
+          0.4264,
+          0.2899,
+          0.3543,
+          0.432,
+          0.4701
+        ],
+        "rho_mean": 0.441636,
+        "per_class_recall": {
+          "Suckling": 0.1183,
+          "Juvenile": 0.5,
+          "Pre-pubertal": 0.41,
+          "Post-pubertal": 0.1379
+        },
+        "largest_cohort_share_pct": {
+          "Neonatal": 94.1,
+          "Suckling": 40.0,
+          "Juvenile": 26.5,
+          "Pre-pubertal": 30.0,
+          "Post-pubertal": 34.5,
+          "Adult": 62.1
+        },
+        "criterion": "drop stages whose largest single BioProject contributes >50% of the stage's samples (Neonatal 94%, Adult 62%); the other four are <=40%"
+      }
+    },
+    "Lung": {
+      "kept_stages": [
+        {
+          "name": "Neonatal",
+          "n": 28
+        },
+        {
+          "name": "Juvenile",
+          "n": 64
+        },
+        {
+          "name": "Post-pubertal",
+          "n": 27
+        }
+      ],
+      "n_class": 3,
+      "chance": 0.3333,
+      "n_samples": 129,
+      "n_bioprojects": 20,
+      "single_stage_pct": 100.0,
+      "n_train": 119,
+      "n_bioprojects_train": 17,
+      "n_genes": 31908,
+      "stratified": {
+        "BA_mean": 0.956615,
+        "BA_sd": 0.018388,
+        "rho_mean": 0.88565,
+        "rho_sd": 0.015306,
+        "n_seeds": 5
+      },
+      "grouped": {
+        "BA_mean": 0.562227,
+        "BA_sd": 0.076233,
+        "rho_mean": -0.215644,
+        "rho_sd": 0.126267,
+        "n_seeds": 5,
+        "per_class_recall": {
+          "Neonatal": {
+            "mean": 0.25,
+            "sd": 0.0749
+          },
+          "Juvenile": {
+            "mean": 0.8344,
+            "sd": 0.0606
+          },
+          "Post-pubertal": {
+            "mean": 0.1185,
+            "sd": 0.1452
+          }
+        }
+      }
+    },
+    "Blood": {
+      "kept_stages": [
+        {
+          "name": "Juvenile",
+          "n": 42
+        },
+        {
+          "name": "Post-pubertal",
+          "n": 32
+        }
+      ],
+      "n_class": 2,
+      "chance": 0.5,
+      "n_samples": 78,
+      "n_bioprojects": 7,
+      "single_stage_pct": 100.0,
+      "n_train": 74,
+      "n_bioprojects_train": 7,
+      "n_genes": 31908,
+      "stratified": {
+        "BA_mean": 0.966825,
+        "BA_sd": 0.005905,
+        "rho_mean": 0.849732,
+        "rho_sd": 0.007645,
+        "n_seeds": 5
+      },
+      "grouped": {
+        "BA_mean": 0.356211,
+        "BA_sd": 0.066034,
+        "rho_mean": -0.471733,
+        "rho_sd": 0.087368,
+        "n_seeds": 5,
+        "per_class_recall": {
+          "Juvenile": {
+            "mean": 0.3476,
+            "sd": 0.019
+          },
+          "Post-pubertal": {
+            "mean": 0.0,
+            "sd": 0.0
+          }
+        }
+      }
+    },
+    "Brain": {
+      "kept_stages": [
+        {
+          "name": "Neonatal",
+          "n": 18
+        },
+        {
+          "name": "Suckling",
+          "n": 52
+        },
+        {
+          "name": "Juvenile",
+          "n": 82
+        },
+        {
+          "name": "Post-pubertal",
+          "n": 18
+        }
+      ],
+      "n_class": 4,
+      "chance": 0.25,
+      "n_samples": 174,
+      "n_bioprojects": 17,
+      "single_stage_pct": 90.0,
+      "n_train": 170,
+      "n_bioprojects_train": 16,
+      "n_genes": 31908,
+      "stratified": {
+        "BA_mean": 0.837503,
+        "BA_sd": 0.014152,
+        "rho_mean": 0.888337,
+        "rho_sd": 0.012923,
+        "n_seeds": 5
+      },
+      "grouped": {
+        "BA_mean": 0.391465,
+        "BA_sd": 0.078322,
+        "rho_mean": -0.05718,
+        "rho_sd": 0.13601,
+        "n_seeds": 5,
+        "per_class_recall": {
+          "Neonatal": {
+            "mean": 0.0111,
+            "sd": 0.0222
+          },
+          "Suckling": {
+            "mean": 0.7654,
+            "sd": 0.209
+          },
+          "Juvenile": {
+            "mean": 0.3512,
+            "sd": 0.1282
+          },
+          "Post-pubertal": {
+            "mean": 0.1333,
+            "sd": 0.0831
+          }
+        }
+      },
+      "regions": [
+        "Brain",
+        "Frontal cortex",
+        "Cerebral cortex",
+        "Frontal lobe",
+        "Cerebrum",
+        "Hippocampus",
+        "Amygdala",
+        "Striatum region"
+      ]
+    }
+  },
+  "sources": {
+    "performance": "paper/figures/data/within_pig_6stage.json",
+    "liver_stage_restricted": "review/analyses/results/liver_loco_stage_restricted.json",
+    "sample_selection": "paper/figures/provenance/within_pig_6stage_figdata.py",
+    "estimator": "machine_learning/model_training/models.py::OrdinalPLS",
+    "expression": "data/pigGTEx/<Tissue>.expr_tpm.txt.gz",
+    "metadata": "data/PigGTEx_v0.MetaTable.csv"
+  },
+  "export": {
+    "timestamp_utc": "2026-11-08T12:34:07Z",
+    "packages": {
+      "python": "3.12.16",
+      "numpy": "2.3.5",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.16.3"
+    },
+    "git": {
+      "commit": null,
+      "uncommitted_changes": null
+    },
+    "tissues_exported_this_run": [
+      "Blood",
+      "Brain",
+      "Liver",
+      "Lung",
+      "Muscle"
+    ]
+  }
+}
