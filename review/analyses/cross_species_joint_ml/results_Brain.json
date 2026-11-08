@@ -1,0 +1,129 @@
+{
+  "tissue": "Brain",
+  "human_source": "cardoso_Brain",
+  "human_available": true,
+  "n_orthologs_used": 7485,
+  "human_params_used": {
+    "num_leaves": 8,
+    "min_data_in_leaf": 3
+  },
+  "human_sweep_idx": 0,
+  "pig": {
+    "n_samples": 38,
+    "stage_counts": {
+      "Infant": 25,
+      "Post-pubertal": 13
+    },
+    "seed_mae": [
+      0.8678571428571429,
+      0.8571428571428571,
+      0.7071428571428571,
+      0.8464285714285713,
+      0.9214285714285714,
+      0.5464285714285715,
+      0.7821428571428571,
+      0.6321428571428571,
+      0.9321428571428572,
+      0.5678571428571428
+    ],
+    "stable_top100_n": 0,
+    "stable_top50_n": 5,
+    "stable_top200_n": 146,
+    "jaccard_top100_mean": 0.0674905585339983,
+    "n_unique_features_ever_used": 228
+  },
+  "human": {
+    "n_samples": 16,
+    "n_infant": 7,
+    "n_adult": 9,
+    "seed_lpo_accuracy": [
+      0.7380952380952381,
+      0.8095238095238095,
+      0.753968253968254,
+      0.8015873015873016,
+      0.746031746031746,
+      0.7857142857142857,
+      0.7857142857142857,
+      0.8095238095238095,
+      0.7936507936507936,
+      0.7857142857142857
+    ],
+    "stable_top100_n": 60,
+    "stable_top50_n": 27,
+    "stable_top200_n": 117,
+    "jaccard_top100_mean": 0.49191054250416405,
+    "mean_best_iteration_seeds": [
+      89.2063492063492,
+      108.98412698412699,
+      94.4920634920635,
+      104.76190476190476,
+      94.95238095238095,
+      105.53968253968254,
+      120.41269841269842,
+      105.65079365079364,
+      96.92063492063492,
+      114.22222222222223
+    ],
+    "n_unique_features_ever_used": 686
+  },
+  "joint_set_n": 0,
+  "joint_set_top50_n": 2,
+  "joint_set_top200_n": 66,
+  "joint_features": [],
+  "concordance": {
+    "n_joint_genes_for_fc": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "bootstrap_mean_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n_concordant_direction": 0,
+    "directional_concordance_pct": null
+  },
+  "annotation_summary": {},
+  "elapsed_s": 101.7,
+  "primary_K": 100,
+  "stability_threshold": 8,
+  "k_sensitivity": [
+    {
+      "k": 50,
+      "pig_stable_n": 0,
+      "human_stable_n": 27,
+      "joint_n": 0,
+      "expected_by_chance": 0.33400133600534404,
+      "pearson_r": null
+    },
+    {
+      "k": 100,
+      "pig_stable_n": 0,
+      "human_stable_n": 60,
+      "joint_n": 0,
+      "expected_by_chance": 1.3360053440213762,
+      "pearson_r": null
+    },
+    {
+      "k": 200,
+      "pig_stable_n": 0,
+      "human_stable_n": 117,
+      "joint_n": 0,
+      "expected_by_chance": 5.344021376085505,
+      "pearson_r": null
+    },
+    {
+      "k": 500,
+      "pig_stable_n": 0,
+      "human_stable_n": 160,
+      "joint_n": 0,
+      "expected_by_chance": 33.4001336005344,
+      "pearson_r": null
+    },
+    {
+      "k": 1000,
+      "pig_stable_n": 0,
+      "human_stable_n": 160,
+      "joint_n": 0,
+      "expected_by_chance": 133.6005344021376,
+      "pearson_r": null
+    }
+  ]
+}

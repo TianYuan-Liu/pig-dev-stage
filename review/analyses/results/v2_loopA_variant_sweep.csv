@@ -1,0 +1,21 @@
+loop,cell_id,mean_r,min_r,max_r,panel_size,status,description
+A,strict_1to1|pig_anchored|spearman|baseline,,,,5,keep_baseline,locked baseline
+A_ext,v1_human_permissive_bins,0.36687248878783485,0.18985758774888256,0.4946101593160416,5,discard,better than baseline but custom bins; below ext3
+A_ext,v2_pig_permissive_bins,0.2912466737999316,-0.007629626644817843,0.5410320165122642,5,discard,Testis collapses to ~0; worse mean
+A_ext,v3_pig_median_fc,0.31133379288803703,0.12854271572442202,0.42577428327935435,5,discard,simpler FC but worse mean
+A_ext,v4_drop0,0.3554342199159427,0.16189435788402715,0.4971126385222309,5,discard,ties baseline (simpler) but below ext3
+A_ext,v5_low_expr,0.3725752581517378,0.18620150898324472,0.5611172933361995,5,discard,better than baseline but below ext3
+A_ext,v6_high_expr,0.38627145277367825,0.18751814223512336,0.5539698162729658,5,discard,high TPM filters +0.030; below ext3
+A_ext,v7_top300_pigfc,0.1917064856276181,-0.12370804120045777,0.5008171201902243,5,discard,new top-N filter; much worse
+A_ext,v8_bootstrap_stable,0.3662700548318143,0.1595096695599208,0.5599696104372428,5,discard,new bootstrap filter; better mean worse min; complex
+A_ext,ext1_high_expr_permissive,0.4034021419033941,0.2745903439792646,0.5644862880845094,5,discard,high expr + permissive bins; below ext3
+A_ext,ext2_pig5_human50,0.40910948304217065,0.1928606688880662,0.6058250030852772,5,discard,pig5/human50; Spleen n=20 collapse
+A_ext,ext3_high_expr_drop0,0.44043119867856334,0.18751814223512336,0.6335714285714285,5,keep,WINNER pig3 human30 drop0; +0.085 mean_r; removes purity-drop step
+A_ext,ext4_high_expr_drop0_permissive,0.43235345405768355,0.30567702230224736,0.516062966220192,5,discard,ext3 + permissive bins; lower mean than ext3
+0,rescueA_small_intestine_pool,-0.09484543931780112,-0.09484543931780112,-0.09484543931780112,1,discard,Small Intestine pooled pig n=107/31 but r=-0.095 (<0): fails r>0
+0,rescueB_heart_permissive_bins,-0.09469917672979719,-0.09469917672979719,-0.09469917672979719,1,discard,Heart permissive bins add no human samples; r=-0.095 CI spans 0
+0,rescueE_liver_go0032502,-0.06920366455250175,-0.06920366455250175,-0.06920366455250175,1,discard,Liver restricted to 6362 GO:0032502 genes; r=-0.069 still negative CI spans 0
+0,rescueC_colon_blocked,,,,1,discard,dGTEx colon expression file not present locally (data-blocked)
+0,rescueD_lymphnode_blocked,,,,1,discard,dGTEx lymph_node expression file not present locally (data-blocked)
+0,rescueF_bloodvessel_blocked,,,,1,discard,dGTEx blood_vessel/artery expression file not present locally (data-blocked)
+0,rescueG_pituitary_blocked,,,,1,discard,dGTEx pituitary expression file not present locally (data-blocked)

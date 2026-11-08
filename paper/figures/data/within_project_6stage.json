@@ -1,0 +1,94 @@
+{
+  "baseline": "Neonatal",
+  "scheme": "6stage",
+  "cohorts": [
+    "PRJNA488311",
+    "PRJNA486202"
+  ],
+  "composition": {
+    "PRJNA488311": {
+      "Neonatal": 48,
+      "Suckling": 6,
+      "Juvenile": 12,
+      "Pre-pubertal": 12,
+      "Post-pubertal": 3,
+      "Adult": 0
+    },
+    "PRJNA486202": {
+      "Neonatal": 47,
+      "Suckling": 5,
+      "Juvenile": 12,
+      "Pre-pubertal": 8,
+      "Post-pubertal": 2,
+      "Adult": 0
+    }
+  },
+  "comparisons": {
+    "Neonatal vs Suckling": {
+      "n_full_young": 156,
+      "n_full_old": 87,
+      "per_project": {
+        "PRJNA488311": {
+          "n_young": 48,
+          "n_old": 6,
+          "r": 0.8405
+        },
+        "PRJNA486202": {
+          "n_young": 47,
+          "n_old": 5,
+          "r": 0.7581
+        }
+      },
+      "pooled_r": 0.8302,
+      "pooled_ci95": [
+        0.824,
+        0.836
+      ],
+      "n_genes": 31908
+    },
+    "Neonatal vs Juvenile": {
+      "n_full_young": 156,
+      "n_full_old": 56,
+      "per_project": {
+        "PRJNA488311": {
+          "n_young": 48,
+          "n_old": 12,
+          "r": 0.9493
+        },
+        "PRJNA486202": {
+          "n_young": 47,
+          "n_old": 12,
+          "r": 0.9185
+        }
+      },
+      "pooled_r": 0.96,
+      "pooled_ci95": [
+        0.958,
+        0.962
+      ],
+      "n_genes": 31908
+    },
+    "Neonatal vs Pre-pubertal": {
+      "n_full_young": 156,
+      "n_full_old": 227,
+      "per_project": {
+        "PRJNA488311": {
+          "n_young": 48,
+          "n_old": 12,
+          "r": 0.9151
+        },
+        "PRJNA486202": {
+          "n_young": 47,
+          "n_old": 8,
+          "r": 0.8402
+        }
+      },
+      "pooled_r": 0.9087,
+      "pooled_ci95": [
+        0.904,
+        0.914
+      ],
+      "n_genes": 31908
+    }
+  }
+}

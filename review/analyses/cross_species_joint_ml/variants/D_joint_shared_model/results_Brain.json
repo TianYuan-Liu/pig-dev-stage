@@ -1,0 +1,197 @@
+{
+  "variant": "D",
+  "tissue": "Brain",
+  "n_pig_samples": 38,
+  "n_human_samples": 16,
+  "n_orthologs_used": 7485,
+  "balanced_accuracy_per_seed": [
+    0.8695,
+    0.8907,
+    0.8629,
+    0.9148,
+    0.8707,
+    0.8424,
+    0.9074,
+    0.9524,
+    0.8498,
+    0.9067
+  ],
+  "mean_balanced_accuracy": 0.8867142857142858,
+  "joint_set_n": 18,
+  "expected_by_chance": 1.3360053440213762,
+  "ratio_observed_to_chance": 13.472999999999999,
+  "concordance": {
+    "n_joint_for_fc": 18,
+    "pearson_r": 0.23073379841463093,
+    "ci_low": -0.5601921025128285,
+    "ci_high": 0.6688266301452507,
+    "directional_concordance_pct": 100.0,
+    "n_concordant_direction": 18
+  },
+  "joint_features": [
+    {
+      "symbol": "EXTL2",
+      "pig_gene_id": "ENSSSCG00000006861",
+      "human_gene_id": "ENSG00000162694",
+      "log2fc_pig": 3.1397332935457802,
+      "log2fc_human": 0.8833839334665754,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCC8",
+      "pig_gene_id": "ENSSSCG00000013378",
+      "human_gene_id": "ENSG00000006071",
+      "log2fc_pig": 2.3580886239701573,
+      "log2fc_human": 0.8642132008058657,
+      "category": "other"
+    },
+    {
+      "symbol": "CAMK2G",
+      "pig_gene_id": "ENSSSCG00000010311",
+      "human_gene_id": "ENSG00000148660",
+      "log2fc_pig": 2.821993798291757,
+      "log2fc_human": 0.8390206052711835,
+      "category": "other"
+    },
+    {
+      "symbol": "ANKRD42",
+      "pig_gene_id": "ENSSSCG00000014902",
+      "human_gene_id": "ENSG00000137494",
+      "log2fc_pig": 2.522593563350935,
+      "log2fc_human": 0.8644436467037631,
+      "category": "other"
+    },
+    {
+      "symbol": "CAPS2",
+      "pig_gene_id": "ENSSSCG00000000517",
+      "human_gene_id": "ENSG00000180881",
+      "log2fc_pig": 2.4054490436749685,
+      "log2fc_human": 1.5413453515612392,
+      "category": "other"
+    },
+    {
+      "symbol": "ANXA7",
+      "pig_gene_id": "ENSSSCG00000010299",
+      "human_gene_id": "ENSG00000138279",
+      "log2fc_pig": 2.178804539315984,
+      "log2fc_human": 0.7538610577740117,
+      "category": "other"
+    },
+    {
+      "symbol": "CCDC25",
+      "pig_gene_id": "ENSSSCG00000024972",
+      "human_gene_id": "ENSG00000147419",
+      "log2fc_pig": 2.588471149489442,
+      "log2fc_human": 1.0346194859854718,
+      "category": "other"
+    },
+    {
+      "symbol": "ACTR6",
+      "pig_gene_id": "ENSSSCG00000025682",
+      "human_gene_id": "ENSG00000075089",
+      "log2fc_pig": 3.087529600236181,
+      "log2fc_human": 0.42690814610392336,
+      "category": "other"
+    },
+    {
+      "symbol": "CD59",
+      "pig_gene_id": "ENSSSCG00000024791",
+      "human_gene_id": "ENSG00000085063",
+      "log2fc_pig": 3.351752673954936,
+      "log2fc_human": 0.5833260373559057,
+      "category": "other"
+    },
+    {
+      "symbol": "ADHFE1",
+      "pig_gene_id": "ENSSSCG00000006213",
+      "human_gene_id": "ENSG00000147576",
+      "log2fc_pig": 2.1137091723941213,
+      "log2fc_human": 0.6713546070694739,
+      "category": "other"
+    },
+    {
+      "symbol": "FBXO40",
+      "pig_gene_id": "ENSSSCG00000011885",
+      "human_gene_id": "ENSG00000163833",
+      "log2fc_pig": 3.5450840530339027,
+      "log2fc_human": 2.9490408716061363,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCA5",
+      "pig_gene_id": "ENSSSCG00000017255",
+      "human_gene_id": "ENSG00000154265",
+      "log2fc_pig": 2.988965851083097,
+      "log2fc_human": 0.3404774982567236,
+      "category": "liver_metabolic"
+    },
+    {
+      "symbol": "AHI1",
+      "pig_gene_id": "ENSSSCG00000004166",
+      "human_gene_id": "ENSG00000135541",
+      "log2fc_pig": 3.5021285443257466,
+      "log2fc_human": 0.6834972872548188,
+      "category": "other"
+    },
+    {
+      "symbol": "ABTB3",
+      "pig_gene_id": "ENSSSCG00000000162",
+      "human_gene_id": "ENSG00000151136",
+      "log2fc_pig": 2.5687716182081552,
+      "log2fc_human": 0.4770652954666141,
+      "category": "other"
+    },
+    {
+      "symbol": "AMPD3",
+      "pig_gene_id": "ENSSSCG00000022492",
+      "human_gene_id": "ENSG00000133805",
+      "log2fc_pig": 2.2919540583928995,
+      "log2fc_human": 0.855394676047863,
+      "category": "other"
+    },
+    {
+      "symbol": "ANO5",
+      "pig_gene_id": "ENSSSCG00000013344",
+      "human_gene_id": "ENSG00000171714",
+      "log2fc_pig": 2.4170478746289756,
+      "log2fc_human": 0.9700699414707835,
+      "category": "other"
+    },
+    {
+      "symbol": "ADRA1B",
+      "pig_gene_id": "ENSSSCG00000017041",
+      "human_gene_id": "ENSG00000170214",
+      "log2fc_pig": 1.958261917162501,
+      "log2fc_human": 0.8805133039770762,
+      "category": "other"
+    },
+    {
+      "symbol": "CLCN5",
+      "pig_gene_id": "ENSSSCG00000023026",
+      "human_gene_id": "ENSG00000171365",
+      "log2fc_pig": 2.732775074053804,
+      "log2fc_human": 0.7238778329080983,
+      "category": "other"
+    }
+  ],
+  "annotation_summary": {
+    "other": 17,
+    "liver_metabolic": 1
+  },
+  "params": {
+    "objective": "binary",
+    "metric": "binary_logloss",
+    "num_leaves": 15,
+    "max_depth": -1,
+    "learning_rate": 0.05,
+    "n_estimators": 200,
+    "min_data_in_leaf": 5,
+    "feature_fraction": 0.7,
+    "bagging_fraction": 0.7,
+    "bagging_freq": 5,
+    "lambda_l1": 0.1,
+    "lambda_l2": 1.0,
+    "verbosity": -1
+  },
+  "elapsed_s": 12.6
+}

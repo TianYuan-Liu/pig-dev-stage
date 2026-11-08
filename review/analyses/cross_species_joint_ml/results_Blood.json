@@ -1,0 +1,93 @@
+{
+  "tissue": "Blood",
+  "human_source": null,
+  "human_available": false,
+  "n_orthologs_used": 7485,
+  "pig": {
+    "n_samples": 76,
+    "stage_counts": {
+      "Post-pubertal": 32,
+      "Early childhood": 29,
+      "Pre-pubertal": 15
+    },
+    "seed_mae": [
+      0.20916666666666667,
+      0.26166666666666666,
+      0.25083333333333335,
+      0.28833333333333333,
+      0.21166666666666667,
+      0.23583333333333334,
+      0.22416666666666668,
+      0.29000000000000004,
+      0.2375,
+      0.3258333333333333
+    ],
+    "stable_top100_n": 19,
+    "stable_top100": [
+      "ENSSSCG00000008336",
+      "ENSSSCG00000037066",
+      "ENSSSCG00000002822",
+      "ENSSSCG00000017561",
+      "ENSSSCG00000012583",
+      "ENSSSCG00000008497",
+      "ENSSSCG00000023408",
+      "ENSSSCG00000028475",
+      "ENSSSCG00000026433",
+      "ENSSSCG00000008261",
+      "ENSSSCG00000004049",
+      "ENSSSCG00000017915",
+      "ENSSSCG00000032561",
+      "ENSSSCG00000004169",
+      "ENSSSCG00000016841",
+      "ENSSSCG00000006693",
+      "ENSSSCG00000038777",
+      "ENSSSCG00000020938",
+      "ENSSSCG00000037561"
+    ],
+    "stable_top50_n": 11,
+    "stable_top200_n": 49,
+    "jaccard_top100_mean": 0.23967566927811884,
+    "n_unique_features_ever_used": 1120
+  },
+  "joint_features": [],
+  "joint_set_n": 0,
+  "concordance": {
+    "n_joint_genes_for_fc": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "bootstrap_mean_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n_concordant_direction": 0,
+    "directional_concordance_pct": null
+  },
+  "annotation_summary": {},
+  "elapsed_s": 21.8,
+  "primary_K": 100,
+  "stability_threshold": 8,
+  "human": {
+    "available": false
+  },
+  "k_sensitivity": [
+    {
+      "k": 50,
+      "pig_stable_n": 11
+    },
+    {
+      "k": 100,
+      "pig_stable_n": 19
+    },
+    {
+      "k": 200,
+      "pig_stable_n": 49
+    },
+    {
+      "k": 500,
+      "pig_stable_n": 50
+    },
+    {
+      "k": 1000,
+      "pig_stable_n": 50
+    }
+  ]
+}

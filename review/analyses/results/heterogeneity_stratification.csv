@@ -1,0 +1,328 @@
+tissue,stage,dimension,level,n_samples
+Muscle,Neonatal,Breed,Landrace,80
+Muscle,Neonatal,Breed,Unknown,19
+Muscle,Neonatal,Breed,Tongcheng,16
+Muscle,Neonatal,Breed,Large white,7
+Muscle,Neonatal,Breed,Yorkshire,6
+Muscle,Neonatal,Breed,Yorkshire x Min,4
+Muscle,Neonatal,Breed,Min x Yorkshire,4
+Muscle,Neonatal,Breed,Duroc,3
+Muscle,Neonatal,Breed,Rongchang,3
+Muscle,Neonatal,Breed,Tibetan,3
+Muscle,Neonatal,Breed,Wujin,3
+Muscle,Neonatal,Breed,Iberian x Duroc,2
+Muscle,Neonatal,Breed,Iberian,2
+Muscle,Neonatal,Breed,Mashen,1
+Muscle,Neonatal,Breed,France,1
+Muscle,Neonatal,Breed,Guizhou mini-pig,1
+Muscle,Neonatal,Breed,Lantang,1
+Muscle,Suckling,Breed,Duroc,49
+Muscle,Suckling,Breed,Danbred x Newsham,18
+Muscle,Suckling,Breed,Landrace,9
+Muscle,Suckling,Breed,Unknown,3
+Muscle,Suckling,Breed,Tongcheng,2
+Muscle,Suckling,Breed,Meishan,2
+Muscle,Suckling,Breed,Large White,2
+Muscle,Suckling,Breed,Enshi Black,2
+Muscle,Juvenile,Breed,Landrace,32
+Muscle,Juvenile,Breed,Unknown,14
+Muscle,Juvenile,Breed,Tongcheng,4
+Muscle,Juvenile,Breed,Taihu,2
+Muscle,Juvenile,Breed,France,1
+Muscle,Juvenile,Breed,Mashen,1
+Muscle,Juvenile,Breed,Large white,1
+Muscle,Juvenile,Breed,"Crossbreed (Yorkshire, Landrace, Duroc)",1
+Muscle,Pre-pubertal,Breed,Duroc x Pietrain,144
+Muscle,Pre-pubertal,Breed,Unknown,24
+Muscle,Pre-pubertal,Breed,(Large White x Landrace) x Meatline,23
+Muscle,Pre-pubertal,Breed,Landrace,16
+Muscle,Pre-pubertal,Breed,Maxgro (Hermitage Genetics) x (German Landrace x Large White),10
+Muscle,Pre-pubertal,Breed,Tongcheng,4
+Muscle,Pre-pubertal,Breed,Wannanhua,3
+Muscle,Pre-pubertal,Breed,Yorkshire,3
+Muscle,Post-pubertal,Breed,Large white,60
+Muscle,Post-pubertal,Breed,Landrace,25
+Muscle,Post-pubertal,Breed,Duroc x Pietrain,23
+Muscle,Post-pubertal,Breed,Unknown,20
+Muscle,Post-pubertal,Breed,Pulawska,12
+Muscle,Post-pubertal,Breed,Iberian x Landrace,9
+Muscle,Post-pubertal,Breed,Qinyu,9
+Muscle,Post-pubertal,Breed,Dapulian,8
+Muscle,Post-pubertal,Breed,Landrace x Dapulian (LDPL),8
+Muscle,Post-pubertal,Breed,Duroc x Landrace x Dapulian (DLDPL),8
+Muscle,Post-pubertal,Breed,Pietrain,7
+Muscle,Post-pubertal,Breed,Anqing six-end-white,6
+Muscle,Post-pubertal,Breed,Hampshire,6
+Muscle,Post-pubertal,Breed,(Pietrain x Duroc) x (Landrace x Yorkshire),4
+Muscle,Post-pubertal,Breed,Wujin,3
+Muscle,Post-pubertal,Breed,Yorkshire,3
+Muscle,Post-pubertal,Breed,Yacha,3
+Muscle,Post-pubertal,Breed,Tibetan,3
+Muscle,Post-pubertal,Breed,Yanan,2
+Muscle,Post-pubertal,Breed,Tongcheng,2
+Muscle,Post-pubertal,Breed,Chenghua,2
+Muscle,Post-pubertal,Breed,France,2
+Muscle,Post-pubertal,Breed,Chinese Wuzhishan,1
+Muscle,Post-pubertal,Breed,Duroc,1
+Muscle,Post-pubertal,Breed,Duroc x (Landrace x Yorkshire),1
+Muscle,Post-pubertal,Breed,Huainan,1
+Muscle,Post-pubertal,Breed,Mashen,1
+Muscle,Post-pubertal,Breed,Guizhou mini-pig,1
+Muscle,Neonatal,Sex,Male,50
+Muscle,Neonatal,Sex,Pooled,50
+Muscle,Neonatal,Sex,Unknown,28
+Muscle,Neonatal,Sex,Female,26
+Muscle,Neonatal,Sex,Neuter,2
+Muscle,Suckling,Sex,Female,50
+Muscle,Suckling,Sex,Unknown,21
+Muscle,Suckling,Sex,Male,10
+Muscle,Suckling,Sex,Pooled,6
+Muscle,Juvenile,Sex,Male,16
+Muscle,Juvenile,Sex,Unknown,14
+Muscle,Juvenile,Sex,Pooled,14
+Muscle,Juvenile,Sex,Female,10
+Muscle,Juvenile,Sex,Neuter,2
+Muscle,Pre-pubertal,Sex,Male,117
+Muscle,Pre-pubertal,Sex,Female,91
+Muscle,Pre-pubertal,Sex,Pooled,12
+Muscle,Pre-pubertal,Sex,Unknown,7
+Muscle,Post-pubertal,Sex,Female,97
+Muscle,Post-pubertal,Sex,Male,78
+Muscle,Post-pubertal,Sex,Unknown,48
+Muscle,Post-pubertal,Sex,Pooled,5
+Muscle,Post-pubertal,Sex,Neuter,3
+Muscle,Neonatal,BioProject,PRJNA488311,48
+Muscle,Neonatal,BioProject,PRJNA486202,47
+Muscle,Neonatal,BioProject,PRJNA341938,9
+Muscle,Neonatal,BioProject,PRJNA389512,9
+Muscle,Neonatal,BioProject,PRJNA671763,8
+Muscle,Neonatal,BioProject,PRJNA322495,6
+Muscle,Neonatal,BioProject,PRJNA356659,6
+Muscle,Neonatal,BioProject,PRJNA322309,6
+Muscle,Neonatal,BioProject,PRJNA297337,4
+Muscle,Neonatal,BioProject,PRJNA210515,3
+Muscle,Neonatal,BioProject,PRJNA309102,2
+Muscle,Neonatal,BioProject,PRJNA343305,2
+Muscle,Neonatal,BioProject,PRJNA222300,2
+Muscle,Neonatal,BioProject,PRJNA297855,1
+Muscle,Neonatal,BioProject,PRJNA291508,1
+Muscle,Neonatal,BioProject,PRJNA575967,1
+Muscle,Neonatal,BioProject,PRJEB28465,1
+Muscle,Suckling,BioProject,PRJNA386796,47
+Muscle,Suckling,BioProject,PRJNA275632,18
+Muscle,Suckling,BioProject,PRJNA597497,8
+Muscle,Suckling,BioProject,PRJNA488311,6
+Muscle,Suckling,BioProject,PRJNA486202,5
+Muscle,Suckling,BioProject,PRJNA289358,2
+Muscle,Suckling,BioProject,PRJNA448132,1
+Muscle,Juvenile,BioProject,PRJNA486202,12
+Muscle,Juvenile,BioProject,PRJNA488311,12
+Muscle,Juvenile,BioProject,PRJNA506343,12
+Muscle,Juvenile,BioProject,PRJNA311523,10
+Muscle,Juvenile,BioProject,PRJEB8735,2
+Muscle,Juvenile,BioProject,PRJNA309102,2
+Muscle,Juvenile,BioProject,PRJNA516765,2
+Muscle,Juvenile,BioProject,PRJNA342558,1
+Muscle,Juvenile,BioProject,PRJNA351265,1
+Muscle,Juvenile,BioProject,PRJNA354523,1
+Muscle,Juvenile,BioProject,PRJNA510073,1
+Muscle,Pre-pubertal,BioProject,PRJNA403969,144
+Muscle,Pre-pubertal,BioProject,PRJEB29969,23
+Muscle,Pre-pubertal,BioProject,PRJNA341938,12
+Muscle,Pre-pubertal,BioProject,PRJNA488311,12
+Muscle,Pre-pubertal,BioProject,PRJNA304420,11
+Muscle,Pre-pubertal,BioProject,PRJEB23289,10
+Muscle,Pre-pubertal,BioProject,PRJNA486202,8
+Muscle,Pre-pubertal,BioProject,PRJNA302287,6
+Muscle,Pre-pubertal,BioProject,PRJNA354523,1
+Muscle,Post-pubertal,BioProject,PRJEB28465,47
+Muscle,Post-pubertal,BioProject,PRJNA488993,32
+Muscle,Post-pubertal,BioProject,PRJNA305124,24
+Muscle,Post-pubertal,BioProject,PRJNA403969,22
+Muscle,Post-pubertal,BioProject,PRJNA344688,21
+Muscle,Post-pubertal,BioProject,PRJNA419312,13
+Muscle,Post-pubertal,BioProject,PRJNA246567,12
+Muscle,Post-pubertal,BioProject,PRJNA604841,12
+Muscle,Post-pubertal,BioProject,PRJNA240057,9
+Muscle,Post-pubertal,BioProject,PRJNA646821,6
+Muscle,Post-pubertal,BioProject,PRJNA309102,3
+Muscle,Post-pubertal,BioProject,PRJNA488247,3
+Muscle,Post-pubertal,BioProject,PRJNA488311,3
+Muscle,Post-pubertal,BioProject,PRJNA579297,3
+Muscle,Post-pubertal,BioProject,PRJNA283924,3
+Muscle,Post-pubertal,BioProject,PRJNA362606,3
+Muscle,Post-pubertal,BioProject,PRJNA354523,2
+Muscle,Post-pubertal,BioProject,PRJNA342994,2
+Muscle,Post-pubertal,BioProject,PRJNA419297,2
+Muscle,Post-pubertal,BioProject,PRJNA486202,2
+Muscle,Post-pubertal,BioProject,PRJNA295107,2
+Muscle,Post-pubertal,BioProject,PRJNA345539,1
+Muscle,Post-pubertal,BioProject,PRJNA354435,1
+Muscle,Post-pubertal,BioProject,PRJNA392949,1
+Muscle,Post-pubertal,BioProject,PRJNA297855,1
+Muscle,Post-pubertal,BioProject,PRJNA493166,1
+Brain,Suckling,Breed,PIC Camborough (dam) x PIC 359 (sire),24
+Brain,Post-pubertal,Breed,Duroc x (Landrace x Yorkshire),4
+Brain,Post-pubertal,Breed,Rongchang,3
+Brain,Post-pubertal,Breed,Unknown,3
+Brain,Post-pubertal,Breed,Duroc,1
+Brain,Post-pubertal,Breed,Large white,1
+Brain,Suckling,Sex,Male,12
+Brain,Suckling,Sex,Female,12
+Brain,Post-pubertal,Sex,Unknown,6
+Brain,Post-pubertal,Sex,Female,5
+Brain,Post-pubertal,Sex,Male,1
+Brain,Suckling,BioProject,PRJNA556242,24
+Brain,Post-pubertal,BioProject,PRJNA384017,6
+Brain,Post-pubertal,BioProject,PRJNA645684,4
+Brain,Post-pubertal,BioProject,PRJNA392949,1
+Brain,Post-pubertal,BioProject,PRJNA493166,1
+Liver,Neonatal,Breed,Large white,16
+Liver,Neonatal,Breed,Duroc,1
+Liver,Suckling,Breed,Landrace,48
+Liver,Suckling,Breed,Duroc x (Landrace x Yorkshire),32
+Liver,Suckling,Breed,Large white,26
+Liver,Suckling,Breed,Unknown,6
+Liver,Suckling,Breed,Meishan,2
+Liver,Suckling,Breed,Duroc,2
+Liver,Suckling,Breed,Large White,2
+Liver,Suckling,Breed,Enshi Black,2
+Liver,Juvenile,Breed,Unknown,20
+Liver,Juvenile,Breed,Mini-pig,7
+Liver,Juvenile,Breed,Jinhua,3
+Liver,Juvenile,Breed,Landrace,3
+Liver,Juvenile,Breed,"Crossbreed (Yorkshire, Landrace, Duroc)",1
+Liver,Pre-pubertal,Breed,(Large White x Landrace) x Meatline,24
+Liver,Pre-pubertal,Breed,Maxgro (Hermitage Genetics) x (German Landrace x Large White),15
+Liver,Pre-pubertal,Breed,Duroc x (Landrace x Yorkshire),12
+Liver,Pre-pubertal,Breed,Duroc x (Leicoma x German Landrace),10
+Liver,Pre-pubertal,Breed,Yorkshire,6
+Liver,Pre-pubertal,Breed,Landrace x Yorkshire,6
+Liver,Pre-pubertal,Breed,PIC,5
+Liver,Pre-pubertal,Breed,Landrace x Large White,1
+Liver,Pre-pubertal,Breed,Duroc,1
+Liver,Post-pubertal,Breed,Unknown,18
+Liver,Post-pubertal,Breed,Songliao black pig,4
+Liver,Post-pubertal,Breed,Chinese Wuzhishan,3
+Liver,Post-pubertal,Breed,Duroc x Pietrain,1
+Liver,Post-pubertal,Breed,Duroc,1
+Liver,Post-pubertal,Breed,Large white,1
+Liver,Post-pubertal,Breed,Landrace x Large White,1
+Liver,Adult,Breed,Duroc x Landrace,18
+Liver,Adult,Breed,Unknown,10
+Liver,Adult,Breed,Bama Xiang,1
+Liver,Neonatal,Sex,Male,9
+Liver,Neonatal,Sex,Female,8
+Liver,Suckling,Sex,Female,70
+Liver,Suckling,Sex,Male,50
+Liver,Juvenile,Sex,Unknown,16
+Liver,Juvenile,Sex,Male,15
+Liver,Juvenile,Sex,Neuter,3
+Liver,Pre-pubertal,Sex,Male,39
+Liver,Pre-pubertal,Sex,Unknown,21
+Liver,Pre-pubertal,Sex,Female,20
+Liver,Post-pubertal,Sex,Male,12
+Liver,Post-pubertal,Sex,Unknown,11
+Liver,Post-pubertal,Sex,Female,6
+Liver,Adult,Sex,Female,24
+Liver,Adult,Sex,Male,3
+Liver,Adult,Sex,Unknown,2
+Liver,Neonatal,BioProject,PRJNA597972,16
+Liver,Neonatal,BioProject,PRJNA392949,1
+Liver,Suckling,BioProject,PRJEB30250,48
+Liver,Suckling,BioProject,PRJNA503185,32
+Liver,Suckling,BioProject,PRJNA597972,26
+Liver,Suckling,BioProject,PRJNA597497,8
+Liver,Suckling,BioProject,PRJNA392495,6
+Liver,Juvenile,BioProject,PRJNA311523,9
+Liver,Juvenile,BioProject,PRJNA294650,7
+Liver,Juvenile,BioProject,PRJNA512179,6
+Liver,Juvenile,BioProject,PRJNA506884,4
+Liver,Juvenile,BioProject,PRJNA357561,3
+Liver,Juvenile,BioProject,PRJNA555725,3
+Liver,Juvenile,BioProject,PRJNA351265,1
+Liver,Juvenile,BioProject,PRJNA510073,1
+Liver,Pre-pubertal,BioProject,PRJEB29969,24
+Liver,Pre-pubertal,BioProject,PRJEB23668,15
+Liver,Pre-pubertal,BioProject,PRJNA578377,12
+Liver,Pre-pubertal,BioProject,PRJNA188941,10
+Liver,Pre-pubertal,BioProject,PRJNA323755,6
+Liver,Pre-pubertal,BioProject,PRJNA526943,6
+Liver,Pre-pubertal,BioProject,PRJNA417068,5
+Liver,Pre-pubertal,BioProject,PRJNA541949,1
+Liver,Pre-pubertal,BioProject,PRJNA577556,1
+Liver,Post-pubertal,BioProject,PRJNA305529,10
+Liver,Post-pubertal,BioProject,PRJNA362606,6
+Liver,Post-pubertal,BioProject,PRJNA234465,4
+Liver,Post-pubertal,BioProject,PRJNA264829,3
+Liver,Post-pubertal,BioProject,PRJNA509268,2
+Liver,Post-pubertal,BioProject,PRJNA354435,1
+Liver,Post-pubertal,BioProject,PRJNA392949,1
+Liver,Post-pubertal,BioProject,PRJNA493166,1
+Liver,Post-pubertal,BioProject,PRJNA541949,1
+Liver,Adult,BioProject,PRJNA518006,18
+Liver,Adult,BioProject,PRJNA503188,5
+Liver,Adult,BioProject,PRJEB33381,3
+Liver,Adult,BioProject,PRJNA509268,2
+Liver,Adult,BioProject,PRJNA305196,1
+Blood,Juvenile,Breed,Landrace x Large White,19
+Blood,Juvenile,Breed,Large white,9
+Blood,Juvenile,Breed,Landrace,7
+Blood,Juvenile,Breed,Duroc,6
+Blood,Juvenile,Breed,Dapulian,1
+Blood,Post-pubertal,Breed,Unknown,32
+Blood,Juvenile,Sex,Male,31
+Blood,Juvenile,Sex,Unknown,5
+Blood,Juvenile,Sex,Pooled,3
+Blood,Juvenile,Sex,Female,3
+Blood,Post-pubertal,Sex,Female,31
+Blood,Post-pubertal,Sex,Unknown,1
+Blood,Juvenile,BioProject,PRJNA311061,19
+Blood,Juvenile,BioProject,PRJNA360366,9
+Blood,Juvenile,BioProject,PRJNA609023,6
+Blood,Juvenile,BioProject,PRJNA389819,5
+Blood,Juvenile,BioProject,PRJNA298508,3
+Blood,Post-pubertal,BioProject,PRJEB12300,31
+Blood,Post-pubertal,BioProject,PRJNA510331,1
+Lung,Neonatal,Breed,Unknown,24
+Lung,Neonatal,Breed,Large white,4
+Lung,Juvenile,Breed,Unknown,25
+Lung,Juvenile,Breed,Kele pig,13
+Lung,Juvenile,Breed,Landrace x Yorkshire,10
+Lung,Juvenile,Breed,Tongcheng,4
+Lung,Juvenile,Breed,Landrace,4
+Lung,Juvenile,Breed,Tibetan,4
+Lung,Juvenile,Breed,Large white,2
+Lung,Juvenile,Breed,Laiwu,2
+Lung,Post-pubertal,Breed,Commercial black pig,11
+Lung,Post-pubertal,Breed,Unknown,6
+Lung,Post-pubertal,Breed,Landrace,4
+Lung,Post-pubertal,Breed,Tibetan,4
+Lung,Post-pubertal,Breed,Duroc,1
+Lung,Post-pubertal,Breed,Large white,1
+Lung,Neonatal,Sex,Female,12
+Lung,Neonatal,Sex,Unknown,9
+Lung,Neonatal,Sex,Male,7
+Lung,Juvenile,Sex,Male,33
+Lung,Juvenile,Sex,Unknown,23
+Lung,Juvenile,Sex,Female,8
+Lung,Post-pubertal,Sex,Male,16
+Lung,Post-pubertal,Sex,Unknown,6
+Lung,Post-pubertal,Sex,Female,5
+Lung,Neonatal,BioProject,PRJNA598508,19
+Lung,Neonatal,BioProject,PRJNA483488,5
+Lung,Neonatal,BioProject,PRJEB41970,4
+Lung,Juvenile,BioProject,PRJNA593525,13
+Lung,Juvenile,BioProject,PRJNA661122,13
+Lung,Juvenile,BioProject,PRJNA284205,8
+Lung,Juvenile,BioProject,PRJNA311523,8
+Lung,Juvenile,BioProject,PRJNA360048,8
+Lung,Juvenile,BioProject,PRJNA474394,7
+Lung,Juvenile,BioProject,PRJNA298500,4
+Lung,Juvenile,BioProject,PRJNA294986,2
+Lung,Juvenile,BioProject,PRJNA510073,1
+Lung,Post-pubertal,BioProject,PRJNA496272,11
+Lung,Post-pubertal,BioProject,PRJNA687172,8
+Lung,Post-pubertal,BioProject,PRJNA362606,6
+Lung,Post-pubertal,BioProject,PRJNA392949,1
+Lung,Post-pubertal,BioProject,PRJNA493166,1

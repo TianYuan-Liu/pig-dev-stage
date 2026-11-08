@@ -1,0 +1,111 @@
+{
+  "tissue": "Lung",
+  "human_source": null,
+  "human_available": false,
+  "n_orthologs_used": 7485,
+  "pig": {
+    "n_samples": 129,
+    "stage_counts": {
+      "Pre-pubertal": 46,
+      "Infant": 30,
+      "Post-pubertal": 27,
+      "Early childhood": 26
+    },
+    "seed_mae": [
+      0.17815384615384616,
+      0.16246153846153846,
+      0.1704615384615385,
+      0.17815384615384616,
+      0.17784615384615388,
+      0.23199999999999998,
+      0.16984615384615384,
+      0.2166153846153846,
+      0.14676923076923076,
+      0.14707692307692308
+    ],
+    "stable_top100_n": 36,
+    "stable_top100": [
+      "ENSSSCG00000036049",
+      "ENSSSCG00000015499",
+      "ENSSSCG00000038062",
+      "ENSSSCG00000013594",
+      "ENSSSCG00000029267",
+      "ENSSSCG00000003468",
+      "ENSSSCG00000036716",
+      "ENSSSCG00000008938",
+      "ENSSSCG00000005911",
+      "ENSSSCG00000001531",
+      "ENSSSCG00000035938",
+      "ENSSSCG00000017239",
+      "ENSSSCG00000032059",
+      "ENSSSCG00000011444",
+      "ENSSSCG00000034219",
+      "ENSSSCG00000010132",
+      "ENSSSCG00000000667",
+      "ENSSSCG00000013883",
+      "ENSSSCG00000011720",
+      "ENSSSCG00000012270",
+      "ENSSSCG00000005268",
+      "ENSSSCG00000014448",
+      "ENSSSCG00000025042",
+      "ENSSSCG00000013911",
+      "ENSSSCG00000008090",
+      "ENSSSCG00000024437",
+      "ENSSSCG00000010133",
+      "ENSSSCG00000049630",
+      "ENSSSCG00000015285",
+      "ENSSSCG00000017562",
+      "ENSSSCG00000002015",
+      "ENSSSCG00000039027",
+      "ENSSSCG00000024392",
+      "ENSSSCG00000031216",
+      "ENSSSCG00000016609",
+      "ENSSSCG00000034876"
+    ],
+    "stable_top50_n": 17,
+    "stable_top200_n": 66,
+    "jaccard_top100_mean": 0.29992341111707205,
+    "n_unique_features_ever_used": 4340
+  },
+  "joint_features": [],
+  "joint_set_n": 0,
+  "concordance": {
+    "n_joint_genes_for_fc": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "bootstrap_mean_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n_concordant_direction": 0,
+    "directional_concordance_pct": null
+  },
+  "annotation_summary": {},
+  "elapsed_s": 44.2,
+  "primary_K": 100,
+  "stability_threshold": 8,
+  "human": {
+    "available": false
+  },
+  "k_sensitivity": [
+    {
+      "k": 50,
+      "pig_stable_n": 17
+    },
+    {
+      "k": 100,
+      "pig_stable_n": 36
+    },
+    {
+      "k": 200,
+      "pig_stable_n": 66
+    },
+    {
+      "k": 500,
+      "pig_stable_n": 117
+    },
+    {
+      "k": 1000,
+      "pig_stable_n": 198
+    }
+  ]
+}

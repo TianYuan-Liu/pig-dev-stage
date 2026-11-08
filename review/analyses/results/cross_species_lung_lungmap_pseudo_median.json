@@ -1,0 +1,78 @@
+{
+  "tissue": "Lung",
+  "pig_tissue": "Lung",
+  "human_source": "LungMAP_LMEX0000003691",
+  "cell_pop": "BPS",
+  "drop_adult": true,
+  "method": "median",
+  "old_only_child": false,
+  "pseudobulk": true,
+  "n_orthologs_tested": 7142,
+  "sample_sizes": {
+    "pig_young": 56,
+    "pig_old": 27,
+    "human_young": 4,
+    "human_old": 7
+  },
+  "strict": {
+    "label": "strict_FDR_both",
+    "n_genes": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance": null
+  },
+  "pig_anchored": {
+    "label": "pig_anchored",
+    "n_genes": 584,
+    "pearson_r": 0.05985566502759289,
+    "pearson_p": 0.14854950622618096,
+    "ci_low": -0.04927236708746358,
+    "ci_high": 0.16588186199414293,
+    "directional_concordance": 58.73287671232877
+  },
+  "fc_only": {
+    "label": "fc_only_no_fdr",
+    "n_genes": 1436,
+    "pearson_r": 0.02186545161406978,
+    "pearson_p": 0.4076932829606946,
+    "ci_low": -0.04954512845701027,
+    "ci_high": 0.08563083452552454,
+    "directional_concordance": 51.183844011142064
+  },
+  "donor_info": {
+    "cell_pop": "pseudobulk_sum_EPI,END,MES,MIC",
+    "drop_adult": true,
+    "young_donors": [
+      "D019",
+      "D038",
+      "D041",
+      "D044"
+    ],
+    "old_donors": [
+      "D008",
+      "D011",
+      "D018",
+      "D022",
+      "D024",
+      "D036",
+      "D043"
+    ],
+    "young_ages": [
+      "1 Days",
+      "1 Days",
+      "6 Days",
+      "6 Days"
+    ],
+    "old_ages": [
+      "20 Months",
+      "20 Months",
+      "3 Years",
+      "2 Years",
+      "4 Months",
+      "8 Years",
+      "21 Months"
+    ]
+  }
+}

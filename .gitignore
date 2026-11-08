@@ -1,0 +1,122 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+logs/
+
+# Local scheduler lock
+.claude/scheduled_tasks.lock
+
+# Agent/CLI session scratch
+.antigravitycli/
+
+# Data (too large for git) — see data/README.md to re-acquire
+data/pigGTEx/*.gz
+data/pigGTEx/*.txt
+data/cardoso_moreira_2019/Human.RPKM.tsv
+data/cardoso_moreira_2019/Human.RPKM.txt
+# Cardoso-Moreira 2019 per-species RPKM (large; from ArrayExpress E-MTAB-6814 / evodevoapp)
+data/cardoso_moreira_2019/*.RPKM.txt
+data/cardoso_moreira_2019/*.RPKM.tsv
+data/cardoso_moreira_2019/*_rpkm.txt
+# Human dGTEx + NHP-dGTEx (macaque/marmoset) expression + metadata (large)
+data/dgtex/expression/*.gct.gz
+data/dgtex/metadata/*.xlsx
+data/nhp_dgtex/
+# LungMAP (large; main checkout only)
+data/lungmap/
+
+# Zotero reference-PDF attachment library (large; kept on disk, not tracked).
+# The bibliography paper/pig-age-human/pig-age-human.bib stays tracked.
+paper/pig-age-human/files/
+
+# Manuscript figure/table provenance (the retired autoresearch/ folder). The
+# committed source-of-truth data lives in paper/figures/data/ and the generator
+# scripts in paper/figures/provenance/ -- both tracked, no ignore rules needed.
+
+# Autoresearch-style local log (per CONSTRAINTS.md rule 10)
+review/revision_log.tsv
+# Build artifacts inside review/
+review/response_to_reviewers.aux
+review/response_to_reviewers.log
+review/response_to_reviewers.run.xml
+review/response_to_reviewers.bcf
+review/response_to_reviewers.bbl
+review/response_to_reviewers.blg
+review/response_to_reviewers.out
+review/analyses/results/*.log
+review/__pycache__/
+
+# Output files
+artifacts/results/*.json
+artifacts/figures/*.pdf
+artifacts/figures/*.png
+machine_learning/model_outputs/
+machine_learning/_model_outputs_ridge_canonical/
+visualization/nature_figures/test_outputs/
+
+# R
+.Rhistory
+.RData
+.Rapp.history
+
+# Temporary
+*.tmp
+*.bak
+*~
+test_*.py
+test_*.R
+
+# Deprecated
+deprecated/
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.nav
+*.snm
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.out
+
+# Generated figures (regenerable from scripts)
+visualization/*.pdf
+visualization/*.png
+results/enrichment_analysis/figures/*.pdf
+results/enrichment_analysis/figures/*.png
+
+# Generated results (regenerable)
+results/enrichment_analysis/**/*.csv
+# Regenerable cross-species parquet caches (large; rebuilt by the pipeline)
+review/analyses/cross_species_joint_ml/cache/

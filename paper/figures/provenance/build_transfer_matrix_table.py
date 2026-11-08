@@ -1,0 +1,225 @@
+#!/usr/bin/env python3
+"""Build Table S7 (tableS_transfer_matrix.tex) from the 6-stage transfer data.
+
+The original generator (gen_transfer_matrix_table.py) read the deleted
+determinants_systemB.json; this reads the committed 6-stage artifacts:
+  paper/figures/data/determinants_6stage.json        (Cardoso points + tests)
+  paper/figures/data/supp_table_dGTEx_only_6stage.csv (dGTEx per-organ rho)
+and emits the same two-panel LaTeX table. The organ-vs-divergence variance
+partition is recomputed from the 40 Cardoso cells. Real data only.
+"""
+import json
+from pathlib import Path
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+ROOT = Path("/Users/tianyuan/Desktop/github_dev/pig-dev-stage")
+DET = ROOT / "paper" / "figures" / "data" / "determinants_6stage.json"
+DGTEX = ROOT / "paper" / "figures" / "data" / "supp_table_dGTEx_only_6stage.csv"
+TEX = ROOT / "paper" / "figures" / "output" / "supplementary" / "tableS_transfer_matrix.tex"
+
+CARDOSO_ORGANS = ["Brain", "Heart", "Kidney", "Liver", "Ovary", "Testis"]
+SPECIES_ORDER = ["Human", "Macaque", "Mouse", "Rat", "Rabbit", "Opossum", "Chicken"]
+
+# --- pig-side training size per organ (REAL DATA, computed live) ---------------
+# Replicates transfer_6stage.load_pig_tissue staging + drop-small<10; reproduces
+# that script's n_pig_samples (paper/figures/data/transfer_6stage/expA_results.csv)
+# and the determinants_6stage.json kept-stage sets exactly. No hardcoded counts.
+import gzip  # noqa: E402
+import re    # noqa: E402
+
+PIG_META = ROOT / "data" / "PigGTEx_v0.MetaTable.csv"
+PIG_TPM_DIR = ROOT / "data" / "pigGTEx"
+_ORDER6 = ["Neonatal", "Suckling", "Juvenile", "Pre-pubertal", "Post-pubertal", "Adult"]
+
+
+def _age_days(a):
+    if pd.isna(a) or str(a).strip().lower() == "unknown":
+        return np.nan
+    conv = {"day": 1, "days": 1, "week": 7, "weeks": 7, "month": 30,
+            "months": 30, "year": 365, "years": 365}
+    m = re.match(r"(\d+(?:\.\d+)?)\s*(day|days|week|weeks|month|months|year|years)",
+                 str(a).lower().strip())
+    return float(m.group(1)) * conv[m.group(2)] if m else np.nan
+
+
+def _stage6(d):
+    if pd.isna(d):
+        return None
+    return ("Neonatal" if d <= 3 else "Suckling" if d <= 28 else "Juvenile" if d <= 90
+            else "Pre-pubertal" if d <= 165 else "Post-pubertal" if d <= 540 else "Adult")
+
+
+def pig_train_n(meta, tissue):
+    """(n_pig, K) for one pig organ model under the 6-stage drop-small<10 policy."""
+    sub = meta[(meta["Tissue"] == tissue) & (meta["Sub_categories"] == tissue)]
+    path = PIG_TPM_DIR / f"{tissue}.expr_tpm.txt.gz"
+    if not path.exists():
+        return None, 0
+    with gzip.open(path, "rt") as fh:
+        cols = fh.readline().rstrip("\n").split("\t")[1:]
+    samp = [s for s in sub.index if s in cols]
+    cnt = sub.loc[samp, "Age_Days"].apply(_stage6).value_counts()
+    kept = [s for s in _ORDER6 if cnt.get(s, 0) >= 10]
+    return int(sum(cnt.get(s, 0) for s in kept)), len(kept)
+
+
+def fnum(x, dec=2):
+    if x is None or (isinstance(x, float) and np.isnan(x)):
+        return "---"
+    s = f"{x:.{dec}f}"
+    return s.replace("-", "$-$") if s.startswith("-") else s
+
+
+def main():
+    det = json.loads(DET.read_text())
+    pts = det["points"]
+    tests = det["tests"]
+    dg = pd.read_csv(DGTEX)
+
+    # pig-side training size per organ (brain = forebrain aggregate from the JSON)
+    meta = pd.read_csv(PIG_META).rename(columns={
+        "BioSample": "Sample_ID", "Tissue class": "Tissue",
+        "Sub categories": "Sub_categories"}).set_index("Sample_ID")
+    meta["Age_Days"] = meta["Age"].apply(_age_days)
+    brain_npig = next((p["n_pig"] for p in pts
+                       if p["organ"] == "Brain" and p.get("n_pig")), None)
+    brain_K = next((p["K"] for p in pts if p["organ"] == "Brain"), None)
+    PIGN = {o: ((brain_npig, brain_K) if o == "Brain" else pig_train_n(meta, o))
+            for o in CARDOSO_ORGANS}
+    DGTEX_PIGN = {org: pig_train_n(meta, org) for org in dg["organ"].unique()}
+
+    # ---- variance partition: rho ~ organ + divergence (unique R^2) ----
+    cells = [(p["organ"], float(p["divergence_mya"]), float(p["rho"]))
+             for p in pts if p["rho"] is not None]
+    organs = sorted(set(c[0] for c in cells))
+    y = np.array([c[2] for c in cells])
+    organ_oh = np.array([[1.0 if c[0] == o else 0.0 for o in organs] for c in cells])
+    div = np.array([[c[1]] for c in cells])
+
+    def r2(X):
+        return LinearRegression().fit(X, y).score(X, y)
+    full = r2(np.hstack([organ_oh, div]))
+    uniq_organ = full - r2(div)
+    uniq_div = full - r2(organ_oh)
+
+    H1 = tests["H1_rho_vs_divergence_spearman"]
+    means = tests["H2_tissue_mean_rho"]
+
+    # ---- assemble ----
+    L = []
+    a = L.append
+    a(r"% ============================================================================")
+    a(r"% Supplementary Table: per-tissue, per-species PLS model-transfer matrix")
+    a(r"% (pig 6-stage staging, ordinal Spearman). Auto-generated by")
+    a(r"% paper/figures/provenance/build_transfer_matrix_table.py from the 6-stage artifacts:")
+    a(r"%   paper/figures/data/determinants_6stage.json")
+    a(r"%   paper/figures/data/supp_table_dGTEx_only_6stage.csv")
+    a(r"% DO NOT hand-edit.")
+    a(r"% ============================================================================")
+    a(r"\begin{table}[htbp]")
+    a(r"\centering")
+    a(r"\caption{\textbf{Full per-tissue, per-species transfer matrix of the")
+    a(r"pig-trained developmental-stage model (ordinal PLS).}")
+    a(r"A single ordinal partial-least-squares (PLS) model trained on pig developmental")
+    a(r"stages (six stages; day boundaries $3/28/90/165/540$) was projected onto held-out")
+    a(r"cross-species developmental transcriptomes through one-to-one symbol orthologues,")
+    a(r"and transfer scored as the ordinal Spearman correlation ($\rho$) between projected")
+    a(r"and true developmental order. Significance is the empirical $p$ from a $1000\times$")
+    a(r"ortholog-scramble null (permuting the gene$\leftrightarrow$gene correspondence).")
+    a(r"\textbf{(a)} dGTEx human transfer; because the deep human developmental cohorts are")
+    a(r"small for several organs, only the well-powered organs (Lung, Muscle, Adipose; each")
+    a(r"$n\geq35$ and rejecting the scramble null at $p<0.05$) are taken as confirmation,")
+    a(r"while Heart ($n=7$), Testis ($n=10$), Liver ($n=11$) and Spleen ($n=8$) are flagged")
+    a(r"underpowered and are not used for the heart/testis claims (which rest on the")
+    a(r"well-sampled Cardoso panel). \textbf{(b)} Cardoso \emph{et~al.}\ (2019) seven-species")
+    a(r"$\times$ six-organ matrix, per-organ mean $\rho$, and pig-to-species divergence (MYA).")
+    a(r"Ovary lacks Human and Macaque samples ($n=5$ species); other organs span $n=7$.")
+    a(r"$n_{\mathrm{orth}}$ is the number of one-to-one orthologues per species.")
+    a(r"\textbf{Pig $n$} (panel a) and \textbf{Pig train $n$ ($K$)} (panel b) give the number")
+    a(r"of PigGTEx samples used to fit each organ's pig developmental model and the number")
+    a(r"$K$ of retained stages (six-stage scheme, drop-small $<10$ per stage); the brain")
+    a(r"model is the forebrain-aggregated construct ($n=170$, four stages) and every other")
+    a(r"organ uses its single-label PigGTEx tissue.")
+    a(r"\label{tab:transfer_matrix}}")
+    a(r"\smallskip")
+    a("")
+    # ----- Panel (a): dGTEx -----
+    a(r"{\footnotesize")
+    a(r"\textbf{(a) dGTEx human, per-organ transfer (PLS $\rho$).}\par")
+    a(r"\smallskip")
+    a(r"\begin{tabular}{@{}lccccl@{}}")
+    a(r"\toprule")
+    a(r"Organ & Pig $n$ & PLS $\rho$ & $n_{\mathrm{tgt}}$ & scramble $p$ & status \\")
+    a(r"\midrule")
+    dg = dg.sort_values("rho", ascending=False)
+    for _, r in dg.iterrows():
+        n = int(r["n_target"])
+        confirmed = (n >= 35) and (float(r["scramble_p"]) < 0.05)
+        status = "confirmed" if confirmed else "underpowered"
+        org = r"\textbf{%s}" % r["organ"] if confirmed else r["organ"]
+        pign = DGTEX_PIGN.get(r["organ"], (None, 0))[0]
+        pcell = pign if pign is not None else "---"
+        a(f"{org} & {pcell} & {fnum(r['rho'])} & {n} & {float(r['scramble_p']):.3f} & {status} \\\\")
+    a(r"\bottomrule")
+    a(r"\end{tabular}\par")
+    a(r"\smallskip")
+    a(r"Confirmed (well-powered, scramble-significant): Lung, Adipose, Muscle.")
+    a(r"}")
+    a("")
+    a(r"\bigskip")
+    a("")
+    # ----- Panel (b): Cardoso -----
+    by = {(p["organ"], p["species"]): p for p in pts}
+    div_of = {p["species"]: int(p["divergence_mya"]) for p in pts}
+    north_of = {p["species"]: int(p["n_orthologs"]) for p in pts}
+    a(r"{\footnotesize")
+    a(r"\textbf{(b) Cardoso \emph{et~al.}\ (2019), seven-species $\times$ six-organ transfer (PLS $\rho$).}\par")
+    a(r"\smallskip")
+    a(r"\begin{tabular}{@{}lrccccccc@{}}")
+    a(r"\toprule")
+    a(r" & MYA & \multicolumn{6}{c}{Organ (PLS $\rho$)} & \\")
+    a(r"\cmidrule(lr){3-8}")
+    a(r"Species & from pig & " + " & ".join(CARDOSO_ORGANS) + r" & $n_{\mathrm{orth}}$ \\")
+    a(r"\midrule")
+    for sp in SPECIES_ORDER:
+        rhos = []
+        for org in CARDOSO_ORGANS:
+            p = by.get((org, sp))
+            rhos.append(fnum(p["rho"]) if p and p["rho"] is not None else "---")
+        north = f"{north_of.get(sp, 0):,}".replace(",", "{,}")
+        a(f"{sp} & {div_of.get(sp,'')} & " + " & ".join(rhos) + f" & {north} \\\\")
+    a(r"\midrule")
+    mean_cells = " & ".join(fnum(means.get(o)) for o in CARDOSO_ORGANS)
+    a(r"\textbf{Per-organ mean} & & " + mean_cells + r" & \\")
+    pign_cells = " & ".join(
+        (f"{PIGN[o][0]}~({PIGN[o][1]})"
+         if PIGN.get(o) and PIGN[o][0] is not None else "---")
+        for o in CARDOSO_ORGANS)
+    a(r"\textbf{Pig train $n$ ($K$)} & & " + pign_cells + r" & \\")
+    a(r"\bottomrule")
+    a(r"\end{tabular}\par")
+    a(r"\smallskip")
+    chick_heart = by[("Heart", "Chicken")]["rho"]
+    chick_testis = by[("Testis", "Chicken")]["rho"]
+    a(r"The deepest split, pig\,$\rightarrow$\,chicken (319~MYA), retains strong")
+    a(f"Heart ($\\rho={chick_heart:.2f}$) and Testis ($\\rho={chick_testis:.2f}$) transfer;")
+    a(r"divergence time explains little of the variance")
+    a(f"(Spearman $\\rho_s={H1['spearman_r']:.2f}$, $p={H1['p']:.2f}$ over $n={H1['n']}$ cells;")
+    a(r"a variance partition over the six-organ $\times$ seven-species design attributes a")
+    # 0.54/0.05 are the RAW (unadjusted) unique R^2 from the LinearRegression score
+    # difference; the main text/thesis report the df-adjusted Type-II values (0.49/0.04),
+    # so label this explicitly to avoid a raw-vs-adjusted cross-reference mismatch.
+    a(f"raw (unadjusted) unique $R^2={uniq_organ:.2f}$ to organ vs.\\ ${uniq_div:.2f}$ to divergence; the")
+    a(r"df-adjusted Type-II values reported in the main text are $0.49$ and $0.04$).")
+    a(r"}")
+    a(r"\end{table}")
+    TEX.write_text("\n".join(L) + "\n")
+    print(f"Saved {TEX}")
+    print(f"  variance partition: organ R^2={uniq_organ:.3f}, divergence R^2={uniq_div:.3f}, full={full:.3f}")
+    print(f"  H1: rho_s={H1['spearman_r']:.3f}, p={H1['p']:.3f}")
+
+
+if __name__ == "__main__":
+    main()

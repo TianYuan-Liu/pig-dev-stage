@@ -1,0 +1,26 @@
+{
+  "variant": "B",
+  "tissue": "Blood",
+  "n_orthologs_used": 7485,
+  "n_pig_samples_binary": 61,
+  "n_pig_young": 29,
+  "n_pig_old": 32,
+  "n_pig_seeds": 10,
+  "pig_stable_n": 32,
+  "human_available": false,
+  "human_stable_n": 0,
+  "joint_set_n": 0,
+  "expected_by_chance": null,
+  "ratio_observed_to_chance": null,
+  "concordance": {
+    "n_joint_for_fc": 0,
+    "pearson_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance_pct": null,
+    "n_concordant_direction": 0
+  },
+  "joint_features": [],
+  "annotation_summary": {},
+  "elapsed_s": 9.6
+}

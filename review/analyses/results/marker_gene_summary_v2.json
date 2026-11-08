@@ -1,0 +1,47 @@
+{
+  "panel_size": 24,
+  "n_boundary_evaluable": 24,
+  "n_direction_match": 13,
+  "n_significant": 11,
+  "n_corroborated": 6,
+  "direction_match_pct": 54.2,
+  "corroborated_pct": 25.0,
+  "by_transition": [
+    {
+      "transition": "T1",
+      "days": "~28 d",
+      "n_evaluable": 8,
+      "direction_match": 6,
+      "corroborated": 5
+    },
+    {
+      "transition": "T2",
+      "days": "~90 d",
+      "n_evaluable": 4,
+      "direction_match": 1,
+      "corroborated": 0
+    },
+    {
+      "transition": "T3",
+      "days": "~165 d",
+      "n_evaluable": 6,
+      "direction_match": 3,
+      "corroborated": 0
+    },
+    {
+      "transition": "T4",
+      "days": "~540 d",
+      "n_evaluable": 6,
+      "direction_match": 3,
+      "corroborated": 1
+    }
+  ],
+  "dropped": {
+    "boundary_not_evaluable": 0,
+    "symbol_not_in_TPM": 0,
+    "no_TPM_file": 0,
+    "insufficient_data": 0
+  },
+  "min_per_stage": 5,
+  "alpha": 0.05
+}

@@ -1,0 +1,448 @@
+{
+  "provenance": "seed=42; n_components=10; forebrain pig brain matrix used for Cardoso Brain (n_pig=170, K=4); cc_symbols=96 (Tirosh 2016, unchanged); random floor = 1000 sets per cell; PLS/baselines share identical Ztgt+lvl per cell.",
+  "reference_gate": {
+    "pass_overall": true,
+    "dGTEx_Lung": {
+      "rho_pls": 0.6698906637657822,
+      "committed": 0.6699,
+      "deviation": 9.336234217838246e-06,
+      "tol": 0.03,
+      "pass": true
+    },
+    "dGTEx_Muscle": {
+      "rho_pls": 0.5931627928007005,
+      "committed": 0.5932,
+      "deviation": 3.720719929944938e-05,
+      "tol": 0.03,
+      "pass": true
+    },
+    "dGTEx_Adipose": {
+      "rho_pls": 0.6635821495530392,
+      "committed": 0.6636,
+      "deviation": 1.7850446960787636e-05,
+      "tol": 0.03,
+      "pass": true
+    },
+    "forebrain_brain_mean": {
+      "rho_pls_mean": 0.9175092913372795,
+      "committed": 0.91779,
+      "deviation": 0.0002807086627204525,
+      "tol": 0.02,
+      "pass": true
+    },
+    "cardoso_all_vs_aggbrain_json": {
+      "max_abs_deviation": 4.949086192512775e-05,
+      "tol": 0.02,
+      "pass": true,
+      "n_cells": 40,
+      "worst_cell": "Liver/Human"
+    },
+    "panel_e_INFORMATIONAL_stale_diff": {
+      "gates": false,
+      "max_abs_diff": 0.6833267467454751,
+      "worst_cell": "Brain/Macaque",
+      "cells_disagreeing_gt_0.05": [
+        {
+          "organ": "Brain",
+          "species": "Human",
+          "rho_pls": 0.8621,
+          "rho_panel_e": 0.769,
+          "dev_pe": 0.0931
+        },
+        {
+          "organ": "Liver",
+          "species": "Human",
+          "rho_pls": 0.4028,
+          "rho_panel_e": 0.187,
+          "dev_pe": 0.2158
+        },
+        {
+          "organ": "Testis",
+          "species": "Human",
+          "rho_pls": 0.8267,
+          "rho_panel_e": 0.979,
+          "dev_pe": 0.1523
+        },
+        {
+          "organ": "Brain",
+          "species": "Macaque",
+          "rho_pls": 0.9553,
+          "rho_panel_e": 0.272,
+          "dev_pe": 0.6833
+        },
+        {
+          "organ": "Liver",
+          "species": "Macaque",
+          "rho_pls": 0.5141,
+          "rho_panel_e": 0.579,
+          "dev_pe": 0.0649
+        },
+        {
+          "organ": "Brain",
+          "species": "Mouse",
+          "rho_pls": 0.8829,
+          "rho_panel_e": 0.791,
+          "dev_pe": 0.0919
+        },
+        {
+          "organ": "Liver",
+          "species": "Mouse",
+          "rho_pls": 0.233,
+          "rho_panel_e": 0.307,
+          "dev_pe": 0.074
+        },
+        {
+          "organ": "Liver",
+          "species": "Rat",
+          "rho_pls": 0.6697,
+          "rho_panel_e": 0.539,
+          "dev_pe": 0.1307
+        },
+        {
+          "organ": "Testis",
+          "species": "Rat",
+          "rho_pls": 0.9046,
+          "rho_panel_e": 0.961,
+          "dev_pe": 0.0564
+        },
+        {
+          "organ": "Brain",
+          "species": "Rabbit",
+          "rho_pls": 0.9544,
+          "rho_panel_e": 0.717,
+          "dev_pe": 0.2374
+        },
+        {
+          "organ": "Brain",
+          "species": "Opossum",
+          "rho_pls": 0.902,
+          "rho_panel_e": 0.755,
+          "dev_pe": 0.147
+        },
+        {
+          "organ": "Liver",
+          "species": "Opossum",
+          "rho_pls": 0.349,
+          "rho_panel_e": 0.27,
+          "dev_pe": 0.079
+        },
+        {
+          "organ": "Ovary",
+          "species": "Opossum",
+          "rho_pls": 0.1093,
+          "rho_panel_e": 0.018,
+          "dev_pe": 0.0913
+        },
+        {
+          "organ": "Testis",
+          "species": "Opossum",
+          "rho_pls": 0.7167,
+          "rho_panel_e": 0.775,
+          "dev_pe": 0.0583
+        },
+        {
+          "organ": "Brain",
+          "species": "Chicken",
+          "rho_pls": 0.9565,
+          "rho_panel_e": 0.509,
+          "dev_pe": 0.4475
+        },
+        {
+          "organ": "Liver",
+          "species": "Chicken",
+          "rho_pls": 0.4476,
+          "rho_panel_e": 0.601,
+          "dev_pe": 0.1534
+        },
+        {
+          "organ": "Ovary",
+          "species": "Chicken",
+          "rho_pls": -0.0246,
+          "rho_panel_e": -0.123,
+          "dev_pe": 0.0984
+        }
+      ],
+      "note": "panel_e_rho_vs_divergence.csv is a STALE pre-6-stage table; the canonical reference is determinants_6stage_aggbrain.json, which the re-derived rho_pls matches to <=1e-4 on all 40 cells."
+    }
+  },
+  "per_method_mean_abs_rho": {
+    "set_A_all": {
+      "pls": 0.7086615288770584,
+      "pc1": 0.6700987807052242,
+      "cc": 0.6865449887319897,
+      "random": 0.36460469976025495,
+      "n": 47
+    },
+    "set_B_scramble_passing": {
+      "pls": 0.8450394192864067,
+      "pc1": 0.6782165463003027,
+      "cc": 0.7647737756593058,
+      "random": 0.33096268415747876,
+      "n": 28
+    },
+    "per_organ": {
+      "Adipose": {
+        "pls": 0.6635821495530392,
+        "pc1": 0.27477449373277507,
+        "cc": 0.40825968653386036,
+        "random": 0.2765342618766134,
+        "n": 1
+      },
+      "Brain": {
+        "pls": 0.9175092913372795,
+        "pc1": 0.7484167510079489,
+        "cc": 0.734649067337987,
+        "random": 0.3528486187385818,
+        "n": 7
+      },
+      "Heart": {
+        "pls": 0.8787027829143079,
+        "pc1": 0.6222792183000967,
+        "cc": 0.7188161658565726,
+        "random": 0.40185020285739276,
+        "n": 8
+      },
+      "Kidney": {
+        "pls": 0.7746459619896973,
+        "pc1": 0.6999122189018039,
+        "cc": 0.9076506758562308,
+        "random": 0.32057194127690053,
+        "n": 7
+      },
+      "Liver": {
+        "pls": 0.472351907015247,
+        "pc1": 0.7035007487402188,
+        "cc": 0.748572479384032,
+        "random": 0.3127053861973854,
+        "n": 8
+      },
+      "Lung": {
+        "pls": 0.6698906637657822,
+        "pc1": 0.25573107275974927,
+        "cc": 0.44035643260581214,
+        "random": 0.3049898672478674,
+        "n": 1
+      },
+      "Muscle": {
+        "pls": 0.5931627928007005,
+        "pc1": 0.2795311557781948,
+        "cc": 0.5318051241672295,
+        "random": 0.2734999521251938,
+        "n": 1
+      },
+      "Ovary": {
+        "pls": 0.42778696620504625,
+        "pc1": 0.6683568827804427,
+        "cc": 0.5800364566900014,
+        "random": 0.3781000345036398,
+        "n": 5
+      },
+      "Spleen": {
+        "pls": 0.1259881576697424,
+        "pc1": 0.0629940788348712,
+        "cc": 0.5669467095138407,
+        "random": 0.23440096734455573,
+        "n": 1
+      },
+      "Testis": {
+        "pls": 0.8077511212102453,
+        "pc1": 0.8169106190558671,
+        "cc": 0.5231071087310502,
+        "random": 0.46576337938411916,
+        "n": 8
+      }
+    }
+  },
+  "paired_deltas": {
+    "set_A_all": {
+      "pc1": {
+        "mean": 0.038562748171834034,
+        "median": -0.01941839093451536,
+        "win_rate": 0.46808510638297873,
+        "wilcoxon_p": 0.8569416532326027,
+        "n": 47
+      },
+      "cc": {
+        "mean": 0.022116540145068538,
+        "median": 0.024253562503633308,
+        "win_rate": 0.574468085106383,
+        "wilcoxon_p": 0.5392848068431562,
+        "n": 47
+      }
+    },
+    "set_B_scramble_passing": {
+      "pc1": {
+        "mean": 0.1668228729861041,
+        "median": 0.0465038978389517,
+        "win_rate": 0.6071428571428571,
+        "wilcoxon_p": 0.06281394511461258,
+        "n": 28
+      },
+      "cc": {
+        "mean": 0.08026564362710095,
+        "median": 0.038884742785712745,
+        "win_rate": 0.7142857142857143,
+        "wilcoxon_p": 0.042608387768268585,
+        "n": 28
+      }
+    }
+  },
+  "delta_by_tissue_class": {
+    "conserved_Brain_Heart": {
+      "pc1": {
+        "mean": 0.2365848553000036,
+        "median": 0.061832381326075825,
+        "win_rate": 0.6428571428571429,
+        "wilcoxon_p": 0.090576171875,
+        "n": 14
+      },
+      "cc": {
+        "mean": 0.13870722175775446,
+        "median": 0.05468651230671384,
+        "win_rate": 0.7857142857142857,
+        "wilcoxon_p": 0.008544921875,
+        "n": 14
+      }
+    },
+    "labile_Kidney_Testis_Liver_Ovary": {
+      "pc1": {
+        "mean": -0.09487909257526482,
+        "median": -0.06696447073525919,
+        "win_rate": 0.3076923076923077,
+        "wilcoxon_p": 0.08265302326825262,
+        "n": 26
+      },
+      "cc": {
+        "mean": -0.059646077546512605,
+        "median": -0.03994678168299073,
+        "win_rate": 0.4230769230769231,
+        "wilcoxon_p": 0.2913762927055359,
+        "n": 26
+      }
+    },
+    "between_group_mannwhitney_p": {
+      "pc1": 0.008717249156912413,
+      "cc": 0.026016756552232113
+    },
+    "n_conserved": 14,
+    "n_labile": 26
+  },
+  "tissue_ranking": {
+    "per_method_per_organ_mean_abs_rho": {
+      "pls": {
+        "Brain": 0.9175092913372795,
+        "Heart": 0.8940150733577148,
+        "Kidney": 0.7746459619896973,
+        "Liver": 0.4932344362288422,
+        "Ovary": 0.42778696620504625,
+        "Testis": 0.8168972837700208
+      },
+      "pc1": {
+        "Brain": 0.7484167510079489,
+        "Heart": 0.5899379030870382,
+        "Kidney": 0.6999122189018039,
+        "Liver": 0.7610448781390787,
+        "Ovary": 0.6683568827804427,
+        "Testis": 0.8043929883876638
+      },
+      "cc": {
+        "Brain": 0.734649067337987,
+        "Heart": 0.7994608538414985,
+        "Kidney": 0.9076506758562308,
+        "Liver": 0.7878011352907521,
+        "Ovary": 0.5800364566900014,
+        "Testis": 0.5021188085250847
+      }
+    },
+    "rank_order": {
+      "pls": [
+        "Brain",
+        "Heart",
+        "Testis",
+        "Kidney",
+        "Liver",
+        "Ovary"
+      ],
+      "pc1": [
+        "Testis",
+        "Liver",
+        "Brain",
+        "Kidney",
+        "Ovary",
+        "Heart"
+      ],
+      "cc": [
+        "Kidney",
+        "Heart",
+        "Liver",
+        "Brain",
+        "Ovary",
+        "Testis"
+      ]
+    },
+    "spearman_vs_pls_ranking": {
+      "pls": 1.0,
+      "pc1": 0.028571428571428574,
+      "cc": 0.08571428571428573
+    },
+    "reproduces_conserved_gt_labile": {
+      "pls": true,
+      "pc1": false,
+      "cc": true
+    }
+  },
+  "divergence_effect": {
+    "pls": {
+      "spearman_r": -0.25399167928381655,
+      "p": 0.11376252405929879,
+      "n": 40
+    },
+    "pc1": {
+      "spearman_r": -0.08350484435951974,
+      "p": 0.6084549085486006,
+      "n": 40
+    },
+    "cc": {
+      "spearman_r": -0.0013956896112561463,
+      "p": 0.9931804022510351,
+      "n": 40
+    }
+  },
+  "random_floor": {
+    "pls": {
+      "n_pass": 30,
+      "n_valid": 47,
+      "fraction": 0.6382978723404256
+    },
+    "pc1": {
+      "n_pass": 27,
+      "n_valid": 47,
+      "fraction": 0.574468085106383
+    },
+    "cc": {
+      "n_pass": 32,
+      "n_valid": 47,
+      "fraction": 0.6808510638297872
+    }
+  },
+  "set_B_win_counts": {
+    "vs_pc1": {
+      "pls_wins": 17,
+      "base_wins": 11,
+      "ties": 0,
+      "n": 28
+    },
+    "vs_cc": {
+      "pls_wins": 20,
+      "base_wins": 8,
+      "ties": 0,
+      "n": 28
+    }
+  },
+  "n_cells": {
+    "set_A_all": 47,
+    "set_B_scramble_passing": 28,
+    "cardoso": 40,
+    "dgtex": 7
+  }
+}

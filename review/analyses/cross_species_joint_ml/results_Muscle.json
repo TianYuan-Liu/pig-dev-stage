@@ -1,0 +1,161 @@
+{
+  "tissue": "Muscle",
+  "human_source": "gse257558",
+  "human_available": true,
+  "n_orthologs_used": 7485,
+  "human_params_used": {
+    "num_leaves": 6,
+    "min_data_in_leaf": 2
+  },
+  "human_sweep_idx": 1,
+  "pig": {
+    "n_samples": 761,
+    "stage_counts": {
+      "Post-pubertal": 396,
+      "Infant": 194,
+      "Pre-pubertal": 90,
+      "Early childhood": 76,
+      "Adult": 5
+    },
+    "seed_mae": [
+      0.11567767457860338,
+      0.1366185070519436,
+      0.13665290677674577,
+      0.1327141382868937,
+      0.13936188510491915,
+      0.11562607499140007,
+      0.12217922256621946,
+      0.11694186446508428,
+      0.13270553835569315,
+      0.13263673890608874
+    ],
+    "stable_top100_n": 41,
+    "stable_top50_n": 26,
+    "stable_top200_n": 84,
+    "jaccard_top100_mean": 0.3755781292892685,
+    "n_unique_features_ever_used": 6626
+  },
+  "human": {
+    "n_samples": 11,
+    "n_infant": 4,
+    "n_adult": 7,
+    "seed_lpo_accuracy": [
+      0.7142857142857143,
+      0.5892857142857143,
+      0.8928571428571429,
+      0.8035714285714286,
+      0.5892857142857143,
+      0.8928571428571429,
+      0.6964285714285714,
+      0.8392857142857143,
+      0.5714285714285714,
+      0.625
+    ],
+    "stable_top100_n": 45,
+    "stable_top50_n": 24,
+    "stable_top200_n": 143,
+    "jaccard_top100_mean": 0.4474860438193404,
+    "mean_best_iteration_seeds": [
+      95.89285714285714,
+      66.03571428571429,
+      165.57142857142858,
+      145.17857142857142,
+      51.285714285714285,
+      173.03571428571428,
+      103.0,
+      148.71428571428572,
+      58.964285714285715,
+      59.464285714285715
+    ],
+    "n_unique_features_ever_used": 190
+  },
+  "joint_set_n": 2,
+  "joint_set_top50_n": 0,
+  "joint_set_top200_n": 4,
+  "joint_features": [
+    {
+      "symbol": "ACHE",
+      "pig_gene_id": "ENSSSCG00000030303",
+      "human_gene_id": "ENSG00000087085",
+      "pig_n_seeds": 10,
+      "human_n_seeds": 9,
+      "log2fc_pig": -3.4979903582005005,
+      "log2fc_human": -0.5904185965361046,
+      "category": "synaptic_neuronal"
+    },
+    {
+      "symbol": "ABAT",
+      "pig_gene_id": "ENSSSCG00000007909",
+      "human_gene_id": "ENSG00000183044",
+      "pig_n_seeds": 10,
+      "human_n_seeds": 9,
+      "log2fc_pig": -0.42937828986704296,
+      "log2fc_human": -0.41422966626306656,
+      "category": "synaptic_neuronal"
+    }
+  ],
+  "concordance": {
+    "n_joint_genes_for_fc": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "bootstrap_mean_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n_concordant_direction": 0,
+    "directional_concordance_pct": null
+  },
+  "annotation_summary": {
+    "synaptic_neuronal": 2
+  },
+  "elapsed_s": 244.7,
+  "primary_K": 100,
+  "stability_threshold": 8,
+  "k_sensitivity": [
+    {
+      "k": 50,
+      "pig_stable_n": 26,
+      "human_stable_n": 24,
+      "joint_n": 0,
+      "expected_by_chance": 0.33400133600534404,
+      "pearson_r": null
+    },
+    {
+      "k": 100,
+      "pig_stable_n": 41,
+      "human_stable_n": 45,
+      "joint_n": 2,
+      "expected_by_chance": 1.3360053440213762,
+      "pearson_r": null
+    },
+    {
+      "k": 200,
+      "pig_stable_n": 84,
+      "human_stable_n": 45,
+      "joint_n": 3,
+      "expected_by_chance": 5.344021376085505,
+      "pearson_r": null
+    },
+    {
+      "k": 500,
+      "pig_stable_n": 194,
+      "human_stable_n": 45,
+      "joint_n": 9,
+      "expected_by_chance": 33.4001336005344,
+      "pearson_r": 0.30009942905373116,
+      "ci_low": -0.6102027144016391,
+      "ci_high": 0.7073231659848237,
+      "directional_concordance_pct": 77.77777777777777
+    },
+    {
+      "k": 1000,
+      "pig_stable_n": 362,
+      "human_stable_n": 45,
+      "joint_n": 15,
+      "expected_by_chance": 133.6005344021376,
+      "pearson_r": 0.3680469878690448,
+      "ci_low": -0.23028870262576234,
+      "ci_high": 0.7170225787878762,
+      "directional_concordance_pct": 80.0
+    }
+  ]
+}

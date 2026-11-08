@@ -1,0 +1,307 @@
+{
+  "tissues": [
+    {
+      "tissue": "Muscle",
+      "human_available": true,
+      "k_sensitivity": [
+        {
+          "k": 50,
+          "pig_stable_n": 26,
+          "human_stable_n": 24,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 100,
+          "pig_stable_n": 41,
+          "human_stable_n": 45,
+          "joint_n": 2,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 200,
+          "pig_stable_n": 84,
+          "human_stable_n": 45,
+          "joint_n": 3,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 500,
+          "pig_stable_n": 194,
+          "human_stable_n": 45,
+          "joint_n": 9,
+          "pearson_r": 0.30009942905373116,
+          "ci_low": -0.6681805812387221,
+          "ci_high": 0.7239485165014221,
+          "directional_concordance_pct": 77.77777777777777
+        },
+        {
+          "k": 1000,
+          "pig_stable_n": 362,
+          "human_stable_n": 45,
+          "joint_n": 15,
+          "pearson_r": 0.3680469878690447,
+          "ci_low": -0.24218152415211672,
+          "ci_high": 0.68332708152821,
+          "directional_concordance_pct": 80.0
+        }
+      ],
+      "rank_product": {
+        "top_n_used": 100,
+        "pearson_r": 0.23996767556857135,
+        "ci_low": -0.02819220216876467,
+        "ci_high": 0.5128360741578422,
+        "directional_concordance_pct": 70.0
+      }
+    },
+    {
+      "tissue": "Brain",
+      "human_available": true,
+      "k_sensitivity": [
+        {
+          "k": 50,
+          "pig_stable_n": 0,
+          "human_stable_n": 27,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 100,
+          "pig_stable_n": 0,
+          "human_stable_n": 60,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 200,
+          "pig_stable_n": 0,
+          "human_stable_n": 117,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 500,
+          "pig_stable_n": 0,
+          "human_stable_n": 160,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 1000,
+          "pig_stable_n": 0,
+          "human_stable_n": 160,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        }
+      ],
+      "rank_product": {
+        "top_n_used": 100,
+        "pearson_r": 0.10791750921202256,
+        "ci_low": -0.19881024905782702,
+        "ci_high": 0.40689887631882454,
+        "directional_concordance_pct": 59.0
+      }
+    },
+    {
+      "tissue": "Liver",
+      "human_available": true,
+      "k_sensitivity": [
+        {
+          "k": 50,
+          "pig_stable_n": 27,
+          "human_stable_n": 17,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 100,
+          "pig_stable_n": 45,
+          "human_stable_n": 17,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 200,
+          "pig_stable_n": 78,
+          "human_stable_n": 17,
+          "joint_n": 1,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 500,
+          "pig_stable_n": 169,
+          "human_stable_n": 17,
+          "joint_n": 1,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 1000,
+          "pig_stable_n": 321,
+          "human_stable_n": 17,
+          "joint_n": 2,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        }
+      ],
+      "rank_product": {
+        "top_n_used": 100,
+        "pearson_r": 0.2495395360367476,
+        "ci_low": 0.07245047115871453,
+        "ci_high": 0.4201015815517963,
+        "directional_concordance_pct": 57.0
+      }
+    },
+    {
+      "tissue": "Lung",
+      "human_available": false,
+      "k_sensitivity": [
+        {
+          "k": 50,
+          "pig_stable_n": 17,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 100,
+          "pig_stable_n": 36,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 200,
+          "pig_stable_n": 66,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 500,
+          "pig_stable_n": 117,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 1000,
+          "pig_stable_n": 198,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        }
+      ],
+      "rank_product": null
+    },
+    {
+      "tissue": "Blood",
+      "human_available": false,
+      "k_sensitivity": [
+        {
+          "k": 50,
+          "pig_stable_n": 11,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 100,
+          "pig_stable_n": 19,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 200,
+          "pig_stable_n": 49,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 500,
+          "pig_stable_n": 50,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        },
+        {
+          "k": 1000,
+          "pig_stable_n": 50,
+          "human_stable_n": null,
+          "joint_n": 0,
+          "pearson_r": null,
+          "ci_low": null,
+          "ci_high": null,
+          "directional_concordance_pct": null
+        }
+      ],
+      "rank_product": null
+    }
+  ]
+}

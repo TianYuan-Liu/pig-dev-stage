@@ -1,0 +1,110 @@
+# Machine Learning Pipeline Configuration
+# ========================================
+# This configuration file centralizes all parameters for reproducibility and transparency.
+
+# ============================================================================
+# DATA PATHS
+# ============================================================================
+paths:
+  # Base data directory (relative to project root)
+  data_dir: "data/pigGTEx"
+
+  # Metadata file
+  metadata_file: "data/PigGTEx_v0.MetaTable.csv"
+
+  # Expression file pattern (use {tissue_name} as placeholder)
+  expression_pattern: "data/pigGTEx/{tissue_name}.expr_tpm.txt.gz"
+
+# ============================================================================
+# MODEL HYPERPARAMETERS
+# ============================================================================
+# LightGBM hyperparameters are tuned automatically via Optuna nested CV.
+# See machine_learning/model_training/hyperparameter_tuning.py for the search space.
+
+# ============================================================================
+# PREPROCESSING PARAMETERS
+# ============================================================================
+preprocessing:
+  # Log transformation: log2(TPM + 1)
+  log_transform: true
+
+  # Variance filtering (disabled: tree-based models are unaffected, and filtering
+  # adds artificial randomness to feature stability analysis)
+  min_variance_percentile: 0
+
+  # Standardization (disabled: z-score has zero effect on tree-based splits)
+  standardize: false
+
+# ============================================================================
+# TRAIN/TEST SPLIT
+# ============================================================================
+splitting:
+  # Number of CV folds (auto-reduced for small datasets)
+  n_cv_folds: 5
+
+  # Random seed for reproducibility
+  seed: 42
+
+# ============================================================================
+# STAGE CLASSIFICATION THRESHOLDS
+# ============================================================================
+# Two staging policies are supported (selected via --staging-mode in run_pipeline.py):
+#
+#  (1) "merge" (legacy): adaptive merging into 2/3/4-class schemes. The thresholds
+#      below determine which merged scheme a tissue qualifies for. Minimum samples
+#      per merged class ensures reliable training.
+#
+#  (2) "dropsmall": DROP-SMALL, NO-MERGE policy. For each tissue,
+#      every stage with >= min_per_stage samples is kept as its OWN ordinal
+#      class; stages with fewer samples are DROPPED (never merged into a neighbour).
+#      Retained classes are the kept stage names in developmental order. See
+#      stage_selection.py::StageGranularitySelector.select_dropsmall_scheme
+#      for the exact rule.
+stage_selection:
+  # --- dropsmall (no-merge) ---
+  # Minimum samples for a stage to be retained as its own ordinal class.
+  # >=10 => at least 2 samples per fold in 5-fold CV.
+  min_per_stage: 10
+
+  # --- merge (legacy 2/3/4-class) ---
+  # Minimum samples per class for each merged scheme
+  min_samples_4class: 40
+  min_samples_3class: 30
+  min_samples_2class: 15
+
+  # Minimum total samples for 2-class scheme
+  min_total_2class: 40
+
+# ============================================================================
+# DEVELOPMENTAL STAGE DEFINITIONS
+# ============================================================================
+# Age boundaries (in days) for developmental stages.
+# Based on porcine developmental biology:
+# - Infant: 0-28 days (neonatal period)
+# - Early childhood: 29-90 days (weaning transition)
+# - Pre-pubertal: 91-165 days (juvenile growth)
+# - Post-pubertal: 166-540 days (sexual maturation)
+# - Adult: >540 days (mature)
+stage_mapping:
+  Infant:
+    min_days: 0
+    max_days: 28
+  "Early childhood":
+    min_days: 29
+    max_days: 90
+  Pre-pubertal:
+    min_days: 91
+    max_days: 165
+  Post-pubertal:
+    min_days: 166
+    max_days: 540
+  Adult:
+    min_days: 541
+    max_days: null  # infinity
+
+# Age unit conversion factors (to days)
+age_conversion:
+  days: 1
+  weeks: 7
+  months: 30
+  years: 365

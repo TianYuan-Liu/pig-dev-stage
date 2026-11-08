@@ -1,0 +1,61 @@
+{
+  "original": {
+    "n_markers": 14,
+    "n_evaluable": 10,
+    "n_corroborated": 6,
+    "by_boundary": {
+      "B1": {
+        "n": 9,
+        "corroborated": 6,
+        "dir_match": 8
+      },
+      "B2": {
+        "n": 0,
+        "corroborated": 0,
+        "dir_match": 0
+      },
+      "B3": {
+        "n": 1,
+        "corroborated": 0,
+        "dir_match": 1
+      },
+      "B4": {
+        "n": 0,
+        "corroborated": 0,
+        "dir_match": 0
+      }
+    }
+  },
+  "revised": {
+    "n_markers": 14,
+    "n_evaluable": 14,
+    "n_corroborated": 11,
+    "by_boundary": {
+      "B1": {
+        "n": 9,
+        "corroborated": 9,
+        "dir_match": 9
+      },
+      "B2": {
+        "n": 1,
+        "corroborated": 1,
+        "dir_match": 1
+      },
+      "B3": {
+        "n": 1,
+        "corroborated": 1,
+        "dir_match": 1
+      },
+      "B4": {
+        "n": 2,
+        "corroborated": 0,
+        "dir_match": 1
+      },
+      "B5": {
+        "n": 1,
+        "corroborated": 0,
+        "dir_match": 1
+      }
+    }
+  }
+}

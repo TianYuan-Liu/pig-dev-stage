@@ -1,0 +1,204 @@
+{
+  "Muscle": {
+    "variant": "B",
+    "tissue": "Muscle",
+    "n_orthologs_used": 7485,
+    "n_pig_samples_binary": 671,
+    "n_pig_young": 270,
+    "n_pig_old": 401,
+    "n_pig_seeds": 10,
+    "pig_stable_n": 29,
+    "human_available": true,
+    "human_stable_n": 45,
+    "joint_set_n": 1,
+    "expected_by_chance": 0.1743486973947896,
+    "ratio_observed_to_chance": 5.735632183908046,
+    "concordance": {
+      "n_joint_for_fc": 0,
+      "pearson_r": null,
+      "ci_low": null,
+      "ci_high": null,
+      "directional_concordance_pct": null,
+      "n_concordant_direction": 0
+    },
+    "joint_features": [
+      {
+        "symbol": "ACHE",
+        "pig_gene_id": "ENSSSCG00000030303",
+        "human_gene_id": "ENSG00000087085",
+        "log2fc_pig": -3.4979903582005005,
+        "log2fc_human": -0.5904185965361046,
+        "category": "neuronal_synaptic"
+      }
+    ],
+    "annotation_summary": {
+      "neuronal_synaptic": 1
+    },
+    "elapsed_s": 40.4
+  },
+  "Brain": {
+    "variant": "B",
+    "tissue": "Brain",
+    "n_orthologs_used": 7485,
+    "n_pig_samples_binary": 38,
+    "n_pig_young": 25,
+    "n_pig_old": 13,
+    "n_pig_seeds": 10,
+    "pig_stable_n": 14,
+    "human_available": true,
+    "human_stable_n": 60,
+    "joint_set_n": 7,
+    "expected_by_chance": 0.11222444889779559,
+    "ratio_observed_to_chance": 62.375,
+    "concordance": {
+      "n_joint_for_fc": 7,
+      "pearson_r": -0.05539419875393069,
+      "ci_low": -0.9069184787219897,
+      "ci_high": 0.9398193550751062,
+      "directional_concordance_pct": 57.142857142857146,
+      "n_concordant_direction": 4
+    },
+    "joint_features": [
+      {
+        "symbol": "AASDH",
+        "pig_gene_id": "ENSSSCG00000027403",
+        "human_gene_id": "ENSG00000157426",
+        "log2fc_pig": 2.7562194398591218,
+        "log2fc_human": 0.31580973538612744,
+        "category": "other"
+      },
+      {
+        "symbol": "AASDHPPT",
+        "pig_gene_id": "ENSSSCG00000014998",
+        "human_gene_id": "ENSG00000149313",
+        "log2fc_pig": 3.0169519476245403,
+        "log2fc_human": -0.059241763434396084,
+        "category": "general_metabolism"
+      },
+      {
+        "symbol": "A1BG",
+        "pig_gene_id": "ENSSSCG00000004001",
+        "human_gene_id": "ENSG00000121410",
+        "log2fc_pig": 2.6223863703355503,
+        "log2fc_human": -0.11218119848565476,
+        "category": "other"
+      },
+      {
+        "symbol": "AAK1",
+        "pig_gene_id": "ENSSSCG00000008337",
+        "human_gene_id": "ENSG00000115977",
+        "log2fc_pig": 2.8561011881357947,
+        "log2fc_human": 0.7067096074474518,
+        "category": "other"
+      },
+      {
+        "symbol": "ABCA5",
+        "pig_gene_id": "ENSSSCG00000017255",
+        "human_gene_id": "ENSG00000154265",
+        "log2fc_pig": 2.988965851083097,
+        "log2fc_human": 0.3404774982567236,
+        "category": "liver_metabolic"
+      },
+      {
+        "symbol": "ABCA9",
+        "pig_gene_id": "ENSSSCG00000017257",
+        "human_gene_id": "ENSG00000154258",
+        "log2fc_pig": 2.3984300307816206,
+        "log2fc_human": 1.0416199078782762,
+        "category": "other"
+      },
+      {
+        "symbol": "ABHD5",
+        "pig_gene_id": "ENSSSCG00000011297",
+        "human_gene_id": "ENSG00000011198",
+        "log2fc_pig": 2.4225686390185532,
+        "log2fc_human": -0.359921613102387,
+        "category": "other"
+      }
+    ],
+    "annotation_summary": {
+      "other": 5,
+      "general_metabolism": 1,
+      "liver_metabolic": 1
+    },
+    "elapsed_s": 7.4
+  },
+  "Liver": {
+    "variant": "B",
+    "tissue": "Liver",
+    "n_orthologs_used": 7485,
+    "n_pig_samples_binary": 226,
+    "n_pig_young": 145,
+    "n_pig_old": 81,
+    "n_pig_seeds": 10,
+    "pig_stable_n": 45,
+    "human_available": true,
+    "human_stable_n": 17,
+    "joint_set_n": 0,
+    "expected_by_chance": 0.10220440881763528,
+    "ratio_observed_to_chance": 0.0,
+    "concordance": {
+      "n_joint_for_fc": 0,
+      "pearson_r": null,
+      "ci_low": null,
+      "ci_high": null,
+      "directional_concordance_pct": null,
+      "n_concordant_direction": 0
+    },
+    "joint_features": [],
+    "annotation_summary": {},
+    "elapsed_s": 40.4
+  },
+  "Lung": {
+    "variant": "B",
+    "tissue": "Lung",
+    "n_orthologs_used": 7485,
+    "n_pig_samples_binary": 83,
+    "n_pig_young": 56,
+    "n_pig_old": 27,
+    "n_pig_seeds": 10,
+    "pig_stable_n": 41,
+    "human_available": false,
+    "human_stable_n": 0,
+    "joint_set_n": 0,
+    "expected_by_chance": null,
+    "ratio_observed_to_chance": null,
+    "concordance": {
+      "n_joint_for_fc": 0,
+      "pearson_r": null,
+      "ci_low": null,
+      "ci_high": null,
+      "directional_concordance_pct": null,
+      "n_concordant_direction": 0
+    },
+    "joint_features": [],
+    "annotation_summary": {},
+    "elapsed_s": 17.5
+  },
+  "Blood": {
+    "variant": "B",
+    "tissue": "Blood",
+    "n_orthologs_used": 7485,
+    "n_pig_samples_binary": 61,
+    "n_pig_young": 29,
+    "n_pig_old": 32,
+    "n_pig_seeds": 10,
+    "pig_stable_n": 32,
+    "human_available": false,
+    "human_stable_n": 0,
+    "joint_set_n": 0,
+    "expected_by_chance": null,
+    "ratio_observed_to_chance": null,
+    "concordance": {
+      "n_joint_for_fc": 0,
+      "pearson_r": null,
+      "ci_low": null,
+      "ci_high": null,
+      "directional_concordance_pct": null,
+      "n_concordant_direction": 0
+    },
+    "joint_features": [],
+    "annotation_summary": {},
+    "elapsed_s": 9.6
+  }
+}

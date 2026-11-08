@@ -1,0 +1,26 @@
+dGTEx_tissue,pig_tissue,pig_TPM_n,pig_young,pig_old,human_c1,human_c2,human_c3,human_c4,feasible_strict,feasible_permissive,exclusion_reasons
+Muscle,Muscle,1321,303,401,16,7,4,21,True,True,
+Lung,Lung,149,56,27,19,5,0,11,True,True,
+Small Intestine,Small_intestine,270,107,28,9,3,1,11,True,True,
+Liver,Liver,501,145,81,6,1,0,4,True,True,
+Testis,Testis,184,23,25,5,0,1,4,True,True,
+Spleen,Spleen,91,44,12,3,0,2,3,True,True,
+Heart,Heart,164,16,25,3,0,1,3,True,True,
+Adipose Tissue,Adipose,285,30,76,13,5,4,16,True,True,
+Blood,Blood,386,97,39,0,0,0,0,False,False,no dGTEx samples | human cohort 1 only n=0 | human cohort 4 only n=0
+Nerve,-,0,0,0,5,2,0,2,False,False,no pig TPM file | human cohort 4 only n=2
+Pancreas,-,0,0,0,3,0,0,1,False,False,no pig TPM file | human cohort 4 only n=1
+Adrenal Gland,-,0,0,0,3,1,0,2,False,False,no pig TPM file | human cohort 4 only n=2
+Stomach,-,0,0,0,2,1,3,7,False,False,no pig TPM file | human cohort 1 only n=2
+Thyroid,-,0,0,0,2,1,0,12,False,False,no pig TPM file | human cohort 1 only n=2
+Esophagus,-,0,0,0,3,2,2,11,False,False,no pig TPM file
+Skin,-,0,0,0,6,3,2,11,False,False,no pig TPM file
+Ovary,Ovary,204,20,58,0,0,1,1,False,False,human cohort 1 only n=0 | human cohort 4 only n=1
+Lymph Node,Lymph_node,50,16,1,6,2,1,9,False,False,pig old (PostPub+Adult) n=1
+Pituitary,Pituitary,53,3,1,0,0,0,2,False,False,human cohort 1 only n=0 | human cohort 4 only n=2 | pig old (PostPub+Adult) n=1
+Uterus,Uterus,213,0,15,0,0,0,3,False,False,human cohort 1 only n=0 | pig young (Inf+Early) n=0
+Kidney,Kidney,44,2,22,2,0,0,1,False,False,human cohort 1 only n=2 | human cohort 4 only n=1 | pig young (Inf+Early) n=2
+Brain,Brain,419,160,22,1,1,0,2,False,False,human cohort 1 only n=1 | human cohort 4 only n=2
+Blood Vessel,Artery,59,0,30,3,0,0,3,False,False,pig young (Inf+Early) n=0
+Colon,Colon,67,27,0,7,1,3,14,False,False,pig old (PostPub+Adult) n=0
+Thymus,Fetal_thymus,48,0,0,1,0,0,0,False,False,human cohort 1 only n=1 | human cohort 4 only n=0 | pig young (Inf+Early) n=0 | pig old (PostPub+Adult) n=0

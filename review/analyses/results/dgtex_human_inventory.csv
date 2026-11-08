@@ -1,0 +1,25 @@
+tissue,human_young_c1,human_old_c4,included_strict,human_young_c12,human_old_c34,included_permissive
+Muscle,16,21,True,23,25,True
+Adipose Tissue,14,17,True,19,21,True
+Lung,19,12,True,24,12,True
+Colon,7,14,True,8,17,True
+Small Intestine,9,11,True,12,12,True
+Skin,6,11,True,9,13,True
+Esophagus,3,11,True,5,13,True
+Lymph Node,6,9,True,8,10,True
+Thyroid,2,12,False,3,12,True
+Stomach,2,8,False,3,11,True
+Liver,6,4,True,7,4,True
+Testis,5,4,True,5,5,True
+Nerve,6,2,False,8,2,False
+Spleen,3,3,True,3,5,True
+Heart,3,3,True,3,4,True
+Blood Vessel,3,4,True,3,4,True
+Adrenal Gland,3,2,False,4,2,False
+Pancreas,3,1,False,3,2,False
+Ovary,0,3,False,0,4,False
+Brain,1,2,False,2,2,False
+Uterus,0,3,False,0,4,False
+Kidney,2,1,False,2,1,False
+Pituitary,0,2,False,0,2,False
+Thymus,1,0,False,1,0,False

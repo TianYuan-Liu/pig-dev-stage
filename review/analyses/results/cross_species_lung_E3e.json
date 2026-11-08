@@ -1,0 +1,92 @@
+{
+  "tissue": "Lung",
+  "pig_tissue": "Lung",
+  "human_source": "LungMAP_LMEX0000003691",
+  "cell_pop": "BPS",
+  "drop_adult": true,
+  "method": "median",
+  "old_only_child": false,
+  "pseudobulk": false,
+  "pig_young_stages": [
+    "Early childhood"
+  ],
+  "pig_old_stages": [
+    "Post-pubertal"
+  ],
+  "filter_housekeeping": false,
+  "restrict_go_dev": false,
+  "min_pig_tpm": 0.0,
+  "min_human_norm": 0.0,
+  "n_orthologs_tested": 7142,
+  "sample_sizes": {
+    "pig_young": 26,
+    "pig_old": 27,
+    "human_young": 4,
+    "human_old": 5
+  },
+  "strict": {
+    "label": "strict_FDR_both",
+    "n_genes": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_r": null,
+    "spearman_p": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance": null
+  },
+  "pig_anchored": {
+    "label": "pig_anchored",
+    "n_genes": 100,
+    "pearson_r": 0.15697024118966799,
+    "pearson_p": 0.11884197787690297,
+    "spearman_r": 0.11582358235823581,
+    "spearman_p": 0.25115817229157145,
+    "ci_low": -0.12220997268208397,
+    "ci_high": 0.4156221444418437,
+    "directional_concordance": 60.0
+  },
+  "fc_only": {
+    "label": "fc_only_no_fdr",
+    "n_genes": 1441,
+    "pearson_r": 0.12074628419633471,
+    "pearson_p": 4.297731355262456e-06,
+    "spearman_r": 0.09159249068387193,
+    "spearman_p": 0.0004991735472142835,
+    "ci_low": 0.05581439862358627,
+    "ci_high": 0.18553395100652886,
+    "directional_concordance": 51.977793199167245
+  },
+  "donor_info": {
+    "cell_pop": "BPS",
+    "drop_adult": true,
+    "young_donors": [
+      "D044",
+      "D041",
+      "D038",
+      "D019"
+    ],
+    "old_donors": [
+      "D043",
+      "D024",
+      "D022",
+      "D018",
+      "D011",
+      "D008"
+    ],
+    "young_ages": [
+      "6 Days",
+      "6 Days",
+      "1 Days",
+      "1 Days"
+    ],
+    "old_ages": [
+      "21 Months",
+      "4 Months",
+      "2 Years",
+      "3 Years",
+      "20 Months",
+      "20 Months"
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+symbol,pig_gene_id,human_gene_id,log2fc_pig,log2fc_human,category
+ACHE,ENSSSCG00000030303,ENSG00000087085,-3.4979903582005005,-0.5904185965361046,neuronal_synaptic

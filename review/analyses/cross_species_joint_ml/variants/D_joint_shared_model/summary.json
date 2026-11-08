@@ -1,0 +1,839 @@
+{
+  "Muscle": {
+    "variant": "D",
+    "tissue": "Muscle",
+    "n_pig_samples": 671,
+    "n_human_samples": 11,
+    "n_orthologs_used": 7100,
+    "balanced_accuracy_per_seed": [
+      0.972,
+      0.9646,
+      0.9775,
+      0.9774,
+      0.9804,
+      0.9707,
+      0.9512,
+      0.9702,
+      0.9702,
+      0.975
+    ],
+    "mean_balanced_accuracy": 0.9709239130434784,
+    "joint_set_n": 41,
+    "expected_by_chance": 1.408450704225352,
+    "ratio_observed_to_chance": 29.110000000000003,
+    "concordance": {
+      "n_joint_for_fc": 41,
+      "pearson_r": 0.6113882512554178,
+      "ci_low": 0.3656427301401585,
+      "ci_high": 0.7924157303770863,
+      "directional_concordance_pct": 82.92682926829268,
+      "n_concordant_direction": 34
+    },
+    "joint_features": [
+      {
+        "symbol": "PTK7",
+        "pig_gene_id": "ENSSSCG00000001660",
+        "human_gene_id": "ENSG00000112655",
+        "log2fc_pig": -5.629068510707673,
+        "log2fc_human": -3.650055501120911,
+        "category": "other"
+      },
+      {
+        "symbol": "ABHD11",
+        "pig_gene_id": "ENSSSCG00000007715",
+        "human_gene_id": "ENSG00000106077",
+        "log2fc_pig": -1.817920369200817,
+        "log2fc_human": -0.8601628576701674,
+        "category": "other"
+      },
+      {
+        "symbol": "IGSF1",
+        "pig_gene_id": "ENSSSCG00000012667",
+        "human_gene_id": "ENSG00000147255",
+        "log2fc_pig": -6.047612331065656,
+        "log2fc_human": -1.3255093685389958,
+        "category": "other"
+      },
+      {
+        "symbol": "TSPAN11",
+        "pig_gene_id": "ENSSSCG00000000734",
+        "human_gene_id": "ENSG00000110900",
+        "log2fc_pig": -2.6392662620028227,
+        "log2fc_human": -1.8663888985401504,
+        "category": "other"
+      },
+      {
+        "symbol": "ETV4",
+        "pig_gene_id": "ENSSSCG00000017379",
+        "human_gene_id": "ENSG00000175832",
+        "log2fc_pig": -2.5057238074695474,
+        "log2fc_human": -2.6222504217390292,
+        "category": "other"
+      },
+      {
+        "symbol": "SLC22A16",
+        "pig_gene_id": "ENSSSCG00000004399",
+        "human_gene_id": "ENSG00000004809",
+        "log2fc_pig": 2.9219834683711374,
+        "log2fc_human": -2.156945435304846,
+        "category": "other"
+      },
+      {
+        "symbol": "NRK",
+        "pig_gene_id": "ENSSSCG00000012546",
+        "human_gene_id": "ENSG00000123572",
+        "log2fc_pig": -6.2195900426938735,
+        "log2fc_human": -4.522777177779601,
+        "category": "other"
+      },
+      {
+        "symbol": "ASB14",
+        "pig_gene_id": "ENSSSCG00000035320",
+        "human_gene_id": "ENSG00000239388",
+        "log2fc_pig": 2.38206539988441,
+        "log2fc_human": 0.5085586842673249,
+        "category": "other"
+      },
+      {
+        "symbol": "PYCR1",
+        "pig_gene_id": "ENSSSCG00000034723",
+        "human_gene_id": "ENSG00000183010",
+        "log2fc_pig": -2.945591229024926,
+        "log2fc_human": -1.0966390263266375,
+        "category": "other"
+      },
+      {
+        "symbol": "POSTN",
+        "pig_gene_id": "ENSSSCG00000009361",
+        "human_gene_id": "ENSG00000133110",
+        "log2fc_pig": -7.469576746714364,
+        "log2fc_human": -3.1611032736658924,
+        "category": "other"
+      },
+      {
+        "symbol": "CCDC8",
+        "pig_gene_id": "ENSSSCG00000033830",
+        "human_gene_id": "ENSG00000169515",
+        "log2fc_pig": -3.3397898338873664,
+        "log2fc_human": -3.2178351688733247,
+        "category": "other"
+      },
+      {
+        "symbol": "HS3ST5",
+        "pig_gene_id": "ENSSSCG00000004433",
+        "human_gene_id": "ENSG00000249853",
+        "log2fc_pig": 1.4324196852681466,
+        "log2fc_human": -0.5996230170802548,
+        "category": "other"
+      },
+      {
+        "symbol": "NT5C1A",
+        "pig_gene_id": "ENSSSCG00000003662",
+        "human_gene_id": "ENSG00000116981",
+        "log2fc_pig": -0.19973267615035142,
+        "log2fc_human": 0.11148120480057114,
+        "category": "other"
+      },
+      {
+        "symbol": "NEXN",
+        "pig_gene_id": "ENSSSCG00000003768",
+        "human_gene_id": "ENSG00000162614",
+        "log2fc_pig": 2.2418028490291735,
+        "log2fc_human": 0.013716860991722535,
+        "category": "other"
+      },
+      {
+        "symbol": "ACTC1",
+        "pig_gene_id": "ENSSSCG00000004803",
+        "human_gene_id": "ENSG00000159251",
+        "log2fc_pig": -7.005987739727636,
+        "log2fc_human": -0.32234837249453124,
+        "category": "other"
+      },
+      {
+        "symbol": "DNAI1",
+        "pig_gene_id": "ENSSSCG00000039342",
+        "human_gene_id": "ENSG00000122735",
+        "log2fc_pig": -3.0668157139395906,
+        "log2fc_human": 0.0,
+        "category": "other"
+      },
+      {
+        "symbol": "ST6GALNAC4",
+        "pig_gene_id": "ENSSSCG00000005628",
+        "human_gene_id": "ENSG00000136840",
+        "log2fc_pig": -1.1431465994803685,
+        "log2fc_human": -0.1916697051576966,
+        "category": "other"
+      },
+      {
+        "symbol": "TRDN",
+        "pig_gene_id": "ENSSSCG00000027613",
+        "human_gene_id": "ENSG00000186439",
+        "log2fc_pig": 2.020425194851155,
+        "log2fc_human": 0.3142640400216889,
+        "category": "other"
+      },
+      {
+        "symbol": "TP73",
+        "pig_gene_id": "ENSSSCG00000025685",
+        "human_gene_id": "ENSG00000078900",
+        "log2fc_pig": -2.8561611729144163,
+        "log2fc_human": -3.0859613016311283,
+        "category": "other"
+      },
+      {
+        "symbol": "CPLX1",
+        "pig_gene_id": "ENSSSCG00000037527",
+        "human_gene_id": "ENSG00000168993",
+        "log2fc_pig": -4.552732359269155,
+        "log2fc_human": -0.35466783259125817,
+        "category": "other"
+      },
+      {
+        "symbol": "HOXB8",
+        "pig_gene_id": "ENSSSCG00000017537",
+        "human_gene_id": "ENSG00000120068",
+        "log2fc_pig": -3.3044712465154396,
+        "log2fc_human": -1.4367720010650913,
+        "category": "other"
+      },
+      {
+        "symbol": "TEX9",
+        "pig_gene_id": "ENSSSCG00000004602",
+        "human_gene_id": "ENSG00000151575",
+        "log2fc_pig": 2.0885532160215985,
+        "log2fc_human": 0.5081285981075638,
+        "category": "other"
+      },
+      {
+        "symbol": "UCHL1",
+        "pig_gene_id": "ENSSSCG00000022945",
+        "human_gene_id": "ENSG00000154277",
+        "log2fc_pig": 0.06912606751501252,
+        "log2fc_human": 1.0832425745700411,
+        "category": "other"
+      },
+      {
+        "symbol": "XCR1",
+        "pig_gene_id": "ENSSSCG00000026707",
+        "human_gene_id": "ENSG00000173578",
+        "log2fc_pig": 1.0954851420191087,
+        "log2fc_human": -3.9186529927802516,
+        "category": "other"
+      },
+      {
+        "symbol": "LRTM1",
+        "pig_gene_id": "ENSSSCG00000011461",
+        "human_gene_id": "ENSG00000144771",
+        "log2fc_pig": -2.842172136410235,
+        "log2fc_human": -2.924623802015151,
+        "category": "other"
+      },
+      {
+        "symbol": "NAMPT",
+        "pig_gene_id": "ENSSSCG00000015435",
+        "human_gene_id": "ENSG00000105835",
+        "log2fc_pig": 1.5867553242988066,
+        "log2fc_human": 0.29992996867736815,
+        "category": "other"
+      },
+      {
+        "symbol": "CCDC160",
+        "pig_gene_id": "ENSSSCG00000031011",
+        "human_gene_id": "ENSG00000203952",
+        "log2fc_pig": 1.395064408322735,
+        "log2fc_human": 2.5453272892276004,
+        "category": "other"
+      },
+      {
+        "symbol": "SOWAHB",
+        "pig_gene_id": "ENSSSCG00000008985",
+        "human_gene_id": "ENSG00000186212",
+        "log2fc_pig": 1.5901617387731226,
+        "log2fc_human": -0.776681069046631,
+        "category": "other"
+      },
+      {
+        "symbol": "PTRH1",
+        "pig_gene_id": "ENSSSCG00000005615",
+        "human_gene_id": "ENSG00000187024",
+        "log2fc_pig": -2.5101770999110204,
+        "log2fc_human": -0.4010045326497152,
+        "category": "other"
+      },
+      {
+        "symbol": "ENO1",
+        "pig_gene_id": "ENSSSCG00000022343",
+        "human_gene_id": "ENSG00000074800",
+        "log2fc_pig": -1.995892419528258,
+        "log2fc_human": -0.6176276883155093,
+        "category": "other"
+      },
+      {
+        "symbol": "ASF1B",
+        "pig_gene_id": "ENSSSCG00000013772",
+        "human_gene_id": "ENSG00000105011",
+        "log2fc_pig": -4.4154356901598115,
+        "log2fc_human": -2.3362078696726862,
+        "category": "other"
+      },
+      {
+        "symbol": "RAB12",
+        "pig_gene_id": "ENSSSCG00000038026",
+        "human_gene_id": "ENSG00000206418",
+        "log2fc_pig": 0.9219261487934729,
+        "log2fc_human": 0.34477740510823496,
+        "category": "other"
+      },
+      {
+        "symbol": "SAMD11",
+        "pig_gene_id": "ENSSSCG00000033509",
+        "human_gene_id": "ENSG00000187634",
+        "log2fc_pig": -1.0920085455303987,
+        "log2fc_human": -2.173060937884554,
+        "category": "other"
+      },
+      {
+        "symbol": "MSS51",
+        "pig_gene_id": "ENSSSCG00000010300",
+        "human_gene_id": "ENSG00000166343",
+        "log2fc_pig": 1.6123727861890744,
+        "log2fc_human": 1.4866778317008618,
+        "category": "other"
+      },
+      {
+        "symbol": "DPYSL5",
+        "pig_gene_id": "ENSSSCG00000008560",
+        "human_gene_id": "ENSG00000157851",
+        "log2fc_pig": -8.13193300340189,
+        "log2fc_human": -3.9809021053440583,
+        "category": "other"
+      },
+      {
+        "symbol": "GKAP1",
+        "pig_gene_id": "ENSSSCG00000026087",
+        "human_gene_id": "ENSG00000165113",
+        "log2fc_pig": 1.2787924058039208,
+        "log2fc_human": -0.13815497570116814,
+        "category": "other"
+      },
+      {
+        "symbol": "SYT12",
+        "pig_gene_id": "ENSSSCG00000024837",
+        "human_gene_id": "ENSG00000173227",
+        "log2fc_pig": -0.9939758321351637,
+        "log2fc_human": -0.06797062465366313,
+        "category": "other"
+      },
+      {
+        "symbol": "IGF2BP3",
+        "pig_gene_id": "ENSSSCG00000036695",
+        "human_gene_id": "ENSG00000136231",
+        "log2fc_pig": -5.36371656443926,
+        "log2fc_human": -6.552676074937889,
+        "category": "other"
+      },
+      {
+        "symbol": "FNTB",
+        "pig_gene_id": "ENSSSCG00000002281",
+        "human_gene_id": "ENSG00000257365",
+        "log2fc_pig": 1.7683540785996577,
+        "log2fc_human": 0.19897177330220114,
+        "category": "other"
+      },
+      {
+        "symbol": "CCDC149",
+        "pig_gene_id": "ENSSSCG00000023001",
+        "human_gene_id": "ENSG00000181982",
+        "log2fc_pig": -0.42654181138103964,
+        "log2fc_human": -0.24577453278346956,
+        "category": "other"
+      },
+      {
+        "symbol": "ETV5",
+        "pig_gene_id": "ENSSSCG00000023229",
+        "human_gene_id": "ENSG00000244405",
+        "log2fc_pig": -2.417910558403648,
+        "log2fc_human": -2.4919139849041785,
+        "category": "other"
+      }
+    ],
+    "annotation_summary": {
+      "other": 41
+    },
+    "params": {
+      "objective": "binary",
+      "metric": "binary_logloss",
+      "num_leaves": 15,
+      "max_depth": -1,
+      "learning_rate": 0.05,
+      "n_estimators": 200,
+      "min_data_in_leaf": 5,
+      "feature_fraction": 0.7,
+      "bagging_fraction": 0.7,
+      "bagging_freq": 5,
+      "lambda_l1": 0.1,
+      "lambda_l2": 1.0,
+      "verbosity": -1
+    },
+    "elapsed_s": 41.3
+  },
+  "Brain": {
+    "variant": "D",
+    "tissue": "Brain",
+    "n_pig_samples": 38,
+    "n_human_samples": 16,
+    "n_orthologs_used": 7485,
+    "balanced_accuracy_per_seed": [
+      0.8695,
+      0.8907,
+      0.8629,
+      0.9148,
+      0.8707,
+      0.8424,
+      0.9074,
+      0.9524,
+      0.8498,
+      0.9067
+    ],
+    "mean_balanced_accuracy": 0.8867142857142858,
+    "joint_set_n": 18,
+    "expected_by_chance": 1.3360053440213762,
+    "ratio_observed_to_chance": 13.472999999999999,
+    "concordance": {
+      "n_joint_for_fc": 18,
+      "pearson_r": 0.23073379841463093,
+      "ci_low": -0.5601921025128285,
+      "ci_high": 0.6688266301452507,
+      "directional_concordance_pct": 100.0,
+      "n_concordant_direction": 18
+    },
+    "joint_features": [
+      {
+        "symbol": "EXTL2",
+        "pig_gene_id": "ENSSSCG00000006861",
+        "human_gene_id": "ENSG00000162694",
+        "log2fc_pig": 3.1397332935457802,
+        "log2fc_human": 0.8833839334665754,
+        "category": "other"
+      },
+      {
+        "symbol": "ABCC8",
+        "pig_gene_id": "ENSSSCG00000013378",
+        "human_gene_id": "ENSG00000006071",
+        "log2fc_pig": 2.3580886239701573,
+        "log2fc_human": 0.8642132008058657,
+        "category": "other"
+      },
+      {
+        "symbol": "CAMK2G",
+        "pig_gene_id": "ENSSSCG00000010311",
+        "human_gene_id": "ENSG00000148660",
+        "log2fc_pig": 2.821993798291757,
+        "log2fc_human": 0.8390206052711835,
+        "category": "other"
+      },
+      {
+        "symbol": "ANKRD42",
+        "pig_gene_id": "ENSSSCG00000014902",
+        "human_gene_id": "ENSG00000137494",
+        "log2fc_pig": 2.522593563350935,
+        "log2fc_human": 0.8644436467037631,
+        "category": "other"
+      },
+      {
+        "symbol": "CAPS2",
+        "pig_gene_id": "ENSSSCG00000000517",
+        "human_gene_id": "ENSG00000180881",
+        "log2fc_pig": 2.4054490436749685,
+        "log2fc_human": 1.5413453515612392,
+        "category": "other"
+      },
+      {
+        "symbol": "ANXA7",
+        "pig_gene_id": "ENSSSCG00000010299",
+        "human_gene_id": "ENSG00000138279",
+        "log2fc_pig": 2.178804539315984,
+        "log2fc_human": 0.7538610577740117,
+        "category": "other"
+      },
+      {
+        "symbol": "CCDC25",
+        "pig_gene_id": "ENSSSCG00000024972",
+        "human_gene_id": "ENSG00000147419",
+        "log2fc_pig": 2.588471149489442,
+        "log2fc_human": 1.0346194859854718,
+        "category": "other"
+      },
+      {
+        "symbol": "ACTR6",
+        "pig_gene_id": "ENSSSCG00000025682",
+        "human_gene_id": "ENSG00000075089",
+        "log2fc_pig": 3.087529600236181,
+        "log2fc_human": 0.42690814610392336,
+        "category": "other"
+      },
+      {
+        "symbol": "CD59",
+        "pig_gene_id": "ENSSSCG00000024791",
+        "human_gene_id": "ENSG00000085063",
+        "log2fc_pig": 3.351752673954936,
+        "log2fc_human": 0.5833260373559057,
+        "category": "other"
+      },
+      {
+        "symbol": "ADHFE1",
+        "pig_gene_id": "ENSSSCG00000006213",
+        "human_gene_id": "ENSG00000147576",
+        "log2fc_pig": 2.1137091723941213,
+        "log2fc_human": 0.6713546070694739,
+        "category": "other"
+      },
+      {
+        "symbol": "FBXO40",
+        "pig_gene_id": "ENSSSCG00000011885",
+        "human_gene_id": "ENSG00000163833",
+        "log2fc_pig": 3.5450840530339027,
+        "log2fc_human": 2.9490408716061363,
+        "category": "other"
+      },
+      {
+        "symbol": "ABCA5",
+        "pig_gene_id": "ENSSSCG00000017255",
+        "human_gene_id": "ENSG00000154265",
+        "log2fc_pig": 2.988965851083097,
+        "log2fc_human": 0.3404774982567236,
+        "category": "liver_metabolic"
+      },
+      {
+        "symbol": "AHI1",
+        "pig_gene_id": "ENSSSCG00000004166",
+        "human_gene_id": "ENSG00000135541",
+        "log2fc_pig": 3.5021285443257466,
+        "log2fc_human": 0.6834972872548188,
+        "category": "other"
+      },
+      {
+        "symbol": "ABTB3",
+        "pig_gene_id": "ENSSSCG00000000162",
+        "human_gene_id": "ENSG00000151136",
+        "log2fc_pig": 2.5687716182081552,
+        "log2fc_human": 0.4770652954666141,
+        "category": "other"
+      },
+      {
+        "symbol": "AMPD3",
+        "pig_gene_id": "ENSSSCG00000022492",
+        "human_gene_id": "ENSG00000133805",
+        "log2fc_pig": 2.2919540583928995,
+        "log2fc_human": 0.855394676047863,
+        "category": "other"
+      },
+      {
+        "symbol": "ANO5",
+        "pig_gene_id": "ENSSSCG00000013344",
+        "human_gene_id": "ENSG00000171714",
+        "log2fc_pig": 2.4170478746289756,
+        "log2fc_human": 0.9700699414707835,
+        "category": "other"
+      },
+      {
+        "symbol": "ADRA1B",
+        "pig_gene_id": "ENSSSCG00000017041",
+        "human_gene_id": "ENSG00000170214",
+        "log2fc_pig": 1.958261917162501,
+        "log2fc_human": 0.8805133039770762,
+        "category": "other"
+      },
+      {
+        "symbol": "CLCN5",
+        "pig_gene_id": "ENSSSCG00000023026",
+        "human_gene_id": "ENSG00000171365",
+        "log2fc_pig": 2.732775074053804,
+        "log2fc_human": 0.7238778329080983,
+        "category": "other"
+      }
+    ],
+    "annotation_summary": {
+      "other": 17,
+      "liver_metabolic": 1
+    },
+    "params": {
+      "objective": "binary",
+      "metric": "binary_logloss",
+      "num_leaves": 15,
+      "max_depth": -1,
+      "learning_rate": 0.05,
+      "n_estimators": 200,
+      "min_data_in_leaf": 5,
+      "feature_fraction": 0.7,
+      "bagging_fraction": 0.7,
+      "bagging_freq": 5,
+      "lambda_l1": 0.1,
+      "lambda_l2": 1.0,
+      "verbosity": -1
+    },
+    "elapsed_s": 12.6
+  },
+  "Liver": {
+    "variant": "D",
+    "tissue": "Liver",
+    "n_pig_samples": 226,
+    "n_human_samples": 10,
+    "n_orthologs_used": 7485,
+    "balanced_accuracy_per_seed": [
+      0.9288,
+      0.9415,
+      0.9774,
+      0.9542,
+      0.9144,
+      0.9685,
+      0.8474,
+      0.9843,
+      0.9685,
+      0.9843
+    ],
+    "mean_balanced_accuracy": 0.946919125208599,
+    "joint_set_n": 26,
+    "expected_by_chance": 1.3360053440213762,
+    "ratio_observed_to_chance": 19.461,
+    "concordance": {
+      "n_joint_for_fc": 26,
+      "pearson_r": 0.5344255255367457,
+      "ci_low": 0.34151505573757396,
+      "ci_high": 0.701633109789165,
+      "directional_concordance_pct": 73.07692307692308,
+      "n_concordant_direction": 19
+    },
+    "joint_features": [
+      {
+        "symbol": "SATB2",
+        "pig_gene_id": "ENSSSCG00000021657",
+        "human_gene_id": "ENSG00000119042",
+        "log2fc_pig": 1.590876812435958,
+        "log2fc_human": 1.3760618007141239,
+        "category": "other"
+      },
+      {
+        "symbol": "CHL1",
+        "pig_gene_id": "ENSSSCG00000011524",
+        "human_gene_id": "ENSG00000134121",
+        "log2fc_pig": 4.741673371650682,
+        "log2fc_human": 0.24162189072980922,
+        "category": "other"
+      },
+      {
+        "symbol": "PXDN",
+        "pig_gene_id": "ENSSSCG00000029570",
+        "human_gene_id": "ENSG00000130508",
+        "log2fc_pig": -0.3653862631915644,
+        "log2fc_human": -2.3605525658678648,
+        "category": "other"
+      },
+      {
+        "symbol": "ASF1B",
+        "pig_gene_id": "ENSSSCG00000013772",
+        "human_gene_id": "ENSG00000105011",
+        "log2fc_pig": -1.4347910300121436,
+        "log2fc_human": -1.6425816386108782,
+        "category": "other"
+      },
+      {
+        "symbol": "FBL",
+        "pig_gene_id": "ENSSSCG00000030510",
+        "human_gene_id": "ENSG00000105202",
+        "log2fc_pig": -0.9657167013434891,
+        "log2fc_human": -0.6906449515250852,
+        "category": "other"
+      },
+      {
+        "symbol": "DDO",
+        "pig_gene_id": "ENSSSCG00000004401",
+        "human_gene_id": "ENSG00000203797",
+        "log2fc_pig": 2.3661785194633964,
+        "log2fc_human": 0.4665650586090477,
+        "category": "other"
+      },
+      {
+        "symbol": "MBNL1",
+        "pig_gene_id": "ENSSSCG00000011720",
+        "human_gene_id": "ENSG00000152601",
+        "log2fc_pig": 1.458019335507441,
+        "log2fc_human": -0.3069060611270555,
+        "category": "other"
+      },
+      {
+        "symbol": "CCNB1",
+        "pig_gene_id": "ENSSSCG00000029326",
+        "human_gene_id": "ENSG00000134057",
+        "log2fc_pig": -1.183387801038923,
+        "log2fc_human": -2.7072877205339165,
+        "category": "other"
+      },
+      {
+        "symbol": "RAB34",
+        "pig_gene_id": "ENSSSCG00000017769",
+        "human_gene_id": "ENSG00000109113",
+        "log2fc_pig": -1.1874301086068066,
+        "log2fc_human": -1.183468422140498,
+        "category": "other"
+      },
+      {
+        "symbol": "ODF2L",
+        "pig_gene_id": "ENSSSCG00000006936",
+        "human_gene_id": "ENSG00000122417",
+        "log2fc_pig": 1.2180559097822932,
+        "log2fc_human": -0.7674636773968149,
+        "category": "other"
+      },
+      {
+        "symbol": "SLC25A40",
+        "pig_gene_id": "ENSSSCG00000026177",
+        "human_gene_id": "ENSG00000075303",
+        "log2fc_pig": 1.259408054912349,
+        "log2fc_human": -0.45767246011398344,
+        "category": "other"
+      },
+      {
+        "symbol": "NPAS2",
+        "pig_gene_id": "ENSSSCG00000008171",
+        "human_gene_id": "ENSG00000170485",
+        "log2fc_pig": 1.1234792858173042,
+        "log2fc_human": 0.1272774055029571,
+        "category": "other"
+      },
+      {
+        "symbol": "DNASE2B",
+        "pig_gene_id": "ENSSSCG00000026532",
+        "human_gene_id": "ENSG00000137976",
+        "log2fc_pig": 2.0525253280820515,
+        "log2fc_human": -0.8611756664596518,
+        "category": "other"
+      },
+      {
+        "symbol": "FCSK",
+        "pig_gene_id": "ENSSSCG00000025425",
+        "human_gene_id": "ENSG00000157353",
+        "log2fc_pig": 0.5745406056327576,
+        "log2fc_human": 0.6494889821560148,
+        "category": "other"
+      },
+      {
+        "symbol": "AGXT",
+        "pig_gene_id": "ENSSSCG00000016402",
+        "human_gene_id": "ENSG00000172482",
+        "log2fc_pig": 0.5851125012944268,
+        "log2fc_human": 0.753975189665384,
+        "category": "other"
+      },
+      {
+        "symbol": "FOXM1",
+        "pig_gene_id": "ENSSSCG00000000739",
+        "human_gene_id": "ENSG00000111206",
+        "log2fc_pig": -0.8975482497492079,
+        "log2fc_human": -3.4344500399205686,
+        "category": "other"
+      },
+      {
+        "symbol": "IQGAP3",
+        "pig_gene_id": "ENSSSCG00000006475",
+        "human_gene_id": "ENSG00000183856",
+        "log2fc_pig": -1.1700436197874078,
+        "log2fc_human": -3.204829137726642,
+        "category": "other"
+      },
+      {
+        "symbol": "EVI5",
+        "pig_gene_id": "ENSSSCG00000006901",
+        "human_gene_id": "ENSG00000067208",
+        "log2fc_pig": 1.4595151355591658,
+        "log2fc_human": 0.550525308740698,
+        "category": "other"
+      },
+      {
+        "symbol": "UCHL1",
+        "pig_gene_id": "ENSSSCG00000022945",
+        "human_gene_id": "ENSG00000154277",
+        "log2fc_pig": 0.80106370530567,
+        "log2fc_human": -1.4815745856339955,
+        "category": "other"
+      },
+      {
+        "symbol": "SLC3A1",
+        "pig_gene_id": "ENSSSCG00000008449",
+        "human_gene_id": "ENSG00000138079",
+        "log2fc_pig": 2.990864683303637,
+        "log2fc_human": 0.23054693627526676,
+        "category": "other"
+      },
+      {
+        "symbol": "SRSF6",
+        "pig_gene_id": "ENSSSCG00000007362",
+        "human_gene_id": "ENSG00000124193",
+        "log2fc_pig": 0.9076319903894803,
+        "log2fc_human": 0.20587954603330588,
+        "category": "other"
+      },
+      {
+        "symbol": "TMEM266",
+        "pig_gene_id": "ENSSSCG00000001863",
+        "human_gene_id": "ENSG00000169758",
+        "log2fc_pig": 2.489929428866973,
+        "log2fc_human": 0.40872469869937333,
+        "category": "other"
+      },
+      {
+        "symbol": "ACAT2",
+        "pig_gene_id": "ENSSSCG00000004049",
+        "human_gene_id": "ENSG00000120437",
+        "log2fc_pig": -1.0077173510293822,
+        "log2fc_human": -0.2087762557887436,
+        "category": "other"
+      },
+      {
+        "symbol": "SFXN2",
+        "pig_gene_id": "ENSSSCG00000010589",
+        "human_gene_id": "ENSG00000156398",
+        "log2fc_pig": -1.0584021718825631,
+        "log2fc_human": 0.19462922287240061,
+        "category": "other"
+      },
+      {
+        "symbol": "NPM3",
+        "pig_gene_id": "ENSSSCG00000010568",
+        "human_gene_id": "ENSG00000107833",
+        "log2fc_pig": -1.560791582447084,
+        "log2fc_human": -0.837062446988863,
+        "category": "other"
+      },
+      {
+        "symbol": "GPX4",
+        "pig_gene_id": "ENSSSCG00000024052",
+        "human_gene_id": "ENSG00000167468",
+        "log2fc_pig": -0.6205092266479086,
+        "log2fc_human": 0.42724939431575926,
+        "category": "other"
+      }
+    ],
+    "annotation_summary": {
+      "other": 26
+    },
+    "params": {
+      "objective": "binary",
+      "metric": "binary_logloss",
+      "num_leaves": 15,
+      "max_depth": -1,
+      "learning_rate": 0.05,
+      "n_estimators": 200,
+      "min_data_in_leaf": 5,
+      "feature_fraction": 0.7,
+      "bagging_fraction": 0.7,
+      "bagging_freq": 5,
+      "lambda_l1": 0.1,
+      "lambda_l2": 1.0,
+      "verbosity": -1
+    },
+    "elapsed_s": 29.9
+  }
+}

@@ -1,0 +1,33 @@
+graph LR
+    classDef data fill:#EAF2FB,stroke:#2d8be0,stroke-width:2px,color:#14416e
+    classDef process fill:#ECECEC,stroke:#9E9E9E,stroke-width:2px,color:#333333
+    classDef model fill:#CFE3F7,stroke:#1565c0,stroke-width:2px,color:#0b3d70
+    classDef eval fill:#DFE9F3,stroke:#3C5488,stroke-width:2px,color:#25334f
+    classDef result fill:#FBE6DA,stroke:#E6863C,stroke-width:2px,color:#8a4a18
+
+    subgraph prep ["① Preprocess"]
+        direction TB
+        A1[/"TPM +<br/>metadata"/]:::data --> A2["staging<br/>drop stages n&lt;10"]:::process
+        A2 --> A3["log₂(TPM+1) +<br/>per-gene z-score"]:::process
+    end
+
+    subgraph mdl ["② PLS model"]
+        direction TB
+        B1["Ordinal PLS<br/>(n_components via Optuna)"]:::model --> B2["calibrate: round to stage<br/>+ Gaussian-softmax probs"]:::process
+    end
+
+    subgraph ev ["③ Evaluation"]
+        direction TB
+        C1{{"Grouped / leave-one-<br/>BioProject-out CV"}}:::eval --> C2(["Cross-study accuracy<br/>(identifiable: muscle)"]):::eval
+    end
+
+    subgraph use ["④ Three uses"]
+        direction TB
+        D1["Within-pig<br/>staging"]:::result
+        D2["Cross-species transfer<br/>(project onto orthologs)"]:::result
+        D3["VIP<br/>biomarkers"]:::result
+    end
+
+    prep --> mdl
+    mdl --> ev
+    mdl --> use

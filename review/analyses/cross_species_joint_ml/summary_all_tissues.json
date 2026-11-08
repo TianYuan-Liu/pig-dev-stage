@@ -1,0 +1,22 @@
+{
+  "Muscle": {
+    "joint_n": 2,
+    "r": null
+  },
+  "Brain": {
+    "joint_n": 0,
+    "r": null
+  },
+  "Liver": {
+    "joint_n": 0,
+    "r": null
+  },
+  "Lung": {
+    "joint_n": 0,
+    "r": null
+  },
+  "Blood": {
+    "joint_n": 0,
+    "r": null
+  }
+}

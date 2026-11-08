@@ -1,0 +1,124 @@
+{
+ "H1_rho_vs_divergence_spearman": {
+  "spearman_r": -0.25399167928381655,
+  "p": 0.11376252405929879,
+  "n": 40
+ },
+ "H1_rho_vs_divergence_pearson": {
+  "pearson_r": -0.24948721746692487,
+  "p": 0.12053641890956374
+ },
+ "H1_eutherian_mean_rho": 0.7881852032715206,
+ "H1_opossum_mean_rho": 0.5851541374684573,
+ "H1_chicken_mean_rho": 0.6306170075008436,
+ "H1_eutherian_n": 28,
+ "H1_opossum_n": 6,
+ "H1_chicken_n": 6,
+ "H2_tissue_mean_rho": {
+  "Brain": 0.9175092913372795,
+  "Heart": 0.8940150733577148,
+  "Kidney": 0.7746459619896973,
+  "Liver": 0.4932344362288422,
+  "Ovary": 0.41793964692669955,
+  "Testis": 0.8168972837700208
+ },
+ "H2_tissue_n_species": {
+  "Brain": 7,
+  "Heart": 7,
+  "Kidney": 7,
+  "Liver": 7,
+  "Ovary": 5,
+  "Testis": 7
+ },
+ "H2_pig_breadth": {
+  "Brain": 14247,
+  "Heart": 12296,
+  "Kidney": 13358,
+  "Liver": 11812,
+  "Ovary": 13496,
+  "Testis": 14557
+ },
+ "H2_rho_vs_complexity": {
+  "spearman_r": 0.3142857142857143,
+  "p": 0.5440932944606414,
+  "n_tissues": 6
+ },
+ "H3_pooled_rho_vs_n_target": {
+  "spearman_r": 0.012193165214232549,
+  "p": 0.9404743481128809,
+  "n": 40
+ },
+ "H3_pooled_rho_vs_n_orthologs": {
+  "spearman_r": 0.130591945866636,
+  "p": 0.4218626669010781,
+  "n": 40
+ },
+ "H3_Brain_rho_vs_n_target": {
+  "spearman_r": -0.4865062298556019,
+  "p": 0.268248562317831,
+  "n": 7
+ },
+ "H3_Brain_rho_vs_n_orthologs": {
+  "spearman_r": -0.7500000000000002,
+  "p": 0.05218140045705776,
+  "n": 7
+ },
+ "H3_Heart_rho_vs_n_target": {
+  "spearman_r": -0.4865062298556019,
+  "p": 0.268248562317831,
+  "n": 7
+ },
+ "H3_Heart_rho_vs_n_orthologs": {
+  "spearman_r": -0.21428571428571433,
+  "p": 0.6445115810207203,
+  "n": 7
+ },
+ "H3_Kidney_rho_vs_n_target": {
+  "spearman_r": -0.11227217828476797,
+  "p": 0.8105998110141495,
+  "n": 7
+ },
+ "H3_Kidney_rho_vs_n_orthologs": {
+  "spearman_r": 0.25,
+  "p": 0.5887244480896833,
+  "n": 7
+ },
+ "H3_Liver_rho_vs_n_target": {
+  "spearman_r": -0.12613124477737828,
+  "p": 0.7875721594074739,
+  "n": 7
+ },
+ "H3_Liver_rho_vs_n_orthologs": {
+  "spearman_r": -0.21428571428571433,
+  "p": 0.6445115810207203,
+  "n": 7
+ },
+ "H3_Ovary_rho_vs_n_target": {
+  "spearman_r": 0.051298917604257706,
+  "p": 0.9347128481082341,
+  "n": 5
+ },
+ "H3_Ovary_rho_vs_n_orthologs": {
+  "spearman_r": 0.8999999999999998,
+  "p": 0.03738607346849875,
+  "n": 5
+ },
+ "H3_Testis_rho_vs_n_target": {
+  "spearman_r": 0.25,
+  "p": 0.5887244480896833,
+  "n": 7
+ },
+ "H3_Testis_rho_vs_n_orthologs": {
+  "spearman_r": 0.6785714285714287,
+  "p": 0.0937502539598313,
+  "n": 7
+ },
+ "variance_partition": {
+  "r2_full": 0.6034672567534163,
+  "r2_organ_only": 0.5563963641294134,
+  "r2_divergence_only": 0.06224387167938872,
+  "unique_r2_organ": 0.5412233850740276,
+  "unique_r2_divergence": 0.04707089262400288,
+  "n": 40
+ }
+}

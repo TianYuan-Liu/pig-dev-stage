@@ -1,0 +1,86 @@
+{
+  "config": {
+    "ortholog": "strict_1to1",
+    "filter": "pig_anchored",
+    "statistic": "spearman"
+  },
+  "protocol": {
+    "pig_method": "weighted",
+    "pig_min_tpm": 3.0,
+    "pig_drop_pct": 0.0,
+    "human_min_tpm": 30.0,
+    "human_method": "median",
+    "human_young_cohort": [
+      1
+    ],
+    "human_old_cohort": [
+      4
+    ]
+  },
+  "role": "exploratory_max",
+  "objective": "max mean_r; tie-break max min_r (Loop A search objective)",
+  "note": "EXPLORATORY maximum: the Loop A search selected this config because it maximizes mean_r. Reported as an upper bound on the conserved signal under defensible high-expression filtering, NOT as an unbiased validation (selection-optimism bias). The ortholog-scramble permutation p still controls against chance pairing for this fixed config.",
+  "aggregate": {
+    "mean_r": 0.44043119867856334,
+    "min_r": 0.18751814223512336,
+    "max_r": 0.6335714285714285,
+    "n_tissues": 5
+  },
+  "per_tissue": {
+    "Muscle": {
+      "n_genes": 161,
+      "r": 0.4956521739130435,
+      "p": 2.309600920675952e-11,
+      "dc": 69.56521739130434,
+      "ci_low": 0.31385565713630525,
+      "ci_high": 0.571011439489148,
+      "perm_empirical_p": 0.000999000999000999,
+      "loo_r_min": 0.48659908590179296,
+      "loo_r_max": 0.5163746630727762
+    },
+    "Lung": {
+      "n_genes": 49,
+      "r": 0.6335714285714285,
+      "p": 1.0278059607392983e-06,
+      "dc": 85.71428571428571,
+      "ci_low": 0.5859368799895202,
+      "ci_high": 0.8608652319464069,
+      "perm_empirical_p": 0.000999000999000999,
+      "loo_r_min": 0.6101823708206686,
+      "loo_r_max": 0.6924663482414243
+    },
+    "Testis": {
+      "n_genes": 357,
+      "r": 0.5075820674136204,
+      "p": 8.947615411332474e-25,
+      "dc": 71.42857142857143,
+      "ci_low": 0.3758963814594323,
+      "ci_high": 0.5596624496702847,
+      "perm_empirical_p": 0.000999000999000999,
+      "loo_r_min": 0.5038444812962374,
+      "loo_r_max": 0.5157270124381451
+    },
+    "Spleen": {
+      "n_genes": 63,
+      "r": 0.37783218125960066,
+      "p": 0.0022662077574007286,
+      "dc": 41.26984126984127,
+      "ci_low": 0.09184313370916156,
+      "ci_high": 0.55358795191512,
+      "perm_empirical_p": 0.002997002997002997,
+      "loo_r_min": 0.34743521946060285,
+      "loo_r_max": 0.4066127773161089
+    },
+    "Adipose Tissue": {
+      "n_genes": 105,
+      "r": 0.18751814223512336,
+      "p": 0.05542666961504839,
+      "dc": 53.333333333333336,
+      "ci_low": 0.010500401218197198,
+      "ci_high": 0.3689980769625171,
+      "perm_empirical_p": 0.06293706293706294,
+      "loo_r_min": 0.16573135602261818,
+      "loo_r_max": 0.21629147551477654
+    }
+  }
+}

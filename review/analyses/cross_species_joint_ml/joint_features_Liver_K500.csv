@@ -1,0 +1,2 @@
+symbol,pig_gene_id,human_gene_id,pig_mean_rank,human_mean_rank,log2fc_pig,log2fc_human
+ABHD11,ENSSSCG00000007715,ENSG00000106077,125.6,9.0,-0.6050613680314545,0.6915497458314908

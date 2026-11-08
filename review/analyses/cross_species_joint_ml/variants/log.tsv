@@ -1,0 +1,139 @@
+attempt_id	variant	tissue	step	metric_name	metric_value	note
+1778581743_B_Muscle_load	B	Muscle	load	n_binary	671	
+1778581746_D_Muscle_load	D	Muscle	load	n_joint	682	
+1778581747_B_Muscle_train	B	Muscle	train	n_nonzero	566	seed=42
+1778581750_D_Muscle_train	D	Muscle	train	bal_acc	0.972	seed=42
+1778581751_B_Muscle_train	B	Muscle	train	n_nonzero	522	seed=43
+1778581753_D_Muscle_train	D	Muscle	train	bal_acc	0.9646	seed=43
+1778581755_B_Muscle_train	B	Muscle	train	n_nonzero	599	seed=44
+1778581757_D_Muscle_train	D	Muscle	train	bal_acc	0.9775	seed=44
+1778581759_B_Muscle_train	B	Muscle	train	n_nonzero	536	seed=45
+1778581761_D_Muscle_train	D	Muscle	train	bal_acc	0.9774	seed=45
+1778581763_B_Muscle_train	B	Muscle	train	n_nonzero	547	seed=46
+1778581766_D_Muscle_train	D	Muscle	train	bal_acc	0.9804	seed=46
+1778581767_B_Muscle_train	B	Muscle	train	n_nonzero	625	seed=47
+1778581770_D_Muscle_train	D	Muscle	train	bal_acc	0.9707	seed=47
+1778581771_B_Muscle_train	B	Muscle	train	n_nonzero	556	seed=48
+1778581774_D_Muscle_train	D	Muscle	train	bal_acc	0.9512	seed=48
+1778581775_B_Muscle_train	B	Muscle	train	n_nonzero	577	seed=49
+1778581778_D_Muscle_train	D	Muscle	train	bal_acc	0.9702	seed=49
+1778581779_B_Muscle_train	B	Muscle	train	n_nonzero	589	seed=50
+1778581781_D_Muscle_train	D	Muscle	train	bal_acc	0.9702	seed=50
+1778581783_B_Muscle_train	B	Muscle	train	n_nonzero	557	seed=51
+1778581783_B_Muscle_pig_stable	B	Muscle	pig_stable	n_stable_100	29	
+1778581783_B_Muscle_joint	B	Muscle	joint	joint_n	1	
+1778581783_B_Muscle_joint	B	Muscle	joint	pearson_r	None	
+1778581784_B_Brain_load	B	Brain	load	n_binary	38	
+1778581784_B_Brain_train	B	Brain	train	n_nonzero	73	seed=42
+1778581785_B_Brain_train	B	Brain	train	n_nonzero	73	seed=43
+1778581785_D_Muscle_train	D	Muscle	train	bal_acc	0.975	seed=51
+1778581785_D_Muscle_stable	D	Muscle	stable	n_stable_100	41	
+1778581786_B_Brain_train	B	Brain	train	n_nonzero	80	seed=44
+1778581786_D_Muscle_joint	D	Muscle	joint	joint_n	41	
+1778581786_D_Muscle_joint	D	Muscle	joint	pearson_r	0.6113882512554178	
+1778581786_B_Brain_train	B	Brain	train	n_nonzero	79	seed=45
+1778581787_D_Brain_load	D	Brain	load	n_joint	54	
+1778581787_B_Brain_train	B	Brain	train	n_nonzero	64	seed=46
+1778581788_B_Brain_train	B	Brain	train	n_nonzero	66	seed=47
+1778581788_D_Brain_train	D	Brain	train	bal_acc	0.8695	seed=42
+1778581788_B_Brain_train	B	Brain	train	n_nonzero	81	seed=48
+1778581789_D_Brain_train	D	Brain	train	bal_acc	0.8907	seed=43
+1778581789_B_Brain_train	B	Brain	train	n_nonzero	59	seed=49
+1778581789_B_Brain_train	B	Brain	train	n_nonzero	67	seed=50
+1778581790_D_Brain_train	D	Brain	train	bal_acc	0.8629	seed=44
+1778581790_B_Brain_train	B	Brain	train	n_nonzero	53	seed=51
+1778581790_B_Brain_pig_stable	B	Brain	pig_stable	n_stable_100	14	
+1778581791_D_Brain_train	D	Brain	train	bal_acc	0.9148	seed=45
+1778581791_B_Brain_joint	B	Brain	joint	joint_n	7	
+1778581791_B_Brain_joint	B	Brain	joint	pearson_r	-0.05539419875393069	
+1778581791_B_Liver_load	B	Liver	load	n_binary	226	
+1778581792_D_Brain_train	D	Brain	train	bal_acc	0.8707	seed=46
+1778581793_D_Brain_train	D	Brain	train	bal_acc	0.8424	seed=47
+1778581794_D_Brain_train	D	Brain	train	bal_acc	0.9074	seed=48
+1778581795_B_Liver_train	B	Liver	train	n_nonzero	937	seed=42
+1778581796_D_Brain_train	D	Brain	train	bal_acc	0.9524	seed=49
+1778581797_D_Brain_train	D	Brain	train	bal_acc	0.8498	seed=50
+1778581798_D_Brain_train	D	Brain	train	bal_acc	0.9067	seed=51
+1778581798_D_Brain_stable	D	Brain	stable	n_stable_100	18	
+1778581799_D_Brain_joint	D	Brain	joint	joint_n	18	
+1778581799_D_Brain_joint	D	Brain	joint	pearson_r	0.23073379841463093	
+1778581799_B_Liver_train	B	Liver	train	n_nonzero	926	seed=43
+1778581799_D_Liver_load	D	Liver	load	n_joint	236	
+1778581802_D_Liver_train	D	Liver	train	bal_acc	0.9288	seed=42
+1778581803_B_Liver_train	B	Liver	train	n_nonzero	953	seed=44
+1778581805_D_Liver_train	D	Liver	train	bal_acc	0.9415	seed=43
+1778581807_B_Liver_train	B	Liver	train	n_nonzero	872	seed=45
+1778581808_D_Liver_train	D	Liver	train	bal_acc	0.9774	seed=44
+1778581810_D_Liver_train	D	Liver	train	bal_acc	0.9542	seed=45
+1778581811_B_Liver_train	B	Liver	train	n_nonzero	777	seed=46
+1778581813_D_Liver_train	D	Liver	train	bal_acc	0.9144	seed=46
+1778581815_B_Liver_train	B	Liver	train	n_nonzero	998	seed=47
+1778581816_D_Liver_train	D	Liver	train	bal_acc	0.9685	seed=47
+1778581818_A_Muscle_load	A	Muscle	load	pig_stable_n	41	
+1778581819_A_Muscle_joint	A	Muscle	joint	joint_n	26	
+1778581819_A_Muscle_joint	A	Muscle	joint	pearson_r	0.5687686676232416	
+1778581819_A_Brain_load	A	Brain	load	pig_stable_n	0	
+1778581819_B_Liver_train	B	Liver	train	n_nonzero	868	seed=48
+1778581819_D_Liver_train	D	Liver	train	bal_acc	0.8474	seed=48
+1778581819_A_Brain_joint	A	Brain	joint	joint_n	0	
+1778581819_A_Brain_joint	A	Brain	joint	pearson_r	None	
+1778581819_A_Liver_load	A	Liver	load	pig_stable_n	45	
+1778581820_A_Liver_joint	A	Liver	joint	joint_n	20	
+1778581820_A_Liver_joint	A	Liver	joint	pearson_r	0.7187365570406085	
+1778581820_A_Lung_load	A	Lung	load	pig_stable_n	36	
+1778581821_A_Blood_load	A	Blood	load	pig_stable_n	19	
+1778581822_D_Liver_train	D	Liver	train	bal_acc	0.9843	seed=49
+1778581823_B_Liver_train	B	Liver	train	n_nonzero	928	seed=49
+1778581825_D_Liver_train	D	Liver	train	bal_acc	0.9685	seed=50
+1778581827_B_Liver_train	B	Liver	train	n_nonzero	917	seed=50
+1778581828_D_Liver_train	D	Liver	train	bal_acc	0.9843	seed=51
+1778581828_D_Liver_stable	D	Liver	stable	n_stable_100	26	
+1778581829_D_Liver_joint	D	Liver	joint	joint_n	26	
+1778581829_D_Liver_joint	D	Liver	joint	pearson_r	0.5344255255367457	
+1778581831_B_Liver_train	B	Liver	train	n_nonzero	850	seed=51
+1778581831_B_Liver_pig_stable	B	Liver	pig_stable	n_stable_100	45	
+1778581831_C_Muscle_joint	C	Muscle	joint	joint_n	100	
+1778581831_C_Muscle_joint	C	Muscle	joint	pearson_r	0.23996767556857135	
+1778581831_B_Liver_joint	B	Liver	joint	joint_n	0	
+1778581831_B_Liver_joint	B	Liver	joint	pearson_r	None	
+1778581832_B_Lung_load	B	Lung	load	n_binary	83	
+1778581832_C_Brain_joint	C	Brain	joint	joint_n	100	
+1778581832_C_Brain_joint	C	Brain	joint	pearson_r	0.10791750921202256	
+1778581833_C_Liver_joint	C	Liver	joint	joint_n	100	
+1778581833_C_Liver_joint	C	Liver	joint	pearson_r	0.2495395360367476	
+1778581833_B_Lung_train	B	Lung	train	n_nonzero	425	seed=42
+1778581834_E_Muscle_filter	E	Muscle	filter	n_intersect	185	
+1778581835_E_Muscle_joint	E	Muscle	joint	joint_n	100	
+1778581835_E_Muscle_joint	E	Muscle	joint	pearson_r	0.37837673013377127	
+1778581835_E_Brain_filter	E	Brain	filter	n_intersect	97	
+1778581835_B_Lung_train	B	Lung	train	n_nonzero	488	seed=43
+1778581835_E_Brain_joint	E	Brain	joint	joint_n	97	
+1778581835_E_Brain_joint	E	Brain	joint	pearson_r	0.22724193451510996	
+1778581835_E_Liver_filter	E	Liver	filter	n_intersect	55	
+1778581836_E_Liver_joint	E	Liver	joint	joint_n	55	
+1778581836_E_Liver_joint	E	Liver	joint	pearson_r	-0.009816149712694594	
+1778581837_B_Lung_train	B	Lung	train	n_nonzero	428	seed=44
+1778581839_B_Lung_train	B	Lung	train	n_nonzero	534	seed=45
+1778581840_B_Lung_train	B	Lung	train	n_nonzero	469	seed=46
+1778581842_B_Lung_train	B	Lung	train	n_nonzero	509	seed=47
+1778581843_B_Lung_train	B	Lung	train	n_nonzero	498	seed=48
+1778581845_B_Lung_train	B	Lung	train	n_nonzero	513	seed=49
+1778581847_B_Lung_train	B	Lung	train	n_nonzero	490	seed=50
+1778581848_B_Lung_train	B	Lung	train	n_nonzero	516	seed=51
+1778581848_B_Lung_pig_stable	B	Lung	pig_stable	n_stable_100	41	
+1778581849_B_Lung_joint	B	Lung	joint	joint_n	0	
+1778581849_B_Lung_joint	B	Lung	joint	pearson_r	None	
+1778581849_B_Blood_load	B	Blood	load	n_binary	61	
+1778581850_B_Blood_train	B	Blood	train	n_nonzero	107	seed=42
+1778581851_B_Blood_train	B	Blood	train	n_nonzero	122	seed=43
+1778581852_B_Blood_train	B	Blood	train	n_nonzero	125	seed=44
+1778581853_B_Blood_train	B	Blood	train	n_nonzero	72	seed=45
+1778581854_B_Blood_train	B	Blood	train	n_nonzero	94	seed=46
+1778581854_B_Blood_train	B	Blood	train	n_nonzero	73	seed=47
+1778581855_B_Blood_train	B	Blood	train	n_nonzero	91	seed=48
+1778581856_B_Blood_train	B	Blood	train	n_nonzero	67	seed=49
+1778581857_B_Blood_train	B	Blood	train	n_nonzero	95	seed=50
+1778581858_B_Blood_train	B	Blood	train	n_nonzero	117	seed=51
+1778581858_B_Blood_pig_stable	B	Blood	pig_stable	n_stable_100	32	
+1778581858_B_Blood_joint	B	Blood	joint	joint_n	0	
+1778581858_B_Blood_joint	B	Blood	joint	pearson_r	None	

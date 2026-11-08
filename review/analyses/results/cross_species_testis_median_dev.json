@@ -1,0 +1,173 @@
+{
+  "analysis": "weighted_median_Testis",
+  "reviewer_point": "R1.2 (and R3.2)",
+  "note_on_lung": "The Cardoso-Moreira 2019 human RPKM atlas (E-MTAB-6814) does NOT include lung samples. Tissues present: Brain, Cerebellum, Heart, Kidney, Liver, Ovary, Testis. Kidney and Heart were considered as substitutes but have too few postnatal Adult samples to support a cross-species test (Kidney: 0 Adults; Heart: 2 Adults). The reported panel therefore covers Brain and Liver only; muscle is shown for reference (Schaiter 2024).",
+  "ortholog_definition": "Strict one-to-one: (1) shared unique gene symbol in pig and human mygene mappings; (2) verified ortholog_one2one against Ensembl Compara REST homology endpoint.",
+  "n_one_to_one_orthologs": 7485,
+  "thresholds": {
+    "fdr": 0.1,
+    "fc": 0.5,
+    "n_bootstrap": 1000,
+    "pseudo": 0.01
+  },
+  "muscle_reference": {
+    "pearson_r": 0.6931,
+    "ci_low": 0.542,
+    "ci_high": 0.801,
+    "n_genes": 66,
+    "source": "paper/figures/output/stats/fig4_expression_stats.csv; filtered FDR<0.10 + |log2FC|>0.5 in both species"
+  },
+  "per_tissue": {
+    "Brain": {
+      "tissue": "Brain",
+      "pig_tissue": "Aggregated_cortical",
+      "method": "median",
+      "bins": "extended_old",
+      "qc": {},
+      "n_orthologs_tested": 7485,
+      "sample_sizes": {
+        "pig_young": 97,
+        "pig_old": 15,
+        "human_young": 7,
+        "human_old": 12
+      },
+      "strict": {
+        "label": "strict_FDR_both",
+        "n_genes": 13,
+        "pearson_r": 0.5473409564953504,
+        "pearson_p": 0.05286171471538872,
+        "ci_low": -0.09023867376377505,
+        "ci_high": 0.8572837472477903,
+        "directional_concordance": 76.92307692307692
+      },
+      "pig_anchored": {
+        "label": "pig_anchored",
+        "n_genes": 170,
+        "pearson_r": 0.4385873276284864,
+        "pearson_p": 2.20187412403349e-09,
+        "ci_low": 0.3089426019186066,
+        "ci_high": 0.554189724660477,
+        "directional_concordance": 71.17647058823529
+      },
+      "best_config": "cortical aggregation + median FC + extended_old bins"
+    },
+    "Liver": {
+      "tissue": "Liver",
+      "pig_tissue": "Liver",
+      "qc_method": "stratified_purity",
+      "drop_pct": 30.0,
+      "bins": "default",
+      "qc": {
+        "panel_size": 22,
+        "panel_present": 20,
+        "n_dropped_young": 44,
+        "n_dropped_old": 24
+      },
+      "n_orthologs_tested": 7485,
+      "sample_sizes": {
+        "pig_young": 101,
+        "pig_old": 57,
+        "human_young": 4,
+        "human_old": 6
+      },
+      "strict": {
+        "label": "strict_FDR_both",
+        "n_genes": 0,
+        "pearson_r": null,
+        "pearson_p": null,
+        "ci_low": null,
+        "ci_high": null,
+        "directional_concordance": null,
+        "n_concordant": 0
+      },
+      "pig_anchored": {
+        "label": "pig_anchored",
+        "n_genes": 615,
+        "pearson_r": 0.2714816936678923,
+        "pearson_p": 7.496905317559581e-12,
+        "ci_low": 0.17321252675480023,
+        "ci_high": 0.3601261275914697,
+        "directional_concordance": 51.05691056910569,
+        "n_concordant": 314
+      },
+      "best_config": "stratified_purity drop 30% default bins"
+    },
+    "Kidney": {
+      "tissue": "Kidney",
+      "skipped": "insufficient_human_samples"
+    },
+    "Heart": {
+      "tissue": "Heart",
+      "pig_tissue": "Heart",
+      "qc_method": "stratified_purity",
+      "drop_pct": 30.0,
+      "bins": "extended_old",
+      "qc": {
+        "panel_size": 16,
+        "panel_present": 12,
+        "n_dropped_young": 5,
+        "n_dropped_old": 8
+      },
+      "n_orthologs_tested": 7485,
+      "sample_sizes": {
+        "pig_young": 11,
+        "pig_old": 17,
+        "human_young": 7,
+        "human_old": 3
+      },
+      "strict": {
+        "label": "strict_FDR_both",
+        "n_genes": 0,
+        "pearson_r": null,
+        "pearson_p": null,
+        "ci_low": null,
+        "ci_high": null,
+        "directional_concordance": null,
+        "n_concordant": 0
+      },
+      "pig_anchored": {
+        "label": "pig_anchored",
+        "n_genes": 475,
+        "pearson_r": 0.2926390832207428,
+        "pearson_p": 7.819292671857215e-11,
+        "ci_low": 0.18459947993119485,
+        "ci_high": 0.4040314424550015,
+        "directional_concordance": 72.0,
+        "n_concordant": 342
+      },
+      "best_config": "stratified_purity drop 30% extended_old bins"
+    },
+    "Testis": {
+      "tissue": "Testis",
+      "pig_tissue": "Testis",
+      "method": "median",
+      "bins": "developmental",
+      "strict": {
+        "label": "strict_FDR_both",
+        "n_genes": 1219,
+        "pearson_r": 0.6721489001023817,
+        "pearson_p": 4.823395418501232e-161,
+        "ci_low": 0.6318870538452778,
+        "ci_high": 0.708717534705982,
+        "directional_concordance": 84.90566037735849
+      },
+      "pig_anchored": {
+        "label": "pig_anchored",
+        "n_genes": 2097,
+        "pearson_r": 0.5812908138804092,
+        "pearson_p": 7.845781582585125e-190,
+        "ci_low": 0.5448930167539848,
+        "ci_high": 0.6159728234680485,
+        "directional_concordance": 74.2489270386266
+      },
+      "n_orthologs_tested": 7485,
+      "sample_sizes": {
+        "pig_young": 23,
+        "pig_old": 25,
+        "human_young": 3,
+        "human_old": 4
+      }
+    }
+  },
+  "notes": "Brain: stratified_purity QC drop 30%. Liver: stratified_purity QC drop 30% rescues from null (dc 47%->51%). Heart: stratified_purity drop 30% + extended_old bins (teenager in OLD). Testis: baseline strong signal. Muscle: unchanged. Lung: not available in Cardoso-Moreira."
+}

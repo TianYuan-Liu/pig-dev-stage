@@ -1,0 +1,118 @@
+{
+  "stage_distributions": {
+    "Muscle": {
+      "Post-pubertal": 423,
+      "Infant": 272,
+      "Pre-pubertal": 122,
+      "Early childhood": 92,
+      "Adult": 5
+    },
+    "Liver": {
+      "Infant": 95,
+      "Pre-pubertal": 85,
+      "Early childhood": 61,
+      "Post-pubertal": 55,
+      "Adult": 33
+    },
+    "Blood": {
+      "Early childhood": 211,
+      "Post-pubertal": 39,
+      "Pre-pubertal": 30,
+      "Infant": 2,
+      "Adult": 2
+    },
+    "Lung": {
+      "Pre-pubertal": 48,
+      "Infant": 40,
+      "Post-pubertal": 33,
+      "Early childhood": 26,
+      "Adult": 0
+    },
+    "Brain": {
+      "Early childhood": 146,
+      "Post-pubertal": 104,
+      "Infant": 79,
+      "Pre-pubertal": 59,
+      "Adult": 12
+    },
+    "Macrophage": {
+      "Post-pubertal": 60,
+      "Pre-pubertal": 50,
+      "Early childhood": 40,
+      "Infant": 30,
+      "Adult": 20
+    },
+    "Adipose": {
+      "Post-pubertal": 75,
+      "Infant": 35,
+      "Pre-pubertal": 28,
+      "Adult": 6,
+      "Early childhood": 0
+    },
+    "Small_intestine": {
+      "Early childhood": 110,
+      "Post-pubertal": 21,
+      "Pre-pubertal": 18,
+      "Infant": 17,
+      "Adult": 14
+    },
+    "Small intestine": {
+      "Early childhood": 80,
+      "Pre-pubertal": 30,
+      "Post-pubertal": 30,
+      "Infant": 20,
+      "Adult": 20
+    },
+    "Testis": {
+      "Post-pubertal": 29,
+      "Infant": 19,
+      "Pre-pubertal": 10,
+      "Early childhood": 8,
+      "Adult": 3
+    }
+  },
+  "tissue_counts": {
+    "Muscle": 914,
+    "Brain": 400,
+    "Liver": 329,
+    "Blood": 284,
+    "Macrophage": 200,
+    "Small_intestine": 180,
+    "Small intestine": 180,
+    "Lung": 147,
+    "Adipose": 144,
+    "Testis": 69
+  },
+  "total_samples": 2847,
+  "tissues": [
+    "Muscle",
+    "Liver",
+    "Blood",
+    "Lung",
+    "Brain",
+    "Macrophage",
+    "Adipose",
+    "Small_intestine",
+    "Small intestine",
+    "Testis"
+  ],
+  "stages": [
+    "Infant_0_20d",
+    "Early childhood_21_59d",
+    "Pre_pubertal_60_149d",
+    "Post_pubertal_150_365d",
+    "Adult_>365d"
+  ],
+  "tissue_files_available": {
+    "Muscle": true,
+    "Liver": true,
+    "Blood": true,
+    "Lung": true,
+    "Brain": true,
+    "Macrophage": true,
+    "Adipose": true,
+    "Small_intestine": true,
+    "Small intestine": true,
+    "Testis": true
+  }
+}

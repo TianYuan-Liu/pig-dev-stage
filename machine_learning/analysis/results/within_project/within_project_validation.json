@@ -1,0 +1,172 @@
+{
+  "comparisons": {
+    "Neonatal vs Suckling": {
+      "stage_young": "Neonatal",
+      "stage_old": "Suckling",
+      "full_dataset": {
+        "n_young": 156,
+        "n_old": 87
+      },
+      "projects": {
+        "PRJNA488311": {
+          "n_young": 48,
+          "n_old": 6,
+          "n_total": 81,
+          "all_genes": {
+            "r": 0.6779,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": null,
+            "p": null,
+            "n": 0
+          }
+        },
+        "PRJNA486202": {
+          "n_young": 47,
+          "n_old": 5,
+          "n_total": 74,
+          "all_genes": {
+            "r": 0.7058,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": null,
+            "p": null,
+            "n": 0
+          }
+        }
+      },
+      "pooled": {
+        "r": 0.7718,
+        "p": 0.0,
+        "n": 31908,
+        "ci_95": [
+          0.7656,
+          0.7773
+        ],
+        "cross_species_genes": {
+          "r": null,
+          "p": null,
+          "n": 0
+        }
+      }
+    },
+    "Neonatal vs Juvenile": {
+      "stage_young": "Neonatal",
+      "stage_old": "Juvenile",
+      "full_dataset": {
+        "n_young": 156,
+        "n_old": 56
+      },
+      "projects": {
+        "PRJNA488311": {
+          "n_young": 48,
+          "n_old": 12,
+          "n_total": 81,
+          "all_genes": {
+            "r": 0.6927,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": null,
+            "p": null,
+            "n": 0
+          }
+        },
+        "PRJNA486202": {
+          "n_young": 47,
+          "n_old": 12,
+          "n_total": 74,
+          "all_genes": {
+            "r": 0.7211,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": null,
+            "p": null,
+            "n": 0
+          }
+        }
+      },
+      "pooled": {
+        "r": 0.7634,
+        "p": 0.0,
+        "n": 31908,
+        "ci_95": [
+          0.7548,
+          0.7718
+        ],
+        "cross_species_genes": {
+          "r": null,
+          "p": null,
+          "n": 0
+        }
+      }
+    },
+    "Neonatal vs Pre-pubertal": {
+      "stage_young": "Neonatal",
+      "stage_old": "Pre-pubertal",
+      "full_dataset": {
+        "n_young": 156,
+        "n_old": 227
+      },
+      "projects": {
+        "PRJNA488311": {
+          "n_young": 48,
+          "n_old": 12,
+          "n_total": 81,
+          "all_genes": {
+            "r": 0.7631,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": null,
+            "p": null,
+            "n": 0
+          }
+        },
+        "PRJNA486202": {
+          "n_young": 47,
+          "n_old": 8,
+          "n_total": 74,
+          "all_genes": {
+            "r": 0.7152,
+            "p": 0.0,
+            "n": 31908
+          },
+          "cross_species_genes": {
+            "r": null,
+            "p": null,
+            "n": 0
+          }
+        }
+      },
+      "pooled": {
+        "r": 0.7988,
+        "p": 0.0,
+        "n": 31908,
+        "ci_95": [
+          0.7919,
+          0.805
+        ],
+        "cross_species_genes": {
+          "r": null,
+          "p": null,
+          "n": 0
+        }
+      }
+    }
+  },
+  "full_dataset_stages": {
+    "Neonatal": 156,
+    "Suckling": 87,
+    "Juvenile": 56,
+    "Pre-pubertal": 227
+  }
+}

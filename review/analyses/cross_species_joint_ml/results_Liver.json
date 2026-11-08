@@ -1,0 +1,132 @@
+{
+  "tissue": "Liver",
+  "human_source": "cardoso_Liver",
+  "human_available": true,
+  "n_orthologs_used": 7485,
+  "human_params_used": {
+    "num_leaves": 8,
+    "min_data_in_leaf": 3
+  },
+  "human_sweep_idx": 0,
+  "pig": {
+    "n_samples": 309,
+    "stage_counts": {
+      "Infant": 87,
+      "Pre-pubertal": 83,
+      "Early childhood": 58,
+      "Post-pubertal": 52,
+      "Adult": 29
+    },
+    "seed_mae": [
+      0.2265468006345849,
+      0.23590692755156,
+      0.18757271285034371,
+      0.2099947117927023,
+      0.2585933368588048,
+      0.20380750925436275,
+      0.2721311475409836,
+      0.2489687995769434,
+      0.21364357482813326,
+      0.20100475938656795
+    ],
+    "stable_top100_n": 45,
+    "stable_top50_n": 27,
+    "stable_top200_n": 78,
+    "jaccard_top100_mean": 0.3741807619301929,
+    "n_unique_features_ever_used": 6546
+  },
+  "human": {
+    "n_samples": 10,
+    "n_infant": 4,
+    "n_adult": 6,
+    "seed_lpo_accuracy": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "stable_top100_n": 17,
+    "stable_top50_n": 27,
+    "stable_top200_n": 180,
+    "jaccard_top100_mean": 0.4466374822041777,
+    "mean_best_iteration_seeds": [
+      17.625,
+      1.0,
+      9.958333333333334,
+      13.75,
+      18.25,
+      5.541666666666667,
+      14.166666666666666,
+      5.833333333333333,
+      5.041666666666667,
+      5.416666666666667
+    ],
+    "n_unique_features_ever_used": 57
+  },
+  "joint_set_n": 0,
+  "joint_set_top50_n": 0,
+  "joint_set_top200_n": 5,
+  "joint_features": [],
+  "concordance": {
+    "n_joint_genes_for_fc": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "bootstrap_mean_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n_concordant_direction": 0,
+    "directional_concordance_pct": null
+  },
+  "annotation_summary": {},
+  "elapsed_s": 136.4,
+  "primary_K": 100,
+  "stability_threshold": 8,
+  "k_sensitivity": [
+    {
+      "k": 50,
+      "pig_stable_n": 27,
+      "human_stable_n": 17,
+      "joint_n": 0,
+      "expected_by_chance": 0.33400133600534404,
+      "pearson_r": null
+    },
+    {
+      "k": 100,
+      "pig_stable_n": 45,
+      "human_stable_n": 17,
+      "joint_n": 0,
+      "expected_by_chance": 1.3360053440213762,
+      "pearson_r": null
+    },
+    {
+      "k": 200,
+      "pig_stable_n": 78,
+      "human_stable_n": 17,
+      "joint_n": 1,
+      "expected_by_chance": 5.344021376085505,
+      "pearson_r": null
+    },
+    {
+      "k": 500,
+      "pig_stable_n": 169,
+      "human_stable_n": 17,
+      "joint_n": 1,
+      "expected_by_chance": 33.4001336005344,
+      "pearson_r": null
+    },
+    {
+      "k": 1000,
+      "pig_stable_n": 321,
+      "human_stable_n": 17,
+      "joint_n": 2,
+      "expected_by_chance": 133.6005344021376,
+      "pearson_r": null
+    }
+  ]
+}

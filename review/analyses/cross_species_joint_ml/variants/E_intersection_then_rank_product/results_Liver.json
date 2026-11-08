@@ -1,0 +1,691 @@
+{
+  "variant": "E",
+  "tissue": "Liver",
+  "human_available": true,
+  "n_orthologs_used": 7485,
+  "pig_ever_used_n": 6546,
+  "human_ever_used_n": 57,
+  "intersection_n": 55,
+  "expected_by_chance_intersection": 49.84929859719439,
+  "intersection_vs_chance_ratio": 1.103325453872996,
+  "primary_N": 100,
+  "joint_set_n": 55,
+  "expected_by_chance": 49.84929859719439,
+  "ratio_observed_to_chance": 1.103325453872996,
+  "concordance": {
+    "n_joint_for_fc": 55,
+    "pearson_r": -0.009816149712694594,
+    "ci_low": -0.31578958526485434,
+    "ci_high": 0.2827920500404105,
+    "directional_concordance_pct": 45.45454545454545,
+    "n_concordant_direction": 25
+  },
+  "annotation_summary": {
+    "other": 46,
+    "liver_metabolic": 4,
+    "general_metabolism": 3,
+    "neuronal_synaptic": 2
+  },
+  "joint_features": [
+    {
+      "symbol": "ABHD11",
+      "pig_gene_id": "ENSSSCG00000007715",
+      "human_gene_id": "ENSG00000106077",
+      "pig_mean_rank": 125.6,
+      "human_mean_rank": 756.7,
+      "rank_product": 308.28804712476284,
+      "log2fc_pig": -0.6050613680314545,
+      "log2fc_human": 0.6915497458314908,
+      "category": "other"
+    },
+    {
+      "symbol": "ABHD5",
+      "pig_gene_id": "ENSSSCG00000011297",
+      "human_gene_id": "ENSG00000011198",
+      "pig_mean_rank": 141.1,
+      "human_mean_rank": 3753.4,
+      "rank_product": 727.7394726136545,
+      "log2fc_pig": 0.9655801293323946,
+      "log2fc_human": -0.6992995412970103,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCA3",
+      "pig_gene_id": "ENSSSCG00000008051",
+      "human_gene_id": "ENSG00000167972",
+      "pig_mean_rank": 1236.5,
+      "human_mean_rank": 756.5,
+      "rank_product": 967.1671261989833,
+      "log2fc_pig": -0.14413298901260618,
+      "log2fc_human": 0.08053258929329503,
+      "category": "liver_metabolic"
+    },
+    {
+      "symbol": "A1BG",
+      "pig_gene_id": "ENSSSCG00000004001",
+      "human_gene_id": "ENSG00000121410",
+      "pig_mean_rank": 1585.0,
+      "human_mean_rank": 751.6,
+      "rank_product": 1091.4604894360584,
+      "log2fc_pig": -0.2697404532940346,
+      "log2fc_human": 0.7604379197363416,
+      "category": "other"
+    },
+    {
+      "symbol": "AACS",
+      "pig_gene_id": "ENSSSCG00000009755",
+      "human_gene_id": "ENSG00000081760",
+      "pig_mean_rank": 1614.4,
+      "human_mean_rank": 755.8,
+      "rank_product": 1104.6101212645121,
+      "log2fc_pig": -0.5439324960413349,
+      "log2fc_human": -0.5578927099891676,
+      "category": "general_metabolism"
+    },
+    {
+      "symbol": "ABCA2",
+      "pig_gene_id": "ENSSSCG00000039264",
+      "human_gene_id": "ENSG00000107331",
+      "pig_mean_rank": 1735.1,
+      "human_mean_rank": 750.6,
+      "rank_product": 1141.2125393632862,
+      "log2fc_pig": 0.1251466709835797,
+      "log2fc_human": 0.9595939628930681,
+      "category": "liver_metabolic"
+    },
+    {
+      "symbol": "ABCC8",
+      "pig_gene_id": "ENSSSCG00000013378",
+      "human_gene_id": "ENSG00000006071",
+      "pig_mean_rank": 871.7,
+      "human_mean_rank": 1512.2,
+      "rank_product": 1148.122267008179,
+      "log2fc_pig": -3.0524960269148504,
+      "log2fc_human": 0.04022322316554912,
+      "category": "other"
+    },
+    {
+      "symbol": "AARS2",
+      "pig_gene_id": "ENSSSCG00000001706",
+      "human_gene_id": "ENSG00000124608",
+      "pig_mean_rank": 2004.8,
+      "human_mean_rank": 758.6,
+      "rank_product": 1233.2239374906733,
+      "log2fc_pig": -0.0512087205669515,
+      "log2fc_human": 0.08857223162137329,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCA5",
+      "pig_gene_id": "ENSSSCG00000017255",
+      "human_gene_id": "ENSG00000154265",
+      "pig_mean_rank": 660.0,
+      "human_mean_rank": 3006.4,
+      "rank_product": 1408.6248613452767,
+      "log2fc_pig": 0.049008797283481065,
+      "log2fc_human": 0.16986961497943823,
+      "category": "liver_metabolic"
+    },
+    {
+      "symbol": "AARSD1",
+      "pig_gene_id": "ENSSSCG00000037979",
+      "human_gene_id": "ENSG00000266967",
+      "pig_mean_rank": 2662.4,
+      "human_mean_rank": 752.3,
+      "rank_product": 1415.2468053311409,
+      "log2fc_pig": -0.5712992974668081,
+      "log2fc_human": 0.3311008441212965,
+      "category": "other"
+    },
+    {
+      "symbol": "AASDH",
+      "pig_gene_id": "ENSSSCG00000027403",
+      "human_gene_id": "ENSG00000157426",
+      "pig_mean_rank": 1356.4,
+      "human_mean_rank": 1506.4,
+      "rank_product": 1429.4337900021812,
+      "log2fc_pig": 0.4642085504664831,
+      "log2fc_human": -0.09548624324305051,
+      "category": "other"
+    },
+    {
+      "symbol": "AAK1",
+      "pig_gene_id": "ENSSSCG00000008337",
+      "human_gene_id": "ENSG00000115977",
+      "pig_mean_rank": 2754.9,
+      "human_mean_rank": 749.6,
+      "rank_product": 1437.0361999615736,
+      "log2fc_pig": -0.21332148116334815,
+      "log2fc_human": -0.401617258005462,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCB7",
+      "pig_gene_id": "ENSSSCG00000012424",
+      "human_gene_id": "ENSG00000131269",
+      "pig_mean_rank": 1343.3,
+      "human_mean_rank": 2259.7,
+      "rank_product": 1742.255724628276,
+      "log2fc_pig": 0.7608265013700602,
+      "log2fc_human": -0.38102035991680433,
+      "category": "other"
+    },
+    {
+      "symbol": "AASS",
+      "pig_gene_id": "ENSSSCG00000016613",
+      "human_gene_id": "ENSG00000008311",
+      "pig_mean_rank": 2095.3,
+      "human_mean_rank": 1514.1,
+      "rank_product": 1781.1495529573028,
+      "log2fc_pig": 0.6408204658618466,
+      "log2fc_human": -1.0826863974123158,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCC3",
+      "pig_gene_id": "ENSSSCG00000017561",
+      "human_gene_id": "ENSG00000108846",
+      "pig_mean_rank": 4231.2,
+      "human_mean_rank": 756.2,
+      "rank_product": 1788.7519224308328,
+      "log2fc_pig": -0.4556869618930561,
+      "log2fc_human": 1.237137004863142,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCC11",
+      "pig_gene_id": "ENSSSCG00000032298",
+      "human_gene_id": "ENSG00000121270",
+      "pig_mean_rank": 745.7,
+      "human_mean_rank": 5247.0,
+      "rank_product": 1978.0515412900647,
+      "log2fc_pig": -0.30949817237017935,
+      "log2fc_human": -0.6275223041438986,
+      "category": "other"
+    },
+    {
+      "symbol": "AASDHPPT",
+      "pig_gene_id": "ENSSSCG00000014998",
+      "human_gene_id": "ENSG00000149313",
+      "pig_mean_rank": 5210.9,
+      "human_mean_rank": 756.1,
+      "rank_product": 1984.9336235753576,
+      "log2fc_pig": -0.016775313255799756,
+      "log2fc_human": -0.13485546171452903,
+      "category": "general_metabolism"
+    },
+    {
+      "symbol": "ABHD10",
+      "pig_gene_id": "ENSSSCG00000034450",
+      "human_gene_id": "ENSG00000144827",
+      "pig_mean_rank": 861.6,
+      "human_mean_rank": 5249.1,
+      "rank_product": 2126.6463175619965,
+      "log2fc_pig": 0.42118896286547225,
+      "log2fc_human": 0.5015889568662621,
+      "category": "other"
+    },
+    {
+      "symbol": "ACAT2",
+      "pig_gene_id": "ENSSSCG00000004049",
+      "human_gene_id": "ENSG00000120437",
+      "pig_mean_rank": 873.8,
+      "human_mean_rank": 5246.7,
+      "rank_product": 2141.160073418146,
+      "log2fc_pig": -1.0077173510293822,
+      "log2fc_human": -0.2087762557887436,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCB8",
+      "pig_gene_id": "ENSSSCG00000027986",
+      "human_gene_id": "ENSG00000197150",
+      "pig_mean_rank": 3085.4,
+      "human_mean_rank": 1504.3,
+      "rank_product": 2154.383257454439,
+      "log2fc_pig": -0.4483349218237147,
+      "log2fc_human": 0.3722942085075166,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCC1",
+      "pig_gene_id": "ENSSSCG00000007874",
+      "human_gene_id": "ENSG00000103222",
+      "pig_mean_rank": 6241.1,
+      "human_mean_rank": 765.6,
+      "rank_product": 2185.9062559954396,
+      "log2fc_pig": 0.027077539452676314,
+      "log2fc_human": -1.3706552278272266,
+      "category": "other"
+    },
+    {
+      "symbol": "ACOX1",
+      "pig_gene_id": "ENSSSCG00000017198",
+      "human_gene_id": "ENSG00000161533",
+      "pig_mean_rank": 867.0,
+      "human_mean_rank": 6740.3,
+      "rank_product": 2417.40358649523,
+      "log2fc_pig": 0.4558171875411617,
+      "log2fc_human": 1.0013933393348158,
+      "category": "other"
+    },
+    {
+      "symbol": "ABHD14A",
+      "pig_gene_id": "ENSSSCG00000030229",
+      "human_gene_id": "ENSG00000248487",
+      "pig_mean_rank": 2612.9,
+      "human_mean_rank": 2261.0,
+      "rank_product": 2430.5898255361803,
+      "log2fc_pig": 0.22949585584750914,
+      "log2fc_human": 0.2820692888037835,
+      "category": "other"
+    },
+    {
+      "symbol": "ABT1",
+      "pig_gene_id": "ENSSSCG00000038191",
+      "human_gene_id": "ENSG00000146109",
+      "pig_mean_rank": 1328.2,
+      "human_mean_rank": 4501.7,
+      "rank_product": 2445.2316740955243,
+      "log2fc_pig": -0.29455563860182404,
+      "log2fc_human": -0.1931205628725622,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCF2",
+      "pig_gene_id": "ENSSSCG00000016441",
+      "human_gene_id": "ENSG00000033050",
+      "pig_mean_rank": 2751.4,
+      "human_mean_rank": 2259.1,
+      "rank_product": 2493.128103407444,
+      "log2fc_pig": -0.3173018098351029,
+      "log2fc_human": -0.5851685831997604,
+      "category": "other"
+    },
+    {
+      "symbol": "ABHD1",
+      "pig_gene_id": "ENSSSCG00000008554",
+      "human_gene_id": "ENSG00000143994",
+      "pig_mean_rank": 4165.3,
+      "human_mean_rank": 1512.9,
+      "rank_product": 2510.3151933572008,
+      "log2fc_pig": -0.24964758023292508,
+      "log2fc_human": 2.062881620495657,
+      "category": "other"
+    },
+    {
+      "symbol": "ABHD2",
+      "pig_gene_id": "ENSSSCG00000001835",
+      "human_gene_id": "ENSG00000140526",
+      "pig_mean_rank": 1230.2,
+      "human_mean_rank": 5248.2,
+      "rank_product": 2540.932041594186,
+      "log2fc_pig": 0.3821318124951822,
+      "log2fc_human": 0.9678125323750606,
+      "category": "other"
+    },
+    {
+      "symbol": "ACOT8",
+      "pig_gene_id": "ENSSSCG00000007426",
+      "human_gene_id": "ENSG00000101473",
+      "pig_mean_rank": 1691.8,
+      "human_mean_rank": 4500.7,
+      "rank_product": 2759.3992570847736,
+      "log2fc_pig": -0.09923609898741635,
+      "log2fc_human": 0.3250109917779259,
+      "category": "other"
+    },
+    {
+      "symbol": "ABLIM3",
+      "pig_gene_id": "ENSSSCG00000014430",
+      "human_gene_id": "ENSG00000173210",
+      "pig_mean_rank": 1299.4,
+      "human_mean_rank": 5994.4,
+      "rank_product": 2790.900098534521,
+      "log2fc_pig": 0.6551435169506522,
+      "log2fc_human": -0.38172117029401054,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCB9",
+      "pig_gene_id": "ENSSSCG00000009784",
+      "human_gene_id": "ENSG00000150967",
+      "pig_mean_rank": 3550.4,
+      "human_mean_rank": 2262.6,
+      "rank_product": 2834.2785748758006,
+      "log2fc_pig": 0.23644972139025983,
+      "log2fc_human": 0.37949109804425274,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCA8",
+      "pig_gene_id": "ENSSSCG00000026473",
+      "human_gene_id": "ENSG00000141338",
+      "pig_mean_rank": 4117.3,
+      "human_mean_rank": 2258.9,
+      "rank_product": 3049.6834212750673,
+      "log2fc_pig": 0.4362126746328824,
+      "log2fc_human": -0.4091808827047735,
+      "category": "liver_metabolic"
+    },
+    {
+      "symbol": "ACAD9",
+      "pig_gene_id": "ENSSSCG00000023354",
+      "human_gene_id": "ENSG00000177646",
+      "pig_mean_rank": 2795.5,
+      "human_mean_rank": 3753.6,
+      "rank_product": 3239.3191877306563,
+      "log2fc_pig": -0.26650573763504865,
+      "log2fc_human": 0.18765599828695834,
+      "category": "other"
+    },
+    {
+      "symbol": "ACADM",
+      "pig_gene_id": "ENSSSCG00000003776",
+      "human_gene_id": "ENSG00000117054",
+      "pig_mean_rank": 2082.5,
+      "human_mean_rank": 5248.0,
+      "rank_product": 3305.897760064579,
+      "log2fc_pig": 0.6915005617412364,
+      "log2fc_human": 0.5064768792048556,
+      "category": "general_metabolism"
+    },
+    {
+      "symbol": "ADAMTS3",
+      "pig_gene_id": "ENSSSCG00000038180",
+      "human_gene_id": "ENSG00000156140",
+      "pig_mean_rank": 1623.9,
+      "human_mean_rank": 6739.8,
+      "rank_product": 3308.2867499659096,
+      "log2fc_pig": 0.9021433694681474,
+      "log2fc_human": -2.180241340320782,
+      "category": "other"
+    },
+    {
+      "symbol": "ACTG2",
+      "pig_gene_id": "ENSSSCG00000008294",
+      "human_gene_id": "ENSG00000163017",
+      "pig_mean_rank": 2812.5,
+      "human_mean_rank": 4500.4,
+      "rank_product": 3557.720478058949,
+      "log2fc_pig": -1.201373801874729,
+      "log2fc_human": -3.4018473949176644,
+      "category": "other"
+    },
+    {
+      "symbol": "ACOT9",
+      "pig_gene_id": "ENSSSCG00000012172",
+      "human_gene_id": "ENSG00000123130",
+      "pig_mean_rank": 2437.7,
+      "human_mean_rank": 5246.3,
+      "rank_product": 3576.157925763346,
+      "log2fc_pig": 0.07342913038037097,
+      "log2fc_human": -0.8414240211439252,
+      "category": "other"
+    },
+    {
+      "symbol": "ABAT",
+      "pig_gene_id": "ENSSSCG00000007909",
+      "human_gene_id": "ENSG00000183044",
+      "pig_mean_rank": 2590.4,
+      "human_mean_rank": 5248.1,
+      "rank_product": 3687.0961799226234,
+      "log2fc_pig": 0.4986963956848365,
+      "log2fc_human": 0.6166123048559544,
+      "category": "neuronal_synaptic"
+    },
+    {
+      "symbol": "ABCG5",
+      "pig_gene_id": "ENSSSCG00000035912",
+      "human_gene_id": "ENSG00000138075",
+      "pig_mean_rank": 2632.5,
+      "human_mean_rank": 5246.8,
+      "rank_product": 3716.4769607788503,
+      "log2fc_pig": -0.02988132103771753,
+      "log2fc_human": 0.6214047799011568,
+      "category": "other"
+    },
+    {
+      "symbol": "ABTB2",
+      "pig_gene_id": "ENSSSCG00000013303",
+      "human_gene_id": "ENSG00000166016",
+      "pig_mean_rank": 3146.6,
+      "human_mean_rank": 4501.9,
+      "rank_product": 3763.731996303669,
+      "log2fc_pig": 0.03197477363705094,
+      "log2fc_human": 0.778693333256711,
+      "category": "other"
+    },
+    {
+      "symbol": "ADAMTS17",
+      "pig_gene_id": "ENSSSCG00000038452",
+      "human_gene_id": "ENSG00000140470",
+      "pig_mean_rank": 2466.9,
+      "human_mean_rank": 5992.3,
+      "rank_product": 3844.7893141237273,
+      "log2fc_pig": -0.10254619879287885,
+      "log2fc_human": 1.0622025693634627,
+      "category": "other"
+    },
+    {
+      "symbol": "ACVR1C",
+      "pig_gene_id": "ENSSSCG00000015873",
+      "human_gene_id": "ENSG00000123612",
+      "pig_mean_rank": 2936.4,
+      "human_mean_rank": 5994.3,
+      "rank_product": 4195.433531829577,
+      "log2fc_pig": 1.9049206048763994,
+      "log2fc_human": -0.3552146767048607,
+      "category": "other"
+    },
+    {
+      "symbol": "ACHE",
+      "pig_gene_id": "ENSSSCG00000030303",
+      "human_gene_id": "ENSG00000087085",
+      "pig_mean_rank": 3027.5,
+      "human_mean_rank": 5993.1,
+      "rank_product": 4259.59038523659,
+      "log2fc_pig": 0.3069398035755385,
+      "log2fc_human": 0.6230439656986225,
+      "category": "neuronal_synaptic"
+    },
+    {
+      "symbol": "ABCA9",
+      "pig_gene_id": "ENSSSCG00000017257",
+      "human_gene_id": "ENSG00000154258",
+      "pig_mean_rank": 4367.4,
+      "human_mean_rank": 4497.7,
+      "rank_product": 4432.07118399513,
+      "log2fc_pig": 0.8697745721728897,
+      "log2fc_human": -0.2968918905717673,
+      "category": "other"
+    },
+    {
+      "symbol": "AFG2B",
+      "pig_gene_id": "ENSSSCG00000004671",
+      "human_gene_id": "ENSG00000171763",
+      "pig_mean_rank": 3025.3,
+      "human_mean_rank": 6739.8,
+      "rank_product": 4515.519564789859,
+      "log2fc_pig": -0.165695778866491,
+      "log2fc_human": -0.30030507072675106,
+      "category": "other"
+    },
+    {
+      "symbol": "ABTB3",
+      "pig_gene_id": "ENSSSCG00000000162",
+      "human_gene_id": "ENSG00000151136",
+      "pig_mean_rank": 3550.0,
+      "human_mean_rank": 5994.6,
+      "rank_product": 4613.114999650453,
+      "log2fc_pig": 0.533742352515419,
+      "log2fc_human": -0.23949182870448968,
+      "category": "other"
+    },
+    {
+      "symbol": "AKAP8L",
+      "pig_gene_id": "ENSSSCG00000013838",
+      "human_gene_id": "ENSG00000011243",
+      "pig_mean_rank": 3252.5,
+      "human_mean_rank": 6740.6,
+      "rank_product": 4682.285926766967,
+      "log2fc_pig": 0.4569866742534813,
+      "log2fc_human": 0.3506723567203687,
+      "category": "other"
+    },
+    {
+      "symbol": "AFAP1L1",
+      "pig_gene_id": "ENSSSCG00000014431",
+      "human_gene_id": "ENSG00000157510",
+      "pig_mean_rank": 3989.6,
+      "human_mean_rank": 5994.6,
+      "rank_product": 4890.404498607451,
+      "log2fc_pig": 0.10489564473925442,
+      "log2fc_human": -2.7722843892246076,
+      "category": "other"
+    },
+    {
+      "symbol": "ADAM19",
+      "pig_gene_id": "ENSSSCG00000017052",
+      "human_gene_id": "ENSG00000135074",
+      "pig_mean_rank": 4138.3,
+      "human_mean_rank": 5994.5,
+      "rank_product": 4980.666556797393,
+      "log2fc_pig": -0.03367946657193636,
+      "log2fc_human": -0.7983058285819088,
+      "category": "other"
+    },
+    {
+      "symbol": "ABCC10",
+      "pig_gene_id": "ENSSSCG00000001680",
+      "human_gene_id": "ENSG00000124574",
+      "pig_mean_rank": 3911.1,
+      "human_mean_rank": 6740.7,
+      "rank_product": 5134.544942835733,
+      "log2fc_pig": -0.1985821994859681,
+      "log2fc_human": -0.22903718438972148,
+      "category": "other"
+    },
+    {
+      "symbol": "ABHD17B",
+      "pig_gene_id": "ENSSSCG00000021802",
+      "human_gene_id": "ENSG00000107362",
+      "pig_mean_rank": 4427.3,
+      "human_mean_rank": 5993.5,
+      "rank_product": 5151.215638080006,
+      "log2fc_pig": -0.1285933696535656,
+      "log2fc_human": 0.25244276105905833,
+      "category": "other"
+    },
+    {
+      "symbol": "ADCY1",
+      "pig_gene_id": "ENSSSCG00000016726",
+      "human_gene_id": "ENSG00000164742",
+      "pig_mean_rank": 3958.0,
+      "human_mean_rank": 6740.5,
+      "rank_product": 5165.162049732806,
+      "log2fc_pig": -0.06454052174749318,
+      "log2fc_human": 2.170644538892944,
+      "category": "other"
+    },
+    {
+      "symbol": "ACSL1",
+      "pig_gene_id": "ENSSSCG00000015784",
+      "human_gene_id": "ENSG00000151726",
+      "pig_mean_rank": 4262.7,
+      "human_mean_rank": 6740.2,
+      "rank_product": 5360.172622220295,
+      "log2fc_pig": 1.1930857950099294,
+      "log2fc_human": 0.10016403399826235,
+      "category": "other"
+    },
+    {
+      "symbol": "ADAT2",
+      "pig_gene_id": "ENSSSCG00000039598",
+      "human_gene_id": "ENSG00000189007",
+      "pig_mean_rank": 4524.6,
+      "human_mean_rank": 6739.7,
+      "rank_product": 5522.177706303918,
+      "log2fc_pig": -0.20649831742492647,
+      "log2fc_human": 0.047726221921165934,
+      "category": "other"
+    },
+    {
+      "symbol": "AKAP8",
+      "pig_gene_id": "ENSSSCG00000013837",
+      "human_gene_id": "ENSG00000105127",
+      "pig_mean_rank": 5299.8,
+      "human_mean_rank": 6740.3,
+      "rank_product": 5976.808675204519,
+      "log2fc_pig": 0.18849121188205373,
+      "log2fc_human": -0.0024700274854731856,
+      "category": "other"
+    },
+    {
+      "symbol": "ACAP1",
+      "pig_gene_id": "ENSSSCG00000017943",
+      "human_gene_id": "ENSG00000072818",
+      "pig_mean_rank": 5584.7,
+      "human_mean_rank": 6740.1,
+      "rank_product": 6135.261727913488,
+      "log2fc_pig": 0.5068713300589776,
+      "log2fc_human": 0.0359606685305618,
+      "category": "other"
+    }
+  ],
+  "N_sweep": {
+    "30": {
+      "n": 30,
+      "joint_n": 30,
+      "concordance": {
+        "n_joint_for_fc": 30,
+        "pearson_r": -0.09732727248371946,
+        "ci_low": -0.39796414566701205,
+        "ci_high": 0.1652510053771544,
+        "directional_concordance_pct": 46.666666666666664,
+        "n_concordant_direction": 14
+      },
+      "annotation_summary": {
+        "other": 25,
+        "liver_metabolic": 3,
+        "general_metabolism": 2
+      }
+    },
+    "100": {
+      "n": 100,
+      "joint_n": 55,
+      "concordance": {
+        "n_joint_for_fc": 55,
+        "pearson_r": -0.009816149712694594,
+        "ci_low": -0.31578958526485434,
+        "ci_high": 0.2827920500404105,
+        "directional_concordance_pct": 45.45454545454545,
+        "n_concordant_direction": 25
+      },
+      "annotation_summary": {
+        "other": 46,
+        "liver_metabolic": 4,
+        "general_metabolism": 3,
+        "neuronal_synaptic": 2
+      }
+    },
+    "200": {
+      "n": 200,
+      "joint_n": 55,
+      "concordance": {
+        "n_joint_for_fc": 55,
+        "pearson_r": -0.009816149712694594,
+        "ci_low": -0.31578958526485434,
+        "ci_high": 0.2827920500404105,
+        "directional_concordance_pct": 45.45454545454545,
+        "n_concordant_direction": 25
+      },
+      "annotation_summary": {
+        "other": 46,
+        "liver_metabolic": 4,
+        "general_metabolism": 3,
+        "neuronal_synaptic": 2
+      }
+    }
+  }
+}

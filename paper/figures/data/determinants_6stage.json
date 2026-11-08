@@ -1,0 +1,612 @@
+{
+  "basis": "6-stage ordinal PLS score projection (Spearman rho vs 1000x ortholog-scramble null)",
+  "seed": 42,
+  "scheme": "6-stage",
+  "brain_definition": "forebrain-aggregated (cerebrum minus cerebellum; n_pig=170, 4 stages)",
+  "points": [
+    {
+      "organ": "Brain",
+      "species": "Human",
+      "rho": 0.8621,
+      "divergence_mya": 94.0,
+      "n_target": 21,
+      "n_orthologs": 15200,
+      "scramble_p_systemA": 0.002,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Human",
+      "rho": 0.9076,
+      "divergence_mya": 94.0,
+      "n_target": 10,
+      "n_orthologs": 15200,
+      "scramble_p_systemA": 0.003,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Human",
+      "rho": 0.6325,
+      "divergence_mya": 94.0,
+      "n_target": 9,
+      "n_orthologs": 15200,
+      "scramble_p_systemA": 0.1928,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Human",
+      "rho": 0.4028,
+      "divergence_mya": 94.0,
+      "n_target": 12,
+      "n_orthologs": 15200,
+      "scramble_p_systemA": 0.3157,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Testis",
+      "species": "Human",
+      "rho": 0.8267,
+      "divergence_mya": 94.0,
+      "n_target": 13,
+      "n_orthologs": 15200,
+      "scramble_p_systemA": 0.05,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    },
+    {
+      "organ": "Brain",
+      "species": "Macaque",
+      "rho": 0.9553,
+      "divergence_mya": 94.0,
+      "n_target": 18,
+      "n_orthologs": 12219,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Macaque",
+      "rho": 0.7872,
+      "divergence_mya": 94.0,
+      "n_target": 21,
+      "n_orthologs": 12219,
+      "scramble_p_systemA": 0.008,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Macaque",
+      "rho": 0.8457,
+      "divergence_mya": 94.0,
+      "n_target": 24,
+      "n_orthologs": 12219,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Macaque",
+      "rho": 0.5141,
+      "divergence_mya": 94.0,
+      "n_target": 25,
+      "n_orthologs": 12219,
+      "scramble_p_systemA": 0.0809,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Testis",
+      "species": "Macaque",
+      "rho": 0.9118,
+      "divergence_mya": 94.0,
+      "n_target": 21,
+      "n_orthologs": 12219,
+      "scramble_p_systemA": 0.009,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    },
+    {
+      "organ": "Brain",
+      "species": "Mouse",
+      "rho": 0.8829,
+      "divergence_mya": 94.0,
+      "n_target": 20,
+      "n_orthologs": 14689,
+      "scramble_p_systemA": 0.004,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Mouse",
+      "rho": 0.9074,
+      "divergence_mya": 94.0,
+      "n_target": 20,
+      "n_orthologs": 14689,
+      "scramble_p_systemA": 0.004,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Mouse",
+      "rho": 0.932,
+      "divergence_mya": 94.0,
+      "n_target": 20,
+      "n_orthologs": 14689,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Mouse",
+      "rho": 0.233,
+      "divergence_mya": 94.0,
+      "n_target": 20,
+      "n_orthologs": 14689,
+      "scramble_p_systemA": 0.7732,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Ovary",
+      "species": "Mouse",
+      "rho": 0.8124,
+      "divergence_mya": 94.0,
+      "n_target": 10,
+      "n_orthologs": 14689,
+      "scramble_p_systemA": 0.029,
+      "kept_pig_stages": "Neonatal;Juvenile;Pre-pubertal;Post-pubertal",
+      "K": 4,
+      "n_pig": 69
+    },
+    {
+      "organ": "Testis",
+      "species": "Mouse",
+      "rho": 0.9109,
+      "divergence_mya": 94.0,
+      "n_target": 10,
+      "n_orthologs": 14689,
+      "scramble_p_systemA": 0.0829,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    },
+    {
+      "organ": "Brain",
+      "species": "Rat",
+      "rho": 0.9093,
+      "divergence_mya": 94.0,
+      "n_target": 24,
+      "n_orthologs": 12730,
+      "scramble_p_systemA": 0.002,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Rat",
+      "rho": 0.9195,
+      "divergence_mya": 94.0,
+      "n_target": 23,
+      "n_orthologs": 12730,
+      "scramble_p_systemA": 0.003,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Rat",
+      "rho": 0.7613,
+      "divergence_mya": 94.0,
+      "n_target": 24,
+      "n_orthologs": 12730,
+      "scramble_p_systemA": 0.004,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Rat",
+      "rho": 0.6697,
+      "divergence_mya": 94.0,
+      "n_target": 24,
+      "n_orthologs": 12730,
+      "scramble_p_systemA": 0.2058,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Ovary",
+      "species": "Rat",
+      "rho": 0.8764,
+      "divergence_mya": 94.0,
+      "n_target": 12,
+      "n_orthologs": 12730,
+      "scramble_p_systemA": 0.004,
+      "kept_pig_stages": "Neonatal;Juvenile;Pre-pubertal;Post-pubertal",
+      "K": 4,
+      "n_pig": 69
+    },
+    {
+      "organ": "Testis",
+      "species": "Rat",
+      "rho": 0.9046,
+      "divergence_mya": 94.0,
+      "n_target": 12,
+      "n_orthologs": 12730,
+      "scramble_p_systemA": 0.0579,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    },
+    {
+      "organ": "Brain",
+      "species": "Rabbit",
+      "rho": 0.9544,
+      "divergence_mya": 94.0,
+      "n_target": 15,
+      "n_orthologs": 12070,
+      "scramble_p_systemA": 0.003,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Rabbit",
+      "rho": 0.9517,
+      "divergence_mya": 94.0,
+      "n_target": 14,
+      "n_orthologs": 12070,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Rabbit",
+      "rho": 0.9095,
+      "divergence_mya": 94.0,
+      "n_target": 16,
+      "n_orthologs": 12070,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Rabbit",
+      "rho": 0.8365,
+      "divergence_mya": 94.0,
+      "n_target": 15,
+      "n_orthologs": 12070,
+      "scramble_p_systemA": 0.038,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Ovary",
+      "species": "Rabbit",
+      "rho": 0.3162,
+      "divergence_mya": 94.0,
+      "n_target": 5,
+      "n_orthologs": 12070,
+      "scramble_p_systemA": 0.7502,
+      "kept_pig_stages": "Neonatal;Juvenile;Pre-pubertal;Post-pubertal",
+      "K": 4,
+      "n_pig": 69
+    },
+    {
+      "organ": "Testis",
+      "species": "Rabbit",
+      "rho": 0.7356,
+      "divergence_mya": 94.0,
+      "n_target": 6,
+      "n_orthologs": 12070,
+      "scramble_p_systemA": 0.2238,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    },
+    {
+      "organ": "Brain",
+      "species": "Opossum",
+      "rho": 0.902,
+      "divergence_mya": 159.0,
+      "n_target": 42,
+      "n_orthologs": 11284,
+      "scramble_p_systemA": 0.006,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Opossum",
+      "rho": 0.8344,
+      "divergence_mya": 159.0,
+      "n_target": 39,
+      "n_orthologs": 11284,
+      "scramble_p_systemA": 0.034,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Opossum",
+      "rho": 0.5996,
+      "divergence_mya": 159.0,
+      "n_target": 24,
+      "n_orthologs": 11284,
+      "scramble_p_systemA": 0.044,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Opossum",
+      "rho": 0.349,
+      "divergence_mya": 159.0,
+      "n_target": 43,
+      "n_orthologs": 11284,
+      "scramble_p_systemA": 0.6074,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Ovary",
+      "species": "Opossum",
+      "rho": 0.1093,
+      "divergence_mya": 159.0,
+      "n_target": 20,
+      "n_orthologs": 11284,
+      "scramble_p_systemA": 0.7622,
+      "kept_pig_stages": "Neonatal;Juvenile;Pre-pubertal;Post-pubertal",
+      "K": 4,
+      "n_pig": 69
+    },
+    {
+      "organ": "Testis",
+      "species": "Opossum",
+      "rho": 0.7167,
+      "divergence_mya": 159.0,
+      "n_target": 22,
+      "n_orthologs": 11284,
+      "scramble_p_systemA": 0.1309,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    },
+    {
+      "organ": "Brain",
+      "species": "Chicken",
+      "rho": 0.9565,
+      "divergence_mya": 319.0,
+      "n_target": 20,
+      "n_orthologs": 5951,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Post-pubertal",
+      "K": 4,
+      "n_pig": 170
+    },
+    {
+      "organ": "Heart",
+      "species": "Chicken",
+      "rho": 0.9504,
+      "divergence_mya": 319.0,
+      "n_target": 20,
+      "n_orthologs": 5951,
+      "scramble_p_systemA": 0.001,
+      "kept_pig_stages": "Suckling;Juvenile;Post-pubertal",
+      "K": 3,
+      "n_pig": 55
+    },
+    {
+      "organ": "Kidney",
+      "species": "Chicken",
+      "rho": 0.7419,
+      "divergence_mya": 319.0,
+      "n_target": 20,
+      "n_orthologs": 5951,
+      "scramble_p_systemA": 0.004,
+      "kept_pig_stages": "Juvenile;Post-pubertal",
+      "K": 2,
+      "n_pig": 32
+    },
+    {
+      "organ": "Liver",
+      "species": "Chicken",
+      "rho": 0.4476,
+      "divergence_mya": 319.0,
+      "n_target": 20,
+      "n_orthologs": 5951,
+      "scramble_p_systemA": 0.3776,
+      "kept_pig_stages": "Neonatal;Suckling;Juvenile;Pre-pubertal;Post-pubertal;Adult",
+      "K": 6,
+      "n_pig": 309
+    },
+    {
+      "organ": "Ovary",
+      "species": "Chicken",
+      "rho": -0.0246,
+      "divergence_mya": 319.0,
+      "n_target": 10,
+      "n_orthologs": 5951,
+      "scramble_p_systemA": 0.984,
+      "kept_pig_stages": "Neonatal;Juvenile;Pre-pubertal;Post-pubertal",
+      "K": 4,
+      "n_pig": 69
+    },
+    {
+      "organ": "Testis",
+      "species": "Chicken",
+      "rho": 0.712,
+      "divergence_mya": 319.0,
+      "n_target": 9,
+      "n_orthologs": 5951,
+      "scramble_p_systemA": 0.2448,
+      "kept_pig_stages": "Suckling;Pre-pubertal;Post-pubertal",
+      "K": 3,
+      "n_pig": 48
+    }
+  ],
+  "tests": {
+    "H1_rho_vs_divergence_spearman": {
+      "spearman_r": -0.25399167928381655,
+      "p": 0.11376252405929879,
+      "n": 40
+    },
+    "H1_rho_vs_divergence_pearson": {
+      "pearson_r": -0.24948721746692487,
+      "p": 0.12053641890956374
+    },
+    "H1_eutherian_mean_rho": 0.7881852032715206,
+    "H1_opossum_mean_rho": 0.5851541374684573,
+    "H1_chicken_mean_rho": 0.6306170075008436,
+    "H1_eutherian_n": 28,
+    "H1_opossum_n": 6,
+    "H1_chicken_n": 6,
+    "H2_tissue_mean_rho": {
+      "Brain": 0.9175092913372795,
+      "Heart": 0.8940150733577148,
+      "Kidney": 0.7746459619896973,
+      "Liver": 0.4932344362288422,
+      "Ovary": 0.41793964692669955,
+      "Testis": 0.8168972837700208
+    },
+    "H2_tissue_n_species": {
+      "Brain": 7,
+      "Heart": 7,
+      "Kidney": 7,
+      "Liver": 7,
+      "Ovary": 5,
+      "Testis": 7
+    },
+    "H2_pig_breadth": {
+      "Brain": 14247,
+      "Heart": 12296,
+      "Kidney": 13358,
+      "Liver": 11812,
+      "Ovary": 13496,
+      "Testis": 14557
+    },
+    "H2_rho_vs_complexity": {
+      "spearman_r": 0.3142857142857143,
+      "p": 0.5440932944606414,
+      "n_tissues": 6
+    },
+    "H3_pooled_rho_vs_n_target": {
+      "spearman_r": 0.012193165214232549,
+      "p": 0.9404743481128809,
+      "n": 40
+    },
+    "H3_pooled_rho_vs_n_orthologs": {
+      "spearman_r": 0.130591945866636,
+      "p": 0.4218626669010781,
+      "n": 40
+    },
+    "H3_Brain_rho_vs_n_target": {
+      "spearman_r": -0.4865062298556019,
+      "p": 0.268248562317831,
+      "n": 7
+    },
+    "H3_Brain_rho_vs_n_orthologs": {
+      "spearman_r": -0.7500000000000002,
+      "p": 0.05218140045705776,
+      "n": 7
+    },
+    "H3_Heart_rho_vs_n_target": {
+      "spearman_r": -0.4865062298556019,
+      "p": 0.268248562317831,
+      "n": 7
+    },
+    "H3_Heart_rho_vs_n_orthologs": {
+      "spearman_r": -0.21428571428571433,
+      "p": 0.6445115810207203,
+      "n": 7
+    },
+    "H3_Kidney_rho_vs_n_target": {
+      "spearman_r": -0.11227217828476797,
+      "p": 0.8105998110141495,
+      "n": 7
+    },
+    "H3_Kidney_rho_vs_n_orthologs": {
+      "spearman_r": 0.25,
+      "p": 0.5887244480896833,
+      "n": 7
+    },
+    "H3_Liver_rho_vs_n_target": {
+      "spearman_r": -0.12613124477737828,
+      "p": 0.7875721594074739,
+      "n": 7
+    },
+    "H3_Liver_rho_vs_n_orthologs": {
+      "spearman_r": -0.21428571428571433,
+      "p": 0.6445115810207203,
+      "n": 7
+    },
+    "H3_Ovary_rho_vs_n_target": {
+      "spearman_r": 0.051298917604257706,
+      "p": 0.9347128481082341,
+      "n": 5
+    },
+    "H3_Ovary_rho_vs_n_orthologs": {
+      "spearman_r": 0.8999999999999998,
+      "p": 0.03738607346849875,
+      "n": 5
+    },
+    "H3_Testis_rho_vs_n_target": {
+      "spearman_r": 0.25,
+      "p": 0.5887244480896833,
+      "n": 7
+    },
+    "H3_Testis_rho_vs_n_orthologs": {
+      "spearman_r": 0.6785714285714287,
+      "p": 0.0937502539598313,
+      "n": 7
+    },
+    "variance_partition": {
+      "r2_full": 0.6034672567534163,
+      "r2_organ_only": 0.5563963641294134,
+      "r2_divergence_only": 0.06224387167938872,
+      "unique_r2_organ": 0.5412233850740276,
+      "unique_r2_divergence": 0.04707089262400288,
+      "n": 40
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "tissue": "Lung",
+  "pig_tissue": "Lung",
+  "human_source": "LungMAP_LMEX0000003691",
+  "cell_pop": "BPS",
+  "drop_adult": true,
+  "method": "median",
+  "old_only_child": false,
+  "pseudobulk": false,
+  "pig_young_stages": [
+    "Early childhood",
+    "Infant"
+  ],
+  "pig_old_stages": [
+    "Adult",
+    "Post-pubertal"
+  ],
+  "filter_housekeeping": false,
+  "restrict_go_dev": false,
+  "min_pig_tpm": 1.0,
+  "min_human_norm": 10.0,
+  "n_orthologs_tested": 5312,
+  "sample_sizes": {
+    "pig_young": 56,
+    "pig_old": 27,
+    "human_young": 4,
+    "human_old": 5
+  },
+  "strict": {
+    "label": "strict_FDR_both",
+    "n_genes": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_r": null,
+    "spearman_p": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance": null
+  },
+  "pig_anchored": {
+    "label": "pig_anchored",
+    "n_genes": 324,
+    "pearson_r": 0.26754948718551896,
+    "pearson_p": 1.0256609693267048e-06,
+    "spearman_r": 0.3568140562567807,
+    "spearman_p": 3.6681035177730016e-11,
+    "ci_low": 0.14764558508197526,
+    "ci_high": 0.38744217848471757,
+    "directional_concordance": 70.37037037037037
+  },
+  "fc_only": {
+    "label": "fc_only_no_fdr",
+    "n_genes": 877,
+    "pearson_r": 0.22159960259714456,
+    "pearson_p": 3.227395288797611e-11,
+    "spearman_r": 0.26309704258130845,
+    "spearman_p": 2.3705254540886983e-15,
+    "ci_low": 0.14819414418499027,
+    "ci_high": 0.29555496121643887,
+    "directional_concordance": 63.397947548460664
+  },
+  "donor_info": {
+    "cell_pop": "BPS",
+    "drop_adult": true,
+    "young_donors": [
+      "D044",
+      "D041",
+      "D038",
+      "D019"
+    ],
+    "old_donors": [
+      "D043",
+      "D024",
+      "D022",
+      "D018",
+      "D011",
+      "D008"
+    ],
+    "young_ages": [
+      "6 Days",
+      "6 Days",
+      "1 Days",
+      "1 Days"
+    ],
+    "old_ages": [
+      "21 Months",
+      "4 Months",
+      "2 Years",
+      "3 Years",
+      "20 Months",
+      "20 Months"
+    ]
+  }
+}

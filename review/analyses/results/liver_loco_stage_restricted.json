@@ -1,0 +1,123 @@
+{
+  "all 6 stages (baseline)": {
+    "kept": [
+      "Neonatal",
+      "Suckling",
+      "Juvenile",
+      "Pre-pubertal",
+      "Post-pubertal",
+      "Adult"
+    ],
+    "n": 309,
+    "K": 6,
+    "chance": 0.167,
+    "BA_mean": 0.21,
+    "BA_sd": 0.064,
+    "rho": -0.145204,
+    "per_seed_ba": [
+      0.2374,
+      0.3092,
+      0.2139,
+      0.1226,
+      0.1662
+    ],
+    "recall": {
+      "Neonatal": 0.0235,
+      "Suckling": 0.0133,
+      "Juvenile": 0.3706,
+      "Pre-pubertal": 0.3325,
+      "Post-pubertal": 0.2138,
+      "Adult": 0.0069
+    }
+  },
+  "drop Neonatal (94% 1 cohort)": {
+    "kept": [
+      "Suckling",
+      "Juvenile",
+      "Pre-pubertal",
+      "Post-pubertal",
+      "Adult"
+    ],
+    "n": 292,
+    "K": 5,
+    "chance": 0.2,
+    "BA_mean": 0.232,
+    "BA_sd": 0.032,
+    "rho": 0.042922,
+    "per_seed_ba": [
+      0.2211,
+      0.2925,
+      0.2117,
+      0.2026,
+      0.2319
+    ],
+    "recall": {
+      "Suckling": 0.0683,
+      "Juvenile": 0.3706,
+      "Pre-pubertal": 0.305,
+      "Post-pubertal": 0.2828,
+      "Adult": 0.0345
+    }
+  },
+  "drop Neonatal + Adult": {
+    "kept": [
+      "Suckling",
+      "Juvenile",
+      "Pre-pubertal",
+      "Post-pubertal"
+    ],
+    "n": 263,
+    "K": 4,
+    "chance": 0.25,
+    "BA_mean": 0.395,
+    "BA_sd": 0.064,
+    "rho": 0.441636,
+    "per_seed_ba": [
+      0.4264,
+      0.2899,
+      0.3543,
+      0.432,
+      0.4701
+    ],
+    "recall": {
+      "Suckling": 0.1183,
+      "Juvenile": 0.5,
+      "Pre-pubertal": 0.41,
+      "Post-pubertal": 0.1379
+    }
+  },
+  "keep multi-cohort only (Juv/PrePub/PostPub)": {
+    "kept": [
+      "Juvenile",
+      "Pre-pubertal",
+      "Post-pubertal"
+    ],
+    "n": 143,
+    "K": 3,
+    "chance": 0.333,
+    "BA_mean": 0.4,
+    "BA_sd": 0.046,
+    "rho": 0.0077,
+    "per_seed_ba": [
+      0.3916,
+      0.3489,
+      0.3537,
+      0.4566,
+      0.4505
+    ],
+    "recall": {
+      "Juvenile": 0.2353,
+      "Pre-pubertal": 0.585,
+      "Post-pubertal": 0.0759
+    }
+  },
+  "_largest_cohort_share_pct": {
+    "Neonatal": 94.1,
+    "Suckling": 40.0,
+    "Juvenile": 26.5,
+    "Pre-pubertal": 30.0,
+    "Post-pubertal": 34.5,
+    "Adult": 62.1
+  },
+  "_criterion": "drop stages whose largest single BioProject contributes >50% of the stage's samples (Neonatal 94%, Adult 62%); the other four are <=40%"
+}

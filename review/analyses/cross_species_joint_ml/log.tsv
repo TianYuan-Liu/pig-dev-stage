@@ -1,0 +1,258 @@
+attempt_id	tissue	step	metric_name	metric_value	note
+1778575496_ALL_orthologs	ALL	orthologs	n_pairs	7485	
+1778575496_Muscle_load_pig	Muscle	load_pig	n_samples	761	
+1778575496_Muscle_load_pig	Muscle	load_pig	n_genes	7485	
+1778575512_Muscle_pig_train	Muscle	pig_train	seed_mae	0.11567767457860338	seed=42
+1778575528_Muscle_pig_train	Muscle	pig_train	seed_mae	0.1366185070519436	seed=43
+1778575546_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13665290677674577	seed=44
+1778575562_Muscle_pig_train	Muscle	pig_train	seed_mae	0.1327141382868937	seed=45
+1778575578_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13936188510491915	seed=46
+1778575597_Muscle_pig_train	Muscle	pig_train	seed_mae	0.11562607499140007	seed=47
+1778575614_Muscle_pig_train	Muscle	pig_train	seed_mae	0.12217922256621946	seed=48
+1778575632_Muscle_pig_train	Muscle	pig_train	seed_mae	0.11694186446508428	seed=49
+1778575650_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13270553835569315	seed=50
+1778575668_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13263673890608874	seed=51
+1778575668_Muscle_pig_stable	Muscle	pig_stable	n_stable_100	41	
+1778575668_Muscle_pig_stability	Muscle	pig_stability	jaccard_top100_mean	0.3755781292892685	
+1778575668_Muscle_load_human	Muscle	load_human	n_samples	11	
+1778575668_Muscle_load_human	Muscle	load_human	n_infant	4	
+1778575668_Muscle_load_human	Muscle	load_human	n_adult	7	
+1778575670_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5178571428571429	seed=42
+1778575672_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5178571428571429	seed=43
+1778575675_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5357142857142857	seed=44
+1778575677_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.4642857142857143	seed=45
+1778575680_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5	seed=46
+1778575682_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5	seed=47
+1778575685_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.4642857142857143	seed=48
+1778575687_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5	seed=49
+1778575689_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5178571428571429	seed=50
+1778575691_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.4642857142857143	seed=51
+1778575691_Muscle_human_stable	Muscle	human_stable	n_stable_100	49	
+1778575730_Muscle_human_sweep	Muscle	human_sweep	joint_n	2	sweep=1
+1778575730_Muscle_joint	Muscle	joint	n_joint_100	2	
+1778575730_Muscle_human_stability	Muscle	human_stability	jaccard_top100_mean	0.4145087737065833	
+1778575730_Muscle_concordance	Muscle	concordance	pearson_r	None	n=2
+1778575734_Brain_load_pig	Brain	load_pig	n_samples	43	
+1778575734_Brain_load_pig	Brain	load_pig	n_genes	7485	
+1778575734_Brain_crash	Brain	crash	exception	The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.	attempt=1
+1778575735_Liver_load_pig	Liver	load_pig	n_samples	309	
+1778575735_Liver_load_pig	Liver	load_pig	n_genes	7485	
+1778575748_Liver_pig_train	Liver	pig_train	seed_mae	0.2265468006345849	seed=42
+1778575760_Liver_pig_train	Liver	pig_train	seed_mae	0.23590692755156	seed=43
+1778575772_Liver_pig_train	Liver	pig_train	seed_mae	0.18757271285034371	seed=44
+1778575783_Liver_pig_train	Liver	pig_train	seed_mae	0.2099947117927023	seed=45
+1778575794_Liver_pig_train	Liver	pig_train	seed_mae	0.2585933368588048	seed=46
+1778575806_Liver_pig_train	Liver	pig_train	seed_mae	0.20380750925436275	seed=47
+1778575818_Liver_pig_train	Liver	pig_train	seed_mae	0.2721311475409836	seed=48
+1778575830_Liver_pig_train	Liver	pig_train	seed_mae	0.2489687995769434	seed=49
+1778575842_Liver_pig_train	Liver	pig_train	seed_mae	0.21364357482813326	seed=50
+1778575854_Liver_pig_train	Liver	pig_train	seed_mae	0.20100475938656795	seed=51
+1778575854_Liver_pig_stable	Liver	pig_stable	n_stable_100	45	
+1778575854_Liver_pig_stability	Liver	pig_stability	jaccard_top100_mean	0.3741807619301929	
+1778575855_Liver_load_human	Liver	load_human	n_samples	10	
+1778575855_Liver_load_human	Liver	load_human	n_infant	4	
+1778575855_Liver_load_human	Liver	load_human	n_adult	6	
+1778575857_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=42
+1778575858_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=43
+1778575860_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=44
+1778575861_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=45
+1778575863_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=46
+1778575865_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=47
+1778575866_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=48
+1778575868_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=49
+1778575869_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=50
+1778575871_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=51
+1778575871_Liver_human_stable	Liver	human_stable	n_stable_100	77	
+1778575871_Liver_joint	Liver	joint	n_joint_100	1	
+1778575871_Liver_human_stability	Liver	human_stability	jaccard_top100_mean	0.6633923223423929	
+1778575871_Liver_concordance	Liver	concordance	pearson_r	None	n=1
+1778575873_Lung_load_pig	Lung	load_pig	n_samples	129	
+1778575873_Lung_load_pig	Lung	load_pig	n_genes	7485	
+1778575877_Lung_pig_train	Lung	pig_train	seed_mae	0.17815384615384616	seed=42
+1778575881_Lung_pig_train	Lung	pig_train	seed_mae	0.16246153846153846	seed=43
+1778575886_Lung_pig_train	Lung	pig_train	seed_mae	0.1704615384615385	seed=44
+1778575890_Lung_pig_train	Lung	pig_train	seed_mae	0.17815384615384616	seed=45
+1778575894_Lung_pig_train	Lung	pig_train	seed_mae	0.17784615384615388	seed=46
+1778575899_Lung_pig_train	Lung	pig_train	seed_mae	0.23199999999999998	seed=47
+1778575904_Lung_pig_train	Lung	pig_train	seed_mae	0.16984615384615384	seed=48
+1778575908_Lung_pig_train	Lung	pig_train	seed_mae	0.2166153846153846	seed=49
+1778575912_Lung_pig_train	Lung	pig_train	seed_mae	0.14676923076923076	seed=50
+1778575917_Lung_pig_train	Lung	pig_train	seed_mae	0.14707692307692308	seed=51
+1778575917_Lung_pig_stable	Lung	pig_stable	n_stable_100	36	
+1778575917_Lung_pig_stability	Lung	pig_stability	jaccard_top100_mean	0.29992341111707205	
+1778575917_Lung_human_load	Lung	human_load	available	0	no human postnatal matrix
+1778575917_Blood_load_pig	Blood	load_pig	n_samples	78	
+1778575917_Blood_load_pig	Blood	load_pig	n_genes	7485	
+1778575917_Blood_crash	Blood	crash	exception	The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.	attempt=1
+1778575969_ALL_orthologs	ALL	orthologs	n_pairs	7485	
+1778575970_Brain_load_pig	Brain	load_pig	n_samples	38	
+1778575970_Brain_load_pig	Brain	load_pig	n_genes	7485	
+1778575971_Brain_pig_train	Brain	pig_train	seed_mae	0.8678571428571429	seed=42
+1778575971_Brain_pig_train	Brain	pig_train	seed_mae	0.8571428571428571	seed=43
+1778575972_Brain_pig_train	Brain	pig_train	seed_mae	0.7071428571428571	seed=44
+1778575972_Brain_pig_train	Brain	pig_train	seed_mae	0.8464285714285713	seed=45
+1778575972_Brain_pig_train	Brain	pig_train	seed_mae	0.9214285714285714	seed=46
+1778575973_Brain_pig_train	Brain	pig_train	seed_mae	0.5464285714285715	seed=47
+1778575974_Brain_pig_train	Brain	pig_train	seed_mae	0.7821428571428571	seed=48
+1778575974_Brain_pig_train	Brain	pig_train	seed_mae	0.6321428571428571	seed=49
+1778575975_Brain_pig_train	Brain	pig_train	seed_mae	0.9321428571428572	seed=50
+1778575975_Brain_pig_train	Brain	pig_train	seed_mae	0.5678571428571428	seed=51
+1778575975_Brain_pig_stable	Brain	pig_stable	n_stable_100	45	
+1778575975_Brain_pig_stability	Brain	pig_stability	jaccard_top100_mean	0.3981756124867028	
+1778575976_Brain_load_human	Brain	load_human	n_samples	16	
+1778575976_Brain_load_human	Brain	load_human	n_infant	7	
+1778575976_Brain_load_human	Brain	load_human	n_adult	9	
+1778575985_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7380952380952381	seed=42
+1778575994_Brain_human_train	Brain	human_train	seed_lpo_acc	0.8095238095238095	seed=43
+1778576003_Brain_human_train	Brain	human_train	seed_lpo_acc	0.753968253968254	seed=44
+1778576013_Brain_human_train	Brain	human_train	seed_lpo_acc	0.8015873015873016	seed=45
+1778576022_Brain_human_train	Brain	human_train	seed_lpo_acc	0.746031746031746	seed=46
+1778576031_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7857142857142857	seed=47
+1778576042_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7857142857142857	seed=48
+1778576051_Brain_human_train	Brain	human_train	seed_lpo_acc	0.8095238095238095	seed=49
+1778576060_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7936507936507936	seed=50
+1778576070_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7857142857142857	seed=51
+1778576070_Brain_human_stable	Brain	human_stable	n_stable_100	60	
+1778576070_Brain_joint	Brain	joint	n_joint_100	16	
+1778576070_Brain_human_stability	Brain	human_stability	jaccard_top100_mean	0.49191054250416405	
+1778576070_Brain_concordance	Brain	concordance	pearson_r	0.14226671031953728	n=16
+1778576074_Blood_load_pig	Blood	load_pig	n_samples	76	
+1778576074_Blood_load_pig	Blood	load_pig	n_genes	7485	
+1778576076_Blood_pig_train	Blood	pig_train	seed_mae	0.20916666666666667	seed=42
+1778576077_Blood_pig_train	Blood	pig_train	seed_mae	0.26166666666666666	seed=43
+1778576080_Blood_pig_train	Blood	pig_train	seed_mae	0.25083333333333335	seed=44
+1778576082_Blood_pig_train	Blood	pig_train	seed_mae	0.28833333333333333	seed=45
+1778576084_Blood_pig_train	Blood	pig_train	seed_mae	0.21166666666666667	seed=46
+1778576087_Blood_pig_train	Blood	pig_train	seed_mae	0.23583333333333334	seed=47
+1778576089_Blood_pig_train	Blood	pig_train	seed_mae	0.22416666666666668	seed=48
+1778576091_Blood_pig_train	Blood	pig_train	seed_mae	0.29000000000000004	seed=49
+1778576093_Blood_pig_train	Blood	pig_train	seed_mae	0.2375	seed=50
+1778576096_Blood_pig_train	Blood	pig_train	seed_mae	0.3258333333333333	seed=51
+1778576096_Blood_pig_stable	Blood	pig_stable	n_stable_100	19	
+1778576096_Blood_pig_stability	Blood	pig_stability	jaccard_top100_mean	0.23967566927811884	
+1778576096_Blood_human_load	Blood	human_load	available	0	no human postnatal matrix
+1778578843_ALL_orthologs	ALL	orthologs	n_pairs	7485	
+1778578844_Muscle_load_pig	Muscle	load_pig	n_samples	761	
+1778578844_Muscle_load_pig	Muscle	load_pig	n_genes	7485	
+1778578861_Muscle_pig_train	Muscle	pig_train	seed_mae	0.11567767457860338	seed=42
+1778578879_Muscle_pig_train	Muscle	pig_train	seed_mae	0.1366185070519436	seed=43
+1778578898_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13665290677674577	seed=44
+1778578916_Muscle_pig_train	Muscle	pig_train	seed_mae	0.1327141382868937	seed=45
+1778578934_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13936188510491915	seed=46
+1778578953_Muscle_pig_train	Muscle	pig_train	seed_mae	0.11562607499140007	seed=47
+1778578971_Muscle_pig_train	Muscle	pig_train	seed_mae	0.12217922256621946	seed=48
+1778578988_Muscle_pig_train	Muscle	pig_train	seed_mae	0.11694186446508428	seed=49
+1778579007_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13270553835569315	seed=50
+1778579025_Muscle_pig_train	Muscle	pig_train	seed_mae	0.13263673890608874	seed=51
+1778579025_Muscle_pig_stable	Muscle	pig_stable	n_stable_100	41	
+1778579025_Muscle_pig_stability	Muscle	pig_stability	jaccard_top100_mean	0.3755781292892685	
+1778579026_Muscle_load_human	Muscle	load_human	n_samples	11	
+1778579026_Muscle_load_human	Muscle	load_human	n_infant	4	
+1778579026_Muscle_load_human	Muscle	load_human	n_adult	7	
+1778579028_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5178571428571429	seed=42
+1778579030_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5178571428571429	seed=43
+1778579032_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5357142857142857	seed=44
+1778579035_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.4642857142857143	seed=45
+1778579037_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5	seed=46
+1778579039_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5	seed=47
+1778579042_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.4642857142857143	seed=48
+1778579044_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5	seed=49
+1778579047_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.5178571428571429	seed=50
+1778579049_Muscle_human_train	Muscle	human_train	seed_lpo_acc	0.4642857142857143	seed=51
+1778579049_Muscle_human_stable	Muscle	human_stable	n_stable_100	49	
+1778579088_Muscle_human_sweep	Muscle	human_sweep	joint_n	2	sweep=1
+1778579088_Muscle_joint	Muscle	joint	n_joint_100	2	
+1778579088_Muscle_human_stability	Muscle	human_stability	jaccard_top100_mean	0.4145087737065833	
+1778579088_Muscle_concordance	Muscle	concordance	pearson_r	None	n=2
+1778579088_Brain_load_pig	Brain	load_pig	n_samples	38	
+1778579088_Brain_load_pig	Brain	load_pig	n_genes	7485	
+1778579089_Brain_pig_train	Brain	pig_train	seed_mae	0.8678571428571429	seed=42
+1778579089_Brain_pig_train	Brain	pig_train	seed_mae	0.8571428571428571	seed=43
+1778579090_Brain_pig_train	Brain	pig_train	seed_mae	0.7071428571428571	seed=44
+1778579090_Brain_pig_train	Brain	pig_train	seed_mae	0.8464285714285713	seed=45
+1778579091_Brain_pig_train	Brain	pig_train	seed_mae	0.9214285714285714	seed=46
+1778579091_Brain_pig_train	Brain	pig_train	seed_mae	0.5464285714285715	seed=47
+1778579092_Brain_pig_train	Brain	pig_train	seed_mae	0.7821428571428571	seed=48
+1778579093_Brain_pig_train	Brain	pig_train	seed_mae	0.6321428571428571	seed=49
+1778579093_Brain_pig_train	Brain	pig_train	seed_mae	0.9321428571428572	seed=50
+1778579094_Brain_pig_train	Brain	pig_train	seed_mae	0.5678571428571428	seed=51
+1778579094_Brain_pig_stable	Brain	pig_stable	n_stable_100	45	
+1778579094_Brain_pig_stability	Brain	pig_stability	jaccard_top100_mean	0.3981756124867028	
+1778579094_Brain_load_human	Brain	load_human	n_samples	16	
+1778579094_Brain_load_human	Brain	load_human	n_infant	7	
+1778579094_Brain_load_human	Brain	load_human	n_adult	9	
+1778579103_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7380952380952381	seed=42
+1778579113_Brain_human_train	Brain	human_train	seed_lpo_acc	0.8095238095238095	seed=43
+1778579122_Brain_human_train	Brain	human_train	seed_lpo_acc	0.753968253968254	seed=44
+1778579131_Brain_human_train	Brain	human_train	seed_lpo_acc	0.8015873015873016	seed=45
+1778579140_Brain_human_train	Brain	human_train	seed_lpo_acc	0.746031746031746	seed=46
+1778579150_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7857142857142857	seed=47
+1778579161_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7857142857142857	seed=48
+1778579170_Brain_human_train	Brain	human_train	seed_lpo_acc	0.8095238095238095	seed=49
+1778579179_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7936507936507936	seed=50
+1778579190_Brain_human_train	Brain	human_train	seed_lpo_acc	0.7857142857142857	seed=51
+1778579190_Brain_human_stable	Brain	human_stable	n_stable_100	60	
+1778579190_Brain_joint	Brain	joint	n_joint_100	16	
+1778579190_Brain_human_stability	Brain	human_stability	jaccard_top100_mean	0.49191054250416405	
+1778579190_Brain_concordance	Brain	concordance	pearson_r	0.14226671031953728	n=16
+1778579190_Liver_load_pig	Liver	load_pig	n_samples	309	
+1778579190_Liver_load_pig	Liver	load_pig	n_genes	7485	
+1778579202_Liver_pig_train	Liver	pig_train	seed_mae	0.2265468006345849	seed=42
+1778579214_Liver_pig_train	Liver	pig_train	seed_mae	0.23590692755156	seed=43
+1778579226_Liver_pig_train	Liver	pig_train	seed_mae	0.18757271285034371	seed=44
+1778579237_Liver_pig_train	Liver	pig_train	seed_mae	0.2099947117927023	seed=45
+1778579249_Liver_pig_train	Liver	pig_train	seed_mae	0.2585933368588048	seed=46
+1778579261_Liver_pig_train	Liver	pig_train	seed_mae	0.20380750925436275	seed=47
+1778579273_Liver_pig_train	Liver	pig_train	seed_mae	0.2721311475409836	seed=48
+1778579285_Liver_pig_train	Liver	pig_train	seed_mae	0.2489687995769434	seed=49
+1778579298_Liver_pig_train	Liver	pig_train	seed_mae	0.21364357482813326	seed=50
+1778579310_Liver_pig_train	Liver	pig_train	seed_mae	0.20100475938656795	seed=51
+1778579310_Liver_pig_stable	Liver	pig_stable	n_stable_100	45	
+1778579310_Liver_pig_stability	Liver	pig_stability	jaccard_top100_mean	0.3741807619301929	
+1778579311_Liver_load_human	Liver	load_human	n_samples	10	
+1778579311_Liver_load_human	Liver	load_human	n_infant	4	
+1778579311_Liver_load_human	Liver	load_human	n_adult	6	
+1778579312_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=42
+1778579314_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=43
+1778579315_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=44
+1778579317_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=45
+1778579318_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=46
+1778579320_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=47
+1778579322_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=48
+1778579323_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=49
+1778579325_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=50
+1778579326_Liver_human_train	Liver	human_train	seed_lpo_acc	0.5	seed=51
+1778579326_Liver_human_stable	Liver	human_stable	n_stable_100	77	
+1778579326_Liver_joint	Liver	joint	n_joint_100	1	
+1778579326_Liver_human_stability	Liver	human_stability	jaccard_top100_mean	0.6633923223423929	
+1778579326_Liver_concordance	Liver	concordance	pearson_r	None	n=1
+1778579326_Lung_load_pig	Lung	load_pig	n_samples	129	
+1778579326_Lung_load_pig	Lung	load_pig	n_genes	7485	
+1778579330_Lung_pig_train	Lung	pig_train	seed_mae	0.17815384615384616	seed=42
+1778579335_Lung_pig_train	Lung	pig_train	seed_mae	0.16246153846153846	seed=43
+1778579339_Lung_pig_train	Lung	pig_train	seed_mae	0.1704615384615385	seed=44
+1778579344_Lung_pig_train	Lung	pig_train	seed_mae	0.17815384615384616	seed=45
+1778579348_Lung_pig_train	Lung	pig_train	seed_mae	0.17784615384615388	seed=46
+1778579352_Lung_pig_train	Lung	pig_train	seed_mae	0.23199999999999998	seed=47
+1778579357_Lung_pig_train	Lung	pig_train	seed_mae	0.16984615384615384	seed=48
+1778579361_Lung_pig_train	Lung	pig_train	seed_mae	0.2166153846153846	seed=49
+1778579366_Lung_pig_train	Lung	pig_train	seed_mae	0.14676923076923076	seed=50
+1778579370_Lung_pig_train	Lung	pig_train	seed_mae	0.14707692307692308	seed=51
+1778579370_Lung_pig_stable	Lung	pig_stable	n_stable_100	36	
+1778579370_Lung_pig_stability	Lung	pig_stability	jaccard_top100_mean	0.29992341111707205	
+1778579370_Lung_human_load	Lung	human_load	available	0	no human postnatal matrix
+1778579371_Blood_load_pig	Blood	load_pig	n_samples	76	
+1778579371_Blood_load_pig	Blood	load_pig	n_genes	7485	
+1778579373_Blood_pig_train	Blood	pig_train	seed_mae	0.20916666666666667	seed=42
+1778579375_Blood_pig_train	Blood	pig_train	seed_mae	0.26166666666666666	seed=43
+1778579377_Blood_pig_train	Blood	pig_train	seed_mae	0.25083333333333335	seed=44
+1778579379_Blood_pig_train	Blood	pig_train	seed_mae	0.28833333333333333	seed=45
+1778579381_Blood_pig_train	Blood	pig_train	seed_mae	0.21166666666666667	seed=46
+1778579383_Blood_pig_train	Blood	pig_train	seed_mae	0.23583333333333334	seed=47
+1778579386_Blood_pig_train	Blood	pig_train	seed_mae	0.22416666666666668	seed=48
+1778579388_Blood_pig_train	Blood	pig_train	seed_mae	0.29000000000000004	seed=49
+1778579390_Blood_pig_train	Blood	pig_train	seed_mae	0.2375	seed=50
+1778579392_Blood_pig_train	Blood	pig_train	seed_mae	0.3258333333333333	seed=51
+1778579392_Blood_pig_stable	Blood	pig_stable	n_stable_100	19	
+1778579392_Blood_pig_stability	Blood	pig_stability	jaccard_top100_mean	0.23967566927811884	
+1778579392_Blood_human_load	Blood	human_load	available	0	no human postnatal matrix

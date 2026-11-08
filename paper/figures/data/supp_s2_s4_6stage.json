@@ -1,0 +1,336 @@
+{
+  "S2": {
+    "Muscle": [
+      {
+        "stage": "Neonatal",
+        "n": 156,
+        "precision": 0.939,
+        "recall": 0.885,
+        "f1": 0.911
+      },
+      {
+        "stage": "Suckling",
+        "n": 87,
+        "precision": 0.728,
+        "recall": 0.77,
+        "f1": 0.749
+      },
+      {
+        "stage": "Juvenile",
+        "n": 56,
+        "precision": 0.623,
+        "recall": 0.589,
+        "f1": 0.606
+      },
+      {
+        "stage": "Pre-pubertal",
+        "n": 227,
+        "precision": 0.768,
+        "recall": 0.903,
+        "f1": 0.83
+      },
+      {
+        "stage": "Post-pubertal",
+        "n": 231,
+        "precision": 0.909,
+        "recall": 0.779,
+        "f1": 0.839
+      }
+    ],
+    "Brain": [
+      {
+        "stage": "Neonatal",
+        "n": 18,
+        "precision": 1.0,
+        "recall": 0.778,
+        "f1": 0.875
+      },
+      {
+        "stage": "Suckling",
+        "n": 52,
+        "precision": 0.944,
+        "recall": 0.981,
+        "f1": 0.962
+      },
+      {
+        "stage": "Juvenile",
+        "n": 82,
+        "precision": 0.9,
+        "recall": 0.988,
+        "f1": 0.942
+      },
+      {
+        "stage": "Post-pubertal",
+        "n": 18,
+        "precision": 0.917,
+        "recall": 0.611,
+        "f1": 0.733
+      }
+    ],
+    "Liver": [
+      {
+        "stage": "Neonatal",
+        "n": 17,
+        "precision": 0.75,
+        "recall": 0.706,
+        "f1": 0.727
+      },
+      {
+        "stage": "Suckling",
+        "n": 120,
+        "precision": 0.884,
+        "recall": 0.825,
+        "f1": 0.853
+      },
+      {
+        "stage": "Juvenile",
+        "n": 34,
+        "precision": 0.381,
+        "recall": 0.471,
+        "f1": 0.421
+      },
+      {
+        "stage": "Pre-pubertal",
+        "n": 80,
+        "precision": 0.789,
+        "recall": 0.887,
+        "f1": 0.835
+      },
+      {
+        "stage": "Post-pubertal",
+        "n": 29,
+        "precision": 0.395,
+        "recall": 0.517,
+        "f1": 0.448
+      },
+      {
+        "stage": "Adult",
+        "n": 29,
+        "precision": 0.909,
+        "recall": 0.345,
+        "f1": 0.5
+      }
+    ],
+    "Blood": [
+      {
+        "stage": "Juvenile",
+        "n": 42,
+        "precision": 0.953,
+        "recall": 0.976,
+        "f1": 0.965
+      },
+      {
+        "stage": "Post-pubertal",
+        "n": 32,
+        "precision": 0.968,
+        "recall": 0.938,
+        "f1": 0.952
+      }
+    ],
+    "Lung": [
+      {
+        "stage": "Neonatal",
+        "n": 28,
+        "precision": 1.0,
+        "recall": 0.964,
+        "f1": 0.982
+      },
+      {
+        "stage": "Juvenile",
+        "n": 64,
+        "precision": 0.97,
+        "recall": 1.0,
+        "f1": 0.985
+      },
+      {
+        "stage": "Post-pubertal",
+        "n": 27,
+        "precision": 1.0,
+        "recall": 0.963,
+        "f1": 0.981
+      }
+    ]
+  },
+  "S4": {
+    "Muscle": {
+      "rows": [
+        {
+          "PC": "PC1",
+          "r2_stage": 0.484,
+          "r2_bioproject": 0.803,
+          "r2_combined": 0.895
+        },
+        {
+          "PC": "PC2",
+          "r2_stage": 0.311,
+          "r2_bioproject": 0.75,
+          "r2_combined": 0.811
+        },
+        {
+          "PC": "PC3",
+          "r2_stage": 0.135,
+          "r2_bioproject": 0.862,
+          "r2_combined": 0.886
+        },
+        {
+          "PC": "PC4",
+          "r2_stage": 0.208,
+          "r2_bioproject": 0.718,
+          "r2_combined": 0.821
+        },
+        {
+          "PC": "PC5",
+          "r2_stage": 0.034,
+          "r2_bioproject": 0.846,
+          "r2_combined": 0.852
+        }
+      ],
+      "n_samples": 761,
+      "n_projects": 56
+    },
+    "Brain": {
+      "rows": [
+        {
+          "PC": "PC1",
+          "r2_stage": 0.468,
+          "r2_bioproject": 0.942,
+          "r2_combined": 0.942
+        },
+        {
+          "PC": "PC2",
+          "r2_stage": 0.121,
+          "r2_bioproject": 0.982,
+          "r2_combined": 0.983
+        },
+        {
+          "PC": "PC3",
+          "r2_stage": 0.142,
+          "r2_bioproject": 0.98,
+          "r2_combined": 0.98
+        },
+        {
+          "PC": "PC4",
+          "r2_stage": 0.147,
+          "r2_bioproject": 0.978,
+          "r2_combined": 0.978
+        },
+        {
+          "PC": "PC5",
+          "r2_stage": 0.391,
+          "r2_bioproject": 0.969,
+          "r2_combined": 0.979
+        }
+      ],
+      "n_samples": 174,
+      "n_projects": 17
+    },
+    "Liver": {
+      "rows": [
+        {
+          "PC": "PC1",
+          "r2_stage": 0.146,
+          "r2_bioproject": 0.935,
+          "r2_combined": 0.936
+        },
+        {
+          "PC": "PC2",
+          "r2_stage": 0.178,
+          "r2_bioproject": 0.962,
+          "r2_combined": 0.962
+        },
+        {
+          "PC": "PC3",
+          "r2_stage": 0.103,
+          "r2_bioproject": 0.919,
+          "r2_combined": 0.92
+        },
+        {
+          "PC": "PC4",
+          "r2_stage": 0.12,
+          "r2_bioproject": 0.869,
+          "r2_combined": 0.881
+        },
+        {
+          "PC": "PC5",
+          "r2_stage": 0.385,
+          "r2_bioproject": 0.641,
+          "r2_combined": 0.751
+        }
+      ],
+      "n_samples": 309,
+      "n_projects": 34
+    },
+    "Blood": {
+      "rows": [
+        {
+          "PC": "PC1",
+          "r2_stage": 0.023,
+          "r2_bioproject": 0.806,
+          "r2_combined": 0.817
+        },
+        {
+          "PC": "PC2",
+          "r2_stage": 0.359,
+          "r2_bioproject": 0.954,
+          "r2_combined": 0.96
+        },
+        {
+          "PC": "PC3",
+          "r2_stage": 0.316,
+          "r2_bioproject": 0.727,
+          "r2_combined": 0.748
+        },
+        {
+          "PC": "PC4",
+          "r2_stage": 0.112,
+          "r2_bioproject": 0.794,
+          "r2_combined": 0.815
+        },
+        {
+          "PC": "PC5",
+          "r2_stage": 0.347,
+          "r2_bioproject": 0.914,
+          "r2_combined": 0.934
+        }
+      ],
+      "n_samples": 78,
+      "n_projects": 7
+    },
+    "Lung": {
+      "rows": [
+        {
+          "PC": "PC1",
+          "r2_stage": 0.279,
+          "r2_bioproject": 0.881,
+          "r2_combined": 0.882
+        },
+        {
+          "PC": "PC2",
+          "r2_stage": 0.557,
+          "r2_bioproject": 0.895,
+          "r2_combined": 0.895
+        },
+        {
+          "PC": "PC3",
+          "r2_stage": 0.285,
+          "r2_bioproject": 0.813,
+          "r2_combined": 0.814
+        },
+        {
+          "PC": "PC4",
+          "r2_stage": 0.121,
+          "r2_bioproject": 0.752,
+          "r2_combined": 0.753
+        },
+        {
+          "PC": "PC5",
+          "r2_stage": 0.259,
+          "r2_bioproject": 0.904,
+          "r2_combined": 0.911
+        }
+      ],
+      "n_samples": 129,
+      "n_projects": 20
+    }
+  }
+}

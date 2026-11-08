@@ -1,0 +1,17 @@
+{
+  "top_k": 50,
+  "pairwise_jaccard": {
+    "Muscle|Brain": 0.0,
+    "Muscle|Liver": 0.0101,
+    "Muscle|Blood": 0.0,
+    "Muscle|Lung": 0.0,
+    "Brain|Liver": 0.0,
+    "Brain|Blood": 0.02041,
+    "Brain|Lung": 0.02041,
+    "Liver|Blood": 0.02041,
+    "Liver|Lung": 0.0,
+    "Blood|Lung": 0.0
+  },
+  "mean_jaccard": 0.00713,
+  "mean_jaccard_pct": 0.713
+}

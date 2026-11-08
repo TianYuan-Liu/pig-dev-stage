@@ -1,0 +1,101 @@
+{
+  "tissue": "Lung",
+  "pig_tissue": "Lung",
+  "human_source": "LungMAP_LMEX0000003691",
+  "cell_pop": "MIC",
+  "drop_adult": true,
+  "n_orthologs_tested": 7142,
+  "sample_sizes": {
+    "pig_young": 56,
+    "pig_old": 27,
+    "human_young": 4,
+    "human_old": 7
+  },
+  "strict": {
+    "label": "strict_FDR_both",
+    "n_genes": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance": null
+  },
+  "pig_anchored": {
+    "label": "pig_anchored",
+    "n_genes": 481,
+    "pearson_r": 0.18910283555543816,
+    "pearson_p": 2.989306161883172e-05,
+    "ci_low": 0.08685923000561982,
+    "ci_high": 0.28648176885053805,
+    "directional_concordance": 69.64656964656965
+  },
+  "fc_only": {
+    "label": "fc_only_no_fdr",
+    "n_genes": 1797,
+    "pearson_r": 0.038609305964349055,
+    "pearson_p": 0.10180616853132213,
+    "ci_low": -0.02015041958353309,
+    "ci_high": 0.09698533424779186,
+    "directional_concordance": 66.83361157484697
+  },
+  "donor_info": {
+    "cell_pop": "MIC",
+    "drop_adult": true,
+    "young_donors": [
+      "D044",
+      "D041",
+      "D038",
+      "D019"
+    ],
+    "old_donors": [
+      "D043",
+      "D036",
+      "D024",
+      "D022",
+      "D018",
+      "D011",
+      "D008",
+      "D143",
+      "D136",
+      "D134",
+      "D133",
+      "D119",
+      "D113",
+      "D110",
+      "D105",
+      "D092",
+      "D075",
+      "D063",
+      "D056",
+      "D031"
+    ],
+    "young_ages": [
+      "6 Days",
+      "6 Days",
+      "1 Days",
+      "1 Days"
+    ],
+    "old_ages": [
+      "21 Months",
+      "8 Years",
+      "4 Months",
+      "2 Years",
+      "3 Years",
+      "20 Months",
+      "20 Months",
+      "3 Months",
+      "16 Months",
+      "8 Years",
+      "11 Months",
+      "13 Months",
+      "5 Months",
+      "3 Months",
+      "6 Months",
+      "2 Months",
+      "4 Months",
+      "16 Months",
+      "5 Years",
+      "7 Months"
+    ]
+  }
+}

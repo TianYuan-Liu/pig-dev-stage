@@ -1,0 +1,63 @@
+{
+  "variant": "A",
+  "tissue": "Brain",
+  "human_available": true,
+  "pig_stable_n": 0,
+  "primary_threshold": 0.3,
+  "joint_set_n": 0,
+  "expected_by_chance": 0.0,
+  "ratio_observed_to_chance": null,
+  "concordance": {
+    "n_joint_for_fc": 0,
+    "pearson_r": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance_pct": null,
+    "n_concordant_direction": 0
+  },
+  "annotation_summary": {},
+  "joint_features": [],
+  "threshold_sweep": {
+    "0.2": {
+      "threshold": 0.2,
+      "joint_n": 0,
+      "concordance": {
+        "n_joint_for_fc": 0,
+        "pearson_r": null,
+        "ci_low": null,
+        "ci_high": null,
+        "directional_concordance_pct": null,
+        "n_concordant_direction": 0
+      },
+      "annotation_summary": {}
+    },
+    "0.3": {
+      "threshold": 0.3,
+      "joint_n": 0,
+      "concordance": {
+        "n_joint_for_fc": 0,
+        "pearson_r": null,
+        "ci_low": null,
+        "ci_high": null,
+        "directional_concordance_pct": null,
+        "n_concordant_direction": 0
+      },
+      "annotation_summary": {},
+      "expected_by_chance": 0.0,
+      "ratio_observed_to_chance": null
+    },
+    "0.5": {
+      "threshold": 0.5,
+      "joint_n": 0,
+      "concordance": {
+        "n_joint_for_fc": 0,
+        "pearson_r": null,
+        "ci_low": null,
+        "ci_high": null,
+        "directional_concordance_pct": null,
+        "n_concordant_direction": 0
+      },
+      "annotation_summary": {}
+    }
+  }
+}

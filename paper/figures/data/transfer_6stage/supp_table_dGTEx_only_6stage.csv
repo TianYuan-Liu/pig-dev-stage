@@ -1,0 +1,8 @@
+organ,species,rho,n_target,scramble_p,flag,n_orth
+Lung,Human,0.6699,35,0.005994,,15173
+Muscle,Human,0.5932,48,0.002997,,15173
+Adipose,Human,0.6636,38,0.001998,,15173
+Heart,Human,0.7715,7,0.584416,underpowered,15173
+Liver,Human,0.3262,11,0.466533,underpowered,15173
+Spleen,Human,0.126,8,0.816184,underpowered,15173
+Testis,Human,0.7437,10,0.252747,underpowered,15173

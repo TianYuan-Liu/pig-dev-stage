@@ -1,0 +1,590 @@
+{
+  "ENSSSCG00000000528": {
+    "ensembl": "ENSSSCG00000000528",
+    "function": "Plakophilin-2.",
+    "source": "uniprot_ensembl",
+    "symbol": "PKP2"
+  },
+  "ENSSSCG00000001075": {
+    "ensembl": "ENSSSCG00000001075",
+    "function": "Involved in chromatin organization.",
+    "source": "uniprot_ensembl",
+    "symbol": "DEK"
+  },
+  "ENSSSCG00000002885": {
+    "ensembl": "ENSSSCG00000002885",
+    "function": "Transcription factor that binds to a symmetrical DNA sequence (E-boxes) (5'-CACGTG-3') that is found in a variety of viral and cellular promoters.",
+    "source": "uniprot_ensembl",
+    "symbol": "USF2"
+  },
+  "ENSSSCG00000003329": {
+    "ensembl": "ENSSSCG00000003329",
+    "function": "GTPase-activating protein for the ADP ribosylation factor family.",
+    "source": "uniprot_ensembl",
+    "symbol": "ACAP3"
+  },
+  "ENSSSCG00000004087": {
+    "ensembl": "ENSSSCG00000004087",
+    "function": "Coiled-coil domain containing 170.",
+    "source": "uniprot_ensembl",
+    "symbol": "CCDC170"
+  },
+  "ENSSSCG00000004094": {
+    "ensembl": "ENSSSCG00000004094",
+    "function": "Inhibitor of PPP1CA.",
+    "source": "uniprot_ensembl",
+    "symbol": "PPP1R14C"
+  },
+  "ENSSSCG00000004106": {
+    "ensembl": "ENSSSCG00000004106",
+    "function": "non-specific serine/threonine protein kinase.",
+    "source": "uniprot_ensembl",
+    "symbol": "LATS1"
+  },
+  "ENSSSCG00000004289": {
+    "ensembl": "ENSSSCG00000004289",
+    "function": "Centrosomal protein of 162 kDa.",
+    "source": "uniprot_ensembl",
+    "symbol": "CEP162"
+  },
+  "ENSSSCG00000004399": {
+    "ensembl": "ENSSSCG00000004399",
+    "function": "Facilitative organic cation transporter that mediates the transport of carnitine as well as the polyamine spermidine. Mediates the partially Na(+)-dependent bidirectional transport of carnitine.",
+    "source": "uniprot_ensembl",
+    "symbol": "SLC22A16"
+  },
+  "ENSSSCG00000004803": {
+    "ensembl": "ENSSSCG00000004803",
+    "function": "Actin alpha cardiac muscle 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "ACTC1"
+  },
+  "ENSSSCG00000004886": {
+    "ensembl": "ENSSSCG00000004886",
+    "function": "Cadherins are calcium-dependent cell adhesion proteins.",
+    "source": "uniprot_ensembl",
+    "symbol": "CDH7"
+  },
+  "ENSSSCG00000004970": {
+    "ensembl": "ENSSSCG00000004970",
+    "function": "Plays an important role in the elongation step of protein synthesis.",
+    "source": "uniprot_ensembl",
+    "symbol": "RPLP1"
+  },
+  "ENSSSCG00000005224": {
+    "ensembl": "ENSSSCG00000005224",
+    "function": "GLIS family zinc finger 3.",
+    "source": "uniprot_ensembl",
+    "symbol": "GLIS3"
+  },
+  "ENSSSCG00000005609": {
+    "ensembl": "ENSSSCG00000005609",
+    "function": "GTPase-activating Rap/Ran-GAP domain-like protein 3.",
+    "source": "uniprot_ensembl",
+    "symbol": "GARNL3"
+  },
+  "ENSSSCG00000005707": {
+    "ensembl": "ENSSSCG00000005707",
+    "function": "Fibrinogen C domain containing 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "FIBCD1"
+  },
+  "ENSSSCG00000006462": {
+    "ensembl": "ENSSSCG00000006462",
+    "function": "Leucine rich repeat containing 71.",
+    "source": "uniprot_ensembl",
+    "symbol": "LRRC71"
+  },
+  "ENSSSCG00000007186": {
+    "ensembl": "ENSSSCG00000007186",
+    "function": "Ig-like domain-containing protein.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100626120"
+  },
+  "ENSSSCG00000008853": {
+    "ensembl": "ENSSSCG00000008853",
+    "function": "Metalloendopeptidase.",
+    "source": "uniprot_ensembl",
+    "symbol": "TLL1"
+  },
+  "ENSSSCG00000009611": {
+    "ensembl": "ENSSSCG00000009611",
+    "function": "Exportin 7.",
+    "source": "uniprot_ensembl",
+    "symbol": "XPO7"
+  },
+  "ENSSSCG00000010495": {
+    "ensembl": "ENSSSCG00000010495",
+    "function": "Bifunctional enzyme that converts glutamate to glutamate 5-semialdehyde, an intermediate in the biosynthesis of proline, ornithine and arginine.",
+    "source": "uniprot_ensembl",
+    "symbol": "ALDH18A1"
+  },
+  "ENSSSCG00000010700": {
+    "ensembl": "ENSSSCG00000010700",
+    "function": "Component of the SMC5-SMC6 complex, that promotes sister chromatid alignment after DNA damage and facilitates double-stranded DNA breaks (DSBs) repair via homologous recombination between sister chromatids.",
+    "source": "uniprot_ensembl",
+    "symbol": "NSMCE4A"
+  },
+  "ENSSSCG00000011795": {
+    "ensembl": "ENSSSCG00000011795",
+    "function": "RNA-binding factor that recruits target transcripts to cytoplasmic protein-RNA complexes (mRNPs). This transcript 'caging' into mRNPs allows mRNA transport and transient storage.",
+    "source": "uniprot_ensembl",
+    "symbol": "IGF2BP2"
+  },
+  "ENSSSCG00000012153": {
+    "ensembl": "ENSSSCG00000012153",
+    "function": "Retinoic acid induced 2.",
+    "source": "uniprot_ensembl",
+    "symbol": "RAI2"
+  },
+  "ENSSSCG00000012234": {
+    "ensembl": "ENSSSCG00000012234",
+    "function": "Sushi repeat containing protein X-linked.",
+    "source": "uniprot_ensembl",
+    "symbol": "SRPX"
+  },
+  "ENSSSCG00000012546": {
+    "ensembl": "ENSSSCG00000012546",
+    "function": "Nik related kinase.",
+    "source": "uniprot_ensembl",
+    "symbol": "NRK"
+  },
+  "ENSSSCG00000012664": {
+    "ensembl": "ENSSSCG00000012664",
+    "function": "Putative odorant or sperm cell receptor.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100513516"
+  },
+  "ENSSSCG00000012665": {
+    "ensembl": "ENSSSCG00000012665",
+    "function": "Putative odorant or sperm cell receptor.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100511059"
+  },
+  "ENSSSCG00000012666": {
+    "ensembl": "ENSSSCG00000012666",
+    "function": "Putative odorant or sperm cell receptor.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC110257692"
+  },
+  "ENSSSCG00000012667": {
+    "ensembl": "ENSSSCG00000012667",
+    "function": "Immunoglobulin superfamily member 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "IGSF1"
+  },
+  "ENSSSCG00000012668": {
+    "ensembl": "ENSSSCG00000012668",
+    "function": "Putative odorant or sperm cell receptor.",
+    "source": "uniprot_ensembl",
+    "symbol": "ENSSSCG00000012668"
+  },
+  "ENSSSCG00000012669": {
+    "ensembl": "ENSSSCG00000012669",
+    "function": "GTPase activator for the Rho-type GTPases by converting them to an inactive GDP-bound state.",
+    "source": "uniprot_ensembl",
+    "symbol": "ARHGAP36"
+  },
+  "ENSSSCG00000012671": {
+    "ensembl": "ENSSSCG00000012671",
+    "function": "Putative odorant or sperm cell receptor.",
+    "source": "uniprot_ensembl",
+    "symbol": "OR13H1"
+  },
+  "ENSSSCG00000012787": {
+    "ensembl": "ENSSSCG00000012787",
+    "function": "Neural cell adhesion molecule involved in the dynamics of cell adhesion and in the generation of transmembrane signals at tyrosine kinase receptors. During brain development, critical in multiple processes, including neuronal migration, axonal growth and fasciculation, and.",
+    "source": "uniprot_ensembl",
+    "symbol": "L1CAM"
+  },
+  "ENSSSCG00000013661": {
+    "ensembl": "ENSSSCG00000013661",
+    "function": "RNA-binding component of the eukaryotic translation initiation factor 3 (eIF-3) complex, which is required for several steps in the initiation of protein synthesis. The eIF-3 complex associates with the 40S ribosome and facilitates the recruitment of eIF-1, eIF-1A,.",
+    "source": "uniprot_ensembl",
+    "symbol": "EIF3G"
+  },
+  "ENSSSCG00000013788": {
+    "ensembl": "ENSSSCG00000013788",
+    "function": "Adhesion G protein-coupled receptor E2.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100516957"
+  },
+  "ENSSSCG00000015297": {
+    "ensembl": "ENSSSCG00000015297",
+    "function": "ADAM metallopeptidase domain 22.",
+    "source": "uniprot_ensembl",
+    "symbol": "ADAM22"
+  },
+  "ENSSSCG00000016453": {
+    "ensembl": "ENSSSCG00000016453",
+    "function": "TRPM8 channel associated factor 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100519808"
+  },
+  "ENSSSCG00000017379": {
+    "ensembl": "ENSSSCG00000017379",
+    "function": "ETS variant transcription factor 4.",
+    "source": "uniprot_ensembl",
+    "symbol": "ETV4"
+  },
+  "ENSSSCG00000017566": {
+    "ensembl": "ENSSSCG00000017566",
+    "function": "Acyl-CoA synthases catalyze the initial reaction in fatty acid metabolism, by forming a thioester with CoA. Has some preference toward medium-chain substrates.",
+    "source": "uniprot_ensembl",
+    "symbol": "ACSF2"
+  },
+  "ENSSSCG00000018052": {
+    "ensembl": "ENSSSCG00000018052",
+    "function": "5',3'-nucleotidase, mitochondrial.",
+    "source": "uniprot_ensembl",
+    "symbol": "NT5M"
+  },
+  "ENSSSCG00000021657": {
+    "ensembl": "ENSSSCG00000021657",
+    "function": "DNA-binding protein SATB.",
+    "source": "uniprot_ensembl",
+    "symbol": "SATB2"
+  },
+  "ENSSSCG00000023975": {
+    "ensembl": "ENSSSCG00000023975",
+    "function": "Coiled-coil domain containing 9B.",
+    "source": "uniprot_ensembl",
+    "symbol": "CCDC9B"
+  },
+  "ENSSSCG00000024562": {
+    "ensembl": "ENSSSCG00000024562",
+    "function": "C-C motif chemokine receptor 6.",
+    "source": "uniprot_ensembl",
+    "symbol": "CCR6"
+  },
+  "ENSSSCG00000024800": {
+    "ensembl": "ENSSSCG00000024800",
+    "function": "Desmocollin 2.",
+    "source": "uniprot_ensembl",
+    "symbol": "DSC2"
+  },
+  "ENSSSCG00000026087": {
+    "ensembl": "ENSSSCG00000026087",
+    "function": "G kinase anchoring protein 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "GKAP1"
+  },
+  "ENSSSCG00000027232": {
+    "ensembl": "ENSSSCG00000027232",
+    "function": "Protein FAM169B.",
+    "source": "uniprot_ensembl",
+    "symbol": "FAM169B"
+  },
+  "ENSSSCG00000027613": {
+    "ensembl": "ENSSSCG00000027613",
+    "function": "Contributes to the regulation of lumenal Ca2+ release via the sarcoplasmic reticulum calcium release channels RYR1 and RYR2, a key step in triggering skeletal and heart muscle contraction. Required for normal organization of the triad junction, where T-tubules and the.",
+    "source": "uniprot_ensembl",
+    "symbol": "TRDN"
+  },
+  "ENSSSCG00000028623": {
+    "ensembl": "ENSSSCG00000028623",
+    "function": "Retinoic acid receptor responder 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "RARRES1"
+  },
+  "ENSSSCG00000028643": {
+    "ensembl": "ENSSSCG00000028643",
+    "function": "Transporter.",
+    "source": "uniprot_ensembl",
+    "symbol": "SLC6A20"
+  },
+  "ENSSSCG00000029295": {
+    "ensembl": "ENSSSCG00000029295",
+    "function": "BPI fold containing family B member 4.",
+    "source": "uniprot_ensembl",
+    "symbol": "BPIFB4"
+  },
+  "ENSSSCG00000030303": {
+    "ensembl": "ENSSSCG00000030303",
+    "function": "Carboxylic ester hydrolase.",
+    "source": "uniprot_ensembl",
+    "symbol": "ACHE"
+  },
+  "ENSSSCG00000030575": {
+    "ensembl": "ENSSSCG00000030575",
+    "function": "Transmembrane protein 158.",
+    "source": "uniprot_ensembl",
+    "symbol": "TMEM158"
+  },
+  "ENSSSCG00000031003": {
+    "ensembl": "ENSSSCG00000031003",
+    "function": "Uncharacterized protein.",
+    "source": "uniprot_ensembl",
+    "symbol": "ENSSSCG00000031003"
+  },
+  "ENSSSCG00000031136": {
+    "ensembl": "ENSSSCG00000031136",
+    "function": "Putative odorant or sperm cell receptor.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100514087"
+  },
+  "ENSSSCG00000031648": {
+    "ensembl": "ENSSSCG00000031648",
+    "function": "May play an important role in modulating bone turnover. Promotes the adhesion of osteoblast cells and inhibits the binding of fibrinogen to integrin receptors.",
+    "source": "uniprot_ensembl",
+    "symbol": "CCN5"
+  },
+  "ENSSSCG00000032433": {
+    "ensembl": "ENSSSCG00000032433",
+    "function": "Required for the development and function of the thalamic reticular nucleus (TRN), a part of the thalamus that is critical for thalamocortical transmission, generation of sleep rhythms, sensorimotor processing and attention. Can bind cholesterol in vitro.",
+    "source": "uniprot_ensembl",
+    "symbol": "PTCHD1"
+  },
+  "ENSSSCG00000032810": {
+    "ensembl": "ENSSSCG00000032810",
+    "function": "Cleaves peptide substrates after methionine, leucine, and norleucine. Physiological substrates include EZR, alpha-tubulins and the apoptosis inhibitor BIRC5/Survivin.",
+    "source": "uniprot_ensembl",
+    "symbol": "GZMM"
+  },
+  "ENSSSCG00000032833": {
+    "ensembl": "ENSSSCG00000032833",
+    "function": "CD320 molecule.",
+    "source": "uniprot_ensembl",
+    "symbol": "CD320"
+  },
+  "ENSSSCG00000033041": {
+    "ensembl": "ENSSSCG00000033041",
+    "function": "ENSSSCG00000033041",
+    "source": "none",
+    "symbol": "ENSSSCG00000033041"
+  },
+  "ENSSSCG00000033175": {
+    "ensembl": "ENSSSCG00000033175",
+    "function": "Is a positive regulator of NF-kappa-B signaling downstream of TLR4 activation. It acts as a scaffold molecule to assemble a molecular complex that includes TRAF6, MAP3K7, CHUK and IKBKB, thereby facilitating NF-kappa-B signaling activation.",
+    "source": "uniprot_ensembl",
+    "symbol": "SASH1"
+  },
+  "ENSSSCG00000033368": {
+    "ensembl": "ENSSSCG00000033368",
+    "function": "ENSSSCG00000033368",
+    "source": "none",
+    "symbol": "ENSSSCG00000033368"
+  },
+  "ENSSSCG00000033733": {
+    "ensembl": "ENSSSCG00000033733",
+    "function": "High mobility group nucleosome binding domain 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "HMGN1"
+  },
+  "ENSSSCG00000033734": {
+    "ensembl": "ENSSSCG00000033734",
+    "function": "ENSSSCG00000033734",
+    "source": "none",
+    "symbol": "ENSSSCG00000033734"
+  },
+  "ENSSSCG00000033744": {
+    "ensembl": "ENSSSCG00000033744",
+    "function": "Acts as a cytosolic iron-sulfur (Fe-S) cluster assembly factor that facilitates [2Fe-2S] cluster insertion into a subset of cytosolic proteins. Acts together with the monothiol glutaredoxin GLRX3.",
+    "source": "uniprot_ensembl",
+    "symbol": "BOLA2B"
+  },
+  "ENSSSCG00000034023": {
+    "ensembl": "ENSSSCG00000034023",
+    "function": "ENSSSCG00000034023",
+    "source": "none",
+    "symbol": "ENSSSCG00000034023"
+  },
+  "ENSSSCG00000034767": {
+    "ensembl": "ENSSSCG00000034767",
+    "function": "Anti-angiogenic and anti-tumor peptide that inhibits endothelial cell migration, collagen-induced endothelial tube morphogenesis and blood vessel growth in the chorioallantoic membrane. Blocks endothelial cell adhesion to fibronectin and type I collagen.",
+    "source": "uniprot_ensembl",
+    "symbol": "LAMA1"
+  },
+  "ENSSSCG00000035001": {
+    "ensembl": "ENSSSCG00000035001",
+    "function": "ENSSSCG00000035001",
+    "source": "none",
+    "symbol": "ENSSSCG00000035001"
+  },
+  "ENSSSCG00000035805": {
+    "ensembl": "ENSSSCG00000035805",
+    "function": "Delta like non-canonical Notch ligand 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "DLK1"
+  },
+  "ENSSSCG00000036118": {
+    "ensembl": "ENSSSCG00000036118",
+    "function": "ENSSSCG00000036118",
+    "source": "none",
+    "symbol": "ENSSSCG00000036118"
+  },
+  "ENSSSCG00000036135": {
+    "ensembl": "ENSSSCG00000036135",
+    "function": "Collagen type I alpha 1 chain.",
+    "source": "uniprot_ensembl",
+    "symbol": "COL1A1"
+  },
+  "ENSSSCG00000036501": {
+    "ensembl": "ENSSSCG00000036501",
+    "function": "WD repeat-containing protein 1.",
+    "source": "uniprot_ensembl",
+    "symbol": "WDR1"
+  },
+  "ENSSSCG00000036512": {
+    "ensembl": "ENSSSCG00000036512",
+    "function": "Has a negative effect on cell proliferation.",
+    "source": "uniprot_ensembl",
+    "symbol": "FGFRL1"
+  },
+  "ENSSSCG00000036808": {
+    "ensembl": "ENSSSCG00000036808",
+    "function": "Catalyzes the condensation of acetyl-CoA with acetoacetyl-CoA to form HMG-CoA.",
+    "source": "uniprot_ensembl",
+    "symbol": "HMGCS2"
+  },
+  "ENSSSCG00000037120": {
+    "ensembl": "ENSSSCG00000037120",
+    "function": "Thymidine kinase.",
+    "source": "uniprot_ensembl",
+    "symbol": "TK1"
+  },
+  "ENSSSCG00000037246": {
+    "ensembl": "ENSSSCG00000037246",
+    "function": "Electron carrier protein. The oxidized form of the cytochrome c heme group can accept an electron from the heme group of the cytochrome c1 subunit of cytochrome reductase.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100158196"
+  },
+  "ENSSSCG00000037539": {
+    "ensembl": "ENSSSCG00000037539",
+    "function": "VPS10 domain-containing receptor SorCS2.",
+    "source": "uniprot_ensembl",
+    "symbol": "SORCS2"
+  },
+  "ENSSSCG00000037885": {
+    "ensembl": "ENSSSCG00000037885",
+    "function": "Immunoglobulin V-set domain-containing protein.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC102158691"
+  },
+  "ENSSSCG00000038527": {
+    "ensembl": "ENSSSCG00000038527",
+    "function": "Uncharacterized protein.",
+    "source": "uniprot_ensembl",
+    "symbol": "ENSSSCG00000038527"
+  },
+  "ENSSSCG00000039013": {
+    "ensembl": "ENSSSCG00000039013",
+    "function": "Notum, palmitoleoyl-protein carboxylesterase.",
+    "source": "uniprot_ensembl",
+    "symbol": "NOTUM"
+  },
+  "ENSSSCG00000040273": {
+    "ensembl": "ENSSSCG00000040273",
+    "function": "Component of the large ribosomal subunit. The ribosome is a large ribonucleoprotein complex responsible for the synthesis of proteins in the cell.",
+    "source": "uniprot_ensembl",
+    "symbol": "RPL35A"
+  },
+  "ENSSSCG00000040453": {
+    "ensembl": "ENSSSCG00000040453",
+    "function": "Synapsin III.",
+    "source": "uniprot_ensembl",
+    "symbol": "SYN3"
+  },
+  "ENSSSCG00000040647": {
+    "ensembl": "ENSSSCG00000040647",
+    "function": "microRNAs (miRNAs) are short (20-24 nt) non-coding RNAs that are involved in post-transcriptional regulation of gene expression in multicellular organisms by affecting both the stability and translation of mRNAs. miRNAs are transcribed by RNA polymerase II as part of capped and.",
+    "source": "mygene_summary",
+    "symbol": "MIR9796"
+  },
+  "ENSSSCG00000041871": {
+    "ensembl": "ENSSSCG00000041871",
+    "function": "ENSSSCG00000041871",
+    "source": "none",
+    "symbol": "ENSSSCG00000041871"
+  },
+  "ENSSSCG00000042133": {
+    "ensembl": "ENSSSCG00000042133",
+    "function": "ENSSSCG00000042133",
+    "source": "none",
+    "symbol": "ENSSSCG00000042133"
+  },
+  "ENSSSCG00000042876": {
+    "ensembl": "ENSSSCG00000042876",
+    "function": "ENSSSCG00000042876",
+    "source": "none",
+    "symbol": "ENSSSCG00000042876"
+  },
+  "ENSSSCG00000043977": {
+    "ensembl": "ENSSSCG00000043977",
+    "function": "Cytochrome c oxidase subunit 6B1.",
+    "source": "uniprot_ensembl",
+    "symbol": "LOC100519366"
+  },
+  "ENSSSCG00000044722": {
+    "ensembl": "ENSSSCG00000044722",
+    "function": "LOC102158612",
+    "source": "none",
+    "symbol": "LOC102158612"
+  },
+  "ENSSSCG00000044729": {
+    "ensembl": "ENSSSCG00000044729",
+    "function": "ENSSSCG00000044729",
+    "source": "none",
+    "symbol": "ENSSSCG00000044729"
+  },
+  "ENSSSCG00000044892": {
+    "ensembl": "ENSSSCG00000044892",
+    "function": "LOC110257362",
+    "source": "none",
+    "symbol": "LOC110257362"
+  },
+  "ENSSSCG00000045405": {
+    "ensembl": "ENSSSCG00000045405",
+    "function": "ENSSSCG00000045405",
+    "source": "none",
+    "symbol": "ENSSSCG00000045405"
+  },
+  "ENSSSCG00000045536": {
+    "ensembl": "ENSSSCG00000045536",
+    "function": "ENSSSCG00000045536",
+    "source": "none",
+    "symbol": "ENSSSCG00000045536"
+  },
+  "ENSSSCG00000045920": {
+    "ensembl": "ENSSSCG00000045920",
+    "function": "ENSSSCG00000045920",
+    "source": "none",
+    "symbol": "ENSSSCG00000045920"
+  },
+  "ENSSSCG00000046117": {
+    "ensembl": "ENSSSCG00000046117",
+    "function": "ENSSSCG00000046117",
+    "source": "none",
+    "symbol": "ENSSSCG00000046117"
+  },
+  "ENSSSCG00000048240": {
+    "ensembl": "ENSSSCG00000048240",
+    "function": "Sterile alpha motif domain-containing protein 5.",
+    "source": "uniprot_ensembl",
+    "symbol": "SAMD5"
+  },
+  "ENSSSCG00000048571": {
+    "ensembl": "ENSSSCG00000048571",
+    "function": "ENSSSCG00000048571",
+    "source": "none",
+    "symbol": "ENSSSCG00000048571"
+  },
+  "ENSSSCG00000048769": {
+    "ensembl": "ENSSSCG00000048769",
+    "function": "LOC100125545",
+    "source": "none",
+    "symbol": "LOC100125545"
+  },
+  "ENSSSCG00000050649": {
+    "ensembl": "ENSSSCG00000050649",
+    "function": "ENSSSCG00000050649",
+    "source": "none",
+    "symbol": "ENSSSCG00000050649"
+  },
+  "ENSSSCG00000051365": {
+    "ensembl": "ENSSSCG00000051365",
+    "function": "ENSSSCG00000051365",
+    "source": "none",
+    "symbol": "ENSSSCG00000051365"
+  }
+}

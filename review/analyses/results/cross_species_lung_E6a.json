@@ -1,0 +1,94 @@
+{
+  "tissue": "Lung",
+  "pig_tissue": "Lung",
+  "human_source": "LungMAP_LMEX0000003691",
+  "cell_pop": "BPS",
+  "drop_adult": true,
+  "method": "median",
+  "old_only_child": false,
+  "pseudobulk": false,
+  "pig_young_stages": [
+    "Early childhood",
+    "Infant"
+  ],
+  "pig_old_stages": [
+    "Adult",
+    "Post-pubertal"
+  ],
+  "filter_housekeeping": false,
+  "restrict_go_dev": true,
+  "min_pig_tpm": 0.0,
+  "min_human_norm": 0.0,
+  "n_orthologs_tested": 40,
+  "sample_sizes": {
+    "pig_young": 56,
+    "pig_old": 27,
+    "human_young": 4,
+    "human_old": 5
+  },
+  "strict": {
+    "label": "strict_FDR_both",
+    "n_genes": 0,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_r": null,
+    "spearman_p": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance": null
+  },
+  "pig_anchored": {
+    "label": "pig_anchored",
+    "n_genes": 2,
+    "pearson_r": null,
+    "pearson_p": null,
+    "spearman_r": null,
+    "spearman_p": null,
+    "ci_low": null,
+    "ci_high": null,
+    "directional_concordance": null
+  },
+  "fc_only": {
+    "label": "fc_only_no_fdr",
+    "n_genes": 12,
+    "pearson_r": -0.35451144206720014,
+    "pearson_p": 0.25819302892927204,
+    "spearman_r": -0.06293706293706294,
+    "spearman_p": 0.8459309212287789,
+    "ci_low": -0.755583988885146,
+    "ci_high": 0.20582455306358444,
+    "directional_concordance": 41.666666666666664
+  },
+  "donor_info": {
+    "cell_pop": "BPS",
+    "drop_adult": true,
+    "young_donors": [
+      "D044",
+      "D041",
+      "D038",
+      "D019"
+    ],
+    "old_donors": [
+      "D043",
+      "D024",
+      "D022",
+      "D018",
+      "D011",
+      "D008"
+    ],
+    "young_ages": [
+      "6 Days",
+      "6 Days",
+      "1 Days",
+      "1 Days"
+    ],
+    "old_ages": [
+      "21 Months",
+      "4 Months",
+      "2 Years",
+      "3 Years",
+      "20 Months",
+      "20 Months"
+    ]
+  }
+}

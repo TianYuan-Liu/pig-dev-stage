@@ -1,0 +1,15 @@
+gene,tissue,boundary,direction,bulk,species,ref,note,stage_before,stage_after,n_before,n_after,evaluable,log2fc,obs_dir,tukey_p,dir_match,sig,corroborated,obs_max_boundary,status
+AFP,Liver,B1,down,sharp,mammal,PMID17041810,perinatal hepatic silencing,Neonatal,Suckling,17,120,True,-10.354609355154935,down,0.0,True,True,True,B1,OK
+ALB,Liver,B1,up,sharp,mammal,PMID33297405,"mature-hepatocyte, reciprocal to AFP",Neonatal,Suckling,17,120,True,2.1343367614532482,up,0.0,True,True,True,B1,OK
+IGF2,Liver,B1,down,sharp,mammal,PMID18448610,imprinted fetal growth factor; postnatal decline (Lui 2008 network),Neonatal,Suckling,17,120,True,-3.455978855365885,down,0.0,True,True,True,B1,OK
+PEG3,Liver,B1,down,sharp,mammal,PMID18448610,imprinted gene; down in the postnatal-growth network (Lui 2008),Neonatal,Suckling,17,120,True,-3.2716239783005188,down,0.0,True,True,True,B1,OK
+MYH3,Muscle,B1,down,sharp,pig,PMID27345286,embryonic MyHC; falls in first weeks (perinatal switch),Neonatal,Suckling,185,87,True,-2.743444557656579,down,0.0,True,True,True,B1,OK
+MYH8,Muscle,B1,down,sharp,pig,PMID27345286,perinatal/neonatal MyHC; falls in first weeks (perinatal switch),Neonatal,Suckling,185,87,True,-1.6657091182571335,down,0.0,True,True,True,B1,OK
+MYL4,Muscle,B1,down,sharp,mammal,DOI10.1152/physrev.00031.2010,fetal/atrial myosin light chain; perinatal myofibrillar switch,Neonatal,Suckling,185,87,True,-5.86121242392263,down,0.0,True,True,True,B1,OK
+MYH2,Muscle,B1,up,sharp,pig,PMID27345286,adult fast 2A MyHC; surges in first weeks (perinatal switch),Neonatal,Suckling,185,87,True,5.50582765402649,up,0.0,True,True,True,B1,OK
+TNNT3,Muscle,B1,up,sharp,mammal,DOI10.1152/physrev.00031.2010,fast skeletal troponin T; adult myofibrillar program,Neonatal,Suckling,185,87,True,3.4965310677644297,up,0.0,True,True,True,B1,OK
+LCT,Ileum,B2,down,sharp,pig,PMID3085180,lactase; transcriptional decline after weaning,Suckling,Juvenile,25,25,True,-7.788668882925263,down,0.0,True,True,True,B2,OK
+IGF1,Liver,B3,up,ramp,pig,DOI10.2527/1997.75102739x,"GH/IGF1 growth axis -- a ramp, not a step",Juvenile,Pre-pubertal,34,80,True,0.7646407425121264,up,0.0196,True,True,True,B1,OK
+INSL3,Testis,B4,up,ramp,mammal,DOI10.1111/andr.12597,Leydig maturation; sex-specific gonadal ramp,Pre-pubertal,Post-pubertal,16,16,True,-1.6909123860599884,down,0.0108,False,True,False,B2,OK
+AMH,Testis,B4,down,ramp,mammal,DOI10.1111/andr.12597,Sertoli maturation; falls at puberty,Pre-pubertal,Post-pubertal,16,16,True,-0.4327469756130178,down,0.8377,True,False,False,B3,OK
+CDKN2A,Liver,B5,up,weak,mammal,PMID15520862,"p16 senescence; low-abundance, needs aged animals",Post-pubertal,Adult,29,29,True,0.17363628475902387,up,0.0515,True,False,False,B2,OK

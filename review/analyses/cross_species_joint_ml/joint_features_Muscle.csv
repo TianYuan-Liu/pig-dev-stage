@@ -1,0 +1,3 @@
+symbol,pig_gene_id,human_gene_id,pig_n_seeds_top100,pig_mean_rank,human_n_seeds_top100,human_mean_rank,log2fc_pig,log2fc_human,category
+ACHE,ENSSSCG00000030303,ENSG00000087085,10,5.7,9,49.888888888888886,-3.4979903582005005,-0.5904185965361046,synaptic_neuronal
+ABAT,ENSSSCG00000007909,ENSG00000183044,10,13.3,9,34.666666666666664,-0.4293782898670429,-0.4142296662630665,synaptic_neuronal

@@ -1,0 +1,37 @@
+tissue,dimension,level,n_samples,n_stages_represented,balanced_accuracy
+Muscle,Overall,All,757,5,0.7988163148310498
+Muscle,Breed,Unknown,80,5,0.681328320802005
+Muscle,Breed,Large white,68,3,0.5912698412698413
+Muscle,Breed,Landrace,162,5,0.8313055555555555
+Muscle,Breed,Tongcheng,28,5,0.75
+Muscle,Breed,Yorkshire,12,3,0.5555555555555555
+Muscle,Breed,Duroc x Pietrain,167,2,0.6357185990338164
+Muscle,Breed,Duroc,53,3,0.9319727891156463
+Muscle,Sex,Female,274,5,0.8209801744647105
+Muscle,Sex,Male,271,5,0.7496709401709402
+Muscle,Sex,Unknown,118,5,0.743452380952381
+Muscle,Sex,Pooled,87,5,0.7100952380952381
+Muscle,BioProject,PRJEB28465,48,2,0.4574468085106383
+Muscle,BioProject,PRJNA341938,21,2,0.9583333333333333
+Muscle,BioProject,PRJNA403969,166,2,0.6208964646464646
+Muscle,BioProject,PRJNA486202,74,5,0.7739007092198582
+Muscle,BioProject,PRJNA488311,81,5,0.7166666666666667
+Brain,Overall,All,36,2,1.0
+Brain,Sex,Male,13,2,1.0
+Brain,Sex,Female,17,2,1.0
+Liver,Overall,All,309,6,0.6106180978138381
+Liver,Breed,Landrace,51,2,1.0
+Liver,Breed,Unknown,54,4,0.5194444444444445
+Liver,Breed,Large white,43,3,0.3926282051282051
+Liver,Breed,Duroc x (Landrace x Yorkshire),44,2,0.8802083333333333
+Liver,Sex,Female,128,5,0.5988095238095238
+Liver,Sex,Male,128,6,0.6510683760683761
+Liver,Sex,Unknown,50,4,0.5083198051948052
+Liver,BioProject,PRJNA597972,42,2,0.5889423076923077
+Blood,Overall,All,74,2,0.96875
+Blood,Sex,Female,34,2,0.9838709677419355
+Lung,Overall,All,119,3,0.9757495590828924
+Lung,Breed,Unknown,55,3,0.9305555555555557
+Lung,Sex,Unknown,38,3,0.9444444444444445
+Lung,Sex,Male,56,3,0.9523809523809524
+Lung,Sex,Female,25,3,1.0

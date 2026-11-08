@@ -1,0 +1,571 @@
+{
+  "analysis": "cross_species_extended_developmental_postpub",
+  "reviewer_point": "R1.2 (and R3.2)",
+  "note_on_lung": "The Cardoso-Moreira 2019 human RPKM atlas (E-MTAB-6814) does NOT include lung samples. Tissues present: Brain, Cerebellum, Heart, Kidney, Liver, Ovary, Testis. Kidney and Heart were considered as substitutes but have too few postnatal Adult samples to support a cross-species test (Kidney: 0 Adults; Heart: 2 Adults). The reported panel therefore covers Brain and Liver only; muscle is shown for reference (Schaiter 2024).",
+  "ortholog_definition": "Strict one-to-one: (1) shared unique gene symbol in pig and human mygene mappings; (2) verified ortholog_one2one against Ensembl Compara REST homology endpoint.",
+  "n_one_to_one_orthologs": 7485,
+  "thresholds": {
+    "fdr": 0.1,
+    "fc": 0.5,
+    "n_bootstrap": 1000,
+    "pseudo": 0.01
+  },
+  "muscle_reference": {
+    "pearson_r": 0.6931,
+    "ci_low": 0.542,
+    "ci_high": 0.801,
+    "n_genes": 66,
+    "source": "paper/figures/output/stats/fig4_expression_stats.csv; filtered FDR<0.10 + |log2FC|>0.5 in both species"
+  },
+  "per_tissue": {
+    "Brain": {
+      "tissue": "Brain",
+      "pig_tissue": "Brain",
+      "n_orthologs_tested": 7485,
+      "sample_sizes": {
+        "pig_young": 25,
+        "pig_old": 15,
+        "human_young": 7,
+        "human_old": 9
+      },
+      "human_young_stages": [
+        "infant",
+        "newborn",
+        "toddler"
+      ],
+      "human_old_stages": [
+        "Senior",
+        "olderMidAge",
+        "senior",
+        "youngAdult",
+        "youngMidAge"
+      ],
+      "pig_young_stages": [
+        "Early childhood",
+        "Infant"
+      ],
+      "pig_old_stages": [
+        "Adult",
+        "Post-pubertal"
+      ],
+      "strict": {
+        "label": "strict_FDR_both",
+        "n_genes": 272,
+        "pearson_r": 0.28621229490041367,
+        "pearson_p": 1.5916407856801094e-06,
+        "ci_low": 0.1676832300775038,
+        "ci_high": 0.4098435279866543,
+        "directional_concordance": 85.29411764705883,
+        "n_concordant": 232
+      },
+      "pig_anchored": {
+        "label": "pig_anchored",
+        "n_genes": 2193,
+        "pearson_r": 0.20529058247469803,
+        "pearson_p": 2.6859304023312555e-22,
+        "ci_low": 0.15671721452769685,
+        "ci_high": 0.25271192684924515,
+        "directional_concordance": 38.53169174646603,
+        "n_concordant": 845
+      },
+      "top_genes_by_joint_abs_fc": [
+        {
+          "gene_symbol": "TNNC2",
+          "log2fc_pig": 8.269190334612142,
+          "log2fc_human": 1.211326183998701,
+          "fdr_pig": 5.392271942252245e-05,
+          "fdr_human": 0.07706563715990089
+        },
+        {
+          "gene_symbol": "DRGX",
+          "log2fc_pig": 5.096025448009316,
+          "log2fc_human": 4.250262174529136,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.006825604622329713
+        },
+        {
+          "gene_symbol": "SMPX",
+          "log2fc_pig": 4.859651166777087,
+          "log2fc_human": 3.0385349061836,
+          "fdr_pig": 7.810807369015128e-05,
+          "fdr_human": 0.005975595866695126
+        },
+        {
+          "gene_symbol": "TMEM114",
+          "log2fc_pig": 4.443216905626513,
+          "log2fc_human": 2.1151539786919487,
+          "fdr_pig": 0.002251131404668758,
+          "fdr_human": 0.08287880223431573
+        },
+        {
+          "gene_symbol": "CHRNA1",
+          "log2fc_pig": 4.213899320375426,
+          "log2fc_human": 2.3006266614724438,
+          "fdr_pig": 5.1028356272971364e-05,
+          "fdr_human": 0.05686900627691666
+        },
+        {
+          "gene_symbol": "FBXO40",
+          "log2fc_pig": 3.3599758144071616,
+          "log2fc_human": 2.949040871606136,
+          "fdr_pig": 2.830312813443052e-05,
+          "fdr_human": 0.002815314696219663
+        },
+        {
+          "gene_symbol": "DCSTAMP",
+          "log2fc_pig": 4.279902108308866,
+          "log2fc_human": 2.011284791506872,
+          "fdr_pig": 0.003964083284545632,
+          "fdr_human": 0.09428414828002056
+        },
+        {
+          "gene_symbol": "LRRC2",
+          "log2fc_pig": 5.171616837759284,
+          "log2fc_human": 1.0167335512424518,
+          "fdr_pig": 0.0011720763893702446,
+          "fdr_human": 0.07653523398358313
+        },
+        {
+          "gene_symbol": "EXOC3L4",
+          "log2fc_pig": 3.719404583127109,
+          "log2fc_human": -2.464172881398425,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.026068800633102684
+        },
+        {
+          "gene_symbol": "MYBPHL",
+          "log2fc_pig": 4.242727813490773,
+          "log2fc_human": 1.6004780772811593,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.023322041552166876
+        },
+        {
+          "gene_symbol": "GPR55",
+          "log2fc_pig": 2.2139910587597824,
+          "log2fc_human": 3.551718996454634,
+          "fdr_pig": 0.0003844427202153723,
+          "fdr_human": 0.022836597981319595
+        },
+        {
+          "gene_symbol": "PTH2R",
+          "log2fc_pig": 3.39495251731227,
+          "log2fc_human": 2.324751049019608,
+          "fdr_pig": 7.319863542297217e-05,
+          "fdr_human": 0.002815314696219663
+        },
+        {
+          "gene_symbol": "S100A5",
+          "log2fc_pig": 3.170445197561003,
+          "log2fc_human": 2.5388183739801753,
+          "fdr_pig": 0.000489582345833888,
+          "fdr_human": 0.03593489438008367
+        },
+        {
+          "gene_symbol": "KCTD9",
+          "log2fc_pig": 4.489101207566769,
+          "log2fc_human": 1.0898573245533698,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.010060787101866798
+        },
+        {
+          "gene_symbol": "SCN1B",
+          "log2fc_pig": 3.189130512922684,
+          "log2fc_human": 2.223917165612821,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.011291186818131073
+        },
+        {
+          "gene_symbol": "KCNIP4",
+          "log2fc_pig": 4.166379215315526,
+          "log2fc_human": 1.0542068604778814,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.022925212553799777
+        },
+        {
+          "gene_symbol": "CADPS2",
+          "log2fc_pig": 3.7592906386037632,
+          "log2fc_human": 1.4292406503342507,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.038807025369163514
+        },
+        {
+          "gene_symbol": "HTR2A",
+          "log2fc_pig": 3.6216244234244646,
+          "log2fc_human": 1.4934932186034735,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.03309762705144573
+        },
+        {
+          "gene_symbol": "SMIM24",
+          "log2fc_pig": 2.6294522228647415,
+          "log2fc_human": 2.3392517868439437,
+          "fdr_pig": 9.607035587737216e-05,
+          "fdr_human": 0.010060787101866798
+        },
+        {
+          "gene_symbol": "SNAP25",
+          "log2fc_pig": 3.297660405778432,
+          "log2fc_human": 1.6261979333132976,
+          "fdr_pig": 5.134623472470942e-05,
+          "fdr_human": 0.012587743581320704
+        },
+        {
+          "gene_symbol": "MPP7",
+          "log2fc_pig": 3.2759691346315707,
+          "log2fc_human": 1.6375652108644578,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.036111810615266325
+        },
+        {
+          "gene_symbol": "REPS2",
+          "log2fc_pig": 3.6249904957122965,
+          "log2fc_human": 1.284785214377758,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.04648226126840636
+        },
+        {
+          "gene_symbol": "RIMS3",
+          "log2fc_pig": 3.7116874296877924,
+          "log2fc_human": 1.1746465336298553,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.08611072788590064
+        },
+        {
+          "gene_symbol": "PTPN14",
+          "log2fc_pig": 3.803596622221831,
+          "log2fc_human": 1.0619383604021349,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.006762818655865017
+        },
+        {
+          "gene_symbol": "RASGEF1B",
+          "log2fc_pig": 3.986528861191078,
+          "log2fc_human": -0.8753209349380101,
+          "fdr_pig": 1.108385653305486e-05,
+          "fdr_human": 0.005520477092244716
+        },
+        {
+          "gene_symbol": "SCN1A",
+          "log2fc_pig": 3.518968552080856,
+          "log2fc_human": 1.3200199455540222,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.0619088284100251
+        },
+        {
+          "gene_symbol": "SYT2",
+          "log2fc_pig": 2.7599108085503823,
+          "log2fc_human": 2.031799930307349,
+          "fdr_pig": 0.0005501060007903451,
+          "fdr_human": 0.04599328296503519
+        },
+        {
+          "gene_symbol": "UNC80",
+          "log2fc_pig": 3.3106377203895225,
+          "log2fc_human": 1.46029097516556,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.020918085336211478
+        },
+        {
+          "gene_symbol": "PGR",
+          "log2fc_pig": 2.8156709759619023,
+          "log2fc_human": 1.9476456870994743,
+          "fdr_pig": 1.0724329781525943e-05,
+          "fdr_human": 0.01781084899933734
+        },
+        {
+          "gene_symbol": "RBM11",
+          "log2fc_pig": 3.8701290509915793,
+          "log2fc_human": 0.8790311252743608,
+          "fdr_pig": 0.00031118381254976053,
+          "fdr_human": 0.02827994867022735
+        }
+      ]
+    },
+    "Liver": {
+      "tissue": "Liver",
+      "pig_tissue": "Liver",
+      "n_orthologs_tested": 7485,
+      "sample_sizes": {
+        "pig_young": 145,
+        "pig_old": 81,
+        "human_young": 4,
+        "human_old": 6
+      },
+      "human_young_stages": [
+        "infant",
+        "newborn",
+        "toddler"
+      ],
+      "human_old_stages": [
+        "Senior",
+        "olderMidAge",
+        "senior",
+        "youngAdult",
+        "youngMidAge"
+      ],
+      "pig_young_stages": [
+        "Early childhood",
+        "Infant"
+      ],
+      "pig_old_stages": [
+        "Adult",
+        "Post-pubertal"
+      ],
+      "strict": {
+        "label": "strict_FDR_both",
+        "n_genes": 0,
+        "pearson_r": null,
+        "pearson_p": null,
+        "ci_low": null,
+        "ci_high": null,
+        "directional_concordance": null,
+        "n_concordant": 0
+      },
+      "pig_anchored": {
+        "label": "pig_anchored",
+        "n_genes": 857,
+        "pearson_r": 0.2130508718341656,
+        "pearson_p": 2.969948545136223e-10,
+        "ci_low": 0.14480741977555542,
+        "ci_high": 0.28679897601079907,
+        "directional_concordance": 47.257876312718786,
+        "n_concordant": 405
+      },
+      "top_genes_by_joint_abs_fc": [
+        {
+          "gene_symbol": "EGFL6",
+          "log2fc_pig": -2.4377914771601934,
+          "log2fc_human": -6.44736899843253,
+          "fdr_pig": 0.044515422904049674,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "SNORD8",
+          "log2fc_pig": 2.1203195710992193,
+          "log2fc_human": 6.543007004516167,
+          "fdr_pig": 0.05045077178098635,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "SST",
+          "log2fc_pig": 6.525503573616291,
+          "log2fc_human": -1.1843293849081893,
+          "fdr_pig": 0.010563419268151417,
+          "fdr_human": 0.6863535707727041
+        },
+        {
+          "gene_symbol": "IGF2BP1",
+          "log2fc_pig": -2.7179819739531776,
+          "log2fc_human": -4.801224317815197,
+          "fdr_pig": 1.5552554246555033e-05,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "PI15",
+          "log2fc_pig": -1.970916032264895,
+          "log2fc_human": -5.20554796334944,
+          "fdr_pig": 0.016776741407080898,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "MCEMP1",
+          "log2fc_pig": -1.0784483388317252,
+          "log2fc_human": -5.784312479290834,
+          "fdr_pig": 1.088213166449737e-05,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "SERPINB2",
+          "log2fc_pig": -2.3121850028568827,
+          "log2fc_human": -4.543855681020818,
+          "fdr_pig": 0.005900966172041971,
+          "fdr_human": 0.6919661095497602
+        },
+        {
+          "gene_symbol": "AZU1",
+          "log2fc_pig": -1.1322049238469245,
+          "log2fc_human": -5.441798499266377,
+          "fdr_pig": 0.001316018576589357,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "ERICH4",
+          "log2fc_pig": -1.7008692528396618,
+          "log2fc_human": -4.8006762414309385,
+          "fdr_pig": 0.06287658608758026,
+          "fdr_human": 0.6901147306423965
+        },
+        {
+          "gene_symbol": "GATA1",
+          "log2fc_pig": -1.7275341843877707,
+          "log2fc_human": -4.542248903361236,
+          "fdr_pig": 0.02391153293642018,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "FGF10",
+          "log2fc_pig": 3.163341932435393,
+          "log2fc_human": -2.929532155238169,
+          "fdr_pig": 0.036614580419879514,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "S100A8",
+          "log2fc_pig": -1.9253073042109952,
+          "log2fc_human": -4.149029493029752,
+          "fdr_pig": 8.95847888879782e-06,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "MYOC",
+          "log2fc_pig": 2.324840318428176,
+          "log2fc_human": 3.7165374455548768,
+          "fdr_pig": 0.006232858338066062,
+          "fdr_human": 0.6919661095497602
+        },
+        {
+          "gene_symbol": "F2RL3",
+          "log2fc_pig": -2.3281716502890744,
+          "log2fc_human": -3.577004382914594,
+          "fdr_pig": 0.040281974455816674,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "B3GAT1",
+          "log2fc_pig": 3.612000551514429,
+          "log2fc_human": 2.229685689437215,
+          "fdr_pig": 0.07733174266105163,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "GABRG2",
+          "log2fc_pig": 5.177860676312475,
+          "log2fc_human": 0.6148568707426324,
+          "fdr_pig": 0.08989925894355853,
+          "fdr_human": 0.9209608768630662
+        },
+        {
+          "gene_symbol": "IL1R2",
+          "log2fc_pig": -0.8616261540768033,
+          "log2fc_human": -4.8565120792295335,
+          "fdr_pig": 2.055248212734203e-05,
+          "fdr_human": 0.6919661095497602
+        },
+        {
+          "gene_symbol": "GPC3",
+          "log2fc_pig": -1.412104142022117,
+          "log2fc_human": -4.284063582952525,
+          "fdr_pig": 4.4883309821431134e-11,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "SLC7A10",
+          "log2fc_pig": 2.680946963044646,
+          "log2fc_human": -2.942703428272271,
+          "fdr_pig": 0.06320249106346287,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "PAPPA2",
+          "log2fc_pig": -1.1081724909118518,
+          "log2fc_human": -4.499101410450325,
+          "fdr_pig": 0.0003403759036692369,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "MIR1296",
+          "log2fc_pig": 2.522116950004494,
+          "log2fc_human": -3.0744795152166957,
+          "fdr_pig": 0.036161846801188,
+          "fdr_human": 0.6954904041523758
+        },
+        {
+          "gene_symbol": "S100A9",
+          "log2fc_pig": -1.6282928326628296,
+          "log2fc_human": -3.898565436111899,
+          "fdr_pig": 4.706089729339979e-05,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "MIR744",
+          "log2fc_pig": 1.6684028636236843,
+          "log2fc_human": 3.8126540287770947,
+          "fdr_pig": 0.0635281658730661,
+          "fdr_human": 0.6901147306423965
+        },
+        {
+          "gene_symbol": "HBM",
+          "log2fc_pig": -1.195461066069947,
+          "log2fc_human": -4.139577822043163,
+          "fdr_pig": 0.0008409369849367543,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "LIN28B",
+          "log2fc_pig": -1.5357754436690159,
+          "log2fc_human": -3.7271820816460153,
+          "fdr_pig": 1.5456889521249524e-07,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "APOA4",
+          "log2fc_pig": 0.8932867897756418,
+          "log2fc_human": -4.297051979830153,
+          "fdr_pig": 0.00034297630081999244,
+          "fdr_human": 0.6868828074848309
+        },
+        {
+          "gene_symbol": "HBQ1",
+          "log2fc_pig": -1.3410669930755696,
+          "log2fc_human": -3.8137084993482135,
+          "fdr_pig": 0.04145745577251123,
+          "fdr_human": 0.6840430940387489
+        },
+        {
+          "gene_symbol": "SNORD126",
+          "log2fc_pig": -0.9628665103583566,
+          "log2fc_human": 4.138406741452953,
+          "fdr_pig": 3.3670227663128276e-08,
+          "fdr_human": 0.6901147306423965
+        },
+        {
+          "gene_symbol": "SLC22A8",
+          "log2fc_pig": -1.785672993540867,
+          "log2fc_human": -3.306114098488546,
+          "fdr_pig": 0.004460067069393286,
+          "fdr_human": 0.697863063099313
+        },
+        {
+          "gene_symbol": "PDC",
+          "log2fc_pig": 2.5470242047061187,
+          "log2fc_human": -2.5186410787075553,
+          "fdr_pig": 0.004979032325278384,
+          "fdr_human": 0.6840430940387489
+        }
+      ]
+    },
+    "Kidney": {
+      "tissue": "Kidney",
+      "skipped": "insufficient_human_samples"
+    },
+    "Heart": {
+      "tissue": "Heart",
+      "skipped": "insufficient_human_samples"
+    }
+  },
+  "extended_tissues": [
+    "Heart"
+  ],
+  "bin_config": "developmental_postpub",
+  "bins_used": {
+    "YOUNG": [
+      "infant",
+      "newborn",
+      "toddler"
+    ],
+    "OLD": [
+      "oldTeenager",
+      "teenager"
+    ]
+  }
+}
