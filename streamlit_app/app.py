@@ -559,8 +559,9 @@ def page_predict(card: dict) -> None:
 
     if use_example:
         st.caption(
-            "These three samples were part of the muscle training data, so agreement with the "
-            "recorded stage shows the pipeline working, not accuracy on new data."
+            "These three samples were part of the muscle training data. Their calls are shown "
+            "as the model makes them, including disagreements with the recorded stage; the "
+            "example illustrates the input format and is not an accuracy estimate."
         )
 
     out = res.copy()
